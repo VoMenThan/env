@@ -1,0 +1,146 @@
+
+    <!-- FOOTER -->
+    <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+					<div class="box-info-footer">
+						
+						<p>Số 6 Đường số 4, khu phố 2, <br>
+						Phường Bình An, TP. Hồ Chí Minh, Việt Nam.</p>
+					</div>
+					<div class="box-office">
+						<h3>LIÊN HỆ</h3>
+						<a href="tel:0968891179">
+							<i class="icon-phone"></i>
+							096 889 11 79
+						</a>
+						<a href="mailto:tintuckpopnews@gmail.com">
+							<i class="icon-mail"></i>
+							ntuckpopnews@gmail.com
+						</a>
+					</div>
+					
+				</div>
+
+				<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+					<div class="box-info-footer">
+						<h3>CHỊU TRÁCH NHIỆM NỘI DUNG</h3>
+						<p>Bà: Nguyễn Ngọc Hương</p>
+					</div>
+					<div class="box-office">
+						<h3>HỢP TÁC QUẢNG CÁO</h3>
+						<a href="tel:0968891179">
+							<i class="icon-phone"></i>
+							096 889 11 79
+						</a>
+						<a href="mailto:tintuckpopnews@gmail.com">
+							<i class="icon-mail"></i>
+							ntuckpopnews@gmail.com
+						</a>
+					</div>
+					
+				</div>
+
+				<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+					<div class="box-info-footer">
+						<h3>CHỊU TRÁCH NHIỆM NỘI DUNG</h3>
+						<p>Bà: Nguyễn Ngọc Hương</p>
+					</div>
+					<div class="box-office">
+						<h3>HỢP TÁC QUẢNG CÁO</h3>
+						<a href="tel:0968891179">
+							<i class="icon-phone"></i>
+							096 889 11 79
+						</a>
+						<a href="mailto:tintuckpopnews@gmail.com">
+							<i class="icon-mail"></i>
+							ntuckpopnews@gmail.com
+						</a>
+					</div>
+					
+				</div>
+
+				
+			</div>
+		</div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <!--<script src="js/jquery.min.js"></script>-->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/styles.min.js"></script>
+    <script>
+
+        /*============ slide news =================*/
+    	$(document).ready(function(){
+			$('.owl-carousel').owlCarousel({
+				loop:true,
+				margin:10,
+				nav:true,
+				dots: false,
+				navText: ['<i class="btn-prev-slide"></i>','<i class="btn-next-slide"></i>'],
+
+				responsive:{
+				    0:{
+				        items:1
+				    },
+				    768:{
+				        items:2
+				    },
+				    1024:{
+				        items:3
+				    }
+				}
+			})
+		});
+
+    	/*============auto open modal=================*/
+        $('#modal-notmiss').modal({
+            autoOpen: true
+        });
+
+        /*============ custom scroll =================*/
+		(function($){
+			$(window).on("load",function(){
+				$(".content-scroll").mCustomScrollbar({theme:"3d"});
+			});
+		})(jQuery);
+        /*============ end custom scroll =================*/
+
+
+        function sticky_relocate() {
+            var window_top = $(window).scrollTop();
+            var div_top = $('#sticky-anchor').offset().top;
+            var div_top_menu = $('#sticky-menu-anchor').offset().top;
+
+            if (window_top >= div_top) {
+                $('#sticky').addClass('stick');
+            }else {
+                $('#sticky').removeClass('stick');            }
+
+            if (window_top >= div_top_menu) {
+                $('#sticky-menu').addClass('stick');
+            }else {
+                $('#sticky-menu').removeClass('stick');
+            }
+        }
+
+        $(function() {
+            var win_width = $(window).width();
+            if(win_width >= 992){
+                $(window).scroll(sticky_relocate);
+                sticky_relocate();
+            }
+
+        });
+
+
+	</script>
+  </body>
+</html>

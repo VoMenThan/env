@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,400,400i,500,600,700,700i,800");
+/*define*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+p { margin-bottom: 10px; }
+
+a, a:hover { text-decoration: none; color: #343434; }
+
+a:hover, a.active { cursor: pointer; }
+
+* { box-sizing: border-box; outline: none; }
+
+ul { padding: 0; margin: 0; }
+
+ul li { list-style-type: none; }
+
+* { font-family: "Raleway", sans-serif; font-size: 16px; }
+
+/* =================== HEADER ======================= */
+/* =================== NAVIGATION ======================= */
+nav { background: #0D3153; /* =================== SUB MENU ======================= */ /* =================== BOX SEARCH ======================= */ }
+nav.stick { position: fixed; top: 0; left: 50%; -webkit-transform: translate(-50%); -moz-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); width: 100%; z-index: 99; -webkit-box-shadow: 4px 4px 18px #ccc; -moz-box-shadow: 4px 4px 18px #ccc; box-shadow: 4px 4px 18px #ccc; }
+nav .box-logo-home { padding: .5rem; }
+nav .box-logo-home > img { height: 35px; }
+nav ul.main-menu .nav-item { position: relative; }
+nav ul.main-menu .nav-item:hover ul.sub-menu { display: block !important; }
+nav ul.main-menu .nav-item .nav-link { font-size: 1rem; font-family: "Raleway", sans-serif; color: #ffffff; line-height: 40px; padding: .7rem 1.5rem; position: relative; }
+nav ul.main-menu .nav-item .nav-link:hover:before, nav ul.main-menu .nav-item .nav-link.active:before { content: " "; display: inline-block; width: 30px; height: 3px; background: #8DC63F; position: absolute; bottom: .8rem; left: 1.5rem; }
+nav ul.main-menu .nav-item .nav-link:hover .icon-search, nav ul.main-menu .nav-item .nav-link.active .icon-search { width: 20px; height: 20px; background: url("../images/icon-search-active.png") no-repeat center; display: inline-block; background-size: 100%; }
+nav ul.main-menu .nav-item .nav-link.btn-search:hover:before, nav ul.main-menu .nav-item .nav-link.btn-search.active:before { display: none; }
+nav ul.main-menu .nav-item .nav-link .icon-search { width: 20px; height: 20px; background: url("../images/icon-search.png") no-repeat center; display: inline-block; background-size: 100%; vertical-align: middle; }
+nav ul.main-menu .nav-item .nav-link[aria-expanded="true"] .icon-search { width: 20px; height: 20px; background: url("../images/icon-close-green.png") no-repeat center; display: inline-block; background-size: 100%; background-position: center center; }
+nav ul.sub-menu { position: absolute; left: 0; top: 100%; background: #5B6067; z-index: 99; display: none; }
+nav ul.sub-menu .nav-item .nav-link { display: block; white-space: nowrap; border-top: 0.5px solid #6E716D; padding: .5rem 4rem .5rem 1.5rem; }
+nav #detailBoxSearch { z-index: 99; background: #0D3153; position: absolute; top: 100%; left: 0; width: 100%; }
+nav #detailBoxSearch .box-search { padding: 40px 20%; }
+nav #detailBoxSearch input.input-search { background: transparent; border: none; border-bottom: 1px solid #6E716D; width: calc(100% - 40px); color: #ffffff; }
+nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("../images/icon-search-active.png") no-repeat center; display: inline-block; background-size: 100%; }
+
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+@media screen and (min-width: 1200px) { nav #detailBoxSearch .reset-col-2 { -webkit-box-flex: 0; -ms-flex: 0 0 20%; flex: 0 0 20%; max-width: 20%; padding-bottom: 30px; } }
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { nav ul.main-menu .nav-item .nav-link { padding: .7rem 1rem; font-size: .8rem; }
+  nav .box-logo-home > img { height: 25px; margin-top: 10px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { nav .btn-menu-mobile { outline: none; padding: 1rem; color: #8DC63F; } }
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+/* ======================FOOTER============== */
+footer { padding-top: 100px; padding-bottom: 70px; }
+
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+
+/*# sourceMappingURL=styles.css.map */
