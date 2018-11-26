@@ -55,8 +55,10 @@ ul li{
   list-style-type: none;
 }
 
-
 *{
   font-family: $font-text;
-  font-size: $fontz-text;
+}
+body{
+  font-size: $font-text;
+  color: $color-gray-text;
 }

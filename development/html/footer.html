@@ -79,22 +79,21 @@
 
         /*============ slide news =================*/
     	$(document).ready(function(){
-			$('.owl-carousel').owlCarousel({
+			$('.slider-home').owlCarousel({
 				loop:true,
-				margin:10,
-				nav:true,
-				dots: false,
+				margin:0,
+				nav:false,
+				dots: true,
 				navText: ['<i class="btn-prev-slide"></i>','<i class="btn-next-slide"></i>'],
-
 				responsive:{
 				    0:{
 				        items:1
 				    },
 				    768:{
-				        items:2
+				        items:1
 				    },
 				    1024:{
-				        items:3
+				        items:1
 				    }
 				}
 			})
@@ -104,6 +103,8 @@
         $('#modal-notmiss').modal({
             autoOpen: true
         });
+        
+
 
         /*============ custom scroll =================*/
 		(function($){

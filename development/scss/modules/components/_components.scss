@@ -1,0 +1,17 @@
+/*============BUTTON BLUE=================*/
+.btn-blue-env{
+	color: $color-white !important;
+    background-color: $color-blue-logo;
+    border-color: $color-blue-logo;
+    padding: 15px 50px;
+}
+
+/*============TITLE BLUE=================*/
+
+.title-head-blue{
+	font-size: $fontz-title;
+	color: $color-blue-logo;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+}

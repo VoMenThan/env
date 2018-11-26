@@ -1,0 +1,57 @@
+/*============SERVICES HOME=================*/
+.content-services{
+	margin-bottom: 80px;
+	.box-head-services{
+		padding: 0 30%;
+	}
+
+	.item-service{
+		position: relative;
+		transition: .3s;
+		margin-bottom: 30px;
+		overflow: hidden;
+		border-radius: 10px;
+		&:hover{
+			cursor: pointer;
+			&:before{
+				display: none;
+			}
+			h3{
+				color: $color-blue-lv1;
+			}
+			img{
+				@include transformScale(1.1);
+			}
+		}
+		&:before{
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: rgba(201, 240, 148, 0.3);
+			z-index: 9;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: 10px;
+			transition: .3s;
+		}
+		img{
+			border-radius: 10px;
+			transition: .3s;
+			@include box-shadow(4px, 4px, 15px, rgba(0, 0, 0, 0.25), $inset: false);
+		}
+		h3{
+			text-align: center;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			@include translate-x(-50%);
+			white-space: nowrap;
+			font-size: 1.5rem;
+			color: $color-blue-lv4;
+		}
+	}
+}
+
+/*============END SERVICES HOME=================*/

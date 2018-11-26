@@ -1,0 +1,108 @@
+/*=====================SLIDER HOME======================*/
+.slider-home{
+	margin-bottom: 80px;
+&.owl-theme {
+	.owl-dots{
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		@include translate-x(-50%);
+		.owl-dot{
+			outline: none;
+			&.active, &:hover{
+		 			span{
+					background: $color-green-logo;
+		 		}
+	 		}
+	 	}
+	}	
+
+	.container{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    @include translate(-50%, -50%); 
+	}
+
+	.box-headline{
+		width: 50%;
+		.head-line-envzone{
+			color: $color-blue-logo;
+			font-size: $fontz-title;
+			padding-bottom: 15px;
+			font-weight: bold;
+		}
+		p{
+			color: $color-blue-logo;
+			font-size: $fontz-sub-title;
+			padding-bottom: 30px;
+		}
+	}
+}
+}
+
+
+/*=====================SOCIAL BANNER HOME======================*/
+.connect-social{
+	padding: 40px 30px;
+	background: $color-blue-lv4;
+	opacity: .9;
+	position: absolute;
+    top: 50%;
+    z-index: 9;
+    right: 20%;
+    @include translate(0, -50%);
+    h3{
+    	font-size: 1.5rem;
+    	color: $color-green-lv3;
+    	padding-bottom: 45px;
+    	font-weight: bold;
+    	letter-spacing: 1px;
+    }
+    .list-integrate{
+    	margin-bottom: 100px;
+    	a{
+    		color: $color-white;
+    		font-size: 1.2rem;
+			border-left: 3px solid $color-green-logo;
+			padding-left: 5px;
+			margin-bottom: 10px;
+			display: block;
+    	}
+    }
+    p{
+    	text-align: center;
+    	color: $color-green-logo;
+    	font-style: italic;
+    }
+    .list-social{
+    	a.nav-link{
+    		border-radius: 50%;
+    		text-align: center;
+    		display: inline-block;
+    		background: $color-white;
+    		width: 35px;
+    		height: 35px;
+			position: relative;
+			i{
+				position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    @include translate(-50%, -50%);
+			    color: $color-white;
+			}
+			&.link-twitter{
+				background: #55ACEF;
+			}
+			&.link-facebook{
+				background: #3B5999;
+			}
+			&.link-linkedin{
+				background: #017AB9;
+			}
+			&.link-google{
+				background: #DC4E42;
+			}
+    	}
+    }
+}
