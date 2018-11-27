@@ -1,31 +1,92 @@
 /*============BLOG HOME=================*/
 .content-blog{
-	.underline-head{
-		border-bottom: 5px solid $color-green-logo;
-    	padding-bottom: 5px;
-	   	span{
-	   		display: inline-block;
-	   		position: relative;
-	   		&:after{
-	    		content: "";
-	    		display: inline-block;
-	    		height: 5px;
-	    		width: 100%;
-	    		background: $color-blue-logo;
-	    		position: absolute;
-			    bottom: -10px;
-			    left: 0;
-    		}
-    	}
-	}
-	.view-all{
-		position: absolute;
-	    right: 16px;
-	    top: 15px;
-	    z-index: 9;
-	    font-weight: bold;
+	margin-bottom: 80px;
+	.box-head-blog{
+		margin-bottom: 30px;
 	}
 
+
+	.item-special{
+		background: $color-green-lv3;
+		padding: 15px;
+		margin-bottom: 15px;
+		a{
+			&:hover{
+				img{
+					opacity: .8;
+				}
+				h3{
+					color: $color-blue-lv4 !important;
+				}
+			}
+		}
+		h3{
+			color: $color-blue-logo;
+			padding-bottom: 5px;
+		}
+	}
+
+	.box-item-special{
+		a{
+			&:hover{
+				img{
+					opacity: .8;
+				}
+				h4{
+					color: $color-blue-lv4 !important;
+				}
+			}
+		}
+		img{
+			padding-bottom: 5px;
+		}
+		h4{
+			font-size: 1.2rem;
+			color: $color-blue-lv1;
+		}
+	}
 	
+}
+
+.list-item{
+	background: $color-blue-lv3;
+	.label-headline{
+		background: $color-blue-lv2;
+		color: $color-white;
+		padding: 10px;
+		font-size: 1.2rem;
+	}
+	.box-list-scroll{
+		padding: 10px;
+		height: 450px;
+		overflow: auto;
+		padding-right: 0;
+		.mCSB_inside>.mCSB_container{
+			margin-right: 15px;
+		}
+		.item-detail{
+			position: relative;
+			margin-bottom: 15px;
+			a{
+				cursor: pointer;
+				&:hover{
+					opacity: .8;
+				}
+			}
+			img{
+				width: 100%;
+			}
+			h5{
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				padding: 10px 20px;
+				background: rgba(201, 240, 148, .8);
+				font-size: .8rem;
+				color: $color-blue-lv2;
+			}
+		}
+	}
 }
 /*============END BLOG HOME=================*/

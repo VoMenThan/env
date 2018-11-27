@@ -1,0 +1,17 @@
+.content-subcribe{
+	.box-head-subcribe{
+		h2, p{
+			color: $color-white;
+			padding-bottom: 10px;
+		}
+	}
+	.input-search{
+		margin: auto;
+		padding: 10px 20px;
+		width: 350px;
+		border-radius: 5px;
+		background: transparent;
+		border: 1px solid $color-white;
+		margin-bottom: 20px;
+	}
+}

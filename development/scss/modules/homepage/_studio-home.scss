@@ -1,0 +1,30 @@
+.content-studio{
+	.box-head-blog{
+		margin-bottom: 30px;
+		h2{
+			color: $color-white;
+		}
+		a.view-all{
+			color: $color-white;
+		}
+	}
+	.item-studio{
+		position: relative;
+		margin-bottom: 15px;
+		img{
+			width: 100%;
+		}
+		h5{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			padding: 10px;
+			width: 100%;
+			background: rgba(201, 240, 148, .8);
+			color: $color-white;
+		}
+	}
+}
+.section-studio{
+	margin-bottom: 0;
+}

@@ -3,6 +3,66 @@
 footer{
 	padding-top: 100px;
 	padding-bottom: 70px;
+	background:$color-blue-logo;
+	color: $color-white;
+	a{
+		color: $color-white;
+	}
+	.list-social{
+		position: absolute;
+		left: 15px;
+		bottom: 0;
+		.label-socials{
+			line-height: 40px;
+		}
+		.nav-link{
+			padding: .3rem;
+			i.fa{
+				font-size: 1.5rem;
+			}
+		}
+	}
+	.label-form-project{
+		font-size: 30px;
+	}
+	.form-start-project{
+		input[type*="text"]{
+			width: 100%;
+			background: transparent;
+			border: 1px solid $color-gray-text;
+			padding: 10px;
+			margin: 15px 0;
+			color: $color-white;
+		}
+		textarea{
+			width: 100%;
+			background: transparent;
+			border: 1px solid $color-gray-text;
+			padding: 18px;
+			margin: 15px 0;
+			color: $color-white;
+		}
+		.btn-green-env{
+			background:$color-green-logo;
+			color: $color-white;
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.box-info-footer{
+		.label-menu-footer{
+			padding: 10px 0;
+			border-bottom: 1px solid;
+			margin-bottom: 10px;
+			width: 65%;
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+		.list-menu-footer{
+
+		}
+	}
 }
 
 

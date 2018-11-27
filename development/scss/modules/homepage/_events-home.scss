@@ -1,0 +1,38 @@
+/*============EVENTS HOME=================*/
+.content-envent{
+	margin-bottom: 80px;
+	.box-head-blog{
+		.underline-head{
+			margin-bottom: 30px;
+		}
+		
+	}
+
+	.item-event{
+		position: relative;
+		margin-bottom: 15px;
+		h4{
+			position: 	absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background:rgba(13, 49, 83, .5);
+			color: $color-white;
+			text-align: center;
+			padding: 10px 20px;
+			font-size: 1rem;
+		}
+		.date-event{
+			position: absolute;
+			right: 0;
+			top: 0;
+			background: $color-green-logo;
+			padding: 10px 20px;
+			font-size: 1rem;
+			color: $color-blue-logo;
+		}
+	}
+}
+
+
+/*============END EVENTS HOME=================*/
