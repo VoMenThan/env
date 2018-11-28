@@ -30,7 +30,7 @@
 <body>
     <header>
         <div id="sticky-menu-anchor"></div>
-        <nav id="sticky-menu">
+        <nav id="sticky-menu" class="position-relative">
             <div class="container position-relative">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-3 text-center box-logo-home">
@@ -113,18 +113,20 @@
                             
                         </div>
                     </div>
-                    <!-- BOX SEARCH -->
-                    <div class="collapse" data-toggle="collapse" id="detailBoxSearch">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 box-search">
-                                <form action="" method="get">
-                                    <input type="text" class="input-search" placeholder="Search for keywords">
-                                    <input type="submit" hidden>
-                                    <a class="btn-search" href="#">
-                            <i class="icon-search"></i>
-                        </a>
-                                </form>
-                            </div>
+                    
+                </div>
+                <!-- BOX SEARCH -->
+                <div class="collapse" data-toggle="collapse" id="detailBoxSearch">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-12 box-search">
+                            <form action="" method="get">
+                                <label for="input-search">TYPE YOUR SEARCH</label>
+                                <input id="input-search" type="text" class="input-search" placeholder="Search for keywords">
+                                <input type="submit" hidden>
+                                <a class="btn-search" href="#">
+                        <i class="icon-search"></i>
+                    </a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -150,7 +152,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="images/slider-home.png">
+			<img src="images/img-slider-2.png">
 			<div class="container">
 				<article class="box-headline">
 				<h1 class="head-line-envzone">
@@ -164,7 +166,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="images/slider-home.png">
+			<img src="images/img-slider-3.png">
 			<div class="container">
 				<article class="box-headline">
 				<h1 class="head-line-envzone">
@@ -184,23 +186,8 @@
 			Integrate with us now!
 		</h3>
 		<ul class="list-integrate">
-		  <li class="item-integrate"><a href="#">Become our vendor</a></li>
-		  <li class="item-integrate"><a href="#">Become our partner</a></li>
-		</ul>
-		<p>Join us:</p>
-		<ul class="nav list-social justify-content-center">
-		  <li class="nav-item px-1">
-		    <a class="nav-link link-twitter" href="#"><i class="fa fa-twitter"></i></a>
-		  </li>
-		  <li class="nav-item px-1">
-		    <a class="nav-link link-facebook" href="#"><i class="fa fa-facebook"></i></a>
-		  </li>
-		  <li class="nav-item px-1">
-		    <a class="nav-link link-linkedin"  href="#"><i class="fa fa-linkedin"></i></a>
-		  </li>
-		  <li class="nav-item px-1">
-		    <a class="nav-link link-google" href="#"><i class="fa fa-google-plus"></i></a>
-		  </li>
+		  <li class="item-integrate"><a class="btn btn-green-env text-center" href="#">Become our vendor</a></li>
+		  <li class="item-integrate"><a class="btn btn-green-env text-center" href="#">Become our partner</a></li>
 		</ul>
 	</div>
 
@@ -216,9 +203,9 @@
 				<img src="images/about-us-envzone.png" alt="About Us Envzone">
 			</div>
 			<div class="col-lg-6 text-center d-flex align-items-center">
-				<article class="content-about-us px-5">
+				<article class="px-5">
 					<h2 class="title-head-blue">BUSINESS ORIENTED</h2>
-					<p class="pb-5">As busuness owners ourselves, we will all it takes to make your business thrive</p>
+					<p class="pb-3">As busuness owners ourselves, we will all it takes to make your business thrive</p>
 					<a href="#" class="btn btn-blue-env">About Us</a>
 				</article>
 			</div>
@@ -227,7 +214,7 @@
 		<div class="row content-industries">
 			<div class="col-12 text-center box-head-industries">
 				<h2 class="title-head-blue">WHAT WE DO?</h2>
-					<p class="pb-5">
+					<p class="pb-5 text-left m-auto">
 						It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English
 					</p>
 			</div>
@@ -319,7 +306,7 @@
 		<div class="row content-services">
 		    <div class="col-12 text-center box-head-services">
 		        <h2 class="title-head-blue">OUR SERVICES</h2>
-		        <p class="pb-5">
+		        <p class="pb-5 text-left m-auto">
 		            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English
 		        </p>
 		    </div>
@@ -373,6 +360,37 @@
 		    </div>
 		</div>
 		<!-- /*============END SERVICES HOME=================*/ -->
+	</div>
+
+	<!-- /*============SUBCRIBE HOME=================*/ -->
+	<div class="container-fluild section-parallax bg-building">
+	    <div class="bg-blue-home">
+	            <div class="container content-contact-quote-book">
+	            <div class="row">
+	                <div class="col-xl-4">
+	                    <h4>CONTACT US</h4>
+	                    <p>Have a quick question? Let’s talk</p>
+	                    <a class="btn btn-green-env" href="#">SEND EMAIL</a>
+	                </div>
+	                <div class="col-xl-4">
+	                    <h4>GET A QUOTE</h4>
+	                    <p>Get pricing on your custom project</p>
+	                    <a class="btn btn-green-env" href="#">REQUEST PRCING</a>
+	                </div>
+	                <div class="col-xl-4">
+	                    <h4>BOOK A PROJECT CALL</h4>
+	                    <p>Book a 30-min call with EnvZone</p>
+	                    <a class="btn btn-green-env" href="#">CHECK AVAIBILITY</a>
+	                </div>
+	            </div>
+	            
+	        </div>
+	    </div>
+	    
+	</div>
+	<!-- /*============END SUBCRIBE HOME=================*/ -->
+
+	<div class="container">
 		<!-- /*============BLOG HOME=================*/ -->
 		<div class="content-blog define-headline">
 			<div class="row">
@@ -601,7 +619,7 @@
 	            <div class="col-lg-6">
 	                <div class="item-studio">
 	                    <img class="img-fluid" src="images/img-studio.png" align="">
-	                    <h5>Saigon Innovation Event</h5>
+	                    <h5 class="large-item">Saigon Innovation Event</h5>
 	                </div>
 	            </div>
 	            <div class="col-lg-6">
@@ -642,211 +660,241 @@
 	</div>
 	<!-- /*============END STUDIO HOME=================*/ -->
 	<!-- /*============SUBCRIBE HOME=================*/ -->
-	<div class="container-fluild bg-green-home">
-	    <div class="container content-subcribe">
-	        <div class="row">
-	            <div class="col-12 box-head-subcribe text-center">
-	                <h2>SUBCRIBE FOR THREE THINGS</h2>
-	                <p>Three links or tips of interst curated every week by the experts at ENVZONE Consulting.
-	                </p>
-	                <form action="" method="get">
-	                <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-	                <input type="submit" hidden>
-	                <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-	            </form>
+	<div class="container-fluild section-parallax">
+	    <div class="bg-green-home">
+	            <div class="container content-subcribe">
+	            <div class="row">
+	                <div class="col-12 box-head-subcribe text-center">
+	                    <h2>SUBCRIBE FOR THREE THINGS</h2>
+	                    <p>Three links or tips of interst curated every week by the experts at ENVZONE Consulting.
+	                    </p>
+	                    <form action="" method="get">
+	                    <input type="text" class="input-search d-block" placeholder="Enter your email adress">
+	                    <input type="submit" hidden>
+	                    <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
+	                </form>
+	                </div>
 	            </div>
+	            
 	        </div>
-	        
 	    </div>
+	    
 	</div>
 	<!-- /*============END SUBCRIBE HOME=================*/ -->
 
 </main>
 
-
-    <!-- FOOTER -->
-    <footer>
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-					<img class="img-fluid" src="images/logo-envzone-gray.png" alt="">
-					<p>Based in Colorado, Serving the entire USA</p>
-					<div class="label-company">Request for Inquiries:</div>
-					<a class="email-envzone" href="#"></a>
-					<a href="#">Office: 720-606-2900</a>
-					<p>1801 California St., Suite 2400 <br>
-						Denver, CO 80202
-					</p>
-
-					<ul class="nav list-social">
-					  <li class="nav-item label-socials px-1">
-					    Follow us:
-					  </li>
-					  <li class="nav-item px-1">
-					    <a class="nav-link link-twitter" href="#"><i class="fa fa-twitter"></i></a>
-					  </li>
-					  <li class="nav-item px-1">
-					    <a class="nav-link link-facebook" href="#"><i class="fa fa-facebook"></i></a>
-					  </li>
-					  <li class="nav-item px-1">
-					    <a class="nav-link link-linkedin"  href="#"><i class="fa fa-linkedin"></i></a>
-					  </li>
-					  <li class="nav-item px-1">
-					    <a class="nav-link link-google" href="#"><i class="fa fa-google-plus"></i></a>
-					  </li>
-					</ul>					
-				</div>
-				<div class="col-xl-8 col-lg-8">
-					<div class="label-form-project text-center">
-						START A PROJECT
-					</div>
-					<div class="row form-start-project">
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-							<input type="text" class="input-search d-block" placeholder="Full name">
-							<input type="text" class="input-search d-block" placeholder="Email">
-							<input type="text" class="input-search d-block" placeholder="Company">
-							<input type="text" class="input-search d-block" placeholder="Phone number">
-							<input type="file" class="input-search d-block">
-						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-							<textarea cols="30" rows="8"></textarea>
-							<button class="btn btn-green-env">
-							SEND MY MESSAGE
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-					<div class="box-info-footer">
-						<h5 class="label-menu-footer">Company</h5>
-						<ul class="list-menu-footer">
-						  <li><a href="#">About us</a></li>
-						  <li><a href="#">Ourteam</a></li>
-						  <li><a href="#">Career</a></li>
-						  <li><a href="#">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-					<div class="box-info-footer">
-						<h5 class="label-menu-footer">Industries</h5>
-						<ul class="list-menu-footer">
-						  <li><a href="#">About us</a></li>
-						  <li><a href="#">Ourteam</a></li>
-						  <li><a href="#">Career</a></li>
-						  <li><a href="#">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-					<div class="box-info-footer">
-						<h5 class="label-menu-footer">Services</h5>
-						<ul class="list-menu-footer">
-						  <li><a href="#">About us</a></li>
-						  <li><a href="#">Ourteam</a></li>
-						  <li><a href="#">Career</a></li>
-						  <li><a href="#">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-					<div class="box-info-footer">
-						<h5 class="label-menu-footer">Discovery</h5>
-						<ul class="list-menu-footer">
-						  <li><a href="#">About us</a></li>
-						  <li><a href="#">Ourteam</a></li>
-						  <li><a href="#">Career</a></li>
-						  <li><a href="#">Contact us</a></li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-		</div>
-    </footer>
-
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <!--<script src="js/jquery.min.js"></script>-->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/styles.min.js"></script>
-    <script>
-
-        /*============ slide news =================*/
-    	$(document).ready(function(){
-			$('.slider-home').owlCarousel({
-				loop:true,
-				margin:0,
-				nav:false,
-				dots: true,
-				navText: ['<i class="btn-prev-slide"></i>','<i class="btn-next-slide"></i>'],
-				responsive:{
-				    0:{
-				        items:1
-				    },
-				    768:{
-				        items:1
-				    },
-				    1024:{
-				        items:1
-				    }
-				}
-			})
-		});
-
-    	/*============auto open modal=================*/
-        $('#modal-notmiss').modal({
-            autoOpen: true
-        });
-        
-
-
-        /*============ custom scroll =================*/
-		(function($){
-			$(window).on("load",function(){
-				$(".content-scroll").mCustomScrollbar({theme:"3d"});
-			});
-		})(jQuery);
-        /*============ end custom scroll =================*/
-
-
-        function sticky_relocate() {
-            var window_top = $(window).scrollTop();
-            var div_top = $('#sticky-anchor').offset().top;
-            var div_top_menu = $('#sticky-menu-anchor').offset().top;
-
-            if (window_top >= div_top) {
-                $('#sticky').addClass('stick');
-            }else {
-                $('#sticky').removeClass('stick');            }
-
-            if (window_top >= div_top_menu) {
-                $('#sticky-menu').addClass('stick');
-            }else {
-                $('#sticky-menu').removeClass('stick');
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                <img class="img-fluid" src="images/logo-envzone-gray.png" alt="">
+                <p>Based in Colorado, Serving the entire USA</p>
+                <div class="label-company">Request for Inquiries:</div>
+                <a class="email-envzone" href="#"></a>
+                <a href="#">Office: 720-606-2900</a>
+                <p>1801 California St., Suite 2400 <br>
+                    Denver, CO 80202
+                </p>
+                <ul class="nav list-social">
+                    <li class="nav-item label-socials px-1">
+                        Follow us:
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link link-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link link-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link link-linkedin"  href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link link-google" href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                <div class="label-form-project text-center">
+                    START A PROJECT
+                </div>
+                <div class="row form-start-project">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <input type="text" class="input-search d-block" placeholder="Full name">
+                        <input type="text" class="input-search d-block" placeholder="Email">
+                        <input type="text" class="input-search d-block" placeholder="Company">
+                        <input type="text" class="input-search d-block" placeholder="Phone number">
+                        <input type="file" class="input-search d-block">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <textarea cols="30" rows="8" placeholder="Describe your idea"></textarea>
+                        <button class="btn btn-green-env">
+                            SEND MY MESSAGE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">Company</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Ourteam</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">Industries</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Energy</a></li>
+                        <li><a href="#">Financial Services</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Hospitality</a></li>
+                        <li><a href="#">Retail</a></li>
+                        <li><a href="#">Telecommunications</a></li>
+                        <li><a href="#">Transportation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">Services</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="#">Technology Consulting</a></li>
+                        <li><a href="#">Full Cycle Development</a></li>
+                        <li><a href="#">It Outsourcing</a></li>
+                        <li><a href="#">Software Quality Assurance</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Client Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">Discovery</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Knowledge Center</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">EnvZone Studio</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluild bg-blue-lv1">
+        <div class="container section-donate text-center">
+            <div class="row">
+                <div class="col-12 box-donate">
+                    <div class="title-same">
+                        Sponsored program by EnvZone
+                    </div>
+                    <img class="img-fluid d-block m-auto" src="images/img-society-same.png">
+                    <a href="#" class="btn-donate btn btn-green-env">DONATE NOW</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 position-relate">
+                    <div class="box-policy">
+                        <a href="#">Accessibility</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Help</a>
+                        <a href="#">Site Map</a>
+                        <a href="#">Employee Login</a>
+                        <a href="#">Affiliate Program</a>
+                    </div>
+                    <img class="img-verified img-fluid" src="images/img-verified.png" alt="">
+                     <p>Copyright © 2016 EnvZone LLC. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<!--<script src="js/jquery.min.js"></script>-->
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/video.js"></script>
+<script src="js/styles.min.js"></script>
+<script>
+/*============ slide news =================*/
+$(document).ready(function() {
+    $('.slider-home').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        dots: true,
+        autoplay: false,
+        navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1024: {
+                items: 1
             }
         }
+    })
+});
 
-        $(function() {
-            var win_width = $(window).width();
-            if(win_width >= 992){
-                $(window).scroll(sticky_relocate);
-                sticky_relocate();
-            }
-
-        });
+/*============auto open modal=================*/
+$('#modal-notmiss').modal({
+    autoOpen: true
+});
 
 
-	</script>
-  </body>
+
+/*============ custom scroll =================*/
+(function($) {
+    $(window).on("load", function() {
+        $(".content-scroll").mCustomScrollbar({ theme: "3d" });
+    });
+})(jQuery);
+/*============ end custom scroll =================*/
+
+
+// function sticky_relocate() {
+//     var window_top = $(window).scrollTop();
+//     var div_top = $('#sticky-anchor').offset().top;
+//     var div_top_menu = $('#sticky-menu-anchor').offset().top;
+
+//     if (window_top >= div_top) {
+//         $('#sticky').addClass('stick');
+//     }else {
+//         $('#sticky').removeClass('stick');            }
+
+//     if (window_top >= div_top_menu) {
+//         $('#sticky-menu').addClass('stick');
+//     }else {
+//         $('#sticky-menu').removeClass('stick');
+//     }
+// }
+
+// $(function() {
+//     var win_width = $(window).width();
+//     if(win_width >= 992){
+//         $(window).scroll(sticky_relocate);
+//         sticky_relocate();
+//     }
+
+// });
+</script>
+</body>
+
 </html>
 
 

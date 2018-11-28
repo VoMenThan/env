@@ -18,10 +18,14 @@
 			position: absolute;
 			left: 0;
 			bottom: 0;
-			padding: 10px;
+			padding: 5px 15px;
 			width: 100%;
 			background: rgba(201, 240, 148, .8);
-			color: $color-white;
+			color: $color-blue-lv2;
+			font-size: .8rem;
+			&.large-item{
+				font-size: 1rem;
+			}
 		}
 	}
 }

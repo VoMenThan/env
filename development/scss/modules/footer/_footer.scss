@@ -1,68 +1,144 @@
 /* ======================FOOTER============== */
 
-footer{
-	padding-top: 100px;
-	padding-bottom: 70px;
-	background:$color-blue-logo;
-	color: $color-white;
-	a{
-		color: $color-white;
-	}
-	.list-social{
-		position: absolute;
-		left: 15px;
-		bottom: 0;
-		.label-socials{
-			line-height: 40px;
-		}
-		.nav-link{
-			padding: .3rem;
-			i.fa{
-				font-size: 1.5rem;
-			}
-		}
-	}
-	.label-form-project{
-		font-size: 30px;
-	}
-	.form-start-project{
-		input[type*="text"]{
-			width: 100%;
-			background: transparent;
-			border: 1px solid $color-gray-text;
-			padding: 10px;
-			margin: 15px 0;
-			color: $color-white;
-		}
-		textarea{
-			width: 100%;
-			background: transparent;
-			border: 1px solid $color-gray-text;
-			padding: 18px;
-			margin: 15px 0;
-			color: $color-white;
-		}
-		.btn-green-env{
-			background:$color-green-logo;
-			color: $color-white;
-			text-align: center;
-			width: 100%;
-		}
-	}
+footer {
+    padding-top: 100px;
+    background: $color-blue-logo;
+    color: $color-white;
 
-	.box-info-footer{
-		.label-menu-footer{
-			padding: 10px 0;
-			border-bottom: 1px solid;
-			margin-bottom: 10px;
-			width: 65%;
-			font-weight: bold;
-			letter-spacing: 1px;
-		}
-		.list-menu-footer{
+    a {
+        color: $color-white;
+    }
 
-		}
-	}
+    .list-social {
+        position: absolute;
+        left: 15px;
+        bottom: 0;
+
+        .label-socials {
+            line-height: 40px;
+        }
+
+        .nav-link {
+            padding: .3rem;
+
+            i.fa {
+                font-size: 1.5rem;
+            }
+
+            &:hover {
+                color: $color-green-logo;
+            }
+        }
+    }
+
+    .label-form-project {
+        font-size: 30px;
+    }
+
+    .form-start-project {
+        input[type*="text"] {
+            width: 100%;
+            background: transparent;
+            border: 1px solid $color-gray-text;
+            padding: 10px;
+            margin: 15px 0;
+            color: $color-white;
+        }
+
+        textarea {
+            width: 100%;
+            background: transparent;
+            border: 1px solid $color-gray-text;
+            padding: 18px;
+            margin: 15px 0;
+            color: $color-white;
+        }
+
+        .btn-green-env {
+            background: $color-green-logo;
+            color: $color-white;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    .box-info-footer {
+        .label-menu-footer {
+            padding: 10px 0;
+            border-bottom: 1px solid;
+            margin-bottom: 10px;
+            width: 65%;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .list-menu-footer {
+            a {
+                &:hover {
+                    color: $color-green-logo;
+                }
+            }
+        }
+    }
+
+
+    .bg-blue-lv1 {
+        background: $color-blue-lv1;
+    }
+
+    .section-donate {
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        .box-donate {
+            border-bottom: 1px solid $color-gray-text;
+            margin-bottom: 15px;
+            padding-bottom: 50px;
+        }
+
+        .title-same {
+            padding-bottom: 15px;
+            color: $color-gray-text;
+        }
+
+        img {
+            padding-bottom: 15px;
+        }
+
+        .btn-donate {
+            margin-bottom: 15px;
+            border: 1px solid $color-white;
+            font-size: 1.5rem;
+            padding: 10px 30px;
+        }
+
+        .box-policy {
+            width: 40%;
+            margin: auto;
+            margin-bottom: 5px;
+
+            a {
+                border-right: 1px solid $color-white;
+                padding-right: 5px;
+                margin-left: 5px;
+				&:hover{
+					color: $color-green-logo;
+				}
+                &:last-child {
+                    border-right: none;
+                }
+            }
+
+        }
+
+        .img-verified {
+            position: absolute;
+            left: 30px;
+            bottom: 0;
+            z-index: 99;
+            height: 100px
+        }
+    }
 }
 
 
@@ -75,76 +151,43 @@ footer{
 	EXTRA LARGE DEVICE
 	Large desktop 1200px and up (1200px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-extra-large) 
-{
-	
-}
+@media screen and (min-width: $device-size-extra-large) {}
 
 
 /* 	================================================================
 	LARGE DEVICE
 	Large desktop 992px and up (>992px and <1200px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-large) 
-		and (max-width: $device-size-extra-large) 
-{
-	
-}
+@media screen and (min-width: $device-size-large) and (max-width: $device-size-extra-large) {}
 
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 768px and up (>768px and <992px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-medium) 
-		and (max-width: $device-size-large) 
-{
-	
-}
+@media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {}
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 992px and down (<992px)
 	================================================================== */
-@media screen
-		and (max-width: $device-size-large)
-{
-	
-}
+@media screen and (max-width: $device-size-large) {}
 
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-small) 
-		and (max-width: $device-size-medium) 
-{
-	
-}
+@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {}
 
 /* 	================================================================
 	EXTRA SMALL DEVICE
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-mobile) 
-		and (max-width: $device-size-small) 
-{
-	
-}
+@media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {}
 
 
 /* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
-@media screen 
-		and (max-width: $device-size-mobile) 
-{
-	
-}
-
+@media screen and (max-width: $device-size-mobile) {}

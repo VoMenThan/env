@@ -100,7 +100,10 @@ module.exports = function(grunt) {
 		includes: {
 		  files: {
 		    src: [
-		    	'development/index.html'
+		    	'development/index.html',
+		    	'development/about-us.html',
+		    	'development/contact-us.html',
+		    	'development/careers.html'
 		    	], // Source files
 		    dest: 'production/', // Destination directory
 		    flatten: true,

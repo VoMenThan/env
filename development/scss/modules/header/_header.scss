@@ -101,7 +101,12 @@ nav{
 		left:  0;
 		width: 100%;
 		.box-search{
-			padding: 40px 20%;
+			padding: 30vh 20%;
+		}
+		label{
+			color: $color-green-logo;
+			text-transform: uppercase;
+			padding-bottom: 15px;
 		}
 		input.input-search{
 			background: transparent;
@@ -109,6 +114,7 @@ nav{
 			border-bottom: 1px solid $color-gray-text;
 			width: calc(100% - 40px);
 			color: $color-white;
+			font-size: 2rem;
 		}
 		.icon-search{
 			@include setBackgroundIcon(20px, '../images/icon-search-active.png');

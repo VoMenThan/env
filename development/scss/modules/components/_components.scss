@@ -6,6 +6,14 @@
     padding: 15px 50px;
 }
 
+/*============BUTTON GREEN=================*/
+.btn-green-env{
+	color: $color-white !important;
+    background-color: $color-green-logo;
+    border-color: $color-green-logo;
+    padding: 10px 70px;
+}
+
 /*============TITLE BLUE=================*/
 
 .title-head-blue{
@@ -56,6 +64,54 @@
 
 /*============BG GREEN=================*/
 .bg-green-home{
-	background: $color-green-logo;
+	background: rgba(141, 198, 63, .7);
 	padding: 30px 0; 
 }
+
+/*============BG BLUE=================*/
+.bg-blue-home{
+	background: rgba(13, 49, 83, .7);
+	padding: 30px 0; 
+}
+
+
+/*============PARALLAX BG=================*/
+.section-parallax{
+    background-image: url("../images/img-parallax-1.png");
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-building{
+    background-image: url("../images/img-parallax-2.png");
+    margin-bottom: 80px;
+}
+
+
+/*============BANNER TOP=================*/
+.banner-top{
+	position: relative;
+	img{
+		width: 100%;
+	}
+	h2{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include translate(-555px, -50%);
+		font-size: 3rem;
+		color: $color-green-logo;
+		font-weight: bold;
+	}
+}
+
+.artical-page{
+	padding: 80px 0;
+}
+
+
+

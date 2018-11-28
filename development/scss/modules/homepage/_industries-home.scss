@@ -3,7 +3,9 @@
 .content-industries{
 	margin-bottom: 80px;
 	.box-head-industries{
-		padding: 0 30%;
+		p{
+			width: 50%;
+		}
 	}
 
 	.item-industry{
@@ -11,11 +13,9 @@
 		background: $color-blue-lv4;
 		color: $color-white;
 		padding: 40px 30px;
-		@include box-shadow(4px, 4px, 15px, rgba(0, 0, 0, 0.25), $inset: false);
 		margin-bottom: 30px;
 		transition: .3s;
 		&:hover{
-			@include box-shadow(4px, 4px, 15px, rgba(0, 0, 0, 0.5), $inset: false);
 			background: $color-gray-hover;
 			color: $color-blue-logo;
 			cursor: pointer;

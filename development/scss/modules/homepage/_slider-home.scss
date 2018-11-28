@@ -58,51 +58,20 @@
     	padding-bottom: 45px;
     	font-weight: bold;
     	letter-spacing: 1px;
+    	text-align: center;
     }
     .list-integrate{
-    	margin-bottom: 100px;
     	a{
     		color: $color-white;
     		font-size: 1.2rem;
-			border-left: 3px solid $color-green-logo;
-			padding-left: 5px;
 			margin-bottom: 10px;
 			display: block;
+
     	}
     }
     p{
     	text-align: center;
     	color: $color-green-logo;
     	font-style: italic;
-    }
-    .list-social{
-    	a.nav-link{
-    		border-radius: 50%;
-    		text-align: center;
-    		display: inline-block;
-    		background: $color-white;
-    		width: 35px;
-    		height: 35px;
-			position: relative;
-			i{
-				position: absolute;
-			    left: 50%;
-			    top: 50%;
-			    @include translate(-50%, -50%);
-			    color: $color-white;
-			}
-			&.link-twitter{
-				background: #55ACEF;
-			}
-			&.link-facebook{
-				background: #3B5999;
-			}
-			&.link-linkedin{
-				background: #017AB9;
-			}
-			&.link-google{
-				background: #DC4E42;
-			}
-    	}
     }
 }
