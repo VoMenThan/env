@@ -1,0 +1,87 @@
+.blog-author-page{
+  .title-author{
+    font-size: 2.215rem;
+    color: $color-blue-lv3;
+    padding-bottom: 25px;
+  }
+  .information-author{
+    img{
+      width: 40%;
+      float: left;
+    }
+    .box-info{
+      padding-left: calc(40% + 15px);
+      color: $color-blue-lv1;
+      .author-name{
+        font-size: 2.215rem;
+        color: $color-blue-lv3;
+      }
+
+    }
+  }
+
+  .follow-author{
+    padding: 10px 0;
+    .list-social{
+      .label-socials{
+        font-size: 1.5rem;
+        color: $color-blue-lv3;
+      }
+      .nav-link{
+        color: $color-white;
+        border-radius: 50%;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        &.link-twitter{
+          background: #55ACEE;
+        }
+        &.link-facebook{
+          background: #3B5998;
+        }
+        &.link-google{
+          background: #DC4E41;
+        }
+      }
+    }
+  }
+
+  .box-head-other-author{
+  	.other-author{
+  		font-size: 2.215rem;
+      font-weight: bold;
+  		color: $color-blue-lv3;
+  	}
+  }
+
+  .item-author{
+    padding: 10px 0;
+    img{
+      width: 30%;
+      float: left;
+    }
+    .author-name{
+      padding-left: calc(30% + 15px);
+      padding-top: 30px;
+      font-size: 1.5rem;
+      color: $color-blue-lv3;
+    }
+  }
+
+  .list-trend-author{
+    .info-news{
+      h2{
+        font-size: 1.2rem;
+        border-bottom: 10px;
+      }
+      .audit{
+        font-size: 1.08rem;
+        border-bottom: 10px;
+
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.blog-page{
+	.box-breadcrumb{
+		color: $color-blue-logo;
+		.you-here{
+			float: left;
+			color: $color-blue-logo;
+			font-weight: bold;
+		}
+		.breadcrumb{
+			background: transparent;
+			padding: inherit;
+			padding-left: 15px;
+		}
+	}
+
+	.highlight-news{
+		img{
+			margin-bottom: 15px;
+		}
+		h2{
+			font-size: 1.9rem;
+			padding-bottom: 15px;
+		}
+		.audit{
+			font-size: 1.2rem;
+			padding-bottom: 10px;
+			color: $color-gray-blog;
+			a{
+				cursor: pointer;
+				color: $color-blue-logo;
+				font-weight: bold;
+				margin-right: 30px;
+			}
+		}
+		p{
+			font-size: 1.2rem;
+			color: $color-gray-blog;
+		}
+		.hagtag{
+			font-size: 1.3rem;
+			&:before{
+				content:"";
+				display: table-cell;
+				@include setBackgroundIcon( 30px, "../images/icon-hagtag.png");
+				vertical-align: middle;
+			}
+			a{
+				color: $color-blue-logo;
+				font-weight: bold;
+				&:after{
+					content: ",";
+					display: table-cell;
+				}
+			}
+		}
+	}
+	.highlight-news-right{
+		padding-bottom: 30px;
+		padding-top: 30px;
+		border-bottom: 1px solid $color-gray-border;
+		&:first-child{
+			padding-top: 0;
+		}
+		&:last-child{
+			border-bottom: none;
+		}
+		.thumbnail-news{
+			float: left;
+			display: inline-block;
+			width: 40%;
+		}
+		.info-news{
+			font-size: 1rem;
+			padding-left: calc(40% + 15px);
+			h2{
+				font-size: 1.5rem;
+				padding-bottom: 10px;
+			}
+			.audit{
+				padding-bottom: 5px;
+			}
+			.author{
+				margin-right: 20px;
+			}
+			p{
+				padding: 0;
+			}
+		}
+		.hagtag{
+			&:before{
+				content:"";
+				display: table-cell;
+				@include setBackgroundIcon( 20px, "../images/icon-hagtag.png");
+				vertical-align: middle;
+			}
+
+				a{
+				color: $color-blue-logo;
+				font-weight: bold;
+				&:after{
+					content: ",";
+					display: table-cell;
+				}
+			}
+			}
+		&.img-center{
+			.thumbnail-news{
+				float: none;
+				width: auto;
+				margin-bottom: 15px;
+			}
+			.info-news{
+			font-size: 1rem;
+			padding-left:0;
+			}
+
+		}
+
+		&.border-top{
+			border-top: 1px solid $color-gray-border;
+			padding-top: 30px;
+		}
+		
+	}
+	.btn-show-more{
+			width: 100%;
+			border-radius: 0;
+			font-weight: bold;
+		}
+}

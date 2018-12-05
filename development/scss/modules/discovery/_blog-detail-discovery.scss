@@ -1,0 +1,80 @@
+.blog-detail-page{
+	h1{
+		font-size: 2.25rem;
+		font-family: $font-pt;
+		padding-bottom: 15px;
+	}
+	.audit{
+		padding-bottom: 20px;
+		.date{
+			padding-right: 30px;
+		}
+			span, a{
+				font-family: $font-pt;
+			}
+			color: $color-gray-audit;
+		}
+	.content-blog{
+		
+		.excerpt-news{
+			font-family: $font-times;
+			font-size: 1.125rem;
+			font-style: italic;
+			color: $color-gray-excerpt;
+			margin-bottom: 25px;
+		}
+		img{
+			margin-bottom: 25px;
+		}
+		p{
+			font-family: $font-pt;
+			font-size: 1.125rem;
+			color: $color-gray-blog;
+			line-height: 1.8rem;
+		}
+	}
+
+	.box-advert{
+		background: $color-blue-logo;
+		padding: 35px 30px;
+		text-align: center;
+		margin-bottom: 40px;
+		.fz-big-green{
+			font-size: 30px;
+			color: $color-green-logo;
+		}
+		p{
+			color: $color-white;
+		}
+	}
+
+
+	.box-related-article{
+		border: 1px solid $color-gray-border;
+		.title-article{
+			font-size: 1.5rem;
+			text-align: center;
+			background:$color-green-logo;
+			width: 100%;
+			padding: 15px;
+			color: $color-blue-lv3;
+			font-weight: bold;
+		}
+		.item-relate{
+			padding: 15px;
+			border-bottom: 1px solid $color-gray-border;
+			&:last-child{
+				border-bottom: none;
+			}
+			img{
+				width: 40%;
+				float: left;
+			}
+			h2{
+				padding-left: calc(40% + 15px);
+				font-size: 1.2rem;
+				color: $color-blue-lv3;
+			}
+		}
+	}
+}

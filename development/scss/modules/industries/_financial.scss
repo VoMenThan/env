@@ -1,0 +1,19 @@
+section.financial-page{
+	h1{
+		margin-bottom: 30px;
+	}
+	.item-offer{
+		border: 1px solid $color-gray-hover;
+		padding: 40px 20px;
+		margin-bottom: 50px;
+		border-radius: 10px;
+		min-height: 290px;
+		img{
+			margin-bottom: 20px !important;
+			display: block;
+		}
+		p{
+			text-align: center;
+		}
+	}
+}
