@@ -1,1 +1,15 @@
+
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,400,400i,500,600,700,700i,800');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i');
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('../fonts/Times_New_Roman.eot');
+  src: url('../fonts/Times_New_Roman.woff2') format('woff2'),
+  url('../fonts/Times_New_Roman.woff') format('woff'),
+  url('../fonts/Times_New_Roman.ttf') format('truetype'),
+  url('../fonts/Times_New_Roman.svg#Times_New_Roman') format('svg'),
+  url('../fonts/Times_New_Roman.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}

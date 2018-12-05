@@ -103,7 +103,20 @@ module.exports = function(grunt) {
 		    	'development/index.html',
 		    	'development/about-us.html',
 		    	'development/contact-us.html',
-		    	'development/careers.html'
+		    	'development/careers.html',
+		    	'development/approach.html',
+		    	'development/partnership.html',
+		    	'development/education.html',
+		    	'development/energy.html',
+		    	'development/hospitality.html',
+		    	'development/financial.html',
+		    	'development/healthcare.html',
+		    	'development/retail.html',
+		    	'development/telecom.html',
+		    	'development/transportation.html',
+		    	'development/blog.html',
+		    	'development/blog-detail.html',
+		    	'development/blog-author.html'
 		    	], // Source files
 		    dest: 'production/', // Destination directory
 		    flatten: true,

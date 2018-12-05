@@ -1,125 +1,212 @@
 /* =================== HEADER ======================= */
-header{
-
-}
+header {}
 
 /* =================== NAVIGATION ======================= */
-nav{
-	background: $color-blue-logo;
-	&.stick{
-		position: fixed;
-		top: 0;
-		left: 50%;
-		@include translate-x(-50%);
-		width: 100%;
-		z-index: 99;
-		@include shadow-out(4px, 4px, 18px, #ccc);
-	}
-	.box-logo-home{
-		padding: .5rem;
-		>img{
-			height: 35px;
-		}
-	}
-	ul.main-menu{
-		.nav-item{
-			position: relative;
-			&:hover{
-				ul.sub-menu{
-					display: block !important;
-				}
-			}
-			.nav-link{
-				font-size: 1rem;
-				font-family: $font-menu;
-				color: $color-white;
-				line-height: 40px;
-				padding: .7rem 1.5rem;
-				position: relative;
-				&:hover, &.active{
-					&:before{
-						content: " ";
-						display: inline-block;
-						width: 30px;
-						height: 3px;
-						background: $color-green-logo;
-						position: absolute;
-						bottom: .8rem;
-						left: 1.5rem;
-					}
-					.icon-search{
-					@include setBackgroundIcon(20px, '../images/icon-search-active.png');
-					}
-				}
+nav {
+    background: $color-blue-logo;
 
-				&.btn-search{
-					&:hover, &.active{
-					&:before{
-						display: none;
-					}
-				}
-				}
-				.icon-search{
-					@include setBackgroundIcon(20px, '../images/icon-search.png');
-					vertical-align: middle;
-				}
-				&[aria-expanded="true"]{
-					.icon-search{
-						@include setBackgroundIcon(20px, '../images/icon-close-green.png' );
-						background-position: center center;
+    &.stick {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        @include translate-x(-50%);
+        width: 100%;
+        z-index: 99;
+        @include shadow-out(4px, 4px, 18px, #ccc);
+    }
 
-					}
-				}
-			}
-		}
-	}
-	/* =================== SUB MENU ======================= */
-	ul.sub-menu{
-		position: absolute;
-		left: 0;
-		top: 100%;
-		background: $color-gray-bg;
-		z-index: 99;
+    .box-logo-home {
+        padding: .5rem;
+
+        >img {
+            height: 35px;
+        }
+    }
+
+    ul.menu-contact {
+        .nav-item {
+            span {
+                font-size: 1rem;
+                font-family: $font-menu;
+                color: $color-white;
+                line-height: 40px;
+                padding: .7rem 1.5rem;
+            }
+
+            .nav-link {
+                color: $color-white;
+            }
+
+            .icon-typical-phone {
+                @include setBackgroundIcon(20px, "../images/icon-typical-phone.png");
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+            .icon-close-mail {
+                @include setBackgroundIcon(20px, "../images/icon-close-envelope.png");
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    ul.main-menu {
+        .nav-item {
+            &:hover {
+                .sub-menu {
+                    display: block !important;
+                }
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                font-family: $font-menu;
+                color: $color-white;
+                line-height: 40px;
+                padding: .7rem 1.5rem;
+                position: relative;
+
+                &:hover,
+                &.active {
+                    &:before {
+                        content: " ";
+                        display: inline-block;
+                        width: 30px;
+                        height: 3px;
+                        background: $color-green-logo;
+                        position: absolute;
+                        bottom: .8rem;
+                        left: 1.5rem;
+                    }
+
+                    .icon-search {
+                        @include setBackgroundIcon(20px, '../images/icon-search-active.png');
+                    }
+                }
+
+                &.btn-search {
+
+                    &:hover,
+                    &.active {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                .icon-search {
+                    @include setBackgroundIcon(20px, '../images/icon-search.png');
+                    vertical-align: middle;
+                }
+
+                &[aria-expanded="true"] {
+                    .icon-search {
+                        @include setBackgroundIcon(20px, '../images/icon-close-green.png');
+                        background-position: center center;
+
+                    }
+                }
+            }
+        }
+    }
+
+    /* =================== SUB MENU ======================= */
+    .sub-menu {
+        z-index: 99;
+        background: $color-blue-logo;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
 		display: none;
-		.nav-item{
-			.nav-link{
-				display: block;    
-				white-space: nowrap;
-    			border-top: .5px solid $color-gray-text;
-    			padding: .5rem 4rem .5rem 1.5rem;
-			}
-		}
-	}
+    }
 
-	
-/* =================== BOX SEARCH ======================= */
-	#detailBoxSearch{
-		z-index: 99;
-		background: $color-blue-logo;
-		position: absolute;
-		top: 100%;
-		left:  0;
-		width: 100%;
-		.box-search{
-			padding: 30vh 20%;
-		}
-		label{
+	.box-sub-menu{
+		padding: 50px 0;
+		h3{
 			color: $color-green-logo;
-			text-transform: uppercase;
+			font-weight: bold;
+		}
+		p{
+			color: $color-white;
+		}
+		article{
+			padding-bottom: 20px;
+		}
+		.title-submenu{
+			color: $color-green-logo;
+			font-size: 24px;
 			padding-bottom: 15px;
 		}
-		input.input-search{
-			background: transparent;
-			border: none;
-			border-bottom: 1px solid $color-gray-text;
-			width: calc(100% - 40px);
-			color: $color-white;
-			font-size: 2rem;
+		.title-contact{
+			font-size: 1.5rem;
+			color: $color-green-logo;
 		}
-		.icon-search{
-			@include setBackgroundIcon(20px, '../images/icon-search-active.png');
+
+		input, textarea{
+		width: 100%;
+		background: transparent;
+		border-radius: 3px;
+		border: 1px solid $color-gray-border;
+		padding: 10px;
+		margin-bottom: 30px;
+		color: $color-white;
+		resize: none;
 		}
+		::placeholder { 
+		color: $color-white;
+		opacity: 1; 
+		font-weight: 100;
+		}
+
+		:-ms-input-placeholder { 
+		color: $color-white;
+		font-weight: 100;
+		}
+
+		::-ms-input-placeholder { 
+		color: $color-white;
+		font-weight: 100;
+		}
+		.btn-send-message{
+			color: $color-green-logo !important;
+		}
+		
 	}
+
+    /* =================== BOX SEARCH ======================= */
+    #detailBoxSearch {
+        z-index: 99;
+        background: $color-blue-logo;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        .box-search {
+            padding: 30vh 20%;
+        }
+
+        label {
+            color: $color-green-logo;
+            text-transform: uppercase;
+            padding-bottom: 15px;
+        }
+
+        input.input-search {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid $color-gray-text;
+            width: calc(100% - 40px);
+            color: $color-white;
+            font-size: 2rem;
+        }
+
+        .icon-search {
+            @include setBackgroundIcon(20px, '../images/icon-search-active.png');
+        }
+    }
 }
 
 /* =================== RESPONSIVE ======================= */
@@ -129,18 +216,16 @@ nav{
 	EXTRA LARGE DEVICE
 	Large desktop 1200px and up (1200px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-extra-large) 
-{
-	nav {
-		#detailBoxSearch{
-			.reset-col-2{
-				@include flex(20%);
-				max-width:  20%;
-				padding-bottom: 30px;
-			}
-		}
-	}
+@media screen and (min-width: $device-size-extra-large) {
+    nav {
+        #detailBoxSearch {
+            .reset-col-2 {
+                @include flex(20%);
+                max-width: 20%;
+                padding-bottom: 30px;
+            }
+        }
+    }
 }
 
 
@@ -148,98 +233,69 @@ nav{
 	LARGE DEVICE
 	Large desktop 992px and up (>992px and <1200px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-large) 
-		and (max-width: $device-size-extra-large) 
-{
-
-}
+@media screen and (min-width: $device-size-large) and (max-width: $device-size-extra-large) {}
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 992px and down (<992px)
 	================================================================== */
-@media screen 
-		and (max-width: $device-size-large) 
-{
-	nav {
-		ul.main-menu {
-			.nav-item {
-				.nav-link{
-					padding: .7rem 1rem;
-					font-size: .8rem;
-				}
-			}
-		}
-		.box-logo-home {
-			> img{
-				height: 25px;
-				margin-top: 10px;
-			}
-		}
-	}
+@media screen and (max-width: $device-size-large) {
+    nav {
+        ul.main-menu {
+            .nav-item {
+                .nav-link {
+                    padding: .7rem 1rem;
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        .box-logo-home {
+            >img {
+                height: 25px;
+                margin-top: 10px;
+            }
+        }
+    }
 }
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 768px and up (>768px and <992px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-medium) 
-		and (max-width: $device-size-large) 
-{
-	
-}
+@media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {}
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen 
-		and (max-width: $device-size-medium) 
-{
-	nav{
-		.btn-menu-mobile{
-			outline: none;
-			padding: 1rem;
-			color: $color-green-logo;
-		}
-	}
+@media screen and (max-width: $device-size-medium) {
+    nav {
+        .btn-menu-mobile {
+            outline: none;
+            padding: 1rem;
+            color: $color-green-logo;
+        }
+    }
 }
 
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-small) 
-		and (max-width: $device-size-medium) 
-{
-	
-}
+@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {}
 
 /* 	================================================================
 	EXTRA SMALL DEVICE
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
-@media screen 
-		and (min-width: $device-size-mobile) 
-		and (max-width: $device-size-small) 
-{
-	
-}
+@media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {}
 
 
 /* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
-@media screen 
-		and (max-width: $device-size-mobile) 
-{
-	nav{
-		
-		
-	}
+@media screen and (max-width: $device-size-mobile) {
+    nav {}
 }
-
