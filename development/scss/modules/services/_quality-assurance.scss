@@ -1,0 +1,33 @@
+.quality-assurance-page{
+  .item-offer-quality{
+    background: $color-green-logo;
+    color: $color-white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 20px;
+    min-height: 270px;
+    margin-bottom: 50px;
+  }
+  .item-offer{
+    padding: 30px;
+    border: 1px solid $color-gray-border;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    min-height: 200px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .title-offer{
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  .title-head-blue{
+    padding-bottom: 50px;
+  }
+  .description-qa{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+  }
+}

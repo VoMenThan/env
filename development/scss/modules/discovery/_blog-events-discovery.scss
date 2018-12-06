@@ -1,0 +1,35 @@
+.blog-events-page{
+  h1{
+    font-family: $font-head-1;
+    padding-bottom: 50px;
+  }
+  .box-item-event{
+    border-bottom: 1px solid $color-gray-border;
+    padding: 15px 0;
+    &:last-child{
+      border-bottom: 0;
+    }
+    .box-date{
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 1.875rem;
+      color: $color-blue-lv3;
+      background: $color-green-logo;
+      float: left;
+    }
+    .box-info{
+      padding-left: 20%;
+    }
+    h2{
+      font-size: 1.875rem;
+      font-weight: bold;
+      color: $color-blue-lv1;
+      margin-bottom: 15px;
+    }
+    p{
+      font-size: 1.625rem;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+  }
+}

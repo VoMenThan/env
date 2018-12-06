@@ -74,6 +74,10 @@ body { font-size: "Raleway", sans-serif; color: #6E716D; }
 
 .artical-page { padding: 80px 0; }
 
+/*============EMBED VIDEO=================*/
+.embed-video { position: relative; padding-bottom: 56.25%; }
+.embed-video iframe, .embed-video object, .embed-video embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; }
+
 /* =================== HEADER ======================= */
 /* =================== NAVIGATION ======================= */
 nav { background: #0D3153; /* =================== SUB MENU ======================= */ /* =================== BOX SEARCH ======================= */ }
@@ -363,6 +367,15 @@ section.transportation-page .item-offer { border: 1px solid #E0E0E0; padding: 40
 section.transportation-page .item-offer img { margin-bottom: 20px !important; display: block; }
 section.transportation-page .item-offer p { text-align: center; }
 
+.quality-assurance-page .item-offer-quality { background: #8DC63F; color: #ffffff; text-align: center; padding: 30px 20px; border-radius: 20px; min-height: 270px; margin-bottom: 50px; }
+.quality-assurance-page .item-offer { padding: 30px; border: 1px solid #C4C4C4; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; min-height: 200px; text-align: center; margin-bottom: 50px; }
+.quality-assurance-page .title-offer { padding-top: 60px; padding-bottom: 40px; }
+.quality-assurance-page .title-head-blue { padding-bottom: 50px; }
+.quality-assurance-page .description-qa { width: 60%; margin: auto; text-align: center; }
+
+.technology-consulting-page .box-circle { width: 300px; height: 300px; border: 2px solid #8DC63F; border-radius: 50%; text-align: center; font-size: 2rem; margin: auto; }
+.technology-consulting-page .list-technology li { padding: 10px 20px; text-align: center; background: #8DC63F; margin: 20px 0; border-radius: 20px; color: #ffffff; }
+
 .blog-page .box-breadcrumb { color: #0D3153; }
 .blog-page .box-breadcrumb .you-here { float: left; color: #0D3153; font-weight: bold; }
 .blog-page .box-breadcrumb .breadcrumb { background: transparent; padding: inherit; padding-left: 15px; }
@@ -425,5 +438,36 @@ section.transportation-page .item-offer p { text-align: center; }
 .blog-author-page .item-author .author-name { padding-left: calc(30% + 15px); padding-top: 30px; font-size: 1.5rem; color: #0D3153; }
 .blog-author-page .list-trend-author .info-news h2 { font-size: 1.2rem; border-bottom: 10px; }
 .blog-author-page .list-trend-author .info-news .audit { font-size: 1.08rem; border-bottom: 10px; }
+
+.blog-events-page h1 { font-family: "Raleway", sans-serif; padding-bottom: 50px; }
+.blog-events-page .box-item-event { border-bottom: 1px solid #C4C4C4; padding: 15px 0; }
+.blog-events-page .box-item-event:last-child { border-bottom: 0; }
+.blog-events-page .box-item-event .box-date { display: inline-block; padding: 5px 10px; font-size: 1.875rem; color: #0D3153; background: #8DC63F; float: left; }
+.blog-events-page .box-item-event .box-info { padding-left: 20%; }
+.blog-events-page .box-item-event h2 { font-size: 1.875rem; font-weight: bold; color: #021320; margin-bottom: 15px; }
+.blog-events-page .box-item-event p { font-size: 1.625rem; font-weight: 300; margin-bottom: 0; }
+
+.blog-knowledge-page .box-knowledge { background: #0D3153; margin-bottom: 80px; }
+.blog-knowledge-page .box-video-special { width: 50%; float: left; }
+.blog-knowledge-page .box-info-video { width: 50%; float: left; color: #ffffff; padding: 20px 30px; }
+.blog-knowledge-page .box-info-video h2 { padding-bottom: 15px; font-size: 1.825em; }
+.blog-knowledge-page .box-knowledge-relate { margin-bottom: 3rem; }
+.blog-knowledge-page .box-knowledge-relate .embed-video { margin-bottom: 1rem; }
+.blog-knowledge-page .box-knowledge-relate h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #021320; }
+.blog-knowledge-page .box-knowledge-relate .audit .name-author { margin-right: 30px; }
+
+.blog-knowledge-detail-page { background: #2E3032; }
+.blog-knowledge-detail-page .box-breadcrumb .you-here { color: #8DC63F; }
+.blog-knowledge-detail-page .box-breadcrumb .breadcrumb .breadcrumb-item a { color: #ffffff; }
+.blog-knowledge-detail-page .share-social { display: block; }
+.blog-knowledge-detail-page .info-video { color: #ffffff; }
+.blog-knowledge-detail-page .info-video h1 { font-size: 1.5rem; font-weight: bold; }
+.blog-knowledge-detail-page .info-video p { font-size: 1.1rem; }
+.blog-knowledge-detail-page .box-share-social { padding: 10px 0; }
+.blog-knowledge-detail-page .box-share-social .list-social .label-share-socials { font-size: 1.5rem; color: #6E716D; }
+.blog-knowledge-detail-page .box-share-social .list-social .nav-link { color: #ffffff; border-radius: 50%; padding: 0; width: 35px; height: 35px; text-align: center; display: table-cell; vertical-align: middle; }
+.blog-knowledge-detail-page .box-share-social .list-social .nav-link.link-twitter { background: #55ACEE; }
+.blog-knowledge-detail-page .box-share-social .list-social .nav-link.link-facebook { background: #3B5998; }
+.blog-knowledge-detail-page .box-share-social .list-social .nav-link.link-google { background: #DC4E41; }
 
 /*# sourceMappingURL=styles.css.map */

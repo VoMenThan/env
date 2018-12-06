@@ -1,0 +1,58 @@
+.blog-knowledge-detail-page{
+  background: $color-gray-knowledge;
+  .box-breadcrumb{
+    .you-here{
+      color: $color-green-logo;
+    }
+
+    .breadcrumb{
+      .breadcrumb-item{
+        a{
+          color: $color-white;
+        }
+      }
+    }
+  }
+  .share-social{
+    display: block;
+  }
+  .info-video{
+    color: $color-white;
+    h1{
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    p{
+      font-size: 1.1rem;
+    }
+  }
+  .box-share-social{
+    padding: 10px 0;
+
+    .list-social{
+      .label-share-socials{
+        font-size: 1.5rem;
+        color: $color-gray-text;
+      }
+      .nav-link{
+        color: $color-white;
+        border-radius: 50%;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        &.link-twitter{
+          background: #55ACEE;
+        }
+        &.link-facebook{
+          background: #3B5998;
+        }
+        &.link-google{
+          background: #DC4E41;
+        }
+      }
+    }
+  }
+}

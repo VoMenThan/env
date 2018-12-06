@@ -1,0 +1,38 @@
+.blog-knowledge-page{
+  .box-knowledge{
+    background: $color-blue-lv3;
+    margin-bottom: 80px;
+  }
+  .box-video-special{
+    width: 50%;
+    float: left;
+  }
+  .box-info-video{
+    width: 50%;
+    float: left;
+    color: $color-white;
+    padding: 20px 30px;
+    h2{
+      padding-bottom: 15px;
+      font-size: 1.825em;
+    }
+  }
+
+  .box-knowledge-relate{
+    margin-bottom: 3rem;
+    .embed-video{
+      margin-bottom: 1rem;
+    }
+    h3{
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: $color-blue-lv1;
+    }
+    .audit{
+      .name-author{
+        margin-right: 30px;
+      }
+    }
+
+  }
+}
