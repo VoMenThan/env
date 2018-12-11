@@ -44,34 +44,119 @@
 
 /*=====================SOCIAL BANNER HOME======================*/
 .connect-social{
-	padding: 80px 30px;
+	padding: 25px;
 	background: rgba( 141,198,63, .7);
 	position: absolute;
     top: 50%;
     z-index: 9;
     right: 50%;
+	max-width: 400px;
+	color: $color-white;
     @include translate(calc(500px), -50%);
     h3{
-    	font-size: 1.5rem;
+    	font-size: 1.2rem;
     	color: $color-white;
-    	padding-bottom: 45px;
+    	padding-bottom: 15px;
     	font-weight: bold;
     	letter-spacing: 1px;
-    	text-align: center;
     }
-    .list-integrate{
-    	a{
-    		color: $color-white;
-    		font-size: 1.2rem;
-			margin-bottom: 10px;
-			display: block;
-			border-radius: 0;
+	.best-choose{
+		.item-best-choose{
+			color: $color-white;
+			font-weight: 100;
+			padding-bottom: 10px;
+		}
+    }
+	.title-link{
+		font-size: 1.2rem;
+		font-weight: 100;
+		margin-bottom: 10px;
+	}
+	.btn-blue-env{
+		border-radius: 0;
+		width: 100%;
+		font-weight: bold;
+		font-size: 1.2rem;
+		padding: 15px 20px;
+	}
+	hr{
+		border-top-color: $color-white;
+	}
+}
 
-    	}
-    }
-    p{
-    	text-align: center;
-    	color: $color-green-logo;
-    	font-style: italic;
-    }
+
+
+
+/* =================== RESPONSIVE ======================= */
+
+
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+@media screen and (min-width: $device-size-extra-large) {
+
+}
+
+
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+@media screen and (min-width: $device-size-large) and (max-width: $device-size-extra-large) {
+
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+
+	.slider-home{
+		&.owl-theme {
+			.box-headline{
+				width: 100%;
+			}
+		}
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+@media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+
+}
+
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {
+
+}
+
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+@media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {
+
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+
 }

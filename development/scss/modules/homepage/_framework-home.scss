@@ -2,6 +2,11 @@
 	padding: 50px;
     .box-head-framework {
 		margin-bottom: 30px;
+		>p{
+			width: 60%;
+			text-align: left;
+			margin: auto;
+		}
     }
     .item-framework {
         background: $color-blue-lv4;

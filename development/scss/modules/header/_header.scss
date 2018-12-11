@@ -25,6 +25,16 @@ nav {
 
     ul.menu-contact {
         .nav-item {
+            &:last-child{
+              .nav-link{
+                &:before{
+                  content: "|";
+                  display: inline-block;
+                  position: relative;
+                  left: -15px;
+                }
+              }
+            }
             span {
                 font-size: 1rem;
                 font-family: $font-menu;
@@ -35,6 +45,7 @@ nav {
 
             .nav-link {
                 color: $color-white;
+              padding: 0;
             }
 
             .icon-typical-phone {
@@ -109,6 +120,19 @@ nav {
                 }
             }
         }
+    }
+
+    .icon-search {
+      @include setBackgroundIcon(20px, '../images/icon-search.png');
+      vertical-align: middle;
+    }
+
+    .nav-link[aria-expanded="true"] {
+      .icon-search {
+        @include setBackgroundIcon(20px, '../images/icon-close-green.png');
+        background-position: center center;
+
+      }
     }
 
     /* =================== SUB MENU ======================= */
@@ -241,19 +265,30 @@ nav {
 	================================================================== */
 @media screen and (max-width: $device-size-large) {
     nav {
+      .toolbar-top{
+        padding: 5px;
+        .logo-envzone-mobile{
+          img{
+            height: 25px;
+          }
+        }
+      }
+      ul.menu-contact{
+        .nav-item{
+          .nav-link{
+            padding: .2rem 1rem;
+            span{
+              display: none;
+            }
+          }
+        }
+      }
         ul.main-menu {
+          width: 100%;
             .nav-item {
                 .nav-link {
                     padding: .7rem 1rem;
-                    font-size: .8rem;
                 }
-            }
-        }
-
-        .box-logo-home {
-            >img {
-                height: 25px;
-                margin-top: 10px;
             }
         }
     }
