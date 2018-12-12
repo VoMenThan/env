@@ -60,3 +60,51 @@
 }
 
 /*============END SERVICES HOME=================*/
+
+/* =================== RESPONSIVE ======================= */
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+	.content-services {
+		.box-head-services {
+			p{
+				width: 80%;
+			}
+		}
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	.content-services {
+		.item-service {
+			h3{
+				font-size: 1.2rem;
+				top: 50%;
+			}
+		}
+	}
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+	.content-services {
+		.box-head-services {
+			p{
+				width: 100%;
+			}
+		}
+	}
+}
+
+/* =================== END RESPONSIVE ======================= */

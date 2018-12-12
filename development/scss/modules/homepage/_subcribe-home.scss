@@ -15,3 +15,48 @@
 		margin-bottom: 20px;
 	}
 }
+
+/* =================== RESPONSIVE ======================= */
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+	.content-subcribe {
+		.box-head-subcribe {
+			h2, p {
+
+			}
+		}
+
+		.input-search {
+			width: 100%;
+		}
+		.btn-blue-env{
+			white-space: normal;
+			padding: 10px 20px;
+			font-size: 1rem;
+			width: 100%;
+		}
+	}
+}
+
+/* =================== END RESPONSIVE ======================= */

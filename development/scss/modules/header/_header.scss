@@ -311,6 +311,14 @@ nav {
             padding: 1rem;
             color: $color-green-logo;
         }
+      ul.main-menu {
+        .nav-item {
+          .nav-link{
+            padding: .5rem;
+            font-size: .8rem;
+          }
+        }
+      }
     }
 }
 

@@ -133,7 +133,23 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.slider-home{
+		&.owl-theme {
+			.box-headline {
+				.head-line-envzone{
+					font-size: 1.5rem;
+				}
+				p{
+					display: none;
+				}
+				.btn-green-env{
+					padding: 5px 20px;
+					font-size: 1rem;
+				}
+			}
+		}
 
+	}
 }
 
 /* 	================================================================

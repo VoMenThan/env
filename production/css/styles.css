@@ -78,6 +78,29 @@ body { font-size: "Raleway", sans-serif; color: #6E716D; }
 .embed-video { position: relative; padding-bottom: 56.25%; }
 .embed-video iframe, .embed-video object, .embed-video embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .title-head-blue { font-size: 1.7rem; } }
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .col-mb-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+  .btn-blue-env { padding: 10px 30px; }
+  .title-head-blue { text-align: left; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: 320px) { .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
+/* =================== END RESPONSIVE ======================= */
 /* =================== HEADER ======================= */
 /* =================== NAVIGATION ======================= */
 nav { background: #0D3153; /* =================== SUB MENU ======================= */ /* =================== BOX SEARCH ======================= */ }
@@ -144,7 +167,8 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen and (max-width: 768px) { nav .btn-menu-mobile { outline: none; padding: 1rem; color: #8DC63F; } }
+@media screen and (max-width: 768px) { nav .btn-menu-mobile { outline: none; padding: 1rem; color: #8DC63F; }
+  nav ul.main-menu .nav-item .nav-link { padding: .5rem; font-size: .8rem; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -197,6 +221,9 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .slider-home.owl-theme .box-headline .head-line-envzone { font-size: 1.5rem; }
+  .slider-home.owl-theme .box-headline p { display: none; }
+  .slider-home.owl-theme .box-headline .btn-green-env { padding: 5px 20px; font-size: 1rem; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -226,7 +253,7 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	Large tablet 992px and down (<992px)
 	================================================================== */
 @media screen and (max-width: 992px) { .content-about-us .img-feature { width: 100%; }
-  .content-about-us article { text-align: left; width: 80%; margin: auto; margin-top: 30px; } }
+  .content-about-us article { text-align: left; width: 100%; margin: auto; margin-top: 30px; } }
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 768px and up (>768px and <992px)
@@ -235,6 +262,8 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .content-about-us { margin-bottom: 50px; }
+  .content-about-us article { width: 100%; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -253,7 +282,7 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 .content-industries .item-industry { border-radius: 20px; background: #45678A; color: #ffffff; padding: 40px 30px; margin-bottom: 30px; transition: .3s; }
 .content-industries .item-industry:hover { background: #E0E0E0; color: #0D3153; cursor: pointer; }
 .content-industries .item-industry:hover .icon-industry { display: none; }
-.content-industries .item-industry:hover .icon-industry.ac { display: block; }
+.content-industries .item-industry:hover .icon-industry.ac { display: inline-block; }
 .content-industries .item-industry .icon-industry { padding-bottom: 20px; height: 100px; }
 .content-industries .item-industry .icon-industry.ac { display: none; }
 .content-industries .item-industry .title-item-industries { font-size: 1.2rem; font-weight: bold; padding-bottom: 15px; }
@@ -282,6 +311,8 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .content-industries .item-industry { text-align: center; padding: 20px 10px; }
+  .content-industries .item-industry .excerpt { display: none; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -290,6 +321,7 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	EXTRA SMALL DEVICE
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
+@media screen and (min-width: 425px) and (max-width: 576px) { .content-industries .box-head-industries p { width: 100%; } }
 /* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
@@ -307,6 +339,23 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 .content-services .item-service h3 { text-align: center; position: absolute; top: 68%; left: 50%; -webkit-transform: translate(-50%); -moz-transform: translate(-50%); -ms-transform: translate(-50%); transform: translate(-50%); font-size: 1.8rem; font-weight: bold; width: 91%; color: #0D3153; z-index: 99; }
 
 /*============END SERVICES HOME=================*/
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .content-services .box-head-services p { width: 80%; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .content-services .item-service h3 { font-size: 1.2rem; top: 50%; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .content-services .box-head-services p { width: 100%; } }
+/* =================== END RESPONSIVE ======================= */
 .content-framework { padding: 50px; }
 .content-framework .box-head-framework { margin-bottom: 30px; }
 .content-framework .box-head-framework > p { width: 60%; text-align: left; margin: auto; }
@@ -317,6 +366,29 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 .content-framework .item-framework .include-process .include-process-item { font-size: 24px; position: relative; padding-left: 30px; font-weight: 100; }
 .content-framework .item-framework .include-process .include-process-item:before { content: ""; display: inline-block; position: absolute; left: 0; top: 7px; width: 20px; height: 20px; background: url("../images/icon-checked.png") no-repeat center center; background-size: 100%; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .content-framework .item-framework { min-height: auto; margin-bottom: 15px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .content-framework { padding: 0; }
+  .content-framework .btn-green-env { padding: 10px 20px; white-space: normal; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .content-framework .box-head-framework > p { width: 100%; }
+  .content-framework .item-framework h3 { font-size: 24px; }
+  .content-framework .item-framework p { font-size: 16px; }
+  .content-framework .item-framework .title-include { font-size: 24px; }
+  .content-framework .item-framework .include-process .include-process-item { font-size: 18px; }
+  .content-framework .btn-green-env { font-size: .8rem; } }
+/* =================== END RESPONSIVE ======================= */
 .content-reasons { padding: 80px 0; }
 .content-reasons .box-head-reasons { margin-bottom: 30px; }
 .content-reasons .box-head-reasons h2 { text-transform: inherit; width: 70%; margin: auto; margin-bottom: 70px; }
@@ -326,10 +398,44 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 .content-reasons .box-clients h3 { font-size: 1.3rem; margin-bottom: 15px; font-weight: 400; line-height: 1.3; }
 .content-reasons .box-clients .btn-gray-env { white-space: normal; padding: 10px 20px; }
 
-.content-contact-quote-book { color: #ffffff; padding: 70px 0; }
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .content-reasons .box-head-reasons h2 { margin-bottom: 0; font-size: 1.5rem; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+/* =================== END RESPONSIVE ======================= */
+.content-contact-quote-book { color: #ffffff; padding: 70px auto; }
 .content-contact-quote-book h4 { text-transform: uppercase; font-size: 1.8rem; font-weight: bold; padding-bottom: 15px; }
 .content-contact-quote-book p { font-size: 1.3rem; padding-bottom: 15px; width: 70%; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .content-contact-quote-book h4 { padding-bottom: 0; }
+  .content-contact-quote-book p { padding-bottom: 0; }
+  .content-contact-quote-book .btn-green-env { margin-bottom: 30px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .content-contact-quote-book h4 { font-size: 1.5rem; }
+  .content-contact-quote-book p { font-size: 1rem; } }
+/* =================== END RESPONSIVE ======================= */
 /*============BLOG HOME=================*/
 .content-blog { margin-bottom: 80px; }
 .content-blog .box-head-blog { margin-bottom: 30px; }
@@ -395,6 +501,22 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 .content-subcribe .box-head-subcribe h2, .content-subcribe .box-head-subcribe p { color: #ffffff; padding-bottom: 10px; }
 .content-subcribe .input-search { margin: auto; padding: 10px 20px; width: 350px; border-radius: 5px; background: transparent; border: 1px solid #ffffff; margin-bottom: 20px; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .content-subcribe .input-search { width: 100%; }
+  .content-subcribe .btn-blue-env { white-space: normal; padding: 10px 20px; font-size: 1rem; width: 100%; } }
+/* =================== END RESPONSIVE ======================= */
 /* ======================FOOTER============== */
 footer { padding-top: 100px; background: #0D3153; color: #ffffff; }
 footer a { color: #ffffff; }

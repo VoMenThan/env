@@ -1,6 +1,6 @@
 .content-contact-quote-book{
 	color: $color-white;
-	padding: 70px 0;
+	padding: 70px auto;
 	h4{
 		text-transform: uppercase;
 		font-size: 1.8rem;
@@ -13,3 +13,51 @@
 		width: 70%;
 	}
 }
+
+
+
+/* =================== RESPONSIVE ======================= */
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+	.content-contact-quote-book {
+		h4{
+			padding-bottom: 0;
+		}
+		p{
+			padding-bottom: 0;
+		}
+		.btn-green-env{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+	.content-contact-quote-book {
+		h4{
+			font-size: 1.5rem;
+		}
+		p{
+			font-size: 1rem;
+		}
+	}
+}
+
+/* =================== END RESPONSIVE ======================= */

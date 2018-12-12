@@ -22,7 +22,7 @@
 			.icon-industry{
 				display: none;
 				&.ac{
-					display: block;
+					display: inline-block;
 				}
 			}
 		}
@@ -92,7 +92,16 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.content-industries {
+		.item-industry {
+			text-align: center;
+			padding: 20px 10px;
+			.excerpt{
+				display: none;
+			}
 
+		}
+	}
 }
 
 /* 	================================================================
@@ -108,7 +117,13 @@
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
 @media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {
-
+	.content-industries {
+		.box-head-industries {
+			p{
+				width: 100%;
+			}
+		}
+	}
 }
 
 

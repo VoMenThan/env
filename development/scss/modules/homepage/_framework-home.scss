@@ -49,3 +49,69 @@
         }
     }
 }
+
+
+/* =================== RESPONSIVE ======================= */
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+	.content-framework {
+		.item-framework{
+			min-height: auto;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	.content-framework {
+		padding: 0;
+		.btn-green-env{
+			padding: 10px 20px;
+			white-space: normal;
+		}
+	}
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+
+	.content-framework {
+		.box-head-framework > p{
+			width: 100%;
+		}
+		.item-framework {
+			h3 {
+				font-size: 24px;
+			}
+			p {
+				font-size: 16px;
+			}
+			.title-include{
+				font-size: 24px;
+			}
+			.include-process {
+				.include-process-item {
+					font-size: 18px;
+				}
+			}
+		}
+		.btn-green-env{
+			font-size: .8rem;
+		}
+	}
+
+}
+
+/* =================== END RESPONSIVE ======================= */
