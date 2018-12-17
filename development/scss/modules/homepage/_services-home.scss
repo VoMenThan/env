@@ -18,11 +18,15 @@
 			&:before{
 				background: rgba(13, 49, 83, 0.7);
 			}
-			h3{
-				color: $color-white;
-			}
 			img{
 				@include transformScale(1.1);
+			}
+			p{
+				display: block !important;
+			}
+			h3{
+				color: $color-white !important;
+				text-align: left !important;
 			}
 		}
 		&:before{
@@ -43,17 +47,25 @@
 			transition: .3s;
 			@include box-shadow(4px, 4px, 15px, rgba(0, 0, 0, 0.25), $inset: false);
 		}
-		h3{
-			text-align: center;
+
+		.box-info-services{
 			position: absolute;
-			top: 68%;
+			top: 50%;
 			left: 50%;
-			@include translate-x(-50%);
-			font-size: 1.8rem;
-			font-weight: bold;
-			width: 91%;
-			color: $color-blue-logo;
 			z-index: 99;
+			width: 91%;
+			@include translate(-50%, -50%);
+			h3{
+				text-align: center;
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: $color-blue-logo;
+				margin-bottom: 10px;
+			}
+			p{
+				display: none;
+				color: $color-white;
+			}
 		}
 	}
 
@@ -83,11 +95,18 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.content-services {
+		margin-bottom: 50px;
 		.item-service {
-			h3{
-				font-size: 1.2rem;
-				top: 50%;
+			.box-info-services{
+				h3{
+					font-size: 1.2rem;
+					text-align: center !important;
+				}
+				p{
+					display: none !important;
+				}
 			}
+
 		}
 	}
 }
@@ -99,6 +118,7 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
 	.content-services {
+		margin-bottom: 30px;
 		.box-head-services {
 			p{
 				width: 100%;

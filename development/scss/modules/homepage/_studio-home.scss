@@ -30,5 +30,41 @@
 	}
 }
 .section-studio{
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 }
+
+/* =================== RESPONSIVE ======================= */
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	.content-studio {
+		.box-head-blog {
+			h2{
+				width: 70%;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+
+}
+
+/* =================== END RESPONSIVE ======================= */

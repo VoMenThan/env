@@ -164,7 +164,17 @@ footer {
 	MEDIUM DEVICE
 	Large tablet 992px and down (<992px)
 	================================================================== */
-@media screen and (max-width: $device-size-large) {}
+@media screen and (max-width: $device-size-large) {
+    footer {
+        .list-social{
+            position: static;
+            margin-bottom: 25px;
+        }
+        .box-info-footer {
+            margin-bottom: 25px;
+        }
+    }
+}
 
 /* 	================================================================
 	SMALL DEVICE
@@ -183,4 +193,27 @@ footer {
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
-@media screen and (max-width: $device-size-mobile) {}
+@media screen and (max-width: $device-size-mobile) {
+    footer {
+        .form-start-project {
+            input[type*="file"]{
+                width: 100%;
+            }
+        }
+        .section-donate {
+            .box-policy {
+                a{
+                    margin-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+            .btn-donate{
+                margin-bottom: 0;
+                margin-top: 15px;
+            }
+        }
+        .label-form-project{
+            font-size: 1.5rem;
+        }
+    }
+}

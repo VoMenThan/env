@@ -16,16 +16,16 @@
                         Follow us:
                     </li>
                     <li class="nav-item px-1">
-                        <a class="nav-link link-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="nav-link link-twitter" href="https://twitter.com/Envzone"><i class="fa fa-twitter"></i></a>
                     </li>
                     <li class="nav-item px-1">
-                        <a class="nav-link link-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="nav-link link-facebook" href="https://www.facebook.com/envzone/"><i class="fa fa-facebook"></i></a>
                     </li>
                     <li class="nav-item px-1">
-                        <a class="nav-link link-linkedin"  href="#"><i class="fa fa-linkedin"></i></a>
+                        <a class="nav-link link-linkedin"  href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
                     </li>
                     <li class="nav-item px-1">
-                        <a class="nav-link link-google" href="#"><i class="fa fa-google-plus"></i></a>
+                        <a class="nav-link link-google" href="https://plus.google.com/+EnvZoneWashington"><i class="fa fa-google-plus"></i></a>
                     </li>
                 </ul>
             </div>
@@ -109,7 +109,7 @@
                 <div class="col-xl-2">
                     <img class="img-fluid" src="images/img-society-same.png">
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8 col-12">
                     <div class="description-same">
                         We were delighted to have been given the opportunity to sponsor the Society of American Military Engineers Denver Post. For the promotion of this Non-Profit Organization’s dedication to National Security, a small immediate donation from you or your organization would help us to continue our journey to show the appreciation to this great organization.
                     </div>
@@ -153,6 +153,7 @@
 <script>
 /*============ slide news =================*/
 $(document).ready(function() {
+
     $('.slider-home').owlCarousel({
         loop: true,
         margin: 0,
@@ -179,12 +180,15 @@ $(document).ready(function() {
         loop: true,
         margin: 0,
         nav: false,
-        dots: true,
+        dots: false,
         autoplay: false,
         navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
         responsive: {
             0: {
                 items: 1
+            },
+            425: {
+                items: 2
             },
             768: {
                 items: 3
@@ -244,30 +248,27 @@ $('#modal-notmiss').modal({
 
 
 /*============ custom scroll =================*/
+
 (function($) {
     $(window).on("load", function() {
         $(".content-scroll").mCustomScrollbar({ theme: "3d" });
     });
 })(jQuery);
+
 /*============ end custom scroll =================*/
 
 
-// function sticky_relocate() {
-//     var window_top = $(window).scrollTop();
-//     var div_top = $('#sticky-anchor').offset().top;
-//     var div_top_menu = $('#sticky-menu-anchor').offset().top;
+function sticky_relocate() {
+    var window_top = $(window).scrollTop();
+    var div_top_menu = $('#sticky-menu-anchor').offset().top;
 
-//     if (window_top >= div_top) {
-//         $('#sticky').addClass('stick');
-//     }else {
-//         $('#sticky').removeClass('stick');            }
-
-//     if (window_top >= div_top_menu) {
-//         $('#sticky-menu').addClass('stick');
-//     }else {
-//         $('#sticky-menu').removeClass('stick');
-//     }
-// }
+    if (window_top >= div_top_menu) {
+        $('#sticky-menu').addClass('stick');
+    }
+    else if(window_top < (div_top_menu + 120)){
+        $('#sticky-menu').removeClass('stick');
+    }
+};
 
 // $(function() {
 //     var win_width = $(window).width();
@@ -275,8 +276,10 @@ $('#modal-notmiss').modal({
 //         $(window).scroll(sticky_relocate);
 //         sticky_relocate();
 //     }
-
+//
+//
 // });
+
 </script>
 </body>
 
