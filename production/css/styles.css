@@ -615,9 +615,26 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
   footer .section-donate .box-policy a { margin-left: 15px; padding-right: 15px; }
   footer .section-donate .btn-donate { margin-bottom: 0; margin-top: 15px; }
   footer .label-form-project { font-size: 1.5rem; } }
-.about-us-page .box-introduct { width: 50%; padding-bottom: 30px; }
-.about-us-page .item-about h3 { margin-bottom: 15px; color: #0D3153; font-size: 1.5rem; font-weight: bold; position: relative; }
-.about-us-page .item-about h3:before { content: ""; display: block; width: 50px; height: 7px; background: #8DC63F; position: absolute; left: 0; top: -10px; }
+.about-us-page .box-introduct { width: 50%; padding-bottom: 30px; margin: auto; }
+.about-us-page .box-introduct .title-head-blue { text-align: center; margin-bottom: 1rem; }
+.about-us-page .box-introduct p { position: relative; }
+.about-us-page .box-introduct p > i { position: absolute; left: -30px; top: 3px; font-size: 1.5rem; color: #8DC63F; }
+.about-us-page .box-two-col-full { background: #8DC63F; padding: 100px 0; }
+.about-us-page .box-two-col-full .title-head-blue { margin-bottom: 30px; }
+.about-us-page .box-two-col-full .description-different p { font-size: 1.8rem; color: #0D3153; padding-right: 30%; }
+.about-us-page .box-two-col-full .list-different { width: 100%; }
+.about-us-page .box-two-col-full .list-different li { background: #0D3153; padding: 5px 20px; font-size: 1.3rem; color: #ffffff; margin-bottom: 30px; min-height: 72px; }
+.about-us-page .box-what-we-see .title-head-blue { margin-bottom: 30px; }
+.about-us-page .box-what-we-see .box-blue { background: #0D3153; color: #ffffff; padding: 20px; height: 100%; }
+.about-us-page .box-what-we-see .box-blue h3 { color: #8DC63F; padding-bottom: 30px; text-align: center; }
+.about-us-page .box-why-business { background: url("../images/bg-why-business.png") no-repeat; background-size: cover; text-align: center; color: #ffffff; padding: 100px 0; }
+.about-us-page .box-why-business h2 { color: #8DC63F; }
+.about-us-page .box-why-business .description-business { font-size: 1.5rem; font-weight: 400; width: 50%; margin: auto; margin-bottom: 30px; }
+.about-us-page .box-why-business .item-reason { background: #8DC63F; padding: 15px; }
+.about-us-page .box-why-business .item-reason i { font-size: 2rem; color: #0D3153; }
+.about-us-page .box-why-business .box-dedicated { padding: 30px 0; }
+.about-us-page .box-why-business .box-dedicated h4 { color: #8DC63F; margin-bottom: 30px; }
+.about-us-page .box-why-business .box-dedicated p { text-align: left; }
 
 .careers-page .item-career { margin-bottom: 50px; margin-top: 50px; }
 .careers-page .item-career h3 { margin-bottom: 15px; color: #0D3153; font-size: 1.5rem; font-weight: bold; position: relative; }
@@ -674,9 +691,6 @@ section.transportation-page .item-offer p { text-align: center; }
 .technology-consulting-page .box-circle { width: 300px; height: 300px; border: 2px solid #8DC63F; border-radius: 50%; text-align: center; font-size: 2rem; margin: auto; }
 .technology-consulting-page .list-technology li { padding: 10px 20px; text-align: center; background: #8DC63F; margin: 20px 0; border-radius: 20px; color: #ffffff; }
 
-.blog-page .box-breadcrumb { color: #0D3153; }
-.blog-page .box-breadcrumb .you-here { float: left; color: #0D3153; font-weight: bold; }
-.blog-page .box-breadcrumb .breadcrumb { background: transparent; padding: inherit; padding-left: 15px; }
 .blog-page .highlight-news img { margin-bottom: 15px; }
 .blog-page .highlight-news h2 { font-size: 1.9rem; padding-bottom: 15px; }
 .blog-page .highlight-news .audit { font-size: 1.2rem; padding-bottom: 10px; color: #333333; }
@@ -816,6 +830,11 @@ section.transportation-page .item-offer p { text-align: center; }
 /*============EMBED VIDEO=================*/
 .embed-video { position: relative; padding-bottom: 56.25%; }
 .embed-video iframe, .embed-video object, .embed-video embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; }
+
+/*============BREADCRUMB PAGE=================*/
+.box-breadcrumb { color: #0D3153; }
+.box-breadcrumb .you-here { float: left; color: #0D3153; font-weight: bold; }
+.box-breadcrumb .breadcrumb { background: transparent; padding: inherit; padding-left: 15px; }
 
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
