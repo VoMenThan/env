@@ -1,4 +1,5 @@
 .about-us-page{
+	padding-bottom: 0 !important;
 	.box-introduct{
 		width: 50%;
 		padding-bottom: 30px;
@@ -62,40 +63,42 @@
 		}
 	}
 
-	.box-why-business{
-		background: url("../images/bg-why-business.png") no-repeat;
-		background-size: cover;
-		text-align: center;
-		color: $color-white;
-		padding: 100px 0;
-		h2{
-			color: $color-green-logo;
-		}
-		.description-business{
-			font-size: 1.5rem;
-			font-weight: 400;
-			width: 50%;
-			margin: auto;
-			margin-bottom: 30px;
-		}
-		.item-reason{
-			background: $color-green-logo;
-			padding: 15px;
-			i{
-				font-size: 2rem;
-				color: $color-blue-logo;
-			}
-		}
-		.box-dedicated{
-			padding: 30px 0;
-			h4{
-				color: $color-green-logo;
-				margin-bottom: 30px;
-			}
-			p{
-				text-align: left;
-			}
+
+
+}
+
+.box-why-business{
+	background: url("../images/bg-why-business.png") no-repeat;
+	background-size: cover;
+	text-align: center;
+	color: $color-white;
+	padding: 100px 0;
+	h2{
+		color: $color-green-logo;
+	}
+	.description-business{
+		font-size: 1.5rem;
+		font-weight: 400;
+		width: 50%;
+		margin: auto;
+		margin-bottom: 30px;
+	}
+	.item-reason{
+		background: $color-green-logo;
+		padding: 15px;
+		i{
+			font-size: 2rem;
+			color: $color-blue-logo;
 		}
 	}
-
+	.box-dedicated{
+		padding: 30px 0;
+		h4{
+			color: $color-green-logo;
+			margin-bottom: 30px;
+		}
+		p{
+			text-align: left;
+		}
+	}
 }

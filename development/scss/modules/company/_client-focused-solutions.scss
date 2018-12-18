@@ -1,0 +1,52 @@
+.client-focused-solutions-page{
+  padding-bottom: 0 !important;
+  .box-green{
+    padding: 50px 30px;
+    background: $color-green-logo;
+    .title-blue-center{
+      color: $color-blue-logo;
+      font-size: 2rem;
+      padding-right: 30%;
+      font-weight: bold;
+    }
+    .box-info{
+      h3{
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+      }
+      p{
+        font-size: 1.2rem;
+        color: $color-white;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .box-staff{
+    .box-paragraph{
+      article.paragraph{
+        text-align: right;
+        p{
+          text-align: left;
+        }
+        .learn-more{
+          color: $color-blue-logo;
+          display: inline-block;
+        }
+      }
+    }
+    .box-img{
+      position: relative;
+      h3{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%, -50%);
+        color: $color-green-logo;
+      }
+      img{
+        width: 100%;
+      }
+    }
+  }
+}

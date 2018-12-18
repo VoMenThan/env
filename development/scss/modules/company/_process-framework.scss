@@ -1,0 +1,116 @@
+.process-framework-page{
+  padding-bottom: 0 !important;
+
+  .title-top{
+    text-align: center;
+  }
+  .box-introduct{
+    width: 50%;
+    padding-bottom: 30px;
+    margin: auto;
+    .title-head-blue{
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    p{
+      position: relative;
+      >i{
+        position: absolute;
+        left: -35px;
+        top: 30px;
+        font-size: 1.5rem;
+        color: $color-green-logo;
+        &.icon-one{
+          @include setBackgroundIcon(20px, '../images/icon-one.svg');
+        }
+        &.icon-two{
+          @include setBackgroundIcon(20px, '../images/icon-two.svg');
+        }
+        &.icon-three{
+          @include setBackgroundIcon(20px, '../images/icon-three.svg');
+        }
+        &.icon-four{
+          @include setBackgroundIcon(20px, '../images/icon-four.svg');
+        }
+      }
+
+    }
+  }
+
+  .box-list-deliverables{
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+    h4{
+      font-size: 2rem;
+      font-weight: bold;
+      color: $color-blue-logo;
+    }
+    h5{
+      padding-top: 30px;
+      padding-bottom: 30px;
+      color: $color-blue-logo;
+    }
+    .item-discovery{
+      background: rgba(13, 49, 83, .7);
+      padding: 15px;
+      color: $color-white;
+      text-align: center;
+      height: 100%;
+      h6{
+        color: $color-white;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      i{
+        margin-bottom: 10px;
+      }
+      i.icon-proposals{
+        @include setBackgroundIcon(60px, '../images/icon-proposals.svg');
+      }
+      i.icon-needs-assessment{
+        @include setBackgroundIcon(60px, '../images/icon-needs-assessment.svg');
+      }
+      i.icon-initial-meeting{
+        @include setBackgroundIcon(60px, '../images/icon-initial-meeting.svg');
+      }
+      i.icon-team-selection{
+        @include setBackgroundIcon(60px, '../images/icon-team-selection.svg');
+      }
+      i.icon-detailed-requirements{
+        @include setBackgroundIcon(60px, '../images/icon-detailed-requirements.svg');
+      }
+      i.icon-wireframes{
+        @include setBackgroundIcon(60px, '../images/icon-wireframes.svg');
+      }
+      i.icon-research{
+        @include setBackgroundIcon(60px, '../images/icon-research.svg');
+      }
+      i.icon-detailed-quote{
+        @include setBackgroundIcon(60px, '../images/icon-detailed-quote.svg');
+      }
+      i.icon-predefined-sprints{
+        @include setBackgroundIcon(60px, '../images/icon-predefined-sprints.svg');
+      }
+      i.icon-quality-assurance{
+        @include setBackgroundIcon(60px, '../images/icon-quality-assurance.svg');
+      }
+      i.icon-deployment-and-launch{
+        @include setBackgroundIcon(60px, '../images/icon-deployment-and-launch.svg');
+      }
+      p{
+        text-align: left;
+      }
+    }
+  }
+
+  .box-approach{
+    text-align: center;
+    padding-bottom: 30px;
+    .title-green{
+      color: $color-green-logo;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+}
