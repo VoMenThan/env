@@ -691,6 +691,36 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .client-focused-solutions-page .box-staff .box-img h3 { position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #8DC63F; }
 .client-focused-solutions-page .box-staff .box-img img { width: 100%; }
 
+.partnership-page { padding-bottom: 0 !important; }
+.partnership-page .box-header { margin-bottom: 30px; }
+.partnership-page .title-head-blue { text-transform: initial; }
+.partnership-page .info-partnership { margin-bottom: 50px; }
+.partnership-page .info-partnership .box-info { background: #0D3153; float: left; width: 60%; height: 100%; padding: 50px 40px; color: #ffffff; font-size: 1.3rem; }
+.partnership-page .info-partnership .box-title { background: #8DC63F; width: 40%; height: 100%; float: left; }
+.partnership-page .info-partnership .box-title h2 { text-align: center; width: 70%; }
+.partnership-page .box-two-col { text-align: center; }
+.partnership-page .box-two-col i { font-size: 3rem; margin-bottom: 1rem; }
+.partnership-page .box-two-col .box-green { width: 50%; float: left; background: #8DC63F; height: 100%; padding: 40px; color: #0D3153; }
+.partnership-page .box-two-col .box-green h4 { padding-bottom: 1rem; }
+.partnership-page .box-two-col .box-green p { text-align: left; }
+.partnership-page .box-two-col .box-blue { width: 50%; float: left; background: #0D3153; height: 100%; padding: 40px; color: #8DC63F; }
+.partnership-page .box-two-col .box-blue h4 { color: #8DC63F; padding-bottom: 1rem; }
+.partnership-page .box-two-col .box-blue p { text-align: left; }
+
+.lead-contact-form-page .box-contact-topic { border: 1px solid #C4C4C4; }
+.lead-contact-form-page .box-contact-topic .label-header { padding: 15px; background: #0D3153; text-align: center; color: #ffffff; font-size: 1.5rem; }
+.lead-contact-form-page .box-contact-topic article { padding: 15px; }
+.lead-contact-form-page .box-contact-topic article h4 { font-size: 1.2rem; }
+.lead-contact-form-page .box-contact-topic article .name-label { color: #000000; }
+.lead-contact-form-page .box-visit-envzone .col-green { width: 40%; float: left; height: 100%; background: #8DC63F; padding: 30px; color: #000000; }
+.lead-contact-form-page .box-visit-envzone .col-green h4 { padding-bottom: 30px; font-size: 1.4rem; }
+.lead-contact-form-page .box-visit-envzone .box-img { width: 60%; float: left; }
+.lead-contact-form-page .btn-green-env { width: 100%; }
+.lead-contact-form-page .icon-direction { width: 25px; height: 25px; background: url("../images/icon-direction.svg") no-repeat center; display: inline-block; background-size: 100%; vertical-align: bottom; }
+.lead-contact-form-page .international-header { font-size: 1.5rem; color: #000000; padding: 30px 0; padding-bottom: 15px; }
+.lead-contact-form-page .international-office { color: #000000; }
+.lead-contact-form-page .international-office h5 { padding-bottom: 15px; padding-top: 15px; }
+
 section.energy-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-bottom: 30px; border-radius: 10px; min-height: 290px; }
 section.energy-page .item-offer img { margin-bottom: 20px !important; display: block; }
 section.energy-page .item-offer p { text-align: center; }

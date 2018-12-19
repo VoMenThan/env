@@ -1,0 +1,70 @@
+.partnership-page{
+  padding-bottom: 0 !important;
+  .box-header{
+    margin-bottom: 30px;
+  }
+    .title-head-blue{
+      text-transform: initial;
+    }
+
+  .info-partnership{
+    margin-bottom: 50px;
+    .box-info{
+      background: $color-blue-logo;
+      float: left;
+      width: 60%;
+      height: 100%;
+      padding: 50px 40px;
+      color: $color-white;
+      font-size: 1.3rem;
+
+    }
+    .box-title{
+      background: $color-green-logo;
+      width: 40%;
+      height: 100%;
+      float: left;
+      h2{
+        text-align: center;
+        width: 70%;
+      }
+    }
+  }
+
+  .box-two-col{
+    text-align: center;
+    i{
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .box-green{
+      width: 50%;
+      float: left;
+      background: $color-green-logo;
+      height: 100%;
+      padding: 40px;
+      color: $color-blue-logo;
+      h4{
+        padding-bottom: 1rem;
+      }
+      p{
+        text-align: left;
+      }
+    }
+    .box-blue{
+      width: 50%;
+      float: left;
+      background: $color-blue-logo;
+      height: 100%;
+      padding: 40px;
+      color: $color-green-logo;
+      h4{
+        color: $color-green-logo;
+        padding-bottom: 1rem;
+      }
+      p{
+        text-align: left;
+      }
+    }
+  }
+}
