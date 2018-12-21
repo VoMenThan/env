@@ -1,58 +1,48 @@
-.banner-careers{
-  h2{
-    -webkit-transform: translate(-50%) !important;
-    -moz-transform: translate(-50%) !important;
-    -ms-transform: translate(-50%) !important;
-    transform: translate(-50%) !important;
-  }
-}
-.careers-page{
-  .img-careers{
-    margin-top: -40%;
-  }
-  .box-careers{
-    padding: 30px 0;
-    h4{
-      padding-bottom: 15px;
-      padding-top: 15px;
-      text-align: center;
-      border-top: 2px solid $color-gray-border;
-      border-bottom: 1px solid $color-gray-border;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
+.vendor-contact-form-page{
+  article{
+    margin-bottom: 2rem;
   }
 
-  .article-benefits{
-    h4{
-      margin-bottom: 30px;
-    }
-    .item-benefit{
+  .box-already-registered{
+    .col-blue{
+      width: 50%;
+      float: left;
+      height: 100%;
+      background: $color-blue-logo;
+      padding: 30px;
+      color: $color-black;
       text-align: center;
-      margin-bottom: 30px;
-      p{
-        color: $color-blue-lv1;
-        font-size: 1.25rem;
+      .title-already{
+        font-size: 1.4rem;
+        color: $color-white;
+        a{
+          color: $color-green-logo;
+        }
       }
-      .icon-insurance{
-        @include setBackgroundIcon(100px, "../images/icon-insurance.svg");
-      }
-      .icon-discounte-gym{
-        @include setBackgroundIcon(100px, "../images/icon-discounte-gym.svg");
-      }
-      .icon-medical{
-        @include setBackgroundIcon(100px, "../images/icon-medical.svg");
-      }
-      .icon-commuter-program{
-        @include setBackgroundIcon(100px, "../images/icon-commuter-program.svg");
-      }
-      .icon-vacation-pto{
-        @include setBackgroundIcon(100px, "../images/icon-vacation-pto.svg");
-      }
-      .icon-stocked-kitchen{
-        @include setBackgroundIcon(100px, "../images/icon-stocked-kitchen.svg");
-      }
-
+    }
+    .box-img{
+      width: 50%;
+      float: left;
+    }
+  }
+  .box-email-us{
+    .box-blue{
+      width: 80%;
+      float: left;
+      height: 100%;
+      background: $color-blue-logo;
+      padding: 30px;
+      color: $color-white;
+      text-align: center;
+    }
+    .box-green{
+      width: 20%;
+      float: left;
+      height: 100%;
+      background: $color-green-logo;
+      padding: 30px;
+      color: $color-blue-logo;
+      text-align: center;
     }
   }
 }
@@ -64,21 +54,8 @@
 	EXTRA LARGE DEVICE
 	Large desktop 1200px and up (1200px)
 	================================================================== */
-@media screen and (max-width: $device-size-extra-large) {
-  .banner-careers{
-    h2{
-      left: 50% !important;
-      -webkit-transform: translate(-50%) !important;
-      -moz-transform: translate(-50%) !important;
-      -ms-transform: translate(-50%) !important;
-      transform: translate(-50%) !important;
-    }
-  }
-  .careers-page {
-    .img-careers {
-      margin-top: -20%;
-    }
-  }
+@media screen and (min-width: $device-size-extra-large) {
+
 }
 
 

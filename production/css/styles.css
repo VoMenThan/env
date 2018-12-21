@@ -27,7 +27,7 @@ ul li { list-style-type: none; }
 
 * { font-family: "Raleway", sans-serif; }
 
-body { font-size: "Raleway", sans-serif; color: #6E716D; }
+body { font-size: 16px; color: #6E716D; }
 
 /* =================== HEADER ======================= */
 /* =================== NAVIGATION ======================= */
@@ -567,7 +567,7 @@ footer .label-form-project { font-size: 30px; }
 footer .form-start-project input[type*="text"] { width: 100%; background: transparent; border: 1px solid #6E716D; padding: 10px; margin: 15px 0; color: #ffffff; }
 footer .form-start-project textarea { width: 100%; background: transparent; border: 1px solid #6E716D; padding: 18px; margin: 15px 0; color: #ffffff; }
 footer .form-start-project .btn-green-env { background: #8DC63F; color: #ffffff; text-align: center; width: 100%; }
-footer .box-info-footer .label-menu-footer { padding: 10px 0; border-bottom: 1px solid; margin-bottom: 10px; width: 65%; font-weight: bold; letter-spacing: 1px; }
+footer .box-info-footer .label-menu-footer { padding: 10px 0; border-bottom: 1px solid #ffffff; margin-bottom: 10px; width: 65%; font-weight: bold; letter-spacing: 1px; color: #ffffff; }
 footer .box-info-footer .list-menu-footer a:hover { color: #8DC63F; }
 footer .bg-blue-lv1 { background: #021320; }
 footer .section-donate { padding-top: 30px; padding-bottom: 30px; }
@@ -624,7 +624,7 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .about-us-page .box-two-col-full .title-head-blue { margin-bottom: 30px; }
 .about-us-page .box-two-col-full .description-different p { font-size: 1.8rem; color: #0D3153; padding-right: 30%; }
 .about-us-page .box-two-col-full .list-different { width: 100%; }
-.about-us-page .box-two-col-full .list-different li { background: #0D3153; padding: 5px 20px; font-size: 1.3rem; color: #ffffff; margin-bottom: 30px; min-height: 72px; }
+.about-us-page .box-two-col-full .list-different li { background: #0D3153; padding: 5px 20px; font-size: 1.3rem; color: #ffffff; margin-bottom: 30px; min-height: 72px; text-transform: uppercase; }
 .about-us-page .box-what-we-see .title-head-blue { margin-bottom: 30px; }
 .about-us-page .box-what-we-see .box-blue { background: #0D3153; color: #ffffff; padding: 20px; height: 100%; }
 .about-us-page .box-what-we-see .box-blue h3 { color: #8DC63F; padding-bottom: 30px; text-align: center; }
@@ -632,19 +632,108 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .box-why-business { background: url("../images/bg-why-business.png") no-repeat; background-size: cover; text-align: center; color: #ffffff; padding: 100px 0; }
 .box-why-business h2 { color: #8DC63F; }
 .box-why-business .description-business { font-size: 1.5rem; font-weight: 400; width: 50%; margin: auto; margin-bottom: 30px; }
-.box-why-business .item-reason { background: #8DC63F; padding: 15px; }
+.box-why-business .item-reason { background: #8DC63F; padding: 15px; height: 100%; }
 .box-why-business .item-reason i { font-size: 2rem; color: #0D3153; }
 .box-why-business .box-dedicated { padding: 30px 0; }
 .box-why-business .box-dedicated h4 { color: #8DC63F; margin-bottom: 30px; }
 .box-why-business .box-dedicated p { text-align: left; }
 
-.careers-page .item-career { margin-bottom: 50px; margin-top: 50px; }
-.careers-page .item-career h3 { margin-bottom: 15px; color: #0D3153; font-size: 1.5rem; font-weight: bold; position: relative; }
-.careers-page .item-career h3:before { content: ""; display: block; width: 50px; height: 7px; background: #8DC63F; position: absolute; left: 0; top: -10px; }
-.careers-page .item-career .btn-align-right { position: absolute; right: 15px; bottom: 0; z-index: 99; }
-.careers-page .item-career .btn-align-left { position: absolute; left: 15px; bottom: 0; z-index: 99; }
-.careers-page .bg-blue-lv4 { background: rgba(69, 103, 138, 0.3); }
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .about-us-page .box-introduct { width: 100%; padding-left: 30px; }
+  .about-us-page .box-introduct .title-head-blue { text-align: left; }
+  .about-us-page .box-two-col-full { padding: 50px 0; }
+  .about-us-page .box-two-col-full .list-different li { min-height: 70px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
+  .about-us-page .box-two-col-full .description-different p { padding-right: 0; font-size: 1.5rem; }
+  .box-why-business .description-business { width: 100%; font-size: 1.2rem; }
+  .box-why-business h2 { font-size: 1.5rem; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .about-us-page .box-two-col-full .title-head-blue { margin-bottom: 0; }
+  .about-us-page .box-two-col-full .description-different p { font-size: 1.125rem; }
+  .about-us-page .box-two-col-full .list-different li { font-size: 1rem; }
+  .about-us-page .box-what-we-see .title-head-blue { margin-bottom: 15px; }
+  .box-why-business { padding: 50px 0; }
+  .box-why-business .item-reason { padding: 10px; } }
+.banner-careers h2 { -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
 
+.careers-page .img-careers { margin-top: -40%; }
+.careers-page .box-careers { padding: 30px 0; }
+.careers-page .box-careers h4 { padding-bottom: 15px; padding-top: 15px; text-align: center; border-top: 2px solid #C4C4C4; border-bottom: 1px solid #C4C4C4; margin-top: 30px; margin-bottom: 30px; }
+.careers-page .article-benefits h4 { margin-bottom: 30px; }
+.careers-page .article-benefits .item-benefit { text-align: center; margin-bottom: 30px; }
+.careers-page .article-benefits .item-benefit p { color: #021320; font-size: 1.25rem; }
+.careers-page .article-benefits .item-benefit .icon-insurance { width: 100px; height: 100px; background: url("../images/icon-insurance.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.careers-page .article-benefits .item-benefit .icon-discounte-gym { width: 100px; height: 100px; background: url("../images/icon-discounte-gym.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.careers-page .article-benefits .item-benefit .icon-medical { width: 100px; height: 100px; background: url("../images/icon-medical.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.careers-page .article-benefits .item-benefit .icon-commuter-program { width: 100px; height: 100px; background: url("../images/icon-commuter-program.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.careers-page .article-benefits .item-benefit .icon-vacation-pto { width: 100px; height: 100px; background: url("../images/icon-vacation-pto.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.careers-page .article-benefits .item-benefit .icon-stocked-kitchen { width: 100px; height: 100px; background: url("../images/icon-stocked-kitchen.svg") no-repeat center; display: inline-block; background-size: 100%; }
+
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+@media screen and (max-width: 1200px) { .banner-careers h2 { left: 50% !important; -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
+  .careers-page .img-careers { margin-top: -20%; } }
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
 .contact-us-page .box-head-blog { margin-bottom: 50px; }
 .contact-us-page .item-contact h3 { font-size: 2rem; color: #0D3153; margin-bottom: 20px; }
 
@@ -679,6 +768,44 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .process-framework-page .box-approach { text-align: center; padding-bottom: 30px; }
 .process-framework-page .box-approach .title-green { color: #8DC63F; font-size: 1.5rem; font-weight: bold; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .process-framework-page .box-introduct { width: 70%; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .process-framework-page .box-introduct { width: 100%; padding-left: 50px; }
+  .process-framework-page .box-list-deliverables { margin-bottom: 50px; }
+  .process-framework-page .box-list-deliverables h5 { padding: 20px 0; }
+  .process-framework-page .box-list-deliverables h4 { font-size: 1.5rem; } }
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
 .client-focused-solutions-page { padding-bottom: 0 !important; }
 .client-focused-solutions-page .box-green { padding: 50px 30px; background: #8DC63F; }
 .client-focused-solutions-page .box-green .title-blue-center { color: #0D3153; font-size: 2rem; padding-right: 30%; font-weight: bold; }
@@ -691,6 +818,44 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .client-focused-solutions-page .box-staff .box-img h3 { position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #8DC63F; }
 .client-focused-solutions-page .box-staff .box-img img { width: 100%; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .client-focused-solutions-page .box-green { margin-bottom: 30px; }
+  .client-focused-solutions-page .box-green .title-blue-center { padding-right: 0; padding-bottom: 30px; }
+  .client-focused-solutions-page .box-staff .box-paragraph article.paragraph { padding: 30px 0; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .client-focused-solutions-page .box-green { padding: 20px 0; }
+  .client-focused-solutions-page .box-green .title-blue-center { font-size: 1.5rem; } }
 .partnership-page { padding-bottom: 0 !important; }
 .partnership-page .box-header { margin-bottom: 30px; }
 .partnership-page .title-head-blue { text-transform: initial; }
@@ -707,6 +872,49 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .partnership-page .box-two-col .box-blue h4 { color: #8DC63F; padding-bottom: 1rem; }
 .partnership-page .box-two-col .box-blue p { text-align: left; }
 
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: 992px) { .partnership-page .info-partnership .box-title h2 { font-size: 1.5rem; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+@media screen and (min-width: 425px) and (max-width: 576px) { .partnership-page .info-partnership .box-title, .partnership-page .info-partnership .box-info { width: 100%; height: auto; float: none; }
+  .partnership-page .info-partnership .box-title { text-align: center; padding: 15px; }
+  .partnership-page .info-partnership .box-title h2 { width: 100%; font-size: 1.5rem; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .partnership-page .info-partnership .box-title, .partnership-page .info-partnership .box-info { width: 100%; height: auto; float: none; }
+  .partnership-page .info-partnership .box-info { padding: 20px; font-size: 1rem; }
+  .partnership-page .info-partnership .box-title { text-align: center; padding: 15px; }
+  .partnership-page .info-partnership .box-title h2 { width: 100%; font-size: 1.5rem; }
+  .partnership-page .box-two-col .box-green { width: 100%; height: auto; }
+  .partnership-page .box-two-col .box-blue { width: 100%; height: auto; } }
 .lead-contact-form-page .box-contact-topic { border: 1px solid #C4C4C4; }
 .lead-contact-form-page .box-contact-topic .label-header { padding: 15px; background: #0D3153; text-align: center; color: #ffffff; font-size: 1.5rem; }
 .lead-contact-form-page .box-contact-topic article { padding: 15px; }
@@ -715,11 +923,135 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 .lead-contact-form-page .box-visit-envzone .col-green { width: 40%; float: left; height: 100%; background: #8DC63F; padding: 30px; color: #000000; }
 .lead-contact-form-page .box-visit-envzone .col-green h4 { padding-bottom: 30px; font-size: 1.4rem; }
 .lead-contact-form-page .box-visit-envzone .box-img { width: 60%; float: left; }
-.lead-contact-form-page .btn-green-env { width: 100%; }
+.lead-contact-form-page .btn-green-env.btn-100 { width: 100%; }
 .lead-contact-form-page .icon-direction { width: 25px; height: 25px; background: url("../images/icon-direction.svg") no-repeat center; display: inline-block; background-size: 100%; vertical-align: bottom; }
 .lead-contact-form-page .international-header { font-size: 1.5rem; color: #000000; padding: 30px 0; padding-bottom: 15px; }
 .lead-contact-form-page .international-office { color: #000000; }
 .lead-contact-form-page .international-office h5 { padding-bottom: 15px; padding-top: 15px; }
+
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+.vendor-contact-form-page article { margin-bottom: 2rem; }
+.vendor-contact-form-page .box-already-registered .col-blue { width: 50%; float: left; height: 100%; background: #0D3153; padding: 30px; color: #000000; text-align: center; }
+.vendor-contact-form-page .box-already-registered .col-blue .title-already { font-size: 1.4rem; color: #ffffff; }
+.vendor-contact-form-page .box-already-registered .col-blue .title-already a { color: #8DC63F; }
+.vendor-contact-form-page .box-already-registered .box-img { width: 50%; float: left; }
+.vendor-contact-form-page .box-email-us .box-blue { width: 80%; float: left; height: 100%; background: #0D3153; padding: 30px; color: #ffffff; text-align: center; }
+.vendor-contact-form-page .box-email-us .box-green { width: 20%; float: left; height: 100%; background: #8DC63F; padding: 30px; color: #0D3153; text-align: center; }
+
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+.nav-top-bar { background: #021320; }
+.nav-top-bar .nav .nav-item { background: #0D3153; }
+.nav-top-bar .nav .nav-item .nav-link { color: #ffffff; padding: 15px 30px; }
+.nav-top-bar .nav .nav-item .nav-link.active { color: #8DC63F; }
+
+.customer-support-page .box-customer-support { border: 1px solid #C4C4C4; padding: 30px 15px; }
+.customer-support-page .box-submit-topic { background: #0D3153; padding: 50px 30px; text-align: center; }
+
+/* =================== RESPONSIVE ======================= */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .nav-top-bar .nav .nav-item .nav-link { padding: 10px; font-size: .8rem; } }
+.is-envzone-a-fit-page .box-customer-support { margin-bottom: 30px; }
+.is-envzone-a-fit-page .box-unique-approach { background: #0D3153; color: white; padding: 30px; font-size: 1.25rem; }
+.is-envzone-a-fit-page .box-unique-approach .btn { white-space: normal; color: #0D3153 !important; font-weight: bold; }
+.is-envzone-a-fit-page .box-unique-approach .big { font-size: 3rem; color: #8DC63F; font-weight: bold; }
+.is-envzone-a-fit-page .box-unique-approach .list-checked { margin-bottom: 30px; }
+.is-envzone-a-fit-page .box-unique-approach .list-checked li { position: relative; padding-left: 30px; }
+.is-envzone-a-fit-page .box-unique-approach .list-checked li i { position: absolute; left: 5px; top: 5px; color: #8DC63F; }
 
 section.energy-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-bottom: 30px; border-radius: 10px; min-height: 290px; }
 section.energy-page .item-offer img { margin-bottom: 20px !important; display: block; }
@@ -859,6 +1191,10 @@ section.transportation-page .item-offer p { text-align: center; }
 
 h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 
+.head-1 { font-size: 2.25rem; margin-bottom: 1rem; font-weight: bold; }
+
+.subhead-1 { font-size: 1.625rem; margin-bottom: 1rem; font-weight: bold; }
+
 /*============BUTTON BLUE=================*/
 .btn-blue-env { color: #ffffff !important; background-color: #0D3153; border-color: #0D3153; padding: 15px 50px; }
 
@@ -909,22 +1245,36 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 .embed-video iframe, .embed-video object, .embed-video embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; }
 
 /*============BREADCRUMB PAGE=================*/
-.box-breadcrumb { color: #0D3153; }
+.box-breadcrumb { color: #0D3153; margin-bottom: 2rem; }
 .box-breadcrumb .you-here { float: left; color: #0D3153; font-weight: bold; }
 .box-breadcrumb .breadcrumb { background: transparent; padding: inherit; padding-left: 15px; }
 
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and down (< 1200px)
+	================================================================== */
+@media screen and (max-width: 1200px) { /*============BANNER TOP=================*/
+  .banner-top h2 { -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); left: 30px; } }
+/* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 992px and down (<992px)
 	================================================================== */
+@media screen and (max-width: 992px) { .btn-green-env, .btn-blue-env { white-space: normal; padding: 10px 20px; } }
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen and (max-width: 768px) { .title-head-blue { font-size: 1.7rem; }
+@media screen and (max-width: 768px) { /*============BANNER TOP=================*/
+  .banner-top h2 { -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); left: 50%; }
+  .title-head-blue { font-size: 1.7rem; }
   .bg-building { margin-bottom: 50px; }
-  .partner-home { margin-bottom: 50px; } }
+  .partner-home { margin-bottom: 50px; }
+  .banner-top h2 { font-size: 2rem; } }
 /* 	================================================================
 	LARGE MOBILE DEVICE
 	Large mobile 425px and down (<425px)
@@ -934,12 +1284,15 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
   .title-head-blue { text-align: left; font-size: 1.5rem; }
   .define-headline .view-all { top: 5px; }
   .bg-building { margin-bottom: 30px; }
-  .partner-home { margin-bottom: 30px; } }
+  .partner-home { margin-bottom: 30px; }
+  .box-breadcrumb .you-here { float: none; }
+  .box-breadcrumb .breadcrumb { padding-left: 0; } }
 /* 	================================================================
 	MOBILE DEVICE
 	Mobile 320px and down (<320px)
 	================================================================== */
-@media screen and (max-width: 320px) { .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
+@media screen and (max-width: 320px) { .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+  .banner-top h2 { font-size: 1.5rem; } }
 /* =================== END RESPONSIVE ======================= */
 
 /*# sourceMappingURL=styles.css.map */

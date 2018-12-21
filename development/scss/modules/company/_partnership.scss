@@ -68,3 +68,128 @@
     }
   }
 }
+
+/* =================== RESPONSIVE ======================= */
+
+
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and up (1200px)
+	================================================================== */
+@media screen and (min-width: $device-size-extra-large) {
+
+}
+
+
+/* 	================================================================
+	LARGE DEVICE
+	Large desktop 992px and up (>992px and <1200px)
+	================================================================== */
+@media screen and (min-width: $device-size-large) and (max-width: $device-size-extra-large) {
+
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+  .partnership-page {
+    .info-partnership {
+      .box-title {
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 768px and up (>768px and <992px)
+	================================================================== */
+@media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {
+
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+
+}
+
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {
+
+}
+
+/* 	================================================================
+	EXTRA SMALL DEVICE
+	Large mobile 425px and up (>425px and <576px)
+	================================================================== */
+@media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {
+  .partnership-page {
+    .info-partnership {
+      .box-title, .box-info{
+        width: 100%;
+        height: auto;
+        float: none;
+      }
+      .box-title{
+        text-align: center;
+        padding: 15px;
+        h2{
+          width: 100%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  .partnership-page {
+    .info-partnership {
+      .box-title, .box-info{
+        width: 100%;
+        height: auto;
+        float: none;
+      }
+      .box-info{
+        padding: 20px;
+        font-size: 1rem;
+      }
+      .box-title{
+        text-align: center;
+        padding: 15px;
+        h2{
+          width: 100%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .box-two-col {
+      .box-green{
+        width: 100%;
+        height: auto;
+      }
+      .box-blue{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

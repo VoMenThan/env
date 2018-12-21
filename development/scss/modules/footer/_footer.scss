@@ -65,11 +65,12 @@ footer {
     .box-info-footer {
         .label-menu-footer {
             padding: 10px 0;
-            border-bottom: 1px solid;
+            border-bottom: 1px solid $color-white;
             margin-bottom: 10px;
             width: 65%;
             font-weight: bold;
             letter-spacing: 1px;
+            color: $color-white;
         }
 
         .list-menu-footer {

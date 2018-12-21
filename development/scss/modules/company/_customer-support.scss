@@ -1,59 +1,27 @@
-.banner-careers{
-  h2{
-    -webkit-transform: translate(-50%) !important;
-    -moz-transform: translate(-50%) !important;
-    -ms-transform: translate(-50%) !important;
-    transform: translate(-50%) !important;
+.nav-top-bar{
+  background: $color-blue-lv1;
+  .nav{
+    .nav-item{
+      background: $color-blue-logo;
+      .nav-link{
+        color: $color-white;
+        padding: 15px 30px;
+        &.active{
+          color: $color-green-logo;
+        }
+      }
+    }
   }
 }
-.careers-page{
-  .img-careers{
-    margin-top: -40%;
+.customer-support-page{
+  .box-customer-support{
+    border: 1px solid $color-gray-border;
+    padding: 30px 15px;
   }
-  .box-careers{
-    padding: 30px 0;
-    h4{
-      padding-bottom: 15px;
-      padding-top: 15px;
-      text-align: center;
-      border-top: 2px solid $color-gray-border;
-      border-bottom: 1px solid $color-gray-border;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-  }
-
-  .article-benefits{
-    h4{
-      margin-bottom: 30px;
-    }
-    .item-benefit{
-      text-align: center;
-      margin-bottom: 30px;
-      p{
-        color: $color-blue-lv1;
-        font-size: 1.25rem;
-      }
-      .icon-insurance{
-        @include setBackgroundIcon(100px, "../images/icon-insurance.svg");
-      }
-      .icon-discounte-gym{
-        @include setBackgroundIcon(100px, "../images/icon-discounte-gym.svg");
-      }
-      .icon-medical{
-        @include setBackgroundIcon(100px, "../images/icon-medical.svg");
-      }
-      .icon-commuter-program{
-        @include setBackgroundIcon(100px, "../images/icon-commuter-program.svg");
-      }
-      .icon-vacation-pto{
-        @include setBackgroundIcon(100px, "../images/icon-vacation-pto.svg");
-      }
-      .icon-stocked-kitchen{
-        @include setBackgroundIcon(100px, "../images/icon-stocked-kitchen.svg");
-      }
-
-    }
+  .box-submit-topic{
+    background: $color-blue-logo;
+    padding: 50px 30px;
+    text-align: center;
   }
 }
 
@@ -64,21 +32,8 @@
 	EXTRA LARGE DEVICE
 	Large desktop 1200px and up (1200px)
 	================================================================== */
-@media screen and (max-width: $device-size-extra-large) {
-  .banner-careers{
-    h2{
-      left: 50% !important;
-      -webkit-transform: translate(-50%) !important;
-      -moz-transform: translate(-50%) !important;
-      -ms-transform: translate(-50%) !important;
-      transform: translate(-50%) !important;
-    }
-  }
-  .careers-page {
-    .img-careers {
-      margin-top: -20%;
-    }
-  }
+@media screen and (min-width: $device-size-extra-large) {
+
 }
 
 
@@ -136,5 +91,14 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+  .nav-top-bar {
+    .nav {
+      .nav-item {
+        .nav-link{
+          padding: 10px;
+          font-size: .8rem;
+        }
+      }
+    }
+  }
 }
