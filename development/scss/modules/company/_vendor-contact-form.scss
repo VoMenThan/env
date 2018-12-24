@@ -113,5 +113,25 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+  .vendor-contact-form-page {
+    .box-already-registered {
+      .col-blue{
+        width: 100%;
+        height: auto;
+      }
+      .box-img{
+        width: 100%;
+      }
+    }
+    .box-email-us {
+      .box-blue{
+        width: 70%;
+        padding: 15px;
+      }
+      .box-green{
+        width: 30%;
+        padding: 15px;
+      }
+    }
+  }
 }

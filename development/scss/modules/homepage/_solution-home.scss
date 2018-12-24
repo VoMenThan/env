@@ -1,0 +1,34 @@
+.solution-figurative{
+  padding-bottom: 80px;
+  .title-solution{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .title-major-factor{
+      font-size: 1.875rem;
+    text-align: center;
+    font-weight: bold;
+    color: $color-blue-logo;
+    margin-bottom: 130px;
+    padding: 0 30px;
+  }
+  .item-cost{
+    text-align: center;
+    font-size: 1.525rem;
+    margin-bottom: 50px;
+    img{
+      margin-bottom: 15px;
+    }
+    h5{
+      color: $color-green-logo;
+    }
+  }
+  .box-information{
+    padding: 30px;
+    border: 1px solid $color-gray-border;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+}

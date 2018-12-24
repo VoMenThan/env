@@ -182,6 +182,22 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 	================================================================== */
 @media screen and (max-width: 320px) { .slider-home.owl-theme .box-headline .head-line-envzone { font-size: 1rem; }
   .slider-home.owl-theme .box-headline .btn-green-env { font-size: .8rem; } }
+.solution-figurative { padding-bottom: 80px; }
+.solution-figurative .title-solution { width: 70%; margin: auto; text-align: center; margin-bottom: 80px; }
+.solution-figurative .title-major-factor { font-size: 1.875rem; text-align: center; font-weight: bold; color: #0D3153; margin-bottom: 130px; padding: 0 30px; }
+.solution-figurative .item-cost { text-align: center; font-size: 1.525rem; margin-bottom: 50px; }
+.solution-figurative .item-cost img { margin-bottom: 15px; }
+.solution-figurative .item-cost h5 { color: #8DC63F; }
+.solution-figurative .box-information { padding: 30px; border: 1px solid #C4C4C4; font-size: 1.5rem; margin-bottom: 30px; }
+
+.overhead-costs-page { margin-bottom: 80px; }
+.overhead-costs-page .content-overhead-costs { padding: 70px 0; }
+.overhead-costs-page .content-overhead-costs .title-overhead-costs { width: 70%; margin-bottom: 70px; }
+.overhead-costs-page .content-overhead-costs .box-description-blue { font-size: 1.875rem; font-weight: bold; padding-right: 20%; color: #0D3153; }
+.overhead-costs-page .content-overhead-costs .box-list-costs-saving { font-size: 1.5rem; }
+.overhead-costs-page .content-overhead-costs .box-list-costs-saving .list-costs li:before { content: ""; display: inline-block; background: url("../images/icon-x-green.svg") no-repeat; background-size: 100%; width: 20px; height: 20px; margin-right: 20px; }
+.overhead-costs-page .content-overhead-costs .description-overhead { width: 70%; margin: auto; color: #0D3153; font-size: 1.875rem; padding: 40px 0; }
+
 .content-about-us { margin-bottom: 80px; }
 .content-about-us article { text-align: left; }
 
@@ -950,6 +966,10 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .lead-contact-form-page .box-visit-envzone .col-green { width: 100%; height: auto; }
+  .lead-contact-form-page .box-visit-envzone .box-img { width: 100%; }
+  .lead-contact-form-page .box-visit-envzone .box-img img { width: 100%; }
+  .lead-contact-form-page .international-office { padding-bottom: 30px; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1003,6 +1023,10 @@ footer .section-donate .box-policy a:last-child { border-right: none; }
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
+@media screen and (max-width: 425px) { .vendor-contact-form-page .box-already-registered .col-blue { width: 100%; height: auto; }
+  .vendor-contact-form-page .box-already-registered .box-img { width: 100%; }
+  .vendor-contact-form-page .box-email-us .box-blue { width: 70%; padding: 15px; }
+  .vendor-contact-form-page .box-email-us .box-green { width: 30%; padding: 15px; } }
 .nav-top-bar { background: #021320; }
 .nav-top-bar .nav .nav-item { background: #0D3153; }
 .nav-top-bar .nav .nav-item .nav-link { color: #ffffff; padding: 15px 30px; }

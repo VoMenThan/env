@@ -103,7 +103,24 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+  .lead-contact-form-page {
+    .box-visit-envzone {
+      .col-green{
+        width: 100%;
+        height: auto;
+      }
+      .box-img{
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
 
+    }
+    .international-office{
+      padding-bottom: 30px;
+    }
+  }
 }
 
 /* 	================================================================

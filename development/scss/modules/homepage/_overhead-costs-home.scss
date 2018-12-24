@@ -1,0 +1,39 @@
+.overhead-costs-page{
+  margin-bottom: 80px;
+  .content-overhead-costs{
+    padding: 70px 0;
+    .title-overhead-costs{
+      width: 70%;
+      margin-bottom: 70px;
+    }
+    .box-description-blue{
+      font-size: 1.875rem;
+      font-weight: bold;
+      padding-right: 20%;
+      color: $color-blue-logo;
+    }
+    .box-list-costs-saving{
+      font-size: 1.5rem;
+      .list-costs{
+        li{
+          &:before{
+            content: "";
+            display: inline-block;
+            background: url("../images/icon-x-green.svg") no-repeat;
+            background-size: 100%;
+            width: 20px;
+            height: 20px;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    .description-overhead{
+      width: 70%;
+      margin: auto;
+      color: $color-blue-logo;
+      font-size: 1.875rem;
+      padding: 40px 0;
+    }
+  }
+}
