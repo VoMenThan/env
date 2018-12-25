@@ -4,7 +4,6 @@ header {}
 /* =================== NAVIGATION ======================= */
 nav {
     background: $color-blue-logo;
-
     &.stick {
         position: fixed !important;
         top: 0;
@@ -133,7 +132,9 @@ nav {
 
       }
     }
-
+    .box-direction-menu{
+      display: none;
+    }
     /* =================== SUB MENU ======================= */
     .sub-menu {
         z-index: 99;
@@ -311,11 +312,11 @@ nav {
           font-size: 1rem;
         }
       }
-        .btn-menu-mobile {
-            outline: none;
-            padding: 1rem;
-            color: $color-green-logo;
-        }
+      .btn-menu-mobile {
+          outline: none;
+          padding: 1rem;
+          color: $color-green-logo;
+      }
       ul.main-menu {
         .nav-item {
           .nav-link{
@@ -324,6 +325,13 @@ nav {
           }
         }
       }
+
+      .menu-bar-mobile{
+        @include setBackgroundIcon(50px, "../images/icon-menu-bar.png", 50px, auto);
+        vertical-align: middle;
+        border-right: .5px solid $color-white;
+        margin-right: 10px;
+      }
     }
 }
 
@@ -331,13 +339,29 @@ nav {
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
 	================================================================== */
-@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {}
+@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {
+  nav {
+    #menuBarMobile {
+      &.collapse{
+        display: block;
+      }
+    }
+  }
+}
 
 /* 	================================================================
 	EXTRA SMALL DEVICE
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
-@media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {}
+@media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {
+  nav {
+    #menuBarMobile {
+      &.collapse{
+        display: block;
+      }
+    }
+  }
+}
 
 
 /* 	================================================================
@@ -346,6 +370,118 @@ nav {
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
   nav {
+
+    .menu-bar-mobile{
+      i{
+        color: $color-green-logo;
+        font-size: 1.8rem;
+      }
+    }
+    .toolbar-top{
+      padding: 0;
+    }
+    #detailBoxSearch{
+      top: 0;
+      left: auto;
+      right: 50px;
+      width: calc(100% - 100px);
+      >.row{
+        margin: 0;
+      }
+      input.input-search{
+        width: 100%;
+        height: 50px;
+        border-bottom: none;
+        padding-left: 30px;
+      }
+      label{
+        display: none;
+      }
+      .btn-search{
+        display: none;
+      }
+      .box-search{
+        padding: 0;
+      }
+    }
+    .btn-search{
+      height: 50px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .icon-arrow-right{
+      @include setBackgroundIcon(30px, "../images/icon-right-arrow.svg");
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 9999;
+    }
+    #menuBarMobile{
+      position: absolute !important;
+      left: 0;
+      top: 100%;
+      z-index: 999;
+      background: $color-blue-logo;
+      width: 320px;
+      padding: 0;
+      margin: 0;
+      height: calc(100vh - 50px);
+      .nav-item{
+        position: relative;
+      }
+      .nav-link{
+        text-align: left;
+        border-bottom: .5px solid $color-white;
+      }
+      &.collapse{
+        display: none;
+        &.show{
+          display: block;
+        }
+      }
+    }
+    .box-direction-menu{
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: $color-white;
+      border-top: 1px solid $color-white;
+      .location-address{
+        padding: 30px 10px;
+        span{
+          padding: 0 10px;
+        }
+        .icon-direction{
+          @include setBackgroundIcon(40px, "../images/icon-direction-mb.svg");
+        }
+        .icon-right-arrow{
+          @include setBackgroundIcon(40px, "../images/icon-right-arrow.svg");
+        }
+      }
+      .box-portal{
+        border-top: 1px solid $color-white;
+        a{
+          color: $color-white;
+          text-align: center;
+          padding: 20px;
+          font-weight: bold;
+        }
+        .client-portal{
+          width: 50%;
+          float: left;
+          border-right: 1px solid $color-white;
+
+        }
+        .vendor-portal{
+          width: 50%;
+          float: left;
+        }
+      }
+    }
+
     .box-sub-menu {
       padding-bottom: 0;
       .title-submenu{

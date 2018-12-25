@@ -32,6 +32,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 toolbar-top">
+                        <a href="#menuBarMobile" class="d-sm-none d-inline-block menu-bar-mobile" data-toggle="collapse"
+                           role="button" aria-expanded="false" aria-controls="menuBarMobile">
+                        </a>
                         <a href="/" class="d-lg-none d-inline-block logo-envzone-mobile">
                             <img src="images/envzone-logo.png" alt="Logo Envzone">
                         </a>
@@ -39,10 +42,10 @@
                             <li class="nav-item d-lg-inline-block d-none">
                                 <span>Contact us today on:</span>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-sm-inline-block d-none">
                                 <a class="nav-link" href="tel:7206062900"><i class="icon-typical-phone" aria-hidden="true"></i> <span>720-606-2900</span></a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-sm-inline-block d-none">
                                 <a class="nav-link" href="mailto:info@envzone.com"><i class="icon-close-mail" aria-hidden="true"></i> <span>info@envzone.com</span></a>
                             </li>
                             <li class="nav-item d-lg-none d-inline-block">
@@ -62,13 +65,13 @@
                         <img src="images/envzone-logo.png" alt="Logo Envzone">
                     </a>
                     </div>
-                    <div class="col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex d-block justify-content-lg-end position-static">
+                    <div class="collapse col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex justify-content-lg-end position-static" data-toggle="collapse" id="menuBarMobile">
 
                         <div class="justify-content-lg-end w-100">
-                            <ul class="main-menu nav text-right justify-content-lg-end justify-content-between ">
+                            <ul class="main-menu nav text-right justify-content-lg-end justify-content-sm-between flex-sm-row flex-column ">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">COMPANY</a>
-
+                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
                                     <!-- BOX SUBMENU -->
                                     <div class="sub-menu text-left">
                                         <div class="container">
@@ -154,7 +157,7 @@
                                     <a class="nav-link" href="#">
                                             INDUSTRIES
                                         </a>
-
+                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
                                         <!-- BOX SUBMENU -->
                                     <div class="sub-menu text-left">
                                         <div class="container">
@@ -267,7 +270,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">SERVICES</a>
-
+                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
                                     <!-- BOX SUBMENU -->
                                     <div class="sub-menu text-left">
                                         <div class="container">
@@ -364,6 +367,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">DISCOVERY</a>
+                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
                                 </li>
                                 <li class="nav-item d-lg-inline-block d-xl-inline-block d-none">
                                     <a class="nav-link btn-search" data-toggle="collapse" href="#detailBoxSearch"
@@ -372,6 +376,22 @@
                                         </a>
                                 </li>
                             </ul>
+
+                            <div class="box-direction-menu">
+                                <div class="location-address d-flex justify-content-between align-items-center">
+                                    <i class="icon-direction"></i>
+                                    <span>
+                                        1801 California St. Ste 2400 <br>
+                                        Denver, CO 80202 <br>
+                                        M-F | 8:30 am - 5:30 pm MST
+                                    </span>
+                                    <a href="#" class="icon-right-arrow"></a>
+                                </div>
+                                <div class="box-portal clearfix">
+                                    <a href="#" class="client-portal">Client Portal</a>
+                                    <a href="#" class="vendor-portal">Vendor Portal</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
