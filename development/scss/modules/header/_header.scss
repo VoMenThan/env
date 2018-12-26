@@ -109,6 +109,7 @@ nav {
                     vertical-align: middle;
                 }
 
+
                 &[aria-expanded="true"] {
                     .icon-search {
                         @include setBackgroundIcon(20px, '../images/icon-close-green.png');
@@ -124,14 +125,27 @@ nav {
       @include setBackgroundIcon(20px, '../images/icon-search.png');
       vertical-align: middle;
     }
-
-    .nav-link[aria-expanded="true"] {
-      .icon-search {
-        @include setBackgroundIcon(20px, '../images/icon-close-green.png');
-        background-position: center center;
-
+    .icon-close-green {
+      @include setBackgroundIcon(20px, '../images/icon-close-green.png');
+      vertical-align: middle;
+    }
+    .close-menu-mb{
+      display: none !important;
+      &.active{
+        display: table-cell !important;
       }
     }
+    .btn-search{
+      &.active{
+        .icon-search {
+          @include setBackgroundIcon(20px, '../images/icon-close-green.png');
+          background-position: center center;
+
+        }
+      }
+    }
+
+
     .box-direction-menu{
       display: none;
     }
@@ -331,6 +345,10 @@ nav {
         vertical-align: middle;
         border-right: .5px solid $color-white;
         margin-right: 10px;
+        transition: .3s;
+        &.active{
+          display: none !important;
+        }
       }
     }
 }
@@ -370,6 +388,39 @@ nav {
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
   nav {
+    ul.main-menu {
+      .nav-item{
+        &:hover {
+          .sub-menu{
+            display: none !important;
+          }
+        }
+        .sub-menu{
+          &.show-submenu{
+            display: block !important;
+            height: calc(100vh - 50px);
+            top: 0;
+          }
+        }
+        .nav-link{
+          &:hover{
+          &:before{
+            display: none;
+          }
+          }
+
+          &.active{
+            &:before{
+              display: none;
+            }
+          }
+        }
+      }
+
+    }
+
+    nav ul.main-menu .nav-item .nav-link:hover:before,
+    nav ul.main-menu .nav-item .nav-link.active:before
 
     .menu-bar-mobile{
       i{
@@ -379,12 +430,48 @@ nav {
     }
     .toolbar-top{
       padding: 0;
+      .logo-envzone-mobile{
+        padding: 12px;
+        &.d-hidden{
+          display: none !important;
+        }
+      }
+
     }
+
+    .title-category{
+      color: white;
+      display: none !important;
+      padding-left: 10px;
+      &.active{
+        display: inline-block !important;
+      }
+    }
+
+    .btn-hide-submenu{
+      display: none !important;
+      background: $color-green-logo;
+      &.active{
+        display: inline-block !important;
+      }
+      .icon-left-arrow-blue{
+        @include setBackgroundIcon(50px, "../images/icon-left-arrow-blue.png", 50px, auto);
+        vertical-align: middle;
+      }
+
+      }
     #detailBoxSearch{
       top: 0;
       left: auto;
       right: 50px;
-      width: calc(100% - 100px);
+      width: 0;
+      transition: .3s;
+      &.show-obj{
+        width: calc(100% - 100px);
+        input.input-search{
+          padding-left: 30px;
+        }
+      }
       >.row{
         margin: 0;
       }
@@ -392,7 +479,7 @@ nav {
         width: 100%;
         height: 50px;
         border-bottom: none;
-        padding-left: 30px;
+        padding-left: 0;
       }
       label{
         display: none;
@@ -411,15 +498,15 @@ nav {
     }
 
     .icon-arrow-right{
-      @include setBackgroundIcon(30px, "../images/icon-right-arrow.svg");
+      @include setBackgroundIcon(20px, "../images/icon-right-arrow.svg");
       position: absolute;
       right: 10px;
-      top: 10px;
-      z-index: 9999;
+      top: 20px;
+      z-index: 9;
     }
     #menuBarMobile{
       position: absolute !important;
-      left: 0;
+      left: -100%;
       top: 100%;
       z-index: 999;
       background: $color-blue-logo;
@@ -427,8 +514,12 @@ nav {
       padding: 0;
       margin: 0;
       height: calc(100vh - 50px);
+      transition: .5s;
+      &.show-obj{
+        left: 0;
+      }
       .nav-item{
-        position: relative;
+        position: static;
       }
       .nav-link{
         text-align: left;
@@ -484,8 +575,18 @@ nav {
 
     .box-sub-menu {
       padding-bottom: 0;
+      padding-top: 0;
+      .element-sub{
+        border-bottom: 1px solid $color-white;
+      }
+      article{
+        padding: 0;
+      }
       .title-submenu{
-        font-size: 1.2rem;
+        font-size: 1rem;
+        color: $color-white;
+        padding: 12px 0;
+        display: block;
       }
       p{
         display: none;
