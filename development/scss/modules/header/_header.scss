@@ -75,7 +75,11 @@ nav {
                 line-height: 40px;
                 padding: .7rem 1.5rem;
                 position: relative;
-
+                &.btn-search-pc{
+                  &:before{
+                    display: none !important;
+                  }
+                }
                 &:hover,
                 &.active {
                     &:before {
@@ -110,7 +114,7 @@ nav {
                 }
 
 
-                &[aria-expanded="true"] {
+                &.active {
                     .icon-search {
                         @include setBackgroundIcon(20px, '../images/icon-close-green.png');
                         background-position: center center;
@@ -221,10 +225,15 @@ nav {
         top: 100%;
         left: 0;
         width: 100%;
-
+        display: none;
+        transition: .3s;
+        &.show-obj{
+          display: block;
+        }
         .box-search {
             padding: 30vh 20%;
         }
+
 
         label {
             color: $color-green-logo;
@@ -520,10 +529,22 @@ nav {
       }
       .nav-item{
         position: static;
+        &:first-child{
+          .nav-link{
+            border-top: .5px solid $color-white;
+          }
+        }
       }
       .nav-link{
         text-align: left;
         border-bottom: .5px solid $color-white;
+        &.item-call{
+          background: $color-blue-lv4;
+          .icon-phone-call{
+            @include setBackgroundIcon(30px, "../images/icon-phone-call.svg");
+            vertical-align: middle;
+          }
+        }
       }
       &.collapse{
         display: none;
@@ -577,7 +598,10 @@ nav {
       padding-bottom: 0;
       padding-top: 0;
       .element-sub{
-        border-bottom: 1px solid $color-white;
+        border-bottom: .5px solid $color-white;
+        &:first-child{
+          border-top: .5px solid $color-white;
+        }
       }
       article{
         padding: 0;
@@ -585,11 +609,34 @@ nav {
       .title-submenu{
         font-size: 1rem;
         color: $color-white;
-        padding: 12px 0;
+        padding: 17px 0;
         display: block;
       }
       p{
         display: none;
+      }
+
+      .box-check-avaibility{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        .description-check{
+          color: $color-white;
+          text-align: left;
+        }
+        .btn-blue-env{
+          color: $color-white;
+          border: 1px solid $color-white;
+          @include border-radius(5px);
+          width: 100%;
+          text-align: center;
+          margin: 10px 0;
+        }
+        .icon-arrow-down{
+          @include setBackgroundIcon(20px, "../images/icon-arrow-down.svg");
+          vertical-align: middle;
+          margin-left: 15px;
+        }
       }
     }
   }

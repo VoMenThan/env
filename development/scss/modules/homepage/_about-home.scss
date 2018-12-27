@@ -85,5 +85,25 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+	.content-about-us{
+		padding-top: 30px;
+		padding-bottom: 30px;
+		background: $color-blue-lv4;
+		text-align: center;
+		.title-head-blue{
+			text-align: center;
+			color: $color-white;
+		}
+		p{
+			text-align: center;
+			width: 80%;
+			margin: auto;
+			color: $color-white;
+		}
+		.btn-blue-env{
+			width: 100%;
+			border: 1px solid $color-white;
+			background: transparent;
+		}
+	}
 }

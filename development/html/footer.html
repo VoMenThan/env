@@ -159,7 +159,7 @@ $(document).ready(function() {
         margin: 0,
         nav: false,
         dots: true,
-        autoplay: true,
+        autoplay: false,
         navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
         responsive: {
             0: {
@@ -320,6 +320,7 @@ function select_next_element(){
 $(function () {
     toggle_obj(".btn-toggle-menu", "#menuBarMobile");
     toggle_obj(".btn-toggle-search", "#detailBoxSearch");
+    toggle_obj(".btn-search-pc", "#detailBoxSearch");
     get_attr();
     select_next_element();
 });

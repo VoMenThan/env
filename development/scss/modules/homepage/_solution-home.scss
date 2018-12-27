@@ -32,3 +32,35 @@
     margin-bottom: 30px;
   }
 }
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  .solution-figurative {
+    .title-solution{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    .title-major-factor{
+      font-size: 1.125rem;
+      padding: 0;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .item-cost {
+      h5{
+        font-size: 1.125rem;
+      }
+    }
+    .box-information{
+      font-size: 1.125rem;
+      padding: 0;
+      border: 0;
+    }
+    .btn-blue-env{
+      width: 100%;
+    }
+  }
+}

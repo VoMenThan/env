@@ -32,12 +32,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 toolbar-top">
-                        <a href="#menuBarMobile" class="d-sm-none d-inline-block menu-bar-mobile" data-toggle="collapse"
-                           role="button" aria-expanded="false" aria-controls="menuBarMobile">
-                        </a>
+                        <div class="d-sm-none d-inline-block menu-bar-mobile btn-toggle-menu">
+                        </div>
                         <a href="/" class="d-lg-none d-inline-block logo-envzone-mobile">
                             <img src="images/envzone-logo.png" alt="Logo Envzone">
                         </a>
+                        <div class="d-sm-none btn-hide-submenu">
+                            <div class="icon-left-arrow-blue"></div>
+                        </div>
+                        <div class="title-category d-sm-none">COMPANY</div>
+
                         <ul class="menu-contact nav text-right justify-content-end float-lg-none float-right">
                             <li class="nav-item d-lg-inline-block d-none">
                                 <span>Contact us today on:</span>
@@ -49,10 +53,12 @@
                                 <a class="nav-link" href="mailto:info@envzone.com"><i class="icon-close-mail" aria-hidden="true"></i> <span>info@envzone.com</span></a>
                             </li>
                             <li class="nav-item d-lg-none d-inline-block">
-                                <a class="nav-link btn-search" data-toggle="collapse" href="#detailBoxSearch"
-                                   role="button" aria-expanded="false" aria-controls="detailBoxSearch">
+                                <a class="nav-link btn-search btn-toggle-search">
                                     <i class="icon-search"></i>
                                 </a>
+                                <div class="nav-link btn-search btn-toggle-menu close-menu-mb">
+                                    <i class="icon-close-green"></i>
+                                </div>
                             </li>
                             <li class="nav-item d-lg-inline-block d-none">
                                 <a class="nav-link" href="#"><span>CLIENT PORTAL</span></a>
@@ -65,18 +71,26 @@
                         <img src="images/envzone-logo.png" alt="Logo Envzone">
                     </a>
                     </div>
-                    <div class="collapse col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex justify-content-lg-end position-static" data-toggle="collapse" id="menuBarMobile">
+                    <div class="col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex justify-content-lg-end position-static" id="menuBarMobile">
 
                         <div class="justify-content-lg-end w-100">
                             <ul class="main-menu nav text-right justify-content-lg-end justify-content-sm-between flex-sm-row flex-column ">
+                                <li class="nav-item d-sm-none">
+                                    <a class="nav-link item-call" href="tel:7206062900">
+                                        <i class="icon-phone-call"></i>
+                                        Call Now 720-606-2900
+                                    </a>
+                                </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">COMPANY</a>
-                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
+                                    <a class="nav-link item-menu" href="#">COMPANY
+                                        <span class="icon-arrow-right d-sm-none"></span>
+                                    </a>
+
                                     <!-- BOX SUBMENU -->
                                     <div class="sub-menu text-left">
                                         <div class="container">
                                             <div class="row box-sub-menu">
-                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 bg-blue-lv4">
+                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-sm-block d-none bg-blue-lv4">
                                                     <h3 class="text-center mb-3">
                                                         COMPANY
                                                     </h3>
@@ -96,50 +110,55 @@
 
                                                 <div class="col-lg-6 order-lg-1 order-0 offset-lg-1">
                                                     <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
                                                                 <a class="title-submenu" href="about-us.html">
                                                                     About Us
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
                                                                     Enzone is an outsouring company that provide software development and IT consulting services located in the US with over a hundred software developers located internationally
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
                                                                 <a class="title-submenu" href="process-framework.html">
                                                                     Process Framework
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
                                                                     We design special process to ensure that we provide quality services which are safety, skills, and authenticity.
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
                                                                 <a class="title-submenu" href="client-focus.html">
                                                                     Client - Focus Solutions
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
                                                                     We have ample experience with hundreds of successful projects to our name, you have nothing to be scared of, and we are always on your team.
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
                                                                 <a class="title-submenu" href="careers.html">
                                                                     Careers
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
                                                                     EnvZone is always seeking talented individuals who are looking for challenging projects. And we are interested in those individuals who can offer reliability, expertise, and versatility that will make them an asset to the company.
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
                                                                 <a class="title-submenu" href="partnership.html">
                                                                     Partnership
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
                                                                     Our Channel Partner Program provides you with the opportunity to benefit from our pool of IT and software development expert partners
@@ -149,142 +168,38 @@
 
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                            INDUSTRIES
-                                        </a>
-                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
-                                        <!-- BOX SUBMENU -->
-                                    <div class="sub-menu text-left">
-                                        <div class="container">
-                                            <div class="row box-sub-menu">
-                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 bg-blue-lv4">
-                                                    <h3 class="text-center mb-3">
-                                                        INDUSTRIES
-                                                    </h3>
-                                                    <p>
-                                                        EnvZone specializes requests across a diverse array of industries.
-                                                        We bring top notch custom made solutions to businesses willing to take the leap into the digital world in different industries
-                                                    </p>
-                                                    <p class="title-contact">
-                                                        Send us quick note of your concerns!
-                                                    </p>
-                                                    <form class="text-center">
-                                                    <input type="email" name="email" placeholder="Enter your email address">
-                                                    <textarea placeholder="Your Message" rows="4"></textarea>
-                                                    <a class="btn btn-blue-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
-                                                    </form>
-                                                </div>
 
-                                                <div class="col-lg-6 order-lg-1 order-0 offset-lg-1">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="education.html">
-                                                                    Education
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="energy.html">
-                                                                    Energy
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="financial.html">
-                                                                    Financial
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="healthcare.html">
-                                                                    Healthcare
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="hospitality.html">
-                                                                    Hospitality
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="retail.html">
-                                                                    Retail
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="telecom.html">
-                                                                    Telecom
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-6" >
-                                                            <article>
-                                                                <a class="title-submenu" href="transportation.html">
-                                                                    Transportation
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
+                                                <div class="col-12 d-sm-none box-check-avaibility">
+                                                    <div class="description-check">
+                                                        Schedule a Briefing Appointment with a Representative to Learn More.
                                                     </div>
+                                                    <a href="#" class="btn btn-blue-env">
+                                                        CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">SERVICES</a>
-                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
+                                    <a class="nav-link item-menu" href="#">INDUSTRIES
+                                        <span href="#" class="icon-arrow-right d-sm-none"></span>
+                                    </a>
+
                                     <!-- BOX SUBMENU -->
                                     <div class="sub-menu text-left">
                                         <div class="container">
                                             <div class="row box-sub-menu">
-                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 bg-blue-lv4">
+                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-sm-block d-none bg-blue-lv4">
                                                     <h3 class="text-center mb-3">
-                                                        SERVICES
+                                                        COMPANY
                                                     </h3>
                                                     <p>
-                                                        At EnvZone, we offer affordable services which are critical to the growth of your business
-                                                        Whatever your organization, whatever your industry, we provide you with services you need to ensure your projects operate smoothly.
+                                                        A top choice of offshore software outsourcing consultant in Denver Metro area.
+                                                        Get to know more about our company, we are much more than happy to see you.
                                                     </p>
                                                     <p class="title-contact">
-                                                        Send us a quick note of your current business conflics!
+                                                        It’s cold out there. We would love to invite you for a coffee at our office.
                                                     </p>
                                                     <form class="text-center">
                                                         <input type="email" name="email" placeholder="Enter your email address">
@@ -295,83 +210,279 @@
 
                                                 <div class="col-lg-6 order-lg-1 order-0 offset-lg-1">
                                                     <div class="row">
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
-                                                                <a class="title-submenu" href="cycle-development.html">
-                                                                    Full Cycle Development
+                                                                <a class="title-submenu" href="about-us.html">
+                                                                    About Us
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
-                                                                    We are seasoned experts in full cycle development, including: software prototyping, custom software development, product development.
+                                                                    Enzone is an outsouring company that provide software development and IT consulting services located in the US with over a hundred software developers located internationally
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
-                                                                <a class="title-submenu" href="technology-consulting.html">
-                                                                    Technology Consulting
+                                                                <a class="title-submenu" href="process-framework.html">
+                                                                    Process Framework
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
+                                                                    We design special process to ensure that we provide quality services which are safety, skills, and authenticity.
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
-                                                                <a class="title-submenu" href="quality-assurance.html">
-                                                                    Software Quality Assurance
+                                                                <a class="title-submenu" href="client-focus.html">
+                                                                    Client - Focus Solutions
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
+                                                                    We have ample experience with hundreds of successful projects to our name, you have nothing to be scared of, and we are always on your team.
                                                                 </p>
                                                             </article>
                                                         </div>
-
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
-                                                                <a class="title-submenu" href="support.html">
-                                                                    Support
+                                                                <a class="title-submenu" href="careers.html">
+                                                                    Careers
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
+                                                                    EnvZone is always seeking talented individuals who are looking for challenging projects. And we are interested in those individuals who can offer reliability, expertise, and versatility that will make them an asset to the company.
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                             <article>
-                                                                <a class="title-submenu" href="outsourcing.html">
-                                                                    IT Outsourcing
+                                                                <a class="title-submenu" href="partnership.html">
+                                                                    Partnership
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
                                                                 </a>
                                                                 <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
+                                                                    Our Channel Partner Program provides you with the opportunity to benefit from our pool of IT and software development expert partners
                                                                 </p>
                                                             </article>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-6">
-                                                            <article>
-                                                                <a class="title-submenu" href="clients-center.html">
-                                                                    Clients Center
-                                                                </a>
-                                                                <p>
-                                                                    There are many variations of passages of Lorem Ipsum available
-                                                                </p>
-                                                            </article>
-                                                        </div>
-
-
 
                                                     </div>
+                                                </div>
+
+                                                <div class="col-12 d-sm-none box-check-avaibility">
+                                                    <div class="description-check">
+                                                        Schedule a Briefing Appointment with a Representative to Learn More.
+                                                    </div>
+                                                    <a href="#" class="btn btn-blue-env">
+                                                        CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">DISCOVERY</a>
-                                    <a href="#" class="icon-arrow-right d-sm-none"></a>
+                                    <a class="nav-link item-menu" href="#">SERVICES
+                                        <span href="#" class="icon-arrow-right d-sm-none"></span>
+                                    </a>
+                                    <!-- BOX SUBMENU -->
+                                    <div class="sub-menu text-left">
+                                        <div class="container">
+                                            <div class="row box-sub-menu">
+                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-sm-block d-none bg-blue-lv4">
+                                                    <h3 class="text-center mb-3">
+                                                        COMPANY
+                                                    </h3>
+                                                    <p>
+                                                        A top choice of offshore software outsourcing consultant in Denver Metro area.
+                                                        Get to know more about our company, we are much more than happy to see you.
+                                                    </p>
+                                                    <p class="title-contact">
+                                                        It’s cold out there. We would love to invite you for a coffee at our office.
+                                                    </p>
+                                                    <form class="text-center">
+                                                        <input type="email" name="email" placeholder="Enter your email address">
+                                                        <textarea placeholder="Your Message" rows="4"></textarea>
+                                                        <a class="btn btn-blue-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
+                                                    </form>
+                                                </div>
+
+                                                <div class="col-lg-6 order-lg-1 order-0 offset-lg-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="about-us.html">
+                                                                    About Us
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    Enzone is an outsouring company that provide software development and IT consulting services located in the US with over a hundred software developers located internationally
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="process-framework.html">
+                                                                    Process Framework
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    We design special process to ensure that we provide quality services which are safety, skills, and authenticity.
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="client-focus.html">
+                                                                    Client - Focus Solutions
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    We have ample experience with hundreds of successful projects to our name, you have nothing to be scared of, and we are always on your team.
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="careers.html">
+                                                                    Careers
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    EnvZone is always seeking talented individuals who are looking for challenging projects. And we are interested in those individuals who can offer reliability, expertise, and versatility that will make them an asset to the company.
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="partnership.html">
+                                                                    Partnership
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    Our Channel Partner Program provides you with the opportunity to benefit from our pool of IT and software development expert partners
+                                                                </p>
+                                                            </article>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 d-sm-none box-check-avaibility">
+                                                    <div class="description-check">
+                                                        Schedule a Briefing Appointment with a Representative to Learn More.
+                                                    </div>
+                                                    <a href="#" class="btn btn-blue-env">
+                                                        CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#">DISCOVERY
+                                        <span href="#" class="icon-arrow-right d-sm-none"></span>
+                                    </a>
+                                    <!-- BOX SUBMENU -->
+                                    <div class="sub-menu text-left">
+                                        <div class="container">
+                                            <div class="row box-sub-menu">
+                                                <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-sm-block d-none bg-blue-lv4">
+                                                    <h3 class="text-center mb-3">
+                                                        COMPANY
+                                                    </h3>
+                                                    <p>
+                                                        A top choice of offshore software outsourcing consultant in Denver Metro area.
+                                                        Get to know more about our company, we are much more than happy to see you.
+                                                    </p>
+                                                    <p class="title-contact">
+                                                        It’s cold out there. We would love to invite you for a coffee at our office.
+                                                    </p>
+                                                    <form class="text-center">
+                                                        <input type="email" name="email" placeholder="Enter your email address">
+                                                        <textarea placeholder="Your Message" rows="4"></textarea>
+                                                        <a class="btn btn-blue-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
+                                                    </form>
+                                                </div>
+
+                                                <div class="col-lg-6 order-lg-1 order-0 offset-lg-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="about-us.html">
+                                                                    About Us
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    Enzone is an outsouring company that provide software development and IT consulting services located in the US with over a hundred software developers located internationally
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="process-framework.html">
+                                                                    Process Framework
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    We design special process to ensure that we provide quality services which are safety, skills, and authenticity.
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="client-focus.html">
+                                                                    Client - Focus Solutions
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    We have ample experience with hundreds of successful projects to our name, you have nothing to be scared of, and we are always on your team.
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="careers.html">
+                                                                    Careers
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    EnvZone is always seeking talented individuals who are looking for challenging projects. And we are interested in those individuals who can offer reliability, expertise, and versatility that will make them an asset to the company.
+                                                                </p>
+                                                            </article>
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                            <article>
+                                                                <a class="title-submenu" href="partnership.html">
+                                                                    Partnership
+                                                                    <span class="icon-arrow-right d-sm-none"></span>
+                                                                </a>
+                                                                <p>
+                                                                    Our Channel Partner Program provides you with the opportunity to benefit from our pool of IT and software development expert partners
+                                                                </p>
+                                                            </article>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 d-sm-none box-check-avaibility">
+                                                    <div class="description-check">
+                                                        Schedule a Briefing Appointment with a Representative to Learn More.
+                                                    </div>
+                                                    <a href="#" class="btn btn-blue-env">
+                                                        CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </li>
                                 <li class="nav-item d-lg-inline-block d-xl-inline-block d-none">
-                                    <a class="nav-link btn-search" data-toggle="collapse" href="#detailBoxSearch"
-                                        role="button" aria-expanded="false" aria-controls="detailBoxSearch">
+                                    <a href="#" class="nav-link btn-search-pc">
                                             <i class="icon-search"></i>
                                         </a>
                                 </li>
@@ -398,7 +509,7 @@
             </div>
 
             <!-- BOX SEARCH -->
-            <div class="collapse" data-toggle="collapse" id="detailBoxSearch">
+            <div id="detailBoxSearch">
                 <div class="row justify-content-center">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-12 box-search">
                         <form action="" method="get">
@@ -649,7 +760,7 @@ $(document).ready(function() {
         margin: 0,
         nav: false,
         dots: true,
-        autoplay: true,
+        autoplay: false,
         navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
         responsive: {
             0: {
@@ -728,6 +839,8 @@ $(document).ready(function() {
             }
         }
     });
+
+
 });
 
 /*============auto open modal=================*/
@@ -759,6 +872,59 @@ function sticky_relocate() {
         $('#sticky-menu').removeClass('stick');
     }
 };
+
+function toggle_obj(btn_click, box_toggle) {
+    $(btn_click).click(function () {
+        $(box_toggle).toggleClass("show-obj");
+        $(btn_click).toggleClass("active");
+
+        if (btn_click == ".btn-toggle-menu"){
+            $("body").toggleClass("overflow-hidden");
+            $(".btn-toggle-search").toggleClass("d-none");
+
+        }
+    });
+}
+
+function get_attr(){
+    $(".item-menu").click(function () {
+        var val = $(this).text();
+        $(".logo-envzone-mobile").addClass("d-hidden");
+        $("nav .title-category").addClass("active").text(val);
+        $("nav .btn-hide-submenu").addClass("active");
+    });
+}
+
+function select_next_element(){
+    $(".nav-link").click(function () {
+        $(this).next().addClass("show-submenu");
+    });
+
+    $(".btn-hide-submenu").click(function () {
+        $(".sub-menu").removeClass("show-submenu");
+        $(".logo-envzone-mobile").removeClass("d-hidden");
+        $("nav .title-category").removeClass("active");
+        $("nav .btn-hide-submenu").removeClass("active");
+    });
+
+    //CLOSE MENU MOBILE
+
+    $(".close-menu-mb").click(function () {
+        $(".sub-menu").removeClass("show-submenu");
+        $(".logo-envzone-mobile").removeClass("d-hidden");
+        $("nav .title-category").removeClass("active");
+        $("nav .btn-hide-submenu").removeClass("active");
+    });
+
+}
+
+$(function () {
+    toggle_obj(".btn-toggle-menu", "#menuBarMobile");
+    toggle_obj(".btn-toggle-search", "#detailBoxSearch");
+    toggle_obj(".btn-search-pc", "#detailBoxSearch");
+    get_attr();
+    select_next_element();
+});
 
 // $(function() {
 //     var win_width = $(window).width();

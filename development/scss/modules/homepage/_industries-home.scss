@@ -133,6 +133,7 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
 	.content-industries {
+		display: none;
 		margin-bottom: 30px;
 		.box-head-industries {
 			p{

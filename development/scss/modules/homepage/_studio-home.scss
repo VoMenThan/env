@@ -64,7 +64,9 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+	.section-studio{
+		display: none;
+	}
 }
 
 /* =================== END RESPONSIVE ======================= */

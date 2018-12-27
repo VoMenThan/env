@@ -91,6 +91,9 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
+	.section-knowledge{
+		display: none;
+	}
 	.content-knowledge {
 		.box-head-blog {
 			h2{

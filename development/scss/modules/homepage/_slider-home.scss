@@ -137,6 +137,12 @@
 	.slider-home{
 		margin-bottom: 30px;
 		&.owl-theme {
+			.owl-item{
+				height: 80vh;
+				img{
+					width: auto;
+				}
+			}
 			.box-headline {
 				.head-line-envzone{
 					font-size: 1.5rem;
