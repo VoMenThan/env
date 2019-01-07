@@ -72,43 +72,7 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.content-envent {
-		margin-bottom: 50px;
-		.item-event{
-			img{
-				width: 100%;
-			}
-		}
-	}
-}
-
-
-/* 	================================================================
-	MOBILE DEVICE
-	Large mobile 425px and down (<425px)
-	================================================================== */
-@media screen and (max-width: $device-size-mobile) {
-	.content-envent {
 		display: none;
-		margin-bottom: 30px;
-		.box-item-event {
-			h2{
-				font-size: 1.2rem;
-			}
-			p{
-				font-size: 1rem;
-			}
-			.box-date {
-				display: block;
-				float: none;
-				margin-bottom: 10px;
-				span{
-					font-size: 1.2rem;
-				}
-			}
-			.box-info{
-				padding-left: 0;
-			}
-		}
 	}
 }
 

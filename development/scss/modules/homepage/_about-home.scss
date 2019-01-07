@@ -39,7 +39,7 @@
 			text-align: left;
 			width: 100%;
 			margin: auto;
-			margin-top: 30px;
+			margin-top: 0;
 		}
 	}
 }
@@ -93,6 +93,7 @@
 		.title-head-blue{
 			text-align: center;
 			color: $color-white;
+			margin-top: 30px;
 		}
 		p{
 			text-align: center;

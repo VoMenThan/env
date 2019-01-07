@@ -48,25 +48,10 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
-	.content-studio {
-		.box-head-blog {
-			h2{
-				width: 70%;
-				font-size: 1.5rem;
-			}
-		}
-	}
-}
-
-
-/* 	================================================================
-	MOBILE DEVICE
-	Large mobile 425px and down (<425px)
-	================================================================== */
-@media screen and (max-width: $device-size-mobile) {
-	.section-studio{
+	.section-studio {
 		display: none;
 	}
 }
+
 
 /* =================== END RESPONSIVE ======================= */

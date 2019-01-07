@@ -13,60 +13,55 @@
 		margin-bottom: 30px;
 		overflow: hidden;
 		border-radius: 10px;
+		background: $color-green-lv2;
+		padding: 30px;
+		height: calc(100% - 30px);
 		&:hover{
-			cursor: pointer;
-			&:before{
-				background: rgba(13, 49, 83, 0.7);
-			}
-			img{
-				@include transformScale(1.1);
-			}
-			p{
-				display: block !important;
-			}
-			h3{
-				color: $color-white !important;
-				text-align: left !important;
-			}
-		}
-		&:before{
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
-			background: rgba(114, 185, 17, 0.7);
-			z-index: 9;
-			position: absolute;
-			left: 0;
-			top: 0;
-			border-radius: 10px;
-			transition: .3s;
-		}
-		img{
-			border-radius: 10px;
-			transition: .3s;
-			@include box-shadow(4px, 4px, 15px, rgba(0, 0, 0, 0.25), $inset: false);
-		}
+			background: #E0E0E0;
+			.box-info-services {
+				.learn-more {
+					display: block;
+					cursor: pointer;
+				}
 
-		.box-info-services{
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			z-index: 99;
-			width: 91%;
-			@include translate(-50%, -50%);
-			h3{
-				text-align: center;
-				font-size: 1.5rem;
-				font-weight: bold;
-				color: $color-blue-logo;
-				margin-bottom: 10px;
-			}
-			p{
-				display: none;
-				color: $color-white;
+				p {
+					color: $color-blue-logo;
+				}
 			}
 		}
+		.learn-more{
+			position: absolute;
+			bottom: 60px;
+			right: 30px;
+			color: $color-blue-lv3;
+			font-size: 1rem;
+			display: none;
+			&:after{
+				content: "";
+				@include setBackgroundIcon(20px, "../images/icon-arrow-right-blue.svg");
+				vertical-align: text-top;
+				margin-left: 5px;
+			}
+		}
+		.box-info-services{
+			min-height: 370px;
+			p{
+				color: $color-white;
+				padding-left: 25px;
+				font-size: 1.375rem;
+			}
+		}
+		h3{
+			font-size: 1.875rem;
+			font-weight: bold;
+			color: $color-blue-logo;
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			@include translate-x(-50%);
+			white-space: nowrap;
+		 }
+
 	}
 
 }
@@ -80,13 +75,7 @@
 	Large tablet 992px and down (<992px)
 	================================================================== */
 @media screen and (max-width: $device-size-large) {
-	.content-services {
-		.box-head-services {
-			p{
-				width: 80%;
-			}
-		}
-	}
+
 }
 
 /* 	================================================================
@@ -95,18 +84,43 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.content-services {
-		margin-bottom: 50px;
+		.box-head-services {
+			p{
+				width: 100%;
+			}
+		}
 		.item-service {
-			.box-info-services{
-				h3{
-					font-size: 1.2rem;
-					text-align: center !important;
+			padding: 20px;
+			background: transparent;
+			border: 1px solid $color-gray-border;
+			.box-info-services {
+				text-align: center;
+				min-height: auto;
+				img{
+					margin: auto;
+					width: 50px;
+					margin-bottom: 15px;
 				}
 				p{
+					display: none;
+				}
+				.learn-more{
 					display: none !important;
 				}
+				.plus-gray{
+					position: absolute;
+					right: 15px;
+					top: 15px;
+					@include setBackgroundIcon(25px, "../images/icon-plus-button.svg");
+				}
 			}
-
+			h3{
+				font-size: 1rem;
+				position: static;
+				@include translate-x(0);
+				white-space: normal;
+				text-align: center;
+			}
 		}
 	}
 }
@@ -117,14 +131,7 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-	.content-services {
-		margin-bottom: 30px;
-		.box-head-services {
-			p{
-				width: 100%;
-			}
-		}
-	}
+
 }
 
 /* =================== END RESPONSIVE ======================= */

@@ -1,48 +1,73 @@
 /*============INDUSTRIES HOME=================*/
 
 .content-industries{
+	background: $color-blue-logo;
+	position: relative;
+	padding-top: 120px;
+	padding-bottom: 120px;
 	margin-bottom: 80px;
-	.box-head-industries{
-		p{
-			width: 50%;
+	.title-head{
+		font-size: 2rem;
+		color: $color-white;
+		font-weight: bold;
+	}
+	.description-head{
+		font-size: 1.5rem;
+		color: white;
+		padding: 2rem 0;
+	}
+	.tab-pane{
+
+		.box-field{
+			border: 1px solid $color-white;
+			color: $color-white;
+			padding: 30px;
+			.title-field{
+				color: $color-green-logo;
+				font-size: 2rem;
+				font-weight: bold;
+				margin-bottom: 30px;
+			}
+			.icon-field{
+				margin-bottom: 30px;
+			}
+			.excerpt-field{
+				font-size: 1.5rem;
+				margin-bottom: 40px;
+			}
+			.learn-more{
+				text-transform: uppercase;
+				color: $color-white;
+			}
 		}
 	}
+	.box-tab-industries{
+		padding-top: 100px;
+		padding-bottom: 100px;
+		background: $color-green-logo;
+		width: 35%;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 99;
 
-	.item-industry{
-		border-radius: 20px;
-		background: $color-blue-lv4;
-		color: $color-white;
-		padding: 40px 30px;
-		margin-bottom: 30px;
-		transition: .3s;
-		height: calc(100% - 30px);
-		&:hover{
-			background: $color-gray-hover;
-			color: $color-blue-logo;
-			cursor: pointer;
-			.icon-industry{
-				display: none;
-				&.ac{
-					display: inline-block;
-				}
+		.nav-link{
+			padding: 2rem;
+			font-size: 1.6rem;
+			color: $color-white;
+			border-top: 1px solid $color-white;
+			&.active{
+				background: $color-blue-logo;
 			}
 		}
-		.icon-industry{
-			padding-bottom: 20px;
-			height: 100px;
-			&.ac{
-				display: none;
-			}
-		}
-		.title-item-industries{
-			font-size: 1.2rem;
-			font-weight: bold;
-			padding-bottom: 15px;
-
-		}
-		.excerpt{
-			line-height: 1.5rem;
-		}
+		.nav-item{
+			 &:last-child{
+				 .nav-link{
+					 border-bottom: 1px solid $color-white;
+				 }
+			 }
+		 }
 	}
 }
 
@@ -73,13 +98,7 @@
 	Large tablet 992px and down (<992px)
 	================================================================== */
 @media screen and (max-width: $device-size-large) {
-	.content-industries {
-		.box-head-industries {
-			p{
-				width: 80%;
-			}
-		}
-	}
+
 }
 
 /* 	================================================================
@@ -94,18 +113,7 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.content-industries {
-		margin-bottom: 50px;
-		.item-industry {
-			text-align: center;
-			padding: 20px 10px;
-			.excerpt{
-				display: none;
-			}
-			.title-item-industries{
-				padding-bottom: 0;
-			}
-
-		}
+		display: none;
 	}
 }
 
@@ -132,18 +140,5 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-	.content-industries {
-		display: none;
-		margin-bottom: 30px;
-		.box-head-industries {
-			p{
-				width: 100%;
-			}
-		}
-		.item-industry {
-			.title-item-industries{
-				font-size: 1rem;
-			}
-		}
-	}
+
 }

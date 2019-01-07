@@ -26,10 +26,10 @@
 }
 
 /* 	================================================================
-	MOBILE DEVICE
-	Large mobile 425px and down (<425px)
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen and (max-width: $device-size-mobile) {
+@media screen and (max-width: $device-size-medium) {
   .partner-home{
     display: none;
   }

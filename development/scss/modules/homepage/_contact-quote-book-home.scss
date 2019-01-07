@@ -1,16 +1,43 @@
 .content-contact-quote-book{
 	color: $color-white;
 	padding: 70px auto;
+	text-align: center;
 	h4{
 		text-transform: uppercase;
 		font-size: 1.8rem;
 		font-weight: bold;
 		padding-bottom: 15px;
+		color: $color-white;
+		text-align: center;
 	}
 	p{
 		font-size: 1.3rem;
 		padding-bottom: 15px;
 		width: 70%;
+		margin: auto;
+	}
+	.btn-transparent{
+		background: transparent;
+		border: 1px solid $color-white;
+	}
+	.icon-arrow-bottom{
+		@include setBackgroundIcon(25px, "../images/icon-arrow-bottom.png");
+		vertical-align: middle;
+		margin-left: 20px;
+	}
+	.form-toggle{
+		padding: 50px 15px;
+		background: $color-blue-logo;
+		input{
+			background: transparent;
+			border-radius: 0;
+		}
+		.btn-transparent{
+			background: transparent;
+			white-space: normal;
+			padding: 10px;
+			width: 100%;
+		}
 	}
 }
 

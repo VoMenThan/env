@@ -21,9 +21,27 @@
 			}
 		}
 		h3{
-			color: $color-blue-logo;
+			color: $color-black;
 			padding-bottom: 5px;
 			font-weight: bold;
+		}
+		.category{
+			text-transform: uppercase;
+			color: $color-blue-logo;
+			font-weight: bold;
+		}
+		.author-by{
+			color: #4F4F4F;
+		}
+		.excerpt{
+			color: #191919;
+			text-align: right;
+			p{
+				text-align: left;
+			}
+		}
+		.read-more{
+
 		}
 	}
 
@@ -44,6 +62,27 @@
 		h4{
 			font-size: 1.2rem;
 			color: $color-blue-lv1;
+		}
+		.item-blog{
+			border: 1px solid $color-gray-border;
+			.info{
+				padding: 10px 15px;
+			}
+		}
+		.category{
+			text-transform: uppercase;
+			color: $color-blue-logo;
+			font-weight: bold;
+		}
+		.author-by{
+			color: #4F4F4F;
+		}
+		.excerpt{
+			color: #191919;
+			text-align: right;
+			p{
+				text-align: left;
+			}
 		}
 	}
 	
