@@ -1,0 +1,80 @@
+.legals-page{
+  .date-affective{
+    font-family: $font-pt;
+    color: $color-gray-audit;
+    margin-bottom: 30px;
+  }
+  .description{
+    font-family: $font-pt;
+    font-size: 1.625rem;
+    color: $color-gray-blog;
+  }
+  .content-legals{
+    h3{
+      font-size: 2.25rem;
+      padding-top: 25px;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+    p{
+      font-family: $font-pt;
+      font-size: 1.625rem;
+      color: $color-gray-blog;
+      margin-bottom: 20px;
+    }
+    ul>li{
+      font-family: $font-pt;
+      font-size: 1.625rem;
+      color: $color-gray-blog;
+      margin-bottom: 20px;
+    }
+    cite{
+      font-family: $font-pt;
+      color: $color-gray-audit;
+      font-style: italic;
+      font-size: 1rem;
+    }
+    h3+cite{
+      position: relative;
+      top: -15px;
+    }
+    address{
+      font-family: $font-pt;
+      font-size: 1.625rem;
+      color: $color-gray-blog;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .content-affiliate{
+    h3{
+      font-size: 2.25rem;
+      padding-top: 25px;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+    p{
+      font-size: 1.625rem;
+    }
+    .subtitle-green{
+      color: $color-green-logo;
+      font-size: 1.625rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .step-affiliate{
+      li{
+        font-size: 1.625rem;
+        padding-bottom: 16px;
+      }
+    }
+    .email-formal{
+      p{
+        font-style: italic;
+        font-weight: 100;
+        color: $color-blue-logo;
+      }
+    }
+  }
+}

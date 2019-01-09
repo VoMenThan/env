@@ -133,6 +133,25 @@ footer {
 
         }
     }
+
+
+    .social-mobile{
+        display: none;
+    }
+    .check-avaibility-mb-footer{
+        display: none;
+    }
+    .address-footer-mb{
+        display: none;
+        .box-direction {
+            .phone-number{
+                display: none;
+            }
+        }
+    }
+    .box-term-policy-mb{
+        display: none;
+    }
 }
 
 
@@ -178,6 +197,90 @@ footer {
 }
 
 /* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    footer {
+        background: $color-blue-lv2;
+        padding-top: 0;
+        .d-none-768{
+            display: none;
+        }
+       .start-project{
+           display: none;
+       }
+        .menu-footer{
+            display: none;
+        }
+        .box-donate{
+            display: none;
+        }
+        .box-info-footer{
+            display: none;
+        }
+        .social-mobile{
+            display: block;
+            background: $color-blue-logo;
+            .list-social-mb{
+                .icon-twitter{
+                    @include setBackgroundIcon(50px, "../images/icon-twitter.svg");
+                }
+                .icon-facebook{
+                    @include setBackgroundIcon(50px, "../images/icon-facebook.svg");
+                }
+                .icon-linkedin{
+                    @include setBackgroundIcon(50px, "../images/icon-linkedin.svg");
+                }
+                .icon-google-plus{
+                    @include setBackgroundIcon(50px, "../images/icon-google-plus.svg");
+                }
+            }
+        }
+
+        .check-avaibility-mb-footer{
+            display: block;
+            background: $color-blue-lv4;
+            .title-check-vaibility-mb{
+                font-size: 1.2rem;
+                padding-bottom: 15px;
+            }
+            .btn-blue-env{
+                background: transparent;
+                border: 1px solid $color-white;
+            }
+        }
+
+        .address-footer-mb{
+            display: flex;
+            .box-info{
+                border-bottom: 1px solid $color-white;
+                border-right: 1px solid $color-white;
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+            }
+            .box-direction{
+                border-bottom: 1px solid $color-white;
+                .icon-location{
+                    @include setBackgroundIcon(50px, "../images/icon-location.svg");
+                }
+            }
+        }
+        .bg-blue-lv1{
+            background: $color-blue-lv2;
+        }
+        .section-donate{
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+        .box-term-policy-mb{
+            display: block;
+        }
+    }
+}
+
+/* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
 	================================================================== */
@@ -215,6 +318,44 @@ footer {
         }
         .label-form-project{
             font-size: 1.5rem;
+        }
+
+        .address-footer-mb{
+            .box-info{
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 70%;
+                flex: 0 0 70%;
+                max-width: 70%;
+            }
+            .box-direction{
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 30%;
+                flex: 0 0 30%;
+                max-width: 30%;
+                padding: 0 !important;
+                .box-icon-direction{
+                    width: 100%;
+                    height: 100%;
+                }
+                .direction{
+                    @include display-flex();
+                    @include justify-content(center);
+                    @include align-items(center);
+                    height: 50%;
+                }
+                .phone-number{
+                    @include display-flex();
+                    @include justify-content(center);
+                    @include align-items(center);
+                    height: 50%;
+                    border-top: 1px solid $color-white;
+                }
+            }
+        }
+        .box-term-policy{
+            a{
+                padding-left: 0 !important;
+            }
         }
     }
 }

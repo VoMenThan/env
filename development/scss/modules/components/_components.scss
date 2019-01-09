@@ -143,6 +143,14 @@ h1, h2, h3, h4, h5, h6{
 		color: $color-green-logo;
 		font-weight: bold;
 	}
+
+	&.bg-blue{
+		background: $color-blue-lv4;
+		min-height: 515px;
+		h2{
+			@include translate(-50%, -50%);
+		}
+	}
 }
 
 .artical-page{

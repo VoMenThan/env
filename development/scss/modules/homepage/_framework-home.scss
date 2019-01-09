@@ -48,6 +48,14 @@
             }
         }
     }
+
+	.tab-process-framework-mb{
+		display: none;
+	}
+	#pills-initial, #pills-development, #pills-discovery{
+		display: block;
+		opacity: 1;
+	}
 }
 
 
@@ -73,9 +81,59 @@
 @media screen and (max-width: $device-size-medium) {
 	.content-framework {
 		padding: 0;
+		#pills-initial, #pills-development, #pills-discovery{
+			display: none;
+			opacity: 0;
+		}
+		#pills-initial.active, #pills-development.active, #pills-discovery.active{
+			display: block !important;
+		}
+		#pills-initial.show, #pills-development.show, #pills-discovery.show{
+			opacity: 1 !important;
+		}
 		.btn-green-env{
 			padding: 10px 20px;
 			white-space: normal;
+		}
+		.tab-process-framework-mb{
+			display: block;
+			.nav-pills{
+				border: 1px solid $color-gray-border;
+			}
+			.nav-item{
+				width: 33.3%;
+				text-align: center;
+				.nav-link{
+					font-size: 1.5rem;
+					padding: 0;
+					background: transparent;
+					font-weight: bold;
+					color: $color-gray-border;
+					position: relative;
+					&:after{
+						content: "";
+						display: inline-block;
+						width: 24px;
+						height: 24px;
+						position: absolute;
+						right: 0;
+						top: 6px;
+						border-top: 1px solid $color-gray-border;
+						border-right: 1px solid $color-gray-border;
+						@include rotate(45deg);
+					}
+					&.active{
+						color: $color-green-logo;
+					}
+				}
+				&:last-child{
+					.nav-link{
+						&:after{
+							display: none;
+						}
+					}
+				}
+			}
 		}
 	}
 }
