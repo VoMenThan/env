@@ -146,6 +146,7 @@ module.exports = function(grunt) {
                 'development/system/request-confirmation.html',
                 'development/system/sitemap.html',
                 'development/system/vendor-portal.html',
+                'development/system/search-page.html',
                 'development/system/404.html'
             ], // Source files
 		    dest: 'production/', // Destination directory

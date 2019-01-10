@@ -1,5 +1,9 @@
 .content-subcribe{
 	.box-head-subcribe{
+		h2{
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
 		h2, p{
 			color: $color-white;
 			padding-bottom: 10px;
@@ -13,6 +17,31 @@
 		background: transparent;
 		border: 1px solid $color-white;
 		margin-bottom: 20px;
+	}
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: $color-white;
+		opacity: 1; /* Firefox */
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: $color-white;
+	}
+	::-ms-input-placeholder { /* Microsoft Edge */
+		color: $color-white;
+	}
+	.box-success-plan{
+		.highlight-blue{
+			color: $color-blue-logo;
+		}
+		h2{
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+		p{
+			color: $color-white;
+			padding-bottom: 10px;
+			font-weight: bold;
+			font-size: 1.5rem;
+		}
 	}
 }
 
