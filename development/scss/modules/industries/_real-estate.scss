@@ -1,0 +1,29 @@
+section.real-estate-page{
+	.title-head-blue{
+		text-transform: initial;
+	}
+	.info-fully{
+		font-size: 1.625rem;
+	}
+	.btn-learn-more{
+		padding-top: 50px;
+		padding-bottom: 100px;
+	}
+	.description-offer{
+		font-size: 1.25rem;
+	}
+	.item-offer{
+		border: 1px solid $color-gray-hover;
+		padding: 40px 20px;
+		margin-bottom: 30px;
+		height: calc(100% - 30px);
+		img{
+			margin-bottom: 20px !important;
+			display: block;
+		}
+		p{
+			text-align: center;
+			font-size: 1.25rem;
+		}
+	}
+}

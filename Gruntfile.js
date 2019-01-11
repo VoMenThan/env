@@ -113,6 +113,7 @@ module.exports = function(grunt) {
 		    	'development/company/approach.html',
 		    	'development/company/partnership.html',
 		    	'development/industries/education.html',
+		    	'development/industries/real-estate.html',
 		    	'development/industries/energy.html',
 		    	'development/industries/hospitality.html',
 		    	'development/industries/financial.html',

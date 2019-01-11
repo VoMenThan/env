@@ -159,6 +159,23 @@ h1, h2, h3, h4, h5, h6{
 	}
 }
 
+/*============BANNER TO INDUSTRIES=================*/
+.banner-industries{
+	position: relative;
+	img{
+		width: auto;
+		position: absolute;
+		bottom: 0;
+		right: 50%;
+		@include translate-x(555px);
+	}
+	h2{
+		left: 50%;
+		top: 30%;
+		@include translate(-50%, -50%);
+	}
+}
+
 .artical-page{
 	padding: 80px 0;
 }

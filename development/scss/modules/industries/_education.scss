@@ -1,0 +1,92 @@
+.education-page{
+   h1{
+     font-size: 2.25rem;
+     margin-bottom: 30px;
+     font-weight: bold;
+     text-align: center;
+   }
+  .description-industries{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
+    font-size: 1.625rem;
+  }
+  .btn-blue-env{
+    margin-bottom: 80px;
+  }
+  .bg-gray-process{
+    padding: 80px 0;
+  }
+  .box-question-education{
+    position: relative;
+    .question-1{
+      position: absolute;
+      left: 37px;
+      top: 115px;
+      width: 300px;
+      font-size: 1.5rem;
+    }
+    .question-2{
+      position: absolute;
+      left: 735px;
+      top: -11px;
+      width: 320px;
+      font-size: 1.5rem;
+    }
+    .question-3{
+      position: absolute;
+      left: 771px;
+      top: 246px;
+      width: 400px;
+      font-size: 1.5rem;
+    }
+  }
+
+  .section-offer{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    h2{
+      font-size: 2.25rem;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+  }
+  .box-offer-education{
+    position: relative;
+    font-size: 1.625rem;
+      .circle-offer{
+        width: 500px;
+        margin: auto;
+        text-align: center;
+        position: relative;
+        .main-offer{
+          position: absolute;
+          width: 323px;
+          left: 88px;
+          top: 187px;
+          color: $color-white;
+        }
+      }
+    .offer-1{
+      width: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 1.5rem;
+    }
+    .offer-2{
+      width: 300px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.5rem;
+    }
+    .offer-3{
+      width: 300px;
+      font-size: 1.5rem;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  }
+
+}
