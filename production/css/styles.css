@@ -1263,17 +1263,15 @@ footer .box-term-policy-mb { display: none; }
 .education-page .box-offer-education .offer-2 { width: 300px; position: absolute; top: 0; right: 0; font-size: 1.5rem; }
 .education-page .box-offer-education .offer-3 { width: 300px; font-size: 1.5rem; margin: auto; margin-bottom: 30px; }
 
-section.real-estate-page .title-head-blue { text-transform: initial; }
-section.real-estate-page .info-fully { font-size: 1.625rem; }
-section.real-estate-page .btn-learn-more { padding-top: 50px; padding-bottom: 100px; }
-section.real-estate-page .description-offer { font-size: 1.25rem; }
-section.real-estate-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-bottom: 30px; height: calc(100% - 30px); }
-section.real-estate-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.real-estate-page .item-offer p { text-align: center; font-size: 1.25rem; }
+.industries-page p, .industries-page li, .industries-page a { font-size: 1.25rem; }
+.industries-page .title-head-blue { text-transform: initial; }
+.industries-page .btn-learn-more { padding-top: 30px; padding-bottom: 150px; }
+.industries-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-bottom: 30px; height: calc(100% - 30px); }
+.industries-page .item-offer img { margin-bottom: 20px !important; display: block; }
+.industries-page .item-offer p { text-align: center; }
 
-section.energy-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-bottom: 30px; border-radius: 10px; min-height: 290px; }
-section.energy-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.energy-page .item-offer p { text-align: center; }
+section.real-estate-page .info-fully { font-size: 1.625rem; }
+section.real-estate-page .description-offer { font-size: 1.25rem; }
 
 section.financial-page h1 { margin-bottom: 30px; }
 section.financial-page .title-head-blue { text-transform: inherit; }
@@ -1284,31 +1282,44 @@ section.financial-page .item-offer img { margin-bottom: 20px !important; display
 section.financial-page .item-offer p { text-align: center; font-size: 1.25rem; }
 
 section.healthcare-page h1 { margin-bottom: 30px; }
-section.healthcare-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; height: calc(100% - 50px); width: 400px; margin: auto; margin-bottom: 50px; font-size: 1.25rem; }
-section.healthcare-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.healthcare-page .item-offer p { text-align: center; font-size: 1.25rem; }
+section.healthcare-page .item-offer { padding: 30px 15px; }
+section.healthcare-page .item-offer h3 { text-align: center; font-size: 1.625rem; }
+section.healthcare-page .content-offer ul > li { margin-bottom: 15px; list-style-type: disc; }
+
+.ecommerce-page .item-different { border: 1px solid #C4C4C4; padding: 10px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 30px; }
+.ecommerce-page .item-different img { margin-right: 10px; }
+.ecommerce-page .item-different h4 { text-align: center; }
+
+.none-profit-page .fully-aware { margin-bottom: 50px; }
+.none-profit-page .fully-aware .title-head-blue { margin-bottom: 30px; }
+.none-profit-page .item-different { border: 1px solid #C4C4C4; padding: 10px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 30px; }
+.none-profit-page .item-different img { margin-right: 10px; }
+.none-profit-page .item-different h4 { text-align: center; }
+.none-profit-page .bg-gray-process { margin-bottom: 50px; }
+.none-profit-page .bg-gray-process .title-blue { color: #0D3153; font-size: 2rem; font-weight: bold; }
+
+section.logistics-page { padding-bottom: 0; }
+section.logistics-page h1 { margin-bottom: 30px; }
+section.logistics-page .title-head-blue { margin-bottom: 30px; }
+section.logistics-page .item-reason { background: #0D3153; padding: 50px 20px; height: calc(100% - 30px); }
+section.logistics-page .item-reason h3 { color: #8DC63F; font-size: 1.625rem; margin-bottom: 30px; }
+section.logistics-page .item-reason p { color: #ffffff; font-size: 1.25rem; }
+section.logistics-page .item-solution { border: 1px solid #C4C4C4; padding: 50px 30px; margin-bottom: 30px; height: calc(100% - 30px); }
+section.logistics-page .item-solution h3 { text-align: center; font-size: 1.625rem; margin-bottom: 10px; }
+section.logistics-page .item-different { border: 1px solid #C4C4C4; padding: 10px; margin-bottom: 30px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+section.logistics-page .item-different img { margin-right: 10px; }
+section.logistics-page .item-different h4 { text-align: center; }
 
 section.hospitality-page h1 { margin-bottom: 30px; }
-section.hospitality-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-top: 50px; margin-bottom: 50px; border-radius: 10px; }
-section.hospitality-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.hospitality-page .item-offer p { text-align: center; }
-
-section.retail-page h1 { margin-bottom: 30px; }
-section.retail-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-top: 50px; margin-bottom: 50px; border-radius: 10px; min-height: 400px; }
-section.retail-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.retail-page .item-offer p { text-align: center; }
-
-section.telecom-page h1 { margin-bottom: 30px; }
-section.telecom-page .item-awareness { background: #8DC63F; padding: 40px 20px; margin-top: 50px; margin-bottom: 50px; color: #ffffff; border-radius: 5px; min-height: 200px; }
-section.telecom-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-top: 50px; margin-bottom: 50px; border-radius: 10px; min-height: 400px; }
-section.telecom-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.telecom-page .item-offer p { text-align: center; }
-
-section.transportation-page h1 { margin-bottom: 30px; }
-section.transportation-page .item-awareness { background: #8DC63F; padding: 40px 20px; margin-top: 50px; margin-bottom: 50px; color: #ffffff; border-radius: 5px; min-height: 200px; }
-section.transportation-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-top: 50px; margin-bottom: 50px; border-radius: 10px; min-height: 400px; }
-section.transportation-page .item-offer img { margin-bottom: 20px !important; display: block; }
-section.transportation-page .item-offer p { text-align: center; }
+section.hospitality-page .title-head-blue { margin-bottom: 30px; }
+section.hospitality-page .item-reason { background: #0D3153; padding: 50px 20px; height: calc(100% - 30px); }
+section.hospitality-page .item-reason h3 { color: #8DC63F; font-size: 1.625rem; margin-bottom: 30px; }
+section.hospitality-page .item-reason p { color: #ffffff; font-size: 1.25rem; }
+section.hospitality-page .item-solution { border: 1px solid #C4C4C4; padding: 50px 30px; margin-bottom: 30px; height: calc(100% - 30px); }
+section.hospitality-page .item-solution h3 { text-align: center; font-size: 1.625rem; margin-bottom: 10px; }
+section.hospitality-page .item-different { border: 1px solid #C4C4C4; padding: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+section.hospitality-page .item-different img { margin-right: 10px; }
+section.hospitality-page .item-different h4 { text-align: center; }
 
 .quality-assurance-page .item-offer-quality { background: #8DC63F; color: #ffffff; text-align: center; padding: 30px 20px; border-radius: 20px; min-height: 270px; margin-bottom: 50px; }
 .quality-assurance-page .item-offer { padding: 30px; border: 1px solid #C4C4C4; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; min-height: 200px; text-align: center; margin-bottom: 50px; }

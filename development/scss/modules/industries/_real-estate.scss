@@ -1,16 +1,13 @@
-section.real-estate-page{
+.industries-page{
+	p,li, a{
+		font-size: 1.25rem;
+	}
 	.title-head-blue{
 		text-transform: initial;
 	}
-	.info-fully{
-		font-size: 1.625rem;
-	}
 	.btn-learn-more{
-		padding-top: 50px;
-		padding-bottom: 100px;
-	}
-	.description-offer{
-		font-size: 1.25rem;
+		padding-top: 30px;
+		padding-bottom: 150px;
 	}
 	.item-offer{
 		border: 1px solid $color-gray-hover;
@@ -23,7 +20,16 @@ section.real-estate-page{
 		}
 		p{
 			text-align: center;
-			font-size: 1.25rem;
 		}
 	}
+}
+
+section.real-estate-page{
+	.info-fully{
+		font-size: 1.625rem;
+	}
+	.description-offer{
+		font-size: 1.25rem;
+	}
+
 }
