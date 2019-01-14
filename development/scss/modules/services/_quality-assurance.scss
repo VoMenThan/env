@@ -1,33 +1,28 @@
-.quality-assurance-page{
-  .item-offer-quality{
+section.quality-assurance-page{
+  .description-overhead{
+    margin-bottom: 0;
+  }
+  .item-quality{
     background: $color-green-logo;
+    text-align: center;
+    padding: 15px;
+    height: calc(100% - 30px);
+    margin-bottom: 30px;
+    font-size: 1.625rem;
     color: $color-white;
+    @include radius(10px);
+    img{
+      width: 90px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .item-provide{
+    border: 2px solid $color-blue-logo;
+    @include radius(10px);
     text-align: center;
-    padding: 30px 20px;
-    border-radius: 20px;
-    min-height: 270px;
-    margin-bottom: 50px;
-  }
-  .item-offer{
-    padding: 30px;
-    border: 1px solid $color-gray-border;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    min-height: 200px;
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  .title-offer{
-    padding-top: 60px;
-    padding-bottom: 40px;
-  }
-  .title-head-blue{
-    padding-bottom: 50px;
-  }
-  .description-qa{
-    width: 60%;
-    margin: auto;
-    text-align: center;
+    padding: 40px;
+    font-size: 1.625rem;
+    height: 100%;
   }
 }

@@ -1,0 +1,18 @@
+section.it-outsourcing-page{
+  .description-overhead{
+    margin-bottom: 0;
+    .list-choose{
+      color: $color-blue-logo;
+      list-style-type: disc;
+      margin-bottom: 15px;
+    }
+  }
+
+  .item-service-offered{
+    border: 1px solid $color-gray-border;
+    @include radius(50%);
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+  }
+}

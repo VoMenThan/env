@@ -1,0 +1,30 @@
+.full-cycle-development-page{
+  .title-head-blue{
+    text-align: left;
+  }
+  .item-custom-software{
+    border: 5px solid $color-green-logo;
+    @include radius(50%);
+    width: 260px;
+    height: 260px;
+    margin: auto;
+    h3{
+      font-size: 1.625rem;
+      color: $color-gray-text;
+    }
+  }
+
+  .item-product-development{
+    background: $color-green-logo;
+    color: $color-white;
+    padding: 50px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    height: calc(100% - 30px);
+  }
+  .title-blue{
+    font-size: 1.625rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
