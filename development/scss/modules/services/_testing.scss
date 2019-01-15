@@ -1,0 +1,46 @@
+section.testing-page{
+  .item-test{
+    padding: 40px;
+    img{
+      padding-bottom: 15px;
+    }
+    h3{
+      font-size: 2rem;
+    }
+  }
+  .info-step{
+    padding: 15px;
+    p{
+      font-size: 1.625rem;
+    }
+  }
+  .bg-blue{
+    background: $color-blue-logo;
+  }
+  .bg-green{
+    background: $color-green-logo;
+  }
+
+  .item-deploy-confidence{
+    border: 1px solid $color-gray-border;
+    padding: 15px;
+    @include radius(10px);
+    margin-bottom: 30px;
+    p{
+      font-size: 1.625rem;
+    }
+  }
+
+  .title-blue{
+    font-size: 1.625rem;
+    text-align: center;
+  }
+  .item-qa{
+    padding: 15px;
+    width: 180px;
+    height: 180px;
+    text-align: center;
+    border: 1px solid $color-gray-border;
+    font-size: 1.625rem;
+  }
+}

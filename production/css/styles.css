@@ -1321,14 +1321,48 @@ section.hospitality-page .item-different { border: 1px solid #C4C4C4; padding: 1
 section.hospitality-page .item-different img { margin-right: 10px; }
 section.hospitality-page .item-different h4 { text-align: center; }
 
-.quality-assurance-page .item-offer-quality { background: #8DC63F; color: #ffffff; text-align: center; padding: 30px 20px; border-radius: 20px; min-height: 270px; margin-bottom: 50px; }
-.quality-assurance-page .item-offer { padding: 30px; border: 1px solid #C4C4C4; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; min-height: 200px; text-align: center; margin-bottom: 50px; }
-.quality-assurance-page .title-offer { padding-top: 60px; padding-bottom: 40px; }
-.quality-assurance-page .title-head-blue { padding-bottom: 50px; }
-.quality-assurance-page .description-qa { width: 60%; margin: auto; text-align: center; }
+section.service-page .box-breadcrumb { margin-bottom: 50px; }
+section.service-page h1, section.service-page h2 { font-size: 2.25rem; text-transform: inherit; margin-bottom: 30px; }
+section.service-page .description-overhead { font-size: 1.625rem; margin-bottom: 80px; }
+section.service-page .description-topic { margin-bottom: 50px; }
+section.service-page p { font-size: 1.25rem; }
+section.service-page .btn-submit { margin-top: 50px; margin-bottom: 100px; }
+section.service-page .title-green { color: #8DC63F; margin-bottom: 30px; }
+section.service-page .title-blue { color: #0D3153; }
 
-.technology-consulting-page .box-circle { width: 300px; height: 300px; border: 2px solid #8DC63F; border-radius: 50%; text-align: center; font-size: 2rem; margin: auto; }
-.technology-consulting-page .list-technology li { padding: 10px 20px; text-align: center; background: #8DC63F; margin: 20px 0; border-radius: 20px; color: #ffffff; }
+section.client-center-page .contact-us { color: #0D3153; }
+
+.full-cycle-development-page .title-head-blue { text-align: left; }
+.full-cycle-development-page .item-custom-software { border: 5px solid #8DC63F; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; width: 260px; height: 260px; margin: auto; }
+.full-cycle-development-page .item-custom-software h3 { font-size: 1.625rem; color: #6E716D; }
+.full-cycle-development-page .item-product-development { background: #8DC63F; color: #ffffff; padding: 50px 0; text-align: center; margin-bottom: 30px; height: calc(100% - 30px); }
+.full-cycle-development-page .title-blue { font-size: 1.625rem; text-align: center; margin-bottom: 30px; }
+
+section.it-outsourcing-page .description-overhead { margin-bottom: 0; }
+section.it-outsourcing-page .description-overhead .list-choose { color: #0D3153; list-style-type: disc; margin-bottom: 15px; }
+section.it-outsourcing-page .item-service-offered { border: 1px solid #C4C4C4; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; width: 250px; height: 250px; padding: 20px; }
+
+section.quality-assurance-page .description-overhead { margin-bottom: 0; }
+section.quality-assurance-page .item-quality { background: #8DC63F; text-align: center; padding: 15px; height: calc(100% - 30px); margin-bottom: 30px; font-size: 1.625rem; color: #ffffff; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
+section.quality-assurance-page .item-quality img { width: 90px; margin-bottom: 10px; }
+section.quality-assurance-page .item-provide { border: 2px solid #0D3153; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; text-align: center; padding: 40px; font-size: 1.625rem; height: 100%; }
+
+section.testing-page .item-test { padding: 40px; }
+section.testing-page .item-test img { padding-bottom: 15px; }
+section.testing-page .item-test h3 { font-size: 2rem; }
+section.testing-page .info-step { padding: 15px; }
+section.testing-page .info-step p { font-size: 1.625rem; }
+section.testing-page .bg-blue { background: #0D3153; }
+section.testing-page .bg-green { background: #8DC63F; }
+section.testing-page .item-deploy-confidence { border: 1px solid #C4C4C4; padding: 15px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; margin-bottom: 30px; }
+section.testing-page .item-deploy-confidence p { font-size: 1.625rem; }
+section.testing-page .title-blue { font-size: 1.625rem; text-align: center; }
+section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text-align: center; border: 1px solid #C4C4C4; font-size: 1.625rem; }
+
+.devops-page .item-offer-experience { background: url("../images/bg-offer-devops.png") no-repeat; background-size: 100%; height: 330px; width: 100%; position: relative; }
+.devops-page .item-offer-experience .topic-left { position: absolute; left: 80px; top: 50px; width: 40%; color: #ffffff; text-align: center; }
+.devops-page .item-offer-experience .topic-right { position: absolute; right: 50px; bottom: 18px; width: 40%; color: #ffffff; text-align: center; }
+.devops-page .item-offer-experience .topic-right h3 { color: #8DC63F; }
 
 .blog-page .highlight-news img { margin-bottom: 15px; }
 .blog-page .highlight-news h2 { font-size: 1.9rem; padding-bottom: 15px; }
