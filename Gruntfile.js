@@ -106,7 +106,6 @@ module.exports = function(grunt) {
 		    	'development/company/careers.html',
 		    	'development/company/process-framework.html',
 		    	'development/company/client-focused-solutions.html',
-		    	'development/company/lead-contact-form.html',
 		    	'development/company/vendor-contact-form.html',
 		    	'development/company/customer-support.html',
 		    	'development/company/is-envzone-a-fit.html',

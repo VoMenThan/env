@@ -4,9 +4,12 @@
   .title-top{
     text-align: center;
   }
+  p{
+    font-size: 1.25rem;
+  }
   .box-introduct{
-    width: 50%;
-    padding-bottom: 30px;
+    width: 70%;
+    padding-bottom: 100px;
     margin: auto;
     .title-head-blue{
       text-align: center;
@@ -14,6 +17,7 @@
     }
     p{
       position: relative;
+      font-size: 1.625rem;
       >i{
         position: absolute;
         left: -35px;
@@ -37,13 +41,22 @@
     }
   }
 
+  .box-development-process{
+    margin-bottom: 150px;
+    .title-head-blue{
+      padding-bottom: 90px;
+    }
+    p{
+      font-size: 1.625rem;
+    }
+  }
+
   .box-list-deliverables{
     margin-top: 50px;
     margin-bottom: 100px;
 
     h4{
       font-size: 2rem;
-      font-weight: bold;
       color: $color-blue-logo;
     }
     h5{
@@ -61,6 +74,7 @@
         color: $color-white;
         font-weight: bold;
         margin-bottom: 10px;
+        font-size: 1.5rem;
       }
       i{
         margin-bottom: 10px;

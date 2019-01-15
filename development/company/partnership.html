@@ -1,7 +1,7 @@
 include "../html/header.html"
 <main class="main-content">
-    <section class="banner-top">
-        <img class="img-fluid" src="images/banner-about-us.png">
+    <section class="banner-top banner-company bg-blue">
+        <img class="img-fluid" src="images/banner-partnership.png">
         <h2>PARTNERSHIP</h2>
     </section>
     <section class="artical-page partnership-page">
@@ -20,7 +20,7 @@ include "../html/header.html"
 
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-12 box-header">
-                    <h1 class="title-head-blue title-top">We provide partnership you can consistently rely on</h1>
+                    <h1 class="title-head-blue text-center title-top">We provide partnership you can consistently rely on</h1>
                     <p>
                         Envzone Channel Partner Program provides you with the opportunity to benefit from our pool of IT and software development expert partners.
                     </p>
@@ -68,38 +68,15 @@ include "../html/header.html"
                 </div>
                 
                 <div class="col-lg-12 text-center py-5">
-                    <p>To learn more about this partnership!</p>
+                    <p class="description-sign-me-up">To learn more about this partnership!</p>
                     <a href="#" class="btn btn-green-env">SIGN ME UP TO THIS BENEFIT PROGRAM</a>
                 </div>
             </div>
         </div>
 
 
-        <!-- /*============SUBCRIBE=================*/ -->
-        <div class="container-fluild section-parallax">
-            <div class="bg-green-home">
-                <div class="container content-subcribe">
-                    <div class="row">
-                        <div class="col-12 box-head-subcribe text-center">
-                            <h2>NEED HELP GETTING YOUR SOFTWARE PROJECT GOING? </h2>
-                            <p>
-                                Offshore outsourcing is a solution. WE BELIEVE... <br>
-                                <span>Ousourcing Authority Saves Companies</span> <br>
-                                An outsourcing succession plan would put you back on track
-                            </p>
-                            <form action="" method="get">
-                                <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                                <input type="submit" hidden>
-                                <a class="btn btn-blue-env btn-search" href="#">GET MY SUCCESSION PLAN</a>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <!-- /*============END SUBCRIBE=================*/ -->
+        include "../company/why-business.html"
+        include "../html/home/subcribe.html"
     </section>
 </main>
 include "../html/footer.html"
