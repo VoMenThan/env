@@ -5,6 +5,9 @@
     padding-bottom: 25px;
   }
   .information-author{
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #E0E0E0;
     img{
       width: 40%;
       float: left;
@@ -12,14 +15,32 @@
     .box-info{
       padding-left: calc(40% + 15px);
       color: $color-blue-lv1;
+      font-size: 1.25rem;
       .author-name{
         font-size: 2.215rem;
         color: $color-blue-lv3;
       }
-
+      .position-company{
+        color: $color-gray-text;
+        border-bottom: 1px solid $color-gray-border;
+        padding: 10px 0;
+      }
+      .position{
+        color: $color-gray-text;
+        padding: 10px 0;
+      }
+      .description{
+        color: #4F4F4F;
+      }
+      .follow-author{
+        font-weight: bold;
+      }
     }
   }
-
+  .title-post-by-author{
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
   .follow-author{
     padding: 10px 0;
     .list-social{
@@ -50,6 +71,7 @@
   }
 
   .box-head-other-author{
+    margin-top: 30px;
   	.other-author{
   		font-size: 2.215rem;
       font-weight: bold;
@@ -84,4 +106,5 @@
       }
     }
   }
+
 }

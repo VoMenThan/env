@@ -1,5 +1,15 @@
 .blog-knowledge-detail-page{
-  background: $color-gray-knowledge;
+  background: #F2F2F2;
+  h1{
+    font-size: 3rem;
+    font-weight: bold;
+    color: $color-blue-lv2;
+    font-family: $font-pt;
+    margin-bottom: 30px;
+  }
+  .box-video{
+    background: $color-white;
+  }
   .box-breadcrumb{
     .you-here{
       color: $color-green-logo;
@@ -8,7 +18,7 @@
     .breadcrumb{
       .breadcrumb-item{
         a{
-          color: $color-white;
+          color: $color-blue-lv2;
         }
       }
     }
@@ -17,13 +27,20 @@
     display: block;
   }
   .info-video{
-    color: $color-white;
-    h1{
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+    background: $color-white;
+    padding: 15px;
     p{
       font-size: 1.1rem;
+    }
+    .edit-by, .public-on{
+      color: $color-gray-text;
+      border-bottom: 1px solid $color-gray-border;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .author, .date{
+      color: $color-blue-lv2;
+      text-align: right;
     }
   }
   .box-share-social{
@@ -43,15 +60,33 @@
         text-align: center;
         display: table-cell;
         vertical-align: middle;
-        &.link-twitter{
-          background: #55ACEE;
+        .icon-twitter-green{
+          @include setBackgroundIcon(30px, "../images/icon-twitter-green.svg");
         }
-        &.link-facebook{
-          background: #3B5998;
+        .icon-facebook-green{
+          @include setBackgroundIcon(30px, "../images/icon-facebook-green.svg");
         }
-        &.link-google{
-          background: #DC4E41;
+        .icon-google-plus-green{
+          @include setBackgroundIcon(30px, "../images/icon-google-plus-green.svg");
         }
+        .icon-linkedin-green{
+          @include setBackgroundIcon(30px, "../images/icon-linkedin-green.svg");
+        }
+      }
+    }
+  }
+
+  .section-trending{
+    margin-bottom: 80px;
+    margin-top: 80px;
+    .border-header{
+      border-bottom: 1px solid $color-gray-border;
+      position: relative;
+      margin-bottom: 30px;
+      .view-all{
+        position: absolute;
+        top: 20px;
+        right: 0;
       }
     }
   }

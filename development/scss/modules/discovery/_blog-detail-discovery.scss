@@ -1,21 +1,57 @@
 .blog-detail-page{
+	padding-top: 0 !important;
+	.bg-blue-home{
+		background: $color-blue-lv2;
+		margin-bottom: 50px;
+	}
+	.current-category{
+		color: $color-green-logo;
+		font-weight: bold;
+	}
 	h1{
 		font-size: 2.25rem;
 		font-family: $font-pt;
 		padding-bottom: 15px;
 	}
-	.audit{
-		padding-bottom: 20px;
-		.date{
-			padding-right: 30px;
+
+
+	.box-share{
+		.list-social{
+			padding-top: 10px;
+			padding-bottom: 10px;
+			.nav-item{
+				padding-left: 15px;
+			}
+			.icon-twitter{
+				@include setBackgroundIcon(20px, "../images/icon-twitter.svg");
+			}
+			.icon-facebook{
+				@include setBackgroundIcon(20px, "../images/icon-facebook.svg");
+			}
+			.icon-linkedin{
+				@include setBackgroundIcon(20px, "../images/icon-linkedin.svg");
+			}
+			.icon-google-plus{
+				@include setBackgroundIcon(20px, "../images/icon-google-plus.svg");
+			}
 		}
+
+	}
+	.content-blog{
+		.audit{
+			padding-bottom: 15px;
+			padding-top: 15px;
+			border-top: 1px solid $color-gray-border;
+			border-bottom: 1px solid $color-gray-border;
+
+			.date{
+				padding-right: 30px;
+			}
 			span, a{
 				font-family: $font-pt;
 			}
 			color: $color-gray-audit;
 		}
-	.content-blog{
-		
 		.excerpt-news{
 			font-family: $font-times;
 			font-size: 1.125rem;
@@ -36,19 +72,43 @@
 
 	.box-advert{
 		background: $color-blue-logo;
-		padding: 35px 30px;
+		padding: 30px 15px;
 		text-align: center;
 		margin-bottom: 40px;
 		.fz-big-green{
 			font-size: 30px;
 			color: $color-green-logo;
 		}
+		.btn-green-env{
+			font-size: 1rem;
+			padding: 10px;
+			color: $color-blue-logo;
+			white-space: normal;
+		}
+		.sub-title{
+			padding: 15px 0;
+			font-weight: bold;
+			color: $color-white;
+		}
 		p{
 			color: $color-white;
 		}
 	}
 
-
+	.section-trending{
+		margin-bottom: 80px;
+		margin-top: 80px;
+		.border-header{
+			border-bottom: 1px solid $color-gray-border;
+			position: relative;
+			margin-bottom: 30px;
+			.view-all{
+				position: absolute;
+				top: 20px;
+				right: 0;
+			}
+		}
+	}
 	.box-related-article{
 		border: 1px solid $color-gray-border;
 		.title-article{
@@ -74,6 +134,7 @@
 				padding-left: calc(40% + 15px);
 				font-size: 1.2rem;
 				color: $color-blue-lv3;
+				font-family: $font-pt;
 			}
 		}
 	}

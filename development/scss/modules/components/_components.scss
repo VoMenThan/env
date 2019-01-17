@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6{
 	color: $color-white !important;
     background-color: $color-blue-logo;
     border-color: $color-blue-logo;
-    padding: 15px 50px;
+    padding: 10px 50px;
 	font-size: 1.5rem;
 }
 
@@ -121,6 +121,12 @@ h1, h2, h3, h4, h5, h6{
 .bg-blue-home{
 	background: rgba(13, 49, 83, .7);
 	padding: 30px 0; 
+}
+
+/*============BG BLUE=================*/
+.bg-blue-studio{
+	background: $color-blue-logo;
+	padding: 50px 0;
 }
 /*============BG BLUE=================*/
 .bg-blue-lv4{

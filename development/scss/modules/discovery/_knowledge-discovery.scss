@@ -15,6 +15,14 @@
     h2{
       padding-bottom: 15px;
       font-size: 1.825em;
+      color: $color-white;
+    }
+    p{
+      font-size: 1.25rem;
+    }
+    .category, .author{
+      color: $color-green-logo;
+      font-weight: bold;
     }
   }
 
@@ -34,5 +42,9 @@
       }
     }
 
+  }
+
+  .info-news{
+    padding: 10px !important;
   }
 }

@@ -1,0 +1,72 @@
+.studio-page{
+  padding-bottom: 0 !important;
+  .title-highlight-activities{
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: $color-blue-logo;
+  }
+  .box-studio{
+    margin-bottom: 30px;
+     .box-photo-special{
+       width: 50%;
+       float: left;
+     }
+    .box-info-photo{
+      width: 50%;
+      float: left;
+      background: $color-green-logo;
+      padding: 15px;
+      .info-photo{
+        color: $color-blue-lv2;
+        .category{
+          color: $color-gray-text;
+          font-weight: bold;
+        }
+        h1{
+          font-family: $font-pt;
+          font-size: 1.875rem;
+          color: $color-blue-lv1;
+          margin-bottom: 30px;
+        }
+        p{
+          font-size: 1.25rem;
+        }
+      }
+      .extent-info{
+        color: #4F4F4F;
+      }
+      .btn-blue-env{
+        font-size: 1rem;
+        padding: 5px 15px;
+      }
+    }
+  }
+
+  .highlight-news-right{
+    .btn-blue-env{
+      font-size: 1rem;
+      padding: 5px 15px;
+    }
+    .audit{
+      margin-bottom: 15px;
+    }
+    .info-news{
+      padding: 10px !important;
+    }
+    .btn-show-more{
+      padding: 6px !important;
+    }
+  }
+
+  .bg-blue-studio{
+    .title-section{
+      color: $color-white;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+    .highlight-news-right{
+      background: $color-white;
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 .blog-page{
-
+	.section-head-blog{
+		margin-bottom: 80px;
+	}
 	.highlight-news{
+		border: .5px solid $color-gray-border;
 		img{
 			margin-bottom: 15px;
 		}
@@ -8,8 +11,22 @@
 			font-size: 1.9rem;
 			padding-bottom: 15px;
 		}
+		.info-news{
+			padding: 15px;
+		}
+		.category{
+			color: $color-green-logo;
+			font-weight: bold;
+			font-size: 1rem;
+		}
+		h2{
+			font-size: 1.625rem;
+			font-weight: bold;
+			font-family: $font-pt;
+			line-height: 130%;
+		}
 		.audit{
-			font-size: 1.2rem;
+			font-size: 1rem;
 			padding-bottom: 10px;
 			color: $color-gray-blog;
 			a{
@@ -23,34 +40,12 @@
 			font-size: 1.2rem;
 			color: $color-gray-blog;
 		}
-		.hagtag{
-			font-size: 1.3rem;
-			&:before{
-				content:"";
-				display: table-cell;
-				@include setBackgroundIcon( 30px, "../images/icon-hagtag.png");
-				vertical-align: middle;
-			}
-			a{
-				color: $color-blue-logo;
-				font-weight: bold;
-				&:after{
-					content: ",";
-					display: table-cell;
-				}
-			}
-		}
+
 	}
 	.highlight-news-right{
-		padding-bottom: 30px;
-		padding-top: 30px;
-		border-bottom: 1px solid $color-gray-border;
-		&:first-child{
-			padding-top: 0;
-		}
-		&:last-child{
-			border-bottom: none;
-		}
+		margin-bottom: 30px;
+		border: 1px solid $color-gray-border;
+		position: relative;
 		.thumbnail-news{
 			float: left;
 			display: inline-block;
@@ -58,38 +53,35 @@
 		}
 		.info-news{
 			font-size: 1rem;
+			padding: 10px;
 			padding-left: calc(40% + 15px);
 			h2{
-				font-size: 1.5rem;
+				font-size: 1.25rem;
+				font-family: $font-pt;
 				padding-bottom: 10px;
+				font-weight: bold;
 			}
 			.audit{
-				padding-bottom: 5px;
+				font-size: 1rem;
+				position: absolute;
+				left: calc(40% + 15px);
+				bottom: 10px;
+			}
+			.category{
+				font-size: 1rem;
+				font-weight: bold;
+				color: $color-green-logo;
 			}
 			.author{
 				margin-right: 20px;
+				color: $color-blue-logo;
+
 			}
 			p{
 				padding: 0;
 			}
 		}
-		.hagtag{
-			&:before{
-				content:"";
-				display: table-cell;
-				@include setBackgroundIcon( 20px, "../images/icon-hagtag.png");
-				vertical-align: middle;
-			}
 
-				a{
-				color: $color-blue-logo;
-				font-weight: bold;
-				&:after{
-					content: ",";
-					display: table-cell;
-				}
-			}
-			}
 		&.img-center{
 			.thumbnail-news{
 				float: none;
@@ -97,21 +89,45 @@
 				margin-bottom: 15px;
 			}
 			.info-news{
-			font-size: 1rem;
-			padding-left:0;
+				font-size: 1rem;
+				padding-left:0;
 			}
-
-		}
-
-		&.border-top{
-			border-top: 1px solid $color-gray-border;
-			padding-top: 30px;
 		}
 		
+	}
+
+	.section-trending{
+		margin-bottom: 80px;
+		.highlight-news-right{
+			.info-news{
+				padding-left: 15px;
+				.audit{
+					position: static;
+				}
+			}
+		}
 	}
 	.btn-show-more{
 			width: 100%;
 			border-radius: 0;
 			font-weight: bold;
 		}
+
+	.popup-hack-me{
+		background: $color-green-logo;
+		padding: 15px;
+		h3{
+			font-weight: bold;
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+		}
+		input{
+			background: transparent;
+			border: 1px solid $color-white;
+			padding: 15px;
+			color: white;
+			margin-bottom: 15px;
+			width: 100%;
+		}
+	}
 }

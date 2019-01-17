@@ -131,6 +131,8 @@ module.exports = function(grunt) {
                 'development/discovery/blog-events.html',
                 'development/discovery/knowledge.html',
                 'development/discovery/knowledge-detail.html',
+                'development/discovery/studio.html',
+                'development/discovery/studio-detail.html',
                 'development/legals/accessibility.html',
                 'development/legals/affiliate.html',
                 'development/legals/help.html',

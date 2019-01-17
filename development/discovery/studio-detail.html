@@ -1,0 +1,487 @@
+include "../html/header.html"
+
+<script src="js/jssor.slider.min.js"></script>
+
+<script type="text/javascript">
+    jssor_1_slider_init = function() {
+
+        var jssor_1_SlideshowTransitions = [
+            {$Duration:1200,x:0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:-0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:-0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:-0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:0.3,$Cols:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:0.3,$Rows:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:0.3,$Cols:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,y:-0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:0.3,$Rows:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$SlideOut:true,$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,$Delay:20,$Clip:3,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,$Delay:20,$Clip:12,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+            {$Duration:1200,$Delay:20,$Clip:12,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
+        ];
+
+        var jssor_1_options = {
+            $AutoPlay: 0,
+            $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: jssor_1_SlideshowTransitions,
+                $TransitionsOrder: 1
+            },
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+            },
+            $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $SpacingX: 5,
+                $SpacingY: 5
+            }
+        };
+
+        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+        /*#region responsive code begin*/
+
+        var MAX_WIDTH = 980;
+
+        function ScaleSlider() {
+            var containerElement = jssor_1_slider.$Elmt.parentNode;
+            var containerWidth = containerElement.clientWidth;
+
+            if (containerWidth) {
+
+                var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+                jssor_1_slider.$ScaleWidth(expectedWidth);
+            }
+            else {
+                window.setTimeout(ScaleSlider, 30);
+            }
+        }
+
+        //ScaleSlider();
+
+        $Jssor$.$AddEvent(window, "load", ScaleSlider);
+        $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+        $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+        /*#endregion responsive code end*/
+    };
+</script>
+
+<style>
+    /* jssor slider loading skin spin css */
+    .jssorl-009-spin img {
+        animation-name: jssorl-009-spin;
+        animation-duration: 1.6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes jssorl-009-spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    .jssora106 {display:block;position:absolute;cursor:pointer;}
+    .jssora106 .c {fill:#fff;opacity:.3;}
+    .jssora106 .a {fill:none;stroke:#000;stroke-width:350;stroke-miterlimit:10;}
+    .jssora106:hover .c {opacity:.5;}
+    .jssora106:hover .a {opacity:.8;}
+    .jssora106.jssora106dn .c {opacity:.2;}
+    .jssora106.jssora106dn .a {opacity:1;}
+    .jssora106.jssora106ds {opacity:.3;pointer-events:none;}
+
+    .jssort101 .p {position: absolute;top:0;left:0;box-sizing:border-box;background:#000;}
+    .jssort101 .p .cv {position:relative;top:0;left:0;width:100%;height:100%;border:2px solid #000;box-sizing:border-box;z-index:1;}
+    .jssort101 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;visibility:hidden;}
+    .jssort101 .p:hover .cv, .jssort101 .p.pdn .cv {border:none;border-color:transparent;}
+    .jssort101 .p:hover{padding:2px;}
+    .jssort101 .p:hover .cv {background-color:rgba(0,0,0,6);opacity:.35;}
+    .jssort101 .p:hover.pdn{padding:0;}
+    .jssort101 .p:hover.pdn .cv {border:2px solid #fff;background:none;opacity:.35;}
+    .jssort101 .pav .cv {border-color:#fff;opacity:.35;}
+    .jssort101 .pav .a, .jssort101 .p:hover .a {visibility:visible;}
+    .jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
+    .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
+</style>
+<main class="main-content">
+    <section class="artical-page blog-page blog-knowledge-page blog-knowledge-detail-page studio-detail-page">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="box-breadcrumb">
+                        <span class="you-here">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        </ol>
+                    </div>
+
+                </div>
+                <div class="col-9">
+                    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:780px;overflow:hidden;visibility:hidden;">
+                        <!-- Loading Screen -->
+                        <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="images/gallery/spin.svg" />
+                        </div>
+                        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:780px;overflow:hidden;">
+                            <div>
+                                <img data-u="image" src="images/image-job-opening.png" />
+                                <img data-u="thumb" src="images/image-job-opening.png" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/image-why-envzone.png" />
+                                <img data-u="thumb" src="images/image-why-envzone.png" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/image-vision-envzone.jpg" />
+                                <img data-u="thumb" src="images/image-vision-envzone.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/031.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/031-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/032.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/032-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/033.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/033-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/034.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/034-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/035.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/035-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/036.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/036-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/037.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/037-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/038.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/038-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/039.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/039-s190x90.jpg" />
+                            </div>
+                            <div>
+                                <img data-u="image" src="images/gallery/980x380/040.jpg" />
+                                <img data-u="thumb" src="images/gallery/980x380/040-s190x90.jpg" />
+                            </div>
+                            <div style="background-color:#ff7c28;">
+                                <div style="position:absolute;top:50px;left:50px;width:450px;height:62px;z-index:0;font-size:16px;color:#000000;line-height:24px;text-align:left;padding:5px;box-sizing:border-box;">Photos in this slider are to demostrate jssor slider,<br />
+                                    which are not licensed for any other purpose.
+                                </div>
+                                <img data-u="thumb" src="images/gallery/980x380/039.jpg" />
+                            </div>
+                        </div>
+                        <!-- Thumbnail Navigator -->
+                        <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;bottom:0px;width:980px;height:100px;background-color:#000;" data-autocenter="1" data-scale-bottom="0.75">
+                            <div data-u="slides">
+                                <div data-u="prototype" class="p" style="width:190px;height:84px;">
+                                    <div data-u="thumbnailtemplate" class="t"></div>
+                                    <svg viewBox="0 0 16000 16000" class="cv">
+
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            .jssora071 {display:block;position:absolute;cursor:pointer;}
+                            .jssora071 .a {fill:#fff;fill-opacity:.8;stroke:#000;stroke-width:120;stroke-miterlimit:10;stroke-opacity:.5;}
+                            .jssora071:hover {opacity:.8;}
+                            .jssora071.jssora071dn {opacity:.4;}
+                            .jssora071.jssora071ds {opacity:.3;pointer-events:none;}
+                        </style>
+                        <div data-u="arrowleft" class="jssora071" style="width:25px;height:25px;top:0px;left:30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                            <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                <path class="a" d="M4800,8000c0,192.6,70.4,359.3,211.1,500l4977.8,4977.8c140.7,140.7,307.4,211.1,500,211.1 c192.6,0,359.3-70.4,500-211.1c140.7-140.7,211.1-307.4,211.1-500V3022.2c0-192.6-70.4-359.2-211.1-500 c-140.7-140.8-307.4-211.1-500-211.1c-192.6,0-359.3,70.3-500,211.1L5011.1,7500C4870.4,7640.7,4800,7807.4,4800,8000L4800,8000z"></path>
+                            </svg>
+                        </div>
+                        <div data-u="arrowright" class="jssora071" style="width:25px;height:25px;top:0px;right:30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                            <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                <path class="a" d="M11200,8000c0,192.6-70.4,359.3-211.1,500l-4977.8,4977.8c-140.7,140.7-307.4,211.1-500,211.1 s-359.3-70.4-500-211.1c-140.7-140.7-211.1-307.4-211.1-500V3022.2c0-192.6,70.4-359.2,211.1-500c140.7-140.8,307.4-211.1,500-211.1 s359.3,70.3,500,211.1L10988.9,7500C11129.6,7640.7,11200,7807.4,11200,8000L11200,8000z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <article class="info-video">
+                        <div class="edit-by">
+                            EDITED BY
+                            <div class="author">
+                                Belle Nguyen
+                            </div>
+                        </div>
+                        <div class="public-on">
+                            PUBLISED ON
+                            <div class="date">
+                                November 18, 2018
+                            </div>
+                        </div>
+                        <div class="box-share-social">
+                            <div class="share-share-social">
+                                SHARE THIS VIDEO TO MY FAVORITES
+                            </div>
+                            <ul class="nav list-social">
+                                <li class="nav-item px-1">
+                                    <a class="nav-link link-twitter" href="#"><i class="icon-twitter-green"></i></a>
+                                </li>
+                                <li class="nav-item px-1">
+                                    <a class="nav-link link-facebook" href="#"><i class="icon-facebook-green"></i></a>
+                                </li>
+                                <li class="nav-item px-1">
+                                    <a class="nav-link link-linkedin" href="#"><i class="icon-linkedin-green"></i></a>
+                                </li>
+                                <li class="nav-item px-1">
+                                    <a class="nav-link link-google" href="#"><i class="icon-google-plus-green"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript">jssor_1_slider_init();</script>
+
+        include "../html/home/subcribe.html"
+
+
+        <div class="container">
+
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue">READ MORE FROM EXPERTS</h3>
+                    <a href="#" class="view-all">VIEW ALL</a>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue">READ MORE FROM EXPERTS</h3>
+                    <a href="#" class="view-all">VIEW ALL</a>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue">READ MORE FROM EXPERTS</h3>
+                    <a href="#" class="view-all">VIEW ALL</a>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <article class="highlight-news-right img-center">
+                        <a class="thumbnail-news" href="#">
+                            <img class="img-fluid" src="images/img-blog-the-innovative.png">
+                        </a>
+                        <div class="info-news">
+                            <a href="#" class="category">DEVOPS</a>
+                            <a href="#">
+                                <h2>
+                                    The Innovative work of CB Insights in Data Mining
+                                </h2>
+                            </a>
+                            <div class="audit"><span>By:</span>
+                                <a class="author" href="#"> Author</a>
+                                <span class="date-public">Updated Nov 29, 2018</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+include "../html/footer.html"
