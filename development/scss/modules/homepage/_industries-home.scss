@@ -22,6 +22,11 @@
 			border: 1px solid $color-white;
 			color: $color-white;
 			padding: 30px;
+			.icon-arrow-right{
+				@include setBackgroundIcon(20px, "../images/icon-arrow-down.svg");
+				@include rotate(-90deg);
+				vertical-align: text-top;
+			}
 			.title-field{
 				color: $color-green-logo;
 				font-size: 2rem;

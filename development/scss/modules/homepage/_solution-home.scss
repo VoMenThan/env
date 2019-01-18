@@ -5,6 +5,7 @@
     margin: auto;
     text-align: center;
     margin-bottom: 30px;
+    line-height: 130%;
   }
   .box-description{
     width: 50%;
@@ -30,7 +31,7 @@
     .rank-2{
       position: absolute;
       top: 280px;
-      left: 350px;
+      left: 360px;
       font-size: 1.5rem;
     }
     .rank-3{
@@ -47,6 +48,10 @@
     color: $color-blue-logo;
     margin-bottom: 60px;
     padding: 0 30px;
+  }
+  .btn-blue-env{
+    font-weight: bold;
+    font-size: 18px;
   }
   .item-cost{
     text-align: center;

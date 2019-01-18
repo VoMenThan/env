@@ -62,3 +62,8 @@ body{
   font-size: $fontz-text;
   color: $color-gray-text;
 }
+@media (min-width: 1200px){
+  .container {
+    max-width: 1200px;
+  }
+}

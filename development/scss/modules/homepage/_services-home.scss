@@ -2,8 +2,14 @@
 .content-services{
 	margin-bottom: 80px;
 	.box-head-services{
-		p{
-			width: 50%;
+		.title-head-blue{
+			margin-bottom: 10px;
+		}
+		.description-services{
+			width: 65%;
+			font-size: 1.5rem;
+			line-height: 38px;
+			margin-bottom: 50px !important;
 		}
 	}
 
@@ -27,6 +33,9 @@
 				p {
 					color: $color-blue-logo;
 				}
+			}
+			h3{
+				color: $color-blue-logo !important;
 			}
 		}
 		.learn-more{
@@ -54,7 +63,7 @@
 		h3{
 			font-size: 1.875rem;
 			font-weight: bold;
-			color: $color-blue-logo;
+			color: $color-white;
 			position: absolute;
 			bottom: 20px;
 			left: 50%;

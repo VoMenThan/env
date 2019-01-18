@@ -25,17 +25,35 @@
 	}
 
 	.box-headline{
-		width: 50%;
+		width: 66%;
 		.head-line-envzone{
 			color: $color-white;
-			font-size: $fontz-title;
-			padding-bottom: 15px;
+			font-size: 34px;
+			padding-bottom: 30px;
 			font-weight: bold;
+			line-height: 130%;
 		}
 		p{
 			color: $color-white;
 			font-size: $fontz-sub-title;
 			padding-bottom: 30px;
+		}
+		.btn-get-started{
+			font-size: 18px;
+			padding-left: 30px;
+			padding-right: 30px;
+			color: $color-blue-logo !important;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+		.title-security{
+			font-size: 24px;
+			font-weight: 600;
+			color: $color-white;
+		}
+		.icon-security{
+			@include setBackgroundIcon(40px, "../images/icon-security.svg");
+			vertical-align: middle;
 		}
 	}
 }
@@ -44,19 +62,19 @@
 
 /*=====================SOCIAL BANNER HOME======================*/
 .connect-social{
-	padding: 25px;
+	padding: 20px;
 	background: rgba( 141,198,63, .7);
 	position: absolute;
     top: 50%;
     z-index: 9;
-    right: 50%;
-	max-width: 400px;
+    left: 50%;
+	max-width: 390px;
 	color: $color-white;
-    @include translate(calc(500px), -50%);
+    @include translate(calc(210px), -50%);
     h3{
-    	font-size: 1.2rem;
+    	font-size: 23px;
     	color: $color-white;
-    	padding-bottom: 15px;
+    	padding-bottom: 10px;
     	font-weight: bold;
     	letter-spacing: 1px;
     }
@@ -64,11 +82,11 @@
 		.item-best-choose{
 			color: $color-white;
 			font-weight: 100;
-			padding-bottom: 10px;
+			padding-bottom: 5px;
 		}
     }
 	.title-link{
-		font-size: 1.2rem;
+		font-size: 18px;
 		font-weight: 100;
 		margin-bottom: 10px;
 	}
@@ -76,11 +94,14 @@
 		border-radius: 0;
 		width: 100%;
 		font-weight: bold;
-		font-size: 1.2rem;
-		padding: 15px 20px;
+		font-size: 18px;
+		padding: 10px;
+		text-align: center;
 	}
 	hr{
 		border-top-color: $color-white;
+		margin-bottom: 10px;
+		margin-top: 10px;
 	}
 }
 

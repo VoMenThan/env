@@ -6,9 +6,16 @@
     .title-overhead-costs{
       width: 70%;
       margin-bottom: 70px;
+      line-height: 55px;
     }
     .box-according{
       position: relative;
+      div[class*="cost-"]{
+        font-weight: bold;
+        font-size: 30px;
+        width: 280px;
+        color: $color-blue-logo;
+      }
       .cost-1{
         font-size: 1.5rem;
         position: absolute;
@@ -18,7 +25,7 @@
       .cost-2{
         font-size: 1.5rem;
         position: absolute;
-        top: 115px;
+        top: 143px;
         left: 280px;
       }
       .note-chart{
@@ -31,6 +38,7 @@
       font-size: 1.5rem;
       .list-costs{
         li{
+          margin-bottom: 5px;
           &:before{
             content: "";
             display: inline-block;
@@ -44,11 +52,17 @@
       }
     }
     .description-overhead{
-      width: 70%;
+      width: 56%;
       margin: auto;
+      font-weight: 600;
       color: $color-blue-logo;
       font-size: 1.875rem;
       padding: 40px 0;
+    }
+    .btn-blue-env{
+      padding: 10px 30px;
+      font-size: 18px;
+      font-weight: bold;
     }
   }
 }
