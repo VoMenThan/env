@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:100,400,400i,500,600,700,700i,800");
-@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif|Raleway:100,200,300,300i,400,400i,500,600,700,900&amp;subset=latin-ext");
 @font-face { font-family: 'Times New Roman'; src: url("../fonts/Times_New_Roman.eot"); src: url("../fonts/Times_New_Roman.woff2") format("woff2"), url("../fonts/Times_New_Roman.woff") format("woff"), url("../fonts/Times_New_Roman.ttf") format("truetype"), url("../fonts/Times_New_Roman.svg#Times_New_Roman") format("svg"), url("../fonts/Times_New_Roman.eot?#iefix") format("embedded-opentype"); font-weight: normal; font-style: normal; }
 /*define*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; }
@@ -1048,23 +1047,21 @@ footer .box-term-policy-mb { display: none; }
 	================================================================== */
 @media screen and (max-width: 425px) { .client-focused-solutions-page .box-green { padding: 20px 0; }
   .client-focused-solutions-page .box-green .title-blue-center { font-size: 1.5rem; } }
-.contact-us-page p { font-size: 1.25rem; }
-.contact-us-page .box-form-contact p { font-size: 1.625rem; }
-.contact-us-page .box-form-contact label { font-size: 1.25rem; }
-.contact-us-page .box-contact-topic { border: 1px solid #C4C4C4; }
-.contact-us-page .box-contact-topic .label-header { padding: 15px; background: #0D3153; text-align: center; color: #ffffff; font-size: 1.5rem; }
-.contact-us-page .box-contact-topic article { padding: 15px; }
-.contact-us-page .box-contact-topic article h4 { font-size: 1.2rem; }
-.contact-us-page .box-contact-topic article .name-label { color: #000000; }
-.contact-us-page .box-visit-envzone .col-green { width: 40%; float: left; height: 100%; background: #8DC63F; padding: 30px; color: #000000; }
-.contact-us-page .box-visit-envzone .col-green h4 { padding-bottom: 30px; font-size: 1.4rem; }
-.contact-us-page .box-visit-envzone .box-img { width: 60%; float: left; height: 100%; }
-.contact-us-page .box-visit-envzone .box-img img { height: 100%; }
-.contact-us-page .btn-green-env.btn-100 { width: 100%; }
-.contact-us-page .icon-direction { width: 25px; height: 25px; background: url("../images/icon-direction.svg") no-repeat center; display: inline-block; background-size: 100%; vertical-align: middle; }
-.contact-us-page .international-header { font-size: 1.825rem; color: #000000; padding: 30px 0; padding-bottom: 15px; font-weight: bold; }
-.contact-us-page .international-office { color: #000000; }
-.contact-us-page .international-office h5 { padding-bottom: 15px; padding-top: 15px; font-size: 1.625rem; font-weight: bold; }
+.partnership-page { padding-bottom: 0 !important; }
+.partnership-page .box-header { margin-bottom: 30px; }
+.partnership-page .title-head-blue { text-transform: initial; }
+.partnership-page .info-partnership { margin-bottom: 50px; }
+.partnership-page .info-partnership .box-info { background: #0D3153; float: left; width: 60%; height: 100%; padding: 50px 40px; color: #ffffff; font-size: 1.3rem; }
+.partnership-page .info-partnership .box-title { background: #8DC63F; width: 40%; height: 100%; float: left; }
+.partnership-page .info-partnership .box-title h2 { text-align: center; width: 70%; }
+.partnership-page .box-two-col { text-align: center; }
+.partnership-page .box-two-col i { font-size: 3rem; margin-bottom: 1rem; }
+.partnership-page .box-two-col .box-green { width: 50%; float: left; background: #8DC63F; height: 100%; padding: 40px; color: #0D3153; }
+.partnership-page .box-two-col .box-green h4 { padding-bottom: 1rem; }
+.partnership-page .box-two-col .box-green p { text-align: left; }
+.partnership-page .box-two-col .box-blue { width: 50%; float: left; background: #0D3153; height: 100%; padding: 40px; color: #8DC63F; }
+.partnership-page .box-two-col .box-blue h4 { color: #8DC63F; padding-bottom: 1rem; }
+.partnership-page .box-two-col .box-blue p { text-align: left; }
 
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
@@ -1079,6 +1076,7 @@ footer .box-term-policy-mb { display: none; }
 	MEDIUM DEVICE
 	Large tablet 992px and down (<992px)
 	================================================================== */
+@media screen and (max-width: 992px) { .partnership-page .info-partnership .box-title h2 { font-size: 1.5rem; } }
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 768px and up (>768px and <992px)
@@ -1087,10 +1085,6 @@ footer .box-term-policy-mb { display: none; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen and (max-width: 768px) { .contact-us-page .box-visit-envzone .col-green { width: 100%; height: auto; }
-  .contact-us-page .box-visit-envzone .box-img { width: 100%; }
-  .contact-us-page .box-visit-envzone .box-img img { width: 100%; }
-  .contact-us-page .international-office { padding-bottom: 30px; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1099,10 +1093,19 @@ footer .box-term-policy-mb { display: none; }
 	EXTRA SMALL DEVICE
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
+@media screen and (min-width: 425px) and (max-width: 576px) { .partnership-page .info-partnership .box-title, .partnership-page .info-partnership .box-info { width: 100%; height: auto; float: none; }
+  .partnership-page .info-partnership .box-title { text-align: center; padding: 15px; }
+  .partnership-page .info-partnership .box-title h2 { width: 100%; font-size: 1.5rem; } }
 /* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
+@media screen and (max-width: 425px) { .partnership-page .info-partnership .box-title, .partnership-page .info-partnership .box-info { width: 100%; height: auto; float: none; }
+  .partnership-page .info-partnership .box-info { padding: 20px; font-size: 1rem; }
+  .partnership-page .info-partnership .box-title { text-align: center; padding: 15px; }
+  .partnership-page .info-partnership .box-title h2 { width: 100%; font-size: 1.5rem; }
+  .partnership-page .box-two-col .box-green { width: 100%; height: auto; }
+  .partnership-page .box-two-col .box-blue { width: 100%; height: auto; } }
 .vendor-contact-form-page article { margin-bottom: 2rem; }
 .vendor-contact-form-page .box-already-registered .col-blue { width: 50%; float: left; height: 100%; background: #0D3153; padding: 30px; color: #000000; text-align: center; }
 .vendor-contact-form-page .box-already-registered .col-blue .title-already { font-size: 1.4rem; color: #ffffff; }
