@@ -8,15 +8,25 @@
 
 	.item-special{
 		background: $color-green-lv3;
-		padding: 15px;
 		margin-bottom: 15px;
-		a{
+		padding-right: 15px;
+		.img-special{
+			padding-right: 0;
+			img{
+				width: 100%;
+			}
+		}
+		.info-special{
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		a.category{
+			font-size: 16px;
+			padding-bottom: 10px;
+			display: inline-block;
 			&:hover{
 				img{
 					opacity: .8;
-				}
-				h3{
-					color: $color-blue-lv4 !important;
 				}
 			}
 		}
@@ -24,6 +34,8 @@
 			color: $color-black;
 			padding-bottom: 5px;
 			font-weight: bold;
+			font-size: 28px;
+			font-family: $font-pt;
 		}
 		.category{
 			text-transform: uppercase;
@@ -31,6 +43,10 @@
 			font-weight: bold;
 		}
 		.author-by{
+			color: #4F4F4F;
+			font-weight: bold;
+		}
+		.date-by{
 			color: #4F4F4F;
 		}
 		.excerpt{
@@ -56,23 +72,29 @@
 				}
 			}
 		}
-		img{
-			padding-bottom: 5px;
-		}
 		h4{
-			font-size: 1.2rem;
+			font-size: 20px;
+			font-family: $font-pt;
+			margin-bottom: 20px;
 			color: $color-blue-lv1;
 		}
 		.item-blog{
 			border: 1px solid $color-gray-border;
+			height: 100%;
 			.info{
 				padding: 10px 15px;
+			}
+			.info-author{
+				position: absolute;
+				bottom: 15px;
 			}
 		}
 		.category{
 			text-transform: uppercase;
-			color: $color-blue-logo;
+			color: $color-green-logo;
 			font-weight: bold;
+			padding-bottom: 10px;
+			display: inline-block;
 		}
 		.author-by{
 			color: #4F4F4F;
@@ -90,15 +112,15 @@
 
 .list-item{
 	background: $color-blue-lv3;
+	height: 100%;
 	.label-headline{
-		background: $color-blue-lv2;
 		color: $color-white;
-		padding: 10px;
-		font-size: 1.2rem;
+		padding: 20px 10px;
+		font-size: 18px;
 	}
 	.box-list-scroll{
 		padding: 10px;
-		height: 450px;
+		height: 600px;
 		overflow: auto;
 		padding-right: 0;
 		.mCSB_inside>.mCSB_container{
@@ -122,9 +144,11 @@
 				bottom: 0;
 				width: 100%;
 				padding: 10px 20px;
-				background: rgba(201, 240, 148, .8);
-				font-size: .8rem;
-				color: $color-blue-lv2;
+				background: rgba(2, 26, 50, .7);
+				font-size: 14px;
+				color: $color-white;
+				font-family: $font-pt;
+				line-height: 22px;
 			}
 		}
 	}

@@ -1,21 +1,26 @@
 .section-knowledge{
 	margin-bottom: 0 !important;
+	padding: 90px 0 !important;
 }
 .content-knowledge{
 	.box-head-blog{
 		margin-bottom: 30px;
 		h2{
 			color: $color-white;
+			font-weight: bold;
 		}
 		a.view-all{
 			color: $color-white;
 		}
 	}
 	.video-play{
-		h3>a{
+		h3{
 			color: $color-white;
 			padding-top: 15px;
 			display: 	block;
+			font-family: $font-pt;
+			line-height: 56px;
+			font-size: 36px;
 		}
 		.embed-video{
 			position: relative;
@@ -31,8 +36,10 @@
 	}
 	.list-item{
 		.box-list-scroll{
+			height: 480px;
 		}
 		.item-detail{
+			margin-bottom: 30px;
 			img{
 				width: 35%;
 				float: left;

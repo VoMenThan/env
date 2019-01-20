@@ -33,13 +33,16 @@
         margin-right: 20px;
       }
       .box-reasons{
+        padding: 15px;
         h3{
           text-align: center;
           margin-bottom: 10px;
-          font-size: 1.5rem;
+          font-size: 25px;
+          line-height: 34px;
         }
         p{
-          font-size: 1.2rem;
+          font-size: 20px;
+          line-height: 28px;
         }
       }
     }
@@ -48,9 +51,12 @@
   .box-clients{
     background: $color-blue-logo;
     color: $color-white;
+    height: 100%;
+    position: relative;
     .info-optimize{
       font-size: 1.875rem;
       padding: 30px;
+      height: calc(100% - 104px);
     }
     .btn-green-env{
       white-space: normal;
@@ -58,7 +64,10 @@
       border-radius: 0;
       color: $color-blue-logo !important;
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 22px;
+      position: absolute;
+      bottom: 0;
+      line-height: 34px;
     }
     .icon-right-arrow-simple{
       @include setBackgroundIcon(20px, "../images/icon-right-arrow-simple.png");

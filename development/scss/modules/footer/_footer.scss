@@ -4,7 +4,12 @@ footer {
     padding-top: 100px;
     background: $color-blue-logo;
     color: $color-white;
-
+    .description-logo{
+        font-weight: bold;
+        margin-bottom: 30px;
+        line-height: 25px;
+        font-size: 18px;
+    }
     a {
         color: $color-white;
     }
@@ -39,19 +44,19 @@ footer {
         input[type*="text"] {
             width: 100%;
             background: transparent;
-            border: 1px solid $color-gray-text;
+            border: 1px solid #C4C4C4;
             padding: 10px;
-            margin: 15px 0;
-            color: $color-white;
+            margin: 30px 0;
+            color: #C4C4C4;
         }
 
         textarea {
             width: 100%;
             background: transparent;
-            border: 1px solid $color-gray-text;
+            border: 1px solid #C4C4C4;
             padding: 18px;
-            margin: 15px 0;
-            color: $color-white;
+            margin: 30px 0;
+            color: #C4C4C4;
         }
 
         .btn-green-env {
@@ -59,10 +64,25 @@ footer {
             color: $color-white;
             text-align: center;
             width: 100%;
+            padding: 6px 30px;
+            font-size: 25px;
         }
     }
 
     .box-info-footer {
+        color: #C4C4C4;
+        .label-company{
+            color: $color-white;
+            font-weight: bold;
+        }
+        .email-envzone{
+            color: #C4C4C4;
+            display: inline-block;
+        }
+        .phone-envzone{
+            color: #C4C4C4;
+            display: inline-block;
+        }
         .label-menu-footer {
             padding: 10px 0;
             border-bottom: 1px solid $color-white;
@@ -72,8 +92,13 @@ footer {
             letter-spacing: 1px;
             color: $color-white;
         }
-
+        .label-socials{
+            color: $color-white;
+        }
         .list-menu-footer {
+            li{
+                padding: 5px 0;
+            }
             a {
                 &:hover {
                     color: $color-green-logo;
@@ -95,6 +120,10 @@ footer {
             border-bottom: 1px solid $color-gray-text;
             margin-bottom: 15px;
             padding-bottom: 50px;
+            .description-same{
+                font-size: 15px;
+                line-height: 25px;
+            }
         }
 
         .title-same {

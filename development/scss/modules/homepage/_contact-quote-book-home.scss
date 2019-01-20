@@ -1,20 +1,31 @@
+.bg-building{
+	.bg-blue-home{
+		padding: 75px 0;
+	}
+}
 .content-contact-quote-book{
 	color: $color-white;
 	padding: 70px auto;
 	text-align: center;
 	h4{
 		text-transform: uppercase;
-		font-size: 1.8rem;
+		font-size: 30px;
 		font-weight: bold;
 		padding-bottom: 15px;
 		color: $color-white;
 		text-align: center;
 	}
 	p{
-		font-size: 1.3rem;
+		font-size: 20px;
+		line-height: 28px;
 		padding-bottom: 15px;
 		width: 70%;
 		margin: auto;
+	}
+	.btn-green-env{
+		width: 85%;
+		font-size: 25px;
+		font-weight: bold;
 	}
 	.btn-transparent{
 		background: transparent;
@@ -23,7 +34,6 @@
 	.icon-arrow-bottom{
 		@include setBackgroundIcon(25px, "../images/icon-arrow-bottom.png");
 		vertical-align: middle;
-		margin-left: 20px;
 	}
 	.form-toggle{
 		padding: 50px 15px;
