@@ -33,8 +33,9 @@ nav {
               }
             }
             span {
-                font-size: 1rem;
-                font-family: $font-menu;
+                font-size: 18px;
+                font-weight: bold;
+                font-family: $font-pt-san;
                 color: $color-white;
                 line-height: 40px;
                 padding: .7rem 1.5rem;
@@ -43,7 +44,7 @@ nav {
 
             .nav-link {
                 color: $color-white;
-              padding: 0;
+                padding: 0;
             }
 
             .icon-typical-phone {
@@ -75,6 +76,7 @@ nav {
                 line-height: 40px;
                 padding: .7rem 1.5rem;
                 position: relative;
+                font-weight: bold;
                 &.btn-search-pc{
                   &:before{
                     display: none !important;
@@ -85,11 +87,11 @@ nav {
                     &:before {
                         content: " ";
                         display: inline-block;
-                        width: 30px;
+                        width: calc(100% - 3rem);
                         height: 3px;
                         background: $color-green-logo;
                         position: absolute;
-                        bottom: .8rem;
+                        bottom: 15px;
                         left: 1.5rem;
                     }
 
@@ -169,32 +171,51 @@ nav {
 		h3{
 			color: $color-green-logo;
 			font-weight: bold;
+            font-size: 36px;
 		}
+        .sub-title-form{
+            font-weight: bold;
+            line-height: 34px;
+            font-size: 24px;
+            color: $color-white;
+            margin-bottom: 15px;
+        }
 		p{
 			color: $color-white;
+            line-height: 28px;
+            font-size: 20px;
 		}
 		article{
 			padding-bottom: 20px;
+            >p{
+              font-size: 18px;
+              line-height: 25px;
+            }
 		}
 		.title-submenu{
 			color: $color-green-logo;
 			font-size: 24px;
 			padding-bottom: 15px;
+            font-weight: bold;
+            display: inline-block;
 		}
 		.title-contact{
-			font-size: 1.5rem;
+			font-size: 22px;
+            font-weight: bold;
 			color: $color-green-logo;
+            line-height: 31px;
+            margin-bottom: 10px;
 		}
 
 		input, textarea{
-		width: 100%;
-		background: transparent;
-		border-radius: 3px;
-		border: 1px solid $color-gray-border;
-		padding: 10px;
-		margin-bottom: 30px;
-		color: $color-white;
-		resize: none;
+            width: 100%;
+            background: transparent;
+            border-radius: 3px;
+            border: 1px solid $color-gray-border;
+            padding: 10px;
+            margin-bottom: 30px;
+            color: $color-white;
+            resize: none;
 		}
 		::placeholder { 
 		color: $color-white;
@@ -212,7 +233,10 @@ nav {
 		font-weight: 100;
 		}
 		.btn-send-message{
-			color: $color-green-logo !important;
+			color: $color-blue-logo !important;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
 		}
 		
 	}

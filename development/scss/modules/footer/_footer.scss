@@ -67,6 +67,25 @@ footer {
             padding: 6px 30px;
             font-size: 25px;
         }
+
+        ::placeholder {
+            color: #C4C4C4;
+            opacity: 1;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        :-ms-input-placeholder {
+            color: #C4C4C4;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        ::-ms-input-placeholder {
+            color: #C4C4C4;
+            font-weight: 100;
+            font-style: italic;
+        }
     }
 
     .box-info-footer {
@@ -100,10 +119,20 @@ footer {
                 padding: 5px 0;
             }
             a {
+                color: #E0E0E0;
                 &:hover {
                     color: $color-green-logo;
                 }
             }
+        }
+        address{
+            position: relative;
+        }
+        .icon-direction-footer{
+            @include setBackgroundIcon(25px, "../images/icon-direction-footer.svg");
+            position: absolute;
+            top: 5px;
+            left: 64%;
         }
     }
 
@@ -118,11 +147,12 @@ footer {
 
         .box-donate {
             border-bottom: 1px solid $color-gray-text;
-            margin-bottom: 15px;
             padding-bottom: 50px;
+            margin-bottom: 15px;
             .description-same{
                 font-size: 15px;
                 line-height: 25px;
+                color: #C4C4C4;
             }
         }
 
@@ -140,23 +170,38 @@ footer {
             border: 1px solid $color-white;
             font-size: .8rem;
             padding: 5px 20px;
+            background: transparent;
         }
-
+        .box-certified{
+            padding-top: 15px;
+            border-right: 1px solid $color-gray-text;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            p{
+                color: #BDBDBD;
+            }
+        }
         .box-policy {
             margin: auto;
             margin-bottom: 5px;
 
             a {
-                border-right: 1px solid $color-white;
-                padding-right: 35px;
-                margin-left: 35px;
+                border-right: .3px solid $color-white;
+                padding-right: 63px;
+                margin-left: 63px;
+                font-size: 15px;
                 margin-bottom: 15px;
                 display: inline-block;
+                color: #E0E0E0;
 				&:hover{
 					color: $color-green-logo;
 				}
                 &:last-child {
                     border-right: none;
+                }
+                &:first-child{
+                    margin-left: 0;
                 }
             }
 
@@ -297,7 +342,7 @@ footer {
             }
         }
         .bg-blue-lv1{
-            background: $color-blue-lv2;
+            background: #02172B;
         }
         .section-donate{
             padding-bottom: 0;
