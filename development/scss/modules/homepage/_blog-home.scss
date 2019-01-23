@@ -153,6 +153,29 @@
 		}
 	}
 }
+
+.item-blog-mobile-horizontal{
+	position: relative;
+	img{
+		float: left;
+		width: 35%;
+	}
+	.info{
+		padding-left: calc(35% + 15px);
+		.category{
+			font-weight: bold;
+			color: $color-green-logo;
+		}
+		h4{
+			font-size: 24px;
+			font-family: $font-pt;
+		}
+		.author-by{
+			position: absolute;
+			bottom: 15px;
+		}
+	}
+}
 /*============END BLOG HOME=================*/
 
 /* =================== RESPONSIVE ======================= */
@@ -172,7 +195,30 @@
 @media screen and (max-width: $device-size-medium) {
 	.content-blog {
 		margin-bottom: 50px;
+		&.define-headline {
+			.view-all{
+				display: none;
+			}
+			.underline-head{
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+			span{
+				&:after{
+					display: none !important;
+				}
+			}
+		}
 		.item-special {
+			background: $color-white;
+			margin-bottom: 30px;
+			padding-right: 15px;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			.info-special{
+				.box-info, .box-author{
+					padding-left: 15px;
+				}
+			}
 			h3{
 				margin-top: 15px;
 			}
@@ -185,7 +231,19 @@
 		}
 	}
 }
-
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 767px and down (<767px)
+	================================================================== */
+@media screen and (max-width: 767px) {
+	.content-blog {
+		.box-item-special{
+			&:last-child{
+				display: none;
+			}
+		}
+	}
+}
 /* 	================================================================
 	LARGE MOBILE DEVICE
 	Large mobile 425px and down (<425px)
@@ -194,9 +252,25 @@
 	.content-blog{
 		margin-bottom: 30px;
 		.box-item-special {
+			margin-bottom: 30px;
 			a {
 				display: block;
 				width: 70%;
+			}
+			.item-blog {
+				.info-author{
+					position: static;
+				}
+			}
+		}
+		.item-special{
+			.info-special{
+				.box-info{
+					padding-left: 15px;
+				}
+				.box-author{
+					padding-left: 15px;
+				}
 			}
 		}
 	}

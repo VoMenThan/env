@@ -84,7 +84,49 @@
 	Large tablet 992px and down (<992px)
 	================================================================== */
 @media screen and (max-width: $device-size-large) {
-
+	.content-services {
+		.d-none-992{
+			display: none !important;
+		}
+		.d-block-992{
+			display: block !important;
+		}
+		.item-service {
+			padding: 20px;
+			background: transparent;
+			border: 1px solid $color-gray-border;
+			.box-info-services {
+				text-align: center;
+				min-height: auto;
+				img{
+					margin: auto;
+					width: 50px;
+					margin-bottom: 15px;
+				}
+				p{
+					display: none;
+				}
+				.learn-more{
+					display: none !important;
+				}
+				.plus-gray{
+					position: absolute;
+					right: 15px;
+					top: 15px;
+					@include setBackgroundIcon(25px, "../images/icon-plus-button.svg");
+				}
+			}
+			h3{
+				font-size: 18px;
+				font-weight: 600;
+				position: static;
+				@include translate-x(0);
+				white-space: normal;
+				text-align: center;
+				color: $color-blue-logo;
+			}
+		}
+	}
 }
 
 /* 	================================================================
@@ -124,11 +166,13 @@
 				}
 			}
 			h3{
-				font-size: 1rem;
+				font-size: 18px;
+				font-weight: 600;
 				position: static;
 				@include translate-x(0);
 				white-space: normal;
 				text-align: center;
+				color: $color-blue-logo;
 			}
 		}
 	}
@@ -140,7 +184,16 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+	.content-services {
+		.box-head-services {
+			.description-services{
+				width: 100%;
+				font-size: 18px;
+				line-height: 27px;
+				margin-bottom: 30px !important;
+			}
+		}
+	}
 }
 
 /* =================== END RESPONSIVE ======================= */

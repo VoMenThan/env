@@ -68,6 +68,22 @@
 }
 
 /* 	================================================================
+	Large desktop 1200px and down (1200px)
+	================================================================== */
+@media screen and (max-width: $device-size-extra-large) {
+  .overhead-costs-page {
+    .content-overhead-costs {
+      .box-according {
+        div[class*="cost-"]{
+          font-size: 25px;
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+/* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
@@ -80,11 +96,16 @@
       .title-overhead-costs{
         margin-bottom: 30px;
         width: 100%;
-        line-height: 120%;
+        line-height: 37px;
+        font-size: 24px;
       }
       .box-according{
         .img-fluid{
           width: 180px;
+        }
+        div[class*="cost-"]{
+          font-size: 18px;
+          width: 150px;
         }
         .cost-1{
           font-size: 1rem;
@@ -98,8 +119,7 @@
         }
       }
       .box-list-costs-saving{
-        font-size: 1.125rem;
-        font-weight: 100;
+        font-size: 18px;
         .list-costs {
           li{
             &:before{
@@ -118,6 +138,25 @@
       }
       .btn-blue-env{
         width: 100%;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: $device-size-ex-mobile) {
+  .overhead-costs-page {
+    .content-overhead-costs {
+      .box-according {
+        div[class*="cost-"]{
+          font-size: 16px;
+          width: 120px;
+        }
       }
     }
   }

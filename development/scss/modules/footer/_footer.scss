@@ -90,6 +90,7 @@ footer {
 
     .box-info-footer {
         color: #C4C4C4;
+        padding-bottom: 60px;
         .label-company{
             color: $color-white;
             font-weight: bold;
@@ -339,6 +340,9 @@ footer {
                 .icon-location{
                     @include setBackgroundIcon(50px, "../images/icon-location.svg");
                 }
+                .icon-mobile-phone{
+                    @include setBackgroundIcon(50px, "../images/icon-mobile-phone.svg");
+                }
             }
         }
         .bg-blue-lv1{
@@ -350,6 +354,28 @@ footer {
         }
         .box-term-policy-mb{
             display: block;
+        }
+    }
+}
+
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and down (1200px)
+	================================================================== */
+@media screen and (max-width: $device-size-extra-large) {
+    footer {
+        .form-start-project {
+            .btn-green-env{
+                font-size: 16px;
+            }
+        }
+        .section-donate {
+            .box-policy {
+                a{
+                    padding-right: 40px;
+                    margin-left: 40px;
+                }
+            }
         }
     }
 }
@@ -373,6 +399,13 @@ footer {
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
     footer {
+        .social-mobile{
+            .list-social-mb{
+                .nav-link{
+                    padding: 0 10px;
+                }
+            }
+        }
         .form-start-project {
             input[type*="file"]{
                 width: 100%;

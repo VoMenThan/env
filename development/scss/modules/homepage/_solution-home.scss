@@ -71,7 +71,16 @@
     margin-bottom: 30px;
   }
 }
-
+/* 	================================================================
+	Large desktop 1200px and down (1200px)
+	================================================================== */
+@media screen and (max-width: $device-size-extra-large) {
+  .solution-figurative {
+    .box-description{
+      width: 60%;
+    }
+  }
+}
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
@@ -123,30 +132,40 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
   .solution-figurative {
+    .box-description{
+      font-size: 18px;
+    }
+    .title-solution{
+      font-size: 24px;
+      margin-bottom: 0;
+    }
     .box-vn-rank{
       .rank-1{
         top: -81px;
-        left: 109px;
-        font-size: 1rem;
+        left: 80px;
+        font-size: 18px;
         width: 250px;
       }
       .rank-2{
         top: 294px;
-        left: 200px;
-        font-size: 1rem;
+        left: 182px;
+        font-size: 18px;
         width: 157px;
       }
       .rank-3{
         top: 295px;
         left: 10px;
-        font-size: 1rem;
+        font-size: 18px;
         width: 150px;
       }
     }
     .title-major-factor{
-      font-size: 1.2rem;
+      font-size: 18px;
       padding: 0;
       text-align: left;
+    }
+    .btn-blue-env{
+      font-size: 16px;
     }
   }
 }

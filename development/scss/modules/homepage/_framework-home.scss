@@ -159,8 +159,17 @@
 @media screen and (max-width: $device-size-mobile) {
 
 	.content-framework {
-		.box-head-framework > p{
-			width: 100%;
+		.box-head-framework {
+			h2{
+				line-height: 37px;
+				font-size: 24px;
+			}
+			> p{
+				width: 100%;
+				font-size: 18px;
+				line-height: 27px;
+				margin-bottom: 10px !important;
+			}
 		}
 		.item-framework {
 			h3 {

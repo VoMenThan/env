@@ -25,7 +25,7 @@
 	}
 
 	.box-headline{
-		width: 66%;
+		width: 65%;
 		.head-line-envzone{
 			color: $color-white;
 			font-size: 34px;
@@ -63,9 +63,10 @@
 	position: absolute;
 	left: 50%;
 	bottom: 10px;
-	z-index: 99;
+	z-index: 98;
 	background: rgba(69,103,138,.5);
 	@include radius(50%);
+	@include translate-x(-50%);
 	padding: 6px;
 	.icon-arrow-down-green{
 		@include setBackgroundIcon(40px, "../images/icon-arrow-down-green.svg");
@@ -136,6 +137,39 @@
 
 }
 
+/* 	================================================================
+	EXTRA LARGE DEVICE
+	Large desktop 1200px and down (1200px)
+	================================================================== */
+@media screen and (max-width: $device-size-extra-large) {
+	.slider-home.owl-theme {
+		.box-headline {
+			.head-line-envzone{
+				padding-bottom: 20px;
+			}
+			p{
+				display: none;
+			}
+			.btn-get-started{
+				margin-bottom: 20px;
+			}
+		}
+	}
+	.connect-social{
+		max-width: 330px;
+		@include translate(160px, -50%);
+	}
+	.d-none-1200{
+		display: none !important;
+	}
+	.btn-scroll-bottom {
+		.icon-arrow-down-green{
+			width: 25px;
+			height: 25px;
+		}
+	}
+}
+
 
 /* 	================================================================
 	LARGE DEVICE
@@ -155,7 +189,14 @@
 		margin-bottom: 50px;
 		&.owl-theme {
 			.box-headline{
-				width: 100%;
+				width: 70%;
+			}
+		}
+	}
+	.slider-home.owl-theme {
+		.box-headline {
+			.head-line-envzone{
+				font-size: 30px;
 			}
 		}
 	}
@@ -172,6 +213,17 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.connect-social{
+		display: block !important;
+		left: 0;
+		background: transparent;
+		@include translate(15px, -50%);
+		max-width: 70%;
+		.btn-blue-env{
+			background: transparent;
+			border: 1px solid $color-white;
+		}
+	}
 	.slider-home{
 		margin-bottom: 30px;
 		&.owl-theme {
@@ -181,6 +233,7 @@
 				}
 			}
 			.box-headline {
+				display: none;
 				.head-line-envzone{
 					font-size: 1.5rem;
 				}
@@ -195,6 +248,10 @@
 		}
 
 	}
+
+	.btn-scroll-bottom{
+		display: none;
+	}
 }
 
 /* 	================================================================
@@ -202,7 +259,6 @@
 	Large tablet 576px and up (>576px and <768px)
 	================================================================== */
 @media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {
-
 }
 
 /* 	================================================================
@@ -219,7 +275,19 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+	.connect-social{
+		max-width: 90%;
+		.btn-blue-env{
+			font-size: 16px;
+		}
+	}
+	.slider-home.owl-theme {
+		.owl-item {
+			img{
+				height: calc(100vh - 50px);
+			}
+		}
+	}
 }
 
 /* 	================================================================
@@ -236,5 +304,9 @@
 				font-size: .8rem;
 			}
 		}
+	}
+
+	.connect-social{
+		max-width: 300px;
 	}
 }

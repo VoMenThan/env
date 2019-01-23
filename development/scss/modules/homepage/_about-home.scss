@@ -58,15 +58,39 @@
 	MEDIUM DEVICE
 	Large tablet 768px and up (>768px and <992px)
 	================================================================== */
-@media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {}
+@media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {
+
+}
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.bg-about-us{
+		background: $color-blue-lv4;
+	}
 	.content-about-us {
 		margin-bottom: 50px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		.img-feature{
+			margin-bottom: 30px;
+		}
+		.title-head-blue{
+			font-size: 24px;
+			color: $color-white;
+		}
+		.description-about{
+			margin-bottom: 15px;
+			font-size: 1rem;
+			line-height: normal;
+			color: $color-white;
+		}
+		.btn-blue-env{
+			background: transparent;
+			border: 1px solid $color-white;
+		}
 		article{
 			width: 100%;
 		}
@@ -103,7 +127,6 @@
 		.title-head-blue{
 			text-align: center;
 			color: $color-white;
-			margin-top: 30px;
 		}
 		p{
 			text-align: center;
