@@ -287,6 +287,7 @@ h1, h2, h3, h4, h5, h6{
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+
 	/*============BANNER TOP=================*/
 	.banner-top{
 		h2{
@@ -337,7 +338,7 @@ h1, h2, h3, h4, h5, h6{
 		}
 	}
 	.bg-building{
-		margin-bottom: 30px;
+		margin-bottom: 0;
 	}
   .partner-home{
     margin-bottom: 30px;

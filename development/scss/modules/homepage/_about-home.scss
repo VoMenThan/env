@@ -74,9 +74,6 @@
 		margin-bottom: 50px;
 		padding-top: 40px;
 		padding-bottom: 40px;
-		.img-feature{
-			margin-bottom: 30px;
-		}
 		.title-head-blue{
 			font-size: 24px;
 			color: $color-white;
@@ -93,6 +90,18 @@
 		}
 		article{
 			width: 100%;
+		}
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 767px and down (<767px)
+	================================================================== */
+@media screen and (max-width: 767px) {
+	.content-about-us {
+		.img-feature {
+			margin-bottom: 30px;
 		}
 	}
 }

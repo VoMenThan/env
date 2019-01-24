@@ -156,6 +156,8 @@
 
 .item-blog-mobile-horizontal{
 	position: relative;
+	margin-bottom: 30px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	img{
 		float: left;
 		width: 35%;
@@ -169,10 +171,11 @@
 		h4{
 			font-size: 24px;
 			font-family: $font-pt;
+			padding-right: 15px;
 		}
-		.author-by{
+		.box-author-by{
 			position: absolute;
-			bottom: 15px;
+			bottom: 0;
 		}
 	}
 }
@@ -193,8 +196,15 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.background-gray-mobile{
+		background:  #F2F2F2;
+		padding-top: 50px;
+	}
+	.item-blog-mobile-horizontal{
+		background: $color-white;
+	}
 	.content-blog {
-		margin-bottom: 50px;
+		margin-bottom: 0;
 		&.define-headline {
 			.view-all{
 				display: none;
@@ -214,6 +224,7 @@
 			margin-bottom: 30px;
 			padding-right: 15px;
 			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			background: $color-white;
 			.info-special{
 				.box-info, .box-author{
 					padding-left: 15px;
@@ -227,6 +238,11 @@
 			h4{
 				font-size: 1rem;
 				margin-bottom: 15px;
+			}
+		}
+		.box-item-special {
+			.item-blog {
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 			}
 		}
 	}
@@ -250,7 +266,6 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
 	.content-blog{
-		margin-bottom: 30px;
 		.box-item-special {
 			margin-bottom: 30px;
 			a {
@@ -271,6 +286,25 @@
 				.box-author{
 					padding-left: 15px;
 				}
+			}
+		}
+	}
+
+	.item-blog-mobile-horizontal {
+		img{
+			width: 40%;
+		}
+		.info {
+			padding-left: calc(40% + 5px);
+			.category{
+				font-size: 12px;
+			}
+			h4{
+				font-size: 16px;
+				padding-right: 5px;
+			}
+			.box-author-by{
+				display: none;
 			}
 		}
 	}

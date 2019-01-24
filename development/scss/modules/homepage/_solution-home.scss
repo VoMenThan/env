@@ -1,5 +1,6 @@
 .solution-figurative{
   padding-bottom: 80px;
+  padding-top: 80px;
   .title-solution{
     width: 70%;
     margin: auto;
@@ -120,11 +121,20 @@
     }
     .item-cost{
       padding: 0;
-      text-align: left;
       text-align: center;
     }
   }
 }
+
+/* 	================================================================
+	SMALL DEVICE
+	Large tablet 576px and up (>576px and <768px)
+	================================================================== */
+@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {
+
+
+}
+
 
 /* 	================================================================
 	MOBILE DEVICE
