@@ -23,6 +23,8 @@
 		background: transparent;
 		border: 1px solid $color-white;
 		margin-bottom: 20px;
+		color: $color-white;
+		font-style: italic;
 	}
 	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 		color: $color-white;
@@ -48,6 +50,10 @@
 			font-weight: bold;
 			font-size: 1.5rem;
 		}
+	}
+
+	.btn-blue-env{
+		font-weight: bold;
 	}
 }
 

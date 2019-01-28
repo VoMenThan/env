@@ -287,7 +287,13 @@ h1, h2, h3, h4, h5, h6{
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.box-breadcrumb{
+		display: none;
+	}
 
+	.title-head-blue{
+		font-size: 24px;
+	}
 	/*============BANNER TOP=================*/
 	.banner-top{
 		h2{
@@ -309,6 +315,23 @@ h1, h2, h3, h4, h5, h6{
 	.banner-top {
 		h2{
 			font-size: 2rem;
+		}
+	}
+
+
+	.banner-company{
+		position: relative;
+		img{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			@include translate-x(0);
+			max-width: 400px;
+		}
+		&.bg-blue>h2{
+			left: 10%;
+			top: 50%;
+			@include translate(0, -50%);
 		}
 	}
 }
@@ -350,6 +373,24 @@ h1, h2, h3, h4, h5, h6{
 		}
 		.breadcrumb{
 			padding-left: 0;
+		}
+	}
+
+	.banner-company{
+		position: relative;
+		img{
+			max-width: 320px;
+		}
+		&.bg-blue>h2{
+			left: 50%;
+			top: 20%;
+			@include translate(-50%, -50%);
+		}
+	}
+
+	.banner-top{
+		&.bg-blue{
+			min-height: 70vh;
 		}
 	}
 }

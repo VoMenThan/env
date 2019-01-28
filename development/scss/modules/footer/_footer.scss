@@ -294,6 +294,10 @@ footer {
         .box-info-footer{
             display: none;
         }
+        .icon-arrow-bottom{
+            @include setBackgroundIcon(20px, "../images/icon-arrow-down.svg");
+            vertical-align: middle;
+        }
         .social-mobile{
             display: block;
             background: $color-blue-logo;
@@ -462,6 +466,23 @@ footer {
         .box-term-policy{
             a{
                 padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 320px and down (<320)
+	================================================================== */
+@media screen and (max-width: $device-size-ex-mobile) {
+    footer {
+        .social-mobile {
+            .list-social-mb {
+                .nav-link {
+                    padding: 0 5px;
+                }
             }
         }
     }

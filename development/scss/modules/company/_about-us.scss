@@ -197,6 +197,78 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+	.about-us-page {
+		.box-introduct {
+			p{
+				font-size: 18px;
+			}
+		}
+		.box-two-col-full {
+			.title-head-blue{
+				margin-bottom: 0;
+			}
+			.description-different {
+				p{
+					font-size: 18px;
+				}
+			}
+			.list-different {
+				li{
+					font-size: 16px;
+					min-height: 50px;
+				}
+			}
+		}
+		.btn-white-env{
+			width: 100%;
+		}
+		.box-what-we-see {
+			.box-blue {
+				h3{
+					padding-bottom: 20px;
+				}
+				p{
+					font-size: 18px;
+				}
+			}
+		}
+	}
+
+
+	.box-why-business {
+		h2{
+			font-size: 28px;
+			text-align: center;
+			font-weight: bold;
+		}
+		.description-business{
+			font-size: 24px;
+			text-align: center;
+		}
+		.item-reason{
+			p{
+				font-size: 18px;
+			}
+		}
+		.box-dedicated {
+			h4{
+				font-size: 26px;
+				font-weight: bold;
+			}
+			p{
+				font-size: 20px;
+			}
+		}
+		.btn-white-env{
+			font-size: 18px;
+			white-space: normal;
+			.icon-arrow-bottom{
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+
 
 }
 
@@ -213,7 +285,12 @@
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
 @media screen and (min-width: $device-size-mobile) and (max-width: $device-size-small) {
-
+	.box-why-business {
+		.btn-white-env{
+			font-size: 1.2rem;
+			white-space: normal;
+		}
+	}
 }
 
 
@@ -250,6 +327,17 @@
 		.item-reason{
 			padding: 10px;
 		}
+		.btn-white-env{
+			font-size: 1rem;
+			white-space: normal;
+		}
+	}
+
+	.col-mbx-100{
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
 	}
 
 }

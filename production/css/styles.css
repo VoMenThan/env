@@ -826,13 +826,14 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 .content-subcribe .box-head-subcribe h2 { font-weight: bold; margin-bottom: 10px; }
 .content-subcribe .box-head-subcribe h2, .content-subcribe .box-head-subcribe p { color: #ffffff; padding-bottom: 10px; }
 .content-subcribe .box-head-subcribe p { font-size: 24px; width: 70%; margin: auto; line-height: 37px; }
-.content-subcribe .input-search { margin: auto; padding: 10px 20px; width: 350px; border-radius: 5px; background: transparent; border: 1px solid #ffffff; margin-bottom: 20px; }
+.content-subcribe .input-search { margin: auto; padding: 10px 20px; width: 350px; border-radius: 5px; background: transparent; border: 1px solid #ffffff; margin-bottom: 20px; color: #ffffff; font-style: italic; }
 .content-subcribe ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ color: #ffffff; opacity: 1; /* Firefox */ }
 .content-subcribe :-ms-input-placeholder { /* Internet Explorer 10-11 */ color: #ffffff; }
 .content-subcribe ::-ms-input-placeholder { /* Microsoft Edge */ color: #ffffff; }
 .content-subcribe .box-success-plan .highlight-blue { color: #0D3153; }
 .content-subcribe .box-success-plan h2 { font-weight: bold; margin-bottom: 30px; }
 .content-subcribe .box-success-plan p { color: #ffffff; padding-bottom: 10px; font-weight: bold; font-size: 1.5rem; }
+.content-subcribe .btn-blue-env { font-weight: bold; }
 
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
@@ -928,6 +929,7 @@ footer .box-term-policy-mb { display: none; }
   footer .menu-footer { display: none; }
   footer .box-donate { display: none; }
   footer .box-info-footer { display: none; }
+  footer .icon-arrow-bottom { width: 20px; height: 20px; background: url("../images/icon-arrow-down.svg") no-repeat center; display: inline-block; background-size: 100%; vertical-align: middle; }
   footer .social-mobile { display: block; background: #0D3153; }
   footer .social-mobile .list-social-mb .icon-twitter { width: 50px; height: 50px; background: url("../images/icon-twitter.svg") no-repeat center; display: inline-block; background-size: 100%; }
   footer .social-mobile .list-social-mb .icon-facebook { width: 50px; height: 50px; background: url("../images/icon-facebook.svg") no-repeat center; display: inline-block; background-size: 100%; }
@@ -973,6 +975,11 @@ footer .box-term-policy-mb { display: none; }
   footer .address-footer-mb .box-direction .direction { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; height: 50%; }
   footer .address-footer-mb .box-direction .phone-number { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; height: 50%; border-top: 1px solid #ffffff; }
   footer .box-term-policy a { padding-left: 0 !important; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 320px and down (<320)
+	================================================================== */
+@media screen and (max-width: 320px) { footer .social-mobile .list-social-mb .nav-link { padding: 0 5px; } }
 .about-us-page { padding-bottom: 0 !important; }
 .about-us-page .box-introduct { width: 60%; padding-bottom: 30px; margin: auto; }
 .about-us-page .box-introduct .title-head-blue { text-align: center; margin-bottom: 1rem; }
@@ -1027,6 +1034,20 @@ footer .box-term-policy-mb { display: none; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .about-us-page .box-introduct p { font-size: 18px; }
+  .about-us-page .box-two-col-full .title-head-blue { margin-bottom: 0; }
+  .about-us-page .box-two-col-full .description-different p { font-size: 18px; }
+  .about-us-page .box-two-col-full .list-different li { font-size: 16px; min-height: 50px; }
+  .about-us-page .btn-white-env { width: 100%; }
+  .about-us-page .box-what-we-see .box-blue h3 { padding-bottom: 20px; }
+  .about-us-page .box-what-we-see .box-blue p { font-size: 18px; }
+  .box-why-business h2 { font-size: 28px; text-align: center; font-weight: bold; }
+  .box-why-business .description-business { font-size: 24px; text-align: center; }
+  .box-why-business .item-reason p { font-size: 18px; }
+  .box-why-business .box-dedicated h4 { font-size: 26px; font-weight: bold; }
+  .box-why-business .box-dedicated p { font-size: 20px; }
+  .box-why-business .btn-white-env { font-size: 18px; white-space: normal; }
+  .box-why-business .btn-white-env .icon-arrow-bottom { width: 20px; height: 20px; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1035,6 +1056,7 @@ footer .box-term-policy-mb { display: none; }
 	EXTRA SMALL DEVICE
 	Large mobile 425px and up (>425px and <576px)
 	================================================================== */
+@media screen and (min-width: 425px) and (max-width: 576px) { .box-why-business .btn-white-env { font-size: 1.2rem; white-space: normal; } }
 /* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
@@ -1044,7 +1066,9 @@ footer .box-term-policy-mb { display: none; }
   .about-us-page .box-two-col-full .list-different li { font-size: 1rem; }
   .about-us-page .box-what-we-see .title-head-blue { margin-bottom: 15px; }
   .box-why-business { padding: 50px 0; }
-  .box-why-business .item-reason { padding: 10px; } }
+  .box-why-business .item-reason { padding: 10px; }
+  .box-why-business .btn-white-env { font-size: 1rem; white-space: normal; }
+  .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
 .banner-careers h2 { -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
 
 .careers-page .img-careers { margin-top: -40%; }
@@ -1271,19 +1295,21 @@ footer .box-term-policy-mb { display: none; }
   .client-focused-solutions-page .box-green .title-blue-center { font-size: 1.5rem; } }
 .partnership-page { padding-bottom: 0 !important; }
 .partnership-page .box-header { margin-bottom: 30px; }
+.partnership-page .box-header p { font-size: 26px; font-weight: 500; }
 .partnership-page .title-head-blue { text-transform: initial; }
 .partnership-page .info-partnership { margin-bottom: 50px; }
 .partnership-page .info-partnership .box-info { background: #0D3153; float: left; width: 60%; height: 100%; padding: 50px 40px; color: #ffffff; font-size: 1.3rem; }
 .partnership-page .info-partnership .box-title { background: url("../images/bg-envzone-channel-partnership.jpg") no-repeat; background-size: cover; width: 40%; height: 100%; float: left; }
-.partnership-page .info-partnership .box-title h2 { text-align: center; width: 70%; }
+.partnership-page .info-partnership .box-title h2 { text-align: center; width: 70%; font-weight: bold; }
 .partnership-page .box-two-col { text-align: center; }
 .partnership-page .box-two-col i { font-size: 3rem; margin-bottom: 1rem; }
 .partnership-page .box-two-col .box-green { width: 50%; float: left; background: #8DC63F; background-size: cover; height: 100%; padding: 40px; color: #0D3153; }
-.partnership-page .box-two-col .box-green h4 { padding-bottom: 1rem; }
-.partnership-page .box-two-col .box-green p { text-align: left; }
+.partnership-page .box-two-col .box-green h4 { padding-bottom: 1rem; font-size: 26px; font-weight: bold; color: #ffffff; }
+.partnership-page .box-two-col .box-green p { text-align: left; font-size: 20px; font-weight: 500; }
 .partnership-page .box-two-col .box-blue { width: 50%; float: left; background: #0D3153; height: 100%; padding: 40px; color: #8DC63F; }
-.partnership-page .box-two-col .box-blue h4 { color: #8DC63F; padding-bottom: 1rem; }
-.partnership-page .box-two-col .box-blue p { text-align: left; }
+.partnership-page .box-two-col .box-blue h4 { padding-bottom: 1rem; font-size: 26px; font-weight: bold; color: #ffffff; }
+.partnership-page .box-two-col .box-blue p { text-align: left; font-size: 20px; font-weight: 500; }
+.partnership-page .description-sign-me-up { font-size: 32px; font-weight: bold; }
 
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
@@ -1307,6 +1333,10 @@ footer .box-term-policy-mb { display: none; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .partnership-page .box-header .title-head-blue { font-size: 24px; text-align: left !important; }
+  .partnership-page .box-header p { font-size: 18px; }
+  .partnership-page .info-partnership .box-info { font-size: 18px; }
+  .partnership-page .info-partnership .box-title h2 { font-size: 1.5rem; font-weight: bold; width: 80%; line-height: 37px; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1324,10 +1354,16 @@ footer .box-term-policy-mb { display: none; }
 	================================================================== */
 @media screen and (max-width: 425px) { .partnership-page .info-partnership .box-title, .partnership-page .info-partnership .box-info { width: 100%; height: auto; float: none; }
   .partnership-page .info-partnership .box-info { padding: 20px; font-size: 1rem; }
-  .partnership-page .info-partnership .box-title { text-align: center; padding: 15px; }
+  .partnership-page .info-partnership .box-title { text-align: center; padding: 15px; min-height: 240px; }
   .partnership-page .info-partnership .box-title h2 { width: 100%; font-size: 1.5rem; }
   .partnership-page .box-two-col .box-green { width: 100%; height: auto; }
   .partnership-page .box-two-col .box-blue { width: 100%; height: auto; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: 320px) { .partnership-page .box-two-col .box-green { padding: 30px 10px; }
+  .partnership-page .box-two-col .box-blue { padding: 30px 10px; } }
 .vendor-contact-form-page article { margin-bottom: 2rem; }
 .vendor-contact-form-page .box-already-registered .col-blue { width: 50%; float: left; height: 100%; background: #0D3153; padding: 30px; color: #000000; text-align: center; }
 .vendor-contact-form-page .box-already-registered .col-blue .title-already { font-size: 1.4rem; color: #ffffff; }
@@ -1866,12 +1902,17 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen and (max-width: 768px) { /*============BANNER TOP=================*/
+@media screen and (max-width: 768px) { .box-breadcrumb { display: none; }
+  .title-head-blue { font-size: 24px; }
+  /*============BANNER TOP=================*/
   .banner-top h2 { -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); left: 50%; }
   .title-head-blue { font-size: 1.7rem; }
   .bg-building { margin-bottom: 50px; }
   .partner-home { margin-bottom: 50px; }
-  .banner-top h2 { font-size: 2rem; } }
+  .banner-top h2 { font-size: 2rem; }
+  .banner-company { position: relative; }
+  .banner-company img { position: absolute; bottom: 0; right: 0; -webkit-transform: translate(0); -moz-transform: translate(0); -ms-transform: translate(0); transform: translate(0); max-width: 400px; }
+  .banner-company.bg-blue > h2 { left: 10%; top: 50%; -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); } }
 /* 	================================================================
 	LARGE MOBILE DEVICE
 	Large mobile 425px and down (<425px)
@@ -1883,7 +1924,11 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
   .bg-building { margin-bottom: 0; }
   .partner-home { margin-bottom: 30px; }
   .box-breadcrumb .you-here { float: none; }
-  .box-breadcrumb .breadcrumb { padding-left: 0; } }
+  .box-breadcrumb .breadcrumb { padding-left: 0; }
+  .banner-company { position: relative; }
+  .banner-company img { max-width: 320px; }
+  .banner-company.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .banner-top.bg-blue { min-height: 70vh; } }
 /* 	================================================================
 	MOBILE DEVICE
 	Mobile 320px and down (<320px)

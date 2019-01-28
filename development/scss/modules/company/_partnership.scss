@@ -2,6 +2,10 @@
   padding-bottom: 0 !important;
   .box-header{
     margin-bottom: 30px;
+    p{
+      font-size: 26px;
+      font-weight: 500;
+    }
   }
     .title-head-blue{
       text-transform: initial;
@@ -28,6 +32,7 @@
       h2{
         text-align: center;
         width: 70%;
+        font-weight: bold;
       }
     }
   }
@@ -48,9 +53,14 @@
       color: $color-blue-logo;
       h4{
         padding-bottom: 1rem;
+        font-size: 26px;
+        font-weight: bold;
+        color: $color-white;
       }
       p{
         text-align: left;
+        font-size: 20px;
+        font-weight: 500;
       }
     }
     .box-blue{
@@ -61,13 +71,22 @@
       padding: 40px;
       color: $color-green-logo;
       h4{
-        color: $color-green-logo;
         padding-bottom: 1rem;
+        font-size: 26px;
+        font-weight: bold;
+        color: $color-white;
       }
       p{
         text-align: left;
+        font-size: 20px;
+        font-weight: 500;
       }
     }
+  }
+
+  .description-sign-me-up{
+    font-size: 32px;
+    font-weight: bold;
   }
 }
 
@@ -122,7 +141,31 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+  .partnership-page {
+    .box-header{
+      .title-head-blue{
+        font-size: 24px;
+        text-align: left !important;
+      }
+      p{
+        font-size: 18px;
+      }
+    }
+    .info-partnership {
+      .box-info{
+        font-size: 18px;
+      }
+      .box-title {
+        h2{
+          font-size: 1.5rem;
+          font-weight: bold;
+          width: 80%;
+          line-height: 37px;
+        }
+      }
+    }
 
+  }
 }
 
 /* 	================================================================
@@ -177,6 +220,7 @@
       .box-title{
         text-align: center;
         padding: 15px;
+        min-height: 240px;
         h2{
           width: 100%;
           font-size: 1.5rem;
@@ -192,6 +236,23 @@
       .box-blue{
         width: 100%;
         height: auto;
+      }
+    }
+  }
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: $device-size-ex-mobile) {
+  .partnership-page {
+    .box-two-col {
+      .box-green{
+        padding: 30px 10px;
+      }
+      .box-blue{
+        padding: 30px 10px;
       }
     }
   }
