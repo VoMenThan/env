@@ -3,7 +3,7 @@
     text-align: left;
   }
   .item-custom-software{
-    border: 5px solid $color-green-logo;
+    border: 3px solid $color-green-logo;
     @include radius(50%);
     width: 260px;
     height: 260px;
@@ -21,10 +21,69 @@
     text-align: center;
     margin-bottom: 30px;
     height: calc(100% - 30px);
+    font-size: 26px;
   }
   .title-blue{
-    font-size: 1.625rem;
+    font-size: 26px;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 30px;
+  }
+
+  .btn-blue-env{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .full-cycle-development-page {
+    .item-custom-software{
+      width: 220px;
+      height: 220px;
+      h3{
+        text-align: center;
+      }
+    }
+    .btn-blue-env{
+      font-size: 18px;
+    }
+
+    .item-product-development{
+      font-size: 16px;
+    }
+  }
+}
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  .full-cycle-development-page {
+    .item-custom-software {
+      width: 150px;
+      height: 150px;
+      h3{
+        font-size: 16px;
+      }
+    }
+  }
+}
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-ex-mobile) {
+  .full-cycle-development-page {
+    .item-custom-software {
+      width: 135px;
+      height: 135px;
+    }
   }
 }

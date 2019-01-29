@@ -5,13 +5,14 @@ section.testing-page{
       padding-bottom: 15px;
     }
     h3{
-      font-size: 2rem;
+      font-size: 26px;
+      font-weight: bold;
     }
   }
   .info-step{
     padding: 15px;
     p{
-      font-size: 1.625rem;
+      font-size: 26px;
     }
   }
   .bg-blue{
@@ -26,8 +27,9 @@ section.testing-page{
     padding: 15px;
     @include radius(10px);
     margin-bottom: 30px;
+    height: calc(100% - 30px);
     p{
-      font-size: 1.625rem;
+      font-size: 26px;
     }
   }
 
@@ -42,5 +44,52 @@ section.testing-page{
     text-align: center;
     border: 1px solid $color-gray-border;
     font-size: 1.625rem;
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  section.testing-page {
+    .info-step {
+      p{
+        font-size: 18px;
+      }
+    }
+    .item-test {
+      h3{
+        font-size: 22px;
+      }
+    }
+   .item-deploy-confidence {
+     p{
+       font-size: 18px;
+     }
+   }
+   .title-blue{
+     font-size: 22px;
+   }
+    .item-qa{
+      font-size: 18px;
+    }
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  section.testing-page {
+    .item-qa{
+      padding: 5px;
+    }
+    .item-deploy-confidence{
+      img{
+        width: 80px;
+      }
+    }
   }
 }

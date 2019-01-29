@@ -111,7 +111,11 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
-
+  .careers-page {
+    .box-careers{
+      font-size: 18px;
+    }
+  }
 }
 
 /* 	================================================================

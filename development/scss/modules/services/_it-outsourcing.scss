@@ -1,6 +1,7 @@
 section.it-outsourcing-page{
   .description-overhead{
     margin-bottom: 0;
+    margin-left: 20px;
     .list-choose{
       color: $color-blue-logo;
       list-style-type: disc;
@@ -14,5 +15,65 @@ section.it-outsourcing-page{
     width: 250px;
     height: 250px;
     padding: 20px;
+    p{
+      font-size: 26px;
+    }
+  }
+
+  .btn-submit{
+    margin-bottom: 0;
+  }
+}
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  section.it-outsourcing-page{
+    .item-service-offered{
+      width: 150px;
+      height: 150px;
+      padding: 2px;
+      img{
+        width: 50px;
+      }
+      p{
+        font-size: 18px;
+      }
+    }
+
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  section.it-outsourcing-page{
+    .item-service-offered{
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      margin-bottom: 70px;
+      p{
+        position: absolute;
+        top: 75px;
+        left: 10%;
+        text-align: center;
+        width: 80%;
+        font-size: 16px;
+      }
+    }
+
+    .box-mb-120{
+      margin-bottom: 120px;
+    }
+    .item-special{
+      position: absolute;
+      bottom: -440px;
+    }
   }
 }

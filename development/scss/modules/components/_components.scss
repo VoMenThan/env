@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6{
     border-color: $color-blue-logo;
 	padding: 10px 30px;
 	font-size: 1.125rem;
+	font-weight: bold;
 }
 
 /*============BUTTON GREEN=================*/
@@ -267,6 +268,28 @@ h1, h2, h3, h4, h5, h6{
 			left: 30px;
 		}
 	}
+
+	.banner-company {
+		img{
+			@include translate-x(500px);
+		}
+		&.bg-blue {
+			> h2{
+				@include translate(-500px, -50%);
+			}
+		}
+	}
+
+	.banner-industries{
+		img{
+			@include translate-x(500px);
+		}
+		&.bg-blue {
+			> h2{
+				@include translate(-500px, -50%);
+			}
+		}
+	}
 }
 
 /* 	================================================================
@@ -278,8 +301,30 @@ h1, h2, h3, h4, h5, h6{
   .btn-green-env, .btn-blue-env{
 	  white-space: normal;
 	  padding: 10px 20px;
+	  width: 100%;
   }
 
+	.banner-company {
+		img{
+			@include translate-x(495px);
+		}
+		&.bg-blue {
+			> h2{
+				@include translate(-495px, -50%);
+			}
+		}
+	}
+
+	.banner-industries{
+		img{
+			@include translate-x(495px);
+		}
+		&.bg-blue {
+			> h2{
+				@include translate(-495px, -50%);
+			}
+		}
+	}
 }
 
 /* 	================================================================
@@ -332,6 +377,23 @@ h1, h2, h3, h4, h5, h6{
 			left: 10%;
 			top: 50%;
 			@include translate(0, -50%);
+			width: 330px;
+		}
+	}
+
+	.banner-industries{
+		position: relative;
+		img{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			@include translate-x(0);
+			max-width: 400px;
+		}
+		&.bg-blue>h2{
+			left: 10%;
+			top: 50%;
+			@include translate(0, -50%);
 		}
 	}
 }
@@ -348,8 +410,9 @@ h1, h2, h3, h4, h5, h6{
 		max-width: 100%;
 	}
 	.btn-blue-env{
-		padding: 10px 30px;
+		padding: 10px 20px;
 		width: 100%;
+		font-size: 16px;
 	}
 	.title-head-blue{
 		text-align: left;
@@ -387,6 +450,17 @@ h1, h2, h3, h4, h5, h6{
 			@include translate(-50%, -50%);
 		}
 	}
+	.banner-industries{
+		position: relative;
+		img{
+			max-width: 100%;
+		}
+		&.bg-blue>h2{
+			left: 50%;
+			top: 20%;
+			@include translate(-50%, -50%);
+		}
+	}
 
 	.banner-top{
 		&.bg-blue{
@@ -399,7 +473,7 @@ h1, h2, h3, h4, h5, h6{
 	Mobile 320px and down (<320px)
 	================================================================== */
 @media screen and (max-width: $device-size-ex-mobile) {
-	.col-mbx-100{
+	.col-mobile-100{
 		-webkit-box-flex: 0;
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
@@ -410,6 +484,13 @@ h1, h2, h3, h4, h5, h6{
 		h2{
 			font-size: 1.5rem;
 		}
+	}
+	.btn-blue-env{
+		font-size: 16px;
+		padding: 10px;
+	}
+	.btn-blue-env{
+		font-size: 16px;
 	}
 }
 

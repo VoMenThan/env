@@ -26,3 +26,37 @@ section.quality-assurance-page{
     height: 100%;
   }
 }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  section.quality-assurance-page {
+    .item-provide{
+      padding: 20px;
+      font-size: 18px;
+    }
+    .btn-submit {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  section.quality-assurance-page {
+    .box-item-provide{
+      margin-bottom: 30px;
+      .item-provide{
+        height: 100%;
+      }
+    }
+    .item-quality{
+      padding: 5px;
+    }
+  }
+}

@@ -11,11 +11,12 @@
     }
     .box-info{
       h3{
-        font-size: 1.5rem;
-        margin-bottom: 30px;
+        font-size: 26px;
+        margin-bottom: 15px;
+        font-weight: 600;
       }
       p{
-        font-size: 1.2rem;
+        font-size: 20px;
         color: $color-white;
         margin-bottom: 30px;
       }
@@ -28,11 +29,12 @@
         text-align: right;
         p{
           text-align: left;
-          font-size: 1.25rem;
+          font-size: 20px;
         }
         .learn-more{
           color: $color-blue-logo;
           display: inline-block;
+          font-size: 20px;
         }
       }
     }
@@ -45,6 +47,9 @@
         top: 50%;
         @include translate(-50%, -50%);
         color: $color-green-logo;
+        font-size: 36px;
+        font-weight: bold;
+        white-space: nowrap;
       }
       img{
         width: 100%;
@@ -110,7 +115,18 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
-
+  .client-focused-solutions-page {
+    .box-staff {
+      .box-img {
+        overflow: hidden;
+        img{
+          width: auto;
+          max-width: initial;
+          height: 100%;
+        }
+      }
+    }
+  }
 }
 
 /* 	================================================================

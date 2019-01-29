@@ -8,14 +8,14 @@ section.service-page{
     margin-bottom: 30px;
   }
   .description-overhead{
-    font-size: 1.625rem;
+    font-size: 26px;
     margin-bottom: 80px;
   }
   .description-topic{
     margin-bottom: 50px;
   }
   p{
-    font-size: 1.25rem;
+    font-size: 26px;
   }
   .btn-submit{
     margin-top: 50px;
@@ -33,5 +33,29 @@ section.service-page{
 section.client-center-page{
   .contact-us{
     color: $color-blue-logo;
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  section.service-page {
+    h1, h2 {
+      margin-bottom: 0;
+      font-size: 24px;
+    }
+    p{
+      font-size: 18px;
+    }
+    .description-overhead{
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    .btn-submit{
+      margin-bottom: 50px;
+      margin-top: 20px;
+    }
   }
 }

@@ -1107,6 +1107,7 @@ footer .box-term-policy-mb { display: none; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .careers-page .box-careers { font-size: 18px; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1228,9 +1229,12 @@ footer .box-term-policy-mb { display: none; }
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) { .process-framework-page .box-introduct { width: 100%; padding-left: 50px; }
+  .process-framework-page .box-introduct p { font-size: 18px; }
   .process-framework-page .box-list-deliverables { margin-bottom: 50px; }
   .process-framework-page .box-list-deliverables h5 { padding: 20px 0; }
-  .process-framework-page .box-list-deliverables h4 { font-size: 1.5rem; } }
+  .process-framework-page .box-list-deliverables h4 { font-size: 1.5rem; }
+  .process-framework-page .box-development-process { margin-bottom: 80px; }
+  .process-framework-page .box-development-process p { font-size: 18px; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1246,13 +1250,13 @@ footer .box-term-policy-mb { display: none; }
 .client-focused-solutions-page { padding-bottom: 0 !important; }
 .client-focused-solutions-page .box-green { padding: 50px 30px; background: #8DC63F; }
 .client-focused-solutions-page .box-green .title-blue-center { color: #0D3153; font-size: 2rem; padding-right: 30%; font-weight: bold; }
-.client-focused-solutions-page .box-green .box-info h3 { font-size: 1.5rem; margin-bottom: 30px; }
-.client-focused-solutions-page .box-green .box-info p { font-size: 1.2rem; color: #ffffff; margin-bottom: 30px; }
+.client-focused-solutions-page .box-green .box-info h3 { font-size: 26px; margin-bottom: 15px; font-weight: 600; }
+.client-focused-solutions-page .box-green .box-info p { font-size: 20px; color: #ffffff; margin-bottom: 30px; }
 .client-focused-solutions-page .box-staff .box-paragraph article.paragraph { text-align: right; }
-.client-focused-solutions-page .box-staff .box-paragraph article.paragraph p { text-align: left; font-size: 1.25rem; }
-.client-focused-solutions-page .box-staff .box-paragraph article.paragraph .learn-more { color: #0D3153; display: inline-block; }
+.client-focused-solutions-page .box-staff .box-paragraph article.paragraph p { text-align: left; font-size: 20px; }
+.client-focused-solutions-page .box-staff .box-paragraph article.paragraph .learn-more { color: #0D3153; display: inline-block; font-size: 20px; }
 .client-focused-solutions-page .box-staff .box-img { position: relative; padding: 0; }
-.client-focused-solutions-page .box-staff .box-img h3 { position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #8DC63F; }
+.client-focused-solutions-page .box-staff .box-img h3 { position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #8DC63F; font-size: 36px; font-weight: bold; white-space: nowrap; }
 .client-focused-solutions-page .box-staff .box-img img { width: 100%; }
 
 /* =================== RESPONSIVE ======================= */
@@ -1279,6 +1283,8 @@ footer .box-term-policy-mb { display: none; }
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) { .client-focused-solutions-page .box-staff .box-img { overflow: hidden; }
+  .client-focused-solutions-page .box-staff .box-img img { width: auto; max-width: initial; height: 100%; } }
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -1543,47 +1549,137 @@ section.hospitality-page .item-different h4 { text-align: center; }
 
 section.service-page .box-breadcrumb { margin-bottom: 50px; }
 section.service-page h1, section.service-page h2 { font-size: 2.25rem; text-transform: inherit; margin-bottom: 30px; }
-section.service-page .description-overhead { font-size: 1.625rem; margin-bottom: 80px; }
+section.service-page .description-overhead { font-size: 26px; margin-bottom: 80px; }
 section.service-page .description-topic { margin-bottom: 50px; }
-section.service-page p { font-size: 1.25rem; }
+section.service-page p { font-size: 26px; }
 section.service-page .btn-submit { margin-top: 50px; margin-bottom: 100px; }
 section.service-page .title-green { color: #8DC63F; margin-bottom: 30px; }
 section.service-page .title-blue { color: #0D3153; }
 
 section.client-center-page .contact-us { color: #0D3153; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.service-page h1, section.service-page h2 { margin-bottom: 0; font-size: 24px; }
+  section.service-page p { font-size: 18px; }
+  section.service-page .description-overhead { margin-bottom: 30px; font-size: 18px; }
+  section.service-page .btn-submit { margin-bottom: 50px; margin-top: 20px; } }
 .full-cycle-development-page .title-head-blue { text-align: left; }
-.full-cycle-development-page .item-custom-software { border: 5px solid #8DC63F; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; width: 260px; height: 260px; margin: auto; }
+.full-cycle-development-page .item-custom-software { border: 3px solid #8DC63F; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; width: 260px; height: 260px; margin: auto; }
 .full-cycle-development-page .item-custom-software h3 { font-size: 1.625rem; color: #6E716D; }
-.full-cycle-development-page .item-product-development { background: #8DC63F; color: #ffffff; padding: 50px 0; text-align: center; margin-bottom: 30px; height: calc(100% - 30px); }
-.full-cycle-development-page .title-blue { font-size: 1.625rem; text-align: center; margin-bottom: 30px; }
+.full-cycle-development-page .item-product-development { background: #8DC63F; color: #ffffff; padding: 50px 0; text-align: center; margin-bottom: 30px; height: calc(100% - 30px); font-size: 26px; }
+.full-cycle-development-page .title-blue { font-size: 26px; font-weight: 600; text-align: center; margin-bottom: 30px; }
+.full-cycle-development-page .btn-blue-env { font-size: 20px; font-weight: bold; }
 
-section.it-outsourcing-page .description-overhead { margin-bottom: 0; }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .full-cycle-development-page .item-custom-software { width: 220px; height: 220px; }
+  .full-cycle-development-page .item-custom-software h3 { text-align: center; }
+  .full-cycle-development-page .btn-blue-env { font-size: 18px; }
+  .full-cycle-development-page .item-product-development { font-size: 16px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .full-cycle-development-page .item-custom-software { width: 150px; height: 150px; }
+  .full-cycle-development-page .item-custom-software h3 { font-size: 16px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 320px) { .full-cycle-development-page .item-custom-software { width: 135px; height: 135px; } }
+section.it-outsourcing-page .description-overhead { margin-bottom: 0; margin-left: 20px; }
 section.it-outsourcing-page .description-overhead .list-choose { color: #0D3153; list-style-type: disc; margin-bottom: 15px; }
 section.it-outsourcing-page .item-service-offered { border: 1px solid #C4C4C4; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; width: 250px; height: 250px; padding: 20px; }
+section.it-outsourcing-page .item-service-offered p { font-size: 26px; }
+section.it-outsourcing-page .btn-submit { margin-bottom: 0; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.it-outsourcing-page .item-service-offered { width: 150px; height: 150px; padding: 2px; }
+  section.it-outsourcing-page .item-service-offered img { width: 50px; }
+  section.it-outsourcing-page .item-service-offered p { font-size: 18px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { section.it-outsourcing-page .item-service-offered { width: 70px; height: 70px; margin: auto; margin-bottom: 70px; }
+  section.it-outsourcing-page .item-service-offered p { position: absolute; top: 75px; left: 10%; text-align: center; width: 80%; font-size: 16px; }
+  section.it-outsourcing-page .box-mb-120 { margin-bottom: 120px; }
+  section.it-outsourcing-page .item-special { position: absolute; bottom: -440px; } }
 section.quality-assurance-page .description-overhead { margin-bottom: 0; }
 section.quality-assurance-page .item-quality { background: #8DC63F; text-align: center; padding: 15px; height: calc(100% - 30px); margin-bottom: 30px; font-size: 1.625rem; color: #ffffff; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
 section.quality-assurance-page .item-quality img { width: 90px; margin-bottom: 10px; }
 section.quality-assurance-page .item-provide { border: 2px solid #0D3153; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; text-align: center; padding: 40px; font-size: 1.625rem; height: 100%; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.quality-assurance-page .item-provide { padding: 20px; font-size: 18px; }
+  section.quality-assurance-page .btn-submit { margin-bottom: 20px; margin-top: 20px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { section.quality-assurance-page .box-item-provide { margin-bottom: 30px; }
+  section.quality-assurance-page .box-item-provide .item-provide { height: 100%; }
+  section.quality-assurance-page .item-quality { padding: 5px; } }
 section.testing-page .item-test { padding: 40px; }
 section.testing-page .item-test img { padding-bottom: 15px; }
-section.testing-page .item-test h3 { font-size: 2rem; }
+section.testing-page .item-test h3 { font-size: 26px; font-weight: bold; }
 section.testing-page .info-step { padding: 15px; }
-section.testing-page .info-step p { font-size: 1.625rem; }
+section.testing-page .info-step p { font-size: 26px; }
 section.testing-page .bg-blue { background: #0D3153; }
 section.testing-page .bg-green { background: #8DC63F; }
-section.testing-page .item-deploy-confidence { border: 1px solid #C4C4C4; padding: 15px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; margin-bottom: 30px; }
-section.testing-page .item-deploy-confidence p { font-size: 1.625rem; }
+section.testing-page .item-deploy-confidence { border: 1px solid #C4C4C4; padding: 15px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; margin-bottom: 30px; height: calc(100% - 30px); }
+section.testing-page .item-deploy-confidence p { font-size: 26px; }
 section.testing-page .title-blue { font-size: 1.625rem; text-align: center; }
 section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text-align: center; border: 1px solid #C4C4C4; font-size: 1.625rem; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.testing-page .info-step p { font-size: 18px; }
+  section.testing-page .item-test h3 { font-size: 22px; }
+  section.testing-page .item-deploy-confidence p { font-size: 18px; }
+  section.testing-page .title-blue { font-size: 22px; }
+  section.testing-page .item-qa { font-size: 18px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { section.testing-page .item-qa { padding: 5px; }
+  section.testing-page .item-deploy-confidence img { width: 80px; } }
 .devops-page .item-offer-experience { background: url("../images/bg-offer-devops.png") no-repeat; background-size: 100%; height: 330px; width: 100%; position: relative; }
+.devops-page .item-offer-experience p { font-size: 20px; }
+.devops-page .item-offer-experience h3 { font-weight: bold; font-size: 26px; }
 .devops-page .item-offer-experience .topic-left { position: absolute; left: 80px; top: 50px; width: 40%; color: #ffffff; text-align: center; }
 .devops-page .item-offer-experience .topic-right { position: absolute; right: 50px; bottom: 18px; width: 40%; color: #ffffff; text-align: center; }
 .devops-page .item-offer-experience .topic-right h3 { color: #8DC63F; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .devops-page .item-offer-experience { background: url("../images/bg-offer-devops-mb.png") no-repeat; background-size: 100%; }
+  .devops-page .item-offer-experience p { font-size: 18px; }
+  .devops-page .item-offer-experience .topic-right { right: 32px; bottom: 80px; }
+  .devops-page .item-offer-experience .topic-left { left: 57px; top: 24px; }
+  .devops-page .item-our-process .box-img { width: 30%; float: left; text-align: center; }
+  .devops-page .item-our-process .box-img .title-our-process { font-size: 22px; font-weight: 500; text-align: center; }
+  .devops-page .item-our-process p { font-size: 18px; font-weight: 500; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 767px and down (<767px)
+	================================================================== */
 .blog-page .section-head-blog { margin-bottom: 80px; }
 .blog-page .highlight-news { border: 0.5px solid #C4C4C4; }
 .blog-page .highlight-news img { margin-bottom: 15px; }
@@ -1809,7 +1905,7 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 .subhead-1 { font-size: 1.625rem; margin-bottom: 1rem; font-weight: bold; }
 
 /*============BUTTON BLUE=================*/
-.btn-blue-env { color: #ffffff !important; background-color: #0D3153; border-color: #0D3153; padding: 10px 30px; font-size: 1.125rem; }
+.btn-blue-env { color: #ffffff !important; background-color: #0D3153; border-color: #0D3153; padding: 10px 30px; font-size: 1.125rem; font-weight: bold; }
 
 /*============BUTTON GREEN=================*/
 .btn-green-env { color: #ffffff !important; background-color: #8DC63F; border-color: #8DC63F; padding: 10px 30px; font-size: 1.125rem; }
@@ -1892,12 +1988,20 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 	Large desktop 1200px and down (< 1200px)
 	================================================================== */
 @media screen and (max-width: 1200px) { /*============BANNER TOP=================*/
-  .banner-top h2 { -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); left: 30px; } }
+  .banner-top h2 { -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); left: 30px; }
+  .banner-company img { -webkit-transform: translate(500px); -moz-transform: translate(500px); -ms-transform: translate(500px); transform: translate(500px); }
+  .banner-company.bg-blue > h2 { -webkit-transform: translate(-500px, -50%); -moz-transform: translate(-500px, -50%); -ms-transform: translate(-500px, -50%); transform: translate(-500px, -50%); }
+  .banner-industries img { -webkit-transform: translate(500px); -moz-transform: translate(500px); -ms-transform: translate(500px); transform: translate(500px); }
+  .banner-industries.bg-blue > h2 { -webkit-transform: translate(-500px, -50%); -moz-transform: translate(-500px, -50%); -ms-transform: translate(-500px, -50%); transform: translate(-500px, -50%); } }
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 992px and down (<992px)
 	================================================================== */
-@media screen and (max-width: 992px) { .btn-green-env, .btn-blue-env { white-space: normal; padding: 10px 20px; } }
+@media screen and (max-width: 992px) { .btn-green-env, .btn-blue-env { white-space: normal; padding: 10px 20px; width: 100%; }
+  .banner-company img { -webkit-transform: translate(495px); -moz-transform: translate(495px); -ms-transform: translate(495px); transform: translate(495px); }
+  .banner-company.bg-blue > h2 { -webkit-transform: translate(-495px, -50%); -moz-transform: translate(-495px, -50%); -ms-transform: translate(-495px, -50%); transform: translate(-495px, -50%); }
+  .banner-industries img { -webkit-transform: translate(495px); -moz-transform: translate(495px); -ms-transform: translate(495px); transform: translate(495px); }
+  .banner-industries.bg-blue > h2 { -webkit-transform: translate(-495px, -50%); -moz-transform: translate(-495px, -50%); -ms-transform: translate(-495px, -50%); transform: translate(-495px, -50%); } }
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
@@ -1912,13 +2016,16 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
   .banner-top h2 { font-size: 2rem; }
   .banner-company { position: relative; }
   .banner-company img { position: absolute; bottom: 0; right: 0; -webkit-transform: translate(0); -moz-transform: translate(0); -ms-transform: translate(0); transform: translate(0); max-width: 400px; }
-  .banner-company.bg-blue > h2 { left: 10%; top: 50%; -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); } }
+  .banner-company.bg-blue > h2 { left: 10%; top: 50%; -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); width: 330px; }
+  .banner-industries { position: relative; }
+  .banner-industries img { position: absolute; bottom: 0; right: 0; -webkit-transform: translate(0); -moz-transform: translate(0); -ms-transform: translate(0); transform: translate(0); max-width: 400px; }
+  .banner-industries.bg-blue > h2 { left: 10%; top: 50%; -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); } }
 /* 	================================================================
 	LARGE MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: 425px) { .col-mb-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
-  .btn-blue-env { padding: 10px 30px; width: 100%; }
+  .btn-blue-env { padding: 10px 20px; width: 100%; font-size: 16px; }
   .title-head-blue { text-align: left; font-size: 1.5rem; }
   .define-headline .view-all { top: 5px; }
   .bg-building { margin-bottom: 0; }
@@ -1928,13 +2035,18 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
   .banner-company { position: relative; }
   .banner-company img { max-width: 320px; }
   .banner-company.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .banner-industries { position: relative; }
+  .banner-industries img { max-width: 100%; }
+  .banner-industries.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
   .banner-top.bg-blue { min-height: 70vh; } }
 /* 	================================================================
 	MOBILE DEVICE
 	Mobile 320px and down (<320px)
 	================================================================== */
-@media screen and (max-width: 320px) { .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
-  .banner-top h2 { font-size: 1.5rem; } }
+@media screen and (max-width: 320px) { .col-mobile-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+  .banner-top h2 { font-size: 1.5rem; }
+  .btn-blue-env { font-size: 16px; padding: 10px; }
+  .btn-blue-env { font-size: 16px; } }
 /* =================== END RESPONSIVE ======================= */
 
 /*# sourceMappingURL=styles.css.map */

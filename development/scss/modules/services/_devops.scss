@@ -5,6 +5,13 @@
     height: 330px;
     width: 100%;
     position: relative;
+    p{
+      font-size: 20px;
+    }
+    h3{
+      font-weight: bold;
+      font-size: 26px;
+    }
     .topic-left{
         position: absolute;
       left: 80px;
@@ -25,4 +32,54 @@
       }
     }
   }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .devops-page{
+    .item-offer-experience{
+      background: url("../images/bg-offer-devops-mb.png") no-repeat;
+      background-size: 100%;
+      p{
+        font-size: 18px;
+      }
+      .topic-right{
+        right: 32px;
+        bottom: 80px;
+      }
+      .topic-left{
+        left: 57px;
+        top: 24px;
+      }
+    }
+
+
+    .item-our-process{
+      .box-img{
+        width: 30%;
+        float: left;
+        text-align: center;
+        .title-our-process{
+          font-size: 22px;
+          font-weight: 500;
+          text-align: center;
+        }
+      }
+      p{
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 767px and down (<767px)
+	================================================================== */
+@media screen and (max-width: 767px) {
+
 }
