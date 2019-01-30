@@ -1494,8 +1494,19 @@ footer .box-term-policy-mb { display: none; }
 .industries-page .item-offer p { text-align: center; }
 
 section.real-estate-page .info-fully { font-size: 1.625rem; }
-section.real-estate-page .description-offer { font-size: 1.25rem; }
+section.real-estate-page .description-offer { font-size: 26px; }
+section.real-estate-page .question-ready { font-size: 24px; font-weight: bold; color: #0D3153; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .industries-page .btn-learn-more { padding-top: 30px; padding-bottom: 100px; }
+  section.real-estate-page .title-head-blue { text-align: left; }
+  section.real-estate-page .info-fully { font-size: 18px; }
+  section.real-estate-page .item-offer p { font-size: 18px; }
+  section.real-estate-page .description-offer { font-size: 18px; }
+  section.real-estate-page .question-ready { font-size: 18px; } }
 section.financial-page { padding-bottom: 0; }
 section.financial-page h1 { margin-bottom: 30px; }
 section.financial-page p { font-size: 1.25rem; }
@@ -1673,13 +1684,25 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
   .devops-page .item-offer-experience p { font-size: 18px; }
   .devops-page .item-offer-experience .topic-right { right: 32px; bottom: 80px; }
   .devops-page .item-offer-experience .topic-left { left: 57px; top: 24px; }
-  .devops-page .item-our-process .box-img { width: 30%; float: left; text-align: center; }
-  .devops-page .item-our-process .box-img .title-our-process { font-size: 22px; font-weight: 500; text-align: center; }
-  .devops-page .item-our-process p { font-size: 18px; font-weight: 500; } }
+  .devops-page .item-our-process { margin-bottom: 30px; }
+  .devops-page .item-our-process .box-img { width: 35%; float: left; text-align: center; }
+  .devops-page .item-our-process .box-img .title-our-process { font-size: 22px; font-weight: 500; text-align: center; color: #0D3153; }
+  .devops-page .item-our-process p { font-size: 18px; font-weight: 500; color: #0D3153; padding-left: calc(35% + 10px); } }
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 767px and down (<767px)
 	================================================================== */
+@media screen and (max-width: 767px) { .devops-page h2 { margin-bottom: 30px !important; }
+  .devops-page .btn-submit { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .devops-page .item-offer-experience { background: none; height: auto; }
+  .devops-page .item-offer-experience .topic-left { position: static; background: #8DC63F; width: 100%; padding: 40px 20px; margin-bottom: 30px; }
+  .devops-page .item-offer-experience .topic-right { position: static; background: #0D3153; width: 100%; padding: 40px 20px; margin-bottom: 30px; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: 320px) { .devops-page .item-our-process .box-img .title-our-process { font-size: 18px; }
+  .devops-page .item-our-process p { font-size: 16px; } }
 .blog-page .section-head-blog { margin-bottom: 80px; }
 .blog-page .highlight-news { border: 0.5px solid #C4C4C4; }
 .blog-page .highlight-news img { margin-bottom: 15px; }
@@ -2034,10 +2057,10 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
   .box-breadcrumb .breadcrumb { padding-left: 0; }
   .banner-company { position: relative; }
   .banner-company img { max-width: 320px; }
-  .banner-company.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .banner-company.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); text-align: center; }
   .banner-industries { position: relative; }
   .banner-industries img { max-width: 100%; }
-  .banner-industries.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .banner-industries.bg-blue > h2 { left: 50%; top: 20%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); text-align: center; }
   .banner-top.bg-blue { min-height: 70vh; } }
 /* 	================================================================
 	MOBILE DEVICE

@@ -448,6 +448,7 @@ h1, h2, h3, h4, h5, h6{
 			left: 50%;
 			top: 20%;
 			@include translate(-50%, -50%);
+			text-align: center;
 		}
 	}
 	.banner-industries{
@@ -459,6 +460,7 @@ h1, h2, h3, h4, h5, h6{
 			left: 50%;
 			top: 20%;
 			@include translate(-50%, -50%);
+			text-align: center;
 		}
 	}
 

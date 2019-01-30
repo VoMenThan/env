@@ -29,7 +29,48 @@ section.real-estate-page{
 		font-size: 1.625rem;
 	}
 	.description-offer{
-		font-size: 1.25rem;
+		font-size: 26px;
+	}
+
+	.question-ready{
+		font-size: 24px;
+		font-weight: bold;
+		color: $color-blue-logo;
 	}
 
 }
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	.industries-page {
+		.btn-learn-more{
+			padding-top: 30px;
+			padding-bottom: 100px;
+		}
+	}
+	section.real-estate-page {
+		.title-head-blue{
+			text-align: left;
+		}
+		.info-fully{
+			font-size: 18px;
+		}
+		.item-offer{
+			p{
+				font-size: 18px;
+			}
+		}
+		.description-offer{
+			font-size: 18px;
+		}
+		.question-ready{
+			font-size: 18px;
+		}
+	}
+}
+
+
+
