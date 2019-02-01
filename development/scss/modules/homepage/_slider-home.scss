@@ -88,12 +88,19 @@
 	color: $color-white;
     @include translate(calc(210px), -50%);
     h3{
-    	font-size: 23px;
+    	font-size: 24px;
     	color: $color-white;
     	padding-bottom: 10px;
     	font-weight: bold;
     	letter-spacing: 1px;
     }
+	.title-integrate{
+		font-size: 20px;
+		color: $color-white;
+		padding-bottom: 10px;
+		font-weight: bold;
+		letter-spacing: 1px;
+	}
 	.best-choose{
 		.item-best-choose{
 			color: $color-white;

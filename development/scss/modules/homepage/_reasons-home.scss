@@ -39,6 +39,7 @@
           margin-bottom: 10px;
           font-size: 25px;
           line-height: 34px;
+          font-weight: 600;
         }
         p{
           font-size: 20px;
@@ -57,13 +58,14 @@
       font-size: 1.875rem;
       padding: 30px;
       height: calc(100% - 104px);
+      font-weight: 600;
     }
     .btn-green-env{
       white-space: normal;
       padding: 20px 30px;
       border-radius: 0;
       color: $color-blue-logo !important;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 22px;
       position: absolute;
       bottom: 0;

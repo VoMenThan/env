@@ -6,18 +6,16 @@
 	padding-top: 120px;
 	padding-bottom: 120px;
 	margin-bottom: 80px;
-	.title-head{
-		font-size: 2rem;
+	.title-head-blue{
 		color: $color-white;
-		font-weight: bold;
 	}
 	.description-head{
-		font-size: 1.5rem;
-		color: white;
+		font-size: 25px;
+		color: $color-white;
 		padding: 2rem 0;
+		font-weight: 600;
 	}
 	.tab-pane{
-
 		.box-field{
 			border: 1px solid $color-white;
 			color: $color-white;
@@ -29,7 +27,7 @@
 			}
 			.title-field{
 				color: $color-green-logo;
-				font-size: 2rem;
+				font-size: 26px;
 				font-weight: bold;
 				margin-bottom: 30px;
 			}
@@ -37,12 +35,14 @@
 				margin-bottom: 30px;
 			}
 			.excerpt-field{
-				font-size: 1.5rem;
+				font-size: 30px;
 				margin-bottom: 40px;
+				font-weight: 600;
 			}
 			.learn-more{
 				text-transform: uppercase;
 				color: $color-white;
+				font-weight: 500;
 			}
 		}
 	}

@@ -7,7 +7,8 @@
 		}
 		.description-services{
 			width: 65%;
-			font-size: 1.5rem;
+			font-size: 25px;
+			font-weight: 600;
 			line-height: 38px;
 			margin-bottom: 50px !important;
 		}
@@ -44,6 +45,7 @@
 			right: 30px;
 			color: $color-blue-lv3;
 			font-size: 1rem;
+			font-weight: 500;
 			display: none;
 			&:after{
 				content: "";
@@ -58,6 +60,7 @@
 				color: $color-white;
 				padding-left: 25px;
 				font-size: 1.375rem;
+				font-weight: 600;
 			}
 		}
 		h3{
