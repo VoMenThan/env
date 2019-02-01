@@ -1,4 +1,7 @@
 section.hospitality-page{
+	.bg-gray-process{
+		padding: 80px 0;
+	}
 	h1{
 		margin-bottom: 30px;
 	}
@@ -11,8 +14,9 @@ section.hospitality-page{
 		height: calc(100% - 30px);
 		h3{
 			color: $color-green-logo;
-			font-size: 1.625rem;
+			font-size: 26px;
 			margin-bottom: 30px;
+			font-weight: bold;
 		}
 		p{
 			color: $color-white;
@@ -22,24 +26,70 @@ section.hospitality-page{
 	.item-solution{
 		h3{
 			text-align: center;
-			font-size: 1.625rem;
+			font-size: 26px;
 			margin-bottom: 10px;
+			font-weight: bold;
 		}
 		border: 1px solid $color-gray-border;
 		padding: 50px 30px;
 		margin-bottom: 30px;
 		height: calc(100% - 30px);
+		background: $color-white;
 	}
 
 	.item-different{
 		border: 1px solid $color-gray-border;
 		padding: 10px;
 		@include border-radius(5px);
+		height: 100%;
 		img{
 			margin-right: 10px;
 		}
 		h4{
 			text-align: center;
+			font-weight: bold;
+			font-size: 26px;
+		}
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	section.hospitality-page {
+		.title-head-blue{
+			font-size: 24px;
+			text-align: left !important;
+		}
+		.item-solution{
+			h3{
+				color: $color-green-logo;
+				font-size: 24px;
+			}
+			p{
+				color: $color-white;
+				font-size: 18px;
+			}
+			background: $color-blue-logo;
+		}
+
+		.item-different {
+			text-align: center;
+			margin-bottom: 30px;
+			height: calc(100% - 30px);
+			img{
+				margin-bottom: 10px;
+				margin-right: 0;
+			}
+			h4{
+				font-weight: 600;
+				font-size: 18px;
+			}
+		}
+		.btn-blue-env{
+			font-size: 18px;
 		}
 	}
 }

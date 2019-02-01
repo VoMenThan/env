@@ -3,9 +3,6 @@ section.financial-page{
 	h1{
 		margin-bottom: 30px;
 	}
-	p{
-		font-size: 1.25rem;
-	}
 	.title-head-blue{
 		text-transform: inherit;
 	}
@@ -37,4 +34,62 @@ section.financial-page{
 			font-size: 1.25rem;
 		}
 	}
+	.description-offer{
+		p{
+			font-size: 26px;
+		}
+	}
+	.box-ready{
+		font-weight: bold;
+		font-size: 24px;
+		color: $color-blue-logo;
+	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	section.financial-page {
+		h1 {
+			text-align: left !important;
+		}
+		.description-offer, .description-fully {
+			p {
+				font-size: 18px;
+			}
+		}
+		.btn-blue-env {
+			width: 70%;
+		}
+		.item-offer {
+			width: 100%;
+			p{
+				font-size: 18px;
+				text-align: left;
+			}
+		}
+		.description-offer {
+			p {
+				font-size: 18px;
+			}
+
+		}
+	}
+}
+
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  section.financial-page {
+    .btn-blue-env{
+      width: 100%;
+    }
+	  .btn-learn-more{
+		  margin-bottom: 50px;
+	  }
+  }
 }

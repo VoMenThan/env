@@ -7,13 +7,67 @@ section.healthcare-page{
 		h3{
 			text-align: center;
 			font-size: 1.625rem;
+			font-weight: 500;
 		}
 	}
 	.content-offer{
 		ul>li{
 			margin-bottom: 15px;
 			list-style-type: disc;
+			font-size: 20px;
+		}
+	}
+}
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+	section.healthcare-page {
+		.content-offer {
+			ul {
+				margin-left: 20px;
+				> li{
+					font-size: 18px;
+				}
+			}
+		}
+		.item-offer {
+			h3{
+				font-size: 22px;
+			}
+		}
+	}
+}
+
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+	section.healthcare-page {
+		.box-offer-healthcare {
+			background: $color-blue-logo;
+			ul{
+				color: $color-white;
+			}
+		}
+
+		.item-offer{
+          	background: $color-white;
+			margin: auto;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			width: 200px;
+			@include radius(10px);
+			img{
+				width: 80px;
+			}
+          h3{
+            font-size: 18px;
+			  font-weight: 600;
+          }
 		}
 	}
 }

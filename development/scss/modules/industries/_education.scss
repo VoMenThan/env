@@ -1,6 +1,6 @@
 .education-page{
    h1{
-     font-size: 2.25rem;
+     font-size: 36px;
      margin-bottom: 30px;
      font-weight: bold;
      text-align: center;
@@ -9,7 +9,7 @@
     width: 70%;
     margin: auto;
     margin-bottom: 30px;
-    font-size: 1.625rem;
+    font-size: 26px;
   }
   .btn-blue-env{
     margin-bottom: 80px;
@@ -24,21 +24,21 @@
       left: 37px;
       top: 115px;
       width: 300px;
-      font-size: 1.5rem;
+      font-size: 24px;
     }
     .question-2{
       position: absolute;
-      left: 735px;
+      right: 70px;
       top: -11px;
       width: 320px;
-      font-size: 1.5rem;
+      font-size: 24px;
     }
     .question-3{
       position: absolute;
-      left: 771px;
+      right: 0;
       top: 246px;
       width: 400px;
-      font-size: 1.5rem;
+      font-size: 24px;
     }
   }
 
@@ -89,4 +89,141 @@
     }
   }
 
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .education-page {
+    h1{
+      text-align: left;
+      font-size: 24px;
+    }
+    .description-industries{
+      width: 100%;
+      font-size: 18px;
+    }
+    .box-question-education{
+      div[class*="question-"]{
+        font-size: 18px;
+      }
+      .question-1{
+        left: 0;
+        top: 27px;
+        width: 220px;
+      }
+      .question-2{
+        right: 0;
+        top: -28px;
+        width: 280px;
+      }
+      .question-3{
+        right: 0;
+        bottom: -37px;
+        width: 250px;
+        top: auto;
+      }
+
+      img{
+        width: 200px;
+      }
+    }
+
+    .box-offer-education {
+      div[class*="offer-"]{
+        font-size: 18px;
+        width: 250px;
+      }
+      .circle-offer{
+        width: 100%;
+        .main-offer{
+          width: 210px;
+          font-size: 18px;
+          left: 50%;
+          top: 50%;
+          @include translate(-50%, -50%);
+        }
+      }
+      img{
+        width: 300px;
+      }
+    }
+  }
+}
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  .education-page {
+    .box-question-education{
+      padding: 50px 0;
+      img{
+        width: 126px;
+      }
+      div[class*="question-"]{
+        font-size: 16px;
+        width: 126px;
+      }
+      .question-1{
+        left: 0;
+        top: 43px;
+      }
+      .question-2{
+        right: 0;
+        top: -25px;
+      }
+      .question-3{
+        right: 0;
+        bottom: -46px;
+        top: auto;
+      }
+    }
+
+    .box-offer-education {
+      div[class*="offer-"] {
+        width: 190px;
+      }
+      .circle-offer{
+        margin-top: 100px;
+      }
+    }
+
+    .section-offer{
+      padding-bottom: 0;
+    }
+    .btn-blue-env{
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: $device-size-ex-mobile) {
+  .education-page {
+    .box-question-education {
+      .question-1{
+        left: -15px;
+      }
+      .question-2{
+        right: -15px;
+      }
+      .question-3{
+        right: -15px;
+      }
+    }
+    .box-offer-education {
+      div[class*="offer-"] {
+        width: 156px;
+        font-size: 16px;
+      }
+    }
+  }
 }

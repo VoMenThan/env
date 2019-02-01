@@ -1,7 +1,12 @@
 .ecommerce-page{
+  .description-fully{
+    p{
+      font-size: 26px;
+    }
+  }
   .item-different{
     border: 1px solid $color-gray-border;
-    padding: 10px;
+    padding: 20px 10px;
     background: $color-white;
     @include border-radius(5px);
     margin-bottom: 30px;
@@ -10,6 +15,72 @@
     }
     h4{
       text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+  }
+  .description-offer{
+    p{
+      font-size: 26px;
+    }
+  }
+  &.artical-page{
+    padding-bottom: 0;
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .ecommerce-page {
+    .title-head-blue{
+      font-size: 24px;
+      text-align: left !important;
+    }
+    .description-fully {
+      p{
+        font-size: 18px;
+      }
+    }
+    .btn-blue-env{
+      width: 70%;
+    }
+    .item-different{
+      text-align: center;
+      height: calc(100% - 30px);
+      img{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      h4{
+        font-size: 18px;
+      }
+      p{
+        font-size: 18px;
+      }
+    }
+    .description-offer{
+      p{
+        font-size: 18px;
+      }
     }
   }
 }
+
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+  .ecommerce-page {
+    .btn-blue-env{
+      width: 100%;
+    }
+    .btn-learn-more{
+      padding-bottom: 30px;
+    }
+  }
+}
+

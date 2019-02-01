@@ -1,13 +1,13 @@
 .industries-page{
-	p,li, a{
-		font-size: 1.25rem;
+	p{
+		font-size: 1.625rem;
 	}
 	.title-head-blue{
 		text-transform: initial;
 	}
 	.btn-learn-more{
 		padding-top: 30px;
-		padding-bottom: 150px;
+		padding-bottom: 80px;
 	}
 	.item-offer{
 		border: 1px solid $color-gray-hover;
@@ -22,6 +22,11 @@
 			text-align: center;
 		}
 	}
+  .title-blue{
+    font-size: 24px;
+    font-weight: bold;
+    color: $color-blue-logo;
+  }
 }
 
 section.real-estate-page{
@@ -50,6 +55,12 @@ section.real-estate-page{
 			padding-top: 30px;
 			padding-bottom: 100px;
 		}
+		p{
+			font-size: 18px;
+		}
+      .title-blue{
+        font-size: 22px;
+      }
 	}
 	section.real-estate-page {
 		.title-head-blue{
@@ -70,6 +81,14 @@ section.real-estate-page{
 			font-size: 18px;
 		}
 	}
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+
 }
 
 

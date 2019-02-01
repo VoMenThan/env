@@ -34,7 +34,7 @@ section.logistics-page{
 
   .item-different{
     border: 1px solid $color-gray-border;
-    padding: 10px;
+    padding: 20px 10px;
     margin-bottom: 30px;
     background: $color-white;
     @include border-radius(5px);
@@ -43,6 +43,29 @@ section.logistics-page{
     }
     h4{
       text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+  }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  section.logistics-page {
+    .item-different{
+      text-align: center;
+      height: calc(100% - 30px);
+      img{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      h4{
+        font-weight: 600;
+        font-size: 18px;
+      }
     }
   }
 }

@@ -1469,14 +1469,14 @@ footer .box-term-policy-mb { display: none; }
 .is-envzone-a-fit-page .box-unique-approach .list-checked li i { position: absolute; left: 5px; top: 5px; color: #8DC63F; }
 .is-envzone-a-fit-page .box-unique-approach .btn-green-env { padding: 10px; }
 
-.education-page h1 { font-size: 2.25rem; margin-bottom: 30px; font-weight: bold; text-align: center; }
-.education-page .description-industries { width: 70%; margin: auto; margin-bottom: 30px; font-size: 1.625rem; }
+.education-page h1 { font-size: 36px; margin-bottom: 30px; font-weight: bold; text-align: center; }
+.education-page .description-industries { width: 70%; margin: auto; margin-bottom: 30px; font-size: 26px; }
 .education-page .btn-blue-env { margin-bottom: 80px; }
 .education-page .bg-gray-process { padding: 80px 0; }
 .education-page .box-question-education { position: relative; }
-.education-page .box-question-education .question-1 { position: absolute; left: 37px; top: 115px; width: 300px; font-size: 1.5rem; }
-.education-page .box-question-education .question-2 { position: absolute; left: 735px; top: -11px; width: 320px; font-size: 1.5rem; }
-.education-page .box-question-education .question-3 { position: absolute; left: 771px; top: 246px; width: 400px; font-size: 1.5rem; }
+.education-page .box-question-education .question-1 { position: absolute; left: 37px; top: 115px; width: 300px; font-size: 24px; }
+.education-page .box-question-education .question-2 { position: absolute; right: 70px; top: -11px; width: 320px; font-size: 24px; }
+.education-page .box-question-education .question-3 { position: absolute; right: 0; top: 246px; width: 400px; font-size: 24px; }
 .education-page .section-offer { padding-top: 80px; padding-bottom: 80px; }
 .education-page .section-offer h2 { font-size: 2.25rem; font-weight: bold; margin-bottom: 50px; }
 .education-page .box-offer-education { position: relative; font-size: 1.625rem; }
@@ -1486,12 +1486,50 @@ footer .box-term-policy-mb { display: none; }
 .education-page .box-offer-education .offer-2 { width: 300px; position: absolute; top: 0; right: 0; font-size: 1.5rem; }
 .education-page .box-offer-education .offer-3 { width: 300px; font-size: 1.5rem; margin: auto; margin-bottom: 30px; }
 
-.industries-page p, .industries-page li, .industries-page a { font-size: 1.25rem; }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .education-page h1 { text-align: left; font-size: 24px; }
+  .education-page .description-industries { width: 100%; font-size: 18px; }
+  .education-page .box-question-education div[class*="question-"] { font-size: 18px; }
+  .education-page .box-question-education .question-1 { left: 0; top: 27px; width: 220px; }
+  .education-page .box-question-education .question-2 { right: 0; top: -28px; width: 280px; }
+  .education-page .box-question-education .question-3 { right: 0; bottom: -37px; width: 250px; top: auto; }
+  .education-page .box-question-education img { width: 200px; }
+  .education-page .box-offer-education div[class*="offer-"] { font-size: 18px; width: 250px; }
+  .education-page .box-offer-education .circle-offer { width: 100%; }
+  .education-page .box-offer-education .circle-offer .main-offer { width: 210px; font-size: 18px; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .education-page .box-offer-education img { width: 300px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .education-page .box-question-education { padding: 50px 0; }
+  .education-page .box-question-education img { width: 126px; }
+  .education-page .box-question-education div[class*="question-"] { font-size: 16px; width: 126px; }
+  .education-page .box-question-education .question-1 { left: 0; top: 43px; }
+  .education-page .box-question-education .question-2 { right: 0; top: -25px; }
+  .education-page .box-question-education .question-3 { right: 0; bottom: -46px; top: auto; }
+  .education-page .box-offer-education div[class*="offer-"] { width: 190px; }
+  .education-page .box-offer-education .circle-offer { margin-top: 100px; }
+  .education-page .section-offer { padding-bottom: 0; }
+  .education-page .btn-blue-env { margin-bottom: 0; } }
+/* 	================================================================
+	MOBILE DEVICE
+	Mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: 320px) { .education-page .box-question-education .question-1 { left: -15px; }
+  .education-page .box-question-education .question-2 { right: -15px; }
+  .education-page .box-question-education .question-3 { right: -15px; }
+  .education-page .box-offer-education div[class*="offer-"] { width: 156px; font-size: 16px; } }
+.industries-page p { font-size: 1.625rem; }
 .industries-page .title-head-blue { text-transform: initial; }
-.industries-page .btn-learn-more { padding-top: 30px; padding-bottom: 150px; }
+.industries-page .btn-learn-more { padding-top: 30px; padding-bottom: 80px; }
 .industries-page .item-offer { border: 1px solid #E0E0E0; padding: 40px 20px; margin-bottom: 30px; height: calc(100% - 30px); }
 .industries-page .item-offer img { margin-bottom: 20px !important; display: block; }
 .industries-page .item-offer p { text-align: center; }
+.industries-page .title-blue { font-size: 24px; font-weight: bold; color: #0D3153; }
 
 section.real-estate-page .info-fully { font-size: 1.625rem; }
 section.real-estate-page .description-offer { font-size: 26px; }
@@ -1502,14 +1540,19 @@ section.real-estate-page .question-ready { font-size: 24px; font-weight: bold; c
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) { .industries-page .btn-learn-more { padding-top: 30px; padding-bottom: 100px; }
+  .industries-page p { font-size: 18px; }
+  .industries-page .title-blue { font-size: 22px; }
   section.real-estate-page .title-head-blue { text-align: left; }
   section.real-estate-page .info-fully { font-size: 18px; }
   section.real-estate-page .item-offer p { font-size: 18px; }
   section.real-estate-page .description-offer { font-size: 18px; }
   section.real-estate-page .question-ready { font-size: 18px; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
 section.financial-page { padding-bottom: 0; }
 section.financial-page h1 { margin-bottom: 30px; }
-section.financial-page p { font-size: 1.25rem; }
 section.financial-page .title-head-blue { text-transform: inherit; }
 section.financial-page .description-offer, section.financial-page .description-fully { font-size: 1.625rem; }
 section.financial-page .description-offer p, section.financial-page .description-fully p { font-size: 1.625rem; }
@@ -1517,24 +1560,97 @@ section.financial-page .btn-learn-more { margin-top: 30px; margin-bottom: 150px;
 section.financial-page .item-offer { border: 1px solid #000000; padding: 40px 20px; height: calc(100% - 50px); width: 400px; margin: auto; margin-bottom: 50px; font-size: 1.25rem; background: #ffffff; }
 section.financial-page .item-offer img { margin-bottom: 20px !important; display: block; }
 section.financial-page .item-offer p { text-align: center; font-size: 1.25rem; }
+section.financial-page .description-offer p { font-size: 26px; }
+section.financial-page .box-ready { font-weight: bold; font-size: 24px; color: #0D3153; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.financial-page h1 { text-align: left !important; }
+  section.financial-page .description-offer p, section.financial-page .description-fully p { font-size: 18px; }
+  section.financial-page .btn-blue-env { width: 70%; }
+  section.financial-page .item-offer { width: 100%; }
+  section.financial-page .item-offer p { font-size: 18px; text-align: left; }
+  section.financial-page .description-offer p { font-size: 18px; } }
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { section.financial-page .btn-blue-env { width: 100%; }
+  section.financial-page .btn-learn-more { margin-bottom: 50px; } }
 section.healthcare-page h1 { margin-bottom: 30px; }
 section.healthcare-page .item-offer { padding: 30px 15px; }
-section.healthcare-page .item-offer h3 { text-align: center; font-size: 1.625rem; }
-section.healthcare-page .content-offer ul > li { margin-bottom: 15px; list-style-type: disc; }
+section.healthcare-page .item-offer h3 { text-align: center; font-size: 1.625rem; font-weight: 500; }
+section.healthcare-page .content-offer ul > li { margin-bottom: 15px; list-style-type: disc; font-size: 20px; }
 
-.ecommerce-page .item-different { border: 1px solid #C4C4C4; padding: 10px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 30px; }
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.healthcare-page .content-offer ul { margin-left: 20px; }
+  section.healthcare-page .content-offer ul > li { font-size: 18px; }
+  section.healthcare-page .item-offer h3 { font-size: 22px; } }
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { section.healthcare-page .box-offer-healthcare { background: #0D3153; }
+  section.healthcare-page .box-offer-healthcare ul { color: #ffffff; }
+  section.healthcare-page .item-offer { background: #ffffff; margin: auto; margin-bottom: 20px; margin-top: 20px; width: 200px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
+  section.healthcare-page .item-offer img { width: 80px; }
+  section.healthcare-page .item-offer h3 { font-size: 18px; font-weight: 600; } }
+.ecommerce-page .description-fully p { font-size: 26px; }
+.ecommerce-page .item-different { border: 1px solid #C4C4C4; padding: 20px 10px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 30px; }
 .ecommerce-page .item-different img { margin-right: 10px; }
-.ecommerce-page .item-different h4 { text-align: center; }
+.ecommerce-page .item-different h4 { text-align: center; font-size: 26px; font-weight: bold; }
+.ecommerce-page .description-offer p { font-size: 26px; }
+.ecommerce-page.artical-page { padding-bottom: 0; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .ecommerce-page .title-head-blue { font-size: 24px; text-align: left !important; }
+  .ecommerce-page .description-fully p { font-size: 18px; }
+  .ecommerce-page .btn-blue-env { width: 70%; }
+  .ecommerce-page .item-different { text-align: center; height: calc(100% - 30px); }
+  .ecommerce-page .item-different img { margin-right: 0; margin-bottom: 10px; }
+  .ecommerce-page .item-different h4 { font-size: 18px; }
+  .ecommerce-page .item-different p { font-size: 18px; }
+  .ecommerce-page .description-offer p { font-size: 18px; } }
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .ecommerce-page .btn-blue-env { width: 100%; }
+  .ecommerce-page .btn-learn-more { padding-bottom: 30px; } }
 .none-profit-page .fully-aware { margin-bottom: 50px; }
 .none-profit-page .fully-aware .title-head-blue { margin-bottom: 30px; }
 .none-profit-page .item-different { border: 1px solid #C4C4C4; padding: 10px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 30px; }
 .none-profit-page .item-different img { margin-right: 10px; }
-.none-profit-page .item-different h4 { text-align: center; }
+.none-profit-page .item-different h4 { text-align: center; font-size: 26px; font-weight: bold; }
 .none-profit-page .bg-gray-process { margin-bottom: 50px; }
 .none-profit-page .bg-gray-process .title-blue { color: #0D3153; font-size: 2rem; font-weight: bold; }
+.none-profit-page .bg-gray-process p { font-size: 26px; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { .none-profit-page .fully-aware .title-head-blue { text-align: left !important; line-height: 37px; }
+  .none-profit-page .item-different { height: calc(100% - 30px); text-align: center !important; }
+  .none-profit-page .item-different img { margin-bottom: 10px; margin-right: 0; }
+  .none-profit-page .item-different h4 { font-weight: 600; font-size: 18px; }
+  .none-profit-page .bg-gray-process .title-blue { font-size: 24px; margin-bottom: 20px; }
+  .none-profit-page .bg-gray-process p { font-size: 18px; }
+  .none-profit-page .btn-blue-env { font-size: 18px; width: 70%; } }
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .none-profit-page .btn-learn-more { padding-top: 0; padding-bottom: 50px; }
+  .none-profit-page .btn-blue-env { width: 100%; } }
 section.logistics-page { padding-bottom: 0; }
 section.logistics-page h1 { margin-bottom: 30px; }
 section.logistics-page .title-head-blue { margin-bottom: 30px; }
@@ -1543,21 +1659,41 @@ section.logistics-page .item-reason h3 { color: #8DC63F; font-size: 1.625rem; ma
 section.logistics-page .item-reason p { color: #ffffff; font-size: 1.25rem; }
 section.logistics-page .item-solution { border: 1px solid #C4C4C4; padding: 50px 30px; margin-bottom: 30px; height: calc(100% - 30px); }
 section.logistics-page .item-solution h3 { text-align: center; font-size: 1.625rem; margin-bottom: 10px; }
-section.logistics-page .item-different { border: 1px solid #C4C4C4; padding: 10px; margin-bottom: 30px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+section.logistics-page .item-different { border: 1px solid #C4C4C4; padding: 20px 10px; margin-bottom: 30px; background: #ffffff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
 section.logistics-page .item-different img { margin-right: 10px; }
-section.logistics-page .item-different h4 { text-align: center; }
+section.logistics-page .item-different h4 { text-align: center; font-size: 26px; font-weight: bold; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.logistics-page .item-different { text-align: center; height: calc(100% - 30px); }
+  section.logistics-page .item-different img { margin-right: 0; margin-bottom: 10px; }
+  section.logistics-page .item-different h4 { font-weight: 600; font-size: 18px; } }
+section.hospitality-page .bg-gray-process { padding: 80px 0; }
 section.hospitality-page h1 { margin-bottom: 30px; }
 section.hospitality-page .title-head-blue { margin-bottom: 30px; }
 section.hospitality-page .item-reason { background: #0D3153; padding: 50px 20px; height: calc(100% - 30px); }
-section.hospitality-page .item-reason h3 { color: #8DC63F; font-size: 1.625rem; margin-bottom: 30px; }
+section.hospitality-page .item-reason h3 { color: #8DC63F; font-size: 26px; margin-bottom: 30px; font-weight: bold; }
 section.hospitality-page .item-reason p { color: #ffffff; font-size: 1.25rem; }
-section.hospitality-page .item-solution { border: 1px solid #C4C4C4; padding: 50px 30px; margin-bottom: 30px; height: calc(100% - 30px); }
-section.hospitality-page .item-solution h3 { text-align: center; font-size: 1.625rem; margin-bottom: 10px; }
-section.hospitality-page .item-different { border: 1px solid #C4C4C4; padding: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+section.hospitality-page .item-solution { border: 1px solid #C4C4C4; padding: 50px 30px; margin-bottom: 30px; height: calc(100% - 30px); background: #ffffff; }
+section.hospitality-page .item-solution h3 { text-align: center; font-size: 26px; margin-bottom: 10px; font-weight: bold; }
+section.hospitality-page .item-different { border: 1px solid #C4C4C4; padding: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; height: 100%; }
 section.hospitality-page .item-different img { margin-right: 10px; }
-section.hospitality-page .item-different h4 { text-align: center; }
+section.hospitality-page .item-different h4 { text-align: center; font-weight: bold; font-size: 26px; }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) { section.hospitality-page .title-head-blue { font-size: 24px; text-align: left !important; }
+  section.hospitality-page .item-solution { background: #0D3153; }
+  section.hospitality-page .item-solution h3 { color: #8DC63F; font-size: 24px; }
+  section.hospitality-page .item-solution p { color: #ffffff; font-size: 18px; }
+  section.hospitality-page .item-different { text-align: center; margin-bottom: 30px; height: calc(100% - 30px); }
+  section.hospitality-page .item-different img { margin-bottom: 10px; margin-right: 0; }
+  section.hospitality-page .item-different h4 { font-weight: 600; font-size: 18px; }
+  section.hospitality-page .btn-blue-env { font-size: 18px; } }
 section.service-page .box-breadcrumb { margin-bottom: 50px; }
 section.service-page h1, section.service-page h2 { font-size: 2.25rem; text-transform: inherit; margin-bottom: 30px; }
 section.service-page .description-overhead { font-size: 26px; margin-bottom: 80px; }
@@ -1940,7 +2076,7 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 .btn-white-env { color: #ffffff !important; background-color: transparent; border-color: #ffffff; padding: 10px 30px; font-size: 1.125rem; }
 
 /*============TITLE BLUE=================*/
-.title-head-blue { font-size: 36px; color: #0D3153; font-weight: bold; text-transform: uppercase; padding-bottom: 15px; }
+.title-head-blue { font-size: 36px; color: #0D3153; font-weight: bold; text-transform: uppercase; padding-bottom: 15px; line-height: 55px; }
 
 /*============DEFINE HEADLINE=================*/
 .define-headline .underline-head { border-bottom: 5px solid #8DC63F; padding-bottom: 5px; }
@@ -2030,10 +2166,10 @@ h1, h2, h3, h4, h5, h6 { color: #0D3153; }
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) { .box-breadcrumb { display: none; }
-  .title-head-blue { font-size: 24px; }
+  .title-head-blue { font-size: 24px; line-height: 37px; }
   /*============BANNER TOP=================*/
   .banner-top h2 { -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); left: 50%; }
-  .title-head-blue { font-size: 1.7rem; }
+  .title-head-blue { font-size: 24px; }
   .bg-building { margin-bottom: 50px; }
   .partner-home { margin-bottom: 50px; }
   .banner-top h2 { font-size: 2rem; }
