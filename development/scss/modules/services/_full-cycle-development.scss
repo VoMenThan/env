@@ -42,6 +42,9 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
   .full-cycle-development-page {
+    h2{
+      text-transform: capitalize;
+    }
     .item-custom-software{
       width: 220px;
       height: 220px;

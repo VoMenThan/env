@@ -307,22 +307,22 @@ h1, h2, h3, h4, h5, h6{
 
 	.banner-company {
 		img{
-			@include translate-x(495px);
+			@include translate-x(380px);
 		}
 		&.bg-blue {
 			> h2{
-				@include translate(-495px, -50%);
+				@include translate(0, -50%);
 			}
 		}
 	}
 
 	.banner-industries{
 		img{
-			@include translate-x(495px);
+			@include translate-x(380px);
 		}
 		&.bg-blue {
 			> h2{
-				@include translate(-495px, -50%);
+				@include translate(0, -50%);
 			}
 		}
 	}
@@ -397,6 +397,7 @@ h1, h2, h3, h4, h5, h6{
 			left: 10%;
 			top: 50%;
 			@include translate(0, -50%);
+			max-width: 500px;
 		}
 	}
 }
@@ -464,6 +465,7 @@ h1, h2, h3, h4, h5, h6{
 			top: 20%;
 			@include translate(-50%, -50%);
 			text-align: center;
+			width: 80%;
 		}
 	}
 

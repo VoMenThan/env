@@ -36,6 +36,8 @@ section.testing-page{
   .title-blue{
     font-size: 1.625rem;
     text-align: center;
+    width: 80%;
+    margin: auto;
   }
   .item-qa{
     padding: 15px;
@@ -70,6 +72,7 @@ section.testing-page{
    }
    .title-blue{
      font-size: 22px;
+     width: 100%;
    }
     .item-qa{
       font-size: 18px;
@@ -85,10 +88,22 @@ section.testing-page{
   section.testing-page {
     .item-qa{
       padding: 5px;
+      width: 100px;
+      height: 100px;
     }
     .item-deploy-confidence{
       img{
         width: 80px;
+      }
+    }
+
+    .bg-green, .bg-blue{
+      @include display-flex;
+      @include justify-content(center);
+      @include align-items(center);
+      h3{
+        padding-left: 30px;
+        margin-bottom: 0;
       }
     }
   }

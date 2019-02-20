@@ -4,8 +4,20 @@ section.it-outsourcing-page{
     margin-left: 20px;
     .list-choose{
       color: $color-blue-logo;
-      list-style-type: disc;
       margin-bottom: 15px;
+      position: relative;
+      &:before{
+        content: "";
+        display: inline-block;
+        background: url("../images/icon-check-true-blue.svg") no-repeat;
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        background-position: center;
+        position: absolute;
+        left: -30px;
+        top: 10px;
+      }
     }
   }
 

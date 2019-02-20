@@ -33,7 +33,27 @@
     }
   }
 }
-
+/* 	================================================================
+	MEDIUM DEVICE
+	Large tablet 992px and down (<992px)
+	================================================================== */
+@media screen and (max-width: $device-size-large) {
+  .none-profit-page {
+    .item-different {
+      height: calc(100% - 30px);
+      text-align: center !important;
+      img{
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 60px;
+      }
+      h4{
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+}
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
@@ -52,6 +72,7 @@
       img{
         margin-bottom: 10px;
         margin-right: 0;
+        width: 60px;
       }
       h4{
         font-weight: 600;
