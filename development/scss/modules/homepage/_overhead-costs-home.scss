@@ -92,6 +92,17 @@
 @media screen and (max-width: $device-size-medium) {
   .overhead-costs-page{
     margin-bottom: 0;
+    .content-overhead-costs {
+      .box-according {
+        div[class*="cost-"]{
+          width: 300px;
+        }
+      }
+      .description-overhead{
+        width: 100%;
+        font-size: 24px;
+      }
+    }
   }
 }
 
@@ -112,6 +123,10 @@
         font-size: 24px;
       }
       .box-according{
+        .note-chart{
+          width: 180px;
+          padding-left: 0;
+        }
         .img-fluid{
           width: 180px;
         }

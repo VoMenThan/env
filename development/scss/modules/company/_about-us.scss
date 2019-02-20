@@ -29,9 +29,10 @@
 		}
 		.description-different{
 			p{
-				font-size: 1.8rem;
+				font-size: 30px;
 				color: $color-blue-logo;
-				padding-right: 30%;
+				padding-right: 20%;
+				font-weight: 600;
 			}
 		}
 		.list-different{
@@ -39,15 +40,18 @@
 			li{
 				background: $color-blue-logo;
 				padding: 5px 20px;
-				font-size: 1.3rem;
+				font-size: 20px;
 				color: $color-white;
 				margin-bottom: 30px;
 				min-height: 72px;
 				text-transform: uppercase;
+				font-weight: 600;
 			}
 		}
+		.btn-white-env{
+			width: 50%;
+		}
 	}
-
 	.box-what-we-see{
 		.title-head-blue{
 			margin-bottom: 30px;
@@ -61,9 +65,11 @@
 				color: $color-green-logo;
 				padding-bottom: 30px;
 				text-align: center;
+				font-size: 36px;
+				font-weight: bold;
 			}
 			p{
-				font-size: 1.25rem;
+				font-size: 20px;
 			}
 		}
 	}
@@ -84,7 +90,7 @@
 	}
 	.description-business{
 		font-size: 1.5rem;
-		font-weight: 400;
+		font-weight: 500;
 		width: 50%;
 		margin: auto;
 		margin-bottom: 30px;
@@ -94,6 +100,7 @@
 		padding: 15px;
 		height: 100%;
 		font-size: 1.25rem;
+		color: $color-blue-logo;
 		i{
 			font-size: 2rem;
 			color: $color-blue-logo;
@@ -105,14 +112,17 @@
 			color: $color-green-logo;
 			margin-bottom: 30px;
 			font-size: 1.625rem;
+			font-weight: bold;
 		}
 		p{
 			text-align: left;
-			font-size: 1.25rem;
+			font-size: 26px;
+			font-weight: 500;
 		}
 	}
 	.btn-white-env{
 		font-size: 1.5rem;
+		font-weight: bold;
 		.icon-arrow-bottom{
 			@include setBackgroundIcon(30px, "../images/icon-arrow-down.svg");
 			vertical-align: middle;
@@ -226,6 +236,7 @@
 			.box-blue {
 				h3{
 					padding-bottom: 20px;
+					font-size: 22px;
 				}
 				p{
 					font-size: 18px;
@@ -318,7 +329,7 @@
 
 		.box-what-we-see {
 			.title-head-blue{
-				margin-bottom: 15px;
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -328,16 +339,34 @@
 			padding: 10px;
 		}
 		.btn-white-env{
-			font-size: 1rem;
+			font-size: 18px;
 			white-space: normal;
+			padding: 10px;
+		}
+		.description-business{
+			font-size: 18px;
+		}
+		.box-dedicated {
+			h4{
+				font-size: 24px;
+			}
+			p{
+				font-size: 18px;
+			}
 		}
 	}
 
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: $device-size-ex-mobile) {
 	.col-mbx-100{
 		-webkit-box-flex: 0;
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		max-width: 100%;
 	}
-
 }

@@ -139,6 +139,14 @@
 @media screen and (max-width: $device-size-medium) {
 	.content-services {
 		.box-head-services {
+			.title-head-blue{
+				font-size: 28px;
+				text-align: left;
+			}
+			.description-services{
+				width: 100%;
+				font-weight: 400;
+			}
 			p{
 				width: 100%;
 			}

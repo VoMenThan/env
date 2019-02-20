@@ -14,7 +14,7 @@
 			width: 70%;
 			margin: auto;
 			line-height: 37px;
-			font-weight: 700;
+			font-weight: 600;
 		}
 	}
 	.input-search{
@@ -27,7 +27,7 @@
 		margin-bottom: 20px;
 		color: $color-white;
 		font-style: italic;
-		font-size: 24px;
+		font-size: 22px;
 	}
 	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 		color: $color-white;
@@ -57,7 +57,7 @@
 
 	.btn-blue-env{
 		font-weight: bold;
-		font-size: 24px;
+		font-size: 22px;
 	}
 }
 
@@ -76,7 +76,23 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
-
+	.content-subcribe {
+		.box-head-subcribe {
+			h2{
+				font-size: 24px;
+			}
+			p{
+				font-size: 18px;
+				line-height: 1.5;
+			}
+		}
+		.input-search{
+			font-size: 18px;
+		}
+		.btn-blue-env{
+			font-size: 18px;
+		}
+	}
 }
 
 
@@ -88,7 +104,7 @@
 	.content-subcribe {
 		.box-head-subcribe {
 			h2{
-				font-size: 1.4rem;
+				font-size: 24px;
 			}
 			p{
 				font-size: 18px;
@@ -98,6 +114,7 @@
 
 		.input-search {
 			width: 100%;
+			font-size: 18px;
 		}
 		.btn-blue-env{
 			white-space: normal;

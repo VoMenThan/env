@@ -23,6 +23,7 @@
         padding: 30px 20px;
         border-radius: 10px;
 		height: 100%;
+		font-weight: 500;
         h3 {
 			text-align: center;
 			font-weight: bold;
@@ -110,6 +111,20 @@
 			padding: 10px 20px;
 			white-space: normal;
 		}
+		.box-head-framework {
+			h2{
+				font-size: 28px;
+				line-height: 43px;
+				text-align: left;
+			}
+			.description-process-framework {
+				font-size: 18px;
+				line-height: 27px;
+				font-weight: 400;
+				text-align: left;
+				width: 100%;
+			}
+		}
 		.tab-process-framework-mb{
 			display: block;
 			.nav-pills{
@@ -179,10 +194,10 @@
 				text-align: left;
 			}
 			p {
-				font-size: 16px;
+				font-size: 18px;
 			}
 			.title-include{
-				font-size: 24px;
+				font-size: 18px;
 			}
 			.include-process {
 				.include-process-item {
@@ -191,7 +206,7 @@
 			}
 		}
 		.btn-green-env{
-			font-size: .8rem;
+			font-size: 18px;
 		}
 	}
 

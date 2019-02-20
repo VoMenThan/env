@@ -7,6 +7,15 @@
   p{
     font-size: 1.25rem;
   }
+  .description-process{
+    p{
+      font-size: 26px;
+      padding-bottom: 15px;
+    }
+  }
+  .btn-blue-env{
+    font-size: 20px;
+  }
   .box-introduct{
     width: 70%;
     padding-bottom: 100px;
@@ -18,10 +27,11 @@
     p{
       position: relative;
       font-size: 1.625rem;
+      font-weight: 500;
       >i{
         position: absolute;
         left: -35px;
-        top: 30px;
+        top: 10px;
         font-size: 1.5rem;
         color: $color-green-logo;
         &.icon-one{
@@ -74,7 +84,7 @@
         color: $color-white;
         font-weight: bold;
         margin-bottom: 10px;
-        font-size: 1.5rem;
+        font-size: 24px;
       }
       i{
         margin-bottom: 10px;
@@ -181,12 +191,25 @@
     .box-introduct{
       width: 100%;
       padding-left: 50px;
+      .title-head-blue{
+        font-size: 28px;
+      }
       p{
         font-size: 18px;
       }
     }
+    .description-process {
+      p{
+        font-size: 22px;
+      }
+    }
     .box-list-deliverables {
       margin-bottom: 50px;
+      .item-discovery {
+        p{
+          font-size: 18px;
+        }
+      }
       h5{
         padding: 20px 0;
       }
@@ -194,7 +217,6 @@
         font-size: 1.5rem;
       }
     }
-
     .box-development-process {
       margin-bottom: 80px;
       p{
@@ -226,5 +248,30 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+  .process-framework-page {
+    .box-introduct{
+      padding-left: 30px;
+      padding-bottom: 50px;
+      p > i{
+        left: -30px;
+      }
+    }
+    .description-process {
+      p{
+        font-size: 18px;
+      }
+    }
+    .box-development-process {
+      .title-head-blue{
+        padding-bottom: 30px;
+      }
+    }
+    .btn-blue-env{
+      font-size: 18px;
+    }
+    .box-list-deliverables{
+      margin-bottom: 60px;
+      margin-top: 15px;
+    }
+  }
 }

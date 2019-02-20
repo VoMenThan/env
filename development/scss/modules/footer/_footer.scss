@@ -38,6 +38,7 @@ footer {
 
     .label-form-project {
         font-size: 30px;
+        font-weight: bold;
     }
 
     .form-start-project {
@@ -66,6 +67,7 @@ footer {
             width: 100%;
             padding: 6px 30px;
             font-size: 25px;
+            font-weight: bold;
         }
 
         ::placeholder {
@@ -111,6 +113,7 @@ footer {
             font-weight: bold;
             letter-spacing: 1px;
             color: $color-white;
+            font-size: 25px;
         }
         .label-socials{
             color: $color-white;
@@ -279,6 +282,9 @@ footer {
     footer {
         background: $color-blue-lv2;
         padding-top: 0;
+        .description-logo{
+            margin-top: 5px;
+        }
         .d-none-768{
             display: none;
         }
@@ -321,7 +327,8 @@ footer {
             display: block;
             background: $color-blue-lv4;
             .title-check-vaibility-mb{
-                font-size: 1.2rem;
+                font-size: 20px;
+                font-weight: 600;
                 padding-bottom: 15px;
             }
             .btn-blue-env{
@@ -403,6 +410,9 @@ footer {
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
     footer {
+        .all-rights{
+            display: block;
+        }
         .social-mobile{
             .list-social-mb{
                 .nav-link{

@@ -20,7 +20,8 @@
       height: 100%;
       padding: 50px 40px;
       color: $color-white;
-      font-size: 1.3rem;
+      font-size: 20px;
+      font-weight: 500;
 
     }
     .box-title{
@@ -33,10 +34,14 @@
         text-align: center;
         width: 70%;
         font-weight: bold;
+        font-size: 36px;
       }
     }
   }
-
+  .btn-green-env{
+    font-size: 20px;
+    font-weight: 700;
+  }
   .box-two-col{
     text-align: center;
     i{
@@ -55,7 +60,7 @@
         padding-bottom: 1rem;
         font-size: 26px;
         font-weight: bold;
-        color: $color-white;
+        color: $color-blue-logo;
       }
       p{
         text-align: left;
@@ -74,7 +79,7 @@
         padding-bottom: 1rem;
         font-size: 26px;
         font-weight: bold;
-        color: $color-white;
+        color: $color-green-logo;
       }
       p{
         text-align: left;
@@ -144,11 +149,19 @@
   .partnership-page {
     .box-header{
       .title-head-blue{
-        font-size: 24px;
+        font-size: 28px;
         text-align: left !important;
       }
       p{
-        font-size: 18px;
+        font-size: 24px;
+      }
+    }
+    .box-two-col {
+      h4{
+        font-size: 24px !important;
+      }
+      p{
+        font-size: 18px !important;
       }
     }
     .info-partnership {
@@ -207,6 +220,16 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
   .partnership-page {
+    padding-top: 50px !important;
+    .box-header {
+      margin-bottom: 0;
+      .title-head-blue{
+        font-size: 24px;
+      }
+      p{
+        font-size: 18px;
+      }
+    }
     .info-partnership {
       .box-title, .box-info{
         width: 100%;
@@ -227,15 +250,22 @@
         }
       }
     }
-
+    .description-sign-me-up{
+      font-size: 24px;
+    }
+    .btn-green-env{
+      font-size: 18px;
+    }
     .box-two-col {
       .box-green{
         width: 100%;
         height: auto;
+        padding: 15px;
       }
       .box-blue{
         width: 100%;
         height: auto;
+        padding: 15px;
       }
     }
   }

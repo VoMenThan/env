@@ -12,6 +12,8 @@
   }
   .box-careers{
     padding: 30px 0;
+    font-size: 26px;
+    color: #808080;
     h4{
       padding-bottom: 15px;
       padding-top: 15px;
@@ -20,19 +22,28 @@
       border-bottom: 1px solid $color-gray-border;
       margin-top: 30px;
       margin-bottom: 30px;
+      font-size: 40px;
+      font-weight: bold;
     }
   }
-
+  .btn-green-env{
+    font-size: 25px;
+    font-weight: bold;
+  }
   .article-benefits{
     h4{
       margin-bottom: 30px;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
     }
     .item-benefit{
       text-align: center;
       margin-bottom: 30px;
       p{
         color: $color-blue-lv1;
-        font-size: 1.25rem;
+        font-size: 30px;
+        font-weight: 600;
       }
       .icon-insurance{
         @include setBackgroundIcon(100px, "../images/icon-insurance.svg");

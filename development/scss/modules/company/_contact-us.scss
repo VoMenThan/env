@@ -1,4 +1,20 @@
 .contact-us-page{
+	.box-form-contact{
+		p{
+			font-size: 26px;
+		}
+		.btn-green-env{
+			font-size: 25px;
+			font-weight: bold;
+		}
+	}
+	.link-blue{
+		color: #0D3153;
+	}
+	.link-underline{
+		text-decoration-line: underline;
+		color: #0D3153;
+	}
 	.box-contact-topic{
 		border: 1px solid $color-gray-border;
 		.label-header{
@@ -60,54 +76,47 @@
 			padding-top: 15px;
 		}
 	}
+	.title-visit-offices{
+		font-size: 20px;
+		color: #0D3153;
+		font-weight: 600;
+		margin-bottom: 15px;
+	}
 }
 
 /* =================== RESPONSIVE ======================= */
-
-
-/* 	================================================================
-	EXTRA LARGE DEVICE
-	Large desktop 1200px and up (1200px)
-	================================================================== */
-@media screen and (min-width: $device-size-extra-large) {
-
-}
-
-
-/* 	================================================================
-	LARGE DEVICE
-	Large desktop 992px and up (>992px and <1200px)
-	================================================================== */
-@media screen and (min-width: $device-size-large) and (max-width: $device-size-extra-large) {
-
-}
-
-/* 	================================================================
-	MEDIUM DEVICE
-	Large tablet 992px and down (<992px)
-	================================================================== */
-@media screen and (max-width: $device-size-large) {
-
-}
 
 /* 	================================================================
 	MEDIUM DEVICE
 	Large tablet 768px and up (>768px and <992px)
 	================================================================== */
 @media screen and (min-width: $device-size-medium) and (max-width: $device-size-large) {
-
-}
-
-/* 	================================================================
-	MEDIUM DEVICE
-	Tablet 768px and down (<768px)
-	================================================================== */
-@media screen and (max-width: $device-size-medium) {
 	.contact-us-page {
+		.box-visit-envzone {
+			.box-img {
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	.contact-us-page {
+		background: #F2F2F2;
 		.box-visit-envzone {
 			.col-green{
 				width: 100%;
 				height: auto;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				background: $color-white;
+				color: #4F4F4F;
+				h4{
+					font-size: 18px;
+					font-weight: bold;
+				}
+				p{
+					font-size: 18px;
+				}
 			}
 			.box-img{
 				width: 100%;
@@ -119,16 +128,123 @@
 		}
 		.international-office{
 			padding-bottom: 30px;
+			h5{
+				font-size: 18px;
+				font-weight: 600;
+			}
+		}
+		.international-header{
+			font-size: 26px;
+			font-weight: bold;
+			color: #4F4F4F;
+		}
+		.btn-green-env{
+			font-weight: 600;
+		}
+		.box-international{
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			background: $color-white;
+			img{
+				width: 100%;
+			}
+			.box-info{
+				padding: 15px;
+				.title-offices{
+					color: #4F4F4F;
+				}
+				p{
+					font-size: 18px;
+					color: #4F4F4F;
+				}
+			}
+		}
+		.box-header{
+			.title-head-blue{
+				font-size: 28px;
+			}
+		}
+		.box-form-contact {
+			p{
+				font-size: 18px;
+			}
 		}
 	}
 }
 
 /* 	================================================================
-	SMALL DEVICE
-	Large tablet 576px and up (>576px and <768px)
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
 	================================================================== */
-@media screen and (min-width: $device-size-small) and (max-width: $device-size-medium) {
+@media screen and (max-width: $device-size-medium) {
+	.contact-us-page {
+		background: #F2F2F2;
+		.box-visit-envzone {
+			.col-green{
+				width: 100%;
+				height: auto;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				background: $color-white;
+				color: #4F4F4F;
+				h4{
+					font-size: 18px;
+					font-weight: bold;
+				}
+				p{
+					font-size: 18px;
+				}
+			}
+			.box-img{
+				width: 100%;
+				img{
+					width: 100%;
+				}
+			}
 
+		}
+		.international-office{
+			padding-bottom: 30px;
+			h5{
+				font-size: 18px;
+				font-weight: 600;
+			}
+		}
+		.international-header{
+			font-size: 26px;
+			font-weight: bold;
+			color: #4F4F4F;
+		}
+		.btn-green-env{
+			font-weight: 600;
+			color: $color-blue-logo !important;
+		}
+		.box-international{
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			background: $color-white;
+			img{
+				width: 100%;
+			}
+			.box-info{
+				padding: 15px;
+				.title-offices{
+					color: #4F4F4F;
+				}
+				p{
+					font-size: 18px;
+					color: #4F4F4F;
+				}
+			}
+		}
+		.box-header{
+			.title-head-blue{
+				font-size: 28px;
+			}
+		}
+		.box-form-contact {
+			p{
+				font-size: 18px;
+			}
+		}
+	}
 }
 
 /* 	================================================================
@@ -145,5 +261,20 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
-
+	.contact-us-page {
+		.box-header {
+			.title-head-blue{
+				font-size: 24px;
+			}
+		}
+		.box-form-contact {
+			.btn-green-env{
+				font-size: 18px;
+			}
+		}
+		.title-head-blue{
+			font-size: 24px;
+			font-weight: 600;
+		}
+	}
 }

@@ -225,6 +225,9 @@
 		background: transparent;
 		@include translate(15px, -50%);
 		max-width: 70%;
+		h3{
+			text-transform: uppercase;
+		}
 		.btn-blue-env{
 			background: transparent;
 			border: 1px solid $color-white;
@@ -282,7 +285,8 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
 	.connect-social{
-		max-width: 90%;
+		max-width: 100%;
+		@include translate(0, -50%);
 		.btn-blue-env{
 			font-size: 16px;
 		}

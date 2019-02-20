@@ -5,7 +5,8 @@
     background: $color-green-logo;
     .title-blue-center{
       color: $color-blue-logo;
-      font-size: 2rem;
+      font-size: 36px;
+      line-height: 55px;
       padding-right: 30%;
       font-weight: bold;
     }
@@ -19,6 +20,7 @@
         font-size: 20px;
         color: $color-white;
         margin-bottom: 30px;
+        font-weight: 500;
       }
     }
   }
@@ -49,7 +51,10 @@
         color: $color-green-logo;
         font-size: 36px;
         font-weight: bold;
-        white-space: nowrap;
+        white-space: normal;
+        padding: 15px;
+        text-align: center;
+        width: 100%;
       }
       img{
         width: 100%;
@@ -89,6 +94,17 @@
       .title-blue-center{
         padding-right: 0;
         padding-bottom: 30px;
+        font-size: 24px;
+        line-height: 1.5;
+      }
+      .box-info {
+        h3{
+          font-size: 24px;
+        }
+        p{
+          font-size: 18px;
+        }
+
       }
     }
     .box-staff {
@@ -117,12 +133,23 @@
 @media screen and (max-width: $device-size-medium) {
   .client-focused-solutions-page {
     .box-staff {
+      .box-paragraph {
+        article.paragraph {
+          p{
+            font-size: 18px;
+          }
+          .learn-more{
+            font-size: 22px;
+          }
+        }
+      }
       .box-img {
         overflow: hidden;
         img{
           width: auto;
           max-width: initial;
           height: 100%;
+          margin-left: -30%;
         }
       }
     }
@@ -145,7 +172,6 @@
 
 }
 
-
 /* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
@@ -156,6 +182,34 @@
       padding: 20px 0;
       .title-blue-center{
         font-size: 1.5rem;
+      }
+      .box-info {
+        h3{
+          font-size: 22px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .box-staff {
+      .box-img {
+        img{
+          margin-left: 0;
+          height: auto;
+          width: 100%;
+        }
+        h3{
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+
+      .box-paragraph {
+        article.paragraph {
+          .learn-more{
+            font-size: 20px;
+          }
+        }
       }
     }
   }

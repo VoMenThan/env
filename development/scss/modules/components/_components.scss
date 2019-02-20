@@ -380,6 +380,7 @@ h1, h2, h3, h4, h5, h6{
 			top: 50%;
 			@include translate(0, -50%);
 			width: 330px;
+			font-size: 28px;
 		}
 	}
 

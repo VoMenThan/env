@@ -94,17 +94,20 @@
   .solution-figurative {
     .title-solution{
       width: 100%;
+      font-size: 28px;
     }
     .box-description{
       width: 100%;
       margin-bottom: 100px;
     }
     .box-vn-rank{
-      margin-bottom: 180px;
+      margin-bottom: 220px;
+      div[class*="rank-"]{
+        font-size: 16px;
+      }
       .rank-1{
         top: -50px;
         left: 265px;
-        font-size: 1rem;
         width: 300px;
         .pig-letter{
           font-size: 30px;
@@ -113,13 +116,11 @@
       .rank-2{
         top: 294px;
         left: 350px;
-        font-size: 1rem;
         width: 200px;
       }
       .rank-3{
         top: 295px;
         left: 125px;
-        font-size: 1rem;
         width: 200px;
       }
     }
@@ -154,22 +155,22 @@
       margin-bottom: 0;
     }
     .box-vn-rank{
-      .rank-1{
-        top: -81px;
-        left: 80px;
+      div[class*="rank-"]{
         font-size: 18px;
+      }
+      .rank-1{
+        top: -109px;
+        left: 80px;
         width: 250px;
       }
       .rank-2{
         top: 294px;
-        left: 182px;
-        font-size: 18px;
+        left: 200px;
         width: 157px;
       }
       .rank-3{
         top: 295px;
-        left: 10px;
-        font-size: 18px;
+        left: 25px;
         width: 150px;
       }
     }
@@ -180,6 +181,12 @@
     }
     .btn-blue-env{
       font-size: 16px;
+    }
+
+    .item-cost {
+      h5{
+        font-size: 18px;
+      }
     }
   }
 }
@@ -193,8 +200,8 @@
   .solution-figurative {
     .box-vn-rank {
       .rank-1{
-        top: -47px;
-        left: 60px;
+        top: -67px;
+        left: 65px;
         font-size: 1rem;
         width: 250px;
       }
