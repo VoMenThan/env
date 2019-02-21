@@ -10,6 +10,7 @@
     margin: auto;
     margin-bottom: 30px;
     font-size: 26px;
+    font-weight: 500;
   }
   .btn-blue-env{
     margin-bottom: 80px;
@@ -19,12 +20,16 @@
   }
   .box-question-education{
     position: relative;
+    div[class*="question-"]{
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 34px;
+    }
     .question-1{
       position: absolute;
       left: 37px;
       top: 115px;
       width: 300px;
-      font-size: 24px;
     }
     .question-2{
       position: absolute;
@@ -71,14 +76,14 @@
       width: 300px;
       position: absolute;
       top: 0;
-      left: 0;
+      left: 80px;
       font-size: 1.5rem;
     }
     .offer-2{
       width: 300px;
       position: absolute;
       top: 0;
-      right: 0;
+      right: 80px;
       font-size: 1.5rem;
     }
     .offer-3{
@@ -108,6 +113,7 @@
     .box-question-education{
       div[class*="question-"]{
         font-size: 18px;
+        line-height: 1.54;
       }
       .question-1{
         left: 0;
@@ -135,6 +141,12 @@
       div[class*="offer-"]{
         font-size: 18px;
         width: 250px;
+      }
+      .offer-1{
+       left: 0;
+      }
+      .offer-2{
+        right: 0;
       }
       .circle-offer{
         width: 100%;

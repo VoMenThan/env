@@ -233,7 +233,8 @@ h1, h2, h3, h4, h5, h6{
 .box-breadcrumb{
 	color: $color-blue-logo;
 	margin-bottom: 2rem;
-	font-size: 1.125rem;
+	font-size: 20px;
+	font-weight: bold;
 	.you-here{
 		float: left;
 		color: $color-blue-logo;
@@ -243,6 +244,8 @@ h1, h2, h3, h4, h5, h6{
 		background: transparent;
 		padding: inherit;
 		padding-left: 15px;
+		font-size: 16px;
+		line-height: 30px;
 	}
 }
 

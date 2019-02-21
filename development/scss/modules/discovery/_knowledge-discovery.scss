@@ -16,13 +16,16 @@
       padding-bottom: 15px;
       font-size: 1.825em;
       color: $color-white;
+      font-family: $font-pt;
     }
     p{
       font-size: 1.25rem;
+      font-family: $font-roboto;
     }
     .category, .author{
       color: $color-green-logo;
       font-weight: bold;
+      font-family: $font-roboto;
     }
   }
 

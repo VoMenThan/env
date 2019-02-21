@@ -56,7 +56,7 @@
 			padding: 10px;
 			padding-left: calc(40% + 15px);
 			h2{
-				font-size: 1.25rem;
+				font-size: 22px;
 				font-family: $font-pt;
 				padding-bottom: 10px;
 				font-weight: bold;
@@ -69,8 +69,9 @@
 			}
 			.category{
 				font-size: 1rem;
-				font-weight: bold;
+				font-weight: 500;
 				color: $color-green-logo;
+				font-family: $font-roboto;
 			}
 			.author{
 				margin-right: 20px;
@@ -103,6 +104,7 @@
 				padding-left: 15px;
 				.audit{
 					position: static;
+					font-family: $font-sans-pro;
 				}
 			}
 		}
@@ -128,6 +130,20 @@
 			color: white;
 			margin-bottom: 15px;
 			width: 100%;
+			font-style: italic;
+
+		}
+		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+			color: #E0E0E0;
+			opacity: 1; /* Firefox */
+		}
+
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			color: #E0E0E0;
+		}
+
+		::-ms-input-placeholder { /* Microsoft Edge */
+			color: #E0E0E0;
 		}
 	}
 }

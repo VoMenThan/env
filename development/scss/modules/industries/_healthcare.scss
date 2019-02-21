@@ -11,10 +11,13 @@ section.healthcare-page{
 		}
 	}
 	.content-offer{
+		@include display-flex;
+		@include align-items(center);
 		ul>li{
 			margin-bottom: 15px;
 			list-style-type: disc;
 			font-size: 20px;
+			font-weight: 500;
 		}
 	}
 }
