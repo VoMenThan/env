@@ -230,7 +230,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="title-head">
+                    <div class="title-head-blue">
                         THE POSITIVE IMPACTS THAT OUR CLIENTS RECIEVE IN HIGHLIGHTED INDUSTRIES
                     </div>
                     <div class="description-head">

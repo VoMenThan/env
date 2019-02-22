@@ -56,7 +56,7 @@
                             <li class="d-flex align-items-center">Servicing a wide range of industries</li>
                         </ul>
                         <div class="text-right">
-                            <a href="#" class="btn btn-white-env">Learn more</a>
+                            <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env">Learn more</a>
                         </div>
                     </div>
                 </div>

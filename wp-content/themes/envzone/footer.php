@@ -1,4 +1,3 @@
-
 <!-- FOOTER -->
 <footer>
     <div class="container">
@@ -26,16 +25,16 @@
                             Follow us:
                         </li>
                         <li class="nav-item px-1">
-                            <a class="nav-link link-twitter" href="https://twitter.com/Envzone"><i class="fa fa-twitter"></i></a>
+                            <a class="nav-link link-twitter" target="_blank" href="https://twitter.com/Envzone"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li class="nav-item px-1">
-                            <a class="nav-link link-facebook" href="https://www.facebook.com/envzone/"><i class="fa fa-facebook"></i></a>
+                            <a class="nav-link link-facebook" target="_blank" href="https://www.facebook.com/envzone/"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li class="nav-item px-1">
-                            <a class="nav-link link-linkedin"  href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+                            <a class="nav-link link-linkedin" target="_blank" href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
                         </li>
                         <li class="nav-item px-1">
-                            <a class="nav-link link-google" href="https://plus.google.com/+EnvZoneWashington"><i class="fa fa-google-plus"></i></a>
+                            <a class="nav-link link-google" target="_blank" href="https://plus.google.com/+EnvZoneWashington"><i class="fa fa-google-plus"></i></a>
                         </li>
                     </ul>
 
@@ -74,6 +73,7 @@
                         <li><a href="<?php echo get_home_url();?>/process-framework">Process Framework</a></li>
                         <li><a href="<?php echo get_home_url();?>/client-focus-solutions">Client Focus Solutions</a></li>
                         <li><a href="<?php echo get_home_url();?>/customer-support">Customer Support</a></li>
+                        <li><a href="<?php echo get_home_url();?>/buyer-guidelines">Buyer Guidelines</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,24 +124,24 @@
             <div class="col-12">
                 <ul class="nav list-social-mb d-flex justify-content-center">
                     <li class="nav-item px-1 py-3">
-                        <a class="nav-link link-twitter" href="https://twitter.com/Envzone">
+                        <a class="nav-link link-twitter" target="_blank" href="https://twitter.com/Envzone">
                             <i class="icon-twitter"></i>
                         </a>
                     </li>
 
                     <li class="nav-item px-1 py-3">
-                        <a class="nav-link link-facebook" href="https://www.facebook.com/envzone/">
+                        <a class="nav-link link-facebook" target="_blank" href="https://www.facebook.com/envzone/">
                             <i class="icon-facebook"></i>
                         </a>
                     </li>
 
                     <li class="nav-item px-1 py-3">
-                        <a class="nav-link link-linkedin"  href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home">
+                        <a class="nav-link link-linkedin" target="_blank" href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home">
                             <i class="icon-linkedin"></i>
                         </a>
                     </li>
                     <li class="nav-item px-1 py-3">
-                        <a class="nav-link link-google" href="https://plus.google.com/+EnvZoneWashington">
+                        <a class="nav-link link-google" target="_blank" href="https://plus.google.com/+EnvZoneWashington">
                             <i class="icon-google-plus"></i>
                         </a>
                     </li>
@@ -156,7 +156,7 @@
                 <div class="title-check-vaibility-mb">
                     SCHEDULE AN APPOINTMENT
                 </div>
-                <a href="#" class="btn btn-blue-env">CHECK AVAIBILITY</a>
+                <a href="#" class="btn btn-blue-env">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
             </div>
         </div>
     </div>
@@ -171,10 +171,10 @@
                     M-F | 8:30 am - 5:30 pm MST
                 </p>
                 <p>
-                    Main: <a href="tel:+017206062900">720-606-2900</a>
+                    Main: <a href="#">720-606-2900</a>
                 </p>
                 <p>
-                    Email: <a class="email-envzone" href="mailto:info@envzone.com">info@envzone.com</a>
+                    Email: <a class="email-envzone" href="#">info@envzone.com</a>
                 </p>
             </div>
             <div class="col-6 box-direction d-flex justify-content-center align-items-center">
@@ -182,7 +182,7 @@
                     <a href="#" class="direction">
                         <i class="icon-location"></i>
                     </a>
-                    <a href="tel:+017206062900" class="phone-number">
+                    <a href="#" class="phone-number">
                         <i class="icon-mobile-phone"></i>
                     </a>
                 </div>
@@ -220,9 +220,9 @@
                         <a href="#">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
+                        <a href="#">Site Map</a>
                         <a href="#">Employee Login</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
-                        <a href="#">Vendor Login</a>
                     </div>
 
                     <div class="box-term-policy-mb">
@@ -233,12 +233,15 @@
                         </p>
                     </div>
 
-                    <p class="text-lg-left text-center">Copyright © 2016 EnvZone LLC. All rights reserved.</p>
+                    <p class="text-lg-left text-center">Copyright © 2016 EnvZone LLC. <span class="all-rights">All rights reserved.</span></p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+
+
+
 
 <?php wp_footer();?>
 

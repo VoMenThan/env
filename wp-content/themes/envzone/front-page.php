@@ -1,5 +1,6 @@
 <?php get_header();?>
 
+<!--SLIDER HOME-->
 <div class="container-fluid p-0 position-relative">
     <div class="owl-carousel owl-theme slider-home">
         <div class="item">
@@ -30,7 +31,8 @@
                     </h1>
                     <p>
                         Your outsourced vendor will be tracked by results. <br>
-                        Performance inspector clears the way, so you can focus on doing what you do best.
+                        Performance inspector clears the way, so you can focus on doing <br>
+                        what you do best.
                     </p>
                     <a class="btn btn-green-env btn-get-started">SCHEDULE AN APPOINTMENT NOW</a>
                     <div class="title-security">
@@ -48,7 +50,7 @@
                         KEEPING OUR CLIENTS AHEAD OF THE GAME IS THE MISSION
                     </h1>
                     <p>
-                        Learn how we could help startup and tech founders achieve their business goals.
+                        Learn how we could help startup and tech founders achieve <br> their business goals.
 
                     </p>
                     <a class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
@@ -67,7 +69,7 @@
                         NO MORE ISSUES OF LOSING DNA BOND WITH OFFSHORE OUTSOURCED DEV TEAM
                     </h1>
                     <p>
-                        Our clients hire us to be their communication bridge.
+                        Our clients hire us to be their communication bridge. <br>
                         They retain us because we do all it takes to help them finish the race.
                     </p>
                     <a class="btn btn-green-env btn-get-started">GET MY PROJECT GOING</a>
@@ -83,7 +85,7 @@
         <i class="icon-arrow-down-green"></i>
     </a>
     <div class="connect-social d-lg-block d-none">
-        <h3 class="title-integrate">
+        <h3>
             Your best choice of offshore software outsourcing
         </h3>
         <ul class="best-choose">
@@ -99,15 +101,18 @@
         <div class="title-link">See our verified teams’ expertise</div>
         <a class="btn btn-blue-env text-center" href="#">CONNECT ME TO THE TEAM</a>
         <hr class="d-none-1200">
-        <h3 class="title-integrate d-none-1200">
+        <div class="title-integrate d-none-1200">
             Your team is awesome!
-        </h3>
+        </div>
         <div class="title-link d-none-1200">Enroll in our verification program</div>
         <a class="btn btn-blue-env text-center d-none-1200" href="#">SIGN ME UP</a>
     </div>
 </div>
+<!--END SLIDER HOME-->
+
 <main class="main-content home-page">
 
+    <!--SECTION SOLUTION-->
     <div class="container">
         <section id="solution-figurative" class="solution-figurative">
             <h2 class="title-head-blue title-solution">
@@ -158,13 +163,15 @@
                         </div>
                     </div>
 
-                    <a href="#" class="btn btn-blue-env">
+                    <a href="<?php echo get_home_url();?>/process-framework" class="btn btn-blue-env">
                         Learn more this unique solution
                     </a>
                 </div>
             </div>
         </section>
     </div>
+    <!--END SECTION SOLUTION-->
+
     <div class="container-fluid bg-gray-process overhead-costs-page">
         <div class="container content-overhead-costs">
             <div class="row">
@@ -200,7 +207,7 @@
                     <div class="description-overhead">
                         Don’t allow yourself or your management team to dismiss the option of outsourced software development
                     </div>
-                    <a href="#" class="btn btn-blue-env">GET ME CONNECTED TO A TEAM</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET ME CONNECTED TO A TEAM</a>
                 </div>
             </div>
         </div>
@@ -216,7 +223,7 @@
                     <article class="px-lg-5">
                         <h2 class="title-head-blue">BUSINESS ORIENTED</h2>
                         <p class="pb-lg-3 description-about">As business owners ourselves, we will all it takes to make your business thrive</p>
-                        <a href="#" class="btn btn-blue-env">About Us</a>
+                        <a href="<?php echo get_home_url();?>/about-us" class="btn btn-blue-env">About Us</a>
                     </article>
                 </div>
             </div>
@@ -230,7 +237,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="title-head">
+                    <div class="title-head-blue">
                         THE POSITIVE IMPACTS THAT OUR CLIENTS RECEIVE IN HIGHLIGHTED INDUSTRIES
                     </div>
                     <div class="description-head">
@@ -432,8 +439,8 @@
                         <p>
                             You will easily get access to our top-notch technology consultants that have vast experience addressing IT and business requirements for different organizations.
                         </p>
-                        <a href="<?php echo get_home_url();?>/technology-consulting" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/technology-consulting" class="plus-gray d-lg-none d-block"></a>
+                        <a href="<?php echo get_home_url();?>/it-outsourcing" class="learn-more">LEARN MORE</a>
+                        <a href="<?php echo get_home_url();?>/it-outsourcing" class="plus-gray d-lg-none d-block"></a>
                     </div>
                     <h3>
                         IT Outsourcing Services
@@ -467,8 +474,8 @@
                         <p>
                             Regardless of your technology platforms, what you are seeking for will be specialized by our high quality IT engineers as partners, giving your business its leap to being a world-class phenomenon.
                         </p>
-                        <a href="<?php echo get_home_url();?>/it-outsourcing-services" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/it-outsourcing-services" class="plus-gray d-lg-none d-block"></a>
+                        <a href="<?php echo get_home_url();?>/devops" class="learn-more">LEARN MORE</a>
+                        <a href="<?php echo get_home_url();?>/devops" class="plus-gray d-lg-none d-block"></a>
                     </div>
                     <h3>
                         DevOps
@@ -595,7 +602,7 @@
                 </div>
 
                 <div class="col-lg-12 text-center pt-lg-5 pt-3">
-                    <a href="#" class="btn btn-green-env">
+                    <a href="<?php echo get_home_url()."/process-framework";?>" class="btn btn-green-env">
                         SEE THIS UNIQUE APPROACH TO GET MY PROJECT ACCELERATED
                     </a>
                 </div>
@@ -666,7 +673,7 @@
                         <div class="info-optimize d-flex align-items-center">
                             Our clients have been succeeded with our succession roadmap. This is something we can do for you too!
                         </div>
-                        <a href="#" class="btn btn-green-env">Optimize Our Dev Workflow for Business Success <i class="icon-right-arrow-simple"></i></a>
+                        <a href="<?php echo get_home_url()."/contact-us";?>" class="btn btn-green-env">Optimize Our Dev Workflow for Business Success <i class="icon-right-arrow-simple"></i></a>
                     </div>
                 </div>
 
@@ -768,7 +775,7 @@
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2 class="title-head-blue underline-head"><span>BLOG</span></h2>
-                    <a class="view-all" href="#">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo get_home_url();?>/blog">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
 
             </div>
@@ -959,7 +966,7 @@
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>KNOWLEDGE CENTER</h2>
-                    <a class="view-all" href="#">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -1058,7 +1065,7 @@
         <div class="row">
             <div class="col-lg-6 box-head-blog">
                 <h2 class="title-head-blue underline-head"><span>EVENTS</span></h2>
-                <a class="view-all" href="#">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all" href="<?php echo get_home_url();?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 <div class="box-item-event clearfix">
                     <div class="box-date"><span>Nov 19</span></div>
                     <div class="box-info">

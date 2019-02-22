@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="06868758-f3f7-42a1-a0ff-78e8588c0012" name="Envzone demo" url="http://ftp.envzone.com">
+        <fileTransfer host="ftp.envzone.com" port="21" rootFolder="/public_html/demo">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

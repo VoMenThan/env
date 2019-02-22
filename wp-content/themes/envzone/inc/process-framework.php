@@ -52,7 +52,7 @@
                     <img src="<?php echo ASSET_URL;?>images/chart-our-development-process.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-lg-12 order-2">
-                    <a href="#" class="btn btn-blue-env">Implement This Process on My Project</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Implement This Process on My Project</a>
                 </div>
             </div>
 
@@ -107,7 +107,7 @@
                     </article>
                 </div>
                 <div class="col-lg-12 text-right py-lg-5">
-                    <a href="#" class="btn btn-blue-env">Learn More about Discovery Stage</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Learn More about Discovery Stage</a>
                 </div>
             </div>
 
@@ -164,7 +164,7 @@
                     </article>
                 </div>
                 <div class="col-lg-12 text-right py-lg-5">
-                    <a href="#" class="btn btn-blue-env">Learn More about Discovery Stage</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Learn More about Discovery Stage</a>
                 </div>
             </div>
 
@@ -213,7 +213,7 @@
                         </article>
                     </div>
                     <div class="col-lg-12 text-right py-lg-5">
-                        <a href="#" class="btn btn-blue-env">Get My Project Going</a>
+                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Get My Project Going</a>
                     </div>
                 </div>
 

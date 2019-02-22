@@ -1,0 +1,116 @@
+<main class="main-content">
+    <section class="artical-page lead-contact-form-page system-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="box-client-portal">
+                        <h1 class="title-head-gray">DO NOT HAVE AN ACCOUNT YET!</h1>
+                        <h3>SUBMIT A REQUEST TO GET YOU ON THE SYSTEM</h3>
+                        <div class="box-form">
+                            <form method="post">
+                                <div class="form-group row">
+                                    <label for="first-name" class="col-sm-4 col-form-label">FIRST NAME *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="first-name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="last-name" class="col-sm-4 col-form-label">LAST NAME *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="last-name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="work-email" class="col-sm-4 col-form-label">WORK EMAIL *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="work-email">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="work-phone" class="col-sm-4 col-form-label">WORK PHONE *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="work-phone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="company" class="col-sm-4 col-form-label">COMPANY *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="company">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="company-type" class="col-sm-4 col-form-label">COMPANY TYPE *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="company-type">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="location" class="col-sm-4 col-form-label">LOCATION *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="location">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="tell-us-about" class="col-sm-4 col-form-label">TELL US ABOUT YOUR PROJECT OR IDEA *</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="tell-us-about">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="project-type" class="col-sm-4 col-form-label">PROJECT TYPE</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="project-type">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="how-did-you" class="col-sm-4 col-form-label">HOW DID YOU HEAR ABOUT US?</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="how-did-you">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="estimated-budget" class="col-sm-4 col-form-label">ESTIMATED BUDGET</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="estimated-budget">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="file" class="form-control" id="attach-file">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 text-right">
+                                        <a href="#" class="btn btn-green-env">SUBMIT MY REQUEST</a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-contact-topic">
+                        <h3>Already registered? </h3>
+                        <p>
+                            Click the sign-in button below to get to the SharePoint third-party portal. You won’t need to sign up for a Microsoft account in order to collaborate on our database.
+                        </p>
+                        <div class="btn btn-green-env">TAKE ME TO THE LOGIN SITE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>

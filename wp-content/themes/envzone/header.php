@@ -69,7 +69,7 @@
                             </div>
                         </li>
                         <li class="nav-item d-lg-inline-block d-none">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?php echo get_home_url();?>/client-portal">
                                 <span>Client Portal</span>
                             </a>
                         </li>
@@ -114,7 +114,6 @@
                                                     <div class="title-contact">
                                                         It’s cold out there. We would love to invite you for a coffee at our office.
                                                     </div>
-
                                                     <form class="text-center">
                                                         <input type="email" name="email" placeholder="Enter your email address">
                                                         <textarea placeholder="Your Message" rows="4"></textarea>
@@ -160,8 +159,8 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/client-focus-solutions/">
-                                                                Client - Focus Solutions
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/client-focus-solutions">
+                                                                Client - Focused Solutions
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
                                                             <p>
@@ -236,7 +235,7 @@
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
                                                             <p>
-                                                                We provide solutions leveraging on customer experience to help businesses in the hospitality industry meet and surpass their goals
+                                                                We deliver highly efficient and flexible real estate solutions to our clients. With our best IT solutions, we will help you reduce cost and increase profit
                                                             </p>
                                                         </article>
                                                     </div>
@@ -468,7 +467,7 @@
                                                     <div class="title-contact">
                                                         Every other week we release a quick video of minutes from in-depth workshop events.
                                                         <br>
-                                                        Take 5-mins to improve your skill!
+                                                        Take 5 mins to improve your skill!
                                                     </div>
                                                     <form class="text-center">
                                                         <input type="email" name="email" placeholder="Enter your email address">
@@ -560,7 +559,7 @@
                                 <a href="#" class="icon-right-arrow"></a>
                             </div>
                             <div class="box-portal clearfix">
-                                <a href="#" class="client-portal">Client Portal</a>
+                                <a href="<?php echo get_home_url();?>/client-portal" class="client-portal">Client Portal</a>
                                 <a href="#" class="vendor-portal">Vendor Portal</a>
                             </div>
                         </div>

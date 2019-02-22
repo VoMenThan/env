@@ -30,7 +30,7 @@
                     <img class="img-fluid" src="<?php echo ASSET_URL;?>images/circle-software-protyping.png" alt="">
                 </div>
                 <div class="col-12 text-center btn-submit">
-                    <a href="#" class="btn btn-blue-env">GET YOUR PLANS CERTIFIED</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET YOUR PLANS CERTIFIED</a>
                 </div>
 
             </div>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="col-12 text-center btn-submit">
-                    <a href="#" class="btn btn-blue-env">SUBMIT YOUR REQUIREMENTS</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">SUBMIT YOUR REQUIREMENTS</a>
                 </div>
             </div>
 
@@ -121,12 +121,12 @@
                 </div>
 
                 <div class="col-12 text-center btn-learn-more">
-                    <a href="#" class="btn btn-blue-env">SUBMIT YOUR REQUIREMENTS</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">SUBMIT YOUR REQUIREMENTS</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <?php require_once "why-business.php";?>
+    <?php require_once "why-business-services.php";?>
     <?php require_once "subscribe.php";?>
 </main>

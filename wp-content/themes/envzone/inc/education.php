@@ -17,7 +17,7 @@
                         </p>
                     </div>
                     <div class="text-center">
-                        <a href="#" class="btn btn-blue-env">LEARN MORE</a>
+                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
                     </div>
                 </div>
             </div>
@@ -74,21 +74,23 @@
                     </div>
 
                     <div class="text-center">
-                        <a href="#" class="btn btn-blue-env">MORE QUESTIONS? CONTACT US NOW</a>
+                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">MORE QUESTIONS? CONTACT US NOW</a>
                     </div>
                 </section>
             </div>
         </div>
     </section>
+
+    <!--WHY BUSINESS-->
     <div class="box-why-business">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        WHY YOUR BUSINESS NEEDS ENVZONE
+                        THE REASONS TO CHOOSE ENVZONE
                     </h2>
                     <div class="description-business">
-                        Envzone gives you tools and services to compete in modern business environments.
+                        We help you to be an active element in the competitive market by providing top notch technologies, thus enhance customer experience once they access to your platforms.
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
@@ -122,21 +124,20 @@
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
-
                             Our results are focused on your business goals and values.
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-lg-0 mb-3">
+                <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
                         <h4>Dedicated Teams</h4>
                         <p>
-                            Envzone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
                         </p>
                     </div>
 
                 </div>
-                <div class="col-lg-4 col-md-6 mb-lg-0 mb-3">
+                <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
                         <h4>Pool of Talent</h4>
                         <p>
@@ -145,32 +146,12 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="#" class="btn btn-white-env">SCHEDULE AN APPOINTMENT NOW <i class="icon-arrow-bottom"></i></a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env">Connect Me to A Team</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /*============SUBCRIBE HOME=================*/ -->
-    <div class="container-fluild section-parallax">
-        <div class="bg-green-home">
-            <div class="container content-subcribe">
-                <div class="row">
-                    <div class="col-12 box-head-subcribe text-center">
-                        <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                        <p>
-                            Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
-                        </p>
-                        <form action="" method="get">
-                            <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                            <input type="submit" hidden>
-                            <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-                        </form>
-                    </div>
-                </div>
+    <!--END WHY BUSINESS-->
 
-            </div>
-        </div>
-
-    </div>
-    <!-- /*============END SUBCRIBE HOME=================*/ -->
+    <?php require_once "subscribe.php";?>
 </main>

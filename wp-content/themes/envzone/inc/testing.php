@@ -114,13 +114,13 @@
                 </div>
 
                 <div class="col-12 text-center btn-submit">
-                    <a href="#" class="btn btn-blue-env">Connect Me to a Testing Team</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Connect Me to a Testing Team</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <?php require_once "why-business.php";?>
+    <?php require_once "why-business-services.php";?>
     <?php require_once "subscribe.php";?>
 </main>

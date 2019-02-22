@@ -4,10 +4,10 @@
         <div class="container">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Is EnvZone a Fit for you?</a>
+                    <a class="nav-link" href="<?php echo get_home_url();?>/buyer-guidelines">Buyer Guidelines</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Support</a>
+                    <span class="nav-link active">Support</span>
                 </li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
                             <p>If something is broken or there is a problem with hosting, there is no charge for support!</p>
 
                             <p>
-                                If it’s something else, Orbit charges $135 per hour for support services. If the request will take more than four hours to complete, we’ll provide an estimate for approval.
+                                If it’s something else, EnvZone charges $135 per hour for support services. If the request will take more than four hours to complete, we’ll provide an estimate for approval.
                             </p>
                             <p>
                                 Any questions? Take a look at our Support and Maintenance Policy.
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="box-submit-topic">
-                        <a class="btn btn-green-env" href="#">SUBMIT A TICKET</a>
+                        <a class="btn btn-green-env" href="<?php echo get_home_url();?>/contact-us">SUBMIT A TICKET</a>
                     </div>
                 </div>
 

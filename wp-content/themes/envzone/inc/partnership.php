@@ -68,7 +68,7 @@
 
                 <div class="col-lg-12 text-center py-5">
                     <p class="description-sign-me-up">To learn more about this partnership!</p>
-                    <a href="#" class="btn btn-green-env">SIGN ME UP TO THIS BENEFIT PROGRAM</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">SIGN ME UP TO THIS BENEFIT PROGRAM</a>
                 </div>
             </div>
         </div>
