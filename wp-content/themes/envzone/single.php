@@ -75,7 +75,13 @@ get_header();
                         </div>
 
                         <div class="main-content">
-                            <?php echo $post->post_content;?>
+                            <?php echo $post->post_content;
+
+                            // If comments are open or we have at least one comment, load up the comment template.
+                            if ( comments_open() || get_comments_number() ) {
+                                comments_template();
+                            }
+                            ?>
                         </div>
                     </article>
                 </div>
@@ -88,7 +94,7 @@ get_header();
                         <div class="sub-title">
                             Do Not Let Your Projects Go South!
                         </div>
-                        <a href="#" class="btn btn-green-env">
+                        <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
                             SEE OUR UNIQUE APPROACH FOR SUCCESS
                         </a>
                     </div>
@@ -97,34 +103,25 @@ get_header();
                         <div class="title-article">
                             Related articles
                         </div>
-
+                        <?php
+                            $args = array(
+                                'posts_per_page' => 4,
+                                'offset'=> 0,
+                                'post_type' => 'post',
+                                'orderby' => 'id',
+                                'order' =>'desc'
+                            );
+                            $news_relate = get_posts( $args );
+                            foreach ($news_relate as $item):
+                        ?>
                         <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <a href="#">
-                                <h2>Cloud Services are current trend</h2>
+                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                <h2><?php echo $item->post_title;?></h2>
                             </a>
                         </div>
+                        <?php endforeach;?>
 
-                        <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <a href="#">
-                                <h2>Cloud Services are current trend</h2>
-                            </a>
-                        </div>
-
-                        <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <a href="#">
-                                <h2>Cloud Services are current trend</h2>
-                            </a>
-                        </div>
-
-                        <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <a href="#">
-                                <h2>Cloud Services are current trend</h2>
-                            </a>
-                        </div>
 
                     </div>
 
@@ -143,11 +140,11 @@ get_header();
                             <p>
                                 Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
                             </p>
-                            <form action="" method="get">
-                                <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                                <input type="submit" hidden>
-                                <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-                            </form>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
                         </div>
                     </div>
 
@@ -158,7 +155,7 @@ get_header();
         <!-- /*============END SUBCRIBE HOME=================*/ -->
 
 
-        <div class="container">
+        <!--<div class="container">
 
             <div class="row section-trending">
                 <div class="col-12 border-header">
@@ -169,7 +166,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -189,7 +186,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -209,7 +206,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -236,7 +233,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -256,7 +253,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -276,7 +273,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -303,7 +300,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -323,7 +320,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -343,7 +340,7 @@ get_header();
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
                         </a>
                         <div class="info-news">
                             <a href="#" class="category">DEVOPS</a>
@@ -361,7 +358,7 @@ get_header();
                 </div>
             </div>
 
-        </div>
+        </div>-->
 
     </section>
 </main>

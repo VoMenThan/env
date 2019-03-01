@@ -56,11 +56,11 @@
                             <span class="highlight-blue">Ousourcing Authority Saves Companies</span> <br>
                             A FREE outsourcing succession plan would put you back on track
                         </p>
-                        <form action="" method="get">
-                            <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                            <input type="submit" hidden>
-                            <a class="btn btn-blue-env btn-search" href="#">GET MY SUCCESSION PLAN</a>
-                        </form>
+                        <div class="form-subscribe">
+                            <?php
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            ?>
+                        </div>
                     </div>
                 </div>
 

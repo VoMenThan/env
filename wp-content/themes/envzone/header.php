@@ -28,6 +28,8 @@
 
     <?php wp_head();?>
 
+    <link rel="stylesheet" href="<?php echo ASSET_URL;?>css/custom-form.css">
+
 </head>
 <body>
 
@@ -114,11 +116,9 @@
                                                     <div class="title-contact">
                                                         It’s cold out there. We would love to invite you for a coffee at our office.
                                                     </div>
-                                                    <form class="text-center">
-                                                        <input type="email" name="email" placeholder="Enter your email address">
-                                                        <textarea placeholder="Your Message" rows="4"></textarea>
-                                                        <a class="btn btn-green-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
-                                                    </form>
+                                                    <?php
+                                                        echo do_shortcode('[gravityform id="1" title="false" description="false"]');
+                                                    ?>
                                                 </div>
                                             </div>
 
@@ -218,11 +218,9 @@
                                                     <div class="title-contact">
                                                         Send us quick note of your concerns!
                                                     </div>
-                                                    <form class="text-center">
-                                                        <input type="email" name="email" placeholder="Enter your email address">
-                                                        <textarea placeholder="Your Message" rows="4"></textarea>
-                                                        <a class="btn btn-green-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
-                                                    </form>
+                                                    <?php
+                                                    echo do_shortcode('[gravityform id="1" title="false" description="false"]');
+                                                    ?>
                                                 </div>
                                             </div>
 
@@ -351,11 +349,9 @@
                                                     <div class="title-contact">
                                                         Send us a quick note of your current business conflicts!
                                                     </div>
-                                                    <form class="text-center">
-                                                        <input type="email" name="email" placeholder="Enter your email address">
-                                                        <textarea placeholder="Your Message" rows="4"></textarea>
-                                                        <a class="btn btn-green-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
-                                                    </form>
+                                                    <?php
+                                                    echo do_shortcode('[gravityform id="1" title="false" description="false"]');
+                                                    ?>
                                                 </div>
 
                                             </div>
@@ -469,11 +465,9 @@
                                                         <br>
                                                         Take 5 mins to improve your skill!
                                                     </div>
-                                                    <form class="text-center">
-                                                        <input type="email" name="email" placeholder="Enter your email address">
-                                                        <textarea placeholder="Your Message" rows="4"></textarea>
-                                                        <a class="btn btn-green-env m-auto btn-send-message" href="#">SEND YOUR MESSAGE</a>
-                                                    </form>
+                                                    <?php
+                                                    echo do_shortcode('[gravityform id="1" title="false" description="false"]');
+                                                    ?>
                                                 </div>
 
                                             </div>
@@ -491,9 +485,9 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <!--<div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/events">
+                                                            <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/events">
                                                                 Events
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -504,7 +498,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/knowledge">
+                                                            <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/knowledge">
                                                                 Knowledge Center
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -515,7 +509,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/studio">
+                                                            <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/studio">
                                                                 Studio
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -523,7 +517,7 @@
                                                                 Take a look around our studio to see the collection of our stories and activities
                                                             </p>
                                                         </article>
-                                                    </div>
+                                                    </div>-->
 
                                                 </div>
                                             </div>

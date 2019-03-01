@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env">Schedule an Appointment Now</a>
+                <a href="<?php echo home_url("contact-us");?>" class="btn btn-white-env">Schedule an Appointment Now</a>
             </div>
         </div>
     </div>

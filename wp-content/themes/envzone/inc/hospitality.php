@@ -207,11 +207,11 @@
                         <p>
                             Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
                         </p>
-                        <form action="" method="get">
-                            <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                            <input type="submit" hidden>
-                            <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-                        </form>
+                        <div class="form-subscribe">
+                            <?php
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            ?>
+                        </div>
                     </div>
                 </div>
 

@@ -44,7 +44,7 @@
                 <div class="label-form-project text-center">
                     START A PROJECT
                 </div>
-                <div class="row form-start-project">
+                <!--<div class="row form-start-project">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <input type="text" class="input-search d-block" placeholder="Full name">
                         <input type="text" class="input-search d-block" placeholder="Email">
@@ -58,7 +58,13 @@
                             SEND MY MESSAGE
                         </button>
                     </div>
+                </div>-->
+                <div class="form-start-project">
+                    <?php
+                    echo do_shortcode('[gravityform id=2 title=false description=false ajax=false]');
+                    ?>
                 </div>
+
             </div>
         </div>
         <div class="row mb-5 menu-footer">
@@ -110,9 +116,9 @@
                     <h5 class="label-menu-footer">Discovery</h5>
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/blog">Blog</a></li>
-                        <li><a href="<?php echo get_home_url();?>/events">Events</a></li>
-                        <li><a href="<?php echo get_home_url();?>/knowledge">Knowledge Center</a></li>
-                        <li><a href="<?php echo get_home_url();?>/studio">EnvZone Studio</a></li>
+                        <!--<li><a href="<?php /*echo get_home_url();*/?>/events">Events</a></li>
+                        <li><a href="<?php /*echo get_home_url();*/?>/knowledge">Knowledge Center</a></li>
+                        <li><a href="<?php /*echo get_home_url();*/?>/studio">EnvZone Studio</a></li>-->
                     </ul>
                 </div>
             </div>
@@ -255,7 +261,7 @@
             margin: 0,
             nav: false,
             dots: false,
-            autoplay: false,
+            autoplay: true,
             autoplayTimeout: 5000,
             smartSpeed:450,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
@@ -279,7 +285,8 @@
             margin: 0,
             nav: false,
             dots: false,
-            autoplay: false,
+            autoplay: true,
+            autoplayTimeout: 2000,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {
                 0: {

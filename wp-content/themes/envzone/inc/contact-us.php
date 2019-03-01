@@ -137,8 +137,8 @@
 
                         <article>
                             <h4>Media Inquiries:</h4>
-                            <div class="name-label">Linh Pham</div>
-                            <a href="mailto:linh.pham@envzone.com">linh.pham@envzone.com</a>
+                            <div class="name-label">Belle Nguyen</div>
+                            <a href="mailto:belle.nguyen@envzone.com">belle.nguyen@envzone.com</a>
                         </article>
 
                         <article>
@@ -181,7 +181,7 @@
 
                 <div class="col-lg-12">
                     <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-map-env.png" alt="">
-                    <a href="#" class="btn btn-green-env btn-100">
+                    <a target="_blank" href="https://goo.gl/maps/V7KQJrDY94t" class="btn btn-green-env btn-100">
                         <i class="icon-direction"></i>
                         Take me to direction page
                     </a>
@@ -204,7 +204,7 @@
                         Phone: +84 961 709 095 <br>
                         Email: info.operation@envzone.com
                     </p>
-                    <a href="#" class="btn btn-green-env btn-100"><i class="icon-direction"></i> Take me to direction page</a>
+                    <a target="_blank" href="https://goo.gl/maps/RTVnDANdPAA2" class="btn btn-green-env btn-100"><i class="icon-direction"></i> Take me to direction page</a>
                 </div>
                 <div class="col-lg-6 international-office">
                     <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-office-strategic.png" alt="">
@@ -219,7 +219,7 @@
                         Phone: +84 984 642 340 <br>
                         Email: info.partnership@envzone.com
                     </p>
-                    <a href="#" class="btn btn-green-env btn-100"><i class="icon-direction"></i> Take me to direction page</a>
+                    <a target="_blank" href="https://goo.gl/maps/vBgHwtfhAgu" class="btn btn-green-env btn-100"><i class="icon-direction"></i> Take me to direction page</a>
                 </div>
 
 

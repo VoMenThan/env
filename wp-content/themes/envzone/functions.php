@@ -49,8 +49,9 @@ add_action('wp_enqueue_scripts', 'mt_env_register_js');
 function mt_env_register_js(){
     $jsUrl = get_template_directory_uri().'/assets/js/';
 	wp_deregister_script('jquery');
-    wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '1.0', true);
+    wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '1.0', false);
     wp_enqueue_script('jquery');
+	wp_enqueue_script('mt_env_jquery_3_slim', $jsUrl.'jquery-3.3.1.slim.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_popper_min', $jsUrl.'popper.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', true);
@@ -77,6 +78,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_jquery_mCustomScrollbar_min', $cssUrl.'jquery.mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_videojs', $cssUrl.'video-js.css', array(), '1.0');
     wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
+    //wp_enqueue_style('mt_env_custom_form', $cssUrl.'custom-form.css', array(), '1.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');
