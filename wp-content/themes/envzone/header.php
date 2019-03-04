@@ -28,8 +28,6 @@
 
     <?php wp_head();?>
 
-    <link rel="stylesheet" href="<?php echo ASSET_URL;?>css/custom-form.css">
-
 </head>
 <body>
 

@@ -78,7 +78,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_jquery_mCustomScrollbar_min', $cssUrl.'jquery.mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_videojs', $cssUrl.'video-js.css', array(), '1.0');
     wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
-    //wp_enqueue_style('mt_env_custom_form', $cssUrl.'custom-form.css', array(), '1.0');
+    wp_enqueue_style('mt_env_custom_form', $cssUrl.'custom-form.css', array(), '1.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');

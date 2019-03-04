@@ -93,7 +93,8 @@
     </section>
 
     <!--WHY BUSINESS-->
-    <div class="box-why-business">
+    <div class="box-why-business why-industries">
+        <img class="img-industries img-fluid" src="<?php echo ASSET_URL;?>images/img-bg-financial-industries.png" alt="">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
@@ -101,7 +102,7 @@
                         THE REASONS TO CHOOSE ENVZONE
                     </h2>
                     <div class="description-business">
-                        We help you to be an active element in the competitive market by providing top notch technologies, thus enhance customer experience once they access to your platforms.
+                        We pursue digital transformation along with simplification, automation and standardization to help you run your operations smoothly and steadily from front to back processes.
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
@@ -157,7 +158,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env">Connect Me to A Team</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">Connect Me to A Team</a>
                 </div>
             </div>
         </div>

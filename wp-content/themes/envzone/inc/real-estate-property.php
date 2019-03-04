@@ -100,7 +100,8 @@
     </section>
 
     <!--WHY BUSINESS-->
-    <div class="box-why-business">
+    <div class="box-why-business why-industries">
+        <img class="img-industries img-fluid" src="<?php echo ASSET_URL;?>images/img-bar-chart-industries.png" alt="">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
@@ -164,7 +165,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env">Connect Me to A Team</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">Connect Me to A Team</a>
                 </div>
             </div>
         </div>
