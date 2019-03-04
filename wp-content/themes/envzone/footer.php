@@ -226,9 +226,9 @@
                         <a href="#">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
-                        <a href="#">Site Map</a>
-                        <a href="#">Employee Login</a>
+                        <a href="<?php echo get_home_url();?>/employee-login">Employee Login</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
+                        <a href="<?php echo get_home_url();?>/vendor-portal">Vendor Portal</a>
                     </div>
 
                     <div class="box-term-policy-mb">
@@ -239,7 +239,7 @@
                         </p>
                     </div>
 
-                    <p class="text-lg-left text-center">Copyright © 2016 EnvZone LLC. <span class="all-rights">All rights reserved.</span></p>
+                    <p class="text-lg-left text-center copyright-footer">Copyright © 2016 EnvZone LLC. <span class="all-rights">All rights reserved.</span></p>
                 </div>
             </div>
         </div>

@@ -70,16 +70,16 @@
                         <div class="label-header">
                             SUGGESTED THINGS TO DO
                         </div>
-                        <a href="#">
+                        <a href="<?php echo home_url("blog");?>">
                             Get More Valuable Resources
                         </a>
-                        <a href="#">
+                        <a href="<?php echo home_url("knowledge");?>">
                             Watch C-Level Advices
                         </a>
-                        <a href="#">
+                        <a href="<?php echo home_url("studio");?>">
                             Watch Our Rockstars on The Show
                         </a>
-                        <a href="#">
+                        <a href="<?php echo home_url("studio");?>">
                             Watch Our Highlighted Activities
                         </a>
                     </div>

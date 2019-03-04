@@ -14,7 +14,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-7 box-form-contact">
+                <div class="col-lg-8 box-form-contact">
                     <div class="box-header mb-5">
                         <h1 class="title-head-blue title-top">COLLABORATE WITH ENVZONE!</h1>
                         <p>
@@ -28,103 +28,14 @@
                         </p>
                     </div>
 
-                    <div class="box-form-contact">
-                        <form method="post">
-                            <div class="form-group row">
-                                <label for="first-name" class="col-sm-4 col-form-label">FIRST NAME *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="first-name">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="last-name" class="col-sm-4 col-form-label">LAST NAME *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="last-name">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="work-email" class="col-sm-4 col-form-label">WORK EMAIL *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="work-email">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="work-phone" class="col-sm-4 col-form-label">WORK PHONE *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="work-phone">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="company" class="col-sm-4 col-form-label">COMPANY *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="company">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="company-type" class="col-sm-4 col-form-label">COMPANY TYPE *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="company-type">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="location" class="col-sm-4 col-form-label">LOCATION *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="location">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="tell-us-about" class="col-sm-4 col-form-label">TELL US ABOUT YOUR PROJECT OR IDEA *</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="tell-us-about">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="project-type" class="col-sm-4 col-form-label">PROJECT TYPE</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="project-type">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="how-did-you" class="col-sm-4 col-form-label">HOW DID YOU HEAR ABOUT US?</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="how-did-you">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="estimated-budget" class="col-sm-4 col-form-label">ESTIMATED BUDGET</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="estimated-budget">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <input type="file" class="form-control" id="attach-file">
-                                </div>
-                            </div>
-
-                            <p>By clicking the button below, you are agreeing to our Privacy Policy.</p>
-                            <div class="row">
-                                <div class="col-lg-12 text-right py-5">
-                                    <a href="#" class="btn btn-green-env">SEND MY MESSAGE</a>
-                                </div>
-                            </div>
-
-                        </form>
+                    <div class="box-form-contact form-horizontal">
+                        <?php
+                            echo do_shortcode('[gravityform id=5 title=false description=false ajax=false]');
+                        ?>
                     </div>
 
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="box-contact-topic">
                         <div class="label-header">
                             CONTACT US BY TOPIC

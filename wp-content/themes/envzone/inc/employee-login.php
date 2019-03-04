@@ -7,9 +7,9 @@
                         <h1 class="title-head-gray">DO NOT HAVE AN ACCOUNT YET!</h1>
                         <h3>SUBMIT A REQUEST TO GET YOU ON THE SYSTEM</h3>
                         <div class="box-form-client-portal form-horizontal">
-                            <?php
-                                echo do_shortcode('[gravityform id=7 title=false description=false ajax=false]');
-                            ?>
+                        <?php
+                        echo do_shortcode('[gravityform id=9 title=false description=false ajax=false]');
+                        ?>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,35 @@
                         </p>
                         <div class="btn btn-green-env">TAKE ME TO THE LOGIN SITE</div>
                     </div>
+
+                    <div class="box-other-useful">
+                        <div class="label-other">Other useful links</div>
+                        <ul class="list-useful">
+                            <li>
+                                CMS login
+                            </li>
+                            <li>
+                                Lastpass login
+                            </li>
+                            <li>
+                                Lasso login
+                            </li>
+                            <li>
+                                Hubspot login
+                            </li>
+                            <li>
+                                Canva login
+                            </li>
+                            <li>
+                                Office login
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
+
+
+
             </div>
         </div>
 

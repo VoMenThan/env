@@ -258,3 +258,113 @@ body #gform_wrapper_3 .top_label div.ginput_container{
 /*END CSS CUSTOM SEND MY MESSAGE*/
 
 
+/*CSS CUSTOM CONTACT US*/
+.form-horizontal .gform_wrapper ul.gform_fields li.gfield{
+    padding-right: 0;
+    margin-bottom: 30px !important;
+}
+.form-horizontal .gform_wrapper input{
+    width: 100% !important;
+}
+.form-horizontal .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
+    background: #EDECEC;
+    border: none;
+    padding: 12px 15px;
+    font-size: 17px;
+}
+.form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .gfield_label{
+    text-align: left;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+    width: 40%;
+}
+.form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .ginput_container:not(.ginput_container_time):not(.ginput_container_date){
+    width: 60% !important;
+    margin-left: 40% !important;
+}
+.form-horizontal .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select{
+    margin-left: 0;
+    background: #EDECEC;
+    border: none;
+    padding: 20px;
+    font-size: 17px;
+    width: 100%;
+    height: 50px;
+}
+.form-horizontal .gform_wrapper .right_label textarea.medium{
+    background: #EDECEC;
+    border: none;
+    width: 100%;
+}
+.form-horizontal .gform_wrapper .ginput_container_fileupload input{
+    padding: 0;
+    margin: 0 !important;
+}
+
+.form-horizontal .gform_wrapper form ul.gform_fields.right_label li.field_description_below{
+    border-bottom: 0;
+    padding: 0;
+}
+.form-horizontal .gform_wrapper form ul.gform_fields.right_label li.field_description_below .gsection_description{
+    font-size: 18px;
+}
+.form-horizontal .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit]{
+    color: #ffffff !important;
+    background-color: #8DC63F;
+    border-color: #8DC63F;
+    padding: 10px 30px;
+    font-size: 25px ;
+    font-weight: bold;
+    width: auto !important;
+    margin-right: 0;
+}
+.form-horizontal .gform_wrapper .gform_footer:not(.top_label){
+    width: 70%;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 30%;
+    text-align: right;
+}
+
+.form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .gfield_description{
+    width: 60% !important;
+    margin-left: 40% !important;
+}
+.form-horizontal .gform_wrapper .left_label .instruction{
+    margin-left: 0;
+}
+.form-horizontal .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half){
+    max-width: 100% !important;
+}
+.form-horizontal .gform_wrapper li.gfield.gfield_error{
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.form-horizontal .gform_wrapper{
+    position: relative;
+}
+html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .gfield_description{
+    position: absolute;
+}
+.form-horizontal .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label{
+    margin-top: 0;
+}
+.form-horizontal .gform_wrapper .right_label .gfield_error textarea.textarea{
+    width: 100%;
+}
+/*CSS CUSTOM CONTACT US*/
+
+
+/*CSS CUSTOM CLIENT PORTAL*/
+.box-form-client-portal{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/*END CSS CUSTOM CLIENT PORTAL*/
+
+
+.copyright-footer{
+    font-size: 15px;
+    color: #E0E0E0;
+}
