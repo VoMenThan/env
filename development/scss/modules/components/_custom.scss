@@ -309,7 +309,7 @@ body #gform_wrapper_3 .top_label div.ginput_container{
 .form-horizontal .gform_wrapper form ul.gform_fields.right_label li.field_description_below .gsection_description{
     font-size: 18px;
 }
-.form-horizontal .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit]{
+.form-horizontal .gform_wrapper .gform_footer input.button, .form-horizontal .gform_wrapper .gform_footer input[type=submit]{
     color: #ffffff !important;
     background-color: #8DC63F;
     border-color: #8DC63F;
@@ -709,8 +709,6 @@ html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_lab
     width: 100%;
 }
 /*CSS CUSTOM CONTACT US*/
-
-
 
 /*CSS CUSTOM CLIENT PORTAL*/
 .box-form-client-portal{
