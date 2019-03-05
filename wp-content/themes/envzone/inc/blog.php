@@ -65,7 +65,7 @@ get_header();
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[0]->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="#" class="category"><?php echo get_the_category($news_all[0]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo home_url('category');?>" class="category"><?php echo get_the_category($news_all[0]->ID)[0]->cat_name;?></a>
                             <a href="<?php echo get_home_url().'/blog/'.$news_all[0]->post_name;?>">
                                 <h2>
                                     <?php echo $news_all[0]->post_title;?>
@@ -80,10 +80,10 @@ get_header();
                     </article>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6 d-lg-flex align-items-lg-start flex-lg-column">
 
                     <?php for($i=1; $i<4; $i++):?>
-                    <article class="highlight-news-right clearfix">
+                    <article class="highlight-news-right clearfix <?php if ($i!=1){echo "mt-lg-auto";}?>">
                         <a class="thumbnail-news" href="#">
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[$i]->ID);?>">
                         </a>
@@ -178,5 +178,20 @@ get_header();
     </section>
 </main>
 
+<script type="text/javascript">
+    (function ( $ ) {
+        "use strict";
+        $(document).ready(function (e) {
+
+            $('.blog-page .highlight-news-right .info-news h2').matchHeight({
+                byRow: true,
+                property: 'height',
+                target: null,
+                remove: false
+            });
+        });
+
+    })(jQuery);
+</script>
 
 <?php get_footer();?>

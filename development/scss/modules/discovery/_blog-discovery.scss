@@ -46,6 +46,9 @@
 		margin-bottom: 30px;
 		border: 1px solid $color-gray-border;
 		position: relative;
+		&:last-child{
+			margin-bottom: 0;
+		}
 		.thumbnail-news{
 			float: left;
 			display: inline-block;

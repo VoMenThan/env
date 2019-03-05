@@ -689,9 +689,17 @@
                     <div class="col-xl-4 col-lg-4 ">
                         <h4>COLORADO IS COLD!</h4>
                         <p>Book a 30-min coffee meeting at our office</p>
-                        <a class="btn btn-green-env btn-transparent" href="#">
+                        <!--<a class="btn btn-green-env btn-transparent" href="#">
+                            CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
+                        </a>-->
+
+                        <!-- Calendly link widget begin -->
+                        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                        <a href="" class="btn btn-green-env btn-transparent" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>
+                        <!-- Calendly link widget end -->
 
                     </div>
                     <div class="col-lg-4 d-lg-block d-none">

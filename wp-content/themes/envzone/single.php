@@ -15,7 +15,7 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a href="#" class="current-category">CATERGORY NAME HERE - HEALTHCARE</a>
+                        <a href="<?php echo get_home_url().'/category/'.get_the_category($post->ID)[0]->slug;?>" class="current-category">CATERGORY NAME HERE - <?php echo get_the_category($post->ID)[0]->name;?></a>
                     </div>
                 </div>
             </div>
@@ -32,10 +32,12 @@ get_header();
                         </ol>
                     </div>
                 </div>
-                <div class="col-8">
+                <div class="col-12 mb-lg-3">
                     <h1>
                         <?php echo $post->post_title;?>
                     </h1>
+                </div>
+                <div class="col-8">
                     <article class="content-blog">
                         <div class="excerpt-news">
                             <?php echo $post->post_excerpt;?>

@@ -717,3 +717,77 @@ html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_lab
 }
 /*END CSS CUSTOM CLIENT PORTAL*/
 
+
+/*CUSTOM SUBSCRIBER CONTACT CONFIRMATION*/
+.box-thank{
+    .form-subscribe{
+        form{
+            &:after{
+                content: "";
+                display: inline-block;
+                clear: both;
+            }
+        }
+    }
+    #gform_wrapper_3 {
+        li.hidden_label {
+            input{
+                color: #828287;
+            }
+        }
+        .gform_footer{
+            width: 49%;
+            display: inline-block;
+            margin-top: 0;
+            padding-top: 0;
+            text-align: right;
+            input{
+                min-width: 80%;
+                margin-right: 0;
+                background: #8DC63F;
+                margin-left: 10px;
+            }
+        }
+    }
+    .gform_wrapper {
+        .gform_body{
+            width: 50%;
+            display: inline-block;
+            margin-top: 0;
+            padding-top: 0;
+            float: left;
+            height: 50px;
+            &:after{
+                content: "";
+                display: inline-block;
+                clear: both;
+            }
+        }
+        ul.gform_fields{
+            &:after{
+                content: "";
+                display: inline-block;
+                clear: both;
+            }
+            li.gfield{
+                border: 1px solid #C4C4C1;
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+body {
+    .box-thank {
+        #gform_wrapper_3 {
+            .top_label {
+                div.ginput_container {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+/*END CUSTOM SUBSCRIBER CONTACT CONFIRMATION*/
+

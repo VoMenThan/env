@@ -19,9 +19,16 @@
                                 Thank you for contacting ENVZONE! We’ll respond to your request shortly!
                                 One more step. Let’s schedule an appointment at your convenience.
                             </p>
-                            <a href="#" class="btn btn-check-availibity">
+                            <!--<a href="#" class="btn btn-check-availibity">
+                                CHECK AVAIBILITY
+                            </a>-->
+                            <!-- Calendly link widget begin -->
+                            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                            <a href="" class="btn btn-check-availibity"" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">
                                 CHECK AVAIBILITY
                             </a>
+                            <!-- Calendly link widget end -->
 
                             <h4>
                                 In the meantime, get our best advice, every week.
@@ -30,11 +37,16 @@
                                 Every week, we send out our best advice from the EnvZone Blog in our newsletter. Got 5 mins to improve your skills every week? Subscribe below.
                             </p>
 
-                            <div class="box-subscribe d-flex justify-content-between">
+                            <!--<div class="box-subscribe d-flex justify-content-between">
                                 <input type="text" placeholder="Your email address">
                                 <a href="#" class="btn btn-green-env">
                                     SUBSCRIBE NOW
                                 </a>
+                            </div>-->
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
                             </div>
                             <p>
                                 Or connect with us on:

@@ -55,7 +55,7 @@ function mt_env_register_js(){
 	wp_enqueue_script('mt_env_popper_min', $jsUrl.'popper.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', true);
-	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', false);
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_wowjs', $jsUrl.'wow.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_videojs', $jsUrl.'video.js', array(), '1.0', true);
@@ -142,12 +142,15 @@ function misha_loadmore_ajax_handler(){
 
             // look into your theme code how the posts are inserted, but you can use your own HTML of course
             // do you remember? - my example is adapted for Twenty Seventeen theme
-            get_template_part( 'template-parts/content', 'search' );
+
+            get_template_part('template-parts/content', 'search');
+
             // for the test purposes comment the line above and uncomment the below one
             // the_title();
 
 
         endwhile;
+
 
     endif;
     die; // here we exit the script and even no wp_reset_query() required!

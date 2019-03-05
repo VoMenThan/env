@@ -21,10 +21,12 @@
                                 TYPE YOUR SEARCH
                             </div>
                             <div class="box-input-search">
-                                <input class="input-search" type="text" placeholder="Input your queries">
-                                <a href="#" class="btn-search">
-                                    <i class="icon-search"></i>
-                                </a>
+                                <form method="get" id="search-error" action="<?php echo home_url('/');?>">
+                                    <input class="input-search" name="s" type="text" placeholder="Input your queries">
+                                    <a href="" onclick="document.getElementById('search-error').submit()" class="btn-search">
+                                        <i class="icon-search"></i>
+                                    </a>
+                                </form>
                             </div>
                         </div>
 
