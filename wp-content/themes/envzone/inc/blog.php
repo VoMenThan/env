@@ -169,7 +169,7 @@
                         </div>
                     </article>
                     <?php endfor;?>
-                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>
+                    <!--<a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 
                 <div class="col-lg-4">

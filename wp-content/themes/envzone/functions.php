@@ -77,7 +77,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
     wp_enqueue_style('mt_env_jquery_mCustomScrollbar_min', $cssUrl.'jquery.mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_videojs', $cssUrl.'video-js.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
+    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '1.0');
     //wp_enqueue_style('mt_env_custom_form', $cssUrl.'custom-form.css', array(), '1.0');
 }
 
@@ -131,6 +131,7 @@ function misha_loadmore_ajax_handler(){
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
     $args['post_status'] = 'publish';
+    $category = $_POST['category'];
 
     // it is always better to use WP_Query but not here
     query_posts( $args );
@@ -142,8 +143,12 @@ function misha_loadmore_ajax_handler(){
 
             // look into your theme code how the posts are inserted, but you can use your own HTML of course
             // do you remember? - my example is adapted for Twenty Seventeen theme
-
-            get_template_part('template-parts/content', 'search');
+            if ($category == 'true'){
+                get_template_part( 'template-parts/content', get_post_format() );
+            }
+            else{
+                get_template_part('template-parts/content', 'search');
+            }
 
             // for the test purposes comment the line above and uncomment the below one
             // the_title();
@@ -161,5 +166,22 @@ function misha_loadmore_ajax_handler(){
 add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_{action}
 add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
 /* END LOAD MORE SEARCH*/
+
+
+/*CREATE POST TYPE*/
+/*function env_mt_create_post_type() {
+    register_post_type( 'list_events',
+        array(
+            'labels' => array(
+                'name' => __( 'Events' ),
+                'singular_name' => __( 'Event' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+        )
+    );
+}
+add_action( 'init', 'env_mt_create_post_type' );*/
+/*END CREATE POST TYPE*/
 
 ?>

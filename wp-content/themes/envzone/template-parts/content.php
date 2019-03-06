@@ -8,7 +8,7 @@
  */
 ?>
 <article id="post-<?php the_ID(); ?>" class="highlight-news-right clearfix">
-    <a class="thumbnail-news" href="#">
+    <a class="thumbnail-news" href="<?php echo get_permalink();?>">
         <img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>">
     </a>
     <div class="info-news">

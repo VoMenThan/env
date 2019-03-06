@@ -63,8 +63,8 @@ get_header();?>
                             $the_query->the_post();
                             ?>
                             <article class="highlight-news-right clearfix">
-                                <a class="thumbnail-news" href="#">
-                                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                                <a class="thumbnail-news" href="<?php echo get_the_permalink();?>">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url(get_the_ID());?>">
                                 </a>
                                 <div class="info-news">
                                     <a href="<?php echo home_url('category/').get_the_category(get_the_ID())[0]->slug;?>" class="category"><?php echo get_the_category(get_the_ID())[0]->name;?></a>

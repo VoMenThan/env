@@ -660,6 +660,8 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 /* =================== END RESPONSIVE ======================= */
 /*============BLOG HOME=================*/
 .content-blog { margin-bottom: 80px; }
+.content-blog .main-content h2, .content-blog .main-content h3 { margin-top: 30px; margin-bottom: 15px; }
+.content-blog .main-content h4, .content-blog .main-content h5 { margin-top: 20px; margin-bottom: 10px; }
 .content-blog .box-head-blog { margin-bottom: 30px; }
 .content-blog .item-special { background: #8DC63F; margin-bottom: 30px; padding-right: 15px; }
 .content-blog .item-special .img-special { padding-right: 0; }

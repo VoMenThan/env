@@ -44,7 +44,7 @@ get_header();
                         </div>
                         <div class="audit">
                             <span>By:</span>
-                            <a class="author" href="#"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a> <span>| ENVZONE Staff</span>
+                            <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a> <span>| ENVZONE Staff</span>
                             <div class="date">PUBLISHED: <?php echo get_the_date( 'M d,Y', $item->ID );?> | UPDATED: <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
                         </div>
 
@@ -117,7 +117,9 @@ get_header();
                             foreach ($news_relate as $item):
                         ?>
                         <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                            </a>
                             <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
                                 <h2><?php echo $item->post_title;?></h2>
                             </a>
