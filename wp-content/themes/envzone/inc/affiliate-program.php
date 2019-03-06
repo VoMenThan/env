@@ -4,6 +4,17 @@
     </section>
     <section class="artical-page legals-page">
         <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="box-breadcrumb">
+                        <span class="you-here">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Affiliate Program</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-12 col-12">
 

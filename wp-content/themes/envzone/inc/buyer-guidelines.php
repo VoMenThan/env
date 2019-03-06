@@ -16,7 +16,17 @@
     <section class="artical-page customer-support-page is-envzone-a-fit-page">
 
         <div class="container">
-
+            <div class="row">
+                <div class="col-12">
+                    <div class="box-breadcrumb">
+                        <span class="you-here">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Buyer Guidelines</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-7">
                     <div class="box-customer-support">

@@ -1,43 +1,43 @@
 <?php
-global $wp_query;
+    global $wp_query;
 
-$terms = get_terms(array(
-    'taxonomy' => 'category',
-    'hide_empty' => false,
-    'orderby' => 'id',
-    'order' => 'asc',
-    'parent' => 0
-));
+    $terms = get_terms(array(
+        'taxonomy' => 'category',
+        'hide_empty' => false,
+        'orderby' => 'id',
+        'order' => 'asc',
+        'parent' => 0
+    ));
 
-foreach ( $terms as $k => $v) {
-    $args = array(
-        'posts_per_page' => -1,
-        'post_type' => 'post',
-        'order' => 'desc',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field' => 'id',
-                'orderby' => 'id',
-                'order' => 'desc',
-                'terms' => $v->term_id
+    foreach ( $terms as $k => $v) {
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type' => 'post',
+            'order' => 'desc',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'id',
+                    'orderby' => 'id',
+                    'order' => 'desc',
+                    'terms' => $v->term_id
+                )
             )
-        )
+        );
+        $terms[$k]->list = get_posts($args);
+
+    }
+
+    $args = array(
+        'posts_per_page' => 12,
+        'offset'=> 0,
+        'post_type' => 'post',
+        'orderby' => 'id',
+        'order' =>'desc'
     );
-    $terms[$k]->list = get_posts($args);
+    $news_all = get_posts( $args );
 
-}
-
-$args = array(
-    'posts_per_page' => 12,
-    'offset'=> 0,
-    'post_type' => 'post',
-    'orderby' => 'id',
-    'order' =>'desc'
-);
-$news_all = get_posts( $args );
-
-get_header();
+    get_header();
 ?>
 
 <main class="main-content">
@@ -65,15 +65,18 @@ get_header();
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[0]->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="<?php echo home_url('category');?>" class="category"><?php echo get_the_category($news_all[0]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo home_url('category/').get_the_category($news_all[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_all[0]->ID)[0]->cat_name;?></a>
                             <a href="<?php echo get_home_url().'/blog/'.$news_all[0]->post_name;?>">
                                 <h2>
                                     <?php echo $news_all[0]->post_title;?>
                                 </h2>
                             </a>
                             <div class="audit">
-                                <span>By:</span><a class="author" href="#"> Admin</a>
-                                <div class="date-public">Updated <?php echo get_the_date( 'M d, Y', $news_all[0]->ID );?></div>
+                                <span>By:</span>
+                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[0]->post_author);?>">
+                                    <?php echo get_the_author_meta('display_name', $news_all[0]->post_author);?>
+                                </a>
+                                <span class="date-public">Updated <?php echo get_the_date( 'M d, Y', $news_all[0]->ID );?></span>
                             </div>
                         </div>
 
@@ -88,14 +91,19 @@ get_header();
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[$i]->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="" class="category"><?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo home_url('category/').get_the_category($news_all[$i]->ID)[0]->slug;?>" class="category">
+                                <?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?>
+                            </a>
                             <a href="<?php echo get_home_url().'/blog/'.$news_all[$i]->post_name;?>">
                                 <h2>
                                     <?php echo $news_all[$i]->post_title;?>
                                 </h2>
                             </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Admin</a>
+                            <div class="audit">
+                                <span>By:</span>
+                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>">
+                                    <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?>
+                                </a>
                                 <span class="date-public">Updated <?php echo get_the_date( 'M d, Y', $news_all[$i]->ID );?></span>
                             </div>
                         </div>
@@ -116,14 +124,16 @@ get_header();
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[$i]->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="#" class="category"><?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo home_url('category/').get_the_category($news_all[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?></a>
                             <a href="<?php echo get_home_url().'/blog/'.$news_all[$i]->post_name;?>">
                                 <h2>
                                     <?php echo $news_all[$i]->post_title;?>
                                 </h2>
                             </a>
                             <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Admin</a>
+                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>">
+                                    <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?>
+                                </a>
                                 <span class="date-public">Updated <?php echo get_the_date( 'M d, Y', $news_all[$i]->ID );?></span>
                             </div>
                         </div>
@@ -144,14 +154,16 @@ get_header();
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[$i]->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="#" class="category"><?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo home_url('category/').get_the_category($news_all[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?></a>
                             <a href="<?php echo get_home_url().'/blog/'.$news_all[$i]->post_name;?>">
                                 <h2>
                                     <?php echo $news_all[$i]->post_title;?>
                                 </h2>
                             </a>
                             <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Admin</a>
+                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>">
+                                    <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?>
+                                </a>
                                 <span class="date-public">Updated <?php echo get_the_date( 'M d, Y', $news_all[$i]->ID );?></span>
                             </div>
                         </div>

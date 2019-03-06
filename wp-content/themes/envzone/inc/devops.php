@@ -11,7 +11,6 @@
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Services</a></li>
                             <li class="breadcrumb-item active" aria-current="page">DevOPS</li>
                         </ol>
                     </div>

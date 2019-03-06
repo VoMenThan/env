@@ -6,7 +6,18 @@
  * Time: 16:32
  */
 
-get_header()?>
+
+if (get_the_author()==''){
+    $argc = 'author_name=admin';
+    $authorName = 'Admin';
+}else{
+    $argc = 'author_name='.get_the_author();
+    $authorName = get_the_author();
+}
+// The Query
+$the_query = new WP_Query($argc);
+
+get_header();?>
 
 <main class="main-content">
     <section class="artical-page blog-page blog-author-page">
@@ -16,9 +27,8 @@ get_header()?>
                     <div class="box-breadcrumb">
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Library</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Author</li>
                         </ol>
                     </div>
                     <h2 class="title-author">
@@ -28,61 +38,54 @@ get_header()?>
                 <div class="col-8">
 
                     <div class="information-author clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-avatar.png" alt="">
+                        <?php echo get_avatar( get_the_author_meta( 'user_email' ), 296 );?>
+
                         <div class="box-info">
-                            <h1 class="author-name">Belle Nguyen’s Bio</h1>
+                            <h1 class="author-name"><?php echo $authorName;?>’s Bio</h1>
                             <div class="box-position">
                                 <div class="position-company">ENVZONE STAFF</div>
                                 <div class="position">Jr. Influencer Marketing Operations</div>
                             </div>
                             <div class="description">
-                                Afshar is the author of The Pursuit of Social Business Excellence. Afshar is also the co-host of DisrupTV, a weekly show covering the latest digital business and innovation market trends.
+                                <?php the_author_meta( 'description' ); ?>
                             </div>
-                            <div class="follow-author">Follow this in-depth resource writer on: <a href="#">Linkedin</a></div>
+                            <div class="follow-author">Follow this in-depth resource writer on: <a target="_blank" href="#">Linkedin</a></div>
                         </div>
                     </div>
 
                     <h2 class="title-post-by-author">
-                        Recent Contribution by Belle Nguyen
+                        Recent Contribution by <?php echo $authorName;?>
                     </h2>
 
-                    <article class="highlight-news-right clearfix">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="highlight-news-right clearfix">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>
+                    <?php
+                    if ($the_query->have_posts()){
+                        while($the_query->have_posts()){
+                            $the_query->the_post();
+                            ?>
+                            <article class="highlight-news-right clearfix">
+                                <a class="thumbnail-news" href="#">
+                                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category(get_the_ID())[0]->slug;?>" class="category"><?php echo get_the_category(get_the_ID())[0]->name;?></a>
+                                    <a href="<?php echo get_the_permalink();?>">
+                                        <h2>
+                                            <?php echo get_the_title()?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit"><span>By:</span>
+                                        <span class="author"><?php echo $authorName;?></span>
+                                        <span class="date-public">Updated <?php echo get_the_modified_date();?></span>
+                                    </div>
+                                </div>
+                            </article>
+                    <?php
+                        }
+                    }
+                    if (  $wp_query->max_num_pages > 1 ){
+                        echo '<div class="misha_loadmore btn btn-blue-env w-100 mb-5">Show more</div>'; // you can use <a> as well
+                    };
+                    ?>
 
                 </div>
 
@@ -91,33 +94,36 @@ get_header()?>
                         <h3>
                             Hacking your mind with 5 mins daily digest!
                         </h3>
-                        <input type="text" placeholder="your email address">
-                        <a href="#" class="btn btn-blue-env btn-show-more">HACK ME NOW!</a>
+                        <div class="form-subscribe">
+                            <?php
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            ?>
+                        </div>
                     </div>
 
                     <div class="define-headline box-head-other-author">
+
                         <div class="other-author underline-head">
                             <span>Other authors</span>
                         </div>
-                        <div class="item-author clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-avatar.png" alt="">
-                            <div class="author-name">
-                                Joel Makower
-                            </div>
-                        </div>
 
+                        <?php
+                        global $wp_query;
+                        $users = get_users();
+                        $i=0;
+                        foreach ($users as $user):
+                            $i++;
+                            if ($i==4) break;
+                        ?>
                         <div class="item-author clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-avatar.png" alt="">
+                            <?php echo get_avatar( get_the_author_meta( 'user_email' ), 110 );?>
                             <div class="author-name">
-                                Joel Makower
+                                <a href="<?php echo home_url('author/').$user->nickname;?>">
+                                    <?php echo $user->display_name;?>
+                                </a>
                             </div>
                         </div>
-                        <div class="item-author clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-avatar.png" alt="">
-                            <div class="author-name">
-                                Joel Makower
-                            </div>
-                        </div>
+                        <?php endforeach;?>
                     </div>
 
                 </div>

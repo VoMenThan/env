@@ -15,7 +15,7 @@
         <div class="category"><?php single_cat_title();?></div>
         <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
         <div class="audit"><span>By:</span>
-            <a class="author" href="#"> <?php echo get_author_name($post->post_author)?></a>
+            <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a>
             <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></span>
         </div>
     </div>
