@@ -1,19 +1,9 @@
 <main class="main-content">
-    <section class="banner-top banner-careers">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-careers.png">
+    <section class="banner-top banner-careers bg-blue">
         <h2>CAREERS</h2>
     </section>
     <section class="artical-page careers-page">
         <div class="container">
-            <div class="col-12">
-                <div class="box-breadcrumb">
-                    <span class="you-here">You are here:</span>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Careers</li>
-                    </ol>
-                </div>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <img class="img-fluid img-careers" src="<?php echo ASSET_URL;?>images/img-banner-careers.png" alt="">

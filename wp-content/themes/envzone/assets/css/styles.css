@@ -1108,7 +1108,7 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 @media screen and (max-width: 320px) { .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
 .banner-careers h2 { -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
 
-.careers-page .img-careers { margin-top: -40%; }
+.careers-page .img-careers { margin-top: -30%; }
 .careers-page .box-careers { padding: 30px 0; font-size: 26px; color: #808080; }
 .careers-page .box-careers h4 { padding-bottom: 15px; padding-top: 15px; text-align: center; border-top: 2px solid #C4C4C4; border-bottom: 1px solid #C4C4C4; margin-top: 30px; margin-bottom: 30px; font-size: 40px; font-weight: bold; }
 .careers-page .btn-green-env { font-size: 25px; font-weight: bold; }

@@ -83,7 +83,7 @@ get_header();?>
                         }
                     }
                     if (  $wp_query->max_num_pages > 1 ){
-                        echo '<div class="misha_loadmore btn btn-blue-env w-100 mb-5">Show more</div>'; // you can use <a> as well
+                        echo '<div class="misha_loadmore btn-category btn btn-blue-env w-100 mb-5">Show more</div>'; // you can use <a> as well
                     };
                     ?>
 

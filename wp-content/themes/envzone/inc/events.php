@@ -1,3 +1,23 @@
+<?php
+$args = array(
+    'posts_per_page' => 5,
+    'offset'=> 0,
+    'post_type' => 'list_events',
+    'orderby' => 'id',
+    'order' =>'desc'
+);
+$event_all = get_posts( $args );
+
+$args = array(
+    'posts_per_page' => 5,
+    'offset'=> 0,
+    'post_type' => 'post',
+    'orderby' => 'id',
+    'order' =>'desc'
+);
+$news_all = get_posts( $args );
+?>
+
 <main class="main-content">
     <section class="artical-page blog-page blog-events-page blog-detail-page">
         <div class="container">
@@ -15,33 +35,11 @@
                     </h1>
                 </div>
                 <div class="col-8">
-
+                    <?php foreach ($event_all as $item):?>
                     <div class="box-item-event clearfix">
-                        <div class="box-date">Nov 19</div>
-                        <div class="box-info">
-                            <h2>Meet up with locals and learn the Vietnamese culture/language!</h2>
-                            <p>Saigon Skills Exchange</p>
-                            <p>Circo Hoang Dieu</p>
-                        </div>
+                        <?php echo $item->post_content;?>
                     </div>
-
-                    <div class="box-item-event clearfix">
-                        <div class="box-date">Nov 19</div>
-                        <div class="box-info">
-                            <h2>Meet up with locals and learn the Vietnamese culture/language!</h2>
-                            <p>Saigon Skills Exchange</p>
-                            <p>Circo Hoang Dieu</p>
-                        </div>
-                    </div>
-
-                    <div class="box-item-event clearfix">
-                        <div class="box-date">Nov 19</div>
-                        <div class="box-info">
-                            <h2>Meet up with locals and learn the Vietnamese culture/language!</h2>
-                            <p>Saigon Skills Exchange</p>
-                            <p>Circo Hoang Dieu</p>
-                        </div>
-                    </div>
+                    <?php endforeach;?>
 
                 </div>
 
@@ -50,34 +48,25 @@
                         <h3>
                             Hacking your mind with 5 mins daily digest!
                         </h3>
-                        <input type="text" placeholder="your email address">
-                        <a href="#" class="btn btn-blue-env btn-show-more">HACK ME NOW!</a>
+                        <div class="form-subscribe">
+                            <?php
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            ?>
+                        </div>
                     </div>
 
                     <div class="box-related-article">
                         <div class="title-article">
                             Blog
                         </div>
-
+                        <?php foreach ($news_all as $item):?>
                         <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <h2>Cloud Services are current trend</h2>
+                            <a href="<?php echo get_the_permalink($item->ID);?>">
+                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID)?>">
+                            </a>
+                            <h2><a href="<?php echo get_the_permalink($item->ID);?>"><?php echo $item->post_title;?></a></h2>
                         </div>
-
-                        <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <h2>Cloud Services are current trend</h2>
-                        </div>
-
-                        <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <h2>Cloud Services are current trend</h2>
-                        </div>
-
-                        <div class="item-relate clearfix">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-blog-the-innovative.png">
-                            <h2>Cloud Services are current trend</h2>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>

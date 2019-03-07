@@ -483,9 +483,9 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <!--<div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/events">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/events">
                                                                 Events
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -494,7 +494,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <!--<div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/knowledge">
                                                                 Knowledge Center

@@ -169,7 +169,7 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 
 
 /*CREATE POST TYPE*/
-/*function env_mt_create_post_type() {
+function env_mt_create_post_type() {
     register_post_type( 'list_events',
         array(
             'labels' => array(
@@ -181,7 +181,7 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
         )
     );
 }
-add_action( 'init', 'env_mt_create_post_type' );*/
+add_action( 'init', 'env_mt_create_post_type' );
 /*END CREATE POST TYPE*/
 
 ?>
