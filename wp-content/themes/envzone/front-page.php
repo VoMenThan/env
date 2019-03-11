@@ -2,7 +2,7 @@
 
 <!--SLIDER HOME-->
 <div class="container-fluid p-0 position-relative">
-    <div class="owl-carousel owl-theme slider-home">
+    <div class="owl-carousel slider-home owl-theme">
         <div class="item">
             <img src="<?php echo ASSET_URL;?>images/banner-home-new.png">
             <div class="container">
@@ -1121,4 +1121,97 @@
 
 </main>
 
+<script>
+    /*============ slide news =================*/
+    $(document).ready(function() {
+
+        $('.slider-home').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            smartSpeed:450,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: false
+                },
+                768: {
+                    items: 1,
+                    dots: false
+                },
+                1024: {
+                    items: 1
+                }
+            }
+        });
+
+        $('.slider-partners').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                425: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+        $('.box-industries').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            autoplay: false,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+        $('.list-video').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: true,
+            autoplay: false,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+    });
+</script>
 <?php get_footer();?>

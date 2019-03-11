@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 			inputCSS: 	'development/css',
 			inputSCSS: 	'development/scss',
 			inputJS: 	'development/js',
-			outputCSS: 	'production/css',
+			outputCSS: 	'wp-content/themes/envzone/assets/css',
 			outputJS: 	'production/js'
 		},
 		
@@ -184,6 +184,7 @@ module.exports = function(grunt) {
 	// Run file
 	grunt.registerTask('default', ['uglify']);
 	grunt.registerTask('dev', ['includes', 'connect', 'watch']);
+	grunt.registerTask('wp', ['watch']);
 
 
 

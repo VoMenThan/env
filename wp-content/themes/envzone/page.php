@@ -5,8 +5,8 @@ get_header();
 
 switch ( $post->post_name ) {
 
-    case 'about':
-        include( locate_template( 'inc/about.php' ) );
+    case 'about-us':
+        include( locate_template( 'inc/about-us.php' ) );
         break;
 
     default:

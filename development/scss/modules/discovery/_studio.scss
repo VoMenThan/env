@@ -5,11 +5,19 @@
     font-size: 1.5rem;
     color: $color-blue-logo;
   }
+  .studio-highlight{
+    .highlight-news-right{
+      margin-bottom: 30px;
+    }
+  }
   .box-studio{
     margin-bottom: 30px;
      .box-photo-special{
        width: 50%;
        float: left;
+       img{
+         width: 100%;
+       }
      }
     .box-info-photo{
       width: 50%;

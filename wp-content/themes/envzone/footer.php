@@ -116,9 +116,9 @@
                     <h5 class="label-menu-footer">Discovery</h5>
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/blog">Blog</a></li>
-                        <!--<li><a href="<?php /*echo get_home_url();*/?>/events">Events</a></li>
-                        <li><a href="<?php /*echo get_home_url();*/?>/knowledge">Knowledge Center</a></li>
-                        <li><a href="<?php /*echo get_home_url();*/?>/studio">EnvZone Studio</a></li>-->
+                        <li><a href="<?php echo get_home_url();?>/events">Events</a></li>
+                        <li><a href="<?php echo get_home_url();?>/knowledge">Knowledge Center</a></li>
+                        <li><a href="<?php echo get_home_url();?>/studio">EnvZone Studio</a></li>
                     </ul>
                 </div>
             </div>
@@ -252,106 +252,6 @@
 <?php wp_footer();?>
 
 <script type="text/javascript">
-
-    /*============ slide news =================*/
-    $(document).ready(function() {
-
-        $('.slider-home').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            smartSpeed:450,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                    dots: false
-                },
-                768: {
-                    items: 1,
-                    dots: false
-                },
-                1024: {
-                    items: 1
-                }
-            }
-        });
-
-        $('.slider-partners').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 2
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-        $('.box-industries').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-        $('.list-video').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-
-    });
-
-    /*============auto open modal=================*/
-    $('#modal-notmiss').modal({
-        autoOpen: true
-    });
-
 
 
     /*============ custom scroll =================*/

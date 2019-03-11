@@ -77,7 +77,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
     wp_enqueue_style('mt_env_jquery_mCustomScrollbar_min', $cssUrl.'jquery.mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_videojs', $cssUrl.'video-js.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '1.0');
+    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
     //wp_enqueue_style('mt_env_custom_form', $cssUrl.'custom-form.css', array(), '1.0');
 }
 
@@ -180,8 +180,42 @@ function env_mt_create_post_type() {
             'has_archive' => true,
         )
     );
+    register_post_type( 'studio',
+        array(
+            'labels' => array(
+                'name' => __( 'Studio' ),
+                'singular_name' => __( 'Album' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports'    => array( 'title' ,'thumbnail', 'excerpt', 'revisions', 'comments' ),
+        )
+    );
+
+    register_post_type( 'knowledge',
+        array(
+            'labels' => array(
+                'name' => __( 'Knowledge' ),
+                'singular_name' => __( 'Video' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports'    => array( 'title' ,'editor','thumbnail', 'excerpt', 'revisions', 'comments' ),
+        )
+    );
 }
 add_action( 'init', 'env_mt_create_post_type' );
+
+
 /*END CREATE POST TYPE*/
+
+/*GET THUMBNAIL URL VIMEO*/
+function grab_vimeo_thumbnail($vimeo_url){
+    if( !$vimeo_url ) return false;
+    $data = json_decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $vimeo_url ) );
+    if( !$data ) return false;
+    return $data->thumbnail_url;
+}
+/*END GET THUMBNAIL URL VIMEO*/
 
 ?>

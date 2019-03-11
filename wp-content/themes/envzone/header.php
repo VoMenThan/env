@@ -494,9 +494,9 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <!--<div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/knowledge">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/knowledge">
                                                                 Knowledge Center
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -507,7 +507,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php /*echo get_home_url();*/?>/studio">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/studio">
                                                                 Studio
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -515,7 +515,7 @@
                                                                 Take a look around our studio to see the collection of our stories and activities
                                                             </p>
                                                         </article>
-                                                    </div>-->
+                                                    </div>
 
                                                 </div>
                                             </div>
