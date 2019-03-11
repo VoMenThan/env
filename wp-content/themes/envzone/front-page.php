@@ -112,6 +112,167 @@
 
 <main class="main-content home-page">
 
+    <!-- /*============BLOG HOME=================*/ -->
+    <?php
+    $args = array(
+        'posts_per_page' => 10,
+        'offset'=> 0,
+        'post_type' => 'post',
+        'orderby' => 'id',
+        'order' =>'desc'
+    );
+    $news_special = get_posts( $args );
+    ?>
+    <div class="container background-gray-mobile section-blog">
+        <div class="content-blog define-headline">
+            <div class="row">
+                <div class="col-12 box-head-blog">
+                    <h2 class="title-head-blue underline-head"><span>RECENT ARTICLES</span></h2>
+                    <a class="view-all" href="<?php echo get_home_url();?>/blog">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="item-special">
+                        <div class="row">
+
+                            <div class="col-lg-7 img-special">
+                                <a href="#">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[0]->ID);?>" align="job-openings">
+                                </a>
+                            </div>
+                            <div class="col-lg-5 d-flex info-special flex-column align-items-start">
+                                <div class="box-info">
+                                    <a href="#" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
+
+                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
+                                        <h3><?php echo $news_special[0]->post_title;?></h3>
+                                    </a>
+
+                                    <div class="excerpt">
+                                        <p>
+                                            <?php echo $news_special[0]->post_excerpt;?>
+                                        </p>
+                                        <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>" class="read-more">Read more</a>
+                                    </div>
+                                </div>
+
+                                <div class="box-author mt-auto">
+                                    <div class="author-by">By Admin</div>
+                                    <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[0]->ID );?></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <?php for($i=1; $i<4; $i++):?>
+                            <div class="col-lg-4 col-md-4 col-6 col-mbx-100 d-flex box-item-special">
+                                <div class="item-blog">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
+                                    <div class="info">
+                                        <div class="info-news">
+                                            <a href="#" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
+                                            <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
+                                                <h4><?php echo $news_special[$i]->post_title;?></h4>
+                                            </a>
+                                        </div>
+                                        <div class="info-author">
+                                            <div class="author-by">By Admin</div>
+                                            <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        <?php endfor;?>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 d-lg-block d-none">
+                    <article class="list-item">
+                        <div class="label-headline">#1 News Trending</div>
+
+                        <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
+                            <?php for($i=4; $i<10; $i++):?>
+                                <div class="item-detail">
+                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
+                                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" alt="">
+                                        <h5><?php echo $news_special[$i]->post_title;?></h5>
+                                    </a>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
+            <div class="row d-lg-none d-block py-5">
+
+                <div class="col-12 box-head-blog">
+                    <h2 class="title-head-blue underline-head"><span>INSIGHTS FOR C-LEVEL</span></h2>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="item-blog-mobile-horizontal clearfix">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
+                        <div class="info">
+                            <a href="#" class="category">INSIGHTS</a>
+                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
+                            <div class="box-author-by">
+                                <div class="author-by">By Belle Nguyen</div>
+                                <div class="date-by">on December 6th, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-blog-mobile-horizontal clearfix">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
+                        <div class="info">
+                            <a href="#" class="category">INSIGHTS</a>
+                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
+                            <div class="box-author-by">
+                                <div class="author-by">By Belle Nguyen</div>
+                                <div class="date-by">on December 6th, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-blog-mobile-horizontal clearfix">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
+                        <div class="info">
+                            <a href="#" class="category">INSIGHTS</a>
+                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
+                            <div class="box-author-by">
+                                <div class="author-by">By Belle Nguyen</div>
+                                <div class="date-by">on December 6th, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-blog-mobile-horizontal clearfix">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
+                        <div class="info">
+                            <a href="#" class="category">INSIGHTS</a>
+                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
+                            <div class="box-author-by">
+                                <div class="author-by">By Belle Nguyen</div>
+                                <div class="date-by">on December 6th, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /*============END BLOG HOME=================*/ -->
+
     <!--SECTION SOLUTION-->
     <div class="container">
         <section id="solution-figurative" class="solution-figurative">
@@ -213,27 +374,28 @@
         </div>
     </div>
 
-    <div class="bg-about-us">
+    <!-- /*============ABOUT US=================*/ -->
+    <!--<div class="bg-about-us">
         <div class="container">
             <div class="row content-about-us">
                 <div class="col-lg-6 col-md-6">
-                    <img class="img-fluid img-feature" src="<?php echo ASSET_URL;?>images/img-about-us.png" alt="About Us EnvZone">
+                    <img class="img-fluid img-feature" src="<?php /*echo ASSET_URL;*/?>images/img-about-us.png" alt="About Us EnvZone">
                 </div>
                 <div class="col-lg-6 col-md-6 text-center d-flex align-items-center">
                     <article class="px-lg-5">
                         <h2 class="title-head-blue">BUSINESS ORIENTED</h2>
                         <p class="pb-lg-3 description-about">As business owners ourselves, we will all it takes to make your business thrive</p>
-                        <a href="<?php echo get_home_url();?>/about-us" class="btn btn-blue-env">About Us</a>
+                        <a href="<?php /*echo get_home_url();*/?>/about-us" class="btn btn-blue-env">About Us</a>
                     </article>
                 </div>
             </div>
         </div>
-    </div>
-
+    </div>-->
+    <!-- /*============END ABOUT US=================*/ -->
 
 
     <!-- /*============INDUSTRY HOME=================*/ -->
-    <div class="container-fluid content-industries">
+    <!--<div class="container-fluid content-industries">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -250,12 +412,12 @@
                                 <div class="title-field">
                                     Healthcare
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-healthcare.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-healthcare.png" alt=""></div>
                                 <div class="excerpt-field">
                                     EnvZone delivers solutions and services to clients in healthcare industry to store, analyze and maintain data processed on daily basis.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/healthcare" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/healthcare" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
 
                             </div>
@@ -266,12 +428,12 @@
                                 <div class="title-field">
                                     Logistics & Supply Chain
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-logistics-supply-chain.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-logistics-supply-chain.png" alt=""></div>
                                 <div class="excerpt-field">
                                     At EnvZone, we provide the much needed high-tech software solutions that scales to meet the unique needs of every logistics and supply chain.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/logistics" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/logistics" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -281,12 +443,12 @@
                                 <div class="title-field">
                                     Financial Service
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-financial-services.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-financial-services.png" alt=""></div>
                                 <div class="excerpt-field">
                                     Sophisticated and optimized algorithms in financial industries provided by our company keep your businesses at the top of the game.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/financial-services" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/financial-services" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -296,12 +458,12 @@
                                 <div class="title-field">
                                     Education
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-education.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-education.png" alt=""></div>
                                 <div class="excerpt-field">
                                     We understand the education sector. We offer education solutions that ensure you have the right products in place and the most reliable learning platform.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/education" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/education" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -311,12 +473,12 @@
                                 <div class="title-field">
                                     Hospitality & Travel
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-hospitality-travel.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-hospitality-travel.png" alt=""></div>
                                 <div class="excerpt-field">
                                     We understand hospitality & travel industry and develop the latest technology to provide solutions leveraging on customer experience to help you meet and surpass your goals.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/hospitality" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/hospitality" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -326,12 +488,12 @@
                                 <div class="title-field">
                                     Ecommerce & Retail
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-ecommerce-retail.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-ecommerce-retail.png" alt=""></div>
                                 <div class="excerpt-field">
                                     We develop competitive solutions for e-commerce and retail  to manage the business more efficiently and use our services to help business owners boost their sales
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/e-commerce-retail" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/e-commerce-retail" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -341,12 +503,12 @@
                                 <div class="title-field">
                                     Real Estate & Property
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-real-estate.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-real-estate.png" alt=""></div>
                                 <div class="excerpt-field">
                                     Discover the new real estate & property technology from EnvZone. We cover the latest technology including highly effective real estate portals that help our clients manage their project easily.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/real-estate" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/real-estate" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -356,12 +518,12 @@
                                 <div class="title-field">
                                     Non-profit Organization
                                 </div>
-                                <div class="icon-field"><img src="<?php echo ASSET_URL;?>images/icon-non-profit.png" alt=""></div>
+                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-non-profit.png" alt=""></div>
                                 <div class="excerpt-field">
                                     We offer the right accounting and fundraising software that fulfill your nonprofit’s need, help you run the organization easier.
                                 </div>
                                 <div class="box-learn-more text-right">
-                                    <a href="<?php echo get_home_url();?>/non-profit-organization" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
+                                    <a href="<?php /*echo get_home_url();*/?>/non-profit-organization" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -401,7 +563,7 @@
             </div>
         </div>
 
-    </div>
+    </div>-->
 
     <!-- /*============END INDUSTRY HOME=================*/ -->
 
@@ -612,7 +774,8 @@
         </div>
     </div>
     <!-- /*============END PROCESS FRAMEWORK HOME=================*/ -->
-    <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->
+
+    <!-- /*============DID YOU KNOW=================*/ -->
     <div class="container-fluid d-lg-block d-md-block d-none">
         <div class="container">
             <div class="row content-reasons">
@@ -680,7 +843,8 @@
             </div>
         </div>
     </div>
-    <!-- /*============END PROCESS FRAMEWORK HOME=================*/ -->
+    <!-- /*============END DID YOU KNOW=================*/ -->
+
     <!-- /*============SUBCRIBE HOME=================*/ -->
     <div class="container-fluild section-parallax bg-building">
         <div class="bg-blue-home">
@@ -731,184 +895,34 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 
-    <!-- /*============BLOG HOME=================*/ -->
-    <?php
-    $args = array(
-        'posts_per_page' => 10,
-        'offset'=> 0,
-        'post_type' => 'post',
-        'orderby' => 'id',
-        'order' =>'desc'
-    );
-    $news_special = get_posts( $args );
-    ?>
-    <div class="container background-gray-mobile">
-        <div class="content-blog define-headline">
-            <div class="row">
-                <div class="col-12 box-head-blog">
-                    <h2 class="title-head-blue underline-head"><span>BLOG</span></h2>
-                    <a class="view-all" href="<?php echo get_home_url();?>/blog">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="item-special">
-                        <div class="row">
-
-                            <div class="col-lg-7 img-special">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[0]->ID);?>" align="job-openings">
-                                </a>
-                            </div>
-                            <div class="col-lg-5 d-flex info-special flex-column align-items-start">
-                                <div class="box-info">
-                                    <a href="#" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
-
-                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
-                                        <h3><?php echo $news_special[0]->post_title;?></h3>
-                                    </a>
-
-                                    <div class="excerpt">
-                                        <p>
-                                            <?php echo $news_special[0]->post_excerpt;?>
-                                        </p>
-                                        <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>" class="read-more">Read more</a>
-                                    </div>
-                                </div>
-
-                                <div class="box-author mt-auto">
-                                    <div class="author-by">By Admin</div>
-                                    <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[0]->ID );?></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <?php for($i=1; $i<4; $i++):?>
-                        <div class="col-lg-4 col-md-4 col-6 col-mbx-100 d-flex box-item-special">
-                            <div class="item-blog">
-                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
-                                <div class="info">
-                                    <div class="info-news">
-                                        <a href="#" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
-                                        <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
-                                            <h4><?php echo $news_special[$i]->post_title;?></h4>
-                                        </a>
-                                    </div>
-                                    <div class="info-author">
-                                        <div class="author-by">By Admin</div>
-                                        <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <?php endfor;?>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 d-lg-block d-none">
-                    <article class="list-item">
-                        <div class="label-headline">#1 News Trending</div>
-
-                        <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
-                            <?php for($i=4; $i<10; $i++):?>
-                            <div class="item-detail">
-                                <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" alt="">
-                                    <h5><?php echo $news_special[$i]->post_title;?></h5>
-                                </a>
-                            </div>
-                            <?php endfor;?>
-                        </div>
-                    </article>
-                </div>
-
-            </div>
-
-            <div class="row d-lg-none d-block py-5">
-
-                <div class="col-12 box-head-blog">
-                    <h2 class="title-head-blue underline-head"><span>INSIGHTS FOR C-LEVEL</span></h2>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- /*============END BLOG HOME=================*/ -->
-
     <!-- /*============KNOWLEDGE HOME=================*/ -->
-    <!--<div class="container-fluild bg-gray-home section-knowledge">
+
+    <?php
+        $args = array(
+            'posts_per_page' => 10,
+            'offset'=> 0,
+            'post_type' => 'knowledge',
+            'orderby' => 'id',
+            'order' =>'desc'
+        );
+        $video_list = get_posts( $args );
+    ?>
+    <div class="container-fluild bg-gray-home section-knowledge">
         <div class="container content-knowledge define-headline">
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>KNOWLEDGE CENTER</h2>
-                    <a class="view-all" href="<?php /*echo get_home_url();*/?>/knowledge">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 video-play">
                     <div class="embed-video">
-                        <iframe src="https://player.vimeo.com/video/247833683" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <?php echo get_field('embed', $video_list[0]->ID);?>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo get_permalink($video_list[0]->ID);?>">
                         <h3>
-                            3 Reasons-Why You Should Let an Outsourcing Advisor be a Part of Your Team
+                            <?php echo $video_list[0]->post_title;?>
                         </h3>
                     </a>
                 </div>
@@ -916,55 +930,24 @@
                     <article class="list-item">
                         <div class="label-headline">#1 News Trending</div>
                         <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
+                            <?php foreach ($video_list as $k => $item):
+                                if ($k == 0) continue;
+                                $vimeo = get_post_meta($item->ID, 'embed', true);
+                                ?>
                             <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
+                                <a href="<?php echo get_permalink($item->ID);?>">
+                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>" alt="">
+                                    <h5><?php echo $item->post_title;?></h5>
                                 </a>
                             </div>
-                            <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
-                                </a>
-                            </div>
-                            <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
-                                </a>
-                            </div>
-                            <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
-                                </a>
-                            </div>
-                            <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
-                                </a>
-                            </div>
+                            <?php endforeach;?>
 
-                            <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
-                                </a>
-                            </div>
-                            <div class="item-detail clearfix">
-                                <a href="#">
-                                    <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-job-openings.png" alt="">
-                                    <h5>Risks of IT Outsourcing and How to Deal with Them</h5>
-                                </a>
-                            </div>
                         </div>
                     </article>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- /*============END KNOWLEDGE HOME=================*/ -->
 
     <!-- /*============PARTNERS HOME=================*/ -->
@@ -995,98 +978,86 @@
     <!-- /*============END PARTNERS HOME=================*/ -->
 
     <!-- /*============EVENTS HOME=================*/ -->
-    <!--<div class="container content-envent define-headline">
+    <?php
+    $args = array(
+        'posts_per_page' => 3,
+        'offset'=> 0,
+        'post_type' => 'list_events',
+        'orderby' => 'id',
+        'order' =>'desc'
+    );
+    $event_all = get_posts( $args );
+    ?>
+    <div class="container content-envent define-headline">
         <div class="row">
             <div class="col-lg-6 box-head-blog">
                 <h2 class="title-head-blue underline-head"><span>EVENTS</span></h2>
-                <a class="view-all" href="<?php /*echo get_home_url();*/?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                <div class="box-item-event clearfix">
-                    <div class="box-date"><span>Nov 19</span></div>
-                    <div class="box-info">
-                        <h2>Meet up with locals and learn the Vietnamese culture/language!</h2>
-                        <p>Saigon Skills Exchange</p>
-                        <div class="location"><i class="icon-location"></i>Circo Hoang Dieu</div>
+                <a class="view-all" href="<?php echo get_home_url();?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <?php foreach ($event_all as $item):?>
+                    <div class="box-item-event clearfix">
+                        <?php echo $item->post_content;?>
                     </div>
-                </div>
+                <?php endforeach;?>
 
-                <div class="box-item-event clearfix">
-                    <div class="box-date"><span>Nov 19</span></div>
-                    <div class="box-info">
-                        <h2>Meet up with locals and learn the Vietnamese culture/language!</h2>
-                        <p>Saigon Skills Exchange</p>
-                        <div class="location"><i class="icon-location"></i>Circo Hoang Dieu</div>
-                    </div>
-                </div>
 
-                <div class="box-item-event clearfix">
-                    <div class="box-date"><span>Nov 19</span></div>
-                    <div class="box-info">
-                        <h2>Meet up with locals and learn the Vietnamese culture/language!</h2>
-                        <p>Saigon Skills Exchange</p>
-                        <div class="location"><i class="icon-location"></i>Circo Hoang Dieu</div>
-                    </div>
-                </div>
             </div>
             <div class="col-lg-6 box-head-blog d-lg-block d-none">
                 <h2 class="title-head-blue underline-head text-inherit"><span>Tweets</span> <span class="by">by</span> <a href="#">@EnvZone</a></h2>
-                <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-twitter.png">
+                <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-twitter.png">
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- /*============END EVENTS HOME=================*/ -->
 
     <!-- /*============STUDIO HOME=================*/ -->
-    <!--<div class="container-fluild bg-gray-home section-studio">
+    <?php
+    $args = array(
+        'posts_per_page' => 5,
+        'offset'=> 0,
+        'post_type' => 'studio',
+        'orderby' => 'id',
+        'order' =>'desc'
+    );
+    $photo_studio = get_posts( $args );
+    ?>
+    <div class="container-fluild bg-gray-home section-studio">
         <div class="container content-studio define-headline">
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>ENVZONE <b>STUDIO</b></h2>
-                    <a class="view-all" href="#">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo home_url('studio');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="item-studio">
-                        <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-studio.png" align="">
-                        <h5 class="large-item">Saigon Innovation Event</h5>
+                        <a href="<?php echo get_permalink($photo_studio[0]->ID); ?>">
+                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($photo_studio[0]->ID); ?>" align="">
+                        <h5 class="large-item"><?php echo $photo_studio[0]->post_title; ?></h5>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
-
+                        <?php
+                            foreach ($photo_studio as $k=>$item):
+                            if ($k==0) continue;
+                        ?>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mbx-100">
                             <div class="item-studio">
-                                <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-studio.png" align="">
-                                <h5>Saigon Innovation Event</h5>
+                                <a href="<?php echo get_permalink($item->ID);?>"></a>
+                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="">
+                                <h5><?php echo $item->post_title;?></h5>
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mbx-100">
-                            <div class="item-studio">
-                                <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-studio.png" align="">
-                                <h5>Saigon Innovation Event</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mbx-100">
-                            <div class="item-studio">
-                                <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-studio.png" align="">
-                                <h5>Saigon Innovation Event</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mbx-100">
-                            <div class="item-studio">
-                                <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-studio.png" align="">
-                                <h5>Saigon Innovation Event</h5>
-                            </div>
-                        </div>
+                        <?php endforeach;?>
 
                     </div>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- /*============END STUDIO HOME=================*/ -->
 
     <!-- /*============SUBCRIBE HOME=================*/ -->

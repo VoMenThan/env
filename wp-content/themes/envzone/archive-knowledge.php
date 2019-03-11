@@ -24,36 +24,36 @@ get_header();
                 <div class="col-12">
                     <?php
                     $args = array(
-                        'posts_per_page' => 1,
+                        'posts_per_page' => -1,
                         'offset'=> 0,
                         'post_type' => 'knowledge',
                         'orderby' => 'id',
                         'order' =>'desc'
                     );
-                    $video_special = get_posts( $args );
+                    $video_list = get_posts( $args );
                     ?>
                     <article class="box-knowledge clearfix">
                         <div class="box-video-special">
                             <div class="embed-video">
-                                <?php echo get_field('embed', $video_special[0]->ID);?>
+                                <?php echo get_field('embed', $video_list[0]->ID);?>
                             </div>
                         </div>
                         <div class="box-info-video">
-                            <a href="<?php echo home_url('category/').get_the_category($news_all[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_all[0]->ID)[0]->cat_name;?></a>
-                            <a href="<?php echo get_permalink($video_special[0]->ID);?>">
+                            <a href="<?php echo home_url('category/').get_the_category($video_list[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($video_list[0]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo get_permalink($video_list[0]->ID);?>">
                             <h2>
-                                <?php echo $video_special[0]->post_title;?>
+                                <?php echo $video_list[0]->post_title;?>
                             </h2>
                             </a>
                             <p>
-                                <?php echo $video_special[0]->post_excerpt;?>
+                                <?php echo $video_list[0]->post_excerpt;?>
                             </p>
 
                             <div class="audit position-static"><span>By:</span>
-                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_special[0]->post_author);?>">
-                                    <?php echo get_the_author_meta('display_name', $video_special[0]->post_author);?>
+                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_list[0]->post_author);?>">
+                                    <?php echo get_the_author_meta('display_name', $video_list[0]->post_author);?>
                                 </a>
-                                <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $video_special[0]->ID );?></span>
+                                <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $video_list[0]->ID );?></span>
                             </div>
                         </div>
                     </article>
@@ -64,20 +64,12 @@ get_header();
                 <div class="col-lg-8">
                     <div class="row">
                         <?php
-                        $args = array(
-                            'posts_per_page' => -1,
-                            'offset'=> 0,
-                            'post_type' => 'knowledge',
-                            'orderby' => 'id',
-                            'order' =>'desc'
-                        );
-                        $video_list = get_posts( $args );
                         foreach ($video_list as $k => $item):
                             if ($k == 0) continue;
                         ?>
                         <div class="col-lg-6">
                             <article class="highlight-news-right img-center">
-                                <a class="thumbnail-news" href="#">
+                                <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                     <?php
                                         $vimeo = get_post_meta($item->ID, 'embed', true);
                                     ?>

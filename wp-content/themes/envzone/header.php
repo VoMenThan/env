@@ -76,7 +76,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-3 text-center box-logo-home d-xl-block d-lg-block d-none">
+                <div class="col-lg-3 col-md-3 col-3 text-left box-logo-home d-xl-block d-lg-block d-none">
                     <a href="<?php echo get_home_url();?>">
                         <img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
                     </a>
