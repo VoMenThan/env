@@ -6,23 +6,23 @@ module.exports = function(grunt) {
 		dirs: {
 			inputCSS: 	'development/css',
 			inputSCSS: 	'development/scss',
-			inputJS: 	'development/js',
+			inputJS: 	'wp-content/themes/envzone/assets/js',
 			outputCSS: 	'wp-content/themes/envzone/assets/css',
-			outputJS: 	'production/js'
+			outputJS: 	'wp-content/themes/envzone/assets/js'
 		},
 		
 		//css minify
 		cssmin: {
 			  options: {
-			    mergeIntoShorthands: true,
-			    roundingPrecision: 0
+			    mergeIntoShorthands: false,
+			    roundingPrecision: -1
 			  },
 		  	target: {
 			    files: [{
 			      expand: true,
-			      cwd: 'development/css',
-			      src: ['styles.css', 'custom.css'],
-			      dest: 'production/css',
+			      cwd: 'wp-content/themes/envzone/assets/css',
+			      src: ['styles.css'],
+			      dest: 'wp-content/themes/envzone/assets/css',
 			      ext: '.min.css'
 			    }]
 			  }
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 		      separator: '',
 		    },
 		    dist: {
-		      src: ['<%= dirs.inputJS %>/styles.js'],
+		      src: ['<%= dirs.inputJS %>/styles.min.js'],
 		      dest: '<%= dirs.outputJS %>/styles.min.js',
 		    },
 		  },
@@ -184,7 +184,7 @@ module.exports = function(grunt) {
 	// Run file
 	grunt.registerTask('default', ['uglify']);
 	grunt.registerTask('dev', ['includes', 'connect', 'watch']);
-	grunt.registerTask('wp', ['watch']);
+	grunt.registerTask('wp', ['cssmin', 'watch']);
 
 
 

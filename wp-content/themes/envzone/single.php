@@ -28,7 +28,7 @@ get_header();
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>/blog">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Blog Detail</li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $post->post_title;?></li>
                         </ol>
                     </div>
                 </div>

@@ -51,14 +51,12 @@ function mt_env_register_js(){
 	wp_deregister_script('jquery');
     wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '3.0', false);
     wp_enqueue_script('jquery');
-//	wp_enqueue_script('mt_env_jquery_3_slim', $jsUrl.'jquery-3.3.1.slim.min.js', array(), '1.0', false);
 	wp_enqueue_script('mt_env_popper_min', $jsUrl.'popper.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', false);
 	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', false);
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', false);
 	wp_enqueue_script('mt_env_wowjs', $jsUrl.'wow.min.js', array(), '1.0', true);
-	wp_enqueue_script('mt_env_videojs', $jsUrl.'video.js', array(), '1.0', true);
 }
 
 /*======================================================================================================
@@ -71,14 +69,9 @@ function mt_env_register_style(){
 
     wp_enqueue_style('mt_env_bootstrap', $cssUrl.'bootstrap.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_owl_carousel', $cssUrl.'owl.carousel.min.css', array(), '1.0');
-//    wp_enqueue_style('mt_env_owl_theme_default', $cssUrl.'owl.theme.default.min.css', array(), '1.0');
-//    wp_enqueue_style('mt_env_owl_theme_green', $cssUrl.'owl.theme.green.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_font_awesome', $cssUrl.'font-awesome.min.css', array(), '1.0');
-    wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
-    wp_enqueue_style('mt_env_jquery_mCustomScrollbar_min', $cssUrl.'jquery.mCustomScrollbar.min.css', array(), '1.0');
-    wp_enqueue_style('mt_env_videojs', $cssUrl.'video-js.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
-    //wp_enqueue_style('mt_env_custom_form', $cssUrl.'custom-form.css', array(), '1.0');
+    wp_enqueue_style('mt_env_mCustomScrollbar_min', $cssUrl.'mCustomScrollbar.min.css', array(), '1.0');
+    wp_enqueue_style('mt_env_styles_min', $cssUrl.'styles.min.css', array(), '1.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');
@@ -216,6 +209,7 @@ function grab_vimeo_thumbnail($vimeo_url){
     if( !$data ) return false;
     return $data->thumbnail_url;
 }
+
 /*END GET THUMBNAIL URL VIMEO*/
 
 ?>

@@ -219,53 +219,23 @@
                 </div>
 
                 <div class="col-md-12">
+                    <?php for($i=4; $i<8; $i++):?>
                     <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
+                        <a href="<?php echo get_permalink($news_special[$i]->ID);?>">
+                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
+                        </a>
                         <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
+                            <a href="<?php echo home_url('category/').get_the_category($news_special[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo get_permalink($news_special[$i]->ID);?>">
+                            <h4><?php echo $news_special[$i]->post_title;?></h4>
+                            </a>
                             <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
+                                <div class="author-by">By <?php echo get_the_author_meta('displayname', $news_special[$i]->ID);?></div>
+                                <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-job-openings.png" align="job-openings">
-                        <div class="info">
-                            <a href="#" class="category">INSIGHTS</a>
-                            <h4>Risks of IT Outsourcing and How to Deal with Them</h4>
-                            <div class="box-author-by">
-                                <div class="author-by">By Belle Nguyen</div>
-                                <div class="date-by">on December 6th, 2018</div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endfor;?>
                 </div>
             </div>
         </div>
@@ -1002,8 +972,7 @@
 
             </div>
             <div class="col-lg-6 box-head-blog d-lg-block d-none">
-                <h2 class="title-head-blue underline-head text-inherit"><span>Tweets</span> <span class="by">by</span> <a href="#">@EnvZone</a></h2>
-                <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-twitter.png">
+                <a class="twitter-timeline" data-lang="en" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
@@ -1045,9 +1014,10 @@
                         ?>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mbx-100">
                             <div class="item-studio">
-                                <a href="<?php echo get_permalink($item->ID);?>"></a>
+                                <a href="<?php echo get_permalink($item->ID);?>">
                                 <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="">
                                 <h5><?php echo $item->post_title;?></h5>
+                                </a>
                             </div>
                         </div>
 
