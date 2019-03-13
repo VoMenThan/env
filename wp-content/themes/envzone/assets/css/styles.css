@@ -1112,6 +1112,7 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 .banner-careers h2 { -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
 
 .careers-page .img-careers { margin-top: -30%; }
+.careers-page .hr-career { border-bottom: 1px solid #BDBDBD; margin-bottom: 50px; padding-top: 50px; }
 .careers-page .box-careers { padding: 30px 0; font-size: 26px; color: #808080; }
 .careers-page .box-careers h4 { padding-bottom: 15px; padding-top: 15px; text-align: center; border-top: 2px solid #C4C4C4; border-bottom: 1px solid #C4C4C4; margin-top: 30px; margin-bottom: 30px; font-size: 40px; font-weight: bold; }
 .careers-page .btn-green-env { font-size: 25px; font-weight: bold; }
@@ -2148,7 +2149,7 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .system-page .box-get-notification ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ color: #ffffff; opacity: 1; /* Firefox */ }
 .system-page .box-get-notification :-ms-input-placeholder { /* Internet Explorer 10-11 */ color: #ffffff; }
 .system-page .box-get-notification ::-ms-input-placeholder { /* Microsoft Edge */ color: #ffffff; }
-.system-page .box-client-portal { border: 1px solid #C4C4C4; }
+.system-page .box-client-portal { border: 1px solid #E4E1E1; }
 .system-page .box-client-portal .title-head-gray { background: #E4E1E1; text-align: center; color: #ffffff; font-size: 2.25rem; margin-bottom: 50px; padding: 15px 10px; }
 .system-page .box-client-portal h3 { font-size: 1.625rem; }
 .system-page .box-client-portal .box-form { padding: 30px; }
@@ -2190,6 +2191,15 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .system-page.page-search .item-search h2 { margin-bottom: 10px; font-family: "PT Serif", serif; color: #000000; font-weight: bold; }
 .system-page.page-search .item-search a { color: #0D3153; margin-bottom: 10px; }
 
+/*EMPLOYEE LOGIN*/
+.employee-login-page .hr-employee { border-bottom: 1px solid #BDBDBD; margin-bottom: 100px; padding-top: 50px; }
+.employee-login-page .item-employee { padding: 50px 30px; border: 1px solid #C4C4C4; box-sizing: border-box; text-align: center; color: #828282; margin-bottom: 30px; height: calc(100% - 30px); transition: .3s; }
+.employee-login-page .item-employee:hover { background: #0D3153; color: #ffffff; }
+.employee-login-page .item-employee:hover h3 { color: #ffffff; }
+.employee-login-page .item-employee h3 { font-weight: bold; line-height: 36px; font-size: 28px; color: #828282; padding-top: 30px; padding-bottom: 10px; }
+.employee-login-page .item-employee p { font-weight: 500; line-height: 31px; font-size: 20px; }
+
+/*END EMPLOYEE LOGIN*/
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)

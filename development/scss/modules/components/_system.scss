@@ -38,7 +38,7 @@
   }
 
   .box-client-portal{
-    border: 1px solid $color-gray-border;
+    border: 1px solid $color-gray-process;
     .title-head-gray{
       background: $color-gray-process;
       text-align: center;
@@ -231,6 +231,51 @@
     }
   }
 }
+
+
+
+/*EMPLOYEE LOGIN*/
+.employee-login-page{
+  .hr-employee{
+    border-bottom: 1px solid #BDBDBD;
+    margin-bottom: 100px;
+    padding-top: 50px;
+  }
+  .item-employee{
+    padding: 50px 30px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    text-align: center;
+    color: #828282;
+    margin-bottom: 30px;
+    height: calc(100% - 30px);
+    transition: .3s;
+    &:hover{
+      background: #0D3153;
+      color: $color-white;
+      h3{
+        color: $color-white;
+      }
+    }
+
+    h3{
+      font-weight: bold;
+      line-height: 36px;
+      font-size: 28px;
+      color: #828282;
+      padding-top: 30px;
+      padding-bottom: 10px;
+    }
+    p{
+      font-weight: 500;
+      line-height: 31px;
+      font-size: 20px;
+    }
+  }
+}
+/*END EMPLOYEE LOGIN*/
+
+
 
 /* 	================================================================
 	MEDIUM DEVICE

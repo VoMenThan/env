@@ -1,7 +1,39 @@
 <main class="main-content">
-    <section class="artical-page lead-contact-form-page system-page">
+    <div class="nav-top-bar">
         <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <span class="nav-link active">Client Portal</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo home_url('vendor-portal');?>">Vendor Portal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo home_url('employee-login');?>">Employee Portal</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="artical-page lead-contact-form-page system-page employee-login-page">
+        <div class="container">
+            <div class="row box-list-employee justify-content-center">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <article class="item-employee">
+                        <img src="<?php echo ASSET_URL;?>images/img-cl-project-management.png" alt="">
+                        <h3>Project Management</h3>
+                        <p>Store and collaborate your documents in secure digital gateway</p>
+                    </article>
+                </div>
+
+
+            </div>
             <div class="row">
+                <div class="col-12">
+                    <div class="hr-employee"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="box-client-portal">
                         <h1 class="title-head-gray">DO NOT HAVE AN ACCOUNT YET!</h1>
@@ -11,15 +43,6 @@
                                 echo do_shortcode('[gravityform id=7 title=false description=false ajax=false]');
                             ?>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="box-contact-topic">
-                        <h3>Already registered? </h3>
-                        <p>
-                            Click the sign-in button below to get to the SharePoint third-party portal. You won’t need to sign up for a Microsoft account in order to collaborate on our database.
-                        </p>
-                        <div class="btn btn-green-env">TAKE ME TO THE LOGIN SITE</div>
                     </div>
                 </div>
             </div>

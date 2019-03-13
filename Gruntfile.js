@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 		    	'development/scss/*/*.scss',   	
 		    	'development/scss/*/*/*.scss'   	
 		    	],
-		    tasks: ['sass', 'includes'],
+		    tasks: ['sass', 'cssmin'],
 		    options: {
 		      spawn: false,
 		      livereload: true
@@ -184,7 +184,7 @@ module.exports = function(grunt) {
 	// Run file
 	grunt.registerTask('default', ['uglify']);
 	grunt.registerTask('dev', ['includes', 'connect', 'watch']);
-	grunt.registerTask('wp', ['cssmin', 'watch']);
+	grunt.registerTask('wp', ['watch']);
 
 
 
