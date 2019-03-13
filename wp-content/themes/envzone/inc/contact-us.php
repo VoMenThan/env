@@ -89,9 +89,16 @@
                         <img src="<?php echo ASSET_URL;?>images/img-doing-business.png" alt="" class="img-fluid">
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <img class="img-fluid" style="width: 100%;" src="<?php echo ASSET_URL;?>images/img-map-env.png" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-map-env.png" alt="">
                     <a target="_blank" href="https://goo.gl/maps/V7KQJrDY94t" class="btn btn-green-env btn-100">
                         <i class="icon-direction"></i>
                         Take me to direction page

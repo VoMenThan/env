@@ -13,8 +13,6 @@ nav {
     }
 
     .box-logo-home {
-        padding: .5rem;
-
         >img {
             height: 35px;
         }
@@ -74,7 +72,7 @@ nav {
                 font-family: $font-menu;
                 color: $color-white;
                 line-height: 40px;
-                padding: .7rem 1.5rem;
+                padding: .9rem 1.5rem;
                 position: relative;
                 font-weight: bold;
                 &.btn-search-pc{

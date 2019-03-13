@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 		    	'development/scss/*/*.scss',   	
 		    	'development/scss/*/*/*.scss'   	
 		    	],
-		    tasks: ['sass', 'cssmin'],
+		    tasks: ['sass'],
 		    options: {
 		      spawn: false,
 		      livereload: true

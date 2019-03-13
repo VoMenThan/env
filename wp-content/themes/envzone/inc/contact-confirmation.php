@@ -67,34 +67,10 @@
                                         <i class="icon-linkedin-green"></i>
                                     </a>
                                 </li>
-                                <li class="nav-item px-1">
-                                    <a class="nav-link link-google" href="https://plus.google.com/+EnvZoneWashington">
-                                        <i class="icon-google-plus-green"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </article>
 
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="list-suggested">
-                        <div class="label-header">
-                            SUGGESTED THINGS TO DO
-                        </div>
-                        <a href="<?php echo home_url("blog");?>">
-                            Get More Valuable Resources
-                        </a>
-                        <a href="<?php echo home_url("knowledge");?>">
-                            Watch C-Level Advices
-                        </a>
-                        <a href="<?php echo home_url("studio");?>">
-                            Watch Our Rockstars on The Show
-                        </a>
-                        <a href="<?php echo home_url("studio");?>">
-                            Watch Our Highlighted Activities
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

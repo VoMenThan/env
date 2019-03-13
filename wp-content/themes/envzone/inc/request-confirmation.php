@@ -20,36 +20,14 @@
                                 We will respond to your request really soon.
                             </p>
                         </div>
+                        .hr-
                         <div class="box-nav d-flex justify-content-around align-items-center">
-                            <a href="<?php echo home_url("blog");?>" class="learn-more">
-                                LEARN MORE <br>
-                                ABOUT OUR RESOURCES
-                            </a>
                             <a href="<?php echo home_url();?>" class="back-home">
                                 GO BACK TO HOMEPAGE
                             </a>
                         </div>
                     </article>
 
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="list-suggested">
-                        <div class="label-header">
-                            SUGGESTED THINGS TO DO
-                        </div>
-                        <a href="<?php echo home_url("blog");?>">
-                            Get More Valuable Resources
-                        </a>
-                        <a href="<?php echo home_url("knowledge");?>">
-                            Watch C-Level Advices
-                        </a>
-                        <a href="<?php echo home_url("studio");?>">
-                            Watch Our Rockstars on The Show
-                        </a>
-                        <a href="<?php echo home_url("studio");?>">
-                            Watch Our Highlighted Activities
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

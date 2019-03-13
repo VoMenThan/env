@@ -14,7 +14,7 @@
                     <a href="tel:+017206062900" class="phone-envzone pb-3">Office: 720-606-2900</a>
                     <address class="pb-3">1801 California St., Suite 2400 <br>
                         Denver, CO 80202
-                        <a href="" class="icon-direction-footer"></a>
+                        <a href="https://goo.gl/maps/V7KQJrDY94t" target="_blank" class="icon-direction-footer"></a>
                     </address>
                     <p>
                         BASED IN COLORADO, SERVING THE ENTIRE USA
@@ -162,12 +162,14 @@
                 <div class="title-check-vaibility-mb">
                     SCHEDULE AN APPOINTMENT
                 </div>
-                <a href="#" class="btn btn-blue-env">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
+                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                <a href="" class="btn btn-blue-env" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid bg-blue-lv1">
+    <div class="container-fluid bg-blue-footer">
         <div class="row address-footer-mb">
             <div class="col-6 box-info">
                 <p>1801 California St., Suite 2400 <br>
@@ -177,18 +179,18 @@
                     M-F | 8:30 am - 5:30 pm MST
                 </p>
                 <p>
-                    Main: <a href="#">720-606-2900</a>
+                    Main: <a href="tel:+017206062900">720-606-2900</a>
                 </p>
                 <p>
-                    Email: <a class="email-envzone" href="#">info@envzone.com</a>
+                    Email: <a class="email-envzone" href="mailto:info@envzone.com">info@envzone.com</a>
                 </p>
             </div>
             <div class="col-6 box-direction d-flex justify-content-center align-items-center">
                 <div class="box-icon-direction text-center">
-                    <a href="#" class="direction">
+                    <a href="https://goo.gl/maps/V7KQJrDY94t" target="_blank" class="direction">
                         <i class="icon-location"></i>
                     </a>
-                    <a href="#" class="phone-number">
+                    <a href="tel:7206602900" class="phone-number">
                         <i class="icon-mobile-phone"></i>
                     </a>
                 </div>
@@ -226,6 +228,7 @@
                         <a href="#">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
+                        <a href="<?php echo get_home_url();?>/comment-policy">Comment Policy</a>
                         <a href="<?php echo get_home_url();?>/employee-login">Employee Login</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
                         <a href="<?php echo get_home_url();?>/vendor-portal">Vendor Portal</a>
@@ -259,6 +262,15 @@
     (function($) {
         $(window).on("load", function() {
             $(".content-scroll").mCustomScrollbar({ theme: "3d" });
+        });
+
+        $( window ).load(function() {
+            /*  [ Page loader ]
+            - - - - - - - - - - - - - - - - - - - - */
+            $( 'body' ).addClass( 'loaded' );
+            setTimeout(function () {
+                $('#pageloader').fadeOut();
+            }, 500);
         });
     })(jQuery);
 
@@ -329,6 +341,7 @@
         get_attr();
         select_next_element();
     });
+
 
 
 
