@@ -145,7 +145,7 @@
                             </div>
                             <div class="col-lg-5 d-flex info-special flex-column align-items-start">
                                 <div class="box-info">
-                                    <a href="#" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
+                                    <a href="<?php echo home_url('category/').get_the_category($news_special[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
 
                                     <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
                                         <h3><?php echo $news_special[0]->post_title;?></h3>
@@ -160,7 +160,7 @@
                                 </div>
 
                                 <div class="box-author mt-auto">
-                                    <div class="author-by">By Admin</div>
+                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_all[0]->post_author);?></a>
                                     <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[0]->ID );?></div>
                                 </div>
 
@@ -175,13 +175,13 @@
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
                                     <div class="info">
                                         <div class="info-news">
-                                            <a href="#" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
+                                            <a href="<?php echo home_url('category/').get_the_category($news_special[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
                                             <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
                                                 <h4><?php echo $news_special[$i]->post_title;?></h4>
                                             </a>
                                         </div>
                                         <div class="info-author">
-                                            <div class="author-by">By Admin</div>
+                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></a>
                                             <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
                                         </div>
 
@@ -601,8 +601,6 @@
                     <div class="box-info-services d-lg-flex align-items-lg-center">
                         <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-devops.png" alt="IT Outsourcing">
                         <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-devops-gr.png" alt="IT Outsourcing">
-
-
                         <p>
                             Regardless of your technology platforms, what you are seeking for will be specialized by our high quality IT engineers as partners, giving your business its leap to being a world-class phenomenon.
                         </p>
@@ -611,40 +609,6 @@
                     </div>
                     <h3>
                         DevOps
-                    </h3>
-                </article>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">
-                <article class="item-service">
-                    <div class="box-info-services d-lg-flex align-items-lg-center">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-software-quality-assurance.png" alt="Software Quality Assurance">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-quality-assurance-gr.png" alt="Software Quality Assurance">
-
-                        <p>
-                            From software testing services to maintenence and support, your productivity will be maximized by our large team of certified QA engineers.
-                        </p>
-                        <a href="<?php echo get_home_url();?>/software-quality-assurance" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/software-quality-assurance" class="plus-gray d-lg-none d-block"></a>
-                    </div>
-                    <h3>
-                        Software Quality Assurance
-                    </h3>
-                </article>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">
-                <article class="item-service">
-                    <div class="box-info-services d-lg-flex align-items-lg-center">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-client-center.png" alt="Client Center">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-client-center-gr.png" alt="Client Center">
-
-                        <p>
-                            As soon as you become an Envzone client, you will get unlimited access to our client care representatives and our consultants as well.
-                        </p>
-                        <a href="<?php echo get_home_url();?>/client-center" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/client-center" class="plus-gray d-lg-none d-block"></a>
-                    </div>
-                    <h3>
-                        Client Center
                     </h3>
                 </article>
             </div>

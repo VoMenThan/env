@@ -20,7 +20,6 @@
                                 We will respond to your request really soon.
                             </p>
                         </div>
-                        .hr-
                         <div class="box-nav d-flex justify-content-around align-items-center">
                             <a href="<?php echo home_url();?>" class="back-home">
                                 GO BACK TO HOMEPAGE

@@ -364,7 +364,6 @@
                                                     echo do_shortcode('[gravityform id="1" title="false" description="false"]');
                                                     ?>
                                                 </div>
-
                                             </div>
 
                                             <div class="col-lg-7 order-lg-1 order-0">
@@ -404,28 +403,6 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/client-center">
-                                                                Client Center
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                            <p>
-                                                                As soon as you become an Envzone client, you will get unlimited access to our client care representatives and our consultants as well.
-                                                            </p>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/software-quality-assurance">
-                                                                Software Quality Assurance
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                            <p>
-                                                                The quality of your products are our concern, and we make sure that our experts adhere to your specifications and industry standards
-                                                            </p>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/devops">
                                                                 DevOps
                                                                 <span class="icon-arrow-right"></span>
@@ -435,7 +412,6 @@
                                                             </p>
                                                         </article>
                                                     </div>
-
                                                 </div>
                                             </div>
 
@@ -579,7 +555,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-12 box-search">
                     <form action="<?php echo home_url("/");?>" method="get" id="search-form" class="search-form" role="search">
                         <label for="input-search">TYPE YOUR SEARCH</label>
-                        <input id="input-search" type="text" name="s" class="input-search" placeholder="Search for keywords">
+                        <input id="input-search" type="text" name="s" class="input-search" placeholder="Search for keywords" autofocus>
                         <a onclick="document.getElementById('search-form').submit()" class="btn-search" href="#">
                             <i class="icon-search"></i>
                         </a>

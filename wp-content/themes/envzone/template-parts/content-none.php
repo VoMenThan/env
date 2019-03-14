@@ -9,5 +9,5 @@
 ?>
 
 <header class="page-header mb-5">
-    <h1 class="page-title"><?php printf( __( 'Nothing Found: %s', 'envzone' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
+    <h1 class="page-title" style="max-width: 100%; overflow: hidden"><?php printf( __( 'Nothing Found: %s', 'envzone' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
 </header><!-- .page-header -->

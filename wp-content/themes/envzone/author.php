@@ -6,14 +6,9 @@
  * Time: 16:32
  */
 
-
-if (get_the_author()==''){
-    $argc = 'author_name=admin';
-    $authorName = 'Admin';
-}else{
-    $argc = 'author_name='.get_the_author();
-    $authorName = get_the_author();
-}
+$author_id = get_the_author_meta('ID');
+$authorName = get_the_author_meta('display_name');
+$argc = array("author" => $author_id);
 // The Query
 $the_query = new WP_Query($argc);
 
@@ -28,7 +23,7 @@ get_header();?>
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Author</li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $authorName;?></li>
                         </ol>
                     </div>
                     <h2 class="title-author">
@@ -38,18 +33,17 @@ get_header();?>
                 <div class="col-8">
 
                     <div class="information-author clearfix">
-                        <?php echo get_avatar( get_the_author_meta( 'user_email' ), 296 );?>
-
+                        <img src="<?php echo get_field('avatar', 'user_'. $author_id );?>" alt="" class="img-fluid">
                         <div class="box-info">
                             <h1 class="author-name"><?php echo $authorName;?>’s Bio</h1>
                             <div class="box-position">
-                                <div class="position-company">ENVZONE STAFF</div>
-                                <div class="position">Jr. Influencer Marketing Operations</div>
+                                <div class="position-company"><?php echo get_field('staff', 'user_'. $author_id );?></div>
+                                <div class="position"><?php echo get_field('position', 'user_'. $author_id );?></div>
                             </div>
                             <div class="description">
                                 <?php the_author_meta( 'description' ); ?>
                             </div>
-                            <div class="follow-author">Follow this in-depth resource writer on: <a target="_blank" href="#">Linkedin</a></div>
+                            <div class="follow-author">Follow this in-depth resource writer on: <a target="_blank" href="<?php echo get_field('linkin', 'user_'. $author_id );?>">Linkedin</a></div>
                         </div>
                     </div>
 
@@ -82,6 +76,7 @@ get_header();?>
                     <?php
                         }
                     }
+
                     if (  $wp_query->max_num_pages > 1 ){
                         echo '<div class="misha_loadmore btn-category btn btn-blue-env w-100 mb-5">Show more</div>'; // you can use <a> as well
                     };

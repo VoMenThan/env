@@ -44,21 +44,6 @@
                 <div class="label-form-project text-center">
                     START A PROJECT
                 </div>
-                <!--<div class="row form-start-project">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <input type="text" class="input-search d-block" placeholder="Full name">
-                        <input type="text" class="input-search d-block" placeholder="Email">
-                        <input type="text" class="input-search d-block" placeholder="Company">
-                        <input type="text" class="input-search d-block" placeholder="Phone number">
-                        <input type="file" class="input-search d-block">
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <textarea cols="30" rows="10" placeholder="Describe your idea"></textarea>
-                        <button class="btn btn-green-env">
-                            SEND MY MESSAGE
-                        </button>
-                    </div>
-                </div>-->
                 <div class="form-start-project">
                     <?php
                     echo do_shortcode('[gravityform id=2 title=false description=false ajax=false]');
@@ -105,8 +90,6 @@
                         <li><a href="<?php echo get_home_url();?>/full-cycle-development">Full Cycle Development</a></li>
                         <li><a href="<?php echo get_home_url();?>/it-outsourcing">IT Outsourcing</a></li>
                         <li><a href="<?php echo get_home_url();?>/testing">Testing</a></li>
-                        <li><a href="<?php echo get_home_url();?>/client-center">Client Center</a></li>
-                        <li><a href="<?php echo get_home_url();?>/software-quality-assurance">Software Quality Assurance</a></li>
                         <li><a href="<?php echo get_home_url();?>/devops">DevOps</a></li>
                     </ul>
                 </div>
@@ -341,19 +324,6 @@
         get_attr();
         select_next_element();
     });
-
-
-
-
-    // $(function() {
-    //     var win_width = $(window).width();
-    //     if(win_width >= 992){
-    //         $(window).scroll(sticky_relocate);
-    //         sticky_relocate();
-    //     }
-    //
-    //
-    // });
 
 </script>
 

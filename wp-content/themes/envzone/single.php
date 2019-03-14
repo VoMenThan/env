@@ -159,214 +159,150 @@ get_header();
         <!-- /*============END SUBCRIBE HOME=================*/ -->
 
 
-        <!--<div class="container">
-
+        <div class="container">
             <div class="row section-trending">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue">READ MORE FROM EXPERTS</h3>
-                    <a href="#" class="view-all">VIEW ALL</a>
+                    <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
                 </div>
 
+
+                <?php
+                $args = array(
+                    'posts_per_page' => 3,
+                    'offset'=> 0,
+                    'post_type' => 'post',
+                    'orderby' => 'id',
+                    'order' =>'asc'
+                );
+                $news_expert = get_posts( $args );
+
+                foreach ($news_expert as $item):
+                ?>
                 <div class="col-lg-4">
                     <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
+                        <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
+                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                <?php echo get_the_category($item->ID)[0]->cat_name;?>
+                            </a>
+                            <a href="<?php echo get_permalink($item->ID);?>">
                                 <h2>
-                                    The Innovative work of CB Insights in Data Mining
+                                    <?php echo $item->post_title;?>
                                 </h2>
                             </a>
                             <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
+                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                    <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                </a>
+                                <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></span>
                             </div>
                         </div>
                     </article>
                 </div>
-
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <?php endforeach;?>
             </div>
 
             <div class="row section-trending">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue">READ MORE FROM EXPERTS</h3>
-                    <a href="#" class="view-all">VIEW ALL</a>
+                    <h3 class="title-head-blue">LEARN MORE ABOUT C-LEVEL ADVICES</h3>
+                    <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
                 </div>
 
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
+                <?php
+                $args = array(
+                    'posts_per_page' => 3,
+                    'offset'=> 0,
+                    'post_type' => 'post',
+                    'orderby' => 'id',
+                    'order' =>'desc'
+                );
+                $news_expert = get_posts( $args );
+                foreach ($news_expert as $item):
+                    ?>
+                    <div class="col-lg-4">
+                        <article class="highlight-news-right img-center">
+                            <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
                             </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
+                            <div class="info-news">
+                                <a href="<?php echo home_url('category/').get_the_category($item->ID)->slug;?>" class="category">
+                                    <?php echo get_the_category($item->ID)->cat_name;?>
+                                </a>
+                                <a href="<?php echo get_permalink($item->ID);?>">
+                                    <h2>
+                                        <?php echo $item->post_title;?>
+                                    </h2>
+                                </a>
+                                <div class="audit"><span>By:</span>
+                                    <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                        <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                    </a>
+                                    <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></span>
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
+                <?php endforeach;?>
             </div>
 
             <div class="row section-trending">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue">READ MORE FROM EXPERTS</h3>
-                    <a href="#" class="view-all">VIEW ALL</a>
+                    <h3 class="title-head-blue">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
+                    <a href="<?php echo home_url('events')?>" class="view-all">VIEW ALL</a>
                 </div>
 
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
+                <?php
+                $args = array(
+                    'posts_per_page' => 3,
+                    'offset'=> 0,
+                    'post_type' => 'list_events',
+                    'orderby' => 'id',
+                    'order' =>'desc'
+                );
+                $news_expert = get_posts( $args );
+                foreach ($news_expert as $item):
+                    ?>
+                    <div class="col-lg-4">
+                        <article class="highlight-news-right img-center">
+                            <div class="info-news">
+                                <a href="<?php echo get_permalink($item->ID);?>">
+                                    <h2>
+                                        <?php echo $item->post_title;?>
+                                    </h2>
+                                </a>
+                                <div class="audit"><span>By:</span>
+                                    <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                        <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                    </a>
+                                    <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></span>
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4">
-                    <article class="highlight-news-right img-center">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php /*echo ASSET_URL;*/?>images/img-blog-the-innovative.png">
-                        </a>
-                        <div class="info-news">
-                            <a href="#" class="category">DEVOPS</a>
-                            <a href="#">
-                                <h2>
-                                    The Innovative work of CB Insights in Data Mining
-                                </h2>
-                            </a>
-                            <div class="audit"><span>By:</span>
-                                <a class="author" href="#"> Author</a>
-                                <span class="date-public">Updated Nov 29, 2018</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
+                <?php endforeach;?>
             </div>
-
-        </div>-->
+        </div>
 
     </section>
 </main>
+<script type="text/javascript">
+    (function ( $ ) {
+        "use strict";
+        $(document).ready(function (e) {
 
+            $('.blog-page .highlight-news-right .info-news h2').matchHeight({
+                byRow: true,
+                property: 'height',
+                target: null,
+                remove: false
+            });
+        });
+
+    })(jQuery);
+</script>
 <?php
 get_footer();
 ?>
