@@ -17,7 +17,7 @@
                     <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THIS UNIQUE APPROACH</a>
                     <div class="title-security">
                         <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be flexibly scalable.
+                        Be Informed. Be Protected. Be outsourcing fearless.
                     </div>
                 </article>
             </div>
@@ -37,7 +37,7 @@
                     <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">SCHEDULE AN APPOINTMENT NOW</a>
                     <div class="title-security">
                         <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be flexibly scalable.
+                        Be Informed. Be Protected. Be outsourcing fearless.
                     </div>
                 </article>
             </div>
@@ -53,10 +53,10 @@
                         Learn how we could help startup and tech founders achieve <br> their business goals.
 
                     </p>
-                    <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
+                    <a href="<?php echo home_url("knowledge/guidance-to-keep-your-tech-company-ahead-of-the-competition");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
                     <div class="title-security">
                         <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be flexibly scalable.
+                        Be Informed. Be Protected. Be outsourcing fearless.
                     </div>
                 </article>
             </div>
@@ -75,7 +75,7 @@
                     <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">GET MY PROJECT GOING</a>
                     <div class="title-security">
                         <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be flexibly scalable.
+                        Be Informed. Be Protected. Be outsourcing fearless.
                     </div>
                 </article>
             </div>

@@ -58,13 +58,11 @@
                     <h5 class="label-menu-footer">Company</h5>
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/about-us">About us</a></li>
-                        <li><a href="<?php echo get_home_url();?>/contact-us">Contact us</a></li>
-                        <li><a href="<?php echo get_home_url();?>/partnership">Partnership</a></li>
-                        <li><a href="<?php echo get_home_url();?>/careers">Careers</a></li>
                         <li><a href="<?php echo get_home_url();?>/process-framework">Process Framework</a></li>
-                        <li><a href="<?php echo get_home_url();?>/client-focus-solutions">Client Focus Solutions</a></li>
-                        <li><a href="<?php echo get_home_url();?>/customer-support">Customer Support</a></li>
-                        <li><a href="<?php echo get_home_url();?>/buyer-guidelines">Buyer Guidelines</a></li>
+                        <li><a href="<?php echo get_home_url();?>/client-focus-solutions">Client-Focus Solutions</a></li>
+                        <li><a href="<?php echo get_home_url();?>/partnership">Partnership</a></li>
+                        <li><a href="<?php echo get_home_url();?>/contact-us">Contact us</a></li>
+                        <li><a href="<?php echo get_home_url();?>/careers">Careers</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,14 +70,14 @@
                 <div class="box-info-footer">
                     <h5 class="label-menu-footer">Industries</h5>
                     <ul class="list-menu-footer">
+                        <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
+                        <li><a href="<?php echo get_home_url();?>/e-commerce-retail">E-Commerce & Retail</a></li>
+                        <li><a href="<?php echo get_home_url();?>/financial">Financial  Services</a></li>
                         <li><a href="<?php echo get_home_url();?>/real-estate">Real Estate & Property</a></li>
                         <li><a href="<?php echo get_home_url();?>/hospitality">Hospitality</a></li>
                         <li><a href="<?php echo get_home_url();?>/education">Education</a></li>
-                        <li><a href="<?php echo get_home_url();?>/e-commerce-retail">E-Commerce & Retail</a></li>
-                        <li><a href="<?php echo get_home_url();?>/financial">Financial  Services</a></li>
-                        <li><a href="<?php echo get_home_url();?>/non-profit">Non-profit Organization</a></li>
-                        <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
                         <li><a href="<?php echo get_home_url();?>/logistics">Logistics & Supply Chain</a></li>
+                        <li><a href="<?php echo get_home_url();?>/non-profit">NGOs</a></li>
                     </ul>
                 </div>
             </div>
@@ -91,6 +89,7 @@
                         <li><a href="<?php echo get_home_url();?>/it-outsourcing">IT Outsourcing</a></li>
                         <li><a href="<?php echo get_home_url();?>/testing">Testing</a></li>
                         <li><a href="<?php echo get_home_url();?>/devops">DevOps</a></li>
+                        <li><a href="<?php echo get_home_url();?>/customer-support">Customer Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -211,7 +210,6 @@
                         <a href="#">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
-                        <a href="<?php echo get_home_url();?>/comment-policy">Comment Policy</a>
                         <a href="<?php echo get_home_url();?>/employee-login">Employee Login</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
                         <a href="<?php echo get_home_url();?>/vendor-portal">Vendor Portal</a>

@@ -71,7 +71,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_owl_carousel', $cssUrl.'owl.carousel.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_font_awesome', $cssUrl.'font-awesome.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_mCustomScrollbar_min', $cssUrl.'mCustomScrollbar.min.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '3.0');
+    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');
@@ -171,29 +171,6 @@ function env_mt_create_post_type() {
             ),
             'public' => true,
             'has_archive' => true,
-        )
-    );
-    register_post_type( 'studio',
-        array(
-            'labels' => array(
-                'name' => __( 'Studio' ),
-                'singular_name' => __( 'Album' )
-            ),
-            'public' => true,
-            'has_archive' => true,
-            'supports'    => array( 'title' ,'thumbnail', 'excerpt', 'revisions', 'comments' ),
-        )
-    );
-
-    register_post_type( 'knowledge',
-        array(
-            'labels' => array(
-                'name' => __( 'Knowledge' ),
-                'singular_name' => __( 'Video' )
-            ),
-            'public' => true,
-            'has_archive' => true,
-            'supports'    => array( 'title' ,'editor','thumbnail', 'excerpt', 'revisions', 'comments' ),
         )
     );
 }

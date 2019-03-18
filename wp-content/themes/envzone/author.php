@@ -1,9 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: than.vo
- * Date: 2019-03-05
- * Time: 16:32
+/**<br />
+ * The template for displaying Author Archive pages.<br />
+ *<br />
+ * @package WordPress<br />
+ * @subpackage envzone<br />
+ * @since EnvZone 1.0<br />
  */
 
 $author_id = get_the_author_meta('ID');
@@ -33,7 +34,17 @@ get_header();?>
                 <div class="col-8">
 
                     <div class="information-author clearfix">
-                        <img src="<?php echo get_field('avatar', 'user_'. $author_id );?>" alt="" class="img-fluid">
+                        <?php
+                        $avatar = get_field('avatar', 'user_'. $author_id );
+                        if ($avatar == ''){
+                            echo get_avatar( get_the_author_meta( 'user_email' ), 110 );
+                        }else{?>
+                            <img src="<?php echo $avatar;?>" alt="" class="img-fluid">
+                        <?php
+                        }
+                        ?>
+
+
                         <div class="box-info">
                             <h1 class="author-name"><?php echo $authorName;?>’s Bio</h1>
                             <div class="box-position">
@@ -43,7 +54,7 @@ get_header();?>
                             <div class="description">
                                 <?php the_author_meta( 'description' ); ?>
                             </div>
-                            <div class="follow-author">Follow this in-depth resource writer on: <a target="_blank" href="<?php echo get_field('linkin', 'user_'. $author_id );?>">Linkedin</a></div>
+                            <div class="follow-author">Follow this in-depth resource writer on: <a target="_blank" href="<?php echo get_field('linkedin', 'user_'. $author_id );?>">Linkedin</a></div>
                         </div>
                     </div>
 
@@ -105,13 +116,15 @@ get_header();?>
                         <?php
                         global $wp_query;
                         $users = get_users();
-                        $i=0;
+
                         foreach ($users as $user):
-                            $i++;
-                            if ($i==4) break;
+                            $id = $user->ID;
+                            if ($user->ID==$author_id) continue;
+                            if ($id == 7 || $id == 8 || $id == 9 || $id == 1) continue;
                         ?>
                         <div class="item-author clearfix">
-                            <?php echo get_avatar( get_the_author_meta( 'user_email' ), 110 );?>
+                            <img src="<?php echo get_field('avatar', 'user_'. $user->ID );?>" alt="" class="img-fluid">
+                            <?php //echo get_avatar( get_the_author_meta( 'user_email' ), 110 );?>
                             <div class="author-name">
                                 <a href="<?php echo home_url('author/').$user->nickname;?>">
                                     <?php echo $user->display_name;?>

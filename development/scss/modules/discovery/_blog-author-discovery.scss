@@ -11,9 +11,10 @@
     img{
       width: 40%;
       float: left;
+      margin-right: 15px;
     }
+
     .box-info{
-      padding-left: calc(40% + 15px);
       color: $color-blue-lv1;
       font-size: 1.25rem;
       .author-name{

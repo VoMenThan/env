@@ -68,9 +68,9 @@
                                 <i class="icon-typical-phone" aria-hidden="true"></i> <span>720-606-2900</span>
                             </a>
                         </li>
-                        <li class="nav-item d-md-inline-block d-none-768 d-none">
-                            <a class="nav-link" href="mailto:info@envzone.com">
-                                <i class="icon-close-mail" aria-hidden="true"></i> <span>info@envzone.com</span>
+                        <li class="nav-item d-md-inline-block d-none-768 d-none btn-schedule">
+                            <a class="nav-link" href="<?php echo home_url('contact-us')?>">
+                                <i class="icon-schedule-appointment" aria-hidden="true"></i> <span>Schedule Appointment</span>
                             </a>
                         </li>
                         <li class="nav-item d-lg-none d-inline-block">
@@ -81,7 +81,7 @@
                                 <i class="icon-close-green"></i>
                             </div>
                         </li>
-                        <li class="nav-item d-lg-inline-block d-none">
+                        <li class="nav-item d-lg-inline-block d-none client-portal">
                             <a class="nav-link" href="<?php echo get_home_url();?>/client-portal">
                                 <span>Client Portal</span>
                             </a>

@@ -43,6 +43,14 @@ nav {
             .nav-link {
                 color: $color-white;
                 padding: 0;
+                &:hover{
+                    .icon-schedule-appointment {
+                        @include setBackgroundIcon(20px, "../images/icon-schedule-appointment-white.svg");
+                    }
+                    span{
+                        color: $color-white;
+                    }
+                }
             }
 
             .icon-typical-phone {
@@ -51,10 +59,26 @@ nav {
                 margin-right: 5px;
             }
 
-            .icon-close-mail {
-                @include setBackgroundIcon(20px, "../images/icon-close-envelope.svg");
+            .icon-schedule-appointment {
+                @include setBackgroundIcon(20px, "../images/icon-schedule-appointment.svg");
                 vertical-align: middle;
                 margin-right: 5px;
+            }
+
+            &.btn-schedule{
+                margin-right: 30px;
+                .nav-link{
+                    background: $color-green-logo;
+                    margin-top: 7px;
+                    border-radius: 5px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                span{
+                    line-height: inherit;
+                    color: $color-blue-logo;
+                    padding-right: 0;
+                }
             }
         }
     }
