@@ -2,10 +2,11 @@
   .description-fully{
     p{
       font-size: 26px;
+      line-height: 37px;
     }
   }
   .item-different{
-    border: 1px solid $color-gray-border;
+    border: 1px solid $border-blue;
     padding: 20px 10px;
     background: $color-white;
     @include border-radius(5px);
@@ -27,6 +28,9 @@
   &.artical-page{
     padding-bottom: 0;
   }
+}
+.description-business-ecm{
+  width: 59%!important;
 }
 
 /* 	================================================================

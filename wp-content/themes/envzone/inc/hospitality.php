@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-hospitality-new.png">
-        <h2>Hospitality</h2>
+        <h2>HOSPITALITY</h2>
     </section>
     <section class="artical-page industries-page hospitality-page">
         <div class="container">
@@ -128,7 +128,7 @@
                 </div>
 
                 <div class="col-12 text-center btn-learn-more">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE ABOUT OUR PROCESS</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mt-4">LEARN MORE ABOUT OUR PROCESS</a>
                 </div>
             </div>
         </div>

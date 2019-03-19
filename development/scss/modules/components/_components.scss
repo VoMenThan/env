@@ -21,8 +21,11 @@ h1, h2, h3, h4, h5, h6{
     background-color: $color-blue-logo;
     border-color: $color-blue-logo;
 	padding: 10px 30px;
-	font-size: 1.125rem;
+	font-size: 18px;
 	font-weight: bold;
+	width: 491px;
+	left: 470px;
+	top: 1233px;
 }
 
 /*============BUTTON GREEN=================*/
@@ -61,6 +64,7 @@ h1, h2, h3, h4, h5, h6{
 	text-transform: uppercase;
 	padding-bottom: 15px;
 	line-height: 55px;
+	font-family: $font-title;
 }
 
 /*============DEFINE HEADLINE=================*/
@@ -103,7 +107,7 @@ h1, h2, h3, h4, h5, h6{
 
 /*============BG GRAY PROCESS=================*/
 .bg-gray-process{
-	background: $color-gray-process;
+	background: $color-gray-background;
 	padding: 30px 0; 
 }
 
@@ -165,9 +169,11 @@ h1, h2, h3, h4, h5, h6{
 		left: 50%;
 		top: 50%;
 		@include translate(-555px, -50%);
-		font-size: 3rem;
+		font-size: 48px;
 		color: $color-green-logo;
 		font-weight: bold;
+		font-family: Raleway;
+		line-height: 73px;
 	}
 
 	&.bg-blue{
@@ -213,7 +219,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .artical-page{
-	padding: 80px 0;
+//	padding: 80px 0;
 }
 
 /*============EMBED VIDEO=================*/
@@ -246,6 +252,7 @@ h1, h2, h3, h4, h5, h6{
 		padding-left: 15px;
 		font-size: 16px;
 		line-height: 30px;
+		font-weight: normal;
 	}
 }
 

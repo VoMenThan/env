@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-financial-services.png">
-        <h2>Financial Services</h2>
+        <h2>FINANCIAL SERVICES</h2>
     </section>
     <section class="artical-page financial-page">
         <div class="container">
@@ -42,7 +42,7 @@
             <div class="container">
                 <div class="row justify-content-md-center mb-5">
                     <div class="col-8">
-                        <h1 class="title-head-blue text-center">WHAT WE OFFER</h1>
+                        <h1 class="title-head-blue text-center">What we offer</h1>
                         <div class="description-offer">
                             With Envzone's experienced pool of talent, you do not have to go through all the unnecessarily complicated workflows and let our team perform the magic of tailoring your on-point software of Digital Banking, Online Payment, Data Management, Personal Finance...
                         </div>
@@ -51,7 +51,7 @@
                 <div class="row justify-content-md-center">
                     <div class="col-12">
                         <div class="row justify-content-md-center">
-                            <div class="col-lg-6">
+                            <div class="ml-5">
                                 <div class="item-offer">
                                     <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-uncover-new-method.png" alt="">
                                     <p>
@@ -59,7 +59,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="">
                                 <div class="item-offer">
                                     <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-effectively-manage.png" alt="">
                                     <p>
@@ -67,7 +67,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="ml-5">
                                 <div class="item-offer">
                                     <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-offer-convenient.png" alt="">
                                     <p>
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="">
                                 <div class="item-offer">
                                     <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-support-your-customer.png" alt="">
                                     <p>
@@ -85,14 +85,14 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <p>
+                                <p class="p-note mb-5">
                                     By integrating customized software, your business shall be enabled to actively handle the ever-changing market of the financial industry
                                 </p>
                             </div>
 
                             <div class="col-12 text-center">
-                                <h3 class="pb-5">READY TO GET REAL?</h3>
-                                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LET’S TALK ABOUT THIS TOGETHER</a>
+                                <h3 class="pb-5 mt-5 font-weight-bold">INTRIGUED TO DIVE IN?</h3>
+                                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mb-4">MAKE AN APPOINTMENT</a>
                             </div>
 
                         </div>

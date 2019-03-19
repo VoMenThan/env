@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-healthcare-new.png">
-        <h2>Healthcare</h2>
+        <h2>HEALTHCARE</h2>
     </section>
     <section class="artical-page industries-page healthcare-page">
         <div class="container">
@@ -33,17 +33,18 @@
                     </p>
                 </div>
             </div>
-
+        </div>
             <div class="col-12 text-center btn-learn-more">
                 <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
             </div>
-
+            <div class="bg-gray-process">
+                <div class="container">
             <div class="row justify-content-md-center mb-5">
                 <div class="col-8">
-                    <h1 class="title-head-blue text-center">WHAT WE OFFER</h1>
+                    <h1 class="title-head-blue text-center">What we offer</h1>
                     <div class="description-offer">
                         <p>
-                            Help to healthcare industries in need of software developed for them to store, analyze and maintain data processed on a daily basis.
+                            Help healthcare industries in need of software development store, analyze and maintain data process on a daily basis.
                         </p>
                     </div>
                 </div>
@@ -118,12 +119,12 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <h3 class="pb-5">READY TO GET REAL?</h3>
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LET’S TALK ABOUT THIS TOGETHER</a>
+                    <h3 class="pb-4 font-weight-bold">IT’S A BEAUTIFUL DAY TO SAVE LIVES</h3>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mb-5">JOIN US AND MAKE IT HAPPEN</a>
                 </div>
             </div>
-
-        </div>
+         </div>
+       </div> 
     </section>
 
     <!--WHY BUSINESS-->

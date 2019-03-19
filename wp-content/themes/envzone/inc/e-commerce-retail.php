@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-e-commerce-and-retail.png">
-        <h2>E-commerce and Retail</h2>
+        <h2>E-COMMERCE AND RETAIL</h2>
     </section>
     <section class="artical-page industries-page ecommerce-page">
         <div class="container">
@@ -36,17 +36,18 @@
         <div class="container-fluid bg-gray-process">
             <div class="container">
                 <div class="row justify-content-md-center mb-5">
-                    <div class="col-8">
-                        <h2 class="title-head-blue text-center">
+                    <div class="col-10">
+                        <h2 class="title-head-blue text-center pl-2 pr-2">
                             We provide E-Commerce and Retail Solutions for you
                             to boost your sales
                         </h2>
-                        <div class="description-offer">
-                            <p>
-                                Services provided by Envzone help in the improvement of customer experience, providing quality customer relationships, offering high-quality product and services and provide the best customer data management services.
-                            </p>
-                        </div>
+                    </div> 
+                    <div class="description-offer col-8">
+                        <p>
+                            Services provided by Envzone help in the improvement of customer experience, providing quality customer relationships, offering high-quality product and services and provide the best customer data management services.
+                        </p>
                     </div>
+                    
                 </div>
 
                 <div class="row justify-content-md-center mt-5">
@@ -94,7 +95,7 @@
                     </div>
 
                     <div class="col-12 text-center btn-learn-more">
-                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">MOVE WORK FOWARD</a>
+                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">FOLLOW THE SOLUTIONS</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +112,7 @@
                     <h2>
                         THE REASONS TO CHOOSE ENVZONE
                     </h2>
-                    <div class="description-business">
+                    <div class="description-business description-business-ecm">
                         We provide meaningful experiences to enhance your customer’s journey in the competitive market. And more than that, we bring exciting technology and boundless expertise to boost your customer-focused value
                     </div>
                 </div>

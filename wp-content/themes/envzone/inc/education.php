@@ -24,11 +24,8 @@
                             Education technology is gradually challenging the traditional method of teaching. The way we learn, where we learn, how we learn will be remarkably altered by the integration of technology in education.
                         </p>
                         <p>
-                            One obvious fact that we stick our eyes to mobile devices, laptop from day to night and we gain knowledge through various sites resulting in a huge potential for e-learning programs. You may wonder:
+                            One obvious fact that we stick our eyes to mobile devices, laptop from day to night and we gain knowledge through various sites resulting in a huge potential for e-learning programs.
                         </p>
-                    </div>
-                    <div class="text-center">
-                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +60,7 @@
                 <div class="col-12">
                     <h2 class="text-center">What we offer</h2>
                 </div>
-                <section class="col-12 text-center box-offer-education">
+                <section class="col-12 text-left box-offer-education">
 
                     <div class="circle-offer">
                         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-offer-education.png" alt="">
@@ -77,7 +74,7 @@
                     <div class="offer-1">
                         Apply user-driven IT solutions for an engaging learning environment.
                     </div>
-                    <div class="offer-2">
+                    <div class="offer-2 pl-5">
                         Design your own digital on-the-job training resources to better employee's performance.
                     </div>
                     <div class="offer-3">
@@ -85,7 +82,7 @@
                     </div>
 
                     <div class="text-center">
-                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">MORE QUESTIONS? CONTACT US NOW</a>
+                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mt-4">MORE QUESTIONS? CONTACT US NOW</a>
                     </div>
                 </section>
             </div>
@@ -101,7 +98,7 @@
                     <h2>
                         THE REASONS TO CHOOSE ENVZONE
                     </h2>
-                    <div class="description-business">
+                    <div class="description-business description-business-edu">
                         We want you to truly experience the fastest instructional platforms. By leveraging our dedicated teams, we engage you in new and better digital ways that surely create possibilities beyond the limits.
                     </div>
                 </div>

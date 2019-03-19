@@ -83,15 +83,21 @@
 	background-size: cover;
 	text-align: center;
 	color: $color-white;
-	padding: 100px 0;
+	padding: 50px 0;
 	h2{
 		color: $color-green-logo;
-		padding-bottom: 30px;
+		padding-bottom: 20px;
+		font-size: 36px;
+		line-height: 55px;
 	}
 	.description-business{
-		font-size: 1.5rem;
+		font-family: $font-text;
+		font-style: normal;
 		font-weight: 500;
-		width: 50%;
+		font-size: 26px;
+		line-height: 37px;
+		text-align: center;
+		width: 52%;
 		margin: auto;
 		margin-bottom: 30px;
 	}
@@ -107,7 +113,8 @@
 		}
 	}
 	.box-dedicated{
-		padding: 30px 0;
+		padding-top: 80px;
+		padding-bottom: 30px; 
 		h4{
 			color: $color-green-logo;
 			margin-bottom: 30px;

@@ -1,8 +1,8 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-logistics.png">
-        <h2>Logistics
-            and Supply Chain</h2>
+        <h2 class="text-center">LOGISTICS<br>
+            AND SUPPLY CHAIN</h2>
     </section>
     <section class="artical-page industries-page logistics-page">
         <div class="container">
@@ -125,7 +125,7 @@
                     <h2>
                         THE REASONS TO CHOOSE ENVZONE
                     </h2>
-                    <div class="description-business">
+                    <div class="description-business description-business-np">
                         It’s about forward-thinking, emerging technologies adoption and smart distributions. It’s because EnvZone is with you for the transformational journey ahead!
                     </div>
                 </div>

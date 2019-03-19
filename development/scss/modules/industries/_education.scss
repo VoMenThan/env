@@ -4,8 +4,11 @@
      margin-bottom: 30px;
      font-weight: bold;
      text-align: center;
+     line-height: 55px;
    }
   .description-industries{
+    padding-left: 20px;
+    padding-right: 80px;
     width: 70%;
     margin: auto;
     margin-bottom: 30px;
@@ -49,9 +52,8 @@
 
   .section-offer{
     padding-top: 80px;
-    padding-bottom: 80px;
     h2{
-      font-size: 2.25rem;
+      font-size: 36px;
       font-weight: bold;
       margin-bottom: 50px;
     }
@@ -77,23 +79,29 @@
       position: absolute;
       top: 0;
       left: 80px;
-      font-size: 1.5rem;
+      font-size: 24px;
+      line-height: 34px;
     }
     .offer-2{
-      width: 300px;
+      width: 340px;
       position: absolute;
       top: 0;
       right: 80px;
-      font-size: 1.5rem;
+      font-size: 24px;
+      line-height: 34px;
     }
     .offer-3{
       width: 300px;
-      font-size: 1.5rem;
+      font-size: 24px;
+      line-height: 34px;
       margin: auto;
       margin-bottom: 30px;
     }
   }
 
+}
+.description-business-edu{
+  width: 57%!important;
 }
 
 /* 	================================================================

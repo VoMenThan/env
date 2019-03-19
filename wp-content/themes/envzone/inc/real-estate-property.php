@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-real-estate.png">
-        <h2>Real Estate</h2>
+        <h2>REAL ESTATE</h2>
     </section>
     <section class="artical-page industries-page real-estate-page">
         <div class="container">
@@ -34,20 +34,22 @@
                 <div class="col-lg-3 text-center">
                     <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-strategy.png" alt="">
                 </div>
-                <div class="col-lg-9 info-fully">
+                <div class="col-lg-9 info-fully info-fully-below">
                     most companies tactically concentrate on individual technologies relevant for a specific business area.
                 </div>
-                <div class="col-12 mt-3 info-fully">*according to Deloitte’s commercial real estate report</div>
+                <div class="col-12 mt-3 info-note">*according to Deloitte’s commercial real estate report</div>
             </div>
             <div class="col-12 text-center btn-learn-more">
                 <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
             </div>
-
+        </div>
+        <div class="container-fluid bg-gray-process real-estate-article">
             <div class="row justify-content-md-center mb-5">
                 <div class="col-6">
-                    <h1 class="title-head-blue text-center">WHAT WE OFFER</h1>
+                    <h1 class="title-head-blue text-center">What we offer</h1>
                     <div class="description-offer">
                         At Envzone, we get real with real estate.
+                        <br>
                         We understand the complexity of your business and the challenges you meet daily. Our top-notch offshore team know precisely how to deliver a property management software supporting your wise decisions.
                     </div>
                 </div>
@@ -99,8 +101,8 @@
                         </div>
 
                         <div class="col-12 text-center">
-                            <h3 class="pb-5">READY TO GET REAL?</h3>
-                            <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LET’S TALK ABOUT THIS TOGETHER</a>
+                            <h3 class="pb-4 pt-4">READY TO GET REAL?</h3>
+                            <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mb-4">SCHEDULE AN APPOINTMENT</a>
                         </div>
 
                     </div>
@@ -108,6 +110,7 @@
             </div>
 
         </div>
+
     </section>
 
     <!--WHY BUSINESS-->
