@@ -29,7 +29,7 @@ get_header(); ?>
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Category</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tag</li>
                         </ol>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ get_header(); ?>
                              * If you want to override this in a child theme, then include a file
                              * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                              */
-                            get_template_part( 'template-parts/content', get_post_format() );
+                            get_template_part( 'template-parts/content', 'tag' );
 
                         // End the loop.
                         endwhile;

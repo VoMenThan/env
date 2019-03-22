@@ -12,6 +12,61 @@
     }
     .carousel-photo-detail{
         margin-bottom: 30px;
+        .owl-nav{
+            .owl-next{
+                position: absolute;
+                right: 0;
+                top: 0;
+                outline: none;
+                height: 100%;
+                background: rgba(255,255,255, .6);
+                width: 31px;
+                &.disabled{
+                    opacity: .5;
+                }
+            }
+            .owl-prev{
+                position: absolute;
+                left: 0;
+                top: 0;
+                outline: none;
+                height: 100%;
+                background: rgba(255,255,255, .6);
+                width: 31px;
+                &.disabled{
+                    opacity: .3;
+                }
+            }
+        }
+    }
+
+    .box-icon-mini{
+        .owl-nav{
+            .owl-next{
+                position: absolute;
+                right: 0;
+                top: 0;
+                outline: none;
+                height: 100%;
+                background: rgba(255,255,255, .6);
+                width: 31px;
+                &.disabled{
+                    opacity: .5;
+                }
+            }
+            .owl-prev{
+                position: absolute;
+                left: 0;
+                top: 0;
+                outline: none;
+                height: 100%;
+                background: rgba(255,255,255, .6);
+                width: 31px;
+                &.disabled{
+                    opacity: .3;
+                }
+            }
+        }
     }
     .info-video{
         background: transparent;

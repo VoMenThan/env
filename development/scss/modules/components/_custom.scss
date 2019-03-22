@@ -272,6 +272,11 @@ body{
 body #gform_wrapper_3 .top_label div.ginput_container{
     text-align: center;
 }
+#gform_wrapper_3 ul.gform_fields li#field_3_2{
+    display: none;
+}
+
+
 #gform_wrapper_3 li.hidden_label input{
     margin: auto;
     padding: 5px 20px;
@@ -637,6 +642,10 @@ body #gform_wrapper_3 .top_label div.ginput_container{
     color: #ffffff;
     font-style: italic;
     font-size: 22px;
+    max-width: 100%;
+}
+#gform_wrapper_3 ul.gform_fields li.gfield{
+    padding-right: 0;
 }
 #gform_wrapper_3 .gform_footer{
     text-align: center;
@@ -650,6 +659,9 @@ body #gform_wrapper_3 .top_label div.ginput_container{
     font-weight: bold;
     border-radius: 5px;
     width: auto;
+    max-width: 100%;
+    white-space: normal;
+    margin-right: 0;
 }
 .form-subscribe .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description{
     text-align: center;

@@ -12,6 +12,7 @@
       width: 40%;
       float: left;
       margin-right: 15px;
+      @include radius(50%);
     }
 
     .box-info{
@@ -25,6 +26,7 @@
         color: $color-gray-text;
         border-bottom: 1px solid $color-gray-border;
         padding: 10px 0;
+        margin-left: calc(40% + 15px);
       }
       .position{
         color: $color-gray-text;
@@ -35,12 +37,26 @@
       }
       .follow-author{
         font-weight: bold;
+        text-align: right;
       }
     }
   }
   .title-post-by-author{
     font-weight: bold;
     margin-bottom: 30px;
+    margin-top: 50px;
+    border-bottom: 3px solid $color-green-logo;
+    padding-bottom: 10px;
+    position: relative;
+    &:after{
+      content: "";
+      display: inline-block;
+      width: 100px;
+      border-bottom: 3px solid #0D3153;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+    }
   }
   .follow-author{
     padding: 10px 0;
@@ -85,6 +101,7 @@
     img{
       width: 30%;
       float: left;
+      @include radius(50%);
     }
     .author-name{
       padding-left: calc(30% + 15px);

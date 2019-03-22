@@ -90,13 +90,13 @@
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-3 text-left box-logo-home d-xl-block d-lg-block d-none">
-                    <a href="<?php echo get_home_url();?>">
+                    <a href="<?php echo get_home_url();?>" class="logo-envzone">
                         <img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
                     </a>
                 </div>
                 <div class="col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex justify-content-lg-end position-static" id="menuBarMobile">
 
-                    <div class="justify-content-lg-end w-100">
+                    <div class="d-flex align-items-end justify-content-lg-end w-100">
                         <ul class="main-menu nav text-right justify-content-lg-end justify-content-sm-between flex-md-row flex-column ">
                             <li class="nav-item d-sm-none">
                                 <a class="nav-link item-call" href="tel:7206062900">
