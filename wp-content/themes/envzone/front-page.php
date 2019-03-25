@@ -8,13 +8,14 @@
             <div class="container">
                 <article class="box-headline">
                     <h1 class="head-line-envzone">
-                        A TRUST ENABLER IN DENVER AREA FOR YOUR OUTSOURCING NEEDS
+                        DENVER SOFTWARE OUTSOURCING AUTHORITY
                     </h1>
-                    <p>
-                        Clients let ENVZONE handle the risk of offshore outsourcing. <br>
-                        ENVZONE due diligence process making sure the programming team that will innovate and not just code.
+                    <p>Learn how we could help tech companies achieve their business goals.
                     </p>
-                    <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THIS UNIQUE APPROACH</a>
+                    <p>
+                        A premium outsourcing solution for minimum management and maximum output.
+                    </p>
+                    <a href="<?php echo home_url("knowledge/guidance-to-keep-your-tech-company-ahead-of-the-competition");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
                     <div class="title-security">
                         <i class="icon-security"></i>
                         Be Informed. Be Protected. Be outsourcing fearless.
@@ -27,12 +28,13 @@
             <div class="container">
                 <article class="box-headline">
                     <h1 class="head-line-envzone">
-                        STOP WASTING TIME ON TEAM FOLLOW UP
+                        RE-ENVISIONING THE EXPERIENCE OF SOFTWARE OUTSOURCING
                     </h1>
+                   <p>
+                       Your outsourced vendor will be tracked by results.
+                   </p>
                     <p>
-                        Your outsourced vendor will be tracked by results. <br>
-                        Performance inspector clears the way, so you can focus on doing <br>
-                        what you do best.
+                        Performance inspector clears the way, so you can focus on doing what you do best.
                     </p>
                     <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">SCHEDULE AN APPOINTMENT NOW</a>
                     <div class="title-security">
@@ -47,13 +49,15 @@
             <div class="container">
                 <article class="box-headline">
                     <h1 class="head-line-envzone">
-                        KEEPING OUR CLIENTS AHEAD OF THE GAME IS THE MISSION
+                        A TRUST ENABLER IN DENVER AREA FOR YOUR SOFTWARE OUTSOURCING NEEDS
                     </h1>
                     <p>
-                        Learn how we could help startup and tech founders achieve <br> their business goals.
-
+                        Clients let ENVZONE handle the risk of offshore outsourcing.
                     </p>
-                    <a href="<?php echo home_url("knowledge/guidance-to-keep-your-tech-company-ahead-of-the-competition");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
+                    <p>
+                        ENVZONE due diligence process making sure the programming team that will innovate and not just code.
+                    </p>
+                    <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THIS UNIQUE APPROACH</a>
                     <div class="title-security">
                         <i class="icon-security"></i>
                         Be Informed. Be Protected. Be outsourcing fearless.
@@ -66,10 +70,13 @@
             <div class="container">
                 <article class="box-headline">
                     <h1 class="head-line-envzone">
-                        NO MORE ISSUES OF LOSING DNA BOND WITH OFFSHORE OUTSOURCED DEV TEAM
+                        NO MORE LOSING DNA BOND WITH OFFSHORE OUTSOURCED TEAM
                     </h1>
                     <p>
-                        Our clients hire us to be their communication bridge. <br>
+                        Our clients hire us to be their communication bridge.
+
+                    </p>
+                    <p>
                         They retain us because we do all it takes to help them finish the race.
                     </p>
                     <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">GET MY PROJECT GOING</a>
@@ -134,7 +141,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <div class="item-special">
                         <div class="row">
 
@@ -148,7 +155,7 @@
                                     <a href="<?php echo home_url('category/').get_the_category($news_special[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
 
                                     <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
-                                        <h3><?php echo $news_special[0]->post_title;?></h3>
+                                        <h3 class="title-special"><?php echo $news_special[0]->post_title;?></h3>
                                     </a>
 
                                     <div class="excerpt">
@@ -160,7 +167,17 @@
                                 </div>
 
                                 <div class="box-author mt-auto">
-                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_all[0]->post_author);?></a>
+                                    <?php
+                                    if (get_field('avatar', 'user_'.$news_special[0]->post_author)== ''){
+                                        $avatar = ASSET_URL.'images/avatar-default.png';
+                                    }
+                                    else{
+                                        $avatar = get_field('avatar', 'user_'.$news_special[0]->post_author);
+                                    }
+
+                                    ?>
+                                    <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_special[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_special[0]->post_author);?></a>
                                     <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[0]->ID );?></div>
                                 </div>
 
@@ -168,19 +185,29 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <?php for($i=1; $i<4; $i++):?>
-                            <div class="col-lg-4 col-md-4 col-6 col-mbx-100 d-flex box-item-special">
+                    <div class="owl-carousel owl-theme d-flex slider-news">
+                        <?php for($i=1; $i<count($news_special); $i++):
+
+                            if (get_field('avatar', 'user_'.$news_special[$i]->post_author)== ''){
+                                $avatar = ASSET_URL.'images/avatar-default.png';
+                            }
+                            else{
+                                $avatar = get_field('avatar', 'user_'.$news_special[$i]->post_author);
+                            }
+                            
+                            ?>
+                            <div class="box-item-special item">
                                 <div class="item-blog">
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($news_special[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
                                             <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
-                                                <h4><?php echo $news_special[$i]->post_title;?></h4>
+                                                <h4 class="title-list-special"><?php echo $news_special[$i]->post_title;?></h4>
                                             </a>
                                         </div>
                                         <div class="info-author">
+                                            <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
                                             <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></a>
                                             <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
                                         </div>
@@ -191,23 +218,7 @@
                             </div>
                         <?php endfor;?>
                     </div>
-                </div>
 
-                <div class="col-lg-3 d-lg-block d-none">
-                    <article class="list-item">
-                        <div class="label-headline">#1 News Trending</div>
-
-                        <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
-                            <?php for($i=4; $i<10; $i++):?>
-                                <div class="item-detail">
-                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
-                                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" alt="">
-                                        <h5><?php echo $news_special[$i]->post_title;?></h5>
-                                    </a>
-                                </div>
-                            <?php endfor;?>
-                        </div>
-                    </article>
                 </div>
 
             </div>
@@ -1024,9 +1035,52 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 
+
+    <!-- /*============ENHANCEMENTS HOME=================*/ -->
+    <div class="container-fluild">
+        <div class="bg-blue-home" style="background: #45678A">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 text-lg-right text-center">
+                        <img src="<?php echo ASSET_URL;?>images/icon-enhancements.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-9" style="color: white">
+                        <p>
+                            ENVZONE Website Enhancements Ongoing
+                        </p>
+                        <p>
+                            The EnvZone website will be undergoing upgrades beginning March 15, to improve the user experience and enhance the mobile-friendly usability of the site. On the EnvZone website, users will notice changes including a more standard horizontal navigation menu, larger page widths, and some font/styling changes. Page navigation and site paths will remain the same.
+                        </p>
+                        <p>
+                            Thank you for your patience as we continue to work to improve our digital systems to support the Run to 2020 and Beyond! Have questions? Email webmaster@envzone.com.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /*============END ENHANCEMENTS HOME=================*/ -->
+
 </main>
 
 <script>
+
+    (function ( $ ) {
+        "use strict";
+        $(document).ready(function (e) {
+
+            $('.content-blog .box-item-special .item-blog').matchHeight({
+                byRow: true,
+                property: 'height',
+                target: null,
+                remove: false
+            });
+        });
+
+    })(jQuery);
     /*============ slide news =================*/
     $(document).ready(function() {
 
@@ -1074,6 +1128,30 @@
                 },
                 1024: {
                     items: 4
+                }
+            }
+        });
+
+        $('.slider-news').owlCarousel({
+            loop: false,
+            margin: 30,
+            nav: true,
+            dots: false,
+            autoplay: false,
+            autoplayTimeout: 2000,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                425: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
                 }
             }
         });

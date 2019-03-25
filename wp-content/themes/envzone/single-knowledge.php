@@ -32,7 +32,7 @@ get_header();
                 <div class="col-8">
                     <div class="box-video">
                         <div class="embed-video">
-                            <?php echo get_field('embed', $post->ID);?>
+                            <iframe src="<?php echo get_field('embed', $post->ID, false);?>" frameborder="0" title="<?php echo $post->post_title;?>" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
                         </div>
                         <div class="info-video">
                             <?php echo $post->post_content;?>
@@ -58,22 +58,35 @@ get_header();
                                 <?php echo get_the_date( 'M d,Y', $post->ID ); ?>
                             </div>
                         </div>
+
+                        <div class="public-on">
+                            TAGS
+                            <div class="tags">
+
+                                <?php
+                                if (get_the_tags() != ''):
+                                    foreach (get_the_tags() as $tag):?>
+                                        <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>
+                                    <?php endforeach; else: echo 'No tags!'; endif;?>
+                            </div>
+                        </div>
+
                         <div class="box-share-social">
-                            <div class="share-share-social">
+                            <div class="label-share-socials">
                                 SHARE THIS VIDEO TO MY FAVORITES
                             </div>
-                            <ul class="nav list-social">
-                                <li class="nav-item px-1">
+                            <ul class="nav list-social justify-content-end">
+                                <li class="nav-item px-3">
+                                    <a class="nav-link link-twitter" href="#"><i class="icon-embed-video"></i></a>
+                                </li>
+                                <li class="nav-item px-3">
                                     <a class="nav-link link-twitter" href="#"><i class="icon-twitter-green"></i></a>
                                 </li>
-                                <li class="nav-item px-1">
+                                <li class="nav-item px-3">
                                     <a class="nav-link link-facebook" href="#"><i class="icon-facebook-green"></i></a>
                                 </li>
-                                <li class="nav-item px-1">
+                                <li class="nav-item px-3">
                                     <a class="nav-link link-linkedin" href="#"><i class="icon-linkedin-green"></i></a>
-                                </li>
-                                <li class="nav-item px-1">
-                                    <a class="nav-link link-google" href="#"><i class="icon-google-plus-green"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -98,28 +111,16 @@ get_header();
                     ?>
                 </div>
 
-                <div class="col-4">
-                    <div class="box-advert text-center">
+                <div class="col-4 blog-detail-page">
+                    <div class="box-advert">
                         <p>
-                            Do Not Let Your Outsourcing Projects Go South!
+                            <span class="fz-big-green">80%</span> of outsourcing relationships fail due to responsiveness &amp; communication factors
                         </p>
                         <div class="sub-title">
-                            We can help you
+                            Do Not Let Your Projects Go South!
                         </div>
-                        <a href="<?php echo home_url('process-framework')?>" class="btn btn-green-env">
-                            SEE THIS UNIQUE APPROACH FOR SUCCESS
-                        </a>
-                    </div>
-
-                    <div class="box-advert bg-green">
-                        <p>
-                            ENVZONE team members are known being very active across disruptive events. Surely, they will be proactive and innovative on your projects too.
-                        </p>
-                        <div class="sub-title">
-                            Interested in working with the team?
-                        </div>
-                        <a href="<?php echo home_url('contact-us')?>" class="btn btn-blue-env">
-                            SCHEDULE ME WITH THE TEAM
+                        <a href="<?php echo home_url('process-framework');?>" class="btn btn-green-env">
+                            FIX MY SOFTWARE PROJECT
                         </a>
                     </div>
                 </div>
@@ -152,8 +153,229 @@ get_header();
         </div>
         <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
-</main>
 
+    <div class="artical-page blog-page blog-detail-page">
+
+        <div class="container">
+            <!-- /*============WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
+                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-theme d-flex slider-news">
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 7,
+                            'offset'=> 0,
+                            'post_type' => 'knowledge',
+                            'orderby' => 'id',
+                            'order' =>'desc'
+                        );
+                        $news_expert = get_posts( $args );
+                        foreach ($news_expert as $item):
+                            if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                $avatar = ASSET_URL.'images/avatar-default.png';
+                            }
+                            else{
+                                $avatar = get_field('avatar', 'user_'.$item->post_author);
+                            }
+                            ?>
+                            <article class="highlight-news-right img-center item">
+                                <?php
+                                $vimeo = get_post_meta($item->ID, 'embed', true);
+                                ?>
+                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
+                                    <i class="icon-video-play"></i>
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                        <?php echo get_the_category($item->ID)[0]->name;?>
+                                    </a>
+                                    <a href="<?php echo get_permalink($item->ID);?>">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit">
+
+                                        <span>By:</span>
+                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
+                                        <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+            <!-- /*============END WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
+
+            <!-- /*============READ MORE FEATURED INSIGHTS=================*/ -->
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue have-border">READ MORE FEATURED INSIGHTS</h3>
+                    <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-theme d-flex slider-news">
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 7,
+                            'offset'=> 0,
+                            'post_type' => 'post',
+                            'orderby' => 'id',
+                            'order' =>'desc'
+                        );
+                        $news_expert = get_posts( $args );
+
+                        foreach ($news_expert as $item):
+                            ?>
+                            <article class="highlight-news-right img-center item">
+                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                        <?php echo get_the_category($item->ID)[0]->cat_name;?>
+                                    </a>
+                                    <a href="<?php echo get_permalink($item->ID);?>">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit">
+                                        <?php
+                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                            $avatar = ASSET_URL.'images/avatar-default.png';
+                                        }
+                                        else{
+                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
+                                        }
+                                        ?>
+                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <span>By:</span>
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
+                                        <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+            <!-- /*============END READ MORE FEATURED INSIGHTS=================*/ -->
+
+            <!-- /*============WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS=================*/ -->
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
+                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-theme d-flex slider-news">
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 7,
+                            'offset'=> 0,
+                            'post_type' => 'knowledge',
+                            'orderby' => 'id',
+                            'order' =>'desc'
+                        );
+                        $news_expert = get_posts( $args );
+                        foreach ($news_expert as $item):
+                            if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                $avatar = ASSET_URL.'images/avatar-default.png';
+                            }
+                            else{
+                                $avatar = get_field('avatar', 'user_'.$item->post_author);
+                            }
+                            ?>
+                            <article class="highlight-news-right img-center item">
+                                <?php
+                                $vimeo = get_post_meta($item->ID, 'embed', true);
+                                ?>
+                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
+                                    <i class="icon-video-play"></i>
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                        <?php echo get_the_category($item->ID)[0]->name;?>
+                                    </a>
+                                    <a href="<?php echo get_permalink($item->ID);?>">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit">
+
+                                        <span>By:</span>
+                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
+                                        <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+            <!-- /*============END WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS=================*/ -->
+        </div>
+
+    </div>
+</main>
+<script>
+    (function ( $ ) {
+        "use strict";
+        $(document).ready(function (e) {
+
+            $('.blog-page .highlight-news-right .info-news h2').matchHeight({
+                byRow: true,
+                property: 'height',
+                target: null,
+                remove: false
+            });
+
+            $('.slider-news').owlCarousel({
+                loop: false,
+                margin: 30,
+                nav: true,
+                dots: false,
+                autoplay: false,
+                autoplayTimeout: 2000,
+                navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    425: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    1024: {
+                        items: 3
+                    }
+                }
+            });
+
+        });
+
+    })(jQuery);
+
+</script>
 <?php
 get_footer();
 ?>

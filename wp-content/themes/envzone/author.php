@@ -88,7 +88,7 @@ get_header();?>
                         }
                     }
 
-                    if (  $wp_query->max_num_pages > 1 ){
+                    if (  $the_query->max_num_pages > 1 ){
                         echo '<div class="misha_loadmore btn-category btn btn-blue-env w-100 mb-5">Show more</div>'; // you can use <a> as well
                     };
                     ?>
@@ -98,7 +98,7 @@ get_header();?>
                 <div class="col-4">
                     <div class="popup-hack-me">
                         <h3>
-                            Hacking your mind with 5 mins daily digest!
+                            Follow <?php echo $authorName;?> for featured insights to make your business successful
                         </h3>
                         <div class="form-subscribe">
                             <?php

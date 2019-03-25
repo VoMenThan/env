@@ -35,7 +35,7 @@ get_header();
                     <article class="box-knowledge clearfix">
                         <div class="box-video-special">
                             <div class="embed-video">
-                                <?php echo get_field('embed', $video_list[0]->ID);?>
+                                <iframe src="<?php echo get_field('embed', $video_list[0]->ID, false);?>" frameborder="0" title="<?php echo $video_list[0]->post_title;?>" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
                             </div>
                         </div>
                         <div class="box-info-video">
@@ -46,14 +46,24 @@ get_header();
                             </h2>
                             </a>
                             <p>
-                                <?php echo $video_list[0]->post_excerpt;?>
+                                <?php echo wp_trim_words($video_list[0]->post_excerpt, 20);?>
                             </p>
 
-                            <div class="audit position-static"><span>By:</span>
+                            <div class="audit">
+                                <?php
+                                if (get_field('avatar', 'user_'.$video_list[0]->post_author)== ''){
+                                    $avatar = ASSET_URL.'images/avatar-default.png';
+                                }
+                                else{
+                                    $avatar = get_field('avatar', 'user_'.$video_list[0]->post_author);
+                                }
+                                ?>
+                                <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                <span>By:</span>
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_list[0]->post_author);?>">
                                     <?php echo get_the_author_meta('display_name', $video_list[0]->post_author);?>
                                 </a>
-                                <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $video_list[0]->ID );?></span>
+                                <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $video_list[0]->ID );?></div>
                             </div>
                         </div>
                     </article>
@@ -63,6 +73,9 @@ get_header();
 
                 <div class="col-lg-8">
                     <div class="row">
+                        <div class="col-12">
+                            <h3 class="title-head-blue have-border">FEATURED VIDEOS</h3>
+                        </div>
                         <?php
                         foreach ($video_list as $k => $item):
                             if ($k == 0) continue;
@@ -74,6 +87,7 @@ get_header();
                                         $vimeo = get_post_meta($item->ID, 'embed', true);
                                     ?>
                                     <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
+                                    <i class="icon-video-play"></i>
                                 </a>
                                 <div class="info-news">
                                     <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -82,11 +96,21 @@ get_header();
                                             <?php echo $item->post_title;?>
                                         </h2>
                                     </a>
-                                    <div class="audit position-static"><span>By:</span>
+                                    <div class="audit position-static">
+                                        <?php
+                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                            $avatar = ASSET_URL.'images/avatar-default.png';
+                                        }
+                                        else{
+                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
+                                        }
+                                        ?>
+                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <span>By:</span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <span class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></span>
+                                        <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -97,18 +121,57 @@ get_header();
 <!--                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="popup-hack-me">
-                        <h3>
-                            Every month, we release a video of in-depth C-Level in offshore outsroucing resources <br>
-                            We would like to keep you updated too!
-                        </h3>
-<!--                        <input type="text" placeholder="your email address">-->
-<!--                        <a href="#" class="btn btn-blue-env btn-show-more">KEEP ME UPDATED</a>-->
-                        <div class="form-subscribe">
-                            <?php
-                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                            ?>
+                <div class="col-lg-4 blog-detail-page">
+                    <div class="box-subscriber-blog">
+                        <div class="box-border">
+                            <div class="title-sub">
+                                Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
+                            </div>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-free-ebook">
+                        <div class="title-free-book">
+                            Free eBooks
+                        </div>
+
+                        <div class="ebook-top">
+                            <h4 class="title-ebook">
+                                The All-In-One Cheatsheet For A Strategic Outsourcing Decision
+                            </h4>
+                            <div class="box-img">
+                                <img class="img-fluild" src="<?php echo ASSET_URL;?>images/cover-ebook-all-in-one.png" alt="">
+                            </div>
+
+                            <a href="#" class="btn btn-blue-env btn-download">DOWNLOAD</a>
+                        </div>
+
+                        <div class="ebook">
+                            <div class="box-img">
+                                <img class="img-fluild" src="<?php echo ASSET_URL;?>images/cover-ebook-report-software.png" alt="">
+                            </div>
+                            <div class="info">
+                                <h4 class="title-ebook">
+                                    Report on Software Outsourcing Needs and Content Preferences
+                                </h4>
+                                <a href="#" class="btn btn-blue-env">DOWNLOAD</a>
+                            </div>
+                        </div>
+                        <div class="ebook">
+                            <div class="box-img">
+                                <img class="img-fluild" src="<?php echo ASSET_URL;?>images/cover-ebook-3quick-tips.png" alt="">
+                            </div>
+                            <div class="info">
+                                <h4 class="title-ebook">
+                                    3 Quick Tips to Have a Successful Outsourcing Experience
+                                </h4>
+                                <a href="#" class="btn btn-blue-env">DOWNLOAD</a>
+                            </div>
                         </div>
                     </div>
                 </div>
