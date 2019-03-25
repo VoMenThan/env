@@ -11,8 +11,11 @@ section.testing-page{
   }
   .info-step{
     padding: 15px;
+    padding-right: 57px;
+    padding-left: 63px;
     p{
       font-size: 26px;
+      line-height: 37px;
     }
   }
   .bg-blue{
@@ -30,13 +33,15 @@ section.testing-page{
     height: calc(100% - 30px);
     p{
       font-size: 26px;
+      line-height: 37px;
     }
   }
 
   .title-blue{
     font-size: 1.625rem;
+    line-height: 37px;
     text-align: center;
-    width: 80%;
+    width: 65%;
     margin: auto;
   }
   .item-qa{
@@ -44,7 +49,7 @@ section.testing-page{
     width: 180px;
     height: 180px;
     text-align: center;
-    border: 1px solid $color-gray-border;
+    border: 1px solid $color-black;
     font-size: 1.625rem;
   }
 }

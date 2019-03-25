@@ -11,6 +11,7 @@
 		p{
 			position: relative;
 			font-size: 1.625rem;
+			line-height: 37px;
 			>i{
 				position: absolute;
 				left: -30px;
@@ -23,7 +24,8 @@
 	}
 	.box-two-col-full{
 		background: $color-green-logo;
-		padding: 100px 0;
+		padding-top: 100px;
+		padding-bottom: 50px;
 		.title-head-blue{
 			margin-bottom: 30px;
 		}

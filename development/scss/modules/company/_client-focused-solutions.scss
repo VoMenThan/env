@@ -1,9 +1,10 @@
 .client-focused-solutions-page{
   padding-bottom: 0 !important;
   .box-green{
-    padding: 50px 30px;
+    padding: 30px 50px 30px 30px;
     background: $color-green-logo;
     .title-blue-center{
+      padding-right: 40px!important;
       color: $color-blue-logo;
       font-size: 36px;
       line-height: 55px;
@@ -19,7 +20,6 @@
       p{
         font-size: 20px;
         color: $color-white;
-        margin-bottom: 30px;
         font-weight: 500;
       }
     }
@@ -37,6 +37,8 @@
           color: $color-blue-logo;
           display: inline-block;
           font-size: 20px;
+          text-align: right;
+          margin-top: 24px;
         }
       }
     }
