@@ -31,7 +31,7 @@
                         On the one hand, outsourcing offers cost-effective services by having projects done cheaper and efficiently, cost wise.
                     </p>
 
-                    <p>
+                    <p class="pb-4">
                         As a result, you will reap enormous benefits.
                     </p>
                     <h3>Eliminating uncertainty elements</h3>
@@ -50,8 +50,8 @@
                         <p>
                             And our partner, on the other hand, is responsible for the basics such as keeping track of leaves, schedules and paying the personnel under him or her. They will also create the teams and conduct product development.
                         </p>
-                        <a href="<?php echo get_home_url();?>/contact-us" class="learn-more">
-                            Contact EnvZone consultant <br> to learn more...
+                        <a href="<?php echo get_home_url();?>/contact-us" class="learn-more mr-2">
+                            Contact a consultant to <br>learn more...
                         </a>
                     </article>
 

@@ -56,7 +56,7 @@
                             <li class="d-flex align-items-center">Servicing a wide range of industries</li>
                         </ul>
                         <div class="text-right">
-                            <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env">Learn more</a>
+                            <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-white-env mt-3">Learn more</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="container">
-            <div class="row py-5 box-what-we-see justify-content-center">
+            <div class="row py-5 box-what-we-see justify-content-center mb-4">
                 <div class="col-12">
                     <h2 class="title-head-blue">WHAT WE SEE AND HOW WE DO IT</h2>
                 </div>

@@ -16,9 +16,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-md-center mb-5">
+            <div class="row justify-content-md-center">
                 <div class="col-lg-5">
-                    <h2 class="title-head-blue text-center">SOFTWARE PROTYPING</h2>
+                    <h2 class="title-head-blue text-center pt-4">SOFTWARE PROTYPING</h2>
                 </div>
                 <div class="col-lg-7">
                     <div class="description-overhead">
@@ -34,7 +34,7 @@
 
             </div>
 
-            <div class="row justify-content-md-center box-development mb-5">
+            <div class="row justify-content-md-center box-development">
                 <div class="col-lg-5">
                     <h2 class="title-head-blue text-center">CUSTOM SOFTWARE
                         DEVELOPMENT
@@ -76,7 +76,7 @@
 
             <div class="row justify-content-md-center mb-5">
                 <div class="col-lg-5">
-                    <h2 class="title-head-blue text-center">PRODUCT DEVELOPMENT
+                    <h2 class="title-head-blue title-head-blue-3  text-center pt-3">PRODUCT<br> DEVELOPMENT
                     </h2>
                 </div>
                 <div class="col-lg-7">
@@ -88,31 +88,31 @@
                     <div class="title-blue">We are ready to offer support at all stages of your product creation:</div>
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-                            <div class="item-product-development">
+                            <div class="item-product-development full-cycle-pt">
                                 Feasibility Study
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="item-product-development">
                                 Prototyping
-                                & Design
+                               <br> & Design
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-                            <div class="item-product-development">
+                            <div class="item-product-development full-cycle-pt">
                                 Development
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="item-product-development">
                                 Customization
-                                & Deployment
+                                <br>& Deployment
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="item-product-development">
                                 Support
-                                & Maintenance
+                                <br>& Maintenance
                             </div>
                         </div>
                     </div>

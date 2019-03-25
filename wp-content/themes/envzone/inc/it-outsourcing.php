@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET MY LIFETIME ACCESS</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET YOUR OWN DEDICATED TEAM</a>
                 </div>
             </div>
 

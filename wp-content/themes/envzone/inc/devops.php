@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-md-center mb-5">
+            <div class="row justify-content-md-center">
                 <div class="col-lg-9">
                     <div class="description-overhead title-blue text-left">
                         <p>
@@ -150,10 +150,10 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        WHY YOUR BUSINESS NEEDS ENVZONE
+                        WE MAKE TEAM LEADERS FREE UP THEIR THEIR MIND
                     </h2>
                     <div class="description-business">
-                        EnvZone gives you tools and services to compete in modern business environments.
+                        A premium outsourcing solution for minimum management and maximum output
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
