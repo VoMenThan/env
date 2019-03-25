@@ -21,7 +21,7 @@
                         <h1 class="title-head-blue">HOW WE WORK</h1>
                         <p>
                             <i class="icon-one"></i>
-                            Our first point of call is to consult with you to understand the rudiments of your project. We pay attention to your business model, services offer and services your company required.
+                            Our first point of call is to consult with you to understand the rudiments of your project. We pay attention to your business model and services your company required
                         </p>
                         <p>
                             <i class="icon-two"></i>
@@ -35,6 +35,9 @@
                             <i class="icon-four"></i>
                             We will give you the opportunity to hold further discussions with your selected team, and we will help you read an agreement on the specifics of your projects. Once all your requirements are met, your team will start to work on your project under your full supervision.
                         </p>
+                         <div class="col-lg-12 text-center order-2">
+                            <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mt-5">Connect Me to A Representative</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +69,7 @@
                     <h4>DELIVERABLES</h4>
                 </div>
                 <div class="col-lg-6 col-md-8 col-sm-8">
-                    <p>
+                    <p class="p-header">
                         The purpose of discovery process is to gather information and to determine if EnvZone is meeting your criteria
                     </p>
                 </div>
@@ -179,7 +182,7 @@
                         <h4>DELIVERABLES</h4>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-8">
-                        <p>
+                        <p class="p-header">
                             The main purpose of the development process is analyzing your requirements, and building quality and correctness of good software.
                         </p>
                     </div>
