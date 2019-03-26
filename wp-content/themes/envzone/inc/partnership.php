@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="col-lg-12 col-12 box-header text-lg-center">
-                    <h1 class="title-head-blue title-top">Why do you need this program?</h1>
+                    <h1 class="title-head-blue title-top mt-5">Why do you need this program?</h1>
                 </div>
 
                 <div class="col-12 box-two-col clearfix">

@@ -18,7 +18,7 @@
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">Deliver high-quality software at a rapid pace</h1>
+                    <h1 class="title-head-blue text-center">Deliver high-quality software at a <br>rapid pace</h1>
                 </div>
 
                 <div class="col-lg-6 col-md-6 order-md-0 order-1 info-step d-flex align-items-center">
@@ -44,7 +44,7 @@
                     </p>
                 </div>
             </div>
-            <div class="row justify-content-md-center mb-5">
+            <div class="row justify-content-md-center">
                 <div class="col-lg-6 col-md-6 order-md-0 order-1 info-step d-flex align-items-center">
                     <p>
                         Instead of being forced to settle for suboptimal testing solution because the size of your enterprise, you need an innovative platform with functionality, flexibility, reporting and security that can scale for your organization.
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-md-center mb-5">
+            <div class="row justify-content-md-center">
                 <div class="col-12">
                     <h2 class="title-head-blue text-center">Deploy with confidence</h2>
                 </div>
@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Connect Me to a Testing Team</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">SUBMIT MY REQUIREMENTS</a>
                 </div>
             </div>
 

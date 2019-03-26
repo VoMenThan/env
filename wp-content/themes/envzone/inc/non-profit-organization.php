@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-e-commerce-and-retail.png">
-        <h2>Non-profit Organization</h2>
+        <h2>NON-PROFIT ORGANIZATION</h2>
     </section>
     <section class="artical-page industries-page none-profit-page">
         <div class="container">
@@ -38,7 +38,7 @@
                 <div class="col-lg-4">
                     <div class="d-flex justify-content-center align-items-center item-different">
                         <img src="<?php echo ASSET_URL;?>images/icon-lack-of-technology-flexibility.png" alt="" class="icon-different">
-                        <h4>Lack of technology flexibility</h4>
+                        <h4 class="margin-negative-left">Lack of technology flexibility</h4>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,8 @@
             <div class="container">
                 <div class="row justify-content-md-center">
                     <div class="col-lg-5 title-blue">
-                        We understand the importance of solving challenges of our non-profit clients with innovative technology solutions
+                        We understand the importance of solving challenges of our
+                        <br> non-profit clients with innovative technology solutions
                     </div>
                     <div class="col-lg-7">
                         <p>
@@ -63,7 +64,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center mb-5 btn-learn-more">
+                <div class="col-12 text-center mb-5"> 
                     <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
                 </div>
             </div>
@@ -73,7 +74,7 @@
             <div class="row justify-content-center fully-aware">
 
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">We are fully aware of what you are struggling for</h1>
+                    <h1 class="title-head-blue text-center">We offer top solutions that help our nonprofit clients plan and promote their operations effectively</h1>
                 </div>
 
                 <div class="col-lg-8">
@@ -109,7 +110,7 @@
                 </div>
 
                 <div class="col-12 text-center">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">DISCOVER OUR BUSINESS VALUES</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mt-3">DISCOVER OUR BUSINESS VALUES</a>
                 </div>
             </div>
 
@@ -128,7 +129,7 @@
                     <h2>
                         THE REASONS TO CHOOSE ENVZONE
                     </h2>
-                    <div class="description-business">
+                    <div class="description-business description-business-np pb-3">
                         We create an engaging and empowering environment across every aspect of your non-profit plans.
                     </div>
                 </div>

@@ -2,11 +2,11 @@
   .fully-aware{
     margin-bottom: 50px;
     .title-head-blue{
-      margin-bottom: 30px;
+      margin: 0px 100px 30px 100px;
     }
   }
   .item-different{
-    border: 1px solid $color-gray-border;
+    border: 1px solid $color-black;
     padding: 10px;
     background: $color-white;
     @include border-radius(5px);
@@ -25,13 +25,22 @@
     margin-bottom: 50px;
     .title-blue{
       color: $color-blue-logo;
-      font-size: 2rem;
+      font-size: 36px;
+      line-height: 55px;
       font-weight: bold;
+      padding-right: 100px;
     }
     p{
       font-size: 26px;
+      line-height: 37px;
     }
   }
+  .margin-negative-left{
+    margin-left: -5px;
+  }
+}
+.description-business-np{
+  width: 59%!important;
 }
 /* 	================================================================
 	MEDIUM DEVICE

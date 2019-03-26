@@ -21,6 +21,7 @@
       padding: 50px 40px;
       color: $color-white;
       font-size: 20px;
+      line-height: 28px;
       font-weight: 500;
 
     }
@@ -35,6 +36,7 @@
         width: 70%;
         font-weight: bold;
         font-size: 36px;
+        line-height: 55px;
       }
     }
   }
@@ -60,12 +62,13 @@
         padding-bottom: 1rem;
         font-size: 26px;
         font-weight: bold;
-        color: $color-blue-logo;
+        color: $color-white;
       }
       p{
         text-align: left;
         font-size: 20px;
         font-weight: 500;
+        line-height: 28px;
       }
     }
     .box-blue{
@@ -79,12 +82,13 @@
         padding-bottom: 1rem;
         font-size: 26px;
         font-weight: bold;
-        color: $color-green-logo;
+        color: $color-white;
       }
       p{
         text-align: left;
         font-size: 20px;
         font-weight: 500;
+        line-height: 28px;
       }
     }
   }
@@ -92,6 +96,7 @@
   .description-sign-me-up{
     font-size: 32px;
     font-weight: bold;
+    padding: 0px 350px;
   }
 }
 
