@@ -52,7 +52,8 @@
       padding: 15px;
       .audit{
         .author{
-          color: $color-white;
+          color: #4F4F4F;
+          font-weight: bold;
         }
       }
       .info-photo{
@@ -106,6 +107,7 @@
     }
     .info-news{
       padding: 10px !important;
+      padding-top: 0 !important;
     }
     .btn-show-more{
       padding: 6px !important;

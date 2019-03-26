@@ -11,8 +11,8 @@
                 <div class="box-info-footer">
                     <div class="label-company">Request for Inquiries:</div>
                     <a class="email-envzone" href="mailto:info@envzone.com">info@envzone.com</a> <br>
-                    <a href="tel:+017206062900" class="phone-envzone pb-3">Office: 720-606-2900</a>
-                    <address class="pb-3">1801 California St., Suite 2400 <br>
+                    <a href="tel:+017206062900" class="phone-envzone">Office: 720-606-2900</a>
+                    <address>1801 California St., Suite 2400 <br>
                         Denver, CO 80202
                         <a href="https://goo.gl/maps/V7KQJrDY94t" target="_blank" class="icon-direction-footer"></a>
                     </address>
@@ -201,7 +201,7 @@
                     <p>Certified Business Credentials</p>
                     <img class="img-verified img-fluid" src="<?php echo ASSET_URL;?>images/img-verified.png" alt="">
                 </div>
-                <div class="col-lg-8 py-3">
+                <div class="col-lg-8 pt-3">
                     <div class="box-policy text-center d-none-768">
                         <a href="<?php echo get_home_url();?>/accessibility">Accessibility</a>
                         <a href="<?php echo get_home_url();?>/terms-of-use">Terms of Use</a>

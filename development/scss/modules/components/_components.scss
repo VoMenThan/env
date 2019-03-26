@@ -232,20 +232,18 @@ h1, h2, h3, h4, h5, h6{
 /*============BREADCRUMB PAGE=================*/
 .box-breadcrumb{
 	color: $color-blue-logo;
-	margin-bottom: 2rem;
-	font-size: 20px;
-	font-weight: bold;
+	margin-bottom: 20px;
+	font-size: 16px;
+	margin-top: 10px;
 	.you-here{
 		float: left;
 		color: $color-blue-logo;
-		font-weight: bold;
 	}
 	.breadcrumb{
 		background: transparent;
 		padding: inherit;
 		padding-left: 15px;
 		font-size: 16px;
-		line-height: 30px;
 	}
 }
 

@@ -34,11 +34,14 @@
       }
     }
     .category, .author{
-      color: $color-green-logo;
       font-weight: bold;
       font-family: $font-roboto;
     }
+    .author{
+      color: $color-white;
+    }
     .category{
+      color: $color-green-logo;
       display: inline-block;
       margin-bottom: 10px;
       text-transform: uppercase;

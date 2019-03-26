@@ -16,7 +16,7 @@ nav {
         a{
             position: absolute;
             display: inline-block;
-            top: -24px;
+            top: -21px;
         }
         >img {
             height: 35px;
@@ -26,20 +26,16 @@ nav {
     ul.menu-contact {
         margin-top: 10px;
         .nav-item {
-
-            &:last-child{
-              .nav-link{
-                &:before{
-                  content: "|";
-                  display: inline-block;
-                  position: relative;
-                  left: -15px;
-                }
-              }
-                span{
-                    padding-right: 0;
+            &:nth-child(2){
+                .nav-link {
+                    &:hover{
+                        span{
+                            color: $color-white;
+                        }
+                    }
                 }
             }
+
             span {
                 font-size: 18px;
                 font-weight: bold;
@@ -64,7 +60,6 @@ nav {
                     }
                 }
             }
-
             .icon-typical-phone {
                 @include setBackgroundIcon(20px, "../images/icon-typical-phone.svg");
                 vertical-align: middle;
@@ -120,9 +115,10 @@ nav {
                 font-size: 1rem;
                 font-family: $font-menu;
                 color: $color-white;
-                padding: 15px 24px;
+                padding: 18px 24px;
                 position: relative;
                 font-weight: bold;
+                padding-bottom: 12px;
 
                 &.btn-search-pc{
                   &:before{
@@ -245,6 +241,9 @@ nav {
 			padding-bottom: 15px;
             font-weight: bold;
             display: inline-block;
+            &:hover{
+                color: #53880B;
+            }
 		}
 		.title-contact{
 			font-size: 22px;

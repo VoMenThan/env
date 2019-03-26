@@ -19,22 +19,27 @@ $news_all = get_posts( $args );
 ?>
 
 <main class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Events</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page blog-page blog-events-page blog-detail-page">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Events</li>
-                        </ol>
-                    </div>
-                    <h1 class="title-head-blue">
-                        EVENTS
-                    </h1>
+                <div class="col-lg-8 border-header">
+                    <h3 class="title-head-blue have-border">EVENTS</h3>
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8">
+
                     <?php foreach ($event_all as $item):?>
                     <div class="box-item-event clearfix">
                         <?php echo $item->post_content;?>
@@ -44,31 +49,30 @@ $news_all = get_posts( $args );
                 </div>
 
                 <div class="col-4">
-                    <div class="popup-hack-me">
-                        <h3>
-                            Hacking your mind with 5 mins daily digest!
-                        </h3>
-                        <div class="form-subscribe">
-                            <?php
-                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                            ?>
+                    <div class="box-subscriber-blog">
+                        <div class="box-border">
+                            <div class="title-sub">
+                                Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
+                            </div>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="box-related-article">
-                        <div class="title-article">
-                            Blog
+                    <div class="box-advert">
+                        <p>
+                            <span class="fz-big-green">80%</span> of outsourcing relationships fail due to responsiveness & communication factors
+                        </p>
+                        <div class="sub-title">
+                            Do Not Let Your Projects Go South!
                         </div>
-                        <?php foreach ($news_all as $item):?>
-                        <div class="item-relate clearfix">
-                            <a href="<?php echo get_the_permalink($item->ID);?>">
-                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID)?>">
-                            </a>
-                            <h2><a href="<?php echo get_the_permalink($item->ID);?>"><?php echo $item->post_title;?></a></h2>
-                        </div>
-                        <?php endforeach; ?>
+                        <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
+                            SEE OUR UNIQUE APPROACH FOR SUCCESS
+                        </a>
                     </div>
-
                 </div>
 
             </div>

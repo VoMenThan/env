@@ -16,10 +16,6 @@
                         A premium outsourcing solution for minimum management and maximum output.
                     </p>
                     <a href="<?php echo home_url("knowledge/guidance-to-keep-your-tech-company-ahead-of-the-competition");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
-                    <div class="title-security">
-                        <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be outsourcing fearless.
-                    </div>
                 </article>
             </div>
         </div>
@@ -37,10 +33,6 @@
                         Performance inspector clears the way, so you can focus on doing what you do best.
                     </p>
                     <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">SCHEDULE AN APPOINTMENT NOW</a>
-                    <div class="title-security">
-                        <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be outsourcing fearless.
-                    </div>
                 </article>
             </div>
         </div>
@@ -58,10 +50,6 @@
                         ENVZONE due diligence process making sure the programming team that will innovate and not just code.
                     </p>
                     <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THIS UNIQUE APPROACH</a>
-                    <div class="title-security">
-                        <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be outsourcing fearless.
-                    </div>
                 </article>
             </div>
         </div>
@@ -80,28 +68,51 @@
                         They retain us because we do all it takes to help them finish the race.
                     </p>
                     <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">GET MY PROJECT GOING</a>
-                    <div class="title-security">
-                        <i class="icon-security"></i>
-                        Be Informed. Be Protected. Be outsourcing fearless.
-                    </div>
                 </article>
             </div>
         </div>
     </div>
+    <!--INFORMED-->
+    <div class="title-security">
+        <i class="icon-security"></i>
+        Be Informed. Be Protected. Be outsourcing fearless.
+    </div>
+    <!--END INFORMED-->
+
+    <!--BUTTON DOWN-->
     <a href="#solution-figurative" class="btn-scroll-bottom">
         <i class="icon-arrow-down-green"></i>
     </a>
+    <!--BUTTON DOWN-->
+
+
     <div class="connect-social d-lg-block d-none">
         <h3>
             Your best choice of offshore software outsourcing
         </h3>
         <ul class="best-choose">
             <li class="item-best-choose">
-                <i class="fa fa-check" aria-hidden="true"></i>
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="11" height="11" fill="url(#pattern0)"/>
+                    <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0" transform="scale(0.0078125)"/>
+                        </pattern>
+                        <image id="image0" width="128" height="128" xlink:href="data:image/png;base64,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"/>
+                    </defs>
+                </svg>
                 Choose the right team for your needs
             </li>
             <li class="item-best-choose">
-                <i class="fa fa-check" aria-hidden="true"></i>
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="11" height="11" fill="url(#pattern0)"/>
+                    <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0" transform="scale(0.0078125)"/>
+                        </pattern>
+                        <image id="image0" width="128" height="128" xlink:href="data:image/png;base64,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"/>
+                    </defs>
+                </svg>
                 Eliminate risk through an outsourcing authority
             </li>
         </ul>
@@ -134,7 +145,7 @@
         <div class="content-blog define-headline">
             <div class="row">
                 <div class="col-12 box-head-blog">
-                    <h2 class="title-head-blue underline-head"><span>RECENT ARTICLES</span></h2>
+                    <h2 class="title-head-blue underline-head"><span>FEATURED INSIGHTS</span></h2>
                     <a class="view-all" href="<?php echo get_home_url();?>/blog">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
 
@@ -208,7 +219,9 @@
                                         </div>
                                         <div class="info-author">
                                             <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></a>
+                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">
+                                                By <b><?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></b>
+                                            </a>
                                             <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
                                         </div>
 
@@ -1085,12 +1098,14 @@
     $(document).ready(function() {
 
         $('.slider-home').owlCarousel({
+            animateOut: 'slideOutRight',
+            animateIn: 'slideInLeft',
             loop: true,
             margin: 0,
             nav: false,
-            dots: false,
+            dots: true,
             autoplay: true,
-            autoplayTimeout: 5000,
+            autoplayTimeout: 8000,
             smartSpeed:450,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {

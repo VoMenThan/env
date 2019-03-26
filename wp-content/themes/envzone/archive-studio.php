@@ -13,19 +13,22 @@ get_header();
 ?>
 
 <main class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Studio</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page blog-page studio-page">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Studio</li>
-                        </ol>
-                    </div>
-                </div>
-
                 <div class="col-12">
                     <article class="box-studio d-flex clearfix">
                         <a href="<?php echo get_permalink($photo_studio[0]->ID);?>" class="box-photo-special">
@@ -54,9 +57,9 @@ get_header();
 
                                     ?>
                                     <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                    <span>Edited by:</span>
+                                    <span>Edited by</span>
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $photo_studio[0]->post_author);?>"> <?php echo get_the_author_meta('display_name', $photo_studio[0]->post_author);?></a>
-                                    <div class="date-public">on <?php echo get_the_date( 'M d,Y', $photo_studio[0]->ID );?></div>
+                                    <div class="date-public">On <?php echo get_the_date( 'M d,Y', $photo_studio[0]->ID );?></div>
                                 </div>
                             </div>
                         </div>
@@ -100,9 +103,9 @@ get_header();
 
                                 ?>
                                 <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                <span>By:</span>
+                                <span>By</span>
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>"> <?php echo get_the_author_meta('display_name', $item->post_author);?></a>
-                                <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID )?></div>
+                                <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID )?></div>
                             </div>
                         </div>
                     </article>
@@ -153,9 +156,9 @@ get_header();
 
                                         ?>
                                         <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                        <span>By:</span>
+                                        <span>By </span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>"> <?php echo get_the_author_meta('display_name', $item->post_author);?></a>
-                                        <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

@@ -3,7 +3,7 @@
 	padding-bottom: 0 !important;
 	.bg-blue-home{
 		background: $color-blue-lv2;
-		margin-bottom: 50px;
+		padding: 20px 0;
 	}
 	.current-category{
 		color: $color-green-logo;
@@ -24,11 +24,11 @@
 			padding-top: 10px;
 			padding-bottom: 10px;
 			.nav-item{
-				padding-left: 30px;
-				font-size: 14px;
-				font-family: $font-merriweather;
+				padding-left: 15px;
+				font-family: $font-roboto;
+				color: #90989E;
 				&:first-child{
-					line-height: 45px;
+					line-height: 35px;
 				}
 				a[class*="link-"]{
 					display: inline-block;
@@ -189,6 +189,10 @@
 			white-space: normal;
 			font-weight: 600;
             width: 100%;
+			&:hover{
+				opacity: .8;
+				color: $color-white !important;
+			}
 		}
 		.sub-title{
 			padding: 15px 0;
@@ -212,6 +216,11 @@
 				top: 20px;
 				right: 15px;
 				font-size: 20px;
+				@include transition(.3s);
+				&:hover{
+					font-weight: bold;
+					color: $color-green-logo;
+				}
 			}
 		}
 	}
@@ -248,6 +257,9 @@
 				font-size: 20px;
 				line-height: 28px;
 				margin-bottom: 10px;
+				&:hover{
+					opacity: .8;
+				}
 			}
 			.date{
 				font-family: $font-roboto;
@@ -268,6 +280,10 @@
 				font-size: 16px;
 				color: $color-blue-lv3;
 				font-family: $font-pt;
+				@include transition(.3s);
+				&:hover{
+					opacity: .8;
+				}
 			}
 			.date{
 				padding-left: calc(40% + 15px);
@@ -311,6 +327,9 @@
 				display: block;
 				@include radius(0);
 				margin-top: 30px;
+				&:hover{
+					color: $color-green-logo !important;
+				}
 			}
 		}
 		.ebook{
@@ -339,6 +358,9 @@
 				.btn-blue-env{
 					font-size: 14px;
 					padding: 5px 15px;
+					&:hover{
+						color: $color-green-logo !important;
+					}
 				}
 			}
 		}

@@ -41,18 +41,22 @@
 ?>
 
 <main class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb mt-50">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page blog-page blog-detail-page">
         <div class="container">
             <div class="row mb-3">
-                <div class="col-12">
-                    <div class="box-breadcrumb mt-50">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
-                        </ol>
-                    </div>
-                </div>
                 <div class="col-12">
                     <div class="title-page">BLOG</div>
                 </div>
@@ -139,7 +143,9 @@
                                 </div>
                                 <div class="info-author">
                                     <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></a>
+                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">
+                                        By <b><?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></b>
+                                    </a>
                                     <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
                                 </div>
 
@@ -181,11 +187,11 @@
                                 }
                                 ?>
                                 <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                <span>By:</span>
+                                <span>By </span>
                                 <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>">
-                                    <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?>
+                                    <b><?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></b>
                                 </a>
-                                <div class="date-public">Updated <?php echo get_the_date( 'M d, Y', $news_all[$i]->ID );?></div>
+                                <div class="date-public">On <?php echo get_the_date( 'M d, Y', $news_all[$i]->ID );?></div>
                             </div>
                         </div>
                     </article>

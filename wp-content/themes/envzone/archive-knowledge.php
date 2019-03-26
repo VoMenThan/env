@@ -4,17 +4,23 @@ get_header();
 ?>
 
 <main class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Knowledge Center</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page blog-page blog-knowledge-page">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Knowledge Center</li>
-                        </ol>
-                    </div>
                     <h1 class="title-head-blue">
                         KNOWLEDGE CENTER
                     </h1>
@@ -59,11 +65,11 @@ get_header();
                                 }
                                 ?>
                                 <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                <span>By:</span>
+                                <span>By</span>
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_list[0]->post_author);?>">
                                     <?php echo get_the_author_meta('display_name', $video_list[0]->post_author);?>
                                 </a>
-                                <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $video_list[0]->ID );?></div>
+                                <div class="date-public">On <?php echo get_the_date( 'M d,Y', $video_list[0]->ID );?></div>
                             </div>
                         </div>
                     </article>
@@ -106,11 +112,11 @@ get_header();
                                         }
                                         ?>
                                         <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                        <span>By:</span>
+                                        <span>By</span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">Updated <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

@@ -1,6 +1,7 @@
 .studio-detail-page{
     background: #021A32;
     padding-bottom: 0 !important;
+    padding-top: 30px !important;
     .box-breadcrumb {
         .breadcrumb {
             .breadcrumb-item {
@@ -11,16 +12,18 @@
         }
     }
     .carousel-photo-detail{
-        margin-bottom: 30px;
         .owl-nav{
             .owl-next{
                 position: absolute;
                 right: 0;
-                top: 0;
+                top: calc(50% - 15px);
                 outline: none;
-                height: 100%;
-                background: rgba(255,255,255, .6);
-                width: 31px;
+                height: 35px;
+                background: rgba(255, 255, 255, 0.6);
+                width: 35px;
+                border-radius: 50%;
+                padding-top: 7px !important;
+                display: inline-block;
                 &.disabled{
                     opacity: .5;
                 }
@@ -28,11 +31,14 @@
             .owl-prev{
                 position: absolute;
                 left: 0;
-                top: 0;
+                top: calc(50% - 15px);
                 outline: none;
-                height: 100%;
-                background: rgba(255,255,255, .6);
-                width: 31px;
+                height: 35px;
+                background: rgba(255, 255, 255, 0.6);
+                width: 35px;
+                border-radius: 50%;
+                padding-top: 7px !important;
+                display: inline-block;
                 &.disabled{
                     opacity: .3;
                 }
@@ -45,11 +51,14 @@
             .owl-next{
                 position: absolute;
                 right: 0;
-                top: 0;
+                top: calc(50% - 7px);
                 outline: none;
-                height: 100%;
-                background: rgba(255,255,255, .6);
-                width: 31px;
+                height: 25px;
+                background: rgba(255, 255, 255, 0.6);
+                width: 25px;
+                border-radius: 50%;
+                padding-top: 3px !important;
+                display: inline-block;
                 &.disabled{
                     opacity: .5;
                 }
@@ -57,11 +66,14 @@
             .owl-prev{
                 position: absolute;
                 left: 0;
-                top: 0;
+                top: calc(50% - 7px);
                 outline: none;
-                height: 100%;
-                background: rgba(255,255,255, .6);
-                width: 31px;
+                height: 25px;
+                background: rgba(255, 255, 255, 0.6);
+                width: 25px;
+                border-radius: 50%;
+                padding-top: 3px !important;
+                display: inline-block;
                 &.disabled{
                     opacity: .3;
                 }

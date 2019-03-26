@@ -555,7 +555,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-12 box-search">
                     <form action="<?php echo home_url("/");?>" method="get" id="search-form" class="search-form" role="search">
                         <label for="input-search">TYPE YOUR SEARCH</label>
-                        <input id="input-search" type="text" name="s" class="input-search" placeholder="Search for keywords" autofocus>
+                        <input id="input-search" type="text" name="s" class="input-search" placeholder="Input your queries" autofocus>
                         <a onclick="document.getElementById('search-form').submit()" class="btn-search" href="#">
                             <i class="icon-search"></i>
                         </a>
