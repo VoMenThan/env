@@ -1,7 +1,7 @@
 <?php
 
 $args = array(
-    'posts_per_page' => 7,
+    'posts_per_page' => 3,
     'offset'=> 0,
     'post_type' => 'studio',
     'orderby' => 'id',
@@ -57,9 +57,9 @@ get_header();
 
                                     ?>
                                     <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                    <span>Edited by</span>
+                                    <span>By</span>
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $photo_studio[0]->post_author);?>"> <?php echo get_the_author_meta('display_name', $photo_studio[0]->post_author);?></a>
-                                    <div class="date-public">On <?php echo get_the_date( 'M d,Y', $photo_studio[0]->ID );?></div>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $photo_studio[0]->ID );?></div>
                                 </div>
                             </div>
                         </div>
@@ -73,13 +73,12 @@ get_header();
                         OUR HIGHLIGHT ACTIVITIES
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="owl-carousel owl-theme d-flex slider-news">
+
                 <?php
                     foreach ($photo_studio as $k => $item):
                         if($k == 0) continue;
                 ?>
-                <div class="item studio-highlight">
+                <div class="col-lg-4 studio-highlight">
                     <article class="highlight-news-right img-center">
                         <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
@@ -105,25 +104,22 @@ get_header();
                                 <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
                                 <span>By</span>
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>"> <?php echo get_the_author_meta('display_name', $item->post_author);?></a>
-                                <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID )?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID )?></div>
                             </div>
                         </div>
                     </article>
                 </div>
                 <?php endforeach;?>
-                    </div>
-                </div>
 
                 <div class="col-lg-12 mt-5">
                     <div class="title-highlight-activities title-head-blue have-border">
                         ENVZONE ROCKSTARS <b>ON DISRUPTIVE EVENTS</b>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="owl-carousel owl-theme d-flex slider-news">
+
                         <?php
                         $args = array(
-                            'posts_per_page' => 7,
+                            'posts_per_page' => 3,
                             'offset'=> 0,
                             'post_type' => 'knowledge',
                             'orderby' => 'id',
@@ -133,7 +129,8 @@ get_header();
                         foreach ($video as $item):
                             $vimeo = get_post_meta($item->ID, 'embed', true);
                             ?>
-                            <article class="highlight-news-right img-center item">
+                        <div class="col-lg-4">
+                            <article class="highlight-news-right img-center">
                                 <a class="thumbnail-news" href="#">
                                     <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
                                     <i class="icon-video-play"></i>
@@ -158,14 +155,13 @@ get_header();
                                         <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
                                         <span>By </span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>"> <?php echo get_the_author_meta('display_name', $item->post_author);?></a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
-
+                        </div>
                         <?php endforeach; ?>
-                    </div>
-                </div>
+
 
 
                 <!--<div class="col-lg-12">

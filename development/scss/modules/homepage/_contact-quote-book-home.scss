@@ -27,6 +27,9 @@
 		width: 85%;
 		font-size: 25px;
 		font-weight: bold;
+		&:hover{
+			opacity: .8;
+		}
 	}
 	.btn-transparent{
 		background: transparent;

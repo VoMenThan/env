@@ -10,6 +10,15 @@ get_header();
 ?>
 
 <main class="main-content">
+    <div class="container-fluid head-category">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="<?php echo get_home_url().'/category/'.get_the_category($post->ID)[0]->slug;?>" class="current-category">CATERGORY NAME HERE - <?php echo get_the_category($post->ID)[0]->name;?></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page blog-page blog-knowledge-page blog-knowledge-detail-page studio-detail-page">
         <div class="container">
             <div class="row pb-5">
@@ -55,15 +64,23 @@ get_header();
                             </span>
                         </div>
                         <div class="public-on">
-                            On
+                            on
                             <span class="date">
-                                <?php echo get_the_date( 'M d,Y', $item->ID ); ?>
+                                <?php echo get_the_date( 'F d,Y', $item->ID ); ?>
                             </span>
                         </div>
                         <div class="description">
-                            <div class="photo">1/<?php echo count($album);?></div>
                             <?php echo $post->post_excerpt;?>
 
+                        </div>
+
+                        <div class="tags">
+                            TAGS:
+                            <?php
+                            if (get_the_tags() != ''):
+                                foreach (get_the_tags() as $tag):?>
+                                    <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>
+                                <?php endforeach; else: echo 'No- tags!'; endif;?>
                         </div>
                         <div class="box-share-social">
                             <div class="share-share-social">
@@ -100,6 +117,7 @@ get_header();
                                 </li>
                             </ul>
                         </div>
+
                     </article>
 
                 </div>
@@ -123,7 +141,7 @@ get_header();
         </div>
     </section>
 
-    <section class="blog-comment pt-3">
+    <section class="blog-comment">
         <div class="container">
             <div class="row">
                 <div class="col-8 px-2">
@@ -227,7 +245,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -282,7 +300,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -340,7 +358,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -397,7 +415,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

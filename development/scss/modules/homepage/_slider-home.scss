@@ -37,7 +37,7 @@
                 font-size: 34px;
                 padding-bottom: 30px;
                 font-weight: bold;
-                line-height: 110%;
+                line-height: 120%;
             }
 
             p {
@@ -52,11 +52,14 @@
                 padding-right: 30px;
                 color: $color-blue-logo !important;
                 font-weight: bold;
-                margin-bottom: 30px;
-                margin-top: 30px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                @include transition(.3s);
+                &:hover{
+                    color: $color-white !important;
+
+                }
             }
-
-
         }
     }
 }
@@ -152,6 +155,10 @@
         font-size: 18px;
         padding: 10px;
         text-align: center;
+        @include transition(.3s);
+        &:hover{
+            color: $color-green-logo !important;
+        }
     }
 
     hr {

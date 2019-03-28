@@ -191,6 +191,18 @@
                                                         </article>
                                                     </div>
 
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/contact-us">
+                                                                Contact Us
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                            <p>
+                                                                Contact EnvZone for answers to all of your software outsourcing questions or to sign up for our services! ... Tell us about your issue so we can help you more quickly.
+                                                            </p>
+                                                        </article>
+                                                    </div>
+
                                                 </div>
                                             </div>
 
@@ -239,7 +251,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/real-estate">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/real-estate-property">
                                                                 Real Estate & Property
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>

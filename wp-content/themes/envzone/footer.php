@@ -33,9 +33,6 @@
                         <li class="nav-item px-1">
                             <a class="nav-link link-linkedin" target="_blank" href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
                         </li>
-                        <li class="nav-item px-1">
-                            <a class="nav-link link-google" target="_blank" href="https://plus.google.com/+EnvZoneWashington"><i class="fa fa-google-plus"></i></a>
-                        </li>
                     </ul>
 
                 </div>
@@ -73,7 +70,7 @@
                         <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
                         <li><a href="<?php echo get_home_url();?>/e-commerce-retail">E-Commerce & Retail</a></li>
                         <li><a href="<?php echo get_home_url();?>/financial">Financial  Services</a></li>
-                        <li><a href="<?php echo get_home_url();?>/real-estate">Real Estate & Property</a></li>
+                        <li><a href="<?php echo get_home_url();?>/real-estate-property">Real Estate & Property</a></li>
                         <li><a href="<?php echo get_home_url();?>/hospitality">Hospitality</a></li>
                         <li><a href="<?php echo get_home_url();?>/education">Education</a></li>
                         <li><a href="<?php echo get_home_url();?>/logistics">Logistics & Supply Chain</a></li>
@@ -116,21 +113,14 @@
                             <i class="icon-twitter"></i>
                         </a>
                     </li>
-
                     <li class="nav-item px-1 py-3">
                         <a class="nav-link link-facebook" target="_blank" href="https://www.facebook.com/envzone/">
                             <i class="icon-facebook"></i>
                         </a>
                     </li>
-
                     <li class="nav-item px-1 py-3">
                         <a class="nav-link link-linkedin" target="_blank" href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home">
                             <i class="icon-linkedin"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item px-1 py-3">
-                        <a class="nav-link link-google" target="_blank" href="https://plus.google.com/+EnvZoneWashington">
-                            <i class="icon-google-plus"></i>
                         </a>
                     </li>
                 </ul>
@@ -144,9 +134,7 @@
                 <div class="title-check-vaibility-mb">
                     SCHEDULE AN APPOINTMENT
                 </div>
-                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-                <a href="" class="btn btn-blue-env" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
+                <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
             </div>
         </div>
     </div>

@@ -69,19 +69,19 @@ get_header();
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_list[0]->post_author);?>">
                                     <?php echo get_the_author_meta('display_name', $video_list[0]->post_author);?>
                                 </a>
-                                <div class="date-public">On <?php echo get_the_date( 'M d,Y', $video_list[0]->ID );?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $video_list[0]->ID );?></div>
                             </div>
                         </div>
                     </article>
 
 
                 </div>
-
                 <div class="col-lg-8">
+                    <h3 class="title-head-blue have-border">FEATURED VIDEOS</h3>
+                </div>
+
+                <div class="col-lg-8 knowledge-pt-30">
                     <div class="row">
-                        <div class="col-12">
-                            <h3 class="title-head-blue have-border">FEATURED VIDEOS</h3>
-                        </div>
                         <?php
                         foreach ($video_list as $k => $item):
                             if ($k == 0) continue;
@@ -116,7 +116,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

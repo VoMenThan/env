@@ -23,9 +23,6 @@ h1, h2, h3, h4, h5, h6{
 	padding: 10px 30px;
 	font-size: 18px;
 	font-weight: bold;
-	width: 491px;
-	left: 470px;
-	top: 1233px;
 }
 
 /*============BUTTON GREEN=================*/
@@ -244,6 +241,8 @@ h1, h2, h3, h4, h5, h6{
 	.you-here{
 		float: left;
 		color: $color-blue-logo;
+		line-height: 30px;
+		font-weight: bold;
 	}
 	.breadcrumb{
 		background: transparent;

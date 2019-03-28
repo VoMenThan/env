@@ -1,4 +1,13 @@
 .blog-knowledge-page{
+  .knowledge-pt-30{
+    padding-top: 30px;
+  }
+  .title-head-blue.have-border{
+    margin-bottom: 0 !important;
+    &:after{
+      bottom: 0 !important;
+    }
+  }
   .box-knowledge{
     background: $color-blue-lv3;
     margin-bottom: 80px;

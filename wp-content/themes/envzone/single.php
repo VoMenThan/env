@@ -49,9 +49,9 @@ get_header();
                             <?php echo $post->post_excerpt;?>
                         </div>
                         <div class="audit">
-                            <span>By:</span>
+                            <span>By </span>
                             <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a> <span>| <?php echo get_field('staff', 'user_'.$post->post_author);?></span>
-                            <div class="date">Updated on: <?php echo get_the_date( 'M d,Y', $item->ID );?> | 8 min read</div>
+                            <div class="date">Updated on: <?php echo get_the_date( 'F d,Y', $item->ID );?> | 8 min read</div>
                         </div>
 
                         <div class="box-share">
@@ -109,6 +109,8 @@ get_header();
                         </div>
 
                         <div class="main-content">
+                            <img src="<?php echo get_the_post_thumbnail_url($post->ID);?>" class="img-fluid w-100" alt="">
+
                             <?php
                                 echo $post->post_content;
                                 // If comments are open or we have at least one comment, load up the comment template.
@@ -272,7 +274,7 @@ get_header();
                             <a href="<?php echo get_home_url().'/blog/'.$news_relate[0]->post_name;?>">
                                 <h2><?php echo $news_relate[0]->post_title;?></h2>
                             </a>
-                            <div class="date">on <?php echo get_the_date( 'M d,Y', $news_relate[0]->ID );?></div>
+                            <div class="date">on <?php echo get_the_date( 'F d,Y', $news_relate[0]->ID );?></div>
                         </div>
 
                             <?php
@@ -286,7 +288,7 @@ get_header();
                             <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
                                 <h2><?php echo $item->post_title;?></h2>
                             </a>
-                            <div class="date">on <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                            <div class="date">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
 
                         </div>
                         <?php endforeach;?>
@@ -371,7 +373,7 @@ get_header();
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                     <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                 </a>
-                                <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                             </div>
                         </div>
                     </article>
@@ -429,7 +431,7 @@ get_header();
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                         <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
-                                    <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                 </div>
                             </div>
                         </article>
@@ -486,7 +488,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">On <?php echo get_the_date( 'M d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

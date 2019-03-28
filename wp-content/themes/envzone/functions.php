@@ -190,4 +190,7 @@ function grab_vimeo_thumbnail($vimeo_url){
 
 /*END GET THUMBNAIL URL VIMEO*/
 
+/*allow html element in bio user*/
+remove_filter('pre_user_description', 'wp_filter_kses');
+/*allow html element in bio user*/
 ?>

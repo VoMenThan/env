@@ -38,6 +38,11 @@
       .follow-author{
         font-weight: bold;
         text-align: right;
+        a{
+          color: $color-blue-logo;
+          cursor: pointer;
+
+        }
       }
     }
   }

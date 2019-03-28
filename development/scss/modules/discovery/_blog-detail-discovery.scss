@@ -56,6 +56,9 @@
 				font-family: $font-roboto;
 				color: #90989E;
 			}
+			.author{
+				font-weight: 600;
+			}
 			span, a{
 				font-family: $font-roboto;
 				font-size: 17px;
@@ -129,6 +132,7 @@
 
 		.box-info-footer{
 			border-top: 2px solid #1A1A1A;
+			margin-top: 50px;
 			.box-tag{
 				padding: 20px 0;
 				a{
@@ -166,6 +170,14 @@
 					.linkedin{
 						display: inline-block;
 						vertical-align: top;
+						@include transition(.3s);
+						&:hover {
+							svg {
+								path {
+									fill: $color-blue-logo;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -217,8 +229,9 @@
 				right: 15px;
 				font-size: 20px;
 				@include transition(.3s);
+				font-weight: bold;
+
 				&:hover{
-					font-weight: bold;
 					color: $color-green-logo;
 				}
 			}
@@ -316,6 +329,7 @@
 				width: 50%;
 				display: inline-block;
 				line-height: 25px;
+				font-weight: bold;
 			}
 			.box-img{
 				width: 48%;
@@ -354,6 +368,7 @@
 					display: inline-block;
 					line-height: 25px;
 					padding-bottom: 10px;
+					font-weight: bold;
 				}
 				.btn-blue-env{
 					font-size: 14px;

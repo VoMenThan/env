@@ -16,17 +16,23 @@ $the_query = new WP_Query($argc);
 get_header();?>
 
 <main class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo $authorName;?></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page blog-page blog-author-page">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $authorName;?></li>
-                        </ol>
-                    </div>
                     <h2 class="title-author">
                         Author
                     </h2>
@@ -78,9 +84,20 @@ get_header();?>
                                             <?php echo get_the_title()?>
                                         </h2>
                                     </a>
-                                    <div class="audit"><span>By:</span>
+                                    <div class="audit">
+                                        <?php
+                                        if (get_field('avatar', 'user_'.$author_id)== ''){
+                                            $avatar = ASSET_URL.'images/avatar-default.png';
+                                        }
+                                        else{
+                                            $avatar = get_field('avatar', 'user_'.$author_id);
+                                        }
+
+                                        ?>
+                                        <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                        <span>By </span>
                                         <span class="author"><?php echo $authorName;?></span>
-                                        <span class="date-public">Updated <?php echo get_the_modified_date();?></span>
+                                        <div class="date-public">on <?php echo get_the_modified_date();?></div>
                                     </div>
                                 </div>
                             </article>

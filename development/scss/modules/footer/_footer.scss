@@ -13,15 +13,19 @@ footer {
         margin-bottom: 40px;
         line-height: 25px;
         font-size: 18px;
+        color: #E0E0E0;
     }
     a {
-        color: $color-white;
+        color: #E0E0E0;
     }
 
     .list-social {
         position: absolute;
         left: 15px;
         bottom: 0;
+        a{
+            color: #E0E0E0;
+        }
 
         .label-socials {
             line-height: 40px;
@@ -43,6 +47,7 @@ footer {
     .label-form-project {
         font-size: 30px;
         font-weight: bold;
+        color: #E0E0E0;
     }
 
     .form-start-project {
@@ -95,33 +100,33 @@ footer {
     }
 
     .box-info-footer {
-        color: #C4C4C4;
+        color: #E0E0E0;
         padding-bottom: 30px;
         .label-company{
-            color: $color-white;
+            color: #E0E0E0;
             font-weight: bold;
         }
         .email-envzone{
-            color: #C4C4C4;
+            color: #E0E0E0;
             display: inline-block;
         }
         .phone-envzone{
-            color: #C4C4C4;
+            color: #E0E0E0;
             display: inline-block;
             padding-bottom: 30px;
         }
         .label-menu-footer {
             padding: 10px 0;
-            border-bottom: 1px solid $color-white;
+            border-bottom: 1px solid #E0E0E0;
             margin-bottom: 10px;
             width: 65%;
             font-weight: bold;
             letter-spacing: 1px;
-            color: $color-white;
+            color: #E0E0E0;
             font-size: 25px;
         }
         .label-socials{
-            color: $color-white;
+            color: #E0E0E0;
         }
         .list-menu-footer {
             li{
@@ -136,7 +141,7 @@ footer {
         }
         address{
             position: relative;
-            padding-bottom: 50px;
+            padding-bottom: 20px;
         }
         .icon-direction-footer{
             @include setBackgroundIcon(25px, "../images/icon-direction-footer.svg");
@@ -156,7 +161,7 @@ footer {
         padding-bottom: 15px;
         .box-donate {
             border-bottom: 1px solid $color-gray-text;
-            padding-bottom: 50px;
+            padding-bottom: 20px;
             margin-bottom: 15px;
             .description-same{
                 font-size: 15px;
@@ -181,8 +186,10 @@ footer {
             padding: 5px 20px;
             background: transparent;
             color: #C4C4C4 !important;
+            font-weight: bold;
             &:hover{
                 color: $color-green-logo !important;
+                border: 1px solid $color-green-logo;
             }
         }
         .box-certified{

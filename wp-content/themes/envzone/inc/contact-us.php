@@ -1,31 +1,34 @@
 <main class="main-content">
-    <section class="artical-page contact-us-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page contact-us-page">
+        <div class="container">
 
             <div class="row">
                 <div class="col-lg-8 box-form-contact">
                     <div class="box-header mb-5">
                         <h1 class="title-head-blue title-top">COLLABORATE WITH ENVZONE!</h1>
                         <p>
-                            Ready to start a flow? Fill out the form and we’ll be in touch with you as soon as possible.
+                            Ready to start a flow? Let’s fill out the form to collect some basic information
+                            prior to scheduling appoitment.
                         </p>
                         <p>
                             You have a project but not quite ready to contact us?
                         </p>
-                        <p>
+                        <a href="<?php echo home_url('process-framework');?>">
                             Is ENVZONE a fit for you?
-                        </p>
+                        </a>
                     </div>
 
                     <div class="box-form-contact form-horizontal">

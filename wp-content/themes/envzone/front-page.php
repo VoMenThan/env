@@ -816,9 +816,7 @@
                         </a>-->
 
                         <!-- Calendly link widget begin -->
-                        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-                        <a href="" class="btn btn-green-env btn-transparent" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">
+                        <a href="<?php echo home_url('contact-us');?>" class="btn btn-green-env">
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>
                         <!-- Calendly link widget end -->
@@ -948,7 +946,7 @@
     ?>
     <div class="container content-envent define-headline">
         <div class="row">
-            <div class="col-lg-6 box-head-blog">
+            <div class="col-lg-8 box-head-blog">
                 <h2 class="title-head-blue underline-head"><span>EVENTS</span></h2>
                 <a class="view-all" href="<?php echo get_home_url();?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 <?php foreach ($event_all as $item):?>
@@ -959,7 +957,7 @@
 
 
             </div>
-            <div class="col-lg-6 box-head-blog d-lg-block d-none">
+            <div class="col-lg-4 box-head-blog d-lg-block d-none">
                 <a class="twitter-timeline" data-lang="en" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
