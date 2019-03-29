@@ -10,7 +10,7 @@
                     <span class="nav-link active">Vendor Portal</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo home_url('employee-login');?>">Employee Portal</a>
+                    <a class="nav-link" href="<?php echo home_url('employee-portal');?>">Employee Portal</a>
                 </li>
             </ul>
         </div>

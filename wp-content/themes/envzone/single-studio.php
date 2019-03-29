@@ -74,15 +74,16 @@ get_header();
 
                         </div>
 
-                        <div class="tags">
-                            TAGS:
-                            <?php
-                            if (get_the_tags() != ''):
-                                foreach (get_the_tags() as $tag):?>
-                                    <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>
-                                <?php endforeach; else: echo 'No- tags!'; endif;?>
-                        </div>
+
                         <div class="box-share-social">
+                            <div class="tags">
+                                TAGS:
+                                <?php
+                                if (get_the_tags() != ''):
+                                    foreach (get_the_tags() as $tag):?>
+                                        <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>
+                                    <?php endforeach; else: echo 'No tags!'; endif;?>
+                            </div>
                             <div class="share-share-social">
                                 SHARE THIS VIDEO TO MY FAVORITES
                             </div>
@@ -211,7 +212,10 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'studio',
                             'orderby' => 'id',
-                            'order' =>'asc'
+                            'order' =>'desc',
+                            'meta_key' => 'highlight_activities',
+                            'meta_value' => true
+
                         );
                         $photo_studio = get_posts( $args );
 
@@ -241,9 +245,8 @@ get_header();
                                         }
                                         ?>
                                         <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                        <span>By </span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
@@ -267,7 +270,9 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'post',
                             'orderby' => 'id',
-                            'order' =>'asc'
+                            'order' =>'desc',
+                            'meta_key' => 'experts',
+                            'meta_value' => true
                         );
                         $news_expert = get_posts( $args );
 
@@ -296,9 +301,8 @@ get_header();
                                         }
                                         ?>
                                         <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                        <span>By </span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
@@ -322,7 +326,9 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'knowledge',
                             'orderby' => 'id',
-                            'order' =>'desc'
+                            'order' =>'desc',
+                            'meta_key' => 'clevel',
+                            'meta_value' => true
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -352,11 +358,9 @@ get_header();
                                         </h2>
                                     </a>
                                     <div class="audit">
-
-                                        <span>By </span>
                                         <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                           By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
@@ -380,7 +384,9 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'knowledge',
                             'orderby' => 'id',
-                            'order' =>'desc'
+                            'order' =>'desc',
+                            'meta_key' => 'events',
+                            'meta_value' => true
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -409,11 +415,9 @@ get_header();
                                         </h2>
                                     </a>
                                     <div class="audit">
-
-                                        <span>By </span>
                                         <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
@@ -491,7 +495,7 @@ get_header();
             nav: true,
             dots: false,
             autoplay: false,
-            autoplayTimeout: 2000,
+            autoplayTimeout: 5000,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {
                 0: {

@@ -64,9 +64,9 @@
                             <span>Contact us today on:</span>
                         </li>
                         <li class="nav-item d-md-inline-block d-none-768 d-none">
-                            <a class="nav-link" href="tel:7206062900">
+                            <div class="nav-link">
                                 <i class="icon-typical-phone" aria-hidden="true"></i> <span>720-606-2900</span>
-                            </a>
+                            </div>
                         </li>
                         <li class="nav-item d-md-inline-block d-none-768 d-none btn-schedule">
                             <a class="nav-link" href="<?php echo home_url('contact-us')?>">
@@ -421,6 +421,17 @@
                                                             </a>
                                                             <p>
                                                                 EnvZone provides maintenance and support services to increase productivity and quality of your service.
+                                                            </p>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/customer-support">
+                                                                Customer Support
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                            <p>
+                                                                Your satisfaction is our concern, and we make sure that our experts adhere to your specifications and industry standards.
                                                             </p>
                                                         </article>
                                                     </div>

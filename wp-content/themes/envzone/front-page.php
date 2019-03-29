@@ -133,13 +133,15 @@
     <!-- /*============BLOG HOME=================*/ -->
     <?php
     $args = array(
-        'posts_per_page' => 10,
+        'posts_per_page' => 1,
         'offset'=> 0,
         'post_type' => 'post',
-        'orderby' => 'id',
-        'order' =>'desc'
+        'orderby' => 'post_modified',
+        'order' =>'desc',
+        'meta_key' => 'main_article',
+        'meta_value' => true
     );
-    $news_special = get_posts( $args );
+    $news_main = get_posts( $args );
     ?>
     <div class="container background-gray-mobile section-blog">
         <div class="content-blog define-headline">
@@ -158,38 +160,38 @@
 
                             <div class="col-lg-7 img-special">
                                 <a href="#">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[0]->ID);?>" align="job-openings">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
                                 </a>
                             </div>
                             <div class="col-lg-5 d-flex info-special flex-column align-items-start">
                                 <div class="box-info">
-                                    <a href="<?php echo home_url('category/').get_the_category($news_special[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
+                                    <a href="<?php echo home_url('category/').get_the_category($news_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_main[0]->ID)[0]->cat_name;?></a>
 
-                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
-                                        <h3 class="title-special"><?php echo $news_special[0]->post_title;?></h3>
+                                    <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
+                                        <h3 class="title-special"><?php echo $news_main[0]->post_title;?></h3>
                                     </a>
 
                                     <div class="excerpt">
                                         <p>
-                                            <?php echo $news_special[0]->post_excerpt;?>
+                                            <?php echo $news_main[0]->post_excerpt;?>
                                         </p>
-                                        <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>" class="read-more">Read more</a>
+                                        <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>" class="read-more">Read more</a>
                                     </div>
                                 </div>
 
                                 <div class="box-author mt-auto">
                                     <?php
-                                    if (get_field('avatar', 'user_'.$news_special[0]->post_author)== ''){
+                                    if (get_field('avatar', 'user_'.$news_main[0]->post_author)== ''){
                                         $avatar = ASSET_URL.'images/avatar-default.png';
                                     }
                                     else{
-                                        $avatar = get_field('avatar', 'user_'.$news_special[0]->post_author);
+                                        $avatar = get_field('avatar', 'user_'.$news_main[0]->post_author);
                                     }
 
                                     ?>
                                     <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_special[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_special[0]->post_author);?></a>
-                                    <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[0]->ID );?></div>
+                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_main[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_main[0]->post_author);?></a>
+                                    <div class="date-by">on <?php echo get_the_date( 'F d, Y', $news_main[0]->ID );?></div>
                                 </div>
 
                             </div>
@@ -197,39 +199,48 @@
                     </div>
 
                     <div class="owl-carousel owl-theme d-flex slider-news">
-                        <?php for($i=1; $i<count($news_special); $i++):
-
-                            if (get_field('avatar', 'user_'.$news_special[$i]->post_author)== ''){
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 7,
+                            'offset'=> 0,
+                            'post_type' => 'post',
+                            'orderby' => 'id',
+                            'order' =>'desc'
+                        );
+                        $news_special = get_posts( $args );
+                        foreach($news_special as $item):
+                            if ($item->ID == $news_main[0]->ID) continue;
+                            if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                 $avatar = ASSET_URL.'images/avatar-default.png';
                             }
                             else{
-                                $avatar = get_field('avatar', 'user_'.$news_special[$i]->post_author);
+                                $avatar = get_field('avatar', 'user_'.$item->post_author);
                             }
                             
                             ?>
                             <div class="box-item-special item">
                                 <div class="item-blog">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
                                     <div class="info">
                                         <div class="info-news">
-                                            <a href="<?php echo home_url('category/').get_the_category($news_special[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
-                                            <a href="<?php echo get_home_url().'/blog/'.$news_special[$i]->post_name;?>">
-                                                <h4 class="title-list-special"><?php echo $news_special[$i]->post_title;?></h4>
+                                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
+                                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                                <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
                                             </a>
                                         </div>
                                         <div class="info-author">
                                             <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>" class="author-by">
-                                                By <b><?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?></b>
+                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
+                                                By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                             </a>
-                                            <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
+                                            <div class="date-by">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                         </div>
 
                                     </div>
 
                                 </div>
                             </div>
-                        <?php endfor;?>
+                        <?php endforeach;?>
                     </div>
 
                 </div>
@@ -816,7 +827,7 @@
                         </a>-->
 
                         <!-- Calendly link widget begin -->
-                        <a href="<?php echo home_url('contact-us');?>" class="btn btn-green-env">
+                        <a href="<?php echo home_url('contact-us');?>" class="btn btn-white-env">
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>
                         <!-- Calendly link widget end -->
@@ -958,7 +969,7 @@
 
             </div>
             <div class="col-lg-4 box-head-blog d-lg-block d-none">
-                <a class="twitter-timeline" data-lang="en" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-lang="en" data-height="100%" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>

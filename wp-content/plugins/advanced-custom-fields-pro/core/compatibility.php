@@ -515,7 +515,7 @@ class acf_compatibility {
 			
 			// param changes
 		 	$replace = array(
-		 		'taxonomy'		=> 'post_taxonomy',
+		 		'taxonomy'		=> 'taxonomy',
 		 		'ef_media'		=> 'attachment',
 		 		'ef_taxonomy'	=> 'taxonomy',
 		 		'ef_user'		=> 'user_role',

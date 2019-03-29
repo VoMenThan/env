@@ -35,7 +35,6 @@ nav {
                     }
                 }
             }
-
             span {
                 font-size: 18px;
                 font-weight: bold;
@@ -45,7 +44,13 @@ nav {
                 padding: .7rem 1.5rem;
                 padding-left: 0;
             }
-
+            &:last-child{
+                .nav-link {
+                    span {
+                        padding-right: 0;
+                    }
+                }
+            }
 
 
             .nav-link {

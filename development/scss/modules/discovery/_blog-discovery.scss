@@ -96,14 +96,8 @@
 		position: relative;
 		border-bottom: 3px solid $color-green-logo;
 		background: $color-white;
-		-webkit-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-moz-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-ms-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-o-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		box-shadow: 0 8px 17px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
-		-webkit-box-shadow: 0 8px 17px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
-		-moz-box-shadow: 0 8px 17px 0 rgba(0,0,0,.16),0 0 0 1px rgba(0,0,0,.08);
+		@include transitionInOut(.2s);
+		@include box-shadow(0px, 4px, 5px, rgba(0, 0, 0, 0.25));
 		&:hover{
 			top: -5px;
 
@@ -119,13 +113,13 @@
 			padding-top: 0;
 			padding-left: calc(40% + 15px);
 			h2{
-				font-size: 22px;
+				font-size: 20px;
 				font-family: $font-pt;
 				padding-bottom: 10px;
 				font-weight: bold;
 				color: $color-black;
 				margin-bottom: 10px;
-				line-height: 120%;
+				line-height: 28px;
 			}
 			.audit{
 				font-size: 1rem;
@@ -147,6 +141,7 @@
 			.date-public{
 				white-space: nowrap;
 				font-family: $font-roboto;
+				color: #90989E;
 			}
 			.category{
 				font-size: 1rem;
@@ -155,14 +150,14 @@
 				font-family: $font-roboto;
 				margin-bottom: 5px;
 				display: inline-block;
-				margin-top: 5px;
+				margin-top: 10px;
 				text-transform: uppercase;
 			}
 			.author{
 				margin-right: 20px;
-				color: #4F4F4F;
+				color: #90989E;
 				font-family: $font-roboto;
-				font-weight: bold;
+				font-weight: 500;
 			}
 			p{
 				padding: 0;

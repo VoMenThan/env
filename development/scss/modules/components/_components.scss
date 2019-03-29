@@ -50,6 +50,9 @@ h1, h2, h3, h4, h5, h6{
 	border-color: $color-white;
 	padding: 10px 30px;
 	font-size: 1.125rem;
+	&:hover{
+		color: $color-green-logo;
+	}
 }
 
 /*============TITLE BLUE=================*/
@@ -151,7 +154,6 @@ h1, h2, h3, h4, h5, h6{
 
 .bg-building{
     background-image: url("../images/img-parallax-2.png");
-    margin-bottom: 80px;
 }
 
 

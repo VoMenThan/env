@@ -21,17 +21,12 @@
 	.item-special{
 		position: relative;
 		top: 0;
-		background: $color-green-lv3;
+		background: rgba(169, 228, 88, .85);;
 		margin-bottom: 30px;
 		padding-right: 15px;
-		-webkit-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-moz-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-ms-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-o-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		box-shadow: 0 8px 17px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
-		-webkit-box-shadow: 0 8px 17px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
-		-moz-box-shadow: 0 8px 17px 0 rgba(0,0,0,.16),0 0 0 1px rgba(0,0,0,.08);
+		@include transitionInOut(.2s);
+		@include box-shadow(0px, 4px, 5px, rgba(0, 0, 0, 0.25));
+
 		&:hover{
 			top: -5px;
 		}
@@ -49,6 +44,7 @@
 			font-size: 16px;
 			padding-bottom: 10px;
 			display: inline-block;
+			font-family: $font-roboto;
 			&:hover{
 				img{
 					opacity: .8;
@@ -57,7 +53,7 @@
 		}
 		.title-special{
 			color: $color-black;
-			padding-bottom: 5px;
+			padding-bottom: 20px;
 			font-weight: bold;
 			font-size: 28px;
 			font-family: $font-pt !important;
@@ -87,7 +83,7 @@
 		}
 		.author-by{
 			color: #4F4F4F;
-			font-weight: bold;
+			font-weight: 500;
 			font-family: $font-roboto;
 		}
 		.date-by{
@@ -114,14 +110,8 @@
 	.box-item-special{
 		position: relative;
 		top: 0;
-		-webkit-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-moz-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-ms-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		-o-transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		transition: box-shadow .2s ease-in-out,top .2s ease-in-out;
-		box-shadow: 0 8px 17px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
-		-webkit-box-shadow: 0 8px 17px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
-		-moz-box-shadow: 0 8px 17px 0 rgba(0,0,0,.16),0 0 0 1px rgba(0,0,0,.08);
+		@include transitionInOut(.2s);
+		@include box-shadow(0px, 4px, 5px, rgba(0, 0, 0, 0.25));
 		&:hover{
 			top: -5px;
 		}
@@ -146,7 +136,6 @@
 			border: 1px solid $color-gray-border;
 			height: 100%;
 			box-sizing: border-box;
-			box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
 			background: $color-white;
 			border-bottom: 3px solid #8DC63F;
 			.info{
@@ -166,6 +155,7 @@
 				.date-by{
 					white-space: nowrap;
 					font-family: $font-roboto;
+					color: #90989E;
 				}
 			}
 			.title-list-special{
@@ -179,12 +169,15 @@
 		.category{
 			text-transform: uppercase;
 			color: $color-green-logo;
-			font-weight: bold;
+			font-weight: 500;
 			display: inline-block;
+			margin-bottom: 5px;
+			font-family: $font-roboto;
 		}
 		.author-by{
-			color: #4F4F4F;
+			color: #90989E;
 			font-family: $font-roboto;
+			font-weight: 500;
 		}
 		.excerpt{
 			color: #191919;

@@ -144,10 +144,17 @@ footer {
             padding-bottom: 20px;
         }
         .icon-direction-footer{
-            @include setBackgroundIcon(25px, "../images/icon-direction-footer.svg");
             position: absolute;
             top: 5px;
             left: 64%;
+            display: inline-block;
+            &:hover{
+                svg{
+                    path{
+                        fill: #8DC63F;
+                    }
+                }
+            }
         }
     }
 

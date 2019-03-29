@@ -30,46 +30,47 @@ get_header();
                 <div class="col-12">
                     <?php
                     $args = array(
-                        'posts_per_page' => -1,
+                        'posts_per_page' => 1,
                         'offset'=> 0,
                         'post_type' => 'knowledge',
-                        'orderby' => 'id',
-                        'order' =>'desc'
+                        'orderby' => 'post_modified',
+                        'order' =>'desc',
+                        'meta_key' => 'main_article',
+                        'meta_value' => true
                     );
-                    $video_list = get_posts( $args );
+                    $video_main = get_posts( $args );
                     ?>
                     <article class="box-knowledge clearfix">
                         <div class="box-video-special">
                             <div class="embed-video">
-                                <iframe src="<?php echo get_field('embed', $video_list[0]->ID, false);?>" frameborder="0" title="<?php echo $video_list[0]->post_title;?>" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                <iframe src="<?php echo get_field('embed', $video_main[0]->ID, false);?>" frameborder="0" title="<?php echo $video_main[0]->post_title;?>" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
                             </div>
                         </div>
                         <div class="box-info-video">
-                            <a href="<?php echo home_url('category/').get_the_category($video_list[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($video_list[0]->ID)[0]->cat_name;?></a>
-                            <a href="<?php echo get_permalink($video_list[0]->ID);?>">
+                            <a href="<?php echo home_url('category/').get_the_category($video_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($video_main[0]->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo get_permalink($video_main[0]->ID);?>">
                             <h2>
-                                <?php echo $video_list[0]->post_title;?>
+                                <?php echo $video_main[0]->post_title;?>
                             </h2>
                             </a>
                             <p>
-                                <?php echo wp_trim_words($video_list[0]->post_excerpt, 20);?>
+                                <?php echo wp_trim_words($video_main[0]->post_excerpt, 20);?>
                             </p>
 
                             <div class="audit">
                                 <?php
-                                if (get_field('avatar', 'user_'.$video_list[0]->post_author)== ''){
+                                if (get_field('avatar', 'user_'.$video_main[0]->post_author)== ''){
                                     $avatar = ASSET_URL.'images/avatar-default.png';
                                 }
                                 else{
-                                    $avatar = get_field('avatar', 'user_'.$video_list[0]->post_author);
+                                    $avatar = get_field('avatar', 'user_'.$video_main[0]->post_author);
                                 }
                                 ?>
                                 <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                <span>By</span>
-                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_list[0]->post_author);?>">
-                                    <?php echo get_the_author_meta('display_name', $video_list[0]->post_author);?>
+                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_main[0]->post_author);?>">
+                                   By <?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?>
                                 </a>
-                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $video_list[0]->ID );?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $video_main[0]->ID );?></div>
                             </div>
                         </div>
                     </article>
@@ -83,8 +84,16 @@ get_header();
                 <div class="col-lg-8 knowledge-pt-30">
                     <div class="row">
                         <?php
+                        $args = array(
+                            'posts_per_page' => -1,
+                            'offset'=> 0,
+                            'post_type' => 'knowledge',
+                            'orderby' => 'id',
+                            'order' =>'desc'
+                        );
+                        $video_list = get_posts( $args );
                         foreach ($video_list as $k => $item):
-                            if ($k == 0) continue;
+                            if ($item->ID == $video_main[0]->ID) continue;
                         ?>
                         <div class="col-lg-6">
                             <article class="highlight-news-right img-center">
@@ -112,9 +121,8 @@ get_header();
                                         }
                                         ?>
                                         <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                        <span>By</span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                           By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>

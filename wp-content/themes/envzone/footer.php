@@ -14,7 +14,12 @@
                     <a href="tel:+017206062900" class="phone-envzone">Office: 720-606-2900</a>
                     <address>1801 California St., Suite 2400 <br>
                         Denver, CO 80202
-                        <a href="https://goo.gl/maps/V7KQJrDY94t" target="_blank" class="icon-direction-footer"></a>
+                        <a href="https://goo.gl/maps/V7KQJrDY94t" target="_blank" class="icon-direction-footer">
+                            <svg width="25" height="25" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.197 6.54585L4.31655 14.7518C4.11705 14.8438 4.00055 15.0543 4.02955 15.2723C4.05855 15.4903 4.22605 15.6633 4.44255 15.6993L12.359 17.0258L13.2635 24.5008C13.2905 24.7198 13.458 24.8963 13.6755 24.9333C13.704 24.9383 13.732 24.9408 13.76 24.9408C13.9475 24.9408 14.123 24.8353 14.208 24.6628L22.8535 7.22185C22.9475 7.03185 22.912 6.80335 22.7645 6.65135C22.617 6.49935 22.388 6.45735 22.197 6.54585ZM14.055 22.7193L13.307 16.5348C13.28 16.3148 13.1115 16.1383 12.893 16.1018L6.21205 14.9823L21.33 8.04385L14.055 22.7193Z" fill="#BDBDBD"/>
+                                <path d="M15 0C6.729 0 0 6.729 0 15C0 23.271 6.729 30 15 30C23.271 30 30 23.271 30 15C30 6.729 23.271 0 15 0ZM15 29C7.2805 29 1 22.7195 1 15C1 7.2805 7.2805 1 15 1C22.7195 1 29 7.2805 29 15C29 22.7195 22.7195 29 15 29Z" fill="#BDBDBD"/>
+                            </svg>
+                        </a>
                     </address>
                     <p>
                         BASED IN COLORADO, SERVING THE ENTIRE USA
@@ -198,7 +203,7 @@
                         <a href="#">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
-                        <a href="<?php echo get_home_url();?>/employee-login">Employee Login</a>
+                        <a href="<?php echo get_home_url();?>/employee-portal">Employee Portal</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
                         <a href="<?php echo get_home_url();?>/vendor-portal">Vendor Portal</a>
                     </div>

@@ -1,14 +1,5 @@
 <?php
 
-$args = array(
-    'posts_per_page' => 3,
-    'offset'=> 0,
-    'post_type' => 'studio',
-    'orderby' => 'id',
-    'order' =>'desc'
-);
-$photo_studio = get_posts( $args );
-
 get_header();
 ?>
 
@@ -30,17 +21,29 @@ get_header();
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
+                    <?php
+                    $args = array(
+                        'posts_per_page' => 1,
+                        'offset'=> 0,
+                        'post_type' => 'studio',
+                        'orderby' => 'post_modified',
+                        'order' =>'desc',
+                        'meta_key' => 'main_article',
+                        'meta_value' => true
+                    );
+                    $studio_main = get_posts( $args );
+                    ?>
                     <article class="box-studio d-flex clearfix">
-                        <a href="<?php echo get_permalink($photo_studio[0]->ID);?>" class="box-photo-special">
-                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($photo_studio[0]->ID);?>" alt="">
+                        <a href="<?php echo get_permalink($studio_main[0]->ID);?>" class="box-photo-special">
+                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($studio_main[0]->ID);?>" alt="">
                             <i class="icon-photo-play"></i>
                         </a>
                         <div class="box-info-photo d-flex align-items-start flex-column">
                             <div class="info-photo">
-                                <a href="<?php echo home_url('category/').get_the_category($photo_studio[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($photo_studio[0]->ID)[0]->cat_name;?></a>
-                                <a href="<?php echo get_permalink($photo_studio[0]->ID);?>">
+                                <a href="<?php echo home_url('category/').get_the_category($studio_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($studio_main[0]->ID)[0]->cat_name;?></a>
+                                <a href="<?php echo get_permalink($studio_main[0]->ID);?>">
                                 <h1>
-                                    <?php echo $photo_studio[0]->post_title;?>
+                                    <?php echo $studio_main[0]->post_title;?>
                                 </h1>
                                 </a>
                             </div>
@@ -48,18 +51,19 @@ get_header();
                             <div class="extent-info mt-auto">
                                 <div class="audit position-static">
                                     <?php
-                                    if (get_field('avatar', 'user_'.$photo_studio[0]->post_author)== ''){
+                                    if (get_field('avatar', 'user_'.$studio_main[0]->post_author)== ''){
                                         $avatar = ASSET_URL.'images/avatar-default.png';
                                     }
                                     else{
-                                        $avatar = get_field('avatar', 'user_'.$photo_studio[0]->post_author);
+                                        $avatar = get_field('avatar', 'user_'.$studio_main[0]->post_author);
                                     }
 
                                     ?>
                                     <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                    <span>By</span>
-                                    <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $photo_studio[0]->post_author);?>"> <?php echo get_the_author_meta('display_name', $photo_studio[0]->post_author);?></a>
-                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $photo_studio[0]->ID );?></div>
+                                    <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $studio_main[0]->post_author);?>">
+                                       By <?php echo get_the_author_meta('display_name', $studio_main[0]->post_author);?>
+                                    </a>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $studio_main[0]->ID );?></div>
                                 </div>
                             </div>
                         </div>
@@ -73,10 +77,19 @@ get_header();
                         OUR HIGHLIGHT ACTIVITIES
                     </div>
                 </div>
-
+                <?php
+                $args = array(
+                    'posts_per_page' => 7,
+                    'offset'=> 0,
+                    'post_type' => 'studio',
+                    'orderby' => 'ID',
+                    'order' =>'desc'
+                );
+                $photo_studio = get_posts( $args );
+                ?>
                 <?php
                     foreach ($photo_studio as $k => $item):
-                        if($k == 0) continue;
+                        if($item->ID == $studio_main[0]->ID) continue;
                 ?>
                 <div class="col-lg-4 studio-highlight">
                     <article class="highlight-news-right img-center">
@@ -102,8 +115,10 @@ get_header();
 
                                 ?>
                                 <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                <span>By</span>
-                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>"> <?php echo get_the_author_meta('display_name', $item->post_author);?></a>
+
+                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>">
+                                    By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                </a>
                                 <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID )?></div>
                             </div>
                         </div>
@@ -153,8 +168,9 @@ get_header();
 
                                         ?>
                                         <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
-                                        <span>By </span>
-                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>"> <?php echo get_the_author_meta('display_name', $item->post_author);?></a>
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
                                     </div>
                                 </div>

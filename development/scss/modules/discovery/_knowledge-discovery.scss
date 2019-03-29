@@ -30,6 +30,7 @@
       font-size: 26px;
       color: $color-white;
       font-family: $font-pt;
+      font-weight: bold;
     }
     p{
       font-size: 20px;
@@ -40,16 +41,19 @@
       bottom: 95px;
       .date-public{
         white-space: nowrap;
+        color: #BDBDBD;
+        font-family: $font-roboto;
       }
     }
     .category, .author{
-      font-weight: bold;
       font-family: $font-roboto;
     }
     .author{
-      color: $color-white;
+      color: #BDBDBD;
+      font-weight: 600;
     }
     .category{
+      font-weight: bold;
       color: $color-green-logo;
       display: inline-block;
       margin-bottom: 10px;

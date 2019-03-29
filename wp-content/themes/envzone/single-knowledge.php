@@ -227,7 +227,7 @@ get_header();
             <!-- /*============WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
             <div class="row section-trending">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
+                    <h3 class="title-head-blue have-border">WATCH MORE FROM C-LEVEL ADVICES</h3>
                     <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
@@ -238,7 +238,9 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'knowledge',
                             'orderby' => 'id',
-                            'order' =>'desc'
+                            'order' =>'desc',
+                            'meta_key' => 'clevel',
+                            'meta_value' => true
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -354,7 +356,9 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'knowledge',
                             'orderby' => 'id',
-                            'order' =>'desc'
+                            'order' =>'desc',
+                            'meta_key' => 'events',
+                            'meta_value' => true
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
