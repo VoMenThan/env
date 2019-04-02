@@ -476,7 +476,7 @@
                                                         Take 5 mins to improve your skill!
                                                     </div>
                                                     <?php
-                                                    echo do_shortcode('[gravityform id="1" title="false" description="false"]');
+                                                    echo do_shortcode('[gravityform id="3" title="false" description="false"]');
                                                     ?>
                                                 </div>
 

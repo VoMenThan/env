@@ -123,7 +123,7 @@
             Your team is awesome!
         </div>
         <div class="title-link d-none-1200">Enroll in our verification program</div>
-        <a class="btn btn-blue-env text-center d-none-1200" href="<?php echo home_url("contact-us");?>">SIGN ME UP</a>
+        <a class="btn btn-blue-env text-center d-none-1200" href="<?php echo home_url("vendor-contact");?>">SIGN ME UP</a>
     </div>
 </div>
 <!--END SLIDER HOME-->
