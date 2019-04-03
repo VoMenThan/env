@@ -72,7 +72,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_font_awesome', $cssUrl.'font-awesome.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_mCustomScrollbar_min', $cssUrl.'mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '1.0');
+    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');

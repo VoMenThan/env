@@ -2339,6 +2339,7 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 
 .system-page { /*css error 404*/ }
 .system-page h3 { text-align: center; font-size: 2.25rem; padding-bottom: 30px; }
+.system-page p { font-size: 20px; }
 .system-page .box-go-home { color: #6e716d; font-size: 1.625rem; padding: 20px 0; border-top: 1px solid #c4c4c4; text-align: center; }
 .system-page .notification { text-align: center; font-size: 1.625rem; margin-bottom: 50px; }
 .system-page .box-get-notification { background: #0D3153; padding: 50px 30px; text-align: center; }
@@ -2398,6 +2399,23 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .employee-login-page .item-employee p { font-weight: 500; line-height: 31px; font-size: 20px; }
 
 /*END EMPLOYEE LOGIN*/
+/*DOWNLOAD CONFIRMATION PAGE*/
+.download-confirmation article.thank-you .box-thank { padding: 60px 78px 20px 78px; min-height: 500px; }
+.download-confirmation article.thank-you .box-thank h1 { font-size: 30px; font-weight: bold; }
+.download-confirmation article.thank-you .box-thank .notification { margin-bottom: 60px; }
+.download-confirmation article.thank-you .box-thank .notification img { padding-bottom: 20px; }
+.download-confirmation article.thank-you .box-thank .notification .border-gray { border-bottom: 1px solid #C4C4C4; max-width: 200px; width: 30%; display: block; margin: auto; position: relative; bottom: -30px; }
+.download-confirmation article.thank-you .box-thank .box-info { margin-bottom: 60px; }
+.download-confirmation article.thank-you .box-thank .box-info p { font-size: 20px; line-height: 130%; }
+.download-confirmation article.thank-you .box-thank .box-button { margin-bottom: 60px; }
+.download-confirmation article.thank-you .box-thank .box-social { margin-left: -50px; }
+.download-confirmation article.thank-you .box-thank .box-social .list-social .nav-link { padding: 0 !important; padding-right: 30px !important; }
+.download-confirmation .box-nav a { color: #828282; font-size: 20px; padding: 15px; text-transform: uppercase; -webkit-transition: 0.3s; -moz-transition: 0.3s; -ms-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
+.download-confirmation .box-nav a:hover { font-weight: bold; }
+
+/*DOWNLOAD CONFIRMATION PAGE--------END*/
+/*UNSUBSCRIBE CONFIRMATION PAGE*/
+/*UNSUBSCRIBE CONFIRMATION PAGE----------END*/
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
