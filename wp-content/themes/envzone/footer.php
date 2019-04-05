@@ -73,13 +73,13 @@
                     <h5 class="label-menu-footer">Industries</h5>
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
-                        <li><a href="<?php echo get_home_url();?>/e-commerce-retail">E-Commerce & Retail</a></li>
+                        <li><a href="<?php echo get_home_url();?>/ecommerce-and-retail">E-Commerce & Retail</a></li>
                         <li><a href="<?php echo get_home_url();?>/financial">Financial  Services</a></li>
                         <li><a href="<?php echo get_home_url();?>/real-estate-property">Real Estate & Property</a></li>
-                        <li><a href="<?php echo get_home_url();?>/hospitality">Hospitality</a></li>
+                        <li><a href="<?php echo get_home_url();?>/hospitality-and-travel">Hospitality</a></li>
                         <li><a href="<?php echo get_home_url();?>/education">Education</a></li>
                         <li><a href="<?php echo get_home_url();?>/logistics">Logistics & Supply Chain</a></li>
-                        <li><a href="<?php echo get_home_url();?>/non-profit">NGOs</a></li>
+                        <li><a href="<?php echo get_home_url();?>/ngos">NGOs</a></li>
                     </ul>
                 </div>
             </div>
@@ -200,7 +200,7 @@
                         <a href="<?php echo get_home_url();?>/terms-of-use">Terms of Use</a>
                         <a href="<?php echo get_home_url();?>/privacy-policy">Privacy Policy</a>
                         <a href="<?php echo get_home_url();?>/help">Help</a>
-                        <a href="#">Site Map</a>
+                        <a href="<?php echo get_home_url();?>/sitemap">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
                         <a href="<?php echo get_home_url();?>/employee-portal">Employee Portal</a>

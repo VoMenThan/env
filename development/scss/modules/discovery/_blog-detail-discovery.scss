@@ -446,3 +446,25 @@
 		}
 	}
 }
+
+@media print {
+	header{
+		display: none;
+	}
+	footer{
+		display: none;
+	}
+	.box-breadcrumb{
+		display: none;
+	}
+	.no-print{
+		display: none !important;
+	}
+}
+
+
+/* The first page of a print can be manipulated as well */
+@page {
+	size: auto;
+	margin: 1cm;
+}

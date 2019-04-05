@@ -162,22 +162,6 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 /* END LOAD MORE SEARCH*/
 
 
-/*CREATE POST TYPE*/
-function env_mt_create_post_type() {
-    register_post_type( 'list_events',
-        array(
-            'labels' => array(
-                'name' => __( 'Events' ),
-                'singular_name' => __( 'Event' )
-            ),
-            'public' => true,
-            'has_archive' => true,
-        )
-    );
-}
-add_action( 'init', 'env_mt_create_post_type' );
-
-
 /*END CREATE POST TYPE*/
 
 /*GET THUMBNAIL URL VIMEO*/
@@ -193,5 +177,36 @@ function grab_vimeo_thumbnail($vimeo_url){
 /*allow html element in bio user*/
 remove_filter('pre_user_description', 'wp_filter_kses');
 /*allow html element in bio user*/
+
+add_action( 'admin_init', 'wpex_mce_google_fonts_styles' );
+function wpex_mce_google_fonts_styles() {
+    $font1 = 'https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i|Roboto:400,400i,500,500i,700,700i';
+    add_editor_style( str_replace( ',', '%2C', $font1 ) );
+}
+
+/*remove medium size in upload image*/
+add_filter( 'intermediate_image_sizes', function( $sizes )
+{
+    return array_filter( $sizes, function( $val )
+    {
+        return 'medium_large' !== $val; // Filter out 'medium_large'
+    } );
+} );
+remove_image_size( 'medium_large' );
+
+
+
+function custom_login_logo() {
+    echo '<style type="text/css">';
+    echo 'h1{background: #fff !important; border-bottom: 4px solid #8DC63F; border-top-left-radius: 5px; border-top-right-radius: 5px;}';
+    echo 'h1 a { background: url('.get_bloginfo('template_directory').'/assets/images/envzone-logo-login.png) 50% 50% no-repeat !important; width: auto !important; margin-bottom:0 !important; height: 60px !important;}';
+    echo '.login form{margin-top: 0 !important; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;}';
+    echo 'body{ background: #0D3153; color: #BDBDBD}';
+    echo '.login .button-primary{    width: 100%; background: #8DC63F; border: none; box-shadow: none; text-shadow: none; margin-top: 15px; border-radius: 10px; font-size: 20px; height: 40px !important;}';
+    echo '.login #login_error, .login .message, .login .success{ margin-bottom: 0 !important; border-left: 0 !important;}';
+
+    echo '</style>';
+}
+add_action('login_head', 'custom_login_logo');
 
 ?>

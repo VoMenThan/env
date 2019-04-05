@@ -51,8 +51,8 @@
 
                         <article>
                             <h4>Media Inquiries:</h4>
-                            <div class="name-label">Belle Nguyen</div>
-                            <a href="mailto:belle.nguyen@envzone.com">belle.nguyen@envzone.com</a>
+                            <div class="name-label">Alina Vo</div>
+                            <a href="mailto:belle.nguyen@envzone.com">alina.vo@envzone.com</a>
                         </article>
 
                         <article>
@@ -64,6 +64,11 @@
                             <h4>Website Feedback:</h4>
                             <div class="name-label">Web Maintenance Team</div>
                             <a href="mailto:webmaster@envzone.com">webmaster@envzone.com</a>
+                        </article>
+
+                        <article>
+                            <h4>Customer Support</h4>
+                            <div class="name-label">Get in touch with customer support for assistance here</div>
                         </article>
                     </div>
                 </div>

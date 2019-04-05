@@ -1060,7 +1060,7 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 .about-us-page .box-introduct { width: 60%; padding-bottom: 30px; margin: auto; }
 .about-us-page .box-introduct .title-head-blue { text-align: center; margin-bottom: 1rem; }
 .about-us-page .box-introduct p { position: relative; font-size: 1.625rem; line-height: 37px; }
-.about-us-page .box-introduct p > i { position: absolute; left: -30px; top: 3px; font-size: 1.5rem; color: #8DC63F; }
+.about-us-page .box-introduct p > i { position: absolute; left: -40px; top: 3px; font-size: 2.5rem; color: #8DC63F; }
 .about-us-page .box-two-col-full { background: #8DC63F; padding-top: 100px; padding-bottom: 50px; }
 .about-us-page .box-two-col-full .title-head-blue { margin-bottom: 30px; }
 .about-us-page .box-two-col-full .description-different p { font-size: 30px; color: #0D3153; padding-right: 20%; font-weight: 600; }
@@ -1156,7 +1156,7 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 	Large mobile 320px and down (<320px)
 	================================================================== */
 @media screen and (max-width: 320px) { .col-mbx-100 { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } }
-.banner-careers h2 { -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
+.banner-careers h1 { -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; position: absolute; left: 50%; top: 50%; font-size: 48px; color: #8DC63F; font-weight: bold; font-family: "Raleway", sans-serif; }
 
 .careers-page .img-careers { margin-top: -30%; }
 .careers-page .hr-career { border-bottom: 1px solid #BDBDBD; margin-bottom: 50px; padding-top: 50px; }
@@ -1178,7 +1178,7 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 	EXTRA LARGE DEVICE
 	Large desktop 1200px and up (1200px)
 	================================================================== */
-@media screen and (max-width: 1200px) { .banner-careers h2 { left: 50% !important; -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
+@media screen and (max-width: 1200px) { .banner-careers h1 { left: 50% !important; -webkit-transform: translate(-50%) !important; -moz-transform: translate(-50%) !important; -ms-transform: translate(-50%) !important; transform: translate(-50%) !important; }
   .careers-page .img-careers { margin-top: -20%; } }
 /* 	================================================================
 	LARGE DEVICE
@@ -2160,6 +2160,12 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .blog-detail-page .box-subscriber-blog #gform_wrapper_3 li.hidden_label input { width: 100%; background: #ffffff; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; font-size: 18px; }
 .blog-detail-page .box-subscriber-blog #gform_wrapper_3 .gform_footer input { width: 100%; white-space: normal; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; font-size: 18px; font-weight: normal; }
 
+@media print { header { display: none; }
+  footer { display: none; }
+  .box-breadcrumb { display: none; }
+  .no-print { display: none !important; } }
+/* The first page of a print can be manipulated as well */
+@page { size: auto; margin: 1cm; }
 .blog-author-page .title-author { font-size: 2.215rem; color: #0D3153; padding-bottom: 25px; }
 .blog-author-page .information-author { margin-bottom: 30px; padding: 15px; background: #E0E0E0; }
 .blog-author-page .information-author img { width: 40%; float: left; margin-right: 15px; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
@@ -2222,7 +2228,7 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .blog-knowledge-page .box-knowledge-relate .audit .name-author { margin-right: 30px; }
 .blog-knowledge-page .info-news { padding: 10px !important; }
 
-.blog-knowledge-detail-page { background: #F2F2F2; padding-top: 10px !important; }
+.blog-knowledge-detail-page { background: #F2F2F2; }
 .blog-knowledge-detail-page .box-breadcrumb { margin-bottom: 50px; }
 .blog-knowledge-detail-page h1 { font-size: 3rem; font-weight: bold; color: #021A32; font-family: "PT Serif", serif; margin-bottom: 30px; }
 .blog-knowledge-detail-page .box-video { background: #ffffff; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }
@@ -2414,14 +2420,32 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .download-confirmation .box-nav a:hover { font-weight: bold; }
 
 /*DOWNLOAD CONFIRMATION PAGE--------END*/
-/*UNSUBSCRIBE CONFIRMATION PAGE*/
-/*UNSUBSCRIBE CONFIRMATION PAGE----------END*/
+/*OFFLINE PAGE*/
+.page-offline .box-improvement { width: 70%; margin: auto; text-align: center; padding: 100px 0; }
+.page-offline .box-improvement h1 { margin-bottom: 20px; }
+
+/*OFFLINE PAGE----------END*/
+/*SITEMAP PAGE*/
+.banner-sitemap h1 { color: #ffffff; }
+
+.page-sitemap h2 { font-size: 32px; font-weight: bold; margin-bottom: 30px; color: #333333; }
+.page-sitemap .list-page { margin-left: 50px; }
+.page-sitemap .list-page li { padding: 5px 0; }
+.page-sitemap .list-page li a { font-size: 20px; font-weight: 500; }
+
+/*SITEMAP PAGE--------END*/
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) { .system-page .box-get-notification input { margin-bottom: 15px; width: 100%; }
   .system-page .box-get-notification .btn-green-env { width: 100%; } }
+/* 	================================================================
+	MEDIUM DEVICE
+	Mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) { .page-offline .box-improvement { width: 100%; padding: 50px 0; }
+  .page-offline .box-improvement h1 { margin-bottom: 10px; font-size: 24px; } }
 body.overflow-hidden { overflow: hidden; }
 
 h1, h2, h3, h4, h5, h6 { color: #0D3153; }

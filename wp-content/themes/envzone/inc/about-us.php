@@ -19,17 +19,22 @@
                 <div class="col-12">
                     <div class="box-introduct">
                         <h1 class="title-head-blue">Business Oriented</h1>
+
                         <p>
                             <i class="fa fa-check-circle"></i>
-                            Envzone has become a top provider of custom software development and IT consulting services located in the US with over a hundred IT and software developers located in Vietnam.
+                            EnvZone helps clients find the best software development experts, through its multiple outsourcing models. We work with clients from diverse industries such as retail, logistics, hospitality, healthcare and financial services.
                         </p>
                         <p>
                             <i class="fa fa-check-circle"></i>
-                            We have been opportune to bring top-notch custom made solutions to businesses willing to leap into the digital world in different industries such as Healthcare, Retail, Financial Services, Telecom and so on.
+                            Our goal is to enable clients to find reputable, reliable development services. We don’t offer a one size fits all model. We pride ourselves at matching teams with actual client needs.
                         </p>
                         <p>
                             <i class="fa fa-check-circle"></i>
-                            We build on our legacy to thoroughly satisfy our clients and grow their businesses using premium offshore outsourcing solutions that fit your business needs
+                            We study client requirements with due diligence and offer tailored lists of developer teams along with their strengths and how they can fit into the client’s work culture. Based on the input, we can identify the best team to support clients’ projects.
+                        </p>
+                        <p>
+                            <i class="fa fa-check-circle"></i>
+                            Our onshore resource is the key to help you communicate with the selected offshore teams to ensure continuous support throughout the project.
                         </p>
                     </div>
                 </div>

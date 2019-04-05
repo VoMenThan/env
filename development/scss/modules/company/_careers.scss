@@ -1,10 +1,17 @@
 .banner-careers{
-  h2{
+  h1{
     -webkit-transform: translate(-50%) !important;
     -moz-transform: translate(-50%) !important;
     -ms-transform: translate(-50%) !important;
     transform: translate(-50%) !important;
-  }
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 48px;
+    color: #8DC63F;
+    font-weight: bold;
+    font-family: $font-raleway;
+}
 }
 .careers-page{
   .img-careers{
@@ -84,7 +91,7 @@
 	================================================================== */
 @media screen and (max-width: $device-size-extra-large) {
   .banner-careers{
-    h2{
+    h1{
       left: 50% !important;
       -webkit-transform: translate(-50%) !important;
       -moz-transform: translate(-50%) !important;

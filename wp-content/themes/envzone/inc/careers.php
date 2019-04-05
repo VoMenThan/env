@@ -1,6 +1,6 @@
 <main class="main-content">
     <section class="banner-top banner-careers bg-blue">
-        <h2>CAREERS</h2>
+        <h1>CAREERS</h1>
     </section>
     <section class="artical-page careers-page">
         <div class="container">

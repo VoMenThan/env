@@ -136,7 +136,7 @@ get_header();
                         $args = array(
                             'posts_per_page' => 3,
                             'offset'=> 0,
-                            'post_type' => 'knowledge',
+                            'post_type' => 'studio_video',
                             'orderby' => 'id',
                             'order' =>'desc'
                         );

@@ -1,3 +1,8 @@
+
+<?php
+/* Template Name: eCommerce and Retail*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-e-commerce-and-retail.png">
@@ -178,3 +183,5 @@
 
     <?php require_once "subscribe.php";?>
 </main>
+
+<?php get_footer();?>

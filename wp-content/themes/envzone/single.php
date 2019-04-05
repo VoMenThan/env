@@ -23,7 +23,7 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-5">
-                    <div class="box-breadcrumb">
+                    <div class="box-breadcrumb no-print">
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
@@ -54,7 +54,7 @@ get_header();
                             <div class="date">Updated on: <?php echo get_the_date( 'F d,Y', $item->ID );?> | 8 min read</div>
                         </div>
 
-                        <div class="box-share">
+                        <div class="box-share no-print">
                             <ul class="nav list-social d-flex justify-content-end">
                                 <li class="nav-item">
                                     SHARE THIS ARTICLE:
@@ -88,7 +88,7 @@ get_header();
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="link-print" href="#">
+                                    <a class="link-print" href="javascript:window.print()">
                                         <svg width="35" height="35" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0)">
                                                 <path d="M11.2502 2.81262H33.75V8.43757H36.5627V2.81262C36.5627 1.26084 35.3049 0 33.75 0H11.2502C9.69856 0 8.43762 1.26084 8.43762 2.81262V8.43757H11.2502V2.81262Z" fill="#8DC63F"/>
@@ -141,7 +141,7 @@ get_header();
                                         <div class="author-bio">
                                             <?php echo wp_trim_words(get_the_author_meta( 'description' ), 40);?>
                                         </div>
-                                        <div class="connect-author">
+                                        <div class="connect-author no-print">
                                             <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>">About</a> | Connect:
                                             <a class="linkedin" target="_blank" href="<?php echo get_the_author_meta( 'linkedin' );?>">
                                                 <svg width="20" height="20" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,11 +152,13 @@ get_header();
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                                if ( comments_open() || get_comments_number() ) {
-                                    comments_template();
-                                }
-                            ?>
+                            <div class="no-print">
+                                <?php
+                                    if ( comments_open() || get_comments_number() ) {
+                                        comments_template();
+                                    }
+                                ?>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -164,7 +166,7 @@ get_header();
                 <div class="col-12 d-lg-none d-none">
                     <div class="row">
                         <div class="col-12">
-                            <div class="section-parallax">
+                            <div class="section-parallax no-print">
                                 <div class="bg-green-home">
                                     <div class="content-subcribe">
                                         <div class="box-head-subcribe text-center">
@@ -186,7 +188,7 @@ get_header();
                     </div>
                 </div>
                 <!-- /*============END SUBCRIBE HOME=================*/ -->
-                <div class="col-lg-4">
+                <div class="col-lg-4 no-print">
                     <div class="box-subscriber-blog">
                         <div class="box-border">
                         <div class="title-sub">
@@ -252,7 +254,7 @@ get_header();
                         </div>
                     </div>
                     
-                    <div class="box-related-article">
+                    <div class="box-related-article no-print">
                         <div class="title-article">
                             Latest from Experts
 
@@ -302,7 +304,7 @@ get_header();
 
         </div>
         <!-- /*============SUBCRIBE HOME=================*/ -->
-        <div class="container-fluild section-parallax d-lg-block d-none">
+        <div class="container-fluild section-parallax d-lg-block d-none no-print">
             <div class="bg-green-home">
                 <div class="container content-subcribe">
                     <div class="row">
@@ -327,7 +329,7 @@ get_header();
 
 
         <div class="container">
-            <div class="row section-trending">
+            <div class="row section-trending no-print">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">READ MORE FROM EXPERTS</h3>
                     <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
@@ -384,7 +386,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending">
+            <div class="row section-trending no-print">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">LEARN MORE ABOUT C-LEVEL ADVICES</h3>
                     <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
@@ -442,7 +444,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending">
+            <div class="row section-trending no-print">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
                     <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
