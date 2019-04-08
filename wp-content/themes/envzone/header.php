@@ -170,7 +170,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/client-focus-solutions">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/client-focused-solutions">
                                                                 Client - Focused Solutions
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
@@ -264,7 +264,7 @@
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/hospitality-and-travel">
-                                                                Hospitality
+                                                                Hospitality and Travel
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
                                                             <p>
@@ -332,7 +332,7 @@
 
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/logistics">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/logistics-and-supply-chain">
                                                                 Logistics & Supply Chain
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>

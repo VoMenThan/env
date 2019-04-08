@@ -6,7 +6,7 @@ get_header();
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-hospitality-new.png">
-        <h2>HOSPITALITY</h2>
+        <h2>HOSPITALITY AND TRAVEL</h2>
     </section>
     <section class="artical-page industries-page hospitality-page">
         <div class="container">
@@ -16,7 +16,7 @@ get_header();
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Hospitality</li>
+                            <li class="breadcrumb-item active" aria-current="page">Hospitality & Travel</li>
                         </ol>
                     </div>
                 </div>

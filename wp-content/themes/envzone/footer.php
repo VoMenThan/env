@@ -61,7 +61,7 @@
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/about-us">About us</a></li>
                         <li><a href="<?php echo get_home_url();?>/process-framework">Process Framework</a></li>
-                        <li><a href="<?php echo get_home_url();?>/client-focus-solutions">Client-Focus Solutions</a></li>
+                        <li><a href="<?php echo get_home_url();?>/client-focused-solutions">Client-Focused Solutions</a></li>
                         <li><a href="<?php echo get_home_url();?>/partnership">Partnership</a></li>
                         <li><a href="<?php echo get_home_url();?>/contact-us">Contact us</a></li>
                         <li><a href="<?php echo get_home_url();?>/careers">Careers</a></li>
@@ -74,11 +74,11 @@
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
                         <li><a href="<?php echo get_home_url();?>/ecommerce-and-retail">E-Commerce & Retail</a></li>
-                        <li><a href="<?php echo get_home_url();?>/financial">Financial  Services</a></li>
+                        <li><a href="<?php echo get_home_url();?>/financial">Financial Services</a></li>
                         <li><a href="<?php echo get_home_url();?>/real-estate-property">Real Estate & Property</a></li>
-                        <li><a href="<?php echo get_home_url();?>/hospitality-and-travel">Hospitality</a></li>
+                        <li><a href="<?php echo get_home_url();?>/hospitality-and-travel">Hospitality & Travel</a></li>
                         <li><a href="<?php echo get_home_url();?>/education">Education</a></li>
-                        <li><a href="<?php echo get_home_url();?>/logistics">Logistics & Supply Chain</a></li>
+                        <li><a href="<?php echo get_home_url();?>/logistics-and-supply-chain">Logistics & Supply Chain</a></li>
                         <li><a href="<?php echo get_home_url();?>/ngos">NGOs</a></li>
                     </ul>
                 </div>

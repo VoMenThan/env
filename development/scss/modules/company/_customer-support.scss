@@ -21,6 +21,30 @@
       font-size: 22px;
     }
   }
+  .item-customer-support{
+    padding: 50px 10px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    text-align: center;
+    color: #828282;
+    transition: .3s;
+    display: block;
+    width: 100%;
+    h3{
+      font-weight: bold;
+      font-size: 28px;
+    }
+    &:hover{
+      background: #0D3153;
+      h2{
+        color: #ffffff !important;
+      }
+
+    }
+    img{
+      margin-bottom: 20px;
+    }
+  }
   .box-submit-topic{
     background: $color-blue-logo;
     padding: 50px 30px;

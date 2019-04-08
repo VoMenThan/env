@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-company bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-client-focus-solutions.png">
-        <h2>CLIENT-FOCUSED SOLUTIONS</h2>
+        <h2>CLIENT-FOCUSED <br> SOLUTIONS</h2>
     </section>
     <section class="artical-page client-focused-solutions-page">
         <div class="container">
@@ -11,7 +11,7 @@
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Client focus solutions</li>
+                            <li class="breadcrumb-item active" aria-current="page">Client - focused solutions</li>
                         </ol>
                     </div>
                 </div>

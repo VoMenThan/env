@@ -13,7 +13,7 @@
 
                         <div class="box-form-get-ebook form-horizontal">
                             <?php
-                            echo do_shortcode('[gravityform id=10 title=false description=false ajax=false]');
+                            echo do_shortcode('[gravityform id=11 title=false description=false ajax=false]');
                             ?>
                             <p>By downloading this e-book, you agree to receive communication from EnvZone.</p>
                         </div>

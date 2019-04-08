@@ -1294,15 +1294,15 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 .process-framework-page .btn-blue-env { font-size: 20px; }
 .process-framework-page .box-introduct { width: 70%; padding-bottom: 100px; margin: auto; }
 .process-framework-page .box-introduct .title-head-blue { text-align: center; margin-bottom: 1rem; }
-.process-framework-page .box-introduct p { position: relative; font-size: 1.625rem; font-weight: 500; line-height: 37px; }
-.process-framework-page .box-introduct p > i { position: absolute; left: -35px; top: 10px; font-size: 1.5rem; color: #8DC63F; }
-.process-framework-page .box-introduct p > i.icon-one { width: 20px; height: 20px; background: url("../images/icon-one.svg") no-repeat center; display: inline-block; background-size: 100%; }
-.process-framework-page .box-introduct p > i.icon-two { width: 20px; height: 20px; background: url("../images/icon-two.svg") no-repeat center; display: inline-block; background-size: 100%; }
-.process-framework-page .box-introduct p > i.icon-three { width: 20px; height: 20px; background: url("../images/icon-three.svg") no-repeat center; display: inline-block; background-size: 100%; }
-.process-framework-page .box-introduct p > i.icon-four { width: 20px; height: 20px; background: url("../images/icon-four.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.process-framework-page .box-introduct p { position: relative; font-size: 26px; font-weight: 500; line-height: 37px; margin-bottom: 30px; }
+.process-framework-page .box-introduct p > i { position: absolute; left: -90px; top: 10px; font-size: 1.5rem; color: #8DC63F; }
+.process-framework-page .box-introduct p > i.icon-one { width: 50px; height: 50px; background: url("../images/icon-one.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.process-framework-page .box-introduct p > i.icon-two { width: 50px; height: 50px; background: url("../images/icon-two.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.process-framework-page .box-introduct p > i.icon-three { width: 50px; height: 50px; background: url("../images/icon-three.svg") no-repeat center; display: inline-block; background-size: 100%; }
+.process-framework-page .box-introduct p > i.icon-four { width: 50px; height: 50px; background: url("../images/icon-four.svg") no-repeat center; display: inline-block; background-size: 100%; }
 .process-framework-page .box-development-process { margin-bottom: 100px; }
 .process-framework-page .box-development-process .title-head-blue { padding-bottom: 90px; }
-.process-framework-page .box-development-process p { font-size: 1.625rem; }
+.process-framework-page .box-development-process p { font-size: 26px; font-weight: 500; line-height: 37px; }
 .process-framework-page .box-list-deliverables { margin-top: 50px; margin-bottom: 50px; }
 .process-framework-page .box-list-deliverables h4 { font-size: 2rem; color: #0D3153; }
 .process-framework-page .box-list-deliverables h5 { padding-top: 30px; padding-bottom: 30px; color: #0D3153; }
@@ -1566,6 +1566,11 @@ footer .copyright-footer { font-size: 15px; color: #E0E0E0; }
 
 .customer-support-page .box-customer-support { border: 1px solid #C4C4C4; padding: 30px 15px; }
 .customer-support-page .box-customer-support article { font-size: 22px; }
+.customer-support-page .item-customer-support { padding: 50px 10px; border: 1px solid #C4C4C4; box-sizing: border-box; text-align: center; color: #828282; transition: .3s; display: block; width: 100%; }
+.customer-support-page .item-customer-support h3 { font-weight: bold; font-size: 28px; }
+.customer-support-page .item-customer-support:hover { background: #0D3153; }
+.customer-support-page .item-customer-support:hover h2 { color: #ffffff !important; }
+.customer-support-page .item-customer-support img { margin-bottom: 20px; }
 .customer-support-page .box-submit-topic { background: #0D3153; padding: 50px 30px; text-align: center; }
 .customer-support-page .box-submit-topic .btn-green-env { font-weight: bold; }
 
@@ -1737,6 +1742,7 @@ section.financial-page .p-note { margin-left: 100px; margin-right: 100px; font-s
 	================================================================== */
 @media screen and (max-width: 425px) { section.financial-page .btn-blue-env { width: 100%; }
   section.financial-page .btn-learn-more { margin-bottom: 50px; } }
+section.healthcare-page { padding-bottom: 0 !important; }
 section.healthcare-page h1 { margin-bottom: 30px; }
 section.healthcare-page .item-offer { padding: 30px 15px; }
 section.healthcare-page .item-offer h3 { text-align: center; font-size: 1.625rem; font-weight: 500; }

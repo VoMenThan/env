@@ -146,6 +146,7 @@ get_header();
                             ?>
                         <div class="col-lg-4">
                             <article class="highlight-news-right img-center">
+
                                 <a class="thumbnail-news" href="#">
                                     <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
                                     <i class="icon-video-play"></i>

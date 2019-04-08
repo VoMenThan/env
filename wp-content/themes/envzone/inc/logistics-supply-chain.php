@@ -71,43 +71,43 @@ get_header();
 
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-travel-guide-app.png" alt="" class="icon-different">
-                            <h4>Travel Guide App</h4>
+                            <img src="<?php echo ASSET_URL;?>images/icon-custom-iot-solutions.png" alt="" class="icon-different">
+                            <h4>Custom IoT Solutions</h4>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-hotel-guest-services.png" alt="" class="icon-different">
-                            <h4>Hotel Guest Services</h4>
+                            <img src="<?php echo ASSET_URL;?>images/icon-warehouse-management.png" alt="" class="icon-different">
+                            <h4>Warehouse management</h4>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-hospitality-service-platform.png" alt="" class="icon-different">
-                            <h4>Hospitality Service Platform</h4>
+                            <img src="<?php echo ASSET_URL;?>images/icon-logistics-software-solutions.png" alt="" class="icon-different">
+                            <h4>Logistics Software Solutions</h4>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-travel-guide-app.png" alt="" class="icon-different">
-                            <h4>Travel Guide App</h4>
+                            <img src="<?php echo ASSET_URL;?>images/icon-contracting-automation.png" alt="" class="icon-different">
+                            <h4>Contracting automation</h4>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-hotel-guest-services.png" alt="" class="icon-different">
-                            <h4>Hotel Guest Services</h4>
+                            <img src="<?php echo ASSET_URL;?>images/icon-inventory-management.png" alt="" class="icon-different">
+                            <h4>Inventory management</h4>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-hospitality-service-platform.png" alt="" class="icon-different">
-                            <h4>Hospitality Service Platform</h4>
+                            <img src="<?php echo ASSET_URL;?>images/icon-purchase-automation.png" alt="" class="icon-different">
+                            <h4>Purchase automation</h4>
                         </div>
                     </div>
 

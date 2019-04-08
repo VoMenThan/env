@@ -35,11 +35,13 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a target="_blank" href="https://envzone.clinked.com/">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-crm.png" alt="">
                         <h3>CRM</h3>
                         <p>Manage all your company’s relationships and interactions with customers and potential customers.</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">

@@ -19,11 +19,13 @@
         <div class="container">
             <div class="row box-list-employee justify-content-center">
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a target="_blank" href="https://envzone.clinked.com/">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/img-cl-project-management.png" alt="">
                         <h3>Project Management</h3>
                         <p>Store and collaborate your documents in secure digital gateway</p>
                     </article>
+                    </a>
                 </div>
 
 

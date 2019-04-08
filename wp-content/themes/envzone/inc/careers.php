@@ -54,6 +54,9 @@
                         </div>
                     </div>
                     <div class="hr-career"></div>
+                    <div class="text-center">
+                        <a target="_blank" href="https://envzone.zohorecruit.com/careers" class="btn btn-green-env">SEE OPEN VACANCIES</a>
+                    </div>
 
 
                 </div>

@@ -5,7 +5,7 @@ get_header();
 ?>
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-e-commerce-and-retail.png">
+        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-non-profit-organization.png">
         <h2>NON-PROFIT ORGANIZATION</h2>
     </section>
     <section class="artical-page industries-page none-profit-page">

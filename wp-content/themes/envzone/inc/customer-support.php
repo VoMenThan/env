@@ -18,7 +18,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     <div class="box-customer-support">
                         <h1 class="title-head-blue title-top">Customer Support</h1>
                         <article>
@@ -52,10 +52,11 @@
 
 
                 </div>
-                <div class="col-lg-5">
-                    <div class="box-submit-topic">
-                        <a class="btn btn-green-env" href="<?php echo get_home_url();?>/contact-us">SUBMIT A TICKET</a>
-                    </div>
+                <div class="col-lg-4">
+                    <a target="_blank" href="https://envzone.supportbee.com/portal/sign_in" class="item-customer-support">
+                        <img src="<?php echo ASSET_URL;?>images/icon-technical-support.png" alt="">
+                        <h2>SUBMIT A TICKET</h2>
+                    </a>
                 </div>
 
 

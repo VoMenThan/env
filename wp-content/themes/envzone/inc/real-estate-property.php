@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-real-estate.png">
-        <h2>REAL ESTATE</h2>
+        <h2>REAL ESTATE & PROPERTY</h2>
     </section>
     <section class="artical-page industries-page real-estate-page">
         <div class="container">
@@ -11,7 +11,7 @@
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Real Estate</li>
+                            <li class="breadcrumb-item active" aria-current="page">Real Estate & Property</li>
                         </ol>
                     </div>
                 </div>

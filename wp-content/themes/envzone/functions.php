@@ -72,7 +72,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_font_awesome', $cssUrl.'font-awesome.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_mCustomScrollbar_min', $cssUrl.'mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '2.0');
+    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '1.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');
@@ -195,7 +195,7 @@ add_filter( 'intermediate_image_sizes', function( $sizes )
 remove_image_size( 'medium_large' );
 
 
-
+/*CUSTOM LOGIN PAGE*/
 function custom_login_logo() {
     echo '<style type="text/css">';
     echo 'h1{background: #fff !important; border-bottom: 4px solid #8DC63F; border-top-left-radius: 5px; border-top-right-radius: 5px;}';
@@ -204,9 +204,45 @@ function custom_login_logo() {
     echo 'body{ background: #0D3153; color: #BDBDBD}';
     echo '.login .button-primary{    width: 100%; background: #8DC63F; border: none; box-shadow: none; text-shadow: none; margin-top: 15px; border-radius: 10px; font-size: 20px; height: 40px !important;}';
     echo '.login #login_error, .login .message, .login .success{ margin-bottom: 0 !important; border-left: 0 !important;}';
+    echo '.login form{position: static !important;}';
 
     echo '</style>';
 }
 add_action('login_head', 'custom_login_logo');
+/*CUSTOM LOGIN PAGE--------END*/
+
+if (is_admin()){
+    // Function to change "posts" to "news" in the admin side menu
+    function change_post_menu_label() {
+        global $menu;
+        global $submenu;
+        $menu[5][0] = 'Blogs';
+        $submenu['edit.php'][5][0] = 'Blogs';
+        $submenu['edit.php'][10][0] = 'Add Blog';
+        $submenu['edit.php'][16][0] = 'Tags';
+        echo '';
+    }
+    add_action( 'admin_menu', 'change_post_menu_label' );
+// Function to change post object labels to "news"
+    function change_post_object_label() {
+        global $wp_post_types;
+        $labels = &$wp_post_types['post']->labels;
+        $labels->name = 'Blogs';
+        $labels->singular_name = 'Blog';
+        $labels->add_new = 'Add Blog';
+        $labels->add_new_item = 'Add Blog';
+        $labels->edit_item = 'Edit Blog';
+        $labels->new_item = 'Blog';
+        $labels->view_item = 'View Blog';
+        $labels->search_items = 'Search Blogs';
+        $labels->not_found = 'No Blogs found';
+        $labels->not_found_in_trash = 'No Blogs found in Trash';
+    }
+    add_action( 'init', 'change_post_object_label' );
+
+
+
+}
+
 
 ?>

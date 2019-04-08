@@ -167,7 +167,7 @@
                     </article>
                 </div>
                 <div class="col-lg-12 text-right py-lg-5">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Learn More about Discovery Stage</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">Connect Me to a Representative</a>
                 </div>
             </div>
 
