@@ -158,5 +158,7 @@ get_header();?>
         </div>
     </section>
 </main>
-
+<script>
+    $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+</script>
 <?php get_footer()?>

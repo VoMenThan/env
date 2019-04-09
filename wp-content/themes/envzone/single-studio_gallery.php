@@ -436,6 +436,8 @@ get_header();
     /*============ slide news =================*/
     $(document).ready(function() {
 
+        $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+
         /*slider product detail*/
         $(".carousel-photo-detail").owlCarousel({
             items:1,

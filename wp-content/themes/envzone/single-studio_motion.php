@@ -11,16 +11,7 @@ get_header();
 
 <main class="main-content">
 
-    <section class="artical-page blog-page blog-detail-page blog-knowledge-page blog-knowledge-detail-page">
-        <div class="container-fluid bg-blue-home">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a href="<?php echo get_home_url().'/category/'.get_the_category($post->ID)[0]->slug;?>" class="current-category">CATERGORY NAME HERE - <?php echo get_the_category($post->ID)[0]->name;?></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="artical-page blog-page blog-knowledge-page blog-knowledge-detail-page">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
@@ -28,7 +19,7 @@ get_header();
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo home_url('knowledge');?>">Knowledge</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo home_url('studio');?>">Studio</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $post->post_title;?></li>
                         </ol>
                     </div>
@@ -419,6 +410,9 @@ get_header();
     (function ( $ ) {
         "use strict";
         $(document).ready(function (e) {
+
+
+            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
             $('.blog-page .highlight-news-right .info-news h2').matchHeight({
                 byRow: true,

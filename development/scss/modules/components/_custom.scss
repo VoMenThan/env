@@ -384,91 +384,168 @@ body #gform_wrapper_3 .top_label div.ginput_container{
 
 
 /*CSS CUSTOM CONTACT US*/
-.form-horizontal .gform_wrapper ul.gform_fields li.gfield{
-    padding-right: 0;
-    margin-bottom: 30px !important;
-}
-.form-horizontal .gform_wrapper input{
-    width: 100% !important;
-}
-.form-horizontal .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
-    background: #EDECEC;
-    border: none;
-    padding: 12px 15px;
-    font-size: 17px;
-}
-.form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .gfield_label{
-    text-align: left;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: 300;
-    width: 40%;
-}
-.form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .ginput_container:not(.ginput_container_time):not(.ginput_container_date){
-    width: 60% !important;
-    margin-left: 40% !important;
-}
-.form-horizontal .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select{
-    margin-left: 0;
-    background: #EDECEC;
-    border: none;
-    padding: 20px;
-    font-size: 17px;
-    width: 100%;
-    height: 50px;
-}
-.form-horizontal .gform_wrapper .right_label textarea.medium{
-    background: #EDECEC;
-    border: none;
-    width: 100%;
-}
-.form-horizontal .gform_wrapper .ginput_container_fileupload input{
-    padding: 0;
-    margin: 0 !important;
+
+
+.form-horizontal{
+    /*======FORM Horizontal=========*/
+
+    .gform_wrapper{
+        /*======FORM WRAPPER=========*/
+        position: relative;
+        ul.gform_fields{
+            li.gfield{
+                padding-right: 0;
+                margin-bottom: 30px !important;
+            }
+        }
+        input{
+            width: 100% !important;
+        }
+        input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
+            background: #EDECEC;
+            border: none;
+            padding: 12px 15px;
+            font-size: 17px;
+        }
+        ul.gform_fields:not(.top_label){
+            .gfield_label{
+                text-align: left;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 300;
+                width: 40%;
+            }
+            .ginput_container:not(.ginput_container_time):not(.ginput_container_date){
+                width: 60% !important;
+                margin-left: 40% !important;
+            }
+
+        }
+
+        &.gf_browser_chrome{
+            ul.gform_fields{
+                li.gfield select{
+                    margin-left: 0;
+                    background: #EDECEC;
+                    border: none;
+                    padding: 5px 15px;
+                    font-size: 17px;
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+        }
+
+
+        .right_label {
+            textarea.medium{
+                background: #EDECEC;
+                border: none;
+                width: 100%;
+            }
+        }
+
+        .ginput_container_fileupload {
+            input{
+                padding: 0;
+                margin: 0 !important;
+            }
+        }
+
+        form ul.gform_fields.right_label{
+            li.field_description_below{
+                border-bottom: 0;
+                padding: 0;
+            }
+        }
+        form{
+            ul.gform_fields.right_label{
+                li.field_description_below{
+                    .gsection_description{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        .gform_footer {
+            input.button{
+
+            }
+            input[type=submit]{
+                color: #ffffff !important;
+                background-color: #8DC63F;
+                border-color: #8DC63F;
+                padding: 10px 30px;
+                font-size: 25px ;
+                font-weight: bold;
+                width: auto !important;
+                margin-right: 0;
+            }
+        }
+
+
+        .gform_footer:not(.top_label){
+            width: 70%;
+            padding-right: 0;
+            margin-right: 0;
+            margin-left: 30%;
+            text-align: right;
+        }
+
+        ul.gform_fields:not(.top_label) {
+            .gfield_description{
+                width: 60% !important;
+                margin-left: 40% !important;
+            }
+        }
+
+        .left_label {
+            .instruction{
+                margin-left: 0;
+            }
+        }
+        &.gform_validation_error {
+            .gform_body {
+                ul {
+                    li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half){
+                        max-width: 100% !important;
+                    }
+                }
+            }
+        }
+
+
+        li.gfield.gfield_error{
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        .left_label{
+            input.medium, select.medium{
+                width: 100%;
+                background: #EDECEC;
+                border: none;
+                height: 49.5px;
+            }
+        }
+
+        .right_label{
+            input.medium, select.medium{
+                width: 100%;
+                background: #EDECEC;
+                border: none;
+                height: 49.5px;
+            }
+        }
+
+
+
+        /*==END====FORM WRAPPER=========*/
+    }
+    /*==END====FORM Horizontal=========*/
 }
 
-.form-horizontal .gform_wrapper form ul.gform_fields.right_label li.field_description_below{
-    border-bottom: 0;
-    padding: 0;
-}
-.form-horizontal .gform_wrapper form ul.gform_fields.right_label li.field_description_below .gsection_description{
-    font-size: 18px;
-}
-.form-horizontal .gform_wrapper .gform_footer input.button, .form-horizontal .gform_wrapper .gform_footer input[type=submit]{
-    color: #ffffff !important;
-    background-color: #8DC63F;
-    border-color: #8DC63F;
-    padding: 10px 30px;
-    font-size: 25px ;
-    font-weight: bold;
-    width: auto !important;
-    margin-right: 0;
-}
-.form-horizontal .gform_wrapper .gform_footer:not(.top_label){
-    width: 70%;
-    padding-right: 0;
-    margin-right: 0;
-    margin-left: 30%;
-    text-align: right;
-}
-
-.form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .gfield_description{
-    width: 60% !important;
-    margin-left: 40% !important;
-}
-.form-horizontal .gform_wrapper .left_label .instruction{
-    margin-left: 0;
-}
-.form-horizontal .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half){
-    max-width: 100% !important;
-}
-.form-horizontal .gform_wrapper li.gfield.gfield_error{
-    padding-bottom: 0;
-    padding-top: 0;
-}
-.form-horizontal .gform_wrapper{
-    position: relative;
-}
 html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_label) .gfield_description{
     position: absolute;
 }
@@ -658,6 +735,27 @@ body #gform_wrapper_1 .top_label div.ginput_container{
 
 
 /*CSS CUSTOM SUBSCRIBE*/
+header {
+    #gform_wrapper_3 {
+        li.hidden_label {
+            input{
+                width: 100%;
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+        .gform_footer {
+            input{
+                width: 100%;
+                background: $color-green-logo;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
 body #gform_wrapper_3 .top_label div.ginput_container{
     text-align: center;
 }
@@ -775,7 +873,7 @@ body #gform_wrapper_3 .top_label div.ginput_container{
     margin-left: 0;
     background: #EDECEC;
     border: none;
-    padding: 20px;
+    padding: 5px 15px;
     font-size: 17px;
     width: 100%;
     height: 50px;
@@ -876,7 +974,7 @@ html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_lab
             padding-top: 0;
             text-align: right;
             input{
-                min-width: 80%;
+                min-width: calc(100% - 10px);
                 margin-right: 0;
                 background: #8DC63F;
                 margin-left: 10px;
@@ -915,9 +1013,14 @@ html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_lab
 body {
     .box-thank {
         #gform_wrapper_3 {
+            ul.gform_fields {
+                li.gfield{
+                    margin-top: 0 !important;
+                }
+            }
             .top_label {
                 div.ginput_container {
-                    margin-top: 0;
+                    margin-top: 0 !important;
                 }
             }
         }

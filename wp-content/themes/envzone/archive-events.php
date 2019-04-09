@@ -2,7 +2,7 @@
 $args = array(
     'posts_per_page' => 5,
     'offset'=> 0,
-    'post_type' => 'list_events',
+    'post_type' => 'events',
     'orderby' => 'id',
     'order' =>'desc'
 );
@@ -16,6 +16,9 @@ $args = array(
     'order' =>'desc'
 );
 $news_all = get_posts( $args );
+
+
+get_header();
 ?>
 
 <main class="main-content">
@@ -41,9 +44,9 @@ $news_all = get_posts( $args );
                 <div class="col-lg-8">
 
                     <?php foreach ($event_all as $item):?>
-                    <div class="box-item-event clearfix">
-                        <?php echo $item->post_content;?>
-                    </div>
+                        <div class="box-item-event clearfix">
+                            <?php echo $item->post_content;?>
+                        </div>
                     <?php endforeach;?>
 
                 </div>
@@ -80,3 +83,7 @@ $news_all = get_posts( $args );
         </div>
     </section>
 </main>
+    <script>
+        $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+    </script>
+<?php get_footer();?>

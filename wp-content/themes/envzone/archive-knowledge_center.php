@@ -32,7 +32,7 @@ get_header();
                     $args = array(
                         'posts_per_page' => 1,
                         'offset'=> 0,
-                        'post_type' => 'knowledge',
+                        'post_type' => 'knowledge_center',
                         'orderby' => 'post_modified',
                         'order' =>'desc',
                         'meta_key' => 'main_article',
@@ -87,7 +87,7 @@ get_header();
                         $args = array(
                             'posts_per_page' => -1,
                             'offset'=> 0,
-                            'post_type' => 'knowledge',
+                            'post_type' => 'knowledge_center',
                             'orderby' => 'id',
                             'order' =>'desc'
                         );

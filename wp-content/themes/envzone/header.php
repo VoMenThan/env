@@ -9,7 +9,6 @@
     <title>
         <?php
             wp_title('|', true, 'right');
-            bloginfo('name');
         ?>
     </title>
 
@@ -508,7 +507,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/knowledge">
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/knowledge-center">
                                                                 Knowledge Center
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>

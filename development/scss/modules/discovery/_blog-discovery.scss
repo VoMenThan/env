@@ -283,9 +283,7 @@
 			padding: 15px;
 			color: white;
 			margin-bottom: 15px;
-			width: 100%;
-			font-style: italic;
-
+			width: 100% !important;
 		}
 		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 			color: #E0E0E0;

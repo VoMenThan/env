@@ -539,6 +539,8 @@ get_header();
                     }
                 }
             });
+
+            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
         });
 
     })(jQuery);

@@ -157,11 +157,11 @@
 
 <script>
     function initMap() {
-        // Styles a map in night mode.
+        var location = {lat: 39.7466738, lng: -104.9915498};
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644}, // Configure your latitude and longitude
-            zoom: 12,
-            styles: // Please paste the generated code from Style Wizard here.
+            center: location,
+            zoom: 15,
+            styles:
                 [
                     {
                         "elementType": "geometry",
@@ -471,7 +471,12 @@
                     }
                 ]
         });
+        var marker = new google.maps.Marker({
+            position: location,
+            icon: 'https://envzone.com/wp-content/uploads/icon-envzone-marker.png',
+            map: map
+        })
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkRzoiyMq43ZqPaR8qauwDPlKACgnE_AI&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30dbRkg2p-cBX9ceyJlK2zg9Zm_h3Zj4&callback=initMap"
         async defer></script>

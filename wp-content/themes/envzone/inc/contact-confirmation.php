@@ -76,3 +76,7 @@
         </div>
     </section>
 </main>
+
+<script>
+    $(".box-thank #gform_submit_button_3").val('SUBSCRIBE NOW');
+</script>

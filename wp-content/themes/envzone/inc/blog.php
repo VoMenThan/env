@@ -274,6 +274,8 @@
     /*============ slide news =================*/
     $(document).ready(function() {
 
+        $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+
         $('.slider-news').owlCarousel({
             loop: false,
             margin: 30,

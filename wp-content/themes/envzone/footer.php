@@ -1,4 +1,32 @@
 <!-- FOOTER -->
+<!-- /*============ENHANCEMENTS HOME=================*/ -->
+<div class="container-fluild">
+    <div class="bg-blue-home" style="background: #45678A">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 text-lg-right text-center">
+                    <img src="<?php echo ASSET_URL;?>images/icon-enhancements.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-9" style="color: white">
+                    <p>
+                        ENVZONE Website Enhancements Ongoing
+                    </p>
+                    <p>
+                        The EnvZone website will be undergoing upgrades beginning March 15, to improve the user experience and enhance the mobile-friendly usability of the site. On the EnvZone website, users will notice changes including a more standard horizontal navigation menu, larger page widths, and some font/styling changes. Page navigation and site paths will remain the same.
+                    </p>
+                    <p>
+                        Thank you for your patience as we continue to work to improve our digital systems to support the Run to 2020 and Beyond! Have questions? Email webmaster@envzone.com.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- /*============END ENHANCEMENTS HOME=================*/ -->
+
 <footer>
     <div class="container">
         <div class="row mb-lg-5 py-3">
@@ -308,12 +336,17 @@
 
     }
 
+    function changeTextBtn() {
+        $("header #gform_submit_button_3").val('KEEP ME UPDATED');
+    }
+
     $(function () {
         toggle_obj(".btn-toggle-menu", "#menuBarMobile");
         toggle_obj(".btn-toggle-search", "#detailBoxSearch");
         toggle_obj(".btn-search-pc", "#detailBoxSearch");
         get_attr();
         select_next_element();
+        changeTextBtn();
     });
 
 </script>
