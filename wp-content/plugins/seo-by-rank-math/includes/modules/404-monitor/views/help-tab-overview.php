@@ -3,7 +3,7 @@
  * 404 Monitor inline help.
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
+ * @subpackage RankMath\Monitor
  */
 
 ?>

@@ -4,15 +4,16 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Monitor
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Monitor;
+namespace RankMath\Monitor;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
 use RankMath\Traits\Ajax;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -25,6 +26,8 @@ class Monitor {
 
 	/**
 	 * The Constructor.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function __construct() {
 
@@ -45,24 +48,29 @@ class Monitor {
 	/**
 	 * Add admin bar item.
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @param array $items Array of admin bar nodes.
+	 *
 	 * @return array
 	 */
 	public function admin_bar_items( $items ) {
-		$items['404-monitor'] = array(
+		$items['404-monitor'] = [
 			'id'        => 'rank-math-404-monitor',
 			'title'     => esc_html__( '404 Monitor', 'rank-math' ),
 			'href'      => Helper::get_admin_url( '404-monitor' ),
 			'parent'    => 'rank-math',
-			'meta'      => array( 'title' => esc_html__( 'Review 404 errors on your site', 'rank-math' ) ),
+			'meta'      => [ 'title' => esc_html__( 'Review 404 errors on your site', 'rank-math' ) ],
 			'_priority' => 50,
-		);
+		];
 
 		return $items;
 	}
 
 	/**
 	 * Delete log.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function delete_log() {
 
@@ -83,7 +91,7 @@ class Monitor {
 	 * This function logs the request details when is_404().
 	 */
 	public function capture_404() {
-		if ( ! is_404() ) {
+		if ( ! is_404() || in_array( http_response_code(), [ 410, 451 ], true ) ) {
 			return;
 		}
 
@@ -97,25 +105,24 @@ class Monitor {
 
 		// Mode = simple.
 		if ( 'simple' === Helper::get_settings( 'general.404_monitor_mode' ) ) {
-			DB::update( array( 'uri' => $uri ) );
+			DB::update( [ 'uri' => $uri ] );
 			return;
 		}
 
 		// Mode = advance.
-		DB::add(
-			array(
-				'uri'        => $uri,
-				'ip'         => ! empty( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '',
-				'referer'    => ! empty( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '',
-				'user_agent' => $this->get_user_agent(),
-			)
-		);
+		DB::add([
+			'uri'        => $uri,
+			'ip'         => ! empty( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '',
+			'referer'    => ! empty( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '',
+			'user_agent' => $this->get_user_agent(),
+		]);
 	}
 
 	/**
 	 * Is current url excluded
 	 *
-	 * @param  string $uri Check this uri for exclusion.
+	 * @param string $uri Check this uri for exclusion.
+	 *
 	 * @return boolean
 	 */
 	private function is_url_excluded( $uri ) {
@@ -125,7 +132,7 @@ class Monitor {
 		}
 
 		foreach ( $excludes as $rule ) {
-			if ( ! empty( $rule['exclude'] ) && Helper::str_comparison( $rule['exclude'], $uri, $rule['comparison'] ) ) {
+			if ( ! empty( $rule['exclude'] ) && Str::comparison( $rule['exclude'], $uri, $rule['comparison'] ) ) {
 				return true;
 			}
 		}
@@ -139,7 +146,6 @@ class Monitor {
 	 * @return string
 	 */
 	private function get_user_agent() {
-
 		if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			return '';
 		}
@@ -163,25 +169,26 @@ class Monitor {
 	 * @link https://github.com/donatj/PhpUserAgent
 	 *
 	 * @param string $u_agent User agent string to parse or null. Uses $_SERVER['HTTP_USER_AGENT'] on NULL.
+	 *
 	 * @return string[] an array with browser, version and platform keys
 	 */
 	private function parse_user_agent( $u_agent ) {
 		if ( ! $u_agent ) {
-			return array(
+			return [
 				'platform' => null,
 				'browser'  => null,
 				'version'  => null,
-			);
+			];
 		}
 
 		$response = wp_remote_get( 'https://api.redirect.li/v1/useragent/' . urlencode( $u_agent ) );
 		$response = wp_remote_retrieve_body( $response );
 		$response = json_decode( $response, true );
 
-		return array(
+		return [
 			'platform' => $response['os']['name'] . ' ' . $response['os']['version'],
 			'browser'  => $response['browser']['name'],
 			'version'  => $response['browser']['version'],
-		);
+		];
 	}
 }

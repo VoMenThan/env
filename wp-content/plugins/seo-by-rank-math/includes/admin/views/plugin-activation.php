@@ -6,10 +6,10 @@
  * @subpackage RankMath\Admin
  */
 
-use RankMath\Admin\Helper;
+use RankMath\Admin\Admin_Helper;
 use RankMath\KB;
 
-$registered = Helper::get_registration_data();
+$registered = Admin_Helper::get_registration_data();
 $class      = false !== $registered ? 'status-green' : 'status-red';
 ?>
 <div class="rank-math-box <?php echo $class; ?>">
@@ -29,11 +29,11 @@ $class      = false !== $registered ? 'status-green' : 'status-red';
 			<input type="hidden" name="registration-action" value="<?php echo $registered ? 'deregister' : 'register'; ?>">
 
 			<?php if ( ! $registered ) : ?>
-			<strong><?php esc_html_e( 'MyThemeShop Email/Username', 'rank-math' ); ?></strong><br>
+			<strong><?php esc_html_e( 'Rank Math Email/Username', 'rank-math' ); ?></strong><br>
 			<input class="regular-text fullwidth required" required type="text" name="connect-username" value="">
 			<span class="validation-message"><?php esc_html_e( 'This field is required.', 'rank-math' ); ?></span>
 			<br><br>
-			<strong><?php esc_html_e( 'MyThemeShop Password', 'rank-math' ); ?></strong><br>
+			<strong><?php esc_html_e( 'Rank Math Password', 'rank-math' ); ?></strong><br>
 			<input class="regular-text fullwidth required" required type="password" name="connect-password" value="">
 			<span class="validation-message"><?php esc_html_e( 'This field is required.', 'rank-math' ); ?></span>
 			<br><br>
@@ -48,12 +48,12 @@ $class      = false !== $registered ? 'status-green' : 'status-red';
 			</div>
 			<?php else : ?>
 				<h3 style="margin:0 0 20px; display: inline; vertical-align: top;"><?php esc_html_e( 'You have successfully activated Rank Math. If you find the plugin useful, feel free to recommend it to your friends or colleagues.', 'rank-math' ); ?></h3>
-				<?php RankMath\Helper::get_social_share(); ?>
+				<?php Admin_Helper::get_social_share(); ?>
 			<?php endif; ?>
 			<div class="frm-submit">
 				<button type="submit" class="button button-primary button-xlarge" name="button"><?php echo $registered ? esc_html__( 'Deactivate License', 'rank-math' ) : esc_html__( 'Connect Your Account', 'rank-math' ); ?></button>
 				<?php if ( ! $registered ) { ?>
-					<p><strong><?php esc_html_e( 'Don’t have an account?', 'rank-math' ); ?></strong> <em><a href="https://mythemeshop.com/#signup" target="_blank"><?php esc_html_e( 'Click here', 'rank-math' ); ?></a></em></p>
+					<p><strong><?php esc_html_e( 'Don’t have an account?', 'rank-math' ); ?></strong> <em><a href="https://rankmath.com/#signup" target="_blank"><?php esc_html_e( 'Click here', 'rank-math' ); ?></a></em></p>
 				<?php } ?>
 			</div>
 		</form>

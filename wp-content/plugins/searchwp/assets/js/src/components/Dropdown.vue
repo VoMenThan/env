@@ -9,7 +9,9 @@
                         :key="unusedPostType.name"
                         v-close-popover
                         @click="addPostType(unusedPostType.name)">{{ unusedPostType.label }}</li>
-                    <li v-if="numberOfExcludedPostTypes()" class="searchwp-excluded-types-note">{{ i18n.excluded }}: {{ numberOfExcludedPostTypes() }}</li>
+                    <li v-for="excludedPostType in excludedPostTypes" class="searchwp-excluded-types-note">
+                        {{ i18n.excluded }}: {{ excludedPostType.label }}
+                    </li>
                 </ul>
                 <ul v-else-if="type=='contentTypes'">
                     <li v-if="getUnusedNativeAttributes().length"
@@ -352,6 +354,9 @@ export default {
         }
     },
     computed: {
+        excludedPostTypes: function() {
+            return this.$root.misc.excluded_from_search;
+        },
         metaGroups: function() {
             let source = this.$root.objects[ this.postType ].meta_groups;
             let metakeyWeights = this.$parent.model.objects[ this.postType ].weights.cf;
@@ -399,6 +404,7 @@ export default {
                 done: _SEARCHWP_VARS.i18n.done,
                 excludeByTaxonomy: _SEARCHWP_VARS.i18n.exclude_by_taxonomy,
                 excluded: _SEARCHWP_VARS.i18n.excluded,
+                excludedFromSearch: _SEARCHWP_VARS.i18n.excluded_from_search,
                 limitByTaxonomy: _SEARCHWP_VARS.i18n.limit_by_taxonomy,
                 pdfMetadata: _SEARCHWP_VARS.i18n.pdf_metadata,
                 nativeAttribute: _SEARCHWP_VARS.i18n.native_attribute,
@@ -442,6 +448,21 @@ export default {
     .searchwp-dropdown-choices {
         display: flex;
         align-items: center;
+    }
+
+    .searchwp-excluded-types-note {
+        cursor: default !important;
+        color: rgba( 255, 255, 255, 0.55 );
+        margin-top: 0.5em;
+        padding-top: 0.6em;
+
+        &:hover {
+            background: transparent !important;
+        }
+
+        &:first-of-type {
+            border-top: 1px solid rgba( 255, 255, 255, 0.25 );
+        }
     }
 
     .vue-popover {

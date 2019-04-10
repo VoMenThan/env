@@ -3,7 +3,7 @@
 Plugin Name: SearchWP
 Plugin URI: https://searchwp.com/
 Description: The best WordPress search you can find
-Version: 3.0.3
+Version: 3.0.5
 Author: SearchWP, LLC
 Author URI: https://searchwp.com/
 Text Domain: searchwp
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SEARCHWP_VERSION', '3.0.3' );
+define( 'SEARCHWP_VERSION', '3.0.5' );
 define( 'SEARCHWP_PREFIX', 'searchwp_' );
 define( 'SEARCHWP_DBPREFIX', 'swp_' );
 define( 'SEARCHWP_EDD_STORE_URL', 'https://searchwp.com' );
@@ -50,7 +50,7 @@ include_once( dirname( __FILE__ ) . '/includes/class.stats.php' );
 
 if ( ! class_exists( 'SWP_EDD_SL_Plugin_Updater' ) ) {
 	// load our custom updater
-	include( dirname( __FILE__ ) . '/vendor/SWP_EDD_SL_Plugin_Updater.php' );
+	include( dirname( __FILE__ ) . '/lib/SWP_EDD_SL_Plugin_Updater.php' );
 }
 
 /**
@@ -934,7 +934,7 @@ Results in this set:
 <?php
 // grab just post IDs and titles
 $postsArePosts = true;
-include_once( dirname( __FILE__ ) . '/vendor/class.consoletable.php' );
+include_once( dirname( __FILE__ ) . '/lib/class.consoletable.php' );
 $debug_table = new SearchWPConsoleTable();
 if ( is_array( $diagnostics['posts'] ) && isset( $diagnostics['posts'][0] ) ) {
 	if ( is_numeric( $diagnostics['posts'][0] ) ) {
@@ -1349,7 +1349,9 @@ if ( is_array( $diagnostics['posts'] ) && isset( $diagnostics['posts'][0] ) ) {
 
 		$busy = searchwp_get_option( 'busy' );
 
-		wp_cache_delete( 'searchwp_transient', 'options' );
+		if ( false !== wp_cache_get( 'searchwp_transient', 'options' ) ) {
+			wp_cache_delete( 'searchwp_transient', 'options' );
+		}
 
 		$purge_transient = get_option( 'swppurge_transient' );
 		$purge_nonce = isset( $_REQUEST['swppurge'] ) ? sanitize_text_field( $_REQUEST['swppurge'] ) : '';

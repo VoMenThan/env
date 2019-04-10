@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Links
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Links
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Links;
+namespace RankMath\Links;
 
 defined( 'ABSPATH' ) || exit;
 

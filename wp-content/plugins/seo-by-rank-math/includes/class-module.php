@@ -7,7 +7,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;

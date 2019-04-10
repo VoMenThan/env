@@ -50,6 +50,7 @@ class SearchWPPartialMatches {
 		$term_array = explode( ' ', $query );
 		$term_array = array_map( 'trim', $term_array );
 		$term_array = array_map( 'sanitize_text_field', $term_array );
+		$term_array = array_map( 'strtolower', $term_array );
 
 		if ( empty( $term_array ) ) {
 			return;
@@ -83,7 +84,13 @@ class SearchWPPartialMatches {
 	}
 
 	public function find_partial_matches( $terms, $engine, $original_prepped_term ) {
-		$proceed_despite_exact_matches = apply_filters( 'searchwp_partial_matches_lenient', false, array(
+		$proceed = apply_filters( 'searchwp_partial_matching_' . $engine, true );
+
+		if ( empty( $proceed ) ) {
+			return;
+		}
+
+		$proceed_despite_exact_matches = apply_filters( 'searchwp_partial_matches_lenient', true, array(
 			'engine' => $engine,
 		) );
 

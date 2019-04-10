@@ -5,18 +5,16 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
-use RankMath\Helpers\Arr;
+use RankMath\Helpers\Api;
 use RankMath\Helpers\Attachment;
 use RankMath\Helpers\Conditional;
 use RankMath\Helpers\Choices;
-use RankMath\Helpers\HTML;
 use RankMath\Helpers\Post_Type;
-use RankMath\Helpers\Str;
 use RankMath\Helpers\Options;
 use RankMath\Helpers\Taxonomy;
 use RankMath\Helpers\WordPress;
@@ -28,44 +26,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class Helper {
 
-	use Arr, Attachment, Conditional, Choices, HTML, Post_Type, Str, Options, Taxonomy, WordPress;
-
-	/**
-	 * Debug function.
-	 *
-	 * @codeCoverageIgnore
-	 */
-	public static function d() {
-		array_map( function ( $item ) {
-			print_r( $item );
-			echo "\n";
-		}, func_get_args() );
-		die( 1 );
-	}
-
-	/**
-	 * Debug function.
-	 *
-	 * @codeCoverageIgnore
-	 */
-	public static function dd() {
-		array_map( function ( $item ) {
-			var_dump( $item );
-			echo "\n";
-		}, func_get_args() );
-		die( 1 );
-	}
-
-	/**
-	 * Get Setting.
-	 *
-	 * @param  string $field_id Field id to get.
-	 * @param  mixed  $default  Default value to return if field is not found.
-	 * @return mixed
-	 */
-	public static function get_settings( $field_id = '', $default = false ) {
-		return rank_math()->settings->get( $field_id, $default );
-	}
+	use Api, Attachment, Conditional, Choices, Post_Type, Options, Taxonomy, WordPress;
 
 	/**
 	 * Replace `%variable_placeholders%` with their real value based on the current requested page/post/cpt.
@@ -257,41 +218,70 @@ class Helper {
 	}
 
 	/**
-	 * Get field from query string.
-	 *
-	 * @param  string $id      Field id to get.
-	 * @param  mixed  $default Default value to return if field is not found.
-	 * @return mixed
+	 * Clear cache from:
+	 *  - WordPress Total Cache
+	 *  - W3 Total Cache
+	 *  - WP Super Cache
+	 *  - SG CachePress
+	 *  - WPEngine
+	 *  - Varnish
 	 */
-	public static function param_get( $id, $default = false ) {
-		return isset( $_GET[ $id ] ) ? $_GET[ $id ] : $default;
+	public static function clear_cache() {
+		// Clean WordPress cache.
+		if ( function_exists( 'wp_cache_clear_cache' ) ) {
+			wp_cache_clear_cache();
+		}
+
+		// If W3 Total Cache is being used, clear the cache.
+		if ( function_exists( 'w3tc_pgcache_flush' ) ) {
+			w3tc_pgcache_flush();
+		}
+
+		// If WP Super Cache is being used, clear the cache.
+		if ( function_exists( 'wp_cache_clean_cache' ) ) {
+			global $file_prefix;
+			wp_cache_clean_cache( $file_prefix );
+		}
+
+		// If SG CachePress is installed, rese its caches.
+		if ( class_exists( 'SG_CachePress_Supercacher' ) && is_callable( array( 'SG_CachePress_Supercacher', 'purge_cache' ) ) ) {
+			\SG_CachePress_Supercacher::purge_cache();
+		}
+
+		// Clear caches on WPEngine-hosted sites.
+		if ( class_exists( 'WpeCommon' ) ) {
+			\WpeCommon::purge_memcached();
+			\WpeCommon::clear_maxcdn_cache();
+			\WpeCommon::purge_varnish_cache();
+		}
+
+		// Clear Varnish caches.
+		self::clear_varnish_cache();
 	}
 
 	/**
-	 * Get field from FORM post.
-	 *
-	 * @param  string $id      Field id to get.
-	 * @param  mixed  $default Default value to return if field is not found.
-	 * @return mixed
+	 * Clear varnish cache for the dynamic files.
 	 */
-	public static function param_post( $id, $default = false ) {
-		return isset( $_POST[ $id ] ) ? $_POST[ $id ] : $default;
-	}
+	private static function clear_varnish_cache() {
+		// Parse the URL for proxy proxies.
+		$parsed_url = wp_parse_url( home_url() );
 
-	/**
-	 * Get action from request.
-	 *
-	 * @return bool|string
-	 */
-	public static function get_request_action() {
-		if ( empty( $_REQUEST['action'] ) ) {
-			return false;
+		// Build a varniship.
+		$varniship = get_option( 'vhp_varnish_ip' );
+		if ( defined( 'VHP_VARNISH_IP' ) && VHP_VARNISH_IP != false ) {
+			$varniship = VHP_VARNISH_IP;
 		}
 
-		if ( '-1' === $_REQUEST['action'] && ! empty( $_REQUEST['action2'] ) ) {
-			$_REQUEST['action'] = $_REQUEST['action2'];
-		}
-
-		return sanitize_key( $_REQUEST['action'] );
+		// If we made varniship, let it sail.
+		$purgeme = ( isset( $varniship ) && null != $varniship ) ? $varniship : $parsed_url['host'];
+		wp_remote_request( 'http://' . $purgeme,
+			array(
+				'method'  => 'PURGE',
+				'headers' => array(
+					'host'           => $parsed_url['host'],
+					'X-Purge-Method' => 'default',
+				),
+			)
+		);
 	}
 }

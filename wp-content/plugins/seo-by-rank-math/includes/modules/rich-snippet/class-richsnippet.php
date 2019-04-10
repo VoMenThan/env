@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\RichSnippet
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\RichSnippet
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\RichSnippet;
+namespace RankMath\RichSnippet;
 
 use RankMath\Traits\Hooker;
 

@@ -206,11 +206,11 @@ get_header();
                             <p>
                                 Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
                             </p>
-                            <form action="" method="get">
-                                <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                                <input type="submit" hidden>
-                                <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-                            </form>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
                         </div>
                     </div>
 
@@ -224,71 +224,12 @@ get_header();
     <div class="artical-page blog-page blog-detail-page">
 
         <div class="container">
-            <!-- /*============WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
+
+
+            <!-- /*============READ MORE FROM EXPERTS=================*/ -->
             <div class="row section-trending">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">WATCH MORE FROM C-LEVEL ADVICES</h3>
-                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
-                </div>
-                <div class="col-lg-12">
-                    <div class="owl-carousel owl-theme d-flex slider-news">
-                        <?php
-                        $args = array(
-                            'posts_per_page' => 7,
-                            'offset'=> 0,
-                            'post_type' => 'knowledge',
-                            'orderby' => 'id',
-                            'order' =>'desc',
-                            'meta_key' => 'clevel',
-                            'meta_value' => true
-                        );
-                        $news_expert = get_posts( $args );
-                        foreach ($news_expert as $item):
-                            if (get_field('avatar', 'user_'.$item->post_author)== ''){
-                                $avatar = ASSET_URL.'images/avatar-default.png';
-                            }
-                            else{
-                                $avatar = get_field('avatar', 'user_'.$item->post_author);
-                            }
-                            ?>
-                            <article class="highlight-news-right img-center item">
-                                <?php
-                                $vimeo = get_post_meta($item->ID, 'embed', true);
-                                ?>
-                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
-                                    <i class="icon-video-play"></i>
-                                </a>
-                                <div class="info-news">
-                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
-                                        <?php echo get_the_category($item->ID)[0]->name;?>
-                                    </a>
-                                    <a href="<?php echo get_permalink($item->ID);?>">
-                                        <h2>
-                                            <?php echo $item->post_title;?>
-                                        </h2>
-                                    </a>
-                                    <div class="audit">
-
-                                        <span>By</span>
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
-                                        </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
-                                    </div>
-                                </div>
-                            </article>
-                        <?php endforeach;?>
-                    </div>
-                </div>
-            </div>
-            <!-- /*============END WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
-
-            <!-- /*============READ MORE FEATURED INSIGHTS=================*/ -->
-            <div class="row section-trending">
-                <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">READ MORE FEATURED INSIGHTS</h3>
+                    <h3 class="title-head-blue have-border">READ MORE FROM EXPERTS</h3>
                     <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
@@ -299,7 +240,15 @@ get_header();
                             'offset'=> 0,
                             'post_type' => 'post',
                             'orderby' => 'id',
-                            'order' =>'desc'
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'post_show',
+                                    'value' => 'read-more-from-experts',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $news_expert = get_posts( $args );
 
@@ -327,7 +276,7 @@ get_header();
                                             $avatar = get_field('avatar', 'user_'.$item->post_author);
                                         }
                                         ?>
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <span>By</span>
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
@@ -340,13 +289,14 @@ get_header();
                     </div>
                 </div>
             </div>
-            <!-- /*============END READ MORE FEATURED INSIGHTS=================*/ -->
+            <!-- /*============END READ MORE FROM EXPERTS=================*/ -->
 
-            <!-- /*============WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS=================*/ -->
+
+            <!-- /*============WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
             <div class="row section-trending">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
-                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                    <h3 class="title-head-blue have-border">WATCH MORE FROM C-LEVEL ADVICES</h3>
+                    <a href="<?php echo home_url('knowledge_center')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-theme d-flex slider-news">
@@ -354,11 +304,17 @@ get_header();
                         $args = array(
                             'posts_per_page' => 7,
                             'offset'=> 0,
-                            'post_type' => 'knowledge',
+                            'post_type' => 'knowledge_center',
                             'orderby' => 'id',
                             'order' =>'desc',
-                            'meta_key' => 'events',
-                            'meta_value' => true
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'video_show',
+                                    'value' => 'clevel-advice',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -389,7 +345,75 @@ get_header();
                                     <div class="audit">
 
                                         <span>By</span>
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+            <!-- /*============END WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
+
+
+            <!-- /*============WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS=================*/ -->
+            <div class="row section-trending">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
+                    <a href="<?php echo home_url('knowledge_center')?>" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-theme d-flex slider-news">
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 7,
+                            'offset'=> 0,
+                            'post_type' => 'knowledge_center',
+                            'orderby' => 'id',
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'video_show',
+                                    'value' => 'watch-rock',
+                                    'compare' => 'LIKE',
+                                )
+                            )
+                        );
+                        $news_expert = get_posts( $args );
+                        foreach ($news_expert as $item):
+                            if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                $avatar = ASSET_URL.'images/avatar-default.png';
+                            }
+                            else{
+                                $avatar = get_field('avatar', 'user_'.$item->post_author);
+                            }
+                            ?>
+                            <article class="highlight-news-right img-center item">
+                                <?php
+                                $vimeo = get_post_meta($item->ID, 'embed', true);
+                                ?>
+                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
+                                    <i class="icon-video-play"></i>
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                        <?php echo get_the_category($item->ID)[0]->name;?>
+                                    </a>
+                                    <a href="<?php echo get_permalink($item->ID);?>">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit">
+
+                                        <span>By</span>
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
@@ -412,7 +436,7 @@ get_header();
         $(document).ready(function (e) {
 
 
-            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+            $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
             $('.blog-page .highlight-news-right .info-news h2').matchHeight({
                 byRow: true,

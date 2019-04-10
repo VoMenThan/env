@@ -4,18 +4,18 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap\Providers;
+namespace RankMath\Sitemap\Providers;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
-use RankMath\Modules\Sitemap\Router;
-use RankMath\Modules\Sitemap\Sitemap;
-use RankMath\Modules\Sitemap\Classifier;
-use RankMath\Modules\Sitemap\Image_Parser;
+use RankMath\Sitemap\Router;
+use RankMath\Sitemap\Sitemap;
+use RankMath\Sitemap\Classifier;
+use RankMath\Sitemap\Image_Parser;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -115,26 +115,25 @@ class Post_Type implements Provider {
 			if ( $max_pages > 1 ) {
 				$sql = "
 				SELECT post_modified_gmt
-					FROM ( SELECT @rownum:=0 ) init
-					JOIN {$wpdb->posts} USE INDEX( type_status_date )
-					WHERE post_status IN ( 'publish', 'inherit' )
-					  AND post_type = %s
-					  AND ( @rownum:=@rownum+1 ) %% %d = 0
-					ORDER BY post_modified_gmt ASC";
+					FROM ( SELECT @rownum:=@rownum rownum, $wpdb->posts.post_modified_gmt
+					FROM ( SELECT @rownum:=0 ) r, $wpdb->posts
+						WHERE post_status IN ( 'publish', 'inherit' )
+						AND post_type = %s
+						ORDER BY post_modified_gmt ASC
+					)
+					x WHERE rownum %% %d = 0 ORDER BY post_modified_gmt DESC";
 
-				$all_dates = $wpdb->get_col( $wpdb->prepare( $sql, $post_type, $max_entries ) ); // WPCS: unprepared SQL OK.
+				$all_dates = $wpdb->get_col( $wpdb->prepare( $sql, $post_type, $max_entries ) ); // phpcs:ignore
 			}
 
 			for ( $page_counter = 0; $page_counter < $max_pages; $page_counter++ ) {
 				$current_page = ( $max_pages > 1 ) ? ( $page_counter + 1 ) : '';
 				$date         = false;
 
-				if ( empty( $current_page ) || $current_page === $max_pages ) {
-					if ( ! empty( $last_modified_times[ $post_type ] ) ) {
-						$date = $last_modified_times[ $post_type ];
-					}
-				} else {
+				if ( isset( $all_dates[ $page_counter ] ) ) {
 					$date = $all_dates[ $page_counter ];
+				} elseif ( ! empty( $last_modified_times[ $post_type ] ) ) {
+					$date = $last_modified_times[ $post_type ];
 				}
 
 				$index[] = array(
@@ -258,7 +257,7 @@ class Post_Type implements Provider {
 			{$where}
 			{$where_filter}";
 
-		return (int) $wpdb->get_var( $sql ); // WPCS: unprepared SQL OK.
+		return (int) $wpdb->get_var( $sql ); // phpcs:ignore
 	}
 
 	/**
@@ -348,7 +347,7 @@ class Post_Type implements Provider {
 			o JOIN {$wpdb->posts} l ON l.ID = o.ID
 		";
 
-		$posts = $wpdb->get_results( $wpdb->prepare( $sql, $count, $offset ) ); // WPCS: unprepared SQL OK.
+		$posts = $wpdb->get_results( $wpdb->prepare( $sql, $count, $offset ) ); // phpcs:ignore
 
 		$post_ids = array();
 		foreach ( $posts as $post ) {
@@ -385,7 +384,6 @@ class Post_Type implements Provider {
 		WHERE {$status}
 			AND {$wpdb->posts}.post_type IN ( '" . join( "', '", esc_sql( $post_types ) ) . "' )
 			AND {$wpdb->posts}.post_password = ''
-			AND {$wpdb->posts}.post_date != '0000-00-00 00:00:00'
 		";
 
 		return $where_clause;

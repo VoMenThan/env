@@ -27,9 +27,7 @@ get_header();
                         'offset'=> 0,
                         'post_type' => 'studio',
                         'orderby' => 'post_modified',
-                        'order' =>'desc',
-                        'meta_key' => 'main_article',
-                        'meta_value' => true
+                        'order' =>'desc'
                     );
                     $studio_main = get_posts( $args );
                     ?>
@@ -59,7 +57,7 @@ get_header();
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $studio_main[0]->post_author);?>">
                                        By <?php echo get_the_author_meta('display_name', $studio_main[0]->post_author);?>
                                     </a>
@@ -114,7 +112,7 @@ get_header();
                                 }
 
                                 ?>
-                                <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
 
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>">
                                     By <?php echo get_the_author_meta('display_name', $item->post_author);?>
@@ -136,7 +134,7 @@ get_header();
                         $args = array(
                             'posts_per_page' => 3,
                             'offset'=> 0,
-                            'post_type' => 'studio_video',
+                            'post_type' => 'studio_motion',
                             'orderby' => 'id',
                             'order' =>'desc'
                         );
@@ -168,7 +166,7 @@ get_header();
                                         }
 
                                         ?>
-                                        <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>

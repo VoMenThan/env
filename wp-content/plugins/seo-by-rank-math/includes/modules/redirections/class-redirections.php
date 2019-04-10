@@ -4,19 +4,20 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
-
-defined( 'ABSPATH' ) || exit;
+use MyThemeShop\Helpers\Conditional;
 
 /**
  * Redirections class.
+ *
+ * @codeCoverageIgnore
  */
 class Redirections {
 
@@ -32,7 +33,7 @@ class Redirections {
 			$this->action( 'wp', 'do_redirection' );
 		}
 
-		if ( is_admin() || Helper::is_rest() ) {
+		if ( is_admin() || Conditional::is_rest() ) {
 			new Watcher;
 		}
 
@@ -65,42 +66,42 @@ class Redirections {
 	 */
 	public function admin_bar_items( $items ) {
 
-		$items['redirections'] = array(
+		$items['redirections'] = [
 			'id'        => 'rank-math-redirections',
 			'title'     => esc_html__( 'Redirections', 'rank-math' ),
 			'href'      => Helper::get_admin_url( 'redirections' ),
 			'parent'    => 'rank-math',
-			'meta'      => array( 'title' => esc_html__( 'Create and edit redirections', 'rank-math' ) ),
+			'meta'      => [ 'title' => esc_html__( 'Create and edit redirections', 'rank-math' ) ],
 			'_priority' => 50,
-		);
+		];
 
-		$items['redirections-child'] = array(
+		$items['redirections-child'] = [
 			'id'        => 'rank-math-redirections-child',
 			'title'     => esc_html__( 'Manage Redirections', 'rank-math' ),
 			'href'      => Helper::get_admin_url( 'redirections' ),
 			'parent'    => 'rank-math-redirections',
-			'meta'      => array( 'title' => esc_html__( 'Create and edit redirections', 'rank-math' ) ),
+			'meta'      => [ 'title' => esc_html__( 'Create and edit redirections', 'rank-math' ) ],
 			'_priority' => 51,
-		);
+		];
 
-		$items['redirections-settings'] = array(
+		$items['redirections-settings'] = [
 			'id'        => 'rank-math-redirections-settings',
 			'title'     => esc_html__( 'Redirection Settings', 'rank-math' ),
 			'href'      => Helper::get_admin_url( 'options-general' ) . '#setting-panel-redirections',
 			'parent'    => 'rank-math-redirections',
-			'meta'      => array( 'title' => esc_html__( 'Redirection Settings', 'rank-math' ) ),
+			'meta'      => [ 'title' => esc_html__( 'Redirection Settings', 'rank-math' ) ],
 			'_priority' => 52,
-		);
+		];
 
 		if ( ! is_admin() ) {
-			$items['redirections-redirect-me'] = array(
+			$items['redirections-redirect-me'] = [
 				'id'        => 'rank-math-redirections-redirect-me',
 				'title'     => esc_html__( '&raquo; Redirect this page', 'rank-math' ),
 				'href'      => add_query_arg( 'url', urlencode( ltrim( $_SERVER['REQUEST_URI'], '/' ) ), Helper::get_admin_url( 'redirections' ) ),
 				'parent'    => 'rank-math-redirections',
-				'meta'      => array( 'title' => esc_html__( 'Redirect the current URL', 'rank-math' ) ),
+				'meta'      => [ 'title' => esc_html__( 'Redirect the current URL', 'rank-math' ) ],
 				'_priority' => 53,
-			);
+			];
 		}
 
 		return $items;

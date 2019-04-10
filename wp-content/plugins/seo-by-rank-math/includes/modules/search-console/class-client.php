@@ -3,12 +3,12 @@
  * The Search Console Client
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
 
@@ -125,16 +125,19 @@ class Client {
 
 		$response = wp_remote_request( $url, $params );
 
-		return $this->process_response( $response );
+		return $this->process_response( $response, $http_verb, $url );
 	}
 
 	/**
 	 * Process api response.
 	 *
-	 * @param  array $response Api response array.
+	 * @param array  $response  Api response array.
+	 * @param string $http_verb Request http verb.
+	 * @param string $url       Request url.
+	 *
 	 * @return array
 	 */
-	public function process_response( $response ) {
+	public function process_response( $response, $http_verb = '', $url = '' ) {
 		if ( ! is_wp_error( $response ) ) {
 			$code = wp_remote_retrieve_response_code( $response );
 			$body = wp_remote_retrieve_body( $response );
@@ -153,6 +156,8 @@ class Client {
 			if ( isset( $body['error_description'] ) && 'Bad Request' === $body['error_description'] ) {
 				$body['error_description'] = esc_html__( 'Bad request. Please check the code.', 'rank-math' );
 			}
+
+			\error_log( 'Rank Math GSC API Error: ' . strtoupper( $http_verb ) . ' ' . $url . ' ' . $code . ' | ' . json_encode( $body, JSON_UNESCAPED_SLASHES ) );
 
 			return array(
 				'status' => 'fail',
@@ -315,7 +320,7 @@ class Client {
 				$sitemaps = $response['body']['sitemap'];
 				set_transient( $key, $sitemaps, DAY_IN_SECONDS );
 			} else {
-				rank_math()->add_error( $response['body']['error']['message'] );
+				Helper::add_notification( $response['body']['error']['message'] );
 			}
 		}
 
@@ -370,7 +375,7 @@ class Client {
 			return;
 		}
 
-		rank_math()->add_deferred_error( $message, 'error' );
+		Helper::add_notification( $message, [ 'type' => 'error' ] );
 	}
 
 	/**

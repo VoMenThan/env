@@ -7,7 +7,7 @@
  */
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 
 global $post;
 
@@ -26,7 +26,7 @@ if ( Admin_Helper::is_post_edit() ) {
 }
 $fb_thumbnail = $fb_thumbnail ? absint( $fb_thumbnail ) : $thumbnail;
 if ( ! is_string( $fb_thumbnail ) ) {
-	$image_src    = wp_get_attachment_image_src( $fb_thumbnail, 'rank-math-facebook-thumbnail' );
+	$image_src    = wp_get_attachment_image_src( $fb_thumbnail, 'full' );
 	$fb_thumbnail = $image_src[0];
 }
 
@@ -43,7 +43,7 @@ if ( Admin_Helper::is_post_edit() ) {
 }
 $tw_thumbnail = $tw_thumbnail ? absint( $tw_thumbnail ) : $thumbnail;
 if ( ! is_string( $tw_thumbnail ) ) {
-	$image_src    = wp_get_attachment_image_src( $tw_thumbnail, 'rank-math-facebook-thumbnail' );
+	$image_src    = wp_get_attachment_image_src( $tw_thumbnail, 'full' );
 	$tw_thumbnail = $image_src[0];
 }
 
@@ -87,7 +87,7 @@ $twitter_username = $twitter_username ? $twitter_username : esc_html( 'username'
 			<div class="rank-math-social-preview-item-wrapper">
 
 				<div class="rank-math-social-preview-image">
-					<?php the_post_thumbnail( 'rank-math-facebook-thumbnail', 'id=rank_math_post_thumbnail' ); ?>
+					<?php the_post_thumbnail( 'full', 'id=rank_math_post_thumbnail' ); ?>
 					<img class="facebook-thumbnail" src="<?php echo $fb_thumbnail; ?>" width="526" height="275" />
 					<img class="twitter-thumbnail" src="<?php echo $tw_thumbnail; ?>" width="526" height="275" />
 					<img src="" class="rank-math-social-preview-image-overlay">
@@ -101,12 +101,20 @@ $twitter_username = $twitter_username ? $twitter_username : esc_html( 'username'
 				</div>
 
 			</div>
-			<div class="error-msg">Set your default image for Facebook & Twitter by adding <a href="<?php echo Helper::get_admin_url( 'options-titles#setting-panel-global' ); ?>" target="_blank">OpenGraph Thumbnail</a></div>
+			<div class="error-msg">
+				<?php
+				printf(
+					/* translators: Link to global title setting */
+					__( 'Set your default image for Facebook & Twitter by adding <a href="%s" target="_blank">OpenGraph Thumbnail</a>', 'rank-math' ),
+					Helper::get_admin_url( 'options-titles#setting-panel-global' )
+				);
+				?>
+			</div>
 		</div>
 
 	</div>
 
 	<div class="notice notice-alt notice-info info inline">
 		<?php /* translators: link to title setting screen */ ?>
-		<p><?php printf( wp_kses_post( __( 'Customize the title, description and images of your post used while sharing on Facebook and Twitter. <a href="%s" target="_blank">Read more</a>', 'rank-math' ) ), 'https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/meta-box-social-tab/?utm_source=Rank+Math+Plugin+Options&utm_medium=LP+CPC&utm_content=Rank+Math+KB&utm_campaign=Rank+Math' ); ?></p>
+		<p><?php printf( wp_kses_post( __( 'Customize the title, description and images of your post used while sharing on Facebook and Twitter. <a href="%s" target="_blank">Read more</a>', 'rank-math' ) ), \RankMath\KB::get( 'social-tab' ) ); ?></p>
 	</div>

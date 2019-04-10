@@ -3,13 +3,13 @@
  * The SEO Analyzer Local Tests
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-use RankMath\Helper;
 use RankMath\KB;
+use RankMath\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -35,11 +35,27 @@ function rank_math_register_seo_analysis_test( $tests ) {
 		'callback'    => 'rank_math_analyze_site_description',
 	);
 
+	$tests['blog_public'] = array(
+		'category'    => 'basic',
+		'title'       => esc_html__( 'Blog Public', 'rank-math' ),
+		/* translators: link to general setting screen */
+		'description' => esc_html__( 'Your site may not be visible to search engine.', 'rank-math' ),
+		'how_to_fix'  => '<p>' .
+			sprintf(
+				/* translators: %1$s resolves to the opening tag of the link to the reading settings, %1$s resolves to the closing tag for the link */
+				esc_html__( 'You must %1$sgo to your Reading Settings%2$s and uncheck the box for Search Engine Visibility.', 'rank-math' ),
+				'<a href="' . esc_url( admin_url( 'options-reading.php' ) ) . '">',
+				'</a>'
+			) .
+		'</p>',
+		'callback'    => 'rank_math_analyze_blog_public',
+	);
+
 	$tests['permalink_structure'] = array(
 		'category'    => 'basic',
 		'title'       => esc_html__( 'Permalink Structure', 'rank-math' ),
 		/* translators: link to permalink setting screen */
-		'description' => sprintf( esc_html__( 'For the best SEO results, use a custom permalink structure, preferably one that includes the post title (<code>%%postname%%</code>). You can change it by navigating to <a href="%s">Settings &gt; Permalinks</a>', 'rank-math' ), admin_url( 'options-permalink.php' ) ),
+		'description' => sprintf( __( 'For the best SEO results, use a custom permalink structure, preferably one that includes the post title (<code>%%postname%%</code>). You can change it by navigating to <a href="%s">Settings &gt; Permalinks</a>', 'rank-math' ), admin_url( 'options-permalink.php' ) ),
 		'how_to_fix'  => '<p>' . esc_html__( 'The standard permalink structure is pretty ugly - WordPress generates offputting URLs like: http://www.yoursite.com/?p=99', 'rank-math' ) . '</p>' .
 			'<p>' . esc_html__( 'It\'s not very kind on the eyes, and it does nothing for your site\'s SEO.  In fact, it can hurt it - Google\'s bot is quite cautious about crawling pages that look auto-generated.', 'rank-math' ) . '</p>' .
 			/* translators: link to permalink setting screen */
@@ -108,11 +124,16 @@ function rank_math_analyze_site_description() {
 	if ( '' == $sitedesc ) {
 		return array(
 			'status'  => 'warning',
-			'message' => esc_html__( 'Your Site Tagline is empty.', 'rank-math' ),
+			'message' => sprintf(
+				/* translators: 1: link open tag; 2: link close tag. */
+				esc_html__( 'You still have the default WordPress tagline, even an empty one is probably better. %1$sYou can fix this in the customizer%2$s.', 'rank-math' ),
+				'<a href="' . esc_attr( $customize_url ) . '">',
+				'</a>'
+			),
 		);
 	}
 
-	if ( __( 'Just another WordPress site' ) === $sitedesc ) { // @codingStandardsIgnoreLine
+	if ( rank_math_has_default_tagline() ) { // phpcs:ignore
 		return array(
 			'status'  => 'fail',
 			'message' => wp_kses_post( __( 'Your Site Tagline is set to the default value <em>Just another WordPress site</em>.', 'rank-math' ) ),
@@ -123,6 +144,21 @@ function rank_math_analyze_site_description() {
 		'status'  => 'ok',
 		'message' => esc_html__( 'Your Site Tagline is set to a custom value.', 'rank-math' ),
 	);
+}
+
+/**
+ * Returns whether or not the site has the default tagline
+ *
+ * @return bool
+ */
+function rank_math_has_default_tagline() {
+	$description         = get_bloginfo( 'description' );
+	$default_description = 'Just another WordPress site';
+
+	// We are checking against the WordPress internal translation.
+	$translated_description = translate( 'Just another WordPress site' ); // phpcs:ignore
+
+	return $translated_description === $description || $default_description === $description;
 }
 
 /**
@@ -140,7 +176,7 @@ function rank_math_analyze_permalink_structure() {
 		);
 	}
 
-	if ( ! stripos( $permalink_structure, '%postname%' ) ) {
+	if ( ! rank_math_has_postname_in_permalink() ) {
 		return array(
 			'status'  => 'fail',
 			'message' => wp_kses_post( __( 'Permalinks are set to a custom structure but the post titles do not appear in the permalinks.', 'rank-math' ) ),
@@ -152,6 +188,15 @@ function rank_math_analyze_permalink_structure() {
 		/* translators: permalink structure */
 		'message' => sprintf( wp_kses_post( __( 'Post permalink structure is set to %s.', 'rank-math' ) ), '<code>' . $permalink_structure . '</code>' ),
 	);
+}
+
+/**
+ * Check if the permalink uses %postname%
+ *
+ * @return bool
+ */
+function rank_math_has_postname_in_permalink() {
+	return ( false !== strpos( get_option( 'permalink_structure' ), '%postname%' ) );
 }
 
 /**
@@ -205,7 +250,7 @@ function rank_math_analyze_focus_keywords() {
 
 	$mq_sql = $meta_query->get_sql( 'post', $wpdb->posts, 'ID' );
 	$query  = "SELECT {$wpdb->posts}.ID, {$wpdb->posts}.post_type FROM $wpdb->posts {$mq_sql['join']} WHERE 1 = 1 {$mq_sql['where']}{$in_search_post_types} AND ({$wpdb->posts}.post_status = 'publish') GROUP BY {$wpdb->posts}.ID";
-	$data   = $wpdb->get_results( $query, ARRAY_A ); // WPCS: unprepared SQL OK.
+	$data   = $wpdb->get_results( $query, ARRAY_A ); // phpcs:ignore
 
 	// Early Bail!
 	if ( empty( $data ) ) {
@@ -270,7 +315,7 @@ function rank_math_analyze_post_titles() {
 
 	$mq_sql = $meta_query->get_sql( 'post', $wpdb->posts, 'ID' );
 	$query  = "SELECT {$wpdb->posts}.ID, {$wpdb->posts}.post_type FROM $wpdb->posts {$mq_sql['join']} WHERE 1=1 {$mq_sql['where']}{$in_search_post_types} AND ({$wpdb->posts}.post_status = 'publish') AND {$wpdb->posts}.post_title NOT REGEXP REPLACE({$wpdb->postmeta}.meta_value, ',', '|') GROUP BY {$wpdb->posts}.ID";
-	$data   = $wpdb->get_results( $query, ARRAY_A ); // WPCS: unprepared SQL OK.
+	$data   = $wpdb->get_results( $query, ARRAY_A ); // phpcs:ignore
 
 	// Early Bail!
 	if ( empty( $data ) ) {
@@ -298,7 +343,7 @@ function rank_math_analyze_post_titles() {
 		/* translators: post type links */
 		$message = sprintf( esc_html__( 'There are %s published posts where the focus keyword does not appear in the post title.', 'rank-math' ), join( ', ', $links ) );
 
-		$post_ids     = wp_list_pluck( $rows, 'ID' );
+		$post_ids     = wp_list_pluck( $data, 'ID' );
 		$post_ids_max = array_slice( $post_ids, 0, 20 );
 		foreach ( $post_ids_max as $postid ) {
 			$info[] = '<a href="' . get_permalink( $postid ) . '" target="_blank">' . get_the_title( $postid ) . '</a>';
@@ -348,4 +393,33 @@ function rank_math_analyze_sitemap( $analyzer ) {
 		'status'  => $found ? 'ok' : 'fail',
 		'message' => $found ? esc_html__( 'Your site has one or more sitemaps.', 'rank-math' ) : esc_html__( 'No sitemaps found.', 'rank-math' ),
 	);
+}
+
+
+/**
+ * Add an alert if the blog is not publicly visible
+ */
+function rank_math_analyze_blog_public() {
+	$info_message  = '<strong>' . esc_html__( 'Attention: Search Engines can\'t see your website.', 'rank-math' ) . '</strong> ';
+	$info_message .= sprintf(
+		/* translators: %1$s resolves to the opening tag of the link to the reading settings, %1$s resolves to the closing tag for the link */
+		esc_html__( 'You must %1$sgo to your Reading Settings%2$s and uncheck the box for Search Engine Visibility.', 'rank-math' ),
+		'<a href="' . esc_url( admin_url( 'options-reading.php' ) ) . '">',
+		'</a>'
+	);
+
+	$public = rank_math_is_blog_public();
+	return array(
+		'status'  => $public ? 'ok' : 'fail',
+		'message' => $public ? esc_html__( 'Your site is accessible by search engine.', 'rank-math' ) : $info_message,
+	);
+}
+
+/**
+ * Check if the site is set to be publicly visible
+ *
+ * @return bool
+ */
+function rank_math_is_blog_public() {
+	return '1' === (string) get_option( 'blog_public' );
 }

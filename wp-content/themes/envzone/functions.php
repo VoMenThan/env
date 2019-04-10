@@ -49,14 +49,12 @@ add_action('wp_enqueue_scripts', 'mt_env_register_js');
 function mt_env_register_js(){
     $jsUrl = get_template_directory_uri().'/assets/js/';
 	wp_deregister_script('jquery');
-    wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '3.0', false);
+    wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '1.0', true);
     wp_enqueue_script('jquery');
-	wp_enqueue_script('mt_env_popper_min', $jsUrl.'popper.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
-	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', false);
-	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', false);
-	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', false);
-	wp_enqueue_script('mt_env_wowjs', $jsUrl.'wow.min.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
 }
 
 /*======================================================================================================
@@ -72,7 +70,7 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_font_awesome', $cssUrl.'font-awesome.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_mCustomScrollbar_min', $cssUrl.'mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
-    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '1.0');
+    wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '4.0');
 }
 
 //add_filter('show_admin_bar', '__return_false');
@@ -185,14 +183,14 @@ function wpex_mce_google_fonts_styles() {
 }
 
 /*remove medium size in upload image*/
-add_filter( 'intermediate_image_sizes', function( $sizes )
+/*add_filter( 'intermediate_image_sizes', function( $sizes )
 {
     return array_filter( $sizes, function( $val )
     {
         return 'medium_large' !== $val; // Filter out 'medium_large'
     } );
 } );
-remove_image_size( 'medium_large' );
+remove_image_size( 'medium_large' );*/
 
 
 /*CUSTOM LOGIN PAGE*/

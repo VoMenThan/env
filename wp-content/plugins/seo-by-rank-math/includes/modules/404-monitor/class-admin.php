@@ -4,15 +4,18 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Monitor
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Monitor;
+namespace RankMath\Monitor;
 
 use RankMath\Helper;
-use RankMath\Admin\Page;
 use RankMath\Module;
+use MyThemeShop\Admin\Page;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Arr;
+use MyThemeShop\Helpers\WordPress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -23,23 +26,25 @@ class Admin extends Module {
 
 	/**
 	 * The Constructor.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function __construct() {
 
 		$directory = dirname( __FILE__ );
-		$this->config(array(
+		$this->config([
 			'id'             => '404-monitor',
 			'directory'      => $directory,
-			'table'          => 'RankMath\Modules\Monitor\Table',
-			'help'           => array(
+			'table'          => 'RankMath\Monitor\Table',
+			'help'           => [
 				'title' => esc_html__( '404 Monitor', 'rank-math' ),
 				'view'  => $directory . '/views/help.php',
-			),
-			'screen_options' => array(
+			],
+			'screen_options' => [
 				'id'      => 'rank_math_404_monitor_per_page',
 				'default' => 100,
-			),
-		));
+			],
+		]);
 		parent::__construct();
 
 		if ( $this->page->is_current_page() ) {
@@ -52,9 +57,11 @@ class Admin extends Module {
 
 	/**
 	 * Initialize.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function init() {
-		$action = Helper::get_request_action();
+		$action = WordPress::get_request_action();
 		if ( false === $action ) {
 			return;
 		}
@@ -67,7 +74,7 @@ class Admin extends Module {
 			$count = DB::delete_log( $_REQUEST['log'] );
 			if ( $count > 0 ) {
 				/* translators: delete counter */
-				rank_math()->add_error( sprintf( esc_html__( '%d log(s) deleted.', 'rank-math' ), $count ), 'success' );
+				Helper::add_notification( sprintf( esc_html__( '%d log(s) deleted.', 'rank-math' ), $count ), [ 'type' => 'success' ] );
 			}
 			return;
 		}
@@ -78,77 +85,85 @@ class Admin extends Module {
 			DB::clear_logs();
 
 			/* translators: delete counter */
-			rank_math()->add_error( sprintf( esc_html__( 'Log cleared - %d items deleted.', 'rank-math' ), $count ), 'success' );
+			Helper::add_notification( sprintf( esc_html__( 'Log cleared - %d items deleted.', 'rank-math' ), $count ), [ 'type' => 'success' ] );
 			return;
 		}
 	}
 
 	/**
 	 * Register admin page.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function register_admin_page() {
 
 		$dir = $this->directory . '/views/';
 		$uri = untrailingslashit( plugin_dir_url( __FILE__ ) );
 
-		$this->page = new Page( 'rank-math-404-monitor', esc_html__( '404 Monitor', 'rank-math' ), array(
+		$this->page = new Page( 'rank-math-404-monitor', esc_html__( '404 Monitor', 'rank-math' ), [
 			'position'   => 12,
 			'parent'     => 'rank-math',
 			'capability' => 'rank_math_404_monitor',
 			'render'     => $dir . 'main.php',
-			'help'       => array(
-				'404-overview'       => array(
+			'classes'    => [ 'rank-math-page' ],
+			'help'       => [
+				'404-overview'       => [
 					'title' => esc_html__( 'Overview', 'rank-math' ),
 					'view'  => $dir . 'help-tab-overview.php',
-				),
-				'404-screen-content' => array(
+				],
+				'404-screen-content' => [
 					'title' => esc_html__( 'Screen Content', 'rank-math' ),
 					'view'  => $dir . 'help-tab-screen-content.php',
-				),
-				'404-actions'        => array(
+				],
+				'404-actions'        => [
 					'title' => esc_html__( 'Available Actions', 'rank-math' ),
 					'view'  => $dir . 'help-tab-actions.php',
-				),
-				'404-bulk'           => array(
+				],
+				'404-bulk'           => [
 					'title' => esc_html__( 'Bulk Actions', 'rank-math' ),
 					'view'  => $dir . 'help-tab-bulk.php',
-				),
-			),
-			'assets'     => array(
-				'styles'  => array( 'rank-math-common' => '' ),
-				'scripts' => array( 'rank-math-404-monitor' => $uri . '/assets/404-monitor.js' ),
-			),
-		));
+				],
+			],
+			'assets'     => [
+				'styles'  => [ 'rank-math-common' => '' ],
+				'scripts' => [ 'rank-math-404-monitor' => $uri . '/assets/404-monitor.js' ],
+			],
+		]);
 
 		if ( $this->page->is_current_page() ) {
-			rank_math()->add_json( 'logConfirmClear', esc_html__( 'Are you sure you wish to delete all 404 error logs?', 'rank-math' ) );
-			rank_math()->add_json( 'redirectionsUri', Helper::get_admin_url( 'redirections' ) );
+			Helper::add_json( 'logConfirmClear', esc_html__( 'Are you sure you wish to delete all 404 error logs?', 'rank-math' ) );
+			Helper::add_json( 'redirectionsUri', Helper::get_admin_url( 'redirections' ) );
 		}
 	}
 
 	/**
 	 * Add module settings into general optional panel.
 	 *
-	 * @param  array $tabs Array of option panel tabs.
+	 * @codeCoverageIgnore
+	 *
+	 * @param array $tabs Array of option panel tabs.
+	 *
 	 * @return array
 	 */
 	public function add_settings( $tabs ) {
 
-		Helper::array_insert( $tabs, array(
-			'404-monitor' => array(
+		Arr::insert( $tabs, [
+			'404-monitor' => [
 				'icon'  => 'dashicons dashicons-no',
 				'title' => esc_html__( '404 Monitor', 'rank-math' ),
 				/* translators: 1. Link to kb article 2. Link to redirection setting scree */
-				'desc'  => sprintf( esc_html__( 'The 404 monitor lets you see the URLs where visitors and search engine crawlers run into 404 not found errors on your site. %1$s. Turn on %2$s too to redirect the faulty URLs easily.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/rank-math-seo-plugin/general-settings/#404-monitor" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>', '<a href="' . Helper::get_admin_url( 'options-general#setting-panel-redirections' ) . '" target="_blank">' . esc_html__( 'Redirections', 'rank-math' ) . '</a>' ),
+				'desc'  => sprintf( esc_html__( 'The 404 monitor lets you see the URLs where visitors and search engine crawlers run into 404 not found errors on your site. %1$s. Turn on %2$s too to redirect the faulty URLs easily.', 'rank-math' ), '<a href="' . \RankMath\KB::get( '404-monitor-settings' ) . '" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>', '<a href="' . Helper::get_admin_url( 'options-general#setting-panel-redirections' ) . '" target="_blank">' . esc_html__( 'Redirections', 'rank-math' ) . '</a>' ),
 				'file'  => $this->directory . '/views/options.php',
-			),
-		), 7 );
+			],
+		], 7 );
 
 		return $tabs;
 	}
 
 	/**
-	 * Add stats into admin dashboard
+	 * Add stats into admin dashboard.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function dashboard_widget() {
 		$data = DB::get_stats();
@@ -156,8 +171,8 @@ class Admin extends Module {
 		<br />
 		<h3><?php esc_html_e( '404 Monitor Stats', 'rank-math' ); ?></h3>
 		<ul>
-			<li><span><?php esc_html_e( '404 Monitor Log Count', 'rank-math' ); ?></span><?php echo Helper::human_number( $data->total ); ?></li>
-			<li><span><?php esc_html_e( '404 URI Hits', 'rank-math' ); ?></span><?php echo Helper::human_number( $data->hits ); ?></li>
+			<li><span><?php esc_html_e( '404 Monitor Log Count', 'rank-math' ); ?></span><?php echo Str::human_number( $data->total ); ?></li>
+			<li><span><?php esc_html_e( '404 URI Hits', 'rank-math' ); ?></span><?php echo Str::human_number( $data->hits ); ?></li>
 		</ul>
 		<?php
 	}

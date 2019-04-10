@@ -3,14 +3,15 @@
  * The Search Console Sitemaps
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
+use MyThemeShop\Helpers\Str;
 use RankMath\Traits\Hooker;
 
 defined( 'ABSPATH' ) || exit;
@@ -48,12 +49,9 @@ class Sitemaps {
 			check_admin_referer( 'rank_math_refresh_sitemaps', 'security' );
 
 			if ( $this->sync_sitemaps() ) {
-				rank_math()->add_error( esc_html__( 'Sitemaps list refreshed.', 'rank-math' ), 'success' );
+				Helper::add_notification( esc_html__( 'Sitemaps list refreshed.', 'rank-math' ), [ 'type' => 'success' ] );
 			}
 		}
-
-		$this->table = new Sitemaps_List;
-		$this->table->prepare_items();
 	}
 
 	/**
@@ -62,6 +60,8 @@ class Sitemaps {
 	public function display_table() {
 		echo '<form method="post">';
 
+		$this->table = new Sitemaps_List;
+		$this->table->prepare_items();
 		$this->table->get_refresh_button();
 		$this->table->display();
 
@@ -83,6 +83,10 @@ class Sitemaps {
 	 * Sync sitemaps with google search console.
 	 */
 	private function sync_sitemaps() {
+
+		if ( $this->selected_site_is_domain_property() ) {
+			return false;
+		}
 
 		if ( ! $this->check_selected_site() ) {
 			return false;
@@ -116,7 +120,7 @@ class Sitemaps {
 	}
 
 	/**
-	 * Check is selected profile same as site url.
+	 * Check if selected profile same as site url.
 	 *
 	 * @return boolean
 	 */
@@ -136,5 +140,23 @@ class Sitemaps {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Check if selected profile is a Domain Property.
+	 *
+	 * @return boolean
+	 */
+	public function selected_site_is_domain_property() {
+
+		if ( ! Helper::get_module( 'sitemap' ) || empty( $this->client->profile ) ) {
+			return false;
+		}
+
+		if ( Str::starts_with( 'sc-domain:', $this->client->profile ) ) {
+			return true;
+		}
+
+		return false;
 	}
 }

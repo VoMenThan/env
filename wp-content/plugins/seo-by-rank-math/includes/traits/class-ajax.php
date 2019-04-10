@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Traits
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Traits;
@@ -25,7 +25,11 @@ trait Ajax {
 	 * @return boolean
 	 */
 	public function is_ajax() {
-		return \wp_doing_ajax();
+		if ( function_exists( 'wp_doing_ajax' ) ) {
+			return \wp_doing_ajax();
+		}
+
+		return defined( 'DOING_AJAX' ) && DOING_AJAX;
 	}
 
 	/**

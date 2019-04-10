@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\OpenGraph
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\OpenGraph;
@@ -165,5 +165,22 @@ class OpenGraph {
 		printf( '<meta %1$s="%2$s" content="%3$s">' . "\n", $tag, esc_attr( $property ), esc_attr( $content ) );
 
 		return true;
+	}
+
+	/**
+	 * Get Overlay Image URL
+	 *
+	 * @param string $network The social network.
+	 * @return url
+	 */
+	public function get_overlay_image( $network = 'facebook' ) {
+		$img_overlay = '';
+		if ( is_singular() ) {
+			$img_overlay = Helper::get_post_meta( "{$network}_enable_image_overlay" ) ? Helper::get_post_meta( "{$network}_image_overlay" ) : '';
+		} elseif ( is_category() || is_tag() || is_tax() ) {
+			$img_overlay = Helper::get_term_meta( "{$network}_enable_image_overlay" ) ? Helper::get_term_meta( "{$network}_image_overlay" ) : '';
+		}
+
+		return $img_overlay;
 	}
 }

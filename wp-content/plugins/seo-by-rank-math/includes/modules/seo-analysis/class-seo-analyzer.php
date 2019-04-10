@@ -3,18 +3,19 @@
  * The SEO Analyzer
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\SEO_Analysis;
+namespace RankMath\SEO_Analysis;
 
 use RankMath\Helper;
 use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
 use Rollbar\Rollbar;
 use Rollbar\Payload\Level;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -80,7 +81,7 @@ class SEO_Analyzer {
 		}
 
 		if ( ! $this->analyse_subpage ) {
-			$this->results     = get_transient( 'rank_math_seo_analysis_results' );
+			$this->results     = get_option( 'rank_math_seo_analysis_results' );
 			$this->local_tests = $this->do_filter( 'seo_analysis/tests', array() );
 		}
 
@@ -99,14 +100,14 @@ class SEO_Analyzer {
 		if ( ! $this->run_api_tests() ) {
 			\error_log( $this->api_error );
 			Rollbar::log( Level::WARNING, $this->api_error );
-			echo '<div class="notice notice-error is-dismissible"><p>' . sprintf( esc_html__( 'API error.', 'rank-math' ), $this->api_error ) . '</p></div>';
+			/* translators: API error */
+			echo '<div class="notice notice-error is-dismissible"><p>' . sprintf( __( '<strong>API Error:</strong> %s', 'rank-math' ), $this->api_error ) . '</p></div>';
 		}
 
 		if ( ! $this->analyse_subpage ) {
 			$this->run_local_tests();
 			$this->run_social_tests();
-			delete_transient( 'rank_math_seo_analysis_results' );
-			set_transient( 'rank_math_seo_analysis_results', $this->results );
+			update_option( 'rank_math_seo_analysis_results', $this->results );
 		}
 
 		$this->display_graphs();
@@ -126,20 +127,26 @@ class SEO_Analyzer {
 			'locale' => get_locale(),
 		), $this->api_url );
 
-		$response = wp_remote_get( $api_url, array( 'timeout' => 20 ) );
+		$request = wp_remote_get( $api_url, array( 'timeout' => 20 ) );
 
 		// API error.
-		if ( is_wp_error( $response ) ) {
-			$this->api_error = strip_tags( $response->get_error_message() );
+		if ( is_wp_error( $request ) ) {
+			$this->api_error = strip_tags( $request->get_error_message() );
 			return false;
 		}
 
-		$response = wp_remote_retrieve_body( $response );
+		$response = wp_remote_retrieve_body( $request );
 		if ( $response && is_string( $response ) ) {
 			$response = json_decode( $response, true );
 			if ( ! is_array( $response ) ) {
 				return false;
 			}
+
+			if ( 200 !== absint( wp_remote_retrieve_response_code( $request ) ) ) {
+				$this->api_error = join( ', ', $response['errors'] );
+				return false;
+			}
+
 			foreach ( $response as $id => $results ) {
 
 				if ( $this->analyse_subpage && in_array( $id, $this->get_excluded_tests() ) ) {
@@ -185,10 +192,6 @@ class SEO_Analyzer {
 			'facebook'  => array(
 				'name'  => esc_html__( 'Facebook', 'rank-math' ),
 				'title' => esc_html__( 'Facebook Connected', 'rank-math' ),
-			),
-			'gplus'     => array(
-				'name'  => esc_html__( 'Google Plus', 'rank-math' ),
-				'title' => esc_html__( 'Google Plus Connected', 'rank-math' ),
 			),
 			'instagram' => array(
 				'name'  => esc_html__( 'Instagram', 'rank-math' ),
@@ -243,7 +246,7 @@ class SEO_Analyzer {
 		);
 
 		foreach ( $this->results as $test => $data ) {
-			if ( $this->analyse_subpage && in_array( $test, $this->get_excluded_tests() ) ) {
+			if ( 'info' === $data['status'] || ( $this->analyse_subpage && in_array( $test, $this->get_excluded_tests() ) ) ) {
 				continue;
 			}
 			$statuses[ $data['status'] ]++;
@@ -352,7 +355,7 @@ class SEO_Analyzer {
 	 */
 	private function output_test_result( $result, $test_id ) {
 		// Social entities.
-		if ( Helper::str_end_with( '_connected', $test_id ) && 'fail' === $result['status'] ) {
+		if ( Str::ends_with( '_connected', $test_id ) && 'fail' === $result['status'] ) {
 			/* translators: link to social option setting */
 			$result['fix'] = sprintf( __( 'Add Social Schema to your website by linking your social profiles <a href="%s">here</a>.', 'rank-math' ), Helper::get_admin_url( 'options-titles#setting-panel-social' ) );
 		}
@@ -615,7 +618,6 @@ class SEO_Analyzer {
 			'ssl'                 => 7,
 			// Social SEO.
 			'facebook_connected'  => 1,
-			'gplus_connected'     => 1,
 			'instagram_connected' => 1,
 			'linkedin_connected'  => 1,
 			'twitter_connected'   => 1,

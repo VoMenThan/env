@@ -4,14 +4,16 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\WooCommerce
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\WooCommerce
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\WooCommerce;
+namespace RankMath\WooCommerce;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Attachment;
 use RankMath\OpenGraph\Image as OpenGraph_Image;
 
 defined( 'ABSPATH' ) || exit;
@@ -108,7 +110,7 @@ class WooCommerce {
 			}
 
 			$query = "SELECT COUNT(ID) as count_id FROM {$wpdb->posts} WHERE post_name = %s AND post_type = %s";
-			$num   = intval( $wpdb->get_var( $wpdb->prepare( $query, array( $slug, 'product' ) ) ) ); // WPCS: unprepared SQL ok.
+			$num   = intval( $wpdb->get_var( $wpdb->prepare( $query, array( $slug, 'product' ) ) ) ); // phpcs:ignore
 			if ( $num > 0 ) {
 				$replace['page']      = '';
 				$replace['name']      = $slug;
@@ -357,7 +359,7 @@ class WooCommerce {
 			return true;
 		}
 
-		if ( Helper::str_start_with( 'pa_', $taxonomy ) ) {
+		if ( Str::starts_with( 'pa_', $taxonomy ) ) {
 			return true;
 		}
 
@@ -372,17 +374,19 @@ class WooCommerce {
 	 * @return bool
 	 */
 	public function sitemap_post_type_archive_link( $link, $post_type ) {
-
-		if ( 'product' !== $post_type ) {
+		if ( 'product' !== $post_type || ! function_exists( 'wc_get_page_id' ) ) {
 			return $link;
 		}
 
-		if ( function_exists( 'wc_get_page_id' ) ) {
-			$shop_page_id = wc_get_page_id( 'shop' );
-			$home_page_id = (int) get_option( 'page_on_front' );
-			if ( $home_page_id === $shop_page_id ) {
-				return false;
-			}
+		$shop_page_id = wc_get_page_id( 'shop' );
+		$home_page_id = (int) get_option( 'page_on_front' );
+		if ( 1 > $shop_page_id || 'publish' !== get_post_status( $shop_page_id ) || $home_page_id === $shop_page_id ) {
+			return false;
+		}
+
+		$robots = Helper::get_post_meta( 'robots', $shop_page_id );
+		if ( ! empty( $robots ) && is_array( $robots ) && in_array( 'noindex', $robots, true ) ) {
+			return false;
 		}
 
 		return $link;
@@ -404,7 +408,7 @@ class WooCommerce {
 				$image     = array(
 					'src'   => $this->do_filter( 'sitemap/xml_img_src', $image_src[0], $post_id ),
 					'title' => get_the_title( $attachment_id ),
-					'alt'   => Helper::get_attachment_alt_tag( $attachment_id ),
+					'alt'   => Attachment::get_alt_tag( $attachment_id ),
 				);
 				$images[]  = $image;
 

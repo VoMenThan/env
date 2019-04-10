@@ -3,16 +3,17 @@
  * The Search Console Overview
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -55,8 +56,8 @@ class Overview {
 		$filters    = Helper::search_console()->get_filters();
 		$this->data = DB::get_overview_data( $filters, 'date' );
 
-		rank_math()->add_json( 'overviewChartData', $this->data->rows );
-		rank_math()->add_json( 'overviewChartDataOld', $this->data->old_rows );
+		Helper::add_json( 'overviewChartData', $this->data->rows );
+		Helper::add_json( 'overviewChartDataOld', $this->data->old_rows );
 	}
 
 	/**
@@ -66,7 +67,7 @@ class Overview {
 		?>
 		<div class="column clicks">
 			<header><?php esc_html_e( 'Total clicks', 'rank-math' ); ?></header>
-			<strong><?php echo Helper::human_number( $this->data->overview->clicks ) . $this->diff_label( $this->data->overview->clicks, $this->data->overview->old_clicks, true ); ?></strong>
+			<strong><?php echo Str::human_number( $this->data->overview->clicks ) . $this->diff_label( $this->data->overview->clicks, $this->data->overview->old_clicks, true ); ?></strong>
 		</div>
 		<?php
 	}
@@ -78,7 +79,7 @@ class Overview {
 		?>
 		<div class="column impressions">
 			<header><?php esc_html_e( 'Total impressions', 'rank-math' ); ?></header>
-			<strong><?php echo Helper::human_number( $this->data->overview->impressions ) . $this->diff_label( $this->data->overview->impressions, $this->data->overview->old_impressions, true ); ?></strong>
+			<strong><?php echo Str::human_number( $this->data->overview->impressions ) . $this->diff_label( $this->data->overview->impressions, $this->data->overview->old_impressions, true ); ?></strong>
 		</div>
 		<?php
 	}
@@ -114,7 +115,7 @@ class Overview {
 		?>
 		<div class="column keywords">
 			<header><?php esc_html_e( 'Total keywords', 'rank-math' ); ?></header>
-			<strong><?php echo Helper::human_number( $this->data->overview->keywords ); ?></strong>
+			<strong><?php echo Str::human_number( $this->data->overview->keywords ); ?></strong>
 		</div>
 		<?php
 	}
@@ -126,7 +127,7 @@ class Overview {
 		?>
 		<div class="column pages">
 			<header><?php esc_html_e( 'Total pages', 'rank-math' ); ?></header>
-			<strong><?php echo Helper::human_number( $this->data->overview->pages ); ?></strong>
+			<strong><?php echo Str::human_number( $this->data->overview->pages ); ?></strong>
 		</div>
 		<?php
 	}
@@ -161,7 +162,7 @@ class Overview {
 			$class,
 			/* translators: previous value */
 			esc_attr( sprintf( esc_html__( 'Previously: %s', 'rank-math' ), $previous ) ),
-			( $diff < 0 ? '' : '+' ) . ( $human ? Helper::human_number( $diff ) : $diff ),
+			( $diff < 0 ? '' : '+' ) . ( $human ? Str::human_number( $diff ) : $diff ),
 			( $percentage ? '%' : '' )
 		);
 	}

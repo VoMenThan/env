@@ -29,7 +29,7 @@
 </head>
 <body>
 
-<div id="pageloader">
+<!--<div id="pageloader">
     <div class="pageloader">
         <div class="thecube">
             <div class="cube c1"></div>
@@ -38,10 +38,10 @@
             <div class="cube c3"></div>
         </div>
         <div class="textedit">
-            <span class="site-name"><img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone"></span>
+            <span class="site-name"><img src="<?php /*echo ASSET_URL;*/?>images/envzone-logo.png" alt="Logo Envzone"></span>
         </div>
-    </div><!-- .pageloader -->
-</div>
+    </div>
+</div>-->
 
 <header>
     <nav id="sticky-menu" class="position-relative">

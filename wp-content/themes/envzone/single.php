@@ -135,7 +135,7 @@ get_header();
                                         }
 
                                         ?>
-                                    <img src="<?php echo $avatar;?>" class="img-fluid avatar-icon" alt="">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar-icon" alt="">
                                     <div class="box-info">
                                         <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>" class="author-name"><?php echo get_the_author_meta('display_name');?></a>
                                         <div class="author-bio">
@@ -343,8 +343,14 @@ get_header();
                         'post_type' => 'post',
                         'orderby' => 'id',
                         'order' =>'desc',
-                        'meta_key' => 'experts',
-                        'meta_value' => true
+                        'meta_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'post_show',
+                                'value' => 'read-more-from-experts',
+                                'compare' => 'LIKE',
+                            )
+                        )
 
                     );
                     $news_expert = get_posts( $args );
@@ -373,7 +379,7 @@ get_header();
                                     $avatar = get_field('avatar', 'user_'.$item->post_author);
                                 }
                                 ?>
-                                <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                     By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                 </a>
@@ -389,7 +395,7 @@ get_header();
             <div class="row section-trending no-print">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">LEARN MORE ABOUT C-LEVEL ADVICES</h3>
-                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                    <a href="<?php echo home_url('knowledge-center')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-theme d-flex slider-news">
@@ -397,11 +403,17 @@ get_header();
                 $args = array(
                     'posts_per_page' => 7,
                     'offset'=> 0,
-                    'post_type' => 'knowledge',
+                    'post_type' => 'knowledge_center',
                     'orderby' => 'id',
                     'order' =>'desc',
-                    'meta_key' => 'clevel',
-                    'meta_value' => true
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                        array(
+                            'key' => 'video_show',
+                            'value' => 'clevel-advice',
+                            'compare' => 'LIKE',
+                        )
+                    )
                 );
                 $news_expert = get_posts( $args );
                 foreach ($news_expert as $item):
@@ -431,7 +443,7 @@ get_header();
                                     </h2>
                                 </a>
                                 <div class="audit">
-                                    <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                        By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
@@ -447,7 +459,7 @@ get_header();
             <div class="row section-trending no-print">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
-                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                    <a href="<?php echo home_url('knowledge-center')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-theme d-flex slider-news">
@@ -455,11 +467,17 @@ get_header();
                         $args = array(
                             'posts_per_page' => 7,
                             'offset'=> 0,
-                            'post_type' => 'knowledge',
+                            'post_type' => 'knowledge_center',
                             'orderby' => 'id',
                             'order' =>'desc',
-                            'meta_key' => 'events',
-                            'meta_value' => true
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'video_show',
+                                    'value' => 'watch-rock',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -488,7 +506,7 @@ get_header();
                                         </h2>
                                     </a>
                                     <div class="audit">
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
@@ -540,7 +558,7 @@ get_header();
                 }
             });
 
-            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+            $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
         });
 
     })(jQuery);

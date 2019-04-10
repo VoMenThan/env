@@ -7,13 +7,15 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
 use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Arr;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,7 +31,6 @@ class Common {
 	 */
 	public function __construct() {
 		$this->action( 'admin_bar_menu', 'admin_bar_menu', 100 );
-		$this->action( 'after_setup_theme', 'add_image_sizes' );
 		$this->action( 'loginout', 'nofollow_link' );
 		$this->filter( 'register', 'nofollow_link' );
 		$this->filter( 'rank_math/excluded_taxonomies', 'default_excluded_taxonomies' );
@@ -45,6 +46,8 @@ class Common {
 		}
 
 		$this->ajax( 'mark_page_as', 'mark_page_as' );
+
+		add_action( 'wp_ajax_nopriv_rank_math_overlay_thumb', array( $this, 'generate_overlay_thumbnail' ) );
 	}
 
 	/**
@@ -85,7 +88,7 @@ class Common {
 		$stopwords = explode( ',', esc_html__( "a,about,above,after,again,against,all,am,an,and,any,are,as,at,be,because,been,before,being,below,between,both,but,by,could,did,do,does,doing,down,during,each,few,for,from,further,had,has,have,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,it,it's,its,itself,let's,me,more,most,my,myself,nor,of,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,she,she'd,she'll,she's,should,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,we,we'd,we'll,we're,we've,were,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,would,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves", 'rank-math' ) );
 
 		$custom = Helper::get_settings( 'general.stopwords' );
-		$custom = Helper::str_to_arr_no_empty( $custom );
+		$custom = Str::to_arr_no_empty( $custom );
 
 		return array_unique( array_merge( $stopwords, $custom ) );
 	}
@@ -117,17 +120,42 @@ class Common {
 
 		foreach ( $taxonomies as $taxonomy ) {
 			$find = "%{$taxonomy}%";
-			if ( ! Helper::str_contains( $find, $post_link ) ) {
+			if ( ! Str::contains( $find, $post_link ) ) {
 				continue;
 			}
 
 			$primary_term = $this->get_primary_term( $taxonomy, $post->ID );
 			if ( false !== $primary_term ) {
-				$post_link = str_replace( $find, $primary_term->slug, $post_link );
+				// Get the hierachical terms.
+				$parents = $this->get_hierarchical_link( $primary_term );
+
+				// Replace the placeholder rewrite tag with hierachical terms.
+				$post_link = str_replace( $find, $parents, $post_link );
 			}
 		}
 
 		return $post_link;
+	}
+
+	/**
+	 * Get chain of hierarchical link.
+	 *
+	 * @param  WP_Term $term The term in question.
+	 * @return string
+	 */
+	private function get_hierarchical_link( $term ) {
+		if ( is_wp_error( $term ) ) {
+			return $term->slug;
+		}
+
+		$chain = [];
+		$name  = $term->slug;
+		if ( $term->parent && ( $term->parent !== $term->term_id ) ) {
+			$chain[] = $this->get_hierarchical_link( get_term( $term->parent, $term->taxonomy ) );
+		}
+
+		$chain[] = $name;
+		return implode( '/', $chain );
 	}
 
 	/**
@@ -160,14 +188,6 @@ class Common {
 		unset( $taxonomies['product_shipping_class'] );
 
 		return $taxonomies;
-	}
-
-	/**.
-	 * Add image size for Facebook thumbnails
-	 */
-	public function add_image_sizes() {
-		add_image_size( 'rank-math-facebook-thumbnail', 560, 292, true );
-		add_image_size( 'rank-math-knowledgegraph-logo', null, 60, true );
 	}
 
 	/**
@@ -308,7 +328,7 @@ class Common {
 				];
 			}
 
-			if ( ! is_admin() ) {
+			if ( ! is_admin() && isset( rank_math()->head ) ) {
 				$robots            = rank_math()->head->generate->get( 'robots' );
 				$noindex_check     = in_array( 'noindex', $robots ) ? sprintf( $dashicon_format, 'yes' ) : '';
 				$items['no-index'] = [
@@ -477,7 +497,7 @@ class Common {
 			$robots = (array) $get( $object_id, 'rank_math_robots', true );
 			$robots = array_filter( $robots );
 
-			Helper::array_add_delete_value( $robots, $what );
+			Arr::add_delete_value( $robots, $what );
 			$robots = array_unique( $robots );
 
 			$update( $object_id, 'rank_math_robots', $robots );
@@ -488,12 +508,61 @@ class Common {
 	}
 
 	/**
+	 * AJAX function to generate overlay image.
+	 */
+	public function generate_overlay_thumbnail() {
+		$thumbnail_id  = ! empty( $_REQUEST['id'] ) ? (int) $_REQUEST['id'] : 0;
+		$type          = $_REQUEST['type'] ? $_REQUEST['type'] : 'play';
+		$overlay_image = Helper::choices_overlay_images()[ $type ]['url'];
+		$image         = wp_get_attachment_image_src( $thumbnail_id, 'full' );
+
+		if ( ! empty( $image ) ) {
+			$this->create_overlay_image( $image[0], $overlay_image );
+		}
+		die();
+	}
+
+	/**
+	 * Create Overlay Image.
+	 *
+	 * @param string $image_file    The permalink generated for this post by WordPress.
+	 * @param string $overlay_image The ID of the post.
+	 */
+	public function create_overlay_image( $image_file, $overlay_image ) {
+		$image_format = pathinfo( $image_file, PATHINFO_EXTENSION );
+		if ( ! in_array( $image_format, array( 'jpg', 'jpeg', 'gif', 'png' ) ) ) {
+			return;
+		}
+		if ( 'jpg' === $image_format ) {
+			$image_format = 'jpeg';
+		}
+
+		$imagecreatef = 'imagecreatefrom' . $image_format;
+		$stamp        = imagecreatefrompng( $overlay_image );
+		$image        = $imagecreatef( $image_file );
+
+		// Set the margins for the stamp and get the height/width of the stamp image.
+		$img_width     = imagesx( $stamp );
+		$img_height    = imagesy( $stamp );
+		$margin_right  = round( abs( imagesx( $image ) - $img_width ) / 2 );
+		$margin_bottom = round( abs( imagesy( $image ) - $img_height ) / 2 );
+
+		// Copy the stamp image onto our photo using the margin offsets and the photo width to calculate positioning of the stamp.
+		imagecopy( $image, $stamp, $margin_right, $margin_bottom, 0, 0, $img_width, $img_height );
+
+		// Output and free memory.
+		header( 'Content-type: image/png' );
+		imagepng( $image );
+		imagedestroy( $image );
+	}
+
+	/**
 	 * Get Rank Math icon.
 	 *
 	 * @param integer $width Width of icon.
 	 * @return string
 	 */
 	private function get_icon( $width = 20 ) {
-		return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.85 48.28" width="' . $width . '"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M16,30.49a1.5,1.5,0,0,0,1,.4v8.55L8.49,35.55v-.22Z"/><path class="cls-2" d="M8.49,25H17v2.84a1.53,1.53,0,0,0-1.43,1L8.49,33.45Z"/><path class="cls-3" d="M23.76,34.48a1.75,1.75,0,0,0,1.75,1.73v7.12L17,39.44V30.89a1.52,1.52,0,0,0,1-.39Z"/><path class="cls-4" d="M17,19.43h8.51V32.71a1.67,1.67,0,0,0-1.07.37l-6-4.14A1.54,1.54,0,0,0,17,27.82Z"/><path class="cls-5" d="M34,27.26v6.07l-3.76,8.23a3.61,3.61,0,0,1-4.75,1.77h0V36.21a1.75,1.75,0,0,0,1.76-1.75,1.27,1.27,0,0,0,0-.34Z"/><path class="cls-6" d="M25.51,13.77H34V25.08l-7.74,7.81a1.69,1.69,0,0,0-.78-.18Z"/><path class="cls-5" d="M14.17,6.08,3.54,29.35a5.16,5.16,0,0,0,2.54,6.8l18.8,8.59a5.14,5.14,0,0,0,6.79-2.54L42.3,18.92a5.13,5.13,0,0,0-2.53-6.79L21,3.54a5.16,5.16,0,0,0-6.8,2.54ZM.74,28.07,11.37,4.8A8.22,8.22,0,0,1,22.25.74l18.8,8.59A8.24,8.24,0,0,1,45.11,20.2L34.48,43.48A8.23,8.23,0,0,1,23.6,47.54L4.8,39A8.22,8.22,0,0,1,.74,28.07Z"/><path class="cls-1" d="M16,30.49a1.5,1.5,0,0,0,1,.4v8.55L8.49,35.55v-.22Z"/><path class="cls-7" d="M8.49,25H17v2.84a1.53,1.53,0,0,0-1.43,1L8.49,33.45Z"/><path class="cls-3" d="M23.76,34.48a1.75,1.75,0,0,0,1.75,1.73v7.12L17,39.44V30.89a1.52,1.52,0,0,0,1-.39Z"/><path class="cls-8" d="M17,19.43h8.51V32.71a1.67,1.67,0,0,0-1.07.37l-6-4.14A1.54,1.54,0,0,0,17,27.82Z"/><path class="cls-5" d="M34,27.26v6.07l-3.76,8.23a3.61,3.61,0,0,1-4.75,1.77h0V36.21a1.75,1.75,0,0,0,1.76-1.75,1.27,1.27,0,0,0,0-.34Z"/><path class="cls-9" d="M25.51,13.77H34V25.08l-7.74,7.81a1.69,1.69,0,0,0-.78-.18Z"/></g></g></svg>';
+		return '<svg viewBox="0 0 462.03 462.03" xmlns="http://www.w3.org/2000/svg" width="' . $width . '"><g fill="#fff"><path d="m462 234.84-76.17 3.43 13.43 21-127 81.18-126-52.93-146.26 60.97 10.14 24.34 136.1-56.71 128.57 54 138.69-88.61 13.43 21z"/><path d="m54.1 312.78 92.18-38.41 4.49 1.89v-54.58h-96.67zm210.9-223.57v235.05l7.26 3 89.43-57.05v-181zm-105.44 190.79 96.67 40.62v-165.19h-96.67z"/></g></svg>';
 	}
 }

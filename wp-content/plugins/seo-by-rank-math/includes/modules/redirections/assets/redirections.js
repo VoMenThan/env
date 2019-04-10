@@ -2,7 +2,7 @@
 * Rank Math - Redirections
 *
 * @version 0.9.0
-* @author  MyThemeShop
+* @author  Rank Math
 */
 'use strict'
 
@@ -59,10 +59,14 @@
 			},
 
 			validateForm: function() {
-				$( '.rank-math-redirections-form > .cmb-form' ).on( 'submit', function( ev ) {
+
+				var buttonPrimary = $( '.rank-math-redirections-form .button-primary' )
+				$( '.rank-math-redirections-form > .cmb-form' ).on( 'submit', function( event ) {
 					var form       = $( this ),
 						errorElems = form.find( '.validation-message' ),
 						hasError   = false
+
+					buttonPrimary.prop( 'disabled', true )
 
 					// Clear error.
 					form.find( '.invalid' ).removeClass( 'invalid' )
@@ -81,7 +85,8 @@
 					})
 
 					if ( hasError ) {
-						ev.preventDefault()
+						event.preventDefault()
+						buttonPrimary.prop( 'disabled', false )
 					}
 				})
 			},
@@ -105,7 +110,6 @@
 
 				$( '[name=header_code]' ).on( 'change', function() {
 					var value = $( this ).val()
-					console.log( value )
 					if ( 410 == value || 451 == value ) {
 						$( '#url_to' ).addClass( 'exclude' )
 					} else {
@@ -138,8 +142,8 @@
 						input.closest( '.cmb-field-list' ).find( 'select' ).val( comparisonValue )
 						if ( index < items.length - 1 ) {
 
-							// Process 100 items max.
-							if ( 99 <= index ) {
+							// Number of items to process.
+							if ( ( rankMath.redirectionPastedContent - 1 ) <= index ) {
 								return false
 							}
 

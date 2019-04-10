@@ -4,13 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Links
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Links
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Links;
-
-use TheLeague\Database\Database;
+namespace RankMath\Links;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -22,10 +20,10 @@ class Storage {
 	/**
 	 * Get query builder.
 	 *
-	 * @return \TheLeague\Database\Query_Builder
+	 * @return \MyThemeShop\Database\Query_Builder
 	 */
 	private function table() {
-		return Database::table( 'rank_math_internal_links' );
+		return \MyThemeShop\Helpers\DB::query_builder( 'rank_math_internal_links' );
 	}
 
 	/**

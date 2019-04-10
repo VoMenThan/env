@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Role_Manager
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Role_Manager
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Role_Manager;
+namespace RankMath\Role_Manager;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
@@ -41,12 +41,12 @@ class Members {
 	 * Registers cap group.
 	 */
 	public function register_cap_groups() {
-		members_register_cap_group( self::GROUP, array(
+		members_register_cap_group( self::GROUP, [
 			'label'    => esc_html__( 'Rank Math', 'rank-math' ),
-			'caps'     => array(),
+			'caps'     => [],
 			'icon'     => 'dashicons-chart-area',
 			'priority' => 30,
-		));
+		]);
 	}
 
 	/**
@@ -59,10 +59,10 @@ class Members {
 		}
 
 		foreach ( $caps as $key => $value ) {
-			members_register_cap( $key, array(
+			members_register_cap( $key, [
 				'label' => html_entity_decode( $value ),
 				'group' => self::GROUP,
-			));
+			]);
 		}
 	}
 }

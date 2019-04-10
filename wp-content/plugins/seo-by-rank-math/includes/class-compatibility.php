@@ -5,12 +5,13 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -76,7 +77,7 @@ class Compatibility {
 
 		$screen = get_current_screen();
 		if (
-			( ! Helper::str_contains( 'rank-math', $screen->id ) && ! in_array( $screen->base, array( 'post', 'term', 'profile', 'user-edit' ) ) ) ||
+			( ! Str::contains( 'rank-math', $screen->id ) && ! in_array( $screen->base, array( 'post', 'term', 'profile', 'user-edit' ) ) ) ||
 			'pf_form' == $screen->id
 		) {
 			return;

@@ -300,15 +300,27 @@ class SearchWPHighlighter {
 
 		$content = $this->pre_process_content( $content );
 
-		// first check for a whole match
-		$whole_match = preg_quote( implode( ' ', $terms ), '/' );
+		// Step 1: See if there's a whole match for the original query.
+		$whole_match = SWP()->original_query;
+
 		if ( apply_filters( 'searchwp_th_partial_matches', false ) ) {
-			$maybe_highlight = preg_replace( "/$whole_match(?!([^<]+)?>)/iu", "<" . $this->highlight_el . "> class='searchwp-highlight'>$0</" . $this->highlight_el . ">", $content );
+			$maybe_highlight = preg_replace( "/$whole_match(?!([^<]+)?>)/iu", "<" . $this->highlight_el . " class='searchwp-highlight'>$0</" . $this->highlight_el . ">", $content );
 		} else {
 			$maybe_highlight = preg_replace( "/\b$whole_match\b(?!([^<]+)?>)/iu", "<" . $this->highlight_el . " class='searchwp-highlight'>$0</" . $this->highlight_el . ">", $content );
 		}
 
-		// Fall back to individual matches
+		// Step 2: See if there's a mach for the term list itself.
+		if ( false === strpos( $maybe_highlight, 'searchwp-highlight' ) ) {
+			$whole_match = preg_quote( implode( ' ', $terms ), '/' );
+
+			if ( apply_filters( 'searchwp_th_partial_matches', false ) ) {
+				$maybe_highlight = preg_replace( "/$whole_match(?!([^<]+)?>)/iu", "<" . $this->highlight_el . " class='searchwp-highlight'>$0</" . $this->highlight_el . ">", $content );
+			} else {
+				$maybe_highlight = preg_replace( "/\b$whole_match\b(?!([^<]+)?>)/iu", "<" . $this->highlight_el . " class='searchwp-highlight'>$0</" . $this->highlight_el . ">", $content );
+			}
+		}
+
+		// Step 3: Fall back to individual matches
 		if ( false === strpos( $maybe_highlight, 'searchwp-highlight' ) ) {
 			foreach ( $terms as $term ) {
 				if ( ( ! is_array( $this->common ) || ( is_array( $this->common ) && ! in_array( $term, $this->common, true ) ) ) && $this->min_word_length <= strlen( $term ) ) {

@@ -4,21 +4,23 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use CMB2_hookup;
 use RankMath\Helper;
 use RankMath\Module;
-use RankMath\Admin\Page;
 use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
-use RankMath\Admin\Helper as Admin_Helper;
-
-defined( 'ABSPATH' ) || exit;
+use RankMath\Admin\Admin_Helper;
+use MyThemeShop\Admin\Page;
+use MyThemeShop\Helpers\Arr;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Util;
+use MyThemeShop\Helpers\WordPress;
 
 /**
  * Admin class.
@@ -29,23 +31,25 @@ class Admin extends Module {
 
 	/**
 	 * The Constructor.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function __construct() {
 
 		$directory = dirname( __FILE__ );
-		$this->config(array(
+		$this->config([
 			'id'             => 'redirect',
 			'directory'      => $directory,
-			'table'          => 'RankMath\Modules\Redirections\Table',
-			'help'           => array(
+			'table'          => 'RankMath\Redirections\Table',
+			'help'           => [
 				'title' => esc_html__( 'Redirections', 'rank-math' ),
 				'view'  => $directory . '/views/help.php',
-			),
-			'screen_options' => array(
+			],
+			'screen_options' => [
 				'id'      => 'rank_math_redirections_per_page',
 				'default' => 100,
-			),
-		));
+			],
+		]);
 		parent::__construct();
 
 		$this->action( 'rank_math/dashboard/widget', 'dashboard_widget', 12 );
@@ -55,7 +59,7 @@ class Admin extends Module {
 			new Metabox;
 		}
 
-		if ( $this->page->is_current_page() || 'rank_math_save_redirections' === Helper::param_post( 'action' ) ) {
+		if ( $this->page->is_current_page() || 'rank_math_save_redirections' === Util::param_post( 'action' ) ) {
 			$this->form = new Form;
 			$this->form->hooks();
 		}
@@ -63,9 +67,9 @@ class Admin extends Module {
 		if ( $this->page->is_current_page() ) {
 			new Export;
 			$this->action( 'init', 'init' );
-			add_action( 'admin_enqueue_scripts', array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
-			rank_math()->add_json( 'maintenanceMode', esc_html__( 'Maintenance Code', 'rank-math' ) );
-			rank_math()->add_json( 'emptyError', __( 'This field must not be empty.', 'rank-math' ) );
+			add_action( 'admin_enqueue_scripts', [ 'CMB2_hookup', 'enqueue_cmb_css' ] );
+			Helper::add_json( 'maintenanceMode', esc_html__( 'Maintenance Code', 'rank-math' ) );
+			Helper::add_json( 'emptyError', __( 'This field must not be empty.', 'rank-math' ) );
 		}
 
 		if ( $this->is_ajax() ) {
@@ -76,7 +80,7 @@ class Admin extends Module {
 			$this->ajax( 'redirection_restore', 'handle_ajax' );
 		}
 
-		add_action( 'rank_math/redirection/clean_trashed', array( '\\RankMath\\Modules\\Redirections\\DB', 'periodic_clean_trash' ) );
+		add_action( 'rank_math/redirection/clean_trashed', 'RankMath\\Redirections\\DB::periodic_clean_trash' );
 	}
 
 	/**
@@ -87,41 +91,42 @@ class Admin extends Module {
 		$dir = $this->directory . '/views/';
 		$uri = untrailingslashit( plugin_dir_url( __FILE__ ) );
 
-		$this->page = new Page( 'rank-math-redirections', esc_html__( 'Redirections', 'rank-math' ), array(
+		$this->page = new Page( 'rank-math-redirections', esc_html__( 'Redirections', 'rank-math' ), [
 			'position'   => 12,
 			'parent'     => 'rank-math',
 			'capability' => 'rank_math_redirections',
 			'render'     => $dir . 'main.php',
-			'help'       => array(
-				'redirections-overview'       => array(
+			'classes'    => [ 'rank-math-page' ],
+			'help'       => [
+				'redirections-overview'       => [
 					'title' => esc_html__( 'Overview', 'rank-math' ),
 					'view'  => $dir . 'help-tab-overview.php',
-				),
-				'redirections-screen-content' => array(
+				],
+				'redirections-screen-content' => [
 					'title' => esc_html__( 'Screen Content', 'rank-math' ),
 					'view'  => $dir . 'help-tab-screen-content.php',
-				),
-				'redirections-actions'        => array(
+				],
+				'redirections-actions'        => [
 					'title' => esc_html__( 'Available Actions', 'rank-math' ),
 					'view'  => $dir . 'help-tab-actions.php',
-				),
-				'redirections-bulk'           => array(
+				],
+				'redirections-bulk'           => [
 					'title' => esc_html__( 'Bulk Actions', 'rank-math' ),
 					'view'  => $dir . 'help-tab-bulk.php',
-				),
-			),
-			'assets'     => array(
-				'styles'  => array(
+				],
+			],
+			'assets'     => [
+				'styles'  => [
 					'rank-math-common'       => '',
 					'rank-math-cmb2'         => '',
 					'rank-math-redirections' => $uri . '/assets/redirections.css',
-				),
-				'scripts' => array(
+				],
+				'scripts' => [
 					'rank-math-common'       => '',
 					'rank-math-redirections' => $uri . '/assets/redirections.js',
-				),
-			),
-		));
+				],
+			],
+		]);
 	}
 
 	/**
@@ -132,21 +137,30 @@ class Admin extends Module {
 	 */
 	public function add_settings( $tabs ) {
 
-		Helper::array_insert( $tabs, array(
-			'redirections' => array(
+		/**
+		 * Allow developers to change number of redirections to process at once.
+		 *
+		 * @param int $number
+		 */
+		Helper::add_json( 'redirectionPastedContent', $this->do_filter( 'redirections/pastedContent', 100 ) );
+
+		Arr::insert( $tabs, [
+			'redirections' => [
 				'icon'  => 'dashicons dashicons-controls-forward',
 				'title' => esc_html__( 'Redirections', 'rank-math' ),
 				/* translators: Link to kb article */
-				'desc'  => sprintf( esc_html__( 'Enable Redirections to set up custom 301, 302, 307, 410, or 451 redirections. %s.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/rank-math-seo-plugin/general-settings/#redirections" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>' ),
+				'desc'  => sprintf( esc_html__( 'Enable Redirections to set up custom 301, 302, 307, 410, or 451 redirections. %s.', 'rank-math' ), '<a href="' . \RankMath\KB::get( 'redirections-settings' ) . '" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>' ),
 				'file'  => $this->directory . '/views/options.php',
-			),
-		), 8 );
+			],
+		], 8 );
 
 		return $tabs;
 	}
 
 	/**
 	 * Add stats into admin dashboard.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function dashboard_widget() {
 		$data = DB::get_stats();
@@ -154,14 +168,16 @@ class Admin extends Module {
 		<br />
 		<h3><?php esc_html_e( 'Redirections Stats', 'rank-math' ); ?></h3>
 		<ul>
-			<li><span><?php esc_html_e( 'Redirections Count', 'rank-math' ); ?></span><?php echo Helper::human_number( $data->total ); ?></li>
-			<li><span><?php esc_html_e( 'Redirections Hits', 'rank-math' ); ?></span><?php echo Helper::human_number( $data->hits ); ?></li>
+			<li><span><?php esc_html_e( 'Redirections Count', 'rank-math' ); ?></span><?php echo Str::human_number( $data->total ); ?></li>
+			<li><span><?php esc_html_e( 'Redirections Hits', 'rank-math' ); ?></span><?php echo Str::human_number( $data->hits ); ?></li>
 		</ul>
 		<?php
 	}
 
 	/**
 	 * Initialize.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function init() {
 		if ( ! empty( $_REQUEST['delete_all'] ) ) {
@@ -170,33 +186,35 @@ class Admin extends Module {
 			return;
 		}
 
-		$action = Helper::get_request_action();
+		$action = WordPress::get_request_action();
 		if ( false === $action || empty( $_REQUEST['redirection'] ) || 'edit' === $action ) {
 			return;
 		}
 
 		check_admin_referer( 'bulk-redirections' );
 
-		$ids = (array) $_REQUEST['redirection'];
+		$ids = (array) wp_parse_id_list( $_REQUEST['redirection'] );
 		if ( empty( $ids ) ) {
-			rank_math()->add_error( 'No valid id found.', 'error' );
+			Helper::add_notification( 'No valid id found.' );
 			return;
 		}
 
 		$notice = $this->perform_action( $action, $ids );
 		if ( $notice ) {
-			rank_math()->add_error( $notice, 'success' );
+			Helper::add_notification( $notice, [ 'type' => 'success' ] );
 			return;
 		}
 
-		rank_math()->add_error( esc_html__( 'No valid action found.', 'rank-math' ), 'error' );
+		Helper::add_notification( esc_html__( 'No valid action found.', 'rank-math' ) );
 	}
 
 	/**
 	 * Handle AJAX request.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function handle_ajax() {
-		$action = Helper::get_request_action();
+		$action = WordPress::get_request_action();
 		if ( false === $action ) {
 			return;
 		}
@@ -222,23 +240,25 @@ class Admin extends Module {
 	/**
 	 * Perform action on db.
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @param  string        $action Action to perform.
 	 * @param  integer|array $ids    Rows to perform on.
 	 * @return string
 	 */
 	private function perform_action( $action, $ids ) {
-		$status  = array(
+		$status  = [
 			'activate'   => 'active',
 			'deactivate' => 'inactive',
 			'trash'      => 'trashed',
 			'restore'    => 'active',
-		);
-		$message = array(
+		];
+		$message = [
 			'activate'   => esc_html__( 'Redirection successfully activated.', 'rank-math' ),
 			'deactivate' => esc_html__( 'Redirection successfully deactivated.', 'rank-math' ),
 			'trash'      => esc_html__( 'Redirection successfully moved to Trash.', 'rank-math' ),
 			'restore'    => esc_html__( 'Redirection successfully restored.', 'rank-math' ),
-		);
+		];
 
 		if ( isset( $status[ $action ] ) ) {
 			DB::change_status( $ids, $status[ $action ] );

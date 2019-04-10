@@ -2,7 +2,7 @@
 	<div class="searchwp-stopwords">
 		<input-tag
 			v-model="stopwords"
-			v-on:input="forceLowercase"></input-tag>
+			v-on:input="normalize"></input-tag>
 		<ul v-if="!saved && !saving" class="searchwp-actions">
 			<li>
 				<button class="button button-primary" @click="save">{{ i18n.saveStopwords }}</button>
@@ -90,8 +90,17 @@ export default {
 		'searchwp-notice': SearchwpNotice
 	},
 	methods: {
-		forceLowercase() {
-			let stopwords = this.stopwords.map(stopword => stopword.toLowerCase());
+		normalize() {
+			// Split on commas, remove duplicates, lowercase.
+			let stopwords = this.stopwords
+				.reduce(
+					(acc, stopword) => acc.concat(stopword.split(',').map(
+						stopword => stopword.trim().toLowerCase()
+					)
+				), [])
+				.filter(
+					(stopword, idx, array) => array.indexOf(stopword) === idx
+				);
 
 			this.stopwords = stopwords;
 		},

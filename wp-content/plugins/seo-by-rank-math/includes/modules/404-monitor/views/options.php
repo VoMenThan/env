@@ -4,8 +4,8 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Monitor
+ * @author     Rank Math <support@rankmath.com>
  */
 
 use RankMath\Helper;

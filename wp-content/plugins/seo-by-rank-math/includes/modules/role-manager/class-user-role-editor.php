@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Role_Manager
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Role_Manager
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Role_Manager;
+namespace RankMath\Role_Manager;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
@@ -34,7 +34,7 @@ class User_Role_Editor {
 	 *
 	 * @var array
 	 */
-	private $caps = array();
+	private $caps = [];
 
 	/**
 	 * Class Members constructor.
@@ -52,14 +52,14 @@ class User_Role_Editor {
 	 * @param  array $groups Current groups.
 	 * @return array Filtered list of capabilty groups.
 	 */
-	public function register_group( $groups = array() ) {
+	public function register_group( $groups = [] ) {
 		$groups = (array) $groups;
 
-		$groups[ self::GROUP ] = array(
+		$groups[ self::GROUP ] = [
 			'caption' => esc_html__( 'Rank Math', 'rank-math' ),
 			'parent'  => 'custom',
 			'level'   => 3,
-		);
+		];
 
 		return $groups;
 	}
@@ -71,7 +71,7 @@ class User_Role_Editor {
 	 * @param  string $cap_id Capability identifier.
 	 * @return array List of filtered groups.
 	 */
-	public function register_capability_groups( $groups = array(), $cap_id = '' ) {
+	public function register_capability_groups( $groups = [], $cap_id = '' ) {
 		if ( array_key_exists( $cap_id, $this->caps ) ) {
 			$groups   = (array) $groups;
 			$groups[] = self::GROUP;

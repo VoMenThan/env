@@ -3,8 +3,10 @@
  * Redirection debugging template.
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
+ * @subpackage RankMath\Redirections
  */
+
+use RankMath\Helper;
 
 ?>
 <!DOCTYPE html>
@@ -87,7 +89,7 @@
 		</div>
 
 		<p>
-			<?php $page_url = RankMath\Helper::get_admin_url( 'redirections' ); ?>
+			<?php $page_url = Helper::get_admin_url( 'redirections' ); ?>
 			<?php if ( is_array( $this->matched ) ) : ?>
 			<a target="_blank" href="<?php echo $page_url . '&action=edit&redirection=' . $this->matched['id']; ?>"><?php esc_html_e( 'Manage This Redirection', 'rank-math' ); ?></a> or
 			<?php endif; ?>

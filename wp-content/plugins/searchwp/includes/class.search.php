@@ -284,6 +284,16 @@ class SearchWPSearch {
 				}
 			}
 
+			$lenient_accents = apply_filters( 'searchwp_lenient_accents', false );
+			$lenient_accents_on_search = apply_filters( 'searchwp_lenient_accents_on_search', true );
+
+			if ( $lenient_accents && $lenient_accents_on_search && ! empty( $terms ) ) {
+				$accent_indexer = new SearchWPIndexer();
+				foreach ( $terms as $term_key => $term ) {
+					$terms[ $term_key ] = $accent_indexer->remove_accents( $term );
+				}
+			}
+
 			// filter the terms just before querying
 			$terms = apply_filters( 'searchwp_pre_search_terms', $terms, $engine );
 

@@ -4,15 +4,15 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Monitor
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Monitor;
+namespace RankMath\Monitor;
 
 use RankMath\Helper;
-use RankMath\Admin\List_Table;
-use RankMath\Modules\Redirections\Cache;
+use MyThemeShop\Admin\List_Table;
+use RankMath\Redirections\Cache;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,9 +29,9 @@ class Table extends List_Table {
 		parent::__construct( array(
 			'singular' => esc_html__( 'event', 'rank-math' ),
 			'plural'   => esc_html__( 'events', 'rank-math' ),
+			'no_items' => esc_html__( 'The 404 error log is empty.', 'rank-math' ),
 		) );
 
-		$this->strings['no_items'] = esc_html__( 'The 404 error log is empty.', 'rank-math' );
 	}
 
 	/**

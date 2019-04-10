@@ -7,12 +7,13 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
-use RankMath\Admin\Helper as Admin_Helper;
+use MyThemeShop\Helpers\Str;
+use RankMath\Admin\Admin_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -130,7 +131,7 @@ class CMB2 {
 	 */
 	public static function render_tab_container_open( $field_args, $field ) {
 
-		$active = ! empty( $_GET['rank-math-tab'] ) ? $_GET['rank-math-tab'] : 'general';
+		$active = ! empty( $_GET['rank-math-tab'] ) ? filter_input( INPUT_GET, 'rank-math-tab' ) : 'general';
 		echo '<div id="' . $field->prop( 'id' ) . '" class="rank-math-tabs">';
 		?>
 		<div class="rank-math-tabs-navigation wp-clearfix">
@@ -245,7 +246,7 @@ class CMB2 {
 	public static function sanitize_webmaster_tags( $value ) {
 		$value = trim( $value );
 
-		if ( ! empty( $value ) && Helper::str_start_with( '<meta', trim( $value ) ) ) {
+		if ( ! empty( $value ) && Str::starts_with( '<meta', trim( $value ) ) ) {
 			preg_match( '/content="([^"]+)"/i', stripslashes( $value ), $matches );
 			$value = $matches[1];
 		}

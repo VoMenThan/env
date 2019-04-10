@@ -3,7 +3,7 @@
  * On-Screen help tab.
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
+ * @subpackage RankMath\Redirections
  */
 
 ?>

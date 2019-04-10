@@ -4,13 +4,15 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap;
+namespace RankMath\Sitemap;
 
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Url;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -26,9 +28,10 @@ class Router {
 	 */
 	public function __construct() {
 		$this->action( 'init', 'init', 1 );
-		$this->filter( 'redirect_canonical', 'redirect_canonical' );
 		$this->action( 'parse_query', 'request_sitemap', 1 );
+		$this->filter( 'redirect_canonical', 'redirect_canonical' );
 		$this->action( 'template_redirect', 'template_redirect', 0 );
+		$this->action( 'after_setup_theme', 'reduce_query_load', 99 );
 	}
 
 	/**
@@ -82,6 +85,20 @@ class Router {
 	}
 
 	/**
+	 * Check the current request URI, if we can determine it's probably an XML sitemap, kill loading the widgets
+	 */
+	public function reduce_query_load() {
+		if ( ! isset( $_SERVER['REQUEST_URI'] ) ) {
+			return;
+		}
+		$request   = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		$extension = substr( $request, -4 );
+		if ( Str::contains( 'sitemap', $request ) && in_array( $extension, [ '.xml', '.xsl' ], true ) ) {
+			remove_all_actions( 'widgets_init' );
+		}
+	}
+
+	/**
 	 * Redirects sitemap.xml to sitemap_index.xml.
 	 */
 	public function template_redirect() {
@@ -99,24 +116,10 @@ class Router {
 	 *
 	 * @return bool True if redirect is needed, false otherwise.
 	 */
-	private function needs_sitemap_index_redirect() {
+	public function needs_sitemap_index_redirect() {
 		global $wp_query;
 
-		$protocol = 'http://';
-		if ( ! empty( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) {
-			$protocol = 'https://';
-		}
-
-		$path   = sanitize_text_field( $_SERVER['REQUEST_URI'] );
-		$domain = sanitize_text_field( $_SERVER['SERVER_NAME'] );
-
-		// Due to different environment configurations, we need to check both SERVER_NAME and HTTP_HOST.
-		$check_urls = array( $protocol . $domain . $path );
-		if ( ! empty( $_SERVER['HTTP_HOST'] ) ) {
-			$check_urls[] = $protocol . sanitize_text_field( $_SERVER['HTTP_HOST'] ) . $path;
-		}
-
-		return $wp_query->is_404 && in_array( home_url( '/sitemap.xml' ), $check_urls, true );
+		return $wp_query->is_404 && home_url( '/sitemap.xml' ) === Url::get_current_url();
 	}
 
 	/**

@@ -5,13 +5,16 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\OpenGraph
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\OpenGraph;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Url;
+use MyThemeShop\Helpers\Attachment;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -80,7 +83,7 @@ class Image {
 	 */
 	public function show() {
 		foreach ( $this->get_images() as $image => $image_meta ) {
-			$this->image_tag( $image );
+			$this->image_tag( $image_meta );
 			$this->image_meta( $image_meta );
 		}
 	}
@@ -106,14 +109,15 @@ class Image {
 	/**
 	 * Outputs an image tag based on whether it's https or not.
 	 *
-	 * @param string $image_url The image URL.
+	 * @param array $image_meta Image metadata.
 	 */
-	private function image_tag( $image_url ) {
-		$this->opengraph->tag( 'og:image', esc_url( $image_url ) );
+	private function image_tag( $image_meta ) {
+		$og_image = $this->opengraph->get_overlay_image() ? admin_url( "admin-ajax.php?action=rank_math_overlay_thumb&id={$image_meta['id']}&type={$this->opengraph->get_overlay_image()}" ) : $image_meta['url'];
+		$this->opengraph->tag( 'og:image', esc_url( $og_image ) );
 
 		// Add secure URL if detected. Not all services implement this, so the regular one also needs to be rendered.
-		if ( Helper::str_start_with( 'https://', $image_url ) ) {
-			$this->opengraph->tag( 'og:image:secure_url', esc_url( $image_url ) );
+		if ( Str::starts_with( 'https://', $og_image ) ) {
+			$this->opengraph->tag( 'og:image:secure_url', esc_url( $og_image ) );
 		}
 	}
 
@@ -141,7 +145,7 @@ class Image {
 			return;
 		}
 
-		$attachment_id = Helper::get_attachment_by_url( $url );
+		$attachment_id = Attachment::get_by_url( $url );
 
 		if ( $attachment_id > 0 ) {
 			$this->add_image_by_id( $attachment_id );
@@ -176,7 +180,7 @@ class Image {
 			if ( is_string( $attachment ) ) {
 				$attachment = array( 'url' => $attachment );
 			}
-			$attachment['alt'] = Helper::get_attachment_alt_tag( $attachment_id );
+			$attachment['alt'] = Attachment::get_alt_tag( $attachment_id );
 
 			$this->add_image( $attachment );
 		}
@@ -219,13 +223,15 @@ class Image {
 			return;
 		}
 
-		if ( Helper::is_url_relative( $image_url ) ) {
-			$image_url = Helper::get_attachment_relative_path( $image_url );
+		if ( Url::is_relative( $image_url ) ) {
+			$image_url = Attachment::get_relative_path( $image_url );
 		}
 
 		if ( array_key_exists( $image_url, $this->images ) ) {
 			return;
 		}
+
+		$attachment['url'] = $image_url;
 
 		if ( ! $attachment['alt'] && is_singular() ) {
 			$attachment['alt'] = $this->get_attachment_alt();
@@ -277,6 +283,9 @@ class Image {
 			case is_singular():
 				$this->set_singular_image();
 				break;
+			case is_post_type_archive():
+				$this->set_archive_image();
+				break;
 			case is_category():
 			case is_tag():
 			case is_tax():
@@ -323,7 +332,7 @@ class Image {
 		}
 
 		// If no frontpage image is found, don't add anything.
-		if ( $image_id = Helper::get_settings( 'titles.homepage_facebook_image_id' ) ) { // @codingStandardsIgnoreLine
+		if ( $image_id = Helper::get_settings( 'titles.homepage_facebook_image_id' ) ) { // phpcs:ignore
 			$this->add_image_by_id( $image_id );
 		}
 	}
@@ -444,7 +453,7 @@ class Image {
 		$content = sanitize_post_field( 'post_content', $post->post_content, $post->ID );
 
 		// Early bail!
-		if ( '' === $content || false === Helper::str_contains( '<img', $content ) ) {
+		if ( '' === $content || false === Str::contains( '<img', $content ) ) {
 			return;
 		}
 
@@ -465,7 +474,7 @@ class Image {
 		}
 
 		foreach ( $images as $image_url ) {
-			$attachment_id = Helper::get_attachment_by_url( $image_url );
+			$attachment_id = Attachment::get_by_url( $image_url );
 
 			// If image is hosted externally, skip it and continue to the next image.
 			if ( 0 === $attachment_id ) {
@@ -487,6 +496,15 @@ class Image {
 	 */
 	private function set_taxonomy_image() {
 		$image_id = Helper::get_term_meta( "{$this->opengraph->prefix}_image_id" );
+		$this->add_image_by_id( $image_id );
+	}
+
+	/**
+	 * Check if archive has an image and add this image.
+	 */
+	private function set_archive_image() {
+		$post_type = get_query_var( 'post_type' );
+		$image_id  = Helper::get_settings( "titles.pt_{$post_type}_facebook_image_id" );
 		$this->add_image_by_id( $image_id );
 	}
 
@@ -528,7 +546,7 @@ class Image {
 		$sizes = $this->do_filter( 'opengraph/image_sizes', array( 'full', 'large', 'medium_large' ) );
 
 		foreach ( $sizes as $size ) {
-			if ( $variation = $this->get_attachment_image( $attachment_id, $size ) ) { // @codingStandardsIgnoreLine
+			if ( $variation = $this->get_attachment_image( $attachment_id, $size ) ) { // phpcs:ignore
 				if ( $this->has_usable_dimensions( $variation ) ) {
 					$variations[] = $variation;
 				}
@@ -562,7 +580,7 @@ class Image {
 			'width'  => $width,
 			'height' => $height,
 			'type'   => get_post_mime_type( $attachment_id ),
-			'alt'    => Helper::get_attachment_alt_tag( $attachment_id ),
+			'alt'    => Attachment::get_alt_tag( $attachment_id ),
 		);
 	}
 

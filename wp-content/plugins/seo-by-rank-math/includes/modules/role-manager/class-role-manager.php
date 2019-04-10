@@ -4,15 +4,16 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Role_Manager
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Role_Manager
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Role_Manager;
+namespace RankMath\Role_Manager;
 
 use RankMath\Helper;
 use RankMath\Module;
-use RankMath\Admin\Page;
+use MyThemeShop\Admin\Page;
+use MyThemeShop\Helpers\WordPress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -27,22 +28,22 @@ class Role_Manager extends Module {
 	public function __construct() {
 
 		$directory = dirname( __FILE__ );
-		$this->config(array(
+		$this->config([
 			'id'        => 'role-manager',
 			'directory' => $directory,
-			'help'      => array(
+			'help'      => [
 				'title' => esc_html__( 'Role Manager', 'rank-math' ),
 				'view'  => $directory . '/views/help.php',
-			),
-		));
+			],
+		]);
 		parent::__construct();
 
 		$this->action( 'cmb2_admin_init', 'register_form' );
-		add_filter( 'cmb2_override_option_get_rank-math-role-manager', array( '\RankMath\Helper', 'get_roles_capabilities' ) );
+		add_filter( 'cmb2_override_option_get_rank-math-role-manager', [ '\RankMath\Helper', 'get_roles_capabilities' ] );
 		$this->action( 'admin_post_rank_math_save_capabilities', 'save_capabilities' );
 
 		if ( $this->page->is_current_page() ) {
-			add_action( 'admin_enqueue_scripts', array( 'CMB2_hookup', 'enqueue_cmb_css' ), 25 );
+			add_action( 'admin_enqueue_scripts', [ 'CMB2_hookup', 'enqueue_cmb_css' ], 25 );
 		}
 
 		// Members plugin integration.
@@ -62,18 +63,19 @@ class Role_Manager extends Module {
 	public function register_admin_page() {
 		$uri = untrailingslashit( plugin_dir_url( __FILE__ ) );
 
-		$this->page = new Page( 'rank-math-role-manager', esc_html__( 'Role Manager', 'rank-math' ), array(
+		$this->page = new Page( 'rank-math-role-manager', esc_html__( 'Role Manager', 'rank-math' ), [
 			'position' => 11,
 			'parent'   => 'rank-math',
 			'render'   => $this->directory . '/views/main.php',
-			'assets'   => array(
-				'styles' => array(
+			'classes'  => [ 'rank-math-page' ],
+			'assets'   => [
+				'styles' => [
 					'rank-math-common'       => '',
 					'rank-math-cmb2'         => '',
 					'rank-math-role-manager' => $uri . '/assets/role-manager.css',
-				),
-			),
-		));
+				],
+			],
+		]);
 	}
 
 	/**
@@ -81,23 +83,23 @@ class Role_Manager extends Module {
 	 */
 	public function register_form() {
 
-		$cmb = new_cmb2_box( array(
+		$cmb = new_cmb2_box( [
 			'id'           => 'rank-math-role-manager',
-			'object_types' => array( 'options-page' ),
+			'object_types' => [ 'options-page' ],
 			'option_key'   => 'rank-math-role-manager',
 			'hookup'       => false,
 			'save_fields'  => false,
-		) );
+		]);
 
-		foreach ( Helper::get_roles() as $role => $label ) {
-			$cmb->add_field( array(
+		foreach ( WordPress::get_roles() as $role => $label ) {
+			$cmb->add_field([
 				'id'                => esc_attr( $role ),
 				'type'              => 'multicheck_inline',
 				'name'              => translate_user_role( $label ),
 				'options'           => Helper::get_capabilities(),
 				'select_all_button' => false,
 				'classes'           => 'cmb-big-labels',
-			) );
+			]);
 		}
 	}
 
@@ -114,7 +116,7 @@ class Role_Manager extends Module {
 		check_admin_referer( 'rank-math-save-capabilities', 'security' );
 
 		if ( ! Helper::has_cap( 'role_manager' ) ) {
-			rank_math()->add_deferred_error( esc_html__( 'You are not authorized to perform this action.', 'rank-math' ) );
+			Helper::add_notification( esc_html__( 'You are not authorized to perform this action.', 'rank-math' ), [ 'type' => 'error' ] );
 			wp_safe_redirect( Helper::get_admin_url( 'role-manager' ) );
 			exit;
 		}
@@ -124,77 +126,5 @@ class Role_Manager extends Module {
 
 		wp_safe_redirect( Helper::get_admin_url( 'role-manager' ) );
 		exit;
-	}
-
-	/**
-	 * Add capabilities.
-	 */
-	public static function add_capabilities() {
-		foreach ( Helper::get_roles() as $slug => $role ) {
-			$role = get_role( $slug );
-			if ( ! $role ) {
-				continue;
-			}
-
-			foreach ( self::get_default_capabilities_by_role( $slug ) as $cap ) {
-				$role->add_cap( $cap );
-			}
-		}
-	}
-
-	/**
-	 * Remove capabilities.
-	 */
-	public static function remove_capabilities() {
-
-		$capabilities = array_keys( Helper::get_capabilities() );
-		foreach ( Helper::get_roles() as $slug => $role ) {
-			$role = get_role( $slug );
-			if ( ! $role ) {
-				continue;
-			}
-
-			foreach ( $capabilities as $cap ) {
-				$role->remove_cap( $cap );
-			}
-		}
-	}
-
-	/**
-	 * Get default capabilities by roles.
-	 *
-	 * @param  string $role Capabilities for this role.
-	 * @return array
-	 */
-	private static function get_default_capabilities_by_role( $role ) {
-
-		if ( 'administrator' === $role ) {
-			return array_keys( Helper::get_capabilities() );
-		}
-
-		if ( 'editor' === $role ) {
-			return array(
-				'rank_math_site_analysis',
-				'rank_math_onpage_analysis',
-				'rank_math_onpage_general',
-				'rank_math_onpage_snippet',
-				'rank_math_onpage_social',
-			);
-		}
-
-		if ( 'author' === $role ) {
-			return array(
-				'rank_math_onpage_analysis',
-				'rank_math_onpage_general',
-				'rank_math_onpage_snippet',
-				'rank_math_onpage_social',
-			);
-		}
-
-		return array(
-			'rank_math_onpage_analysis',
-			'rank_math_onpage_general',
-			'rank_math_onpage_social',
-		);
 	}
 }

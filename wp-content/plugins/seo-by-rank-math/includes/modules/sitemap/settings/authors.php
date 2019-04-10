@@ -3,12 +3,12 @@
  * Sitemap - Authors
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
+ * @subpackage RankMath\Sitemap
  */
 
-use RankMath\Helper;
+use MyThemeShop\Helpers\WordPress;
 
-$roles   = Helper::get_roles();
+$roles   = WordPress::get_roles();
 $default = $roles;
 unset( $default['administrator'], $default['editor'], $default['author'] );
 

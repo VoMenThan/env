@@ -5,13 +5,13 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Helpers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Helpers;
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -125,7 +125,7 @@ trait Choices {
 		$post_types = self::choices_post_types();
 		unset( $post_types['attachment'] );
 
-		return array( 'any' => esc_html__( 'Any', 'rank-math' ) ) + $post_types + array( 'comments' => esc_html__( 'Comments' ) ); // @codingStandardsIgnoreLine
+		return array( 'any' => esc_html__( 'Any', 'rank-math' ) ) + $post_types + array( 'comments' => esc_html( translate( 'Comments' ) ) ); // phpcs:ignore
 	}
 
 	/**
@@ -137,7 +137,7 @@ trait Choices {
 	 * @return array
 	 */
 	public static function choices_business_types( $none = false ) {
-		$data = array(
+		$data = apply_filters( 'rank_math/json_ld/business_types', array(
 			array( 'label' => 'Airport' ),
 			array( 'label' => 'Animal Shelter' ),
 			array( 'label' => 'Aquarium' ),
@@ -402,8 +402,10 @@ trait Choices {
 			array( 'label' => 'Train Station' ),
 			array( 'label' => 'Travel Agency' ),
 			array( 'label' => 'Taxi Stand' ),
+			array( 'label' => 'Website' ),
+			array( 'label' => 'Graphic Novel' ),
 			array( 'label' => 'Zoo' ),
-		);
+		) );
 
 		$business = array();
 		if ( $none ) {

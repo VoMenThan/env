@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\OpenGraph
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\OpenGraph;
@@ -109,7 +109,7 @@ class Facebook extends OpenGraph {
 		$locale = get_locale();
 
 		// Catch some weird locales served out by WP that are not easily doubled up.
-		$fix_locales = array(
+		$fix_locales = [
 			'ca' => 'ca_ES',
 			'en' => 'en_US',
 			'el' => 'el_GR',
@@ -119,7 +119,7 @@ class Facebook extends OpenGraph {
 			'uk' => 'uk_UA',
 			'vi' => 'vi_VN',
 			'zh' => 'zh_CN',
-		);
+		];
 
 		if ( isset( $fix_locales[ $locale ] ) ) {
 			$locale = $fix_locales[ $locale ];
@@ -131,7 +131,7 @@ class Facebook extends OpenGraph {
 		}
 
 		// These are the locales FB supports.
-		$fb_valid_fb_locales = array(
+		$fb_valid_fb_locales = [
 			'af_ZA', // Afrikaans.
 			'ak_GH', // Akan.
 			'am_ET', // Amharic.
@@ -272,7 +272,7 @@ class Facebook extends OpenGraph {
 			'zh_TW', // Traditional Chinese (Taiwan).
 			'zu_ZA', // Zulu.
 			'zz_TR', // Zazaki.
-		);
+		];
 
 		// Check to see if the locale is a valid FB one, if not, use en_US as a fallback.
 		if ( ! in_array( $locale, $fb_valid_fb_locales, true ) ) {
@@ -306,7 +306,7 @@ class Facebook extends OpenGraph {
 			$type = 'website';
 		} elseif ( is_singular() ) {
 			$type = 'article';
-			if ( in_array( $this->schema, array( 'video', 'product', 'local' ) ) ) {
+			if ( in_array( $this->schema, [ 'video', 'product', 'local' ] ) ) {
 				$type = $this->schema;
 				if ( ! is_front_page() ) {
 					$this->action( 'rank_math/opengraph/facebook', $this->schema, 30 );
@@ -433,8 +433,10 @@ class Facebook extends OpenGraph {
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
 	 */
 	public function article_author() {
-		$author = Helper::get_user_meta( 'facebook', $GLOBALS['post']->post_author );
-		$author = $author ? $author : Helper::get_settings( 'titles.facebook_author_urls' );
+		$author = Helper::get_user_meta( 'facebook_author', $GLOBALS['post']->post_author );
+		if ( ! $author && ! $author = get_user_meta( $GLOBALS['post']->post_author, 'facebook', true ) ) { // phpcs:ignore
+			$author = Helper::get_settings( 'titles.facebook_author_urls' );
+		}
 		$this->tag( 'article:author', $author );
 	}
 
@@ -509,7 +511,7 @@ class Facebook extends OpenGraph {
 	public function local() {
 		$this->tag( 'og:url', Helper::get_post_meta( 'snippet_local_url' ) );
 
-		if ( $geo = Helper::get_post_meta( 'snippet_local_geo' ) ) { // @codingStandardsIgnoreLine
+		if ( $geo = Helper::get_post_meta( 'snippet_local_geo' ) ) { // phpcs:ignore
 			$parts = explode( ' ', $geo );
 			if ( count( $parts ) > 1 ) {
 				$this->tag( 'place:location:latitude', $parts[0] );
@@ -523,8 +525,8 @@ class Facebook extends OpenGraph {
 	 */
 	public function video() {
 		$this->tag( 'og:video', Helper::get_post_meta( 'snippet_video_url' ) );
-		if ( $duration = Helper::get_post_meta( 'snippet_video_duration' ) ) { // @codingStandardsIgnoreLine
-			$this->tag( 'video:duration', $this->duration_to_seconds( $duration ) );
+		if ( $duration = Helper::get_post_meta( 'snippet_video_duration' ) ) { // phpcs:ignore
+			$this->tag( 'video:duration', $this->duration_to_seconds( Helper::get_formatted_duration( $duration ) ) );
 		}
 	}
 
@@ -536,16 +538,13 @@ class Facebook extends OpenGraph {
 	 * @return int
 	 */
 	public function duration_to_seconds( $iso8601 ) {
-
-		// The format starts with the letter P, for "period".
-		$iso8601  = ( ! Helper::str_start_with( 'P', $iso8601 ) ) ? 'PT' . $iso8601 : $iso8601;
 		$interval = new DateInterval( $iso8601 );
 
-		return array_sum( array(
+		return array_sum([
 			$interval->d * DAY_IN_SECONDS,
 			$interval->h * HOUR_IN_SECONDS,
 			$interval->i * MINUTE_IN_SECONDS,
 			$interval->s,
-		) );
+		]);
 	}
 }

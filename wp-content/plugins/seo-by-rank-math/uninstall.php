@@ -15,7 +15,7 @@
  * This file may be updated more in future version of the Boilerplate; however, this is the
  * general skeleton and outline for how the file should work.
  *
- * @link    http://mythemeshop.com
+ * @link    https://rankmath.com
  * @since   0.9.0
  * @package RANK_MATH
  */
@@ -30,7 +30,7 @@ wp_clear_scheduled_hook( 'rank_math_tracker_send_event' );
 wp_clear_scheduled_hook( 'rank_math_search_console_get_analytics' );
 
 // Set rank_math_clear_data_on_uninstall to TRUE to delete all data on uninstall.
-if ( apply_filters( 'rank_math_clear_data_on_uninstall', false ) ) {
+if ( true === apply_filters( 'rank_math_clear_data_on_uninstall', false ) ) {
 
 	// Delete all options.
 	rank_math_delete_options();
@@ -52,7 +52,7 @@ if ( apply_filters( 'rank_math_clear_data_on_uninstall', false ) ) {
 	 */
 	include dirname( __FILE__ ) . '/vendor/autoload.php';
 
-	\RankMath\Modules\Role_Manager\Role_Manager::remove_capabilities();
+	\RankMath\Role_Manager\Capability_Manager::get()->remove_capabilities();
 
 	// Clear any cached data that has been removed.
 	wp_cache_flush();
@@ -67,7 +67,7 @@ function rank_math_delete_options() {
 	global $wpdb;
 
 	$where = $wpdb->prepare( 'WHERE option_name LIKE %s OR option_name LIKE %s', '%' . $wpdb->esc_like( 'rank-math' ) . '%', '%' . $wpdb->esc_like( 'rank_math' ) . '%' );
-	$wpdb->query( "DELETE FROM {$wpdb->prefix}options {$where}" ); // WPCS: unprepared SQL OK.
+	$wpdb->query( "DELETE FROM {$wpdb->prefix}options {$where}" ); // phpcs:ignore
 }
 
 /**
@@ -80,7 +80,7 @@ function rank_math_delete_meta( $table = 'post' ) {
 	global $wpdb;
 
 	$where = $wpdb->prepare( 'WHERE meta_key LIKE %s OR meta_key LIKE %s', '%' . $wpdb->esc_like( 'rank-math' ) . '%', '%' . $wpdb->esc_like( 'rank_math' ) . '%' );
-	$wpdb->query( "DELETE FROM {$wpdb->prefix}{$table}meta {$where}" ); // WPCS: unprepared SQL OK.
+	$wpdb->query( "DELETE FROM {$wpdb->prefix}{$table}meta {$where}" ); // phpcs:ignore
 }
 
 /**
@@ -92,5 +92,5 @@ function rank_math_delete_meta( $table = 'post' ) {
 function rank_math_drop_table( $name ) {
 	global $wpdb;
 
-	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}{$name}" ); // WPCS: unprepared SQL OK.
+	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}{$name}" ); // phpcs:ignore
 }

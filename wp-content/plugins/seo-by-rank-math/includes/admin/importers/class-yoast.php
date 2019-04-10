@@ -5,15 +5,16 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin\Importers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin\Importers;
 
 use RankMath\Helper;
-use TheLeague\Database\Database;
-use RankMath\Modules\Sitemap\Sitemap;
-use RankMath\Modules\Redirections\Form as Form;
+use MyThemeShop\Helpers\DB;
+use RankMath\Sitemap\Sitemap;
+use MyThemeShop\Helpers\WordPress;
+use RankMath\Redirections\Redirection;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -41,21 +42,21 @@ class Yoast extends Plugin_Importer {
 	 *
 	 * @var array
 	 */
-	protected $option_keys = array( 'wpseo', 'wpseo_%' );
+	protected $option_keys = [ 'wpseo', 'wpseo_%' ];
 
 	/**
 	 * Array of choices keys to import
 	 *
 	 * @var array
 	 */
-	protected $choices = array( 'settings', 'postmeta', 'termmeta', 'usermeta', 'redirections' );
+	protected $choices = [ 'settings', 'postmeta', 'termmeta', 'usermeta', 'redirections' ];
 
 	/**
 	 * Array of table names to drop while cleaning
 	 *
 	 * @var array
 	 */
-	protected $table_names = array( 'yoast_seo_links', 'yoast_seo_meta' );
+	protected $table_names = [ 'yoast_seo_links', 'yoast_seo_meta' ];
 
 	/**
 	 * Import settings of plugin.
@@ -79,7 +80,7 @@ class Yoast extends Plugin_Importer {
 		$yoast_local         = get_option( 'wpseo_local', false );
 
 		if ( isset( $yoast_titles['separator'] ) ) {
-			$separator_options = array(
+			$separator_options = [
 				'sc-dash'   => '-',
 				'sc-ndash'  => '&ndash;',
 				'sc-mdash'  => '&mdash;',
@@ -93,18 +94,18 @@ class Yoast extends Plugin_Importer {
 				'sc-raquo'  => '&raquo;',
 				'sc-lt'     => '&lt;',
 				'sc-gt'     => '&gt;',
-			);
+			];
 			if ( isset( $separator_options[ $yoast_titles['separator'] ] ) ) {
 				$titles['title_separator'] = $separator_options[ $yoast_titles['separator'] ];
 			}
 		}
 
 		// Features.
-		$modules  = array();
-		$features = array(
+		$modules  = [];
+		$features = [
 			'keyword_analysis_active' => 'seo-analysis',
 			'enable_xml_sitemap'      => 'sitemap',
-		);
+		];
 		foreach ( $features as $feature => $module ) {
 			$modules[ $module ] = 1 === intval( $yoast_main[ $feature ] ) ? 'on' : 'off';
 		}
@@ -115,37 +116,37 @@ class Yoast extends Plugin_Importer {
 			$this->replace_image( $yoast_main['company_logo'], $titles, 'knowledgegraph_logo', 'knowledgegraph_logo_id' );
 		}
 
-		$hash = array(
+		$hash = [
 			'company_name'      => 'knowledgegraph_name',
 			'company_or_person' => 'knowledgegraph_type',
-		);
+		];
 		$this->replace( $hash, $yoast_titles, $titles );
 
 		$titles['local_seo'] = isset( $yoast_titles['company_or_person'] ) && ! empty( $yoast_titles['company_or_person'] ) ? 'on' : 'off';
 
 		// Verification Codes.
-		$hash = array(
+		$hash = [
 			'baiduverify'     => 'baidu_verify',
 			'alexaverify'     => 'alexa_verify',
 			'googleverify'    => 'google_verify',
 			'msverify'        => 'bing_verify',
 			'pinterestverify' => 'pinterest_verify',
 			'yandexverify'    => 'yandex_verify',
-		);
+		];
 		$this->replace( $hash, $yoast_main, $settings );
 
 		// Links.
-		$hash = array(
+		$hash = [
 			'redirectattachment' => 'attachment_redirect_urls',
 			'stripcategorybase'  => 'strip_category_base',
 			'cleanslugs'         => 'url_strip_stopwords',
-		);
+		];
 		$this->replace( $hash, $yoast_permalink, $settings, 'convert_bool' );
-		$this->replace( array( 'disable-author' => 'disable_author_archives' ), $yoast_titles, $titles, 'convert_bool' );
-		$this->replace( array( 'disable-date' => 'disable_date_archives' ), $yoast_titles, $titles, 'convert_bool' );
+		$this->replace( [ 'disable-author' => 'disable_author_archives' ], $yoast_titles, $titles, 'convert_bool' );
+		$this->replace( [ 'disable-date' => 'disable_date_archives' ], $yoast_titles, $titles, 'convert_bool' );
 
 		// Titles & Descriptions.
-		$hash = array(
+		$hash = [
 			'title-home-wpseo'       => 'homepage_title',
 			'metadesc-home-wpseo'    => 'homepage_description',
 			'title-author-wpseo'     => 'author_archive_title',
@@ -154,7 +155,7 @@ class Yoast extends Plugin_Importer {
 			'metadesc-archive-wpseo' => 'date_archive_description',
 			'title-search-wpseo'     => 'search_title',
 			'title-404-wpseo'        => '404_title',
-		);
+		];
 
 		foreach ( Helper::get_accessible_post_types() as $post_type ) {
 			$hash[ "title-{$post_type}" ]              = "pt_{$post_type}_title";
@@ -181,7 +182,7 @@ class Yoast extends Plugin_Importer {
 				$titles[ "pt_{$post_type}_add_meta_box" ] = $yoast_titles[ "hideeditbox-{$post_type}" ] ? 'off' : 'on';
 			}
 			if ( isset( $yoast_titles[ "display-metabox-pt-{$post_type}" ] ) ) {
-				$show = $yoast_titles[ "display-metabox-pt-{$post_type}" ]; // @codingStandardsIgnoreLine
+				$show = $yoast_titles[ "display-metabox-pt-{$post_type}" ]; // phpcs:ignore
 				$titles[ "pt_{$post_type}_add_meta_box" ] = ( ! $show || 'off' === $show ) ? 'off' : 'on';
 			}
 		}
@@ -196,7 +197,7 @@ class Yoast extends Plugin_Importer {
 				$titles[ "tax_{$taxonomy}_robots" ][]      = 'noindex';
 				$titles[ "tax_{$taxonomy}_robots" ]        = array_unique( $titles[ "tax_{$taxonomy}_robots" ] );
 			} else {
-				$sitemap[ "tax_{$taxonomy}_sitemap" ] = $value ? 'on' : 'off';
+				$sitemap[ "tax_{$taxonomy}_sitemap" ] = 'off';
 			}
 
 			// Show/Hide Metabox.
@@ -216,24 +217,23 @@ class Yoast extends Plugin_Importer {
 		$this->replace( $hash, $yoast_titles, $titles, 'convert_variables' );
 
 		// NOINDEX.
-		$hash = array(
+		$hash = [
 			'noindex-subpages-wpseo' => 'noindex_archive_subpages',
 			'noindex-author-wpseo'   => 'noindex_author_archive',
-		);
+		];
 		$this->replace( $hash, $yoast_titles, $titles, 'convert_bool' );
 
 		// Social.
-		$hash = array(
-			'facebook_site'   => 'social_url_facebook',
-			'twitter_site'    => 'twitter_author_names',
-			'instagram_url'   => 'social_url_instagram',
-			'linkedin_url'    => 'social_url_linkedin',
-			'youtube_url'     => 'social_url_youtube',
-			'google_plus_url' => 'social_url_gplus',
-			'pinterest_url'   => 'social_url_pinterest',
-			'myspace_url'     => 'social_url_myspace',
-			'fbadminapp'      => 'facebook_app_id',
-		);
+		$hash = [
+			'facebook_site' => 'social_url_facebook',
+			'twitter_site'  => 'twitter_author_names',
+			'instagram_url' => 'social_url_instagram',
+			'linkedin_url'  => 'social_url_linkedin',
+			'youtube_url'   => 'social_url_youtube',
+			'pinterest_url' => 'social_url_pinterest',
+			'myspace_url'   => 'social_url_myspace',
+			'fbadminapp'    => 'facebook_app_id',
+		];
 		$this->replace( $hash, $yoast_social, $titles );
 
 		// OpenGraph.
@@ -245,50 +245,50 @@ class Yoast extends Plugin_Importer {
 			$this->replace_image( $yoast_social['og_frontpage_image'], $titles, 'homepage_facebook_image', 'homepage_facebook_image_id' );
 		}
 
-		$hash = array(
+		$hash = [
 			'og_frontpage_title' => 'homepage_facebook_title',
 			'og_frontpage_desc'  => 'homepage_facebook_description',
-		);
+		];
 		$this->replace( $hash, $yoast_social, $titles, 'convert_variables' );
 
 		// Breadcrumbs.
-		$hash = array(
+		$hash = [
 			'breadcrumbs-sep'           => 'breadcrumbs_separator',
 			'breadcrumbs-home'          => 'breadcrumbs_home_label',
 			'breadcrumbs-prefix'        => 'breadcrumbs_prefix',
 			'breadcrumbs-archiveprefix' => 'breadcrumbs_archive_format',
 			'breadcrumbs-searchprefix'  => 'breadcrumbs_search_format',
 			'breadcrumbs-404crumb'      => 'breadcrumbs_404_label',
-		);
+		];
 		$this->replace( $hash, $yoast_titles, $settings );
 		$this->replace( $hash, $yoast_internallinks, $settings );
 
-		$hash = array( 'breadcrumbs-enable' => 'breadcrumbs' );
+		$hash = [ 'breadcrumbs-enable' => 'breadcrumbs' ];
 		$this->replace( $hash, $yoast_titles, $settings, 'convert_bool' );
 		$this->replace( $hash, $yoast_internallinks, $settings, 'convert_bool' );
 
 		// RSS.
-		$hash = array(
+		$hash = [
 			'rssbefore' => 'rss_before_content',
 			'rssafter'  => 'rss_after_content',
-		);
+		];
 		$this->replace( $hash, $yoast_rss, $settings, 'convert_variables' );
 
 		// Sitemap.
 		if ( ! isset( $yoast_main['enable_xml_sitemap'] ) && isset( $yoast_sitemap['enablexmlsitemap'] ) ) {
-			Helper::update_modules( array( 'sitemap' => 'on' ) );
+			Helper::update_modules( [ 'sitemap' => 'on' ] );
 		}
-		$hash = array(
+		$hash = [
 			'entries-per-page' => 'items_per_page',
 			'excluded-posts'   => 'exclude_posts',
-		);
+		];
 		$this->replace( $hash, $yoast_sitemap, $sitemap );
 
 		if ( empty( $yoast_sitemap['excluded-posts'] ) ) {
 			$sitemap['exclude_posts'] = '';
 		}
 
-		foreach ( Helper::get_roles() as $role => $label ) {
+		foreach ( WordPress::get_roles() as $role => $label ) {
 			$key = "user_role-{$role}-not_in_sitemap";
 			if ( isset( $yoast_sitemap[ $key ] ) && $yoast_sitemap[ $key ] ) {
 				$sitemap['exclude_roles'][] = $role;
@@ -303,7 +303,7 @@ class Yoast extends Plugin_Importer {
 			$titles['local_seo'] = 'on';
 
 			// Address Format.
-			$address_format_hash = array(
+			$address_format_hash = [
 				'address-state-postal'       => '{address} {locality}, {region} {postalcode}',
 				'address-state-postal-comma' => '{address} {locality}, {region}, {postalcode}',
 				'address-postal-city-state'  => '{address} {postalcode} {locality}, {region}',
@@ -311,19 +311,19 @@ class Yoast extends Plugin_Importer {
 				'address-postal-comma'       => '{address} {locality}, {postalcode}',
 				'address-city'               => '{address} {locality}',
 				'postal-address'             => '{postalcode} {region} {locality} {address}',
-			);
+			];
 
 			$titles['local_address_format'] = $address_format_hash[ $yoast_local['address_format'] ];
 
 			// Street Address.
-			$address = array();
-			$hash    = array(
+			$address = [];
+			$hash    = [
 				'location_address' => 'streetAddress',
 				'location_city'    => 'addressLocality',
 				'location_state'   => 'addressRegion',
 				'location_zipcode' => 'postalCode',
 				'location_country' => 'addressCountry',
-			);
+			];
 			$this->replace( $hash, $yoast_local, $address );
 			$titles['local_address'] = $address;
 
@@ -338,16 +338,16 @@ class Yoast extends Plugin_Importer {
 
 			// Phone Numbers.
 			if ( ! empty( $yoast_local['location_phone'] ) ) {
-				$titles['phone_numbers'][] = array(
+				$titles['phone_numbers'][] = [
 					'type'   => 'customer support',
 					'number' => $yoast_local['location_phone'],
-				);
+				];
 
 				if ( ! empty( $yoast_local['location_phone_2nd'] ) ) {
-					$titles['phone_numbers'][] = array(
+					$titles['phone_numbers'][] = [
 						'type'   => 'customer support',
 						'number' => $yoast_local['location_phone_2nd'],
-					);
+					];
 				}
 			}
 
@@ -375,7 +375,7 @@ class Yoast extends Plugin_Importer {
 
 		$this->set_primary_term( $post_ids );
 
-		$hash = array(
+		$hash = [
 			'_yoast_wpseo_title'                 => 'rank_math_title',
 			'_yoast_wpseo_metadesc'              => 'rank_math_description',
 			'_yoast_wpseo_focuskw'               => 'rank_math_focus_keyword',
@@ -385,7 +385,7 @@ class Yoast extends Plugin_Importer {
 			'_yoast_wpseo_twitter-title'         => 'rank_math_twitter_title',
 			'_yoast_wpseo_twitter-description'   => 'rank_math_twitter_description',
 			'_yoast_wpseo_bctitle'               => 'rank_math_breadcrumb_title',
-		);
+		];
 
 		foreach ( $post_ids as $post ) {
 			$post_id = $post->ID;
@@ -404,7 +404,7 @@ class Yoast extends Plugin_Importer {
 				$this->replace_image( $twitter_thumb, $destination, 'rank_math_twitter_image', 'rank_math_twitter_image_id', $post_id );
 			}
 
-			foreach ( array( 'rank_math_twitter_title', 'rank_math_twitter_description', 'rank_math_twitter_image' ) as $key ) {
+			foreach ( [ 'rank_math_twitter_title', 'rank_math_twitter_description', 'rank_math_twitter_image' ] as $key ) {
 				if ( ! empty( get_post_meta( $post_id, $key, true ) ) ) {
 					update_post_meta( $post_id, 'rank_math_twitter_use_facebook', 'off' );
 					break;
@@ -424,7 +424,7 @@ class Yoast extends Plugin_Importer {
 			if ( $extra_fks ) {
 				$extra_fks = json_decode( $extra_fks, true );
 				if ( ! empty( $extra_fks ) ) {
-					$extra_fks = implode( ', ', array_map( array( $this, 'map_focus_keyword' ), $extra_fks ) );
+					$extra_fks = implode( ', ', array_map( [ $this, 'map_focus_keyword' ], $extra_fks ) );
 					$main_fk   = get_post_meta( $post_id, 'rank_math_focus_keyword', true );
 					$extra_fks = $main_fk . ', ' . $extra_fks;
 					update_post_meta( $post_id, 'rank_math_focus_keyword', $extra_fks );
@@ -447,7 +447,7 @@ class Yoast extends Plugin_Importer {
 
 		// If all are empty, then keep default robots.
 		if ( empty( $robots_nofollow ) && empty( $robots_noindex ) && empty( $robots_advanced ) ) {
-			update_post_meta( $post_id, 'rank_math_robots', array() );
+			update_post_meta( $post_id, 'rank_math_robots', [] );
 			return;
 		}
 
@@ -485,7 +485,7 @@ class Yoast extends Plugin_Importer {
 	 */
 	private function set_primary_term( $post_ids ) {
 		$post_ids = wp_list_pluck( $post_ids, 'ID' );
-		$table    = Database::table( 'postmeta' );
+		$table    = DB::query_builder( 'postmeta' );
 		$results  = $table->whereLike( 'meta_key', 'wpseo_primary' )->whereIn( 'post_id', $post_ids )->get();
 
 		foreach ( $results as $result ) {
@@ -504,7 +504,10 @@ class Yoast extends Plugin_Importer {
 		$destination   = 'update_term_meta';
 		$taxonomy_meta = get_option( 'wpseo_taxonomy_meta' );
 
-		$hash = array(
+		if ( empty( $taxonomy_meta ) ) {
+			return compact( 'count' );
+		}
+		$hash = [
 			'wpseo_title'                 => 'rank_math_title',
 			'wpseo_desc'                  => 'rank_math_description',
 			'wpseo_metadesc'              => 'rank_math_description',
@@ -515,7 +518,7 @@ class Yoast extends Plugin_Importer {
 			'wpseo_twitter-title'         => 'rank_math_twitter_title',
 			'wpseo_twitter-description'   => 'rank_math_twitter_description',
 			'wpseo_bctitle'               => 'rank_math_breadcrumb_title',
-		);
+		];
 		foreach ( $taxonomy_meta as $terms ) {
 			foreach ( $terms as $term_id => $data ) {
 				$count++;
@@ -532,7 +535,7 @@ class Yoast extends Plugin_Importer {
 					$this->replace_image( $data['wpseo_twitter-image'], $destination, 'rank_math_twitter_image', 'rank_math_twitter_image_id', $term_id );
 				}
 
-				foreach ( array( 'rank_math_twitter_title', 'rank_math_twitter_description', 'rank_math_twitter_image' ) as $key ) {
+				foreach ( [ 'rank_math_twitter_title', 'rank_math_twitter_description', 'rank_math_twitter_image' ] as $key ) {
 					if ( ! empty( get_term_meta( $term_id, $key, true ) ) ) {
 						update_term_meta( $term_id, 'rank_math_twitter_use_facebook', 'off' );
 						break;
@@ -562,11 +565,11 @@ class Yoast extends Plugin_Importer {
 		$this->set_pagination( $this->get_user_ids( true ) );
 		$user_ids = $this->get_user_ids();
 
-		$hash = array(
+		$hash = [
 			'wpseo_title'    => 'rank_math_title',
 			'wpseo_desc'     => 'rank_math_description',
 			'wpseo_metadesc' => 'rank_math_description',
-		);
+		];
 		foreach ( $user_ids as $user ) {
 			$userid = $user->ID;
 			$this->replace_meta( $hash, null, $userid, 'user', 'convert_variables' );
@@ -587,25 +590,24 @@ class Yoast extends Plugin_Importer {
 		}
 
 		$count = 0;
-		$form  = new Form;
-		Helper::update_modules( array( 'redirections' => 'on' ) );
+		Helper::update_modules( [ 'redirections' => 'on' ] );
 		foreach ( $redirections as $redirection ) {
 			if ( ! isset( $redirection['origin'] ) || empty( $redirection['origin'] ) ) {
 				continue;
 			}
 
-			$result = $form->save_redirection(array(
-				'sources'     => array(
-					array(
+			$item = Redirection::from([
+				'sources'     => [
+					[
 						'pattern'    => $redirection['origin'],
 						'comparison' => isset( $redirection['format'] ) && 'regex' === $redirection['format'] ? 'regex' : 'exact',
-					),
-				),
+					],
+				],
 				'url_to'      => isset( $redirection['url'] ) ? $redirection['url'] : '',
 				'header_code' => isset( $redirection['type'] ) ? $redirection['type'] : '301',
-			));
+			]);
 
-			if ( true === $result ) {
+			if ( false !== $item->save() ) {
 				$count++;
 			}
 		}

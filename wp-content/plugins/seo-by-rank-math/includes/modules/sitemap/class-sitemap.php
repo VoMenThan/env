@@ -4,14 +4,15 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap;
+namespace RankMath\Sitemap;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -113,7 +114,7 @@ class Sitemap {
 	 */
 	public function add_sitemap_directive( $output ) {
 
-		if ( Helper::str_contains( 'Sitemap:', $output ) || Helper::str_contains( 'sitemap:', $output ) ) {
+		if ( Str::contains( 'Sitemap:', $output ) || Str::contains( 'sitemap:', $output ) ) {
 			return $output;
 		}
 
@@ -251,7 +252,7 @@ class Sitemap {
 				GROUP BY post_type
 				ORDER BY post_modified_gmt DESC";
 
-				foreach ( $wpdb->get_results( $sql ) as $obj ) { // WPCS: unprepared SQL OK.
+				foreach ( $wpdb->get_results( $sql ) as $obj ) { // phpcs:ignore
 					$post_type_dates[ $obj->post_type ] = $obj->date;
 				}
 			}

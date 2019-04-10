@@ -5,15 +5,15 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
 
 use RankMath\Runner;
+use RankMath\Helper;
 use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
-use RankMath\Helper as GlobalHelper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,7 +29,7 @@ class Notices implements Runner {
 	 */
 	public function hooks() {
 		$this->action( 'admin_init', 'notices' );
-		$this->ajax( 'notice_dismissible', 'notice_dismissible' );
+		$this->action( 'wp_helpers_notification_dismissed', 'notice_dismissible' );
 	}
 
 	/**
@@ -41,26 +41,21 @@ class Notices implements Runner {
 	}
 
 	/**
-	 * Notice dismissal
+	 * Set known post type after notice dismissal.
+	 *
+	 * @param string $notification_id Notification id.
 	 */
-	public function notice_dismissible() {
-
-		$this->verify_nonce( 'rank-math-ajax-nonce' );
-
-		$which     = explode( ',', $_POST['dismiss'] );
-		$dismissed = (array) get_option( 'rank_math_dismissed_notices' );
-		foreach ( $which as $id ) {
-			if ( 'new_post_type' === $id ) {
-				$current = get_post_types( array( 'public' => true ) );
-				update_option( 'rank_math_known_post_types', $current );
-			} else {
-				$dismissed[ $id ] = true;
-			}
+	public function notice_dismissible( $notification_id ) {
+		if ( 'new_post_type' !== $notification_id ) {
+			return;
 		}
 
-		update_option( 'rank_math_dismissed_notices', $dismissed );
+		$current = get_post_types( array( 'public' => true ) );
+		update_option( 'rank_math_known_post_types', $current );
 
-		$this->success( 'done' );
+		if ( Helper::is_module_active( 'sitemap' ) ) {
+			\RankMath\Sitemap\Cache::invalidate_storage();
+		}
 	}
 
 	/**
@@ -71,13 +66,18 @@ class Notices implements Runner {
 			return;
 		}
 
-		$dismissed = get_option( 'rank_math_dismissed_notices', array() );
-		if ( ! isset( $dismissed['config'] ) && ! GlobalHelper::is_configured() ) {
+		if ( rank_math()->notification->get_notification_by_id( 'plugin_not_setup' ) && ! Helper::is_configured() ) {
 			$message = sprintf(
 				'<b>Warning!</b> You didn\'t set up your Rank Math SEO plugin yet, which means you\'re missing out on essential settings and tweaks! <a href="%s">Complete your setup by clicking here.</a>',
-				GlobalHelper::get_admin_url( 'wizard' )
+				Helper::get_admin_url( 'wizard' )
 			);
-			rank_math()->add_error( $message, 'warning', 'config' );
+			Helper::add_notification(
+				$message,
+				[
+					'type' => 'warning',
+					'id'   => 'plugin_not_setup',
+				]
+			);
 		}
 	}
 
@@ -86,7 +86,7 @@ class Notices implements Runner {
 	 */
 	private function new_post_type() {
 		$known   = get_option( 'rank_math_known_post_types', array() );
-		$current = GlobalHelper::get_accessible_post_types();
+		$current = Helper::get_accessible_post_types();
 		$new     = array_diff( $current, $known );
 
 		if ( empty( $new ) ) {
@@ -96,7 +96,13 @@ class Notices implements Runner {
 		$list = implode( ', ', $new );
 		/* translators: post names */
 		$message = $this->do_filter( 'admin/notice/new_post_type', __( 'We detected new post type(s) (%1$s), and you would want to check the settings of <a href="%2$s">Titles &amp; Meta page</a>.', 'rank-math' ) );
-		$message = sprintf( wp_kses_post( $message ), $list, GlobalHelper::get_admin_url( 'options-titles#setting-panel-post-type-' . key( $new ) ), GlobalHelper::get_admin_url( 'options-sitemap#setting-panel-sitemap-post-type-' . key( $new ) ) );
-		rank_math()->add_error( $message, 'info', 'new_post_type' );
+		$message = sprintf( wp_kses_post( $message ), $list, Helper::get_admin_url( 'options-titles#setting-panel-post-type-' . key( $new ) ), Helper::get_admin_url( 'options-sitemap#setting-panel-sitemap-post-type-' . key( $new ) ) );
+		Helper::add_notification(
+			$message,
+			[
+				'type' => 'info',
+				'id'   => 'new_post_type',
+			]
+		);
 	}
 }

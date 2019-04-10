@@ -4,14 +4,15 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use RankMath\Helper;
-use TheLeague\Database\Database;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Database\Database;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -54,32 +55,33 @@ class DB {
 	/**
 	 * Get redirections.
 	 *
-	 * @param  array $args Array of filters apply to query.
+	 * @param array $args Array of filters apply to query.
+	 *
 	 * @return array
 	 */
-	public static function get_redirections( $args ) {
-		$args = wp_parse_args( $args, array(
+	public static function get_redirections( $args = [] ) {
+		$args = wp_parse_args( $args, [
 			'orderby' => 'id',
 			'order'   => 'DESC',
 			'limit'   => 10,
 			'paged'   => 1,
 			'search'  => '',
 			'status'  => 'any',
-		) );
+		]);
 
-		$table = self::table()->found_rows()->page( $args['paged'] - 1, $args['limit'] );
+		$status = self::is_valid_status( $args['status'] ) ? [ $args['status'], null ] : [ '!=', 'trashed' ];
+
+		$table = self::table()
+			->found_rows()
+			->page( $args['paged'] - 1, $args['limit'] )
+			->where( 'status', $status[0], $status[1] );
+
 		if ( ! empty( $args['search'] ) ) {
 			$table->whereLike( 'sources', $args['search'] );
 			$table->orWhereLike( 'url_to', $args['search'] );
 		}
 
-		if ( ! empty( $args['status'] ) && 'any' !== $args['status'] && in_array( $args['status'], array( 'active', 'inactive', 'trashed' ) ) ) {
-			$table->where( 'status', $args['status'] );
-		} else {
-			$table->where( 'status', '!=', 'trashed' );
-		}
-
-		if ( ! empty( $args['orderby'] ) && in_array( $args['orderby'], array( 'id', 'url_to', 'header_code', 'hits', 'last_accessed' ) ) ) {
+		if ( ! empty( $args['orderby'] ) && in_array( $args['orderby'], [ 'id', 'url_to', 'header_code', 'hits', 'last_accessed' ] ) ) {
 			$table->orderBy( $args['orderby'], $args['order'] );
 		}
 
@@ -92,12 +94,24 @@ class DB {
 	/**
 	 * Match redirections for uri
 	 *
-	 * @param  string $uri Current uri to match.
+	 * @param string $uri Current uri to match.
+	 * @param bool   $all Get All.
+	 *
 	 * @return object
 	 */
-	public static function match_redirections( $uri ) {
+	public static function match_redirections( $uri, $all = false ) {
 		if ( empty( $uri ) ) {
 			return false;
+		}
+
+		// If nothing found than go for all.
+		if ( $all ) {
+			$redirections = self::table()
+				->where( 'status', 'active' )
+				->orderby( 'updated', 'desc' )
+				->get( ARRAY_A );
+
+			return self::compare_redirections( $redirections, $uri );
 		}
 
 		$table = self::table()->where( 'status', 'active' )->orderby( 'updated', 'desc' );
@@ -106,34 +120,39 @@ class DB {
 		$words = self::remove_stopwords( $uri );
 
 		// Generate where cluase.
-		$where  = array();
-		$source = maybe_serialize( array(
+		$where  = [];
+		$source = maybe_serialize([
 			'pattern'    => $uri,
 			'comparison' => 'exact',
-		) );
+		]);
 
-		$where[] = array( 'sources', 'like', $table->esc_like( $source ) );
+		$where[] = [ 'sources', 'like', $table->esc_like( $source ) ];
 		foreach ( $words as $word ) {
-			$where[] = array( 'sources', 'like', $table->esc_like( $word ) );
+			$where[] = [ 'sources', 'like', $table->esc_like( $word ) ];
 		}
 
 		$redirections = $table->where( $where, 'or' )->get( ARRAY_A );
+		$redirection  = self::compare_redirections( $redirections, $uri );
+		if ( false === $redirection ) {
+			return self::match_redirections( $uri, true );
+		}
 
-		return self::compare_redirections( $redirections, $uri );
+		return $redirection;
 	}
 
 	/**
 	 * Compare given redirections
 	 *
-	 * @param  array  $redirections Array of redirection matched.
-	 * @param  string $uri          Uri to comapre with.
+	 * @param array  $redirections Array of redirection matched.
+	 * @param string $uri          Uri to comapre with.
+	 *
 	 * @return array|bool
 	 */
 	private static function compare_redirections( $redirections, $uri ) {
 		foreach ( $redirections as $redirection ) {
 			$redirection['sources'] = maybe_unserialize( $redirection['sources'] );
 			foreach ( $redirection['sources'] as $source ) {
-				if ( Helper::str_comparison( trim( $source['pattern'], '/' ), $uri, $source['comparison'] ) ) {
+				if ( Str::comparison( self::get_clean_pattern( $source['pattern'], $source['comparison'] ), $uri, $source['comparison'] ) ) {
 					return $redirection;
 				}
 			}
@@ -143,11 +162,47 @@ class DB {
 	}
 
 	/**
+	 * Match redirections for source
+	 *
+	 * @param string $source Current source to match.
+	 *
+	 * @return array
+	 */
+	public static function match_redirections_source( $source ) {
+		if ( empty( $source ) ) {
+			return false;
+		}
+
+		$table = self::table();
+
+		return $table->found_rows()
+			->where( 'status', 'active' )
+			->whereLike( 'sources', $source )
+			->orderby( 'updated', 'desc' )
+			->page( 0, 1 )
+			->get( ARRAY_A );
+	}
+
+	/**
+	 * Get clean pattern for testing.
+	 *
+	 * @param string $pattern    Pattern to clean.
+	 * @param string $comparison Comparison type.
+	 *
+	 * @return string
+	 */
+	public static function get_clean_pattern( $pattern, $comparison ) {
+		$pattern = trim( $pattern, '/' );
+		return 'regex' === $comparison ? ( '@' . stripslashes( $pattern ) . '@' ) : $pattern;
+	}
+
+	/**
 	 *  Get source by id.
 	 *
-	 * @param  int    $id     Id of the record to search for.
-	 * @param  string $status Status to filter with.
-	 * @return array
+	 * @param int    $id     Id of the record to search for.
+	 * @param string $status Status to filter with.
+	 *
+	 * @return bool|array
 	 */
 	public static function get_redirection_by_id( $id, $status = 'all' ) {
 		$table = self::table()->where( 'id', $id );
@@ -155,9 +210,13 @@ class DB {
 		if ( 'all' !== $status ) {
 			$table->where( 'status', $status );
 		}
-		$item            = $table->one( ARRAY_A );
-		$item['sources'] = maybe_unserialize( $item['sources'] );
 
+		$item = $table->one( ARRAY_A );
+		if ( ! isset( $item['sources'] ) ) {
+			return false;
+		}
+
+		$item['sources'] = maybe_unserialize( $item['sources'] );
 		return $item;
 	}
 
@@ -174,13 +233,15 @@ class DB {
 	 * Add a new record.
 	 *
 	 * @param array $args Values to insert.
+	 *
+	 * @return bool|int
 	 */
-	public static function add( $args = array() ) {
+	public static function add( $args = [] ) {
 		if ( empty( $args ) ) {
-			return;
+			return false;
 		}
 
-		$args = wp_parse_args( $args, array(
+		$args = wp_parse_args( $args, [
 			'sources'     => '',
 			'url_to'      => '',
 			'header_code' => '301',
@@ -188,31 +249,33 @@ class DB {
 			'status'      => 'active',
 			'created'     => current_time( 'mysql' ),
 			'updated'     => current_time( 'mysql' ),
-		));
+		]);
 
 		$args['sources'] = maybe_serialize( $args['sources'] );
 
-		return self::table()->insert( $args, array( '%s', '%s', '%d', '%d', '%s', '%s', '%s' ) );
+		return self::table()->insert( $args, [ '%s', '%s', '%d', '%d', '%s', '%s', '%s' ] );
 	}
 
 	/**
 	 * Update a record.
 	 *
 	 * @param array $args Values to update.
+	 *
+	 * @return bool|int
 	 */
-	public static function update( $args = array() ) {
+	public static function update( $args = [] ) {
 		if ( empty( $args ) ) {
-			return;
+			return false;
 		}
 
-		$args = wp_parse_args( $args, array(
+		$args = wp_parse_args( $args, [
 			'id'          => '',
 			'sources'     => '',
 			'url_to'      => '',
 			'header_code' => '301',
 			'status'      => 'active',
 			'updated'     => current_time( 'mysql' ),
-		));
+		]);
 
 		$id = absint( $args['id'] );
 		if ( 0 === $id ) {
@@ -229,12 +292,13 @@ class DB {
 	/**
 	 * Add or Update record
 	 *
-	 * @param  array $redirection Single redirection item.
+	 * @param array $redirection Single redirection item.
+	 *
 	 * @return int
 	 */
 	public static function update_iff( $redirection ) {
 		// Update record.
-		if ( isset( $redirection['id'] ) ) {
+		if ( isset( $redirection['id'] ) && ! empty( $redirection['id'] ) ) {
 			self::update( $redirection );
 			return $redirection['id'];
 		}
@@ -246,12 +310,13 @@ class DB {
 	/**
 	 * Update counter for redirection.
 	 *
-	 * @param  object $redirection Record to update.
+	 * @param object $redirection Record to update.
+	 *
 	 * @return int|false The number of rows updated, or false on error.
 	 */
-	public static function update_access( $redirection ) {
+	public static function update_access( $redirection = false ) {
 		if ( empty( $redirection ) ) {
-			return;
+			return false;
 		}
 
 		$args['hits']          = absint( $redirection['hits'] ) + 1;
@@ -263,7 +328,8 @@ class DB {
 	/**
 	 * Delete multiple record.
 	 *
-	 * @param  array $ids           Array of ids to delete.
+	 * @param array $ids           Array of ids to delete.
+	 *
 	 * @return int Number of records deleted.
 	 */
 	public static function delete( $ids ) {
@@ -274,13 +340,13 @@ class DB {
 	/**
 	 * Change record status to active or inactive.
 	 *
-	 * @param  array $ids     Array of ids.
-	 * @param  bool  $status Active=1, Inactive=0.
+	 * @param array $ids     Array of ids.
+	 * @param bool  $status Active=1, Inactive=0.
+	 *
 	 * @return int Number of records updated.
 	 */
 	public static function change_status( $ids, $status ) {
-		$allowed = array( 'active', 'inactive', 'trashed' );
-		if ( ! in_array( $status, $allowed ) ) {
+		if ( ! self::is_valid_status( $status ) ) {
 			return false;
 		}
 
@@ -296,9 +362,11 @@ class DB {
 	 */
 	public static function periodic_clean_trash() {
 		$ids = self::table()->select( 'id' )->where( 'status', 'trashed' )->where( 'updated', '<=', date( 'Y-m-d', strtotime( '30 days ago' ) ) )->get( ARRAY_A );
-		$ids = wp_list_pluck( $ids, 'id' );
-		Cache::purge( $ids );
-		return self::table()->where( 'status', 'trashed' )->where( 'updated', '<=', date( 'Y-m-d', strtotime( '30 days ago' ) ) )->delete();
+		if ( empty( $ids ) ) {
+			return 0;
+		}
+
+		return self::delete( wp_list_pluck( $ids, 'id' ) );
 	}
 
 	/**
@@ -308,15 +376,18 @@ class DB {
 	 */
 	public static function clear_trashed() {
 		$ids = self::table()->select( 'id' )->where( 'status', 'trashed' )->get();
-		$ids = wp_list_pluck( $ids, 'id' );
-		Cache::purge( $ids );
-		return self::table()->where( 'status', 'trashed' )->delete();
+		if ( empty( $ids ) ) {
+			return 0;
+		}
+
+		return self::delete( wp_list_pluck( $ids, 'id' ) );
 	}
 
 	/**
 	 * Removes stopword from the sample permalink that is generated in an AJAX request.
 	 *
-	 * @param  string $uri The uri to remove words from.
+	 * @param string $uri The uri to remove words from.
+	 *
 	 * @return array
 	 */
 	private static function remove_stopwords( $uri ) {
@@ -328,8 +399,20 @@ class DB {
 
 		// Turn it to an array and strip stop words by comparing against an array of stopwords.
 		$words = str_replace( '/', '-', $uri );
-		$words = str_replace( '.', '-', $uri );
+		$words = str_replace( '.', '-', $words );
 		$words = explode( '-', $words );
 		return array_diff( $words, $redirection_stop_words );
+	}
+
+	/**
+	 * Check if status is valid.
+	 *
+	 * @param string $status Status to validate.
+	 *
+	 * @return bool
+	 */
+	private static function is_valid_status( $status ) {
+		$allowed = [ 'active', 'inactive', 'trashed' ];
+		return in_array( $status, $allowed, true );
 	}
 }

@@ -36,7 +36,7 @@ class SearchWPDebug {
 		}
 
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-			include_once( SWP()->dir . '/vendor/monolog-bootloader.php' );
+			include_once( SWP()->dir . '/lib/monolog-bootloader.php' );
 
 			if ( $this->active && class_exists( 'SearchWP_Monolog' ) ) {
 				$monolog = new SearchWP_Monolog( $this->logfile );

@@ -8,12 +8,14 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
-use RankMath\Admin\Helper as Admin_Helper;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\WordPress;
+use RankMath\Admin\Admin_Helper;
 use RankMath\Traits\Hooker;
 use RankMath\Traits\Replacement;
 
@@ -64,6 +66,7 @@ class Replace_Vars {
 		'taxonomy'      => '',
 		'term_id'       => '',
 		'term404'       => '',
+		'filename'      => '',
 	);
 
 	/**
@@ -78,11 +81,11 @@ class Replace_Vars {
 		$string = strip_tags( $string );
 
 		// Let's see if we can bail super early.
-		if ( ! Helper::str_contains( '%', $string ) ) {
+		if ( ! Str::contains( '%', $string ) ) {
 			return $string;
 		}
 
-		if ( Helper::str_end_with( ' %sep%', $string ) ) {
+		if ( Str::ends_with( ' %sep%', $string ) ) {
 			$string = str_replace( ' %sep%', '', $string );
 		}
 
@@ -339,7 +342,7 @@ class Replace_Vars {
 			if ( '' !== $this->args->post_excerpt ) {
 				$replacement = strip_tags( $this->args->post_excerpt );
 			} elseif ( '' !== $this->args->post_content ) {
-				$replacement = wp_html_excerpt( Helper::remove_all_shortcodes( $this->args->post_content ), 155 );
+				$replacement = wp_html_excerpt( WordPress::strip_shortcodes( $this->args->post_content ), 155 );
 			}
 		}
 
@@ -528,13 +531,16 @@ class Replace_Vars {
 	 * @return string|null
 	 */
 	private function get_filename() {
-		$replacement = null;
+		if ( empty( $this->args->filename ) ) {
+			return null;
+		}
 
-		$name = \pathinfo( $this->args->filename );
+		$replacement = null;
+		$name        = \pathinfo( $this->args->filename );
 
 		// Remove size if any embedded.
 		$name = explode( '-', $name['filename'] );
-		if ( Helper::str_contains( 'x', end( $name ) ) ) {
+		if ( Str::contains( 'x', end( $name ) ) ) {
 			array_pop( $name );
 		}
 
@@ -861,20 +867,22 @@ class Replace_Vars {
 			self::$replacements['title']['example']        = get_the_title();
 			self::$replacements['date']['example']         = get_the_date();
 			self::$replacements['modified']['example']     = get_the_modified_date();
-			self::$replacements['excerpt']['example']      = Helper::remove_all_shortcodes( get_the_excerpt( $post ) );
+			self::$replacements['excerpt']['example']      = WordPress::strip_shortcodes( get_the_excerpt( $post ) );
 			self::$replacements['excerpt_only']['example'] = $post->post_excerpt;
 
 			// Custom Fields.
 			$json          = array();
 			$custom_fields = get_post_custom( $post->ID );
-			foreach ( $custom_fields as $custom_field_name => $custom_field ) {
-				if ( substr( $custom_field_name, 0, 1 ) === '_' ) {
-					continue;
-				}
+			if ( ! empty( $custom_fields ) ) {
+				foreach ( $custom_fields as $custom_field_name => $custom_field ) {
+					if ( substr( $custom_field_name, 0, 1 ) === '_' ) {
+						continue;
+					}
 
-				$json[ $custom_field_name ] = $custom_field[0];
+					$json[ $custom_field_name ] = $custom_field[0];
+				}
 			}
-			rank_math()->add_json( 'customFields', $json );
+			Helper::add_json( 'customFields', $json );
 		}
 
 		// Fetch data for this term.
@@ -886,7 +894,7 @@ class Replace_Vars {
 			self::$replacements['term']['example']             = $term->name;
 			self::$replacements['term_description']['example'] = term_description( $term );
 		}
-		rank_math()->add_json( 'variables', apply_filters( 'rank_math/vars/replacements', array_merge( self::$replacements, self::$external_replacements ) ) );
+		Helper::add_json( 'variables', apply_filters( 'rank_math/vars/replacements', array_merge( self::$replacements, self::$external_replacements ) ) );
 	}
 
 	/**
@@ -1173,7 +1181,7 @@ class Replace_Vars {
 	 * @return array
 	 */
 	private function normalize_args( $string ) {
-		if ( ! Helper::str_contains( '=', $string ) ) {
+		if ( ! Str::contains( '=', $string ) ) {
 			return $string;
 		}
 

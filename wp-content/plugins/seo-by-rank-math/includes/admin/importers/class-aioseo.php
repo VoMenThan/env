@@ -5,13 +5,14 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin\Importers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin\Importers;
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
+use MyThemeShop\Helpers\Str;
+use RankMath\Admin\Admin_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -145,13 +146,10 @@ class AIOSEO extends Plugin_Importer {
 				$social_links = explode( "\n", $opengraph_settings['aiosp_opengraph_profile_links'] );
 				$social_links = array_filter( $social_links );
 				if ( ! empty( $social_links ) ) {
-					$services = array( 'facebook', 'twitter', 'google', 'linkedin', 'instagram', 'youtube', 'pinterest', 'soundcloud', 'tumblr', 'myspace' );
+					$services = array( 'facebook', 'twitter', 'linkedin', 'instagram', 'youtube', 'pinterest', 'soundcloud', 'tumblr', 'myspace' );
 					foreach ( $social_links as $social_link ) {
 						foreach ( $services as $service ) {
-							if ( Helper::str_contains( $service, $social_link ) ) {
-								if ( 'google' === $service ) {
-									$service = 'gplus';
-								}
+							if ( Str::contains( $service, $social_link ) ) {
 								$titles[ 'social_url_' . $service ] = $social_link;
 							}
 						}

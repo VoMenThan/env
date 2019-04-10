@@ -6,7 +6,8 @@
  */
 
 use RankMath\Helper;
-use RankMath\Modules\Search_Console\DB;
+use MyThemeShop\Helpers\Str;
+use RankMath\Search_Console\DB;
 
 $data     = Helper::search_console_data();
 $is_empty = DB::is_empty();
@@ -23,17 +24,27 @@ $cmb->add_field( array(
 	'after_field' => $primary . $secondary,
 ) );
 
+$profile       = Helper::get_settings( 'general.console_profile' );
+$profile_label = str_replace( 'sc-domain:', __( 'Domain Property: ', 'rank-math' ), $profile );
+foreach ( $data['profiles'] as $key => $value ) {
+	$data['profiles'][ $key ] = str_replace( 'sc-domain:', __( 'Domain Property: ', 'rank-math' ), $value );
+}
+
 $cmb->add_field( array(
 	'id'          => 'console_profile',
 	'type'        => 'select',
 	'name'        => esc_html__( 'Search Console Profile', 'rank-math' ),
 	'desc'        => esc_html__( 'After authenticating with Google Search Console, select the site from the dropdown list.', 'rank-math' ) .
+		' <span id="gsc-dp-info" class="hidden">' . __( 'Please note that the Sitemaps overview in the Search Console module will not be available when using a Domain Property.', 'rank-math' ) . '</span>' .
 		/* translators: setting url */
 		'<br><br><span style="color: orange;">' . sprintf( __( 'Is your site not listed? <a href="%1$s" target="_blank">Click here</a> to get your website verified.', 'rank-math' ), Helper::get_admin_url( 'options-general#setting-panel-webmaster' ) ) . '</span>',
-	'options'     => $data['profiles'],
-	'default'     => Helper::get_settings( 'general.console_profile' ),
-	'after_field' => '<button class="button button-primary" ' . ( $data['authorized'] ? '' : 'disabled="disabled"' ) . '>' . esc_html__( 'Refresh Sites', 'rank-math' ) . '</button>',
-	'attributes'  => $data['authorized'] ? array() : array( 'disabled' => 'disabled' ),
+	'options'     => $profile ? array( $profile => $profile_label ) : $data['profiles'],
+	'default'     => $profile,
+	'after_field' => '<button class="button button-primary hidden" ' . ( $data['authorized'] ? '' : 'disabled="disabled"' ) . '>' . esc_html__( 'Refresh Sites', 'rank-math' ) . '</button>',
+	'attributes'  => $data['authorized'] ? array( 'data-s2' => '' ) : array(
+		'disabled' => 'disabled',
+		'data-s2'  => '',
+	),
 ) );
 
 if ( $is_empty ) {
@@ -61,7 +72,7 @@ $cmb->add_field( array(
 	/* translators: number of days */
 	'<div class="rank-math-console-db-info"><span class="dashicons dashicons-calendar-alt"></span> ' . sprintf( esc_html__( 'Cached Days: %s', 'rank-math' ), '<strong>' . $db_info['days'] . '</strong>' ) . '</div>' .
 	/* translators: number of rows */
-	'<div class="rank-math-console-db-info"><span class="dashicons dashicons-editor-ul"></span> ' . sprintf( esc_html__( 'Data Rows: %s', 'rank-math' ), '<strong>' . Helper::human_number( $db_info['rows'] ) . '</strong>' ) . '</div>' .
+	'<div class="rank-math-console-db-info"><span class="dashicons dashicons-editor-ul"></span> ' . sprintf( esc_html__( 'Data Rows: %s', 'rank-math' ), '<strong>' . Str::human_number( $db_info['rows'] ) . '</strong>' ) . '</div>' .
 	/* translators: database size */
 	'<div class="rank-math-console-db-info"><span class="dashicons dashicons-editor-code"></span> ' . sprintf( esc_html__( 'Size: %s', 'rank-math' ), '<strong>' . size_format( $db_info['size'] ) . '</strong>' ) . '</div>',
 ) );

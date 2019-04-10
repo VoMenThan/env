@@ -13,7 +13,7 @@
  * @return string Breadcrumbs HTML output
  */
 function rank_math_get_breadcrumbs( $args = array() ) {
-	return rank_math()->breadcrumbs ? rank_math()->breadcrumbs->get_breadcrumb( $args ) : '';
+	return isset( rank_math()->breadcrumbs ) ? rank_math()->breadcrumbs->get_breadcrumb( $args ) : '';
 }
 
 /**
@@ -31,5 +31,5 @@ function rank_math_the_breadcrumbs( $args = array() ) {
  * @return string
  */
 function rank_math_get_sitemap_url() {
-	return \RankMath\Modules\Sitemap\Router::get_base_url( 'sitemap_index.xml' );
+	return \RankMath\Sitemap\Router::get_base_url( 'sitemap_index.xml' );
 }

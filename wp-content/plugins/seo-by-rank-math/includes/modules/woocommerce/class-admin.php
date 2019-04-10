@@ -4,14 +4,16 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\WooCommerce
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\WooCommerce
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\WooCommerce;
+namespace RankMath\WooCommerce;
 
 use RankMath\Helper;
 use RankMath\Module;
+use MyThemeShop\Helpers\Arr;
+use MyThemeShop\Helpers\Str;
 use RankMath\OpenGraph_Image;
 
 defined( 'ABSPATH' ) || exit;
@@ -57,7 +59,7 @@ class Admin extends Module {
 	 * @return array
 	 */
 	public function add_general_settings( $tabs ) {
-		Helper::array_insert( $tabs, array(
+		Arr::insert( $tabs, array(
 			'woocommerce' => array(
 				'icon'  => 'dashicons dashicons-cart',
 				'title' => esc_html__( 'WooCommerce', 'rank-math' ),
@@ -99,7 +101,7 @@ class Admin extends Module {
 		$remove_parent_slugs  = Helper::get_settings( 'general.wc_remove_category_parent_slugs' );
 
 		$category_base   = $remove_category_base ? '' : $permalink_structure['category_rewrite_slug'];
-		$use_parent_slug = Helper::str_contains( '%product_cat%', $permalink_structure['product_rewrite_slug'] );
+		$use_parent_slug = Str::contains( '%product_cat%', $permalink_structure['product_rewrite_slug'] );
 
 		$product_rules  = array();
 		$category_rules = array();

@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
@@ -15,6 +15,8 @@ use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
 use RankMath\Helper as GlobalHelper;
 use RankMath\Admin\Importers\Detector;
+use MyThemeShop\Admin\Page;
+use MyThemeShop\Helpers\WordPress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -44,25 +46,26 @@ class Import_Export implements Runner {
 	 */
 	public function register_page() {
 		$uri = rank_math()->plugin_url() . 'assets/admin/';
-		new Page( 'rank-math-import-export', esc_html__( 'Import &amp; Export', 'rank-math' ), array(
+		new Page( 'rank-math-import-export', esc_html__( 'Import &amp; Export', 'rank-math' ), [
 			'position' => 99,
 			'parent'   => 'rank-math',
-			'render'   => Helper::get_view( 'import-export/main' ),
-			'onsave'   => array( $this, 'handler' ),
-			'assets'   => array(
-				'styles'  => array(
+			'render'   => Admin_Helper::get_view( 'import-export/main' ),
+			'onsave'   => [ $this, 'handler' ],
+			'classes'  => [ 'rank-math-page' ],
+			'assets'   => [
+				'styles'  => [
 					'cmb2-styles'      => '',
 					'rank-math-common' => '',
 					'rank-math-cmb2'   => '',
-				),
-				'scripts' => array( 'rank-math-import-export' => $uri . 'js/import-export.js' ),
-			),
-		));
+				],
+				'scripts' => [ 'rank-math-import-export' => $uri . 'js/import-export.js' ],
+			],
+		]);
 
-		rank_math()->add_json( 'importConfirm', esc_html__( 'Are you sure you want to import settings into Rank Math? Don\'t worry, your current configuration will be saved as a backup.', 'rank-math' ) );
-		rank_math()->add_json( 'restoreConfirm', esc_html__( 'Are you sure you want to restore this backup? Your current configuration will be overwritten.', 'rank-math' ) );
-		rank_math()->add_json( 'deleteBackupConfirm', esc_html__( 'Are you sure you want to delete this backup?', 'rank-math' ) );
-		rank_math()->add_json( 'cleanPluginConfirm', esc_html__( 'Are you sure you want erase traces of plugin?', 'rank-math' ) );
+		GlobalHelper::add_json( 'importConfirm', esc_html__( 'Are you sure you want to import settings into Rank Math? Don\'t worry, your current configuration will be saved as a backup.', 'rank-math' ) );
+		GlobalHelper::add_json( 'restoreConfirm', esc_html__( 'Are you sure you want to restore this backup? Your current configuration will be overwritten.', 'rank-math' ) );
+		GlobalHelper::add_json( 'deleteBackupConfirm', esc_html__( 'Are you sure you want to delete this backup?', 'rank-math' ) );
+		GlobalHelper::add_json( 'cleanPluginConfirm', esc_html__( 'Are you sure you want erase traces of plugin?', 'rank-math' ) );
 	}
 
 	/**
@@ -74,11 +77,11 @@ class Import_Export implements Runner {
 			return;
 		}
 
-		if ( 'export-plz' === $_POST['object_id'] ) {
+		if ( 'export-plz' === $_POST['object_id'] && check_admin_referer( 'rank-math-export-settings' ) ) {
 			$this->export();
 		}
 
-		if ( isset( $_FILES['import-me'] ) && 'import-plz' === $_POST['object_id'] ) {
+		if ( isset( $_FILES['import-me'] ) && 'import-plz' === $_POST['object_id'] && check_admin_referer( 'rank-math-import-settings' ) ) {
 			$this->import();
 		}
 	}
@@ -110,8 +113,8 @@ class Import_Export implements Runner {
 
 		$this->has_cap_ajax( 'general' );
 
-		$perform = isset( $_POST['perform'] ) ? $_POST['perform'] : false;
-		if ( ! $perform || ! in_array( $perform, array( 'settings', 'postmeta', 'termmeta', 'usermeta', 'redirections', 'deactivate' ) ) ) {
+		$perform = isset( $_POST['perform'] ) ? filter_input( INPUT_POST, 'perform' ) : false;
+		if ( ! $perform || ! in_array( $perform, [ 'settings', 'postmeta', 'termmeta', 'usermeta', 'redirections', 'deactivate' ] ) ) {
 			$this->error( esc_html__( 'Action not allowed.', 'rank-math' ) );
 		}
 
@@ -136,12 +139,12 @@ class Import_Export implements Runner {
 			$this->error( esc_html__( 'Unable to create backup this time.', 'rank-math' ) );
 		}
 
-		$this->success( array(
+		$this->success([
 			'key'     => $key,
 			/* translators: Backup formatted date */
 			'backup'  => sprintf( esc_html__( 'Backup: %s', 'rank-math' ), date( 'M jS Y, H:i a', $key ) ),
 			'message' => esc_html__( 'Backup created successfully.', 'rank-math' ),
-		));
+		]);
 	}
 
 	/**
@@ -151,7 +154,7 @@ class Import_Export implements Runner {
 
 		$this->verify_nonce( 'rank-math-ajax-nonce' );
 
-		$key = isset( $_POST['key'] ) ? $_POST['key'] : false; // WPCS: sanitization ok.
+		$key = isset( $_POST['key'] ) ? $_POST['key'] : false;
 		if ( ! $key ) {
 			$this->error( esc_html__( 'No backup key found to delete.', 'rank-math' ) );
 		}
@@ -167,7 +170,7 @@ class Import_Export implements Runner {
 
 		$this->verify_nonce( 'rank-math-ajax-nonce' );
 
-		$key = isset( $_POST['key'] ) ? $_POST['key'] : false; // WPCS: sanitization ok.
+		$key = isset( $_POST['key'] ) ? $_POST['key'] : false;
 		if ( ! $key ) {
 			$this->error( esc_html__( 'No backup key found to restore.', 'rank-math' ) );
 		}
@@ -187,7 +190,7 @@ class Import_Export implements Runner {
 	 * @return mixed
 	 */
 	public function run_backup( $action = 'add', $key = null ) {
-		$backups = get_option( 'rank_math_backups', array() );
+		$backups = get_option( 'rank_math_backups', [] );
 
 		// Restore.
 		if ( 'restore' === $action ) {
@@ -203,7 +206,7 @@ class Import_Export implements Runner {
 		// Add.
 		if ( 'add' === $action ) {
 			$key     = current_time( 'U' );
-			$backups = array( $key => $this->get_export_data() ) + $backups;
+			$backups = [ $key => $this->get_export_data() ] + $backups;
 		}
 
 		// Delete.
@@ -222,7 +225,7 @@ class Import_Export implements Runner {
 	private function export() {
 		$panels   = $_POST['panels'];
 		$data     = $this->get_export_data( $panels );
-		$filename = 'rank-math-settings-' . date( 'Y-m-d-H-i-s' ) . '.json';
+		$filename = 'rank-math-settings-' . date( 'Y-m-d-H-i-s' ) . '.txt';
 
 		header( 'Content-Type: application/txt' );
 		header( 'Content-Disposition: attachment; filename=' . $filename );
@@ -240,35 +243,35 @@ class Import_Export implements Runner {
 	private function import() {
 
 		// Handle file upload.
-		$file = wp_handle_upload( $_FILES['import-me'], array( 'mimes' => array( 'json' => 'application/json' ) ) );
+		$file = wp_handle_upload( $_FILES['import-me'] );
 		if ( is_wp_error( $file ) ) {
-			rank_math()->add_error( esc_html__( 'Settings could not be imported:', 'rank-math' ) . ' ' . $file->get_error_message() );
+			GlobalHelper::add_notification( esc_html__( 'Settings could not be imported:', 'rank-math' ) . ' ' . $file->get_error_message(), [ 'type' => 'error' ] );
 			return false;
 		}
 
 		if ( is_array( $file ) && isset( $file['error'] ) ) {
-			rank_math()->add_error( esc_html__( 'Settings could not be imported:', 'rank-math' ) . ' ' . $file['error'] );
+			GlobalHelper::add_notification( esc_html__( 'Settings could not be imported:', 'rank-math' ) . ' ' . $file['error'], [ 'type' => 'error' ] );
 			return false;
 		}
 
 		if ( ! isset( $file['file'] ) ) {
-			rank_math()->add_error( esc_html__( 'Settings could not be imported:', 'rank-math' ) . ' ' . esc_html__( 'Upload failed.', 'rank-math' ) );
+			GlobalHelper::add_notification( esc_html__( 'Settings could not be imported:', 'rank-math' ) . ' ' . esc_html__( 'Upload failed.', 'rank-math' ), [ 'type' => 'error' ] );
 			return false;
 		}
 
 		// Parse Options.
-		$wp_filesystem = Helper::get_filesystem();
+		$wp_filesystem = WordPress::get_filesystem();
 		$settings      = $wp_filesystem->get_contents( $file['file'] );
 		$settings      = json_decode( $settings, true );
 
 		\unlink( $file['file'] );
 
 		if ( $this->do_import_data( $settings ) ) {
-			rank_math()->add_error( esc_html__( 'Settings successfully imported. Your old configuration has been saved as a backup.', 'rank-math' ), 'success' );
+			GlobalHelper::add_notification( esc_html__( 'Settings successfully imported. Your old configuration has been saved as a backup.', 'rank-math' ), 'success' );
 			return;
 		}
 
-		rank_math()->add_error( esc_html__( 'No settings found to be imported.', 'rank-math' ) );
+		GlobalHelper::add_notification( esc_html__( 'No settings found to be imported.', 'rank-math' ), [ 'type' => 'info' ] );
 	}
 
 	/**
@@ -279,22 +282,11 @@ class Import_Export implements Runner {
 	 * @return bool
 	 */
 	private function do_import_data( array $data, $suppress_hooks = false ) {
-		$down = false;
-		$hash = array(
-			'modules' => 'rank_math_modules',
-			'general' => 'rank-math-options-general',
-			'titles'  => 'rank-math-options-titles',
-			'sitemap' => 'rank-math-options-sitemap',
-		);
 
 		$this->run_import_hooks( 'pre_import', $data, $suppress_hooks );
 
-		foreach ( $hash as $key => $option_key ) {
-			if ( isset( $data[ $key ] ) && ! empty( $data[ $key ] ) ) {
-				$down = true;
-				update_option( $option_key, $data[ $key ] );
-			}
-		}
+		// Import options.
+		$down = $this->set_options( $data );
 
 		// Import capabilities.
 		if ( isset( $data['role-manager'] ) && ! empty( $data['role-manager'] ) ) {
@@ -302,9 +294,64 @@ class Import_Export implements Runner {
 			GlobalHelper::set_capabilities( $data['role-manager'] );
 		}
 
+		// Import redirections.
+		if ( isset( $data['redirections'] ) && ! empty( $data['redirections'] ) ) {
+			$down = true;
+			$this->set_redirections( $data['redirections'] );
+		}
+
 		$this->run_import_hooks( 'after_import', $data, $suppress_hooks );
 
 		return $down;
+	}
+
+	/**
+	 * Set options from data.
+	 *
+	 * @param array $data An array of data.
+	 */
+	private function set_options( $data ) {
+		$set  = false;
+		$hash = [
+			'modules' => 'rank_math_modules',
+			'general' => 'rank-math-options-general',
+			'titles'  => 'rank-math-options-titles',
+			'sitemap' => 'rank-math-options-sitemap',
+		];
+
+		foreach ( $hash as $key => $option_key ) {
+			if ( ! empty( $data[ $key ] ) ) {
+				$set = true;
+				update_option( $option_key, $data[ $key ] );
+			}
+		}
+
+		return $set;
+	}
+
+	/**
+	 * Set redirections.
+	 *
+	 * @param array $redirections An array of redirections to import.
+	 */
+	private function set_redirections( $redirections ) {
+		foreach ( $redirections as $key => $redirection ) {
+			$matched = \RankMath\Redirections\DB::match_redirections_source( $redirection['sources'] );
+			if ( ! empty( $matched ) ) {
+				continue;
+			}
+
+			\RankMath\Redirections\DB::add(
+				[
+					'url_to'      => $redirection['url_to'],
+					'sources'     => unserialize( $redirection['sources'] ),
+					'header_code' => $redirection['header_code'],
+					'hits'        => $redirection['hits'],
+					'created'     => $redirection['created'],
+					'updated'     => $redirection['updated'],
+				]
+			);
+		}
 	}
 
 	/**
@@ -333,9 +380,9 @@ class Import_Export implements Runner {
 	 * @param array $panels Which panels do you want to export. It will export all panels if this param is empty.
 	 * @return array
 	 */
-	private function get_export_data( array $panels = array() ) {
+	private function get_export_data( array $panels = [] ) {
 		if ( ! $panels ) {
-			$panels = array( 'general', 'titles', 'sitemap', 'role-manager' );
+			$panels = [ 'general', 'titles', 'sitemap', 'role-manager', 'redirections' ];
 		}
 
 		$settings = rank_math()->settings->all_raw();
@@ -351,6 +398,12 @@ class Import_Export implements Runner {
 		}
 
 		$data['modules'] = rank_math()->manager->get_active_modules();
+
+		if ( \in_array( 'redirections', $panels ) ) {
+			$items = \RankMath\Redirections\DB::get_redirections( [ 'limit' => 1000 ] );
+
+			$data['redirections'] = $items['redirections'];
+		}
 
 		return $data;
 	}

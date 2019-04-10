@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Helpers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Helpers;
@@ -14,6 +14,8 @@ use RankMath\Post;
 use RankMath\Term;
 use RankMath\User;
 use RankMath\Helper;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\WordPress as WP_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -21,20 +23,6 @@ defined( 'ABSPATH' ) || exit;
  * WordPress class.
  */
 trait WordPress {
-
-	/**
-	 * Strip all shortcodes active or orphan.
-	 *
-	 * @param  string $content Content to remove shortcodes from.
-	 * @return string
-	 */
-	public static function remove_all_shortcodes( $content ) {
-		if ( ! Helper::str_contains( '[', $content ) ) {
-			return $content;
-		}
-
-		return preg_replace( '~(?:\[/?)[^/\]]+/?\]~s', '', $content );
-	}
 
 	/**
 	 * Wraps wp_safe_redirect to add header.
@@ -61,27 +49,6 @@ trait WordPress {
 	 */
 	public static function has_cap( $capability ) {
 		return current_user_can( 'rank_math_' . str_replace( '-', '_', $capability ) );
-	}
-
-	/**
-	 * Get roles.
-	 *
-	 * @codeCoverageIgnore
-	 *
-	 * @param string $output How to return roles.
-	 * @return array
-	 */
-	public static function get_roles( $output = 'names' ) {
-		if ( ! function_exists( 'get_editable_roles' ) ) {
-			include_once ABSPATH . 'wp-admin/includes/user.php';
-		}
-		$roles = get_editable_roles();
-
-		if ( 'names' !== $output ) {
-			return $roles;
-		}
-
-		return wp_list_pluck( $roles, 'name' );
 	}
 
 	/**
@@ -125,33 +92,40 @@ trait WordPress {
 	}
 
 	/**
-	 * Check if table exists in db or not.
-	 *
-	 * @param  string $table_name Table name to check for existance.
-	 * @return bool
-	 */
-	public static function check_table_exists( $table_name ) {
-		global $wpdb;
-
-		if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $wpdb->prefix . $table_name ) ) ) === $wpdb->prefix . $table_name ) {
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
 	 * Get admin url.
 	 *
 	 * @param  string $page Page id.
 	 * @param  array  $args Pass arguments to query string.
 	 * @return string
 	 */
-	public static function get_admin_url( $page = '', $args = array() ) {
+	public static function get_admin_url( $page = '', $args = [] ) {
 		$page = $page ? 'rank-math-' . $page : 'rank-math';
-		$args = wp_parse_args( $args, array( 'page' => $page ) );
+		$args = wp_parse_args( $args, [ 'page' => $page ] );
 
 		return add_query_arg( $args, admin_url( 'admin.php' ) );
+	}
+
+	/**
+	 * Get Rank Math Connect URL.
+	 *
+	 * @since 1.0.19
+	 * @return string
+	 */
+	public static function get_connect_url() {
+		$args = [
+			'page' => 'rank-math',
+			'view' => 'help',
+		];
+		if ( ! is_multisite() ) {
+			return add_query_arg( $args, admin_url( 'admin.php' ) );
+		}
+
+		// Makes sure the plugin is defined before trying to use it.
+		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+		}
+
+		return is_plugin_active_for_network( plugin_basename( RANK_MATH_FILE ) ) ? add_query_arg( $args, network_admin_url( 'admin.php' ) ) : add_query_arg( $args, admin_url( 'admin.php' ) );
 	}
 
 	/**
@@ -163,9 +137,9 @@ trait WordPress {
 	 */
 	public static function get_dashboard_url() {
 		$site_type     = get_transient( '_rank_math_site_type' );
-		$business_type = array( 'news', 'business', 'webshop', 'otherbusiness' );
+		$business_type = [ 'news', 'business', 'webshop', 'otherbusiness' ];
 
-		if ( in_array( $site_type, $business_type ) ) {
+		if ( in_array( $site_type, $business_type, true ) ) {
 			return self::get_admin_url( 'options-titles#setting-panel-local' );
 		}
 		return admin_url( 'admin.php?page=rank-math&view=modules' );
@@ -179,7 +153,7 @@ trait WordPress {
 	 * @return array
 	 */
 	public static function get_capabilities() {
-		$caps = array(
+		$caps = [
 			'rank_math_titles'          => esc_html__( 'Titles & Meta Settings', 'rank-math' ),
 			'rank_math_general'         => esc_html__( 'General Settings', 'rank-math' ),
 			'rank_math_sitemap'         => esc_html__( 'Sitemap Settings', 'rank-math' ),
@@ -195,7 +169,7 @@ trait WordPress {
 			'rank_math_onpage_snippet'  => esc_html__( 'On-Page Rich Snippet Settings', 'rank-math' ),
 			'rank_math_onpage_social'   => esc_html__( 'On-Page Social Settings', 'rank-math' ),
 			'rank_math_admin_bar'       => esc_html__( 'Top Admin Bar', 'rank-math' ),
-		);
+		];
 
 		if ( ! function_exists( 'rank_math_load_premium' ) ) {
 			unset( $caps['rank_math_link_builder'] );
@@ -212,10 +186,10 @@ trait WordPress {
 	 * @return array
 	 */
 	public static function get_roles_capabilities() {
-		$data = array();
+		$data = [];
 		$caps = array_keys( self::get_capabilities() );
 
-		foreach ( self::get_roles() as $slug => $role ) {
+		foreach ( WP_Helper::get_roles() as $slug => $role ) {
 			$role = get_role( $slug );
 			if ( ! $role ) {
 				continue;
@@ -242,13 +216,13 @@ trait WordPress {
 	 */
 	public static function set_capabilities( $roles ) {
 		$caps = array_keys( self::get_capabilities() );
-		foreach ( self::get_roles() as $slug => $role ) {
+		foreach ( WP_Helper::get_roles() as $slug => $role ) {
 			$role = get_role( $slug );
 			if ( ! $role ) {
 				continue;
 			}
 
-			$roles[ $slug ] = isset( $roles[ $slug ] ) && is_array( $roles[ $slug ] ) ? array_flip( $roles[ $slug ] ) : array();
+			$roles[ $slug ] = isset( $roles[ $slug ] ) && is_array( $roles[ $slug ] ) ? array_flip( $roles[ $slug ] ) : [];
 			foreach ( $caps as $cap ) {
 				if ( isset( $roles[ $slug ], $roles[ $slug ][ $cap ] ) ) {
 					$role->add_cap( $cap );
@@ -290,7 +264,7 @@ trait WordPress {
 		preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', get_the_content(), $matches );
 		$matches = array_filter( $matches );
 		if ( ! empty( $matches ) ) {
-			return array( $matches[1][0], 200, 200 );
+			return [ $matches[1][0], 200, 200 ];
 		}
 
 		$fb_image = Helper::get_post_meta( 'facebook_image_id', $post_id );
@@ -327,5 +301,47 @@ trait WordPress {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Helper function to validate & format ISO 8601 duration.
+	 *
+	 * @param  string $iso8601 Duration which need to be converted to seconds.
+	 * @return string
+	 *
+	 * @since 1.0.21
+	 */
+	public static function get_formatted_duration( $iso8601 ) {
+		$end = substr( $iso8601, -1 );
+		if ( ! in_array( $end, [ 'D', 'H', 'M', 'S' ], true ) ) {
+			return '';
+		}
+
+		// The format starts with the letter P, for "period".
+		return ( ! Str::starts_with( 'P', $iso8601 ) ) ? 'PT' . $iso8601 : $iso8601;
+	}
+
+	/**
+	 * Get robots default.
+	 *
+	 * @return array
+	 */
+	public static function get_robots_defaults() {
+		$robots = [];
+		$screen = get_current_screen();
+
+		if ( 'post' === $screen->base && Helper::get_settings( "titles.pt_{$screen->post_type}_custom_robots" ) ) {
+			$robots = Helper::get_settings( "titles.pt_{$screen->post_type}_robots", [] );
+		}
+
+		if ( 'term' === $screen->base && Helper::get_settings( "titles.tax_{$screen->taxonomy}_custom_robots" ) ) {
+			$robots = Helper::get_settings( "titles.tax_{$screen->taxonomy}_robots", [] );
+		}
+
+		if ( is_array( $robots ) && ! in_array( 'noindex', $robots, true ) ) {
+			$robots[] = 'index';
+		}
+
+		return $robots;
 	}
 }

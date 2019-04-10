@@ -3,15 +3,15 @@
  * Sitemaps List
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
-use RankMath\Admin\List_Table;
+use MyThemeShop\Admin\List_Table;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -28,9 +28,8 @@ class Sitemaps_List extends List_Table {
 		parent::__construct( array(
 			'singular' => esc_html__( 'sitemap', 'rank-math' ),
 			'plural'   => esc_html__( 'sitemaps', 'rank-math' ),
+			'no_items' => esc_html__( 'No sitemaps submitted.', 'rank-math' ),
 		) );
-
-		$this->strings['no_items'] = esc_html__( 'No sitemaps submitted.', 'rank-math' );
 	}
 
 	/**
@@ -39,7 +38,8 @@ class Sitemaps_List extends List_Table {
 	public function prepare_items() {
 
 		$this->set_column_headers();
-		$this->items = Helper::search_console()->sitemaps->get_sitemaps( true );
+		$with_index  = ! Helper::search_console()->sitemaps->selected_site_is_domain_property();
+		$this->items = Helper::search_console()->sitemaps->get_sitemaps( $with_index );
 
 		$this->set_pagination_args( array(
 			'total_items' => count( $this->items ),

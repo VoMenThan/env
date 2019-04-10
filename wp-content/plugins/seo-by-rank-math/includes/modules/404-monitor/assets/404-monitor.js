@@ -2,7 +2,7 @@
 * Rank Math - 404 Monitor
 *
 * @version 0.9.0
-* @author  MyThemeShop
+* @author  Rank Math
 */
 ;(function( $ ) {
 

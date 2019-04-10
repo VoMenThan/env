@@ -6,5 +6,7 @@
  * @subpackage RankMath\Metaboxes
  */
 
-$checklist = new RankMath\Admin\Serp_Preview;
+use RankMath\Admin\Serp_Preview;
+
+$checklist = new Serp_Preview;
 $checklist->display();

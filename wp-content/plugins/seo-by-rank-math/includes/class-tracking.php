@@ -7,12 +7,13 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -24,19 +25,12 @@ class Tracking {
 	use Hooker;
 
 	/**
-	 * URL to the Tracker API endpoint.
-	 *
-	 * @var string
-	 */
-	private $endpoint = 'https://tracking.mythemeshop.com/v1/';
-
-	/**
 	 * The Constructor.
 	 */
 	public function __construct() {
 		$this->action( 'rank_math/tracker/send_event', 'send' );
 		$this->filter( 'rank_math/tracker_data', 'server' );
-		$this->filter( 'rank_math/tracker_data', 'wordpress' ); // @codingStandardsIgnoreLine
+		$this->filter( 'rank_math/tracker_data', 'wordpress' ); // phpcs:ignore
 		$this->filter( 'rank_math/tracker_data', 'theme' );
 		$this->filter( 'rank_math/tracker_data', 'plugins' );
 	}
@@ -50,23 +44,24 @@ class Tracking {
 		 *
 		 * @param array
 		 */
-		$data = $this->do_filter( 'tracker_data', array(
+		$data = $this->do_filter( 'tracker_data', [
 			'@timestamp'  => (int) date( 'Uv' ),
 			'name'        => get_option( 'blogname' ),
 			'url'         => home_url(),
 			'admin_url'   => admin_url(),
 			'admin_email' => get_option( 'admin_email' ),
-		) );
-		wp_safe_remote_post( $this->endpoint, array(
+		]);
+
+		wp_safe_remote_post( 'https://rankmath.com/wp-json/rankmath/v1/trackingMetrices', [
 			'timeout'     => 45,
 			'redirection' => 5,
 			'httpversion' => '1.0',
 			'blocking'    => false,
 			'sslverify'   => false,
-			'headers'     => array( 'user-agent' => 'RankMathTracker/' . md5( esc_url( home_url( '/' ) ) ) . ';' ),
+			'headers'     => [ 'user-agent' => 'RankMathTracker/' . md5( esc_url( home_url( '/' ) ) ) . ';' ],
 			'body'        => wp_json_encode( $data ),
-			'cookies'     => array(),
-		));
+			'cookies'     => [],
+		]);
 	}
 
 	/**
@@ -77,7 +72,7 @@ class Tracking {
 	 */
 	public function server( $data ) {
 
-		$server = array();
+		$server = [];
 		if ( isset( $_SERVER['SERVER_SOFTWARE'] ) && ! empty( $_SERVER['SERVER_SOFTWARE'] ) ) {
 			$server['software'] = $_SERVER['SERVER_SOFTWARE'];
 		}
@@ -87,7 +82,7 @@ class Tracking {
 		}
 
 		if ( function_exists( 'ini_get' ) ) {
-			$server['php_post_max_size']  = size_format( Helper::let_to_num( ini_get( 'post_max_size' ) ) );
+			$server['php_post_max_size']  = size_format( Str::let_to_num( ini_get( 'post_max_size' ) ) );
 			$server['php_time_limt']      = ini_get( 'max_execution_time' );
 			$server['php_max_input_vars'] = ini_get( 'max_input_vars' );
 			$server['php_suhosin']        = extension_loaded( 'suhosin' ) ? 'Yes' : 'No';
@@ -101,14 +96,14 @@ class Tracking {
 		}
 
 		$server['curl_version']   = $this->get_curl_info();
-		$server['php_extensions'] = array(
+		$server['php_extensions'] = [
 			'imagick' => extension_loaded( 'imagick' ),
 			'filter'  => extension_loaded( 'filter' ),
 			'bcmath'  => extension_loaded( 'bcmath' ),
 			'modXml'  => extension_loaded( 'modXml' ),
 			'pcre'    => extension_loaded( 'pcre' ),
 			'xml'     => extension_loaded( 'xml' ),
-		);
+		];
 
 		$data['server'] = $server;
 		return $data;
@@ -123,19 +118,19 @@ class Tracking {
 	public function wordpress( $data ) {
 		global $wp_version;
 
-		$memory = Helper::let_to_num( WP_MEMORY_LIMIT );
+		$memory = Str::let_to_num( WP_MEMORY_LIMIT );
 		if ( function_exists( 'memory_get_usage' ) ) {
-			$system_memory = Helper::let_to_num( ini_get( 'memory_limit' ) );
+			$system_memory = Str::let_to_num( ini_get( 'memory_limit' ) );
 			$memory        = max( $memory, $system_memory );
 		}
 
-		$data['wordpress'] = array(
+		$data['wordpress'] = [
 			'version'      => $wp_version,
 			'multisite'    => is_multisite() ? 'Yes' : 'No',
 			'locale'       => get_locale(),
 			'memory_limit' => size_format( $memory ),
 			'debug_mode'   => ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? 'Yes' : 'No',
-		);
+		];
 
 		return $data;
 	}
@@ -149,13 +144,13 @@ class Tracking {
 	public function theme( $data ) {
 
 		$theme      = wp_get_theme();
-		$theme_data = array(
+		$theme_data = [
 			'name'         => $theme->get( 'Name' ),
 			'url'          => $theme->get( 'ThemeURI' ),
 			'version'      => $theme->get( 'Version' ),
 			'parent_theme' => is_child_theme() ? $theme->get( 'Template' ) : null,
 			'wc_support'   => current_theme_supports( 'woocommerce' ) ? 'Yes' : 'No',
-		);
+		];
 
 		$data['theme'] = $theme_data;
 		return $data;
@@ -175,7 +170,7 @@ class Tracking {
 
 		$plugins = wp_get_active_and_valid_plugins();
 		$plugins = array_map( 'get_plugin_data', $plugins );
-		$plugins = array_map( array( $this, 'format_plugin' ), $plugins );
+		$plugins = array_map( [ $this, 'format_plugin' ], $plugins );
 
 		$data['plugins'] = $plugins;
 		return $data;
@@ -199,10 +194,10 @@ class Tracking {
 			$ssl = false;
 		}
 
-		return array(
+		return [
 			'version'    => $curl['version'],
 			'sslSupport' => $ssl,
-		);
+		];
 	}
 
 	/**
@@ -212,14 +207,14 @@ class Tracking {
 	 * @return array The formatted array.
 	 */
 	protected function format_plugin( array $plugin ) {
-		return array(
+		return [
 			'name'    => $plugin['Name'],
 			'url'     => $plugin['PluginURI'],
 			'version' => $plugin['Version'],
-			'author'  => array(
+			'author'  => [
 				'name' => strip_tags( $plugin['Author'] ),
 				'url'  => $plugin['AuthorURI'],
-			),
-		);
+			],
+		];
 	}
 }

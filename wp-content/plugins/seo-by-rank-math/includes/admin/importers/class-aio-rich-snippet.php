@@ -3,14 +3,14 @@
  * The AIO Rich Snippet Import Class
  *
  * @since      0.9.0
- * @package    RANK_MATH
+ * @package    RankMath
  * @subpackage RankMath\Admin\Importers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin\Importers;
 
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 
 defined( 'ABSPATH' ) || exit;
 

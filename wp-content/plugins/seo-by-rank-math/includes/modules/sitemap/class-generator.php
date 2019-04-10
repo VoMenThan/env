@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap;
+namespace RankMath\Sitemap;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
@@ -93,13 +93,13 @@ class Generator extends XML {
 	private function instantiate() {
 		// Initialize sitemap providers classes.
 		$this->providers = array(
-			new \RankMath\Modules\Sitemap\Providers\Post_Type,
-			new \RankMath\Modules\Sitemap\Providers\Taxonomy,
+			new \RankMath\Sitemap\Providers\Post_Type,
+			new \RankMath\Sitemap\Providers\Taxonomy,
 		);
 
 		// Author Provider.
 		if ( true === Helper::is_author_archive_indexable() ) {
-			$this->providers[] = new \RankMath\Modules\Sitemap\Providers\Author;
+			$this->providers[] = new \RankMath\Sitemap\Providers\Author;
 		}
 
 		$external_providers = $this->do_filter( 'sitemap/providers', array() );

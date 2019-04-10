@@ -66,7 +66,7 @@ get_header();
                                     $avatar = get_field('avatar', 'user_'.$video_main[0]->post_author);
                                 }
                                 ?>
-                                <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_main[0]->post_author);?>">
                                    By <?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?>
                                 </a>
@@ -120,7 +120,7 @@ get_header();
                                             $avatar = get_field('avatar', 'user_'.$item->post_author);
                                         }
                                         ?>
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>

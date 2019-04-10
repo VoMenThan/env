@@ -3,16 +3,16 @@
  * The SEO Analysis Module
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\SEO_Analysis;
+namespace RankMath\SEO_Analysis;
 
 use RankMath\Helper;
 use RankMath\Module;
-use RankMath\Admin\Page;
+use MyThemeShop\Admin\Page;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -53,6 +53,7 @@ class Admin extends Module {
 			'position'   => 12,
 			'parent'     => 'rank-math',
 			'capability' => 'rank_math_site_analysis',
+			'classes'    => array( 'rank-math-page' ),
 			'render'     => $this->directory . '/views/main.php',
 			'help'       => array(
 				'seo-analysis-overview' => array(

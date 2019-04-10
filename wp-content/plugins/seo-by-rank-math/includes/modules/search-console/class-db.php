@@ -3,15 +3,15 @@
  * The Analytics module database operations
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
-use TheLeague\Database\Database;
+use MyThemeShop\Database\Database;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -23,7 +23,7 @@ class DB {
 	/**
 	 * Get query builder.
 	 *
-	 * @return \TheLeague\Database\Query_Builder
+	 * @return \MyThemeShop\Database\Query_Builder
 	 */
 	private static function table() {
 		return Database::table( 'rank_math_sc_analytics' );
@@ -48,7 +48,7 @@ class DB {
 	 * Get query for getting data for table
 	 *
 	 * @param  array $args Arguments.
-	 * @return \TheLeague\Database\Query_Builder
+	 * @return \MyThemeShop\Database\Query_Builder
 	 */
 	public static function get_data_query( $args ) {
 
@@ -301,9 +301,9 @@ class DB {
 			return $data;
 		}
 
-		$days = $wpdb->get_var( 'SELECT COUNT(DISTINCT DATE(date)) as days FROM ' . $wpdb->prefix . 'rank_math_sc_analytics' ); // WPCS: unprepared SQL OK.
-		$rows = $wpdb->get_var( 'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'rank_math_sc_analytics' ); // WPCS: unprepared SQL OK.
-		$size = $wpdb->get_var( 'SELECT SUM((data_length + index_length)) AS size FROM information_schema.TABLES WHERE table_schema="' . $wpdb->dbname . '" AND (table_name="' . $wpdb->prefix . 'rank_math_sc_analytics")' ); // WPCS: unprepared SQL OK.
+		$days = $wpdb->get_var( 'SELECT COUNT(DISTINCT DATE(date)) as days FROM ' . $wpdb->prefix . 'rank_math_sc_analytics' ); // phpcs:ignore
+		$rows = $wpdb->get_var( 'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'rank_math_sc_analytics' ); // phpcs:ignore
+		$size = $wpdb->get_var( 'SELECT SUM((data_length + index_length)) AS size FROM information_schema.TABLES WHERE table_schema="' . $wpdb->dbname . '" AND (table_name="' . $wpdb->prefix . 'rank_math_sc_analytics")' ); // phpcs:ignore
 
 		$data = compact( 'days', 'rows', 'size' );
 

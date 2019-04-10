@@ -4,14 +4,14 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap\Providers;
+namespace RankMath\Sitemap\Providers;
 
 use RankMath\Helper;
-use RankMath\Modules\Sitemap\Router;
+use RankMath\Sitemap\Router;
 use RankMath\Traits\Hooker;
 
 defined( 'ABSPATH' ) || exit;
@@ -92,7 +92,7 @@ class Author implements Provider {
 				continue;
 			}
 
-			$mod = isset( $user->last_update ) ? $user->last_update : $user->user_registered;
+			$mod = isset( $user->last_update ) ? $user->last_update : strtotime( $user->user_registered );
 			$url = array(
 				'loc' => $author_link,
 				'mod' => date( DATE_W3C, $mod ),
@@ -118,11 +118,20 @@ class Author implements Provider {
 	protected function get_users( $args = array() ) {
 
 		$defaults = array(
-			'meta_key'   => 'last_update',
 			'orderby'    => 'meta_value_num',
 			'order'      => 'DESC',
 			'meta_query' => array(
 				'relation' => 'AND',
+				array(
+					'relation' => 'OR',
+					array(
+						'key' => 'last_update',
+					),
+					array(
+						'key'     => 'last_update',
+						'compare' => 'NOT EXISTS',
+					),
+				),
 				array(
 					'relation' => 'OR',
 					array(

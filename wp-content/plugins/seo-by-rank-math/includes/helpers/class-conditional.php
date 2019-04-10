@@ -5,13 +5,13 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Helpers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Helpers;
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -19,50 +19,6 @@ defined( 'ABSPATH' ) || exit;
  * Conditional class.
  */
 trait Conditional {
-
-	/**
-	 * Is REST request
-	 *
-	 * @return bool
-	 */
-	public static function is_rest() {
-		$prefix = rest_get_url_prefix();
-		if (
-			defined( 'REST_REQUEST' ) && REST_REQUEST || // (#1)
-			isset( $_GET['rest_route'] ) && // (#2)
-			0 === strpos( trim( $_GET['rest_route'], '\\/' ), $prefix, 0 )
-		) {
-			return true;
-		}
-
-		// (#3)
-		$rest_url    = wp_parse_url( site_url( $prefix ) );
-		$current_url = wp_parse_url( add_query_arg( array() ) );
-		return 0 === strpos( $current_url['path'], $rest_url['path'], 0 );
-	}
-
-	/**
-	 * Is WooCommerce Installed
-	 *
-	 * @return bool
-	 */
-	public static function is_woocommerce_active() {
-		// @codeCoverageIgnoreStart
-		if ( ! function_exists( 'is_plugin_active' ) ) {
-			include_once ABSPATH . 'wp-admin/includes/plugin.php';
-		}
-		// @codeCoverageIgnoreEnd
-		return is_plugin_active( 'woocommerce/woocommerce.php' );
-	}
-
-	/**
-	 * Is EDD Installed
-	 *
-	 * @return bool
-	 */
-	public static function is_edd_active() {
-		return class_exists( 'Easy_Digital_Downloads' );
-	}
 
 	/**
 	 * Check if whitelabel filter is active.
@@ -74,48 +30,6 @@ trait Conditional {
 	}
 
 	/**
-	 * Check whether a url is relative.
-	 *
-	 * @param  string $url URL string to check.
-	 * @return boolean
-	 */
-	public static function is_url_relative( $url ) {
-		return ( strpos( $url, 'http' ) !== 0 && strpos( $url, '//' ) !== 0 );
-	}
-
-	/**
-	 * Checks whether a url is external.
-	 *
-	 * @param string $url URL string to check. This should be a absolute URL.
-	 * @return bool
-	 */
-	public static function is_external_url( $url ) {
-		if ( empty( $url ) || '#' === $url[0] || '/' === $url[0] ) { // Link to current page or relative link.
-			return false;
-		}
-
-		$domain = Helper::get_parent_domain( home_url() );
-		if ( Helper::str_contains( $domain, $url ) ) {
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
-	 * Check if the request is heartbeat.
-	 *
-	 * @return boolean
-	 */
-	public static function is_heartbeat() {
-		if ( isset( $_POST ) && isset( $_POST['action'] ) && 'heartbeat' === $_POST['action'] ) {
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
 	 * Is module active.
 	 *
 	 * @param  string $id ID to get module.
@@ -123,6 +37,9 @@ trait Conditional {
 	 */
 	public static function is_module_active( $id ) {
 		$active_modules = get_option( 'rank_math_modules', array() );
+		if ( ! is_array( $active_modules ) || ! isset( rank_math()->manager ) || is_null( rank_math()->manager ) ) {
+			return false;
+		}
 
 		return in_array( $id, $active_modules ) && array_key_exists( $id, rank_math()->manager->modules );
 	}
@@ -144,33 +61,27 @@ trait Conditional {
 	}
 
 	/**
-	 * Get parent domain
-	 *
-	 * @param  string $url Url to parse.
-	 * @return string
-	 */
-	public static function get_parent_domain( $url ) {
-		$pieces = wp_parse_url( $url );
-		$domain = isset( $pieces['host'] ) ? $pieces['host'] : '';
-
-		if ( Helper::str_contains( 'localhost', $domain ) ) {
-			return 'localhost';
-		}
-
-		if ( preg_match( '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,15})$/i', $domain, $regs ) ) {
-			return $regs['domain'];
-		}
-
-		return false;
-	}
-
-	/**
 	 * Check if mythemeshop account is connected
 	 *
 	 * @return bool
 	 */
 	public static function is_mythemeshop_connected() {
 		return (bool) Admin_Helper::get_registration_data();
+	}
+
+	/**
+	 * Check that the plugin is licensed properly.
+	 *
+	 * @return bool
+	 */
+	public static function is_invalid_registration() {
+		$is_skipped = Helper::is_plugin_active_for_network() ? get_blog_option( get_main_site_id(), 'rank_math_registration_skip' ) : get_option( 'rank_math_registration_skip' );
+		if ( true === boolval( $is_skipped ) ) {
+			return false;
+		}
+
+		$options = get_option( 'rank_math_connect_data', false );
+		return empty( $options ) ? true : false;
 	}
 
 	/**
@@ -188,5 +99,15 @@ trait Conditional {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Checks if the WP-REST-API is available.
+	 *
+	 * @param  string $minimum_version The minimum version the API should be.
+	 * @return bool Returns true if the API is available.
+	 */
+	public static function is_api_available( $minimum_version = '2.0' ) {
+		return ( defined( 'REST_API_VERSION' ) && version_compare( REST_API_VERSION, $minimum_version, '>=' ) );
 	}
 }

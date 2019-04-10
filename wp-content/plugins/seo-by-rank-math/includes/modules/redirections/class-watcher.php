@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
@@ -27,7 +27,7 @@ class Watcher {
 	 *
 	 * @var array
 	 */
-	private $updated_posts = array();
+	private $updated_posts = [];
 
 	/**
 	 * Hook methods for invalidation on necessary events.
@@ -85,15 +85,25 @@ class Watcher {
 
 		// Check for permalink change.
 		if ( 'publish_to_publish' === $transition && $this->has_permalink_changed( $before_permalink, $after_permalink ) ) {
-			$redirection_id = $this->create_redirection( $before_permalink, $after_permalink, 301, $post, $before_permalink );
-			rank_math()->add_deferred_error(
+			$redirection_id = $this->create_redirection( $before_permalink, $after_permalink, 301, $post );
+			Helper::add_notification(
 				sprintf(
 					// translators: %1$s: post type label, %2$s: edit redirection URL.
 					__( 'SEO Notice: you just changed the slug of a %1$s and Rank Math has automatically created a redirection. You can edit the redirection by <a href="%2$s">clicking here</a>.', 'rank-math' ),
 					Helper::get_post_type_label( $post->post_type, true ), $this->get_edit_redirection_url( $redirection_id )
 				),
-				'warning'
+				[
+					'type'    => 'warning',
+					'classes' => 'is-dismissible',
+				]
 			);
+
+			// Update the meta value as well.
+			if ( 'edit-post' === $_POST['screen'] ) {
+				update_post_meta( $post_id, 'rank_math_permalink', $post->post_name );
+			}
+
+			$this->do_action( 'redirection/post_updated', $redirection_id );
 			return;
 		}
 	}
@@ -101,48 +111,61 @@ class Watcher {
 	/**
 	 * Create redirection
 	 *
-	 * @param  array|string $sources     Sources for which to redirect.
-	 * @param  string       $url_to      Destination url.
-	 * @param  int          $header_code Response header code.
-	 * @param  WP_Post      $object      Post object.
-	 * @param  string       $from_url    Redirecting from url for cache.
+	 * @param  string  $from_url    Redirecting from url for cache.
+	 * @param  string  $url_to      Destination url.
+	 * @param  int     $header_code Response header code.
+	 * @param  WP_Post $object      Post object.
 	 * @return int Redirection id.
 	 */
-	private function create_redirection( $sources, $url_to, $header_code, $object, $from_url ) {
+	private function create_redirection( $from_url, $url_to, $header_code, $object ) {
 		// Early Bail!
-		if ( empty( $sources ) || empty( $url_to ) ) {
+		if ( empty( $from_url ) || empty( $url_to ) ) {
 			return;
 		}
 
-		$form        = new Form;
-		$redirection = array(
-			'url_to'      => $url_to,
-			'header_code' => $header_code,
-		);
-
 		// Check for any existing redirection.
 		// If found update that record.
-		$existing = $this->has_existing_redirection( $object->ID );
-		if ( $existing ) {
-			$redirection['id']      = $existing['id'];
-			$redirection['sources'] = $this->sanitize_sources( $sources, $existing['sources'] );
-		} else {
-			$redirection['sources'] = $this->sanitize_sources( $sources );
+		$redirection = $this->has_existing_redirection( $object->ID );
+		if ( false === $redirection ) {
+			$redirection = Redirection::from([
+				'url_to'      => $url_to,
+				'header_code' => $header_code,
+			]);
 		}
-		$redirection_id = $form->save_redirection( $redirection, true );
+
+		$redirection->set_nocache( true );
+		$redirection->add_source( $from_url, 'exact' );
+		$redirection->save();
 
 		// Perform Cache.
 		Cache::purge_by_object_id( $object->ID, 'post' );
 		if ( $from_url ) {
 			$from_url = parse_url( $from_url, PHP_URL_PATH );
-			Cache::add(array(
+			$from_url = Redirection::strip_subdirectory( $from_url );
+			Cache::add([
 				'from_url'       => $from_url,
-				'redirection_id' => $redirection_id,
+				'redirection_id' => $redirection->get_id(),
 				'object_id'      => $object->ID,
-			));
+			]);
 		}
 
-		return $redirection_id;
+		return $redirection->get_id();
+	}
+
+	/**
+	 * Check for any existing redirection.
+	 *
+	 * @param int $post_id Post ID.
+	 *
+	 * @return boolean|int
+	 */
+	private function has_existing_redirection( $post_id ) {
+		$cache = Cache::get_by_object_id( $post_id, 'post' );
+		if ( ! $cache ) {
+			return false;
+		}
+
+		return Redirection::create( $cache->redirection_id );
 	}
 
 	/**
@@ -156,65 +179,17 @@ class Watcher {
 		$before = parse_url( $before, PHP_URL_PATH );
 		$after  = parse_url( $after, PHP_URL_PATH );
 
-		// Check it's not redirecting from the root.
-		if ( $this->get_site_path() === $before || '/' === $before ) {
-			return false;
-		}
-
 		// Are the URLs the same?
 		if ( $before === $after ) {
 			return false;
 		}
 
-		return true;
-	}
-
-	/**
-	 * Check for any existing redirection.
-	 *
-	 * @param  integer $post_id Post ID.
-	 * @return boolean|array
-	 */
-	private function has_existing_redirection( $post_id ) {
-		$redirection = Cache::get_by_object_id( $post_id, 'post' );
-		if ( ! $redirection ) {
+		// Check it's not redirecting from the root.
+		if ( $this->get_site_path() === $before || '/' === $before ) {
 			return false;
 		}
 
-		return DB::get_redirection_by_id( $redirection->redirection_id );
-	}
-
-	/**
-	 * Sanitize and prepare for db.
-	 *
-	 * @param array|string $sources  Sources for which to redirect.
-	 * @param array        $existing Existing sources.
-	 * @return array
-	 */
-	private function sanitize_sources( $sources, $existing = array() ) {
-		$sources     = (array) $sources;
-		$new_sources = array();
-
-		foreach ( $sources as $uri ) {
-			if ( ! $uri ) {
-				continue;
-			}
-
-			$new_sources[] = array(
-				'pattern'    => $uri,
-				'comparison' => 'exact',
-			);
-		}
-
-		foreach ( $existing as $source ) {
-			if ( in_array( $source['pattern'], $sources ) ) {
-				continue;
-			}
-
-			$new_sources[] = $source;
-		}
-
-		return $new_sources;
+		return true;
 	}
 
 	/**
@@ -224,10 +199,10 @@ class Watcher {
 	 * @return string
 	 */
 	private function get_edit_redirection_url( $redirection_id ) {
-		return Helper::get_admin_url( 'redirections', array(
+		return Helper::get_admin_url( 'redirections', [
 			'redirection' => $redirection_id,
 			'security'    => wp_create_nonce( 'redirection_list_action' ),
-		) );
+		]);
 	}
 
 	/**
@@ -255,11 +230,11 @@ class Watcher {
 		if ( $this->can_display_suggestion( $post ) ) {
 
 			$url       = get_permalink( $post_id );
-			$admin_url = Helper::get_admin_url( 'redirections', array( 'url' => trim( set_url_scheme( $url, 'relative' ), '/' ) ) );
+			$admin_url = Helper::get_admin_url( 'redirections', [ 'url' => trim( set_url_scheme( $url, 'relative' ), '/' ) ] );
 
 			/* translators: 1. url to new screen, 2. old trashed post permalink */
 			$message = sprintf( wp_kses_post( __( '<strong>SEO Notice:</strong> A previously published post has been moved to trash. You may redirect it <code>%2$s</code> to <a href="%1$s">new url</a>.', 'rank-math' ) ), $admin_url, $url );
-			rank_math()->add_deferred_error( $message, 'warning' );
+			Helper::add_notification( $message, [ 'type' => 'warning' ] );
 		}
 	}
 

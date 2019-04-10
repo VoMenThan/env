@@ -6,14 +6,14 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Links
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Links
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Links;
+namespace RankMath\Links;
 
-use RankMath\Helper;
-use RankMath\Modules\Sitemap\Classifier;
+use MyThemeShop\Helpers\Str;
+use RankMath\Sitemap\Classifier;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -90,7 +90,7 @@ class ContentProcessor {
 	 */
 	public function extract( $content ) {
 		$links = array();
-		if ( false === Helper::str_contains( 'href', $content ) ) {
+		if ( false === Str::contains( 'href', $content ) ) {
 			return $links;
 		}
 
@@ -135,7 +135,7 @@ class ContentProcessor {
 	 * @return boolean
 	 */
 	private function is_valid_link_type( $link ) {
-		if ( '#' === $link[0] ) {
+		if ( empty( $link ) || '#' === $link[0] ) {
 			return false;
 		}
 

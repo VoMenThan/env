@@ -5,17 +5,18 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin\Import
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin\Importers;
 
 use Exception;
-use RankMath\Admin\Helper;
+use RankMath\Helper;
 use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
-use TheLeague\Database\Database;
-use RankMath\Helper as GlobalHelper;
+use RankMath\Admin\Admin_Helper;
+use MyThemeShop\Helpers\DB;
+use MyThemeShop\Helpers\Attachment;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -129,11 +130,11 @@ abstract class Plugin_Importer {
 		}
 
 		$hash = array(
-			'settings'     => esc_html__( 'Import Settings', 'rank-math' ) . Helper::get_tooltip( esc_html__( 'Import Yoast plugin settings, global meta, sitemap settings, etc.', 'rank-math' ) ),
-			'postmeta'     => esc_html__( 'Import Post Meta', 'rank-math' ) . Helper::get_tooltip( esc_html__( 'Import meta information of your posts/pages like the focus keyword, titles, descriptions, robots meta, OpenGraph info, etc.', 'rank-math' ) ),
-			'termmeta'     => esc_html__( 'Import Term Meta', 'rank-math' ) . Helper::get_tooltip( esc_html__( 'Import data like category, tag, and CPT meta data from Yoast SEO.', 'rank-math' ) ),
-			'usermeta'     => esc_html__( 'Import Author Meta', 'rank-math' ) . Helper::get_tooltip( esc_html__( 'Import meta information like titles, descriptions, focus keyword, robots meta, etc., of your author archive pages.', 'rank-math' ) ),
-			'redirections' => esc_html__( 'Import Redirections', 'rank-math' ) . Helper::get_tooltip( esc_html__( 'Import all the redirections you have already set up in Yoast.', 'rank-math' ) ),
+			'settings'     => esc_html__( 'Import Settings', 'rank-math' ) . Admin_Helper::get_tooltip( esc_html__( 'Import Yoast plugin settings, global meta, sitemap settings, etc.', 'rank-math' ) ),
+			'postmeta'     => esc_html__( 'Import Post Meta', 'rank-math' ) . Admin_Helper::get_tooltip( esc_html__( 'Import meta information of your posts/pages like the focus keyword, titles, descriptions, robots meta, OpenGraph info, etc.', 'rank-math' ) ),
+			'termmeta'     => esc_html__( 'Import Term Meta', 'rank-math' ) . Admin_Helper::get_tooltip( esc_html__( 'Import data like category, tag, and CPT meta data from Yoast SEO.', 'rank-math' ) ),
+			'usermeta'     => esc_html__( 'Import Author Meta', 'rank-math' ) . Admin_Helper::get_tooltip( esc_html__( 'Import meta information like titles, descriptions, focus keyword, robots meta, etc., of your author archive pages.', 'rank-math' ) ),
+			'redirections' => esc_html__( 'Import Redirections', 'rank-math' ) . Admin_Helper::get_tooltip( esc_html__( 'Import all the redirections you have already set up in Yoast.', 'rank-math' ) ),
 		);
 
 		return \array_intersect_key( $hash, \array_combine( $this->choices, $this->choices ) );
@@ -145,20 +146,13 @@ abstract class Plugin_Importer {
 	 * @return bool Indicating whether there is something to import
 	 */
 	public function run_detect() {
-		if ( ! empty( $this->option_keys ) ) {
-			$table = Database::table( 'options' )->selectCount( '*', 'count' );
-			foreach ( $this->option_keys as $option_key ) {
-				$table->orWhere( 'option_name', $option_key );
-			}
-
-			if ( absint( $table->getVar() ) > 0 ) {
-				return true;
-			}
+		if ( true === $this->has_options() ) {
+			return true;
 		}
 
 		$result = 0;
 		if ( ! empty( $this->meta_key ) ) {
-			$result = Database::table( 'postmeta' )->selectCount( '*', 'count' )->whereLike( 'meta_key', $this->meta_key )->getVar();
+			$result = DB::query_builder( 'postmeta' )->selectCount( '*', 'count' )->whereLike( 'meta_key', $this->meta_key )->getVar();
 		}
 		return 0 === absint( $result ) ? false : true;
 	}
@@ -186,13 +180,13 @@ abstract class Plugin_Importer {
 		$result = false;
 
 		if ( ! empty( $this->meta_key ) ) {
-			$result = Database::table( 'postmeta' )->whereLike( 'meta_key', $this->meta_key )->delete();
-			$result = Database::table( 'termmeta' )->whereLike( 'meta_key', $this->meta_key )->delete();
-			$result = Database::table( 'usermeta' )->whereLike( 'meta_key', $this->meta_key )->delete();
+			$result = DB::query_builder( 'postmeta' )->whereLike( 'meta_key', $this->meta_key )->delete();
+			$result = DB::query_builder( 'termmeta' )->whereLike( 'meta_key', $this->meta_key )->delete();
+			$result = DB::query_builder( 'usermeta' )->whereLike( 'meta_key', $this->meta_key )->delete();
 		}
 
 		if ( ! empty( $this->option_keys ) ) {
-			$table = Database::table( 'options' );
+			$table = DB::query_builder( 'options' );
 			foreach ( $this->option_keys as $option_key ) {
 				$table->orWhere( 'option_name', $option_key );
 			}
@@ -202,7 +196,7 @@ abstract class Plugin_Importer {
 
 		if ( ! empty( $this->table_names ) ) {
 			foreach ( $this->table_names as $table ) {
-				$wpdb->query( "DROP TABLE {$wpdb->prefix}{$table}" ); // WPCS: unprepared SQL ok.
+				$wpdb->query( "DROP TABLE {$wpdb->prefix}{$table}" ); // phpcs:ignore
 			}
 		}
 
@@ -329,7 +323,7 @@ abstract class Plugin_Importer {
 	 * @param int            $object_id   Object ID either post id, term id or user id.
 	 */
 	protected function replace_image( $source, &$destination, $image, $image_id, $object_id = null ) {
-		$attachment_id = GlobalHelper::get_attachment_by_url( $source );
+		$attachment_id = Attachment::get_by_url( $source );
 		if ( 1 > $attachment_id ) {
 			return;
 		}
@@ -465,15 +459,15 @@ abstract class Plugin_Importer {
 		$paged = $this->get_pagination_arg( 'page' );
 
 		if ( 'aio_rich_snippet' === $this->plugin_slug ) {
-			$table = Database::table( 'postmeta' );
+			$table = DB::query_builder( 'postmeta' );
 			$table->where( 'meta_key', '_bsf_post_type' );
 
 			return $count ? absint( $table->selectCount( 'meta_id' )->getVar() ) :
 			$table->page( $paged - 1, $this->items_per_page )->get();
 		}
 
-		$table = Database::table( 'posts' );
-		$table->whereIn( 'post_type', GlobalHelper::get_accessible_post_types() );
+		$table = DB::query_builder( 'posts' );
+		$table->whereIn( 'post_type', Helper::get_accessible_post_types() );
 
 		return $count ? absint( $table->selectCount( 'ID', 'total' )->getVar() ) :
 			$table->select( 'ID' )->page( $paged - 1, $this->items_per_page )->get();
@@ -487,9 +481,27 @@ abstract class Plugin_Importer {
 	 */
 	protected function get_user_ids( $count = false ) {
 		$paged = $this->get_pagination_arg( 'page' );
-		$table = Database::table( 'users' );
+		$table = DB::query_builder( 'users' );
 
 		return $count ? absint( $table->selectCount( 'ID', 'total' )->getVar() ) :
 			$table->select( 'ID' )->page( $paged - 1, $this->items_per_page )->get();
+	}
+
+	/**
+	 * Has options.
+	 *
+	 * @return bool
+	 */
+	private function has_options() {
+		if ( empty( $this->option_keys ) ) {
+			return false;
+		}
+
+		$table = DB::query_builder( 'options' )->selectCount( '*', 'count' );
+		foreach ( $this->option_keys as $option_key ) {
+			$table->orWhere( 'option_name', $option_key );
+		}
+
+		return ( absint( $table->getVar() ) > 0 ) ? true : false;
 	}
 }

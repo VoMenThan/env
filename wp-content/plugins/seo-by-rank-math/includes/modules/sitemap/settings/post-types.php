@@ -3,7 +3,7 @@
  * Sitemap - Post Types
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
+ * @subpackage RankMath\Sitemap
  */
 
 use RankMath\Helper;

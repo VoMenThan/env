@@ -5,23 +5,27 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
 
 use CMB2_hookup;
+use RankMath\KB;
 use RankMath\CMB2;
+use RankMath\Runner;
 use RankMath\Replace_Vars;
 use RankMath\Traits\Hooker;
 use RankMath\Helper as GlobalHelper;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Url;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Metabox class.
  */
-class Metabox {
+class Metabox implements Runner {
 
 	use Hooker;
 
@@ -33,9 +37,9 @@ class Metabox {
 	private $metabox_id = 'rank_math_metabox';
 
 	/**
-	 * The Constructor.
+	 * Register hooks.
 	 */
-	public function __construct() {
+	public function hooks() {
 		$this->action( 'rank_math/admin/enqueue_scripts', 'enqueue' );
 		$this->action( 'cmb2_admin_init', 'add_main_metabox', 30 );
 		$this->action( 'cmb2_admin_init', 'add_link_suggestion_metabox', 30 );
@@ -56,14 +60,14 @@ class Metabox {
 		// Styles.
 		CMB2_hookup::enqueue_cmb_css();
 		Replace_Vars::setup_json();
-		wp_enqueue_style( 'rank-math-metabox', rank_math()->plugin_url() . '/assets/admin/css/metabox.css', array( 'rank-math-common', 'rank-math-cmb2' ), rank_math()->get_version() );
+		wp_enqueue_style( 'rank-math-metabox', rank_math()->plugin_url() . '/assets/admin/css/metabox.css', array( 'rank-math-common', 'rank-math-cmb2' ), rank_math()->version );
 
 		// JSON data.
-		rank_math()->add_json( 'locale', substr( get_locale(), 0, 2 ) );
-		rank_math()->add_json( 'overlayImages', GlobalHelper::choices_overlay_images() );
-		rank_math()->add_json( 'customPermalinks', (bool) get_option( 'permalink_structure', false ) );
-		rank_math()->add_json( 'defautOgImage', GlobalHelper::get_settings( 'titles.open_graph_image', '' ) );
-		rank_math()->add_json( 'postSettings', array(
+		GlobalHelper::add_json( 'locale', substr( get_locale(), 0, 2 ) );
+		GlobalHelper::add_json( 'overlayImages', GlobalHelper::choices_overlay_images() );
+		GlobalHelper::add_json( 'customPermalinks', (bool) get_option( 'permalink_structure', false ) );
+		GlobalHelper::add_json( 'defautOgImage', GlobalHelper::get_settings( 'titles.open_graph_image', '' ) );
+		GlobalHelper::add_json( 'postSettings', array(
 			'linkSuggestions' => GlobalHelper::get_settings( 'titles.pt_' . $screen->post_type . '_link_suggestions' ),
 			'useFocusKeyword' => 'focus_keywords' === GlobalHelper::get_settings( 'titles.pt_' . $screen->post_type . '_ls_use_fk' ),
 		) );
@@ -71,34 +75,34 @@ class Metabox {
 		$js = rank_math()->plugin_url() . 'assets/admin/js/';
 		wp_enqueue_script( 'jquery-caret', rank_math()->plugin_url() . 'assets/vendor/jquery.caret.min.js', array( 'jquery' ), '1.3.3', true );
 		wp_enqueue_script( 'jquery-tag-editor', $js . 'jquery.tag-editor.js', array( 'jquery-ui-autocomplete', 'jquery-caret' ), '1.0.21', true );
-		wp_enqueue_script( 'rank-math-assessor', $js . 'assessor.js', null, rank_math()->get_version(), true );
+		wp_enqueue_script( 'rank-math-assessor', $js . 'assessor.js', null, rank_math()->version, true );
 
-		if ( Helper::is_post_edit() ) {
+		if ( Admin_Helper::is_post_edit() ) {
 			global $post;
-			rank_math()->add_json( 'objectID', $post->ID );
-			rank_math()->add_json( 'objectType', 'post' );
-			rank_math()->add_json( 'parentDomain', GlobalHelper::get_parent_domain( home_url() ) );
-			rank_math()->add_json( 'noFollowDomains', GlobalHelper::str_to_arr_no_empty( GlobalHelper::get_settings( 'general.nofollow_domains' ) ) );
-			rank_math()->add_json( 'noFollowExcludeDomains', GlobalHelper::str_to_arr_no_empty( GlobalHelper::get_settings( 'general.nofollow_exclude_domains' ) ) );
-			rank_math()->add_json( 'noFollowExternalLinks', GlobalHelper::get_settings( 'general.nofollow_external_links' ) );
-			rank_math()->add_json( 'featuredImageNotice', esc_html__( 'The featured image should be at least 200 by 200 pixels to be picked up by Facebook and other social media sites.', 'rank-math' ) );
+			GlobalHelper::add_json( 'objectID', $post->ID );
+			GlobalHelper::add_json( 'objectType', 'post' );
+			GlobalHelper::add_json( 'parentDomain', Url::get_domain( home_url() ) );
+			GlobalHelper::add_json( 'noFollowDomains', Str::to_arr_no_empty( GlobalHelper::get_settings( 'general.nofollow_domains' ) ) );
+			GlobalHelper::add_json( 'noFollowExcludeDomains', Str::to_arr_no_empty( GlobalHelper::get_settings( 'general.nofollow_exclude_domains' ) ) );
+			GlobalHelper::add_json( 'noFollowExternalLinks', GlobalHelper::get_settings( 'general.nofollow_external_links' ) );
+			GlobalHelper::add_json( 'featuredImageNotice', esc_html__( 'The featured image should be at least 200 by 200 pixels to be picked up by Facebook and other social media sites.', 'rank-math' ) );
 
-			wp_enqueue_script( 'rank-math-post-metabox', $js . 'post-metabox.js', array( 'clipboard', 'rank-math-common', 'rank-math-assessor', 'jquery-tag-editor' ), rank_math()->get_version(), true );
+			wp_enqueue_script( 'rank-math-post-metabox', $js . 'post-metabox.js', array( 'clipboard', 'rank-math-common', 'rank-math-assessor', 'jquery-tag-editor' ), rank_math()->version, true );
 		}
 
-		if ( Helper::is_term_edit() ) {
-			rank_math()->add_json( 'objectID', isset( $_REQUEST['tag_ID'] ) ? absint( $_REQUEST['tag_ID'] ) : 0 );
-			rank_math()->add_json( 'objectType', 'term' );
+		if ( Admin_Helper::is_term_edit() ) {
+			GlobalHelper::add_json( 'objectID', isset( $_REQUEST['tag_ID'] ) ? absint( $_REQUEST['tag_ID'] ) : 0 );
+			GlobalHelper::add_json( 'objectType', 'term' );
 
-			wp_enqueue_script( 'rank-math-term-metabox', $js . 'term-metabox.js', array( 'rank-math-common', 'rank-math-assessor', 'jquery-tag-editor' ), rank_math()->get_version(), true );
+			wp_enqueue_script( 'rank-math-term-metabox', $js . 'term-metabox.js', array( 'rank-math-common', 'rank-math-assessor', 'jquery-tag-editor' ), rank_math()->version, true );
 		}
 
-		if ( $this->is_user_metabox() && Helper::is_user_edit() ) {
+		if ( $this->is_user_metabox() && Admin_Helper::is_user_edit() ) {
 			global $user_id;
-			rank_math()->add_json( 'objectID', $user_id );
-			rank_math()->add_json( 'objectType', 'user' );
+			GlobalHelper::add_json( 'objectID', $user_id );
+			GlobalHelper::add_json( 'objectType', 'user' );
 
-			wp_enqueue_script( 'rank-math-user-metabox', $js . 'user-metabox.js', array( 'rank-math-common', 'rank-math-assessor', 'jquery-tag-editor' ), rank_math()->get_version(), true );
+			wp_enqueue_script( 'rank-math-user-metabox', $js . 'user-metabox.js', array( 'rank-math-common', 'rank-math-assessor', 'jquery-tag-editor' ), rank_math()->version, true );
 		}
 
 		$this->assessor();
@@ -122,7 +126,7 @@ class Metabox {
 			'context'          => 'normal',
 			'priority'         => $this->get_priority(),
 			'cmb_styles'       => false,
-			'classes'          => 'rank-math-metabox-wrap' . ( Helper::is_term_profile_page() ? ' rank-math-metabox-frame' : '' ),
+			'classes'          => 'rank-math-metabox-wrap' . ( Admin_Helper::is_term_profile_page() ? ' rank-math-metabox-frame' : '' ),
 		) );
 
 		$tabs = $this->get_tabs();
@@ -190,10 +194,16 @@ class Metabox {
 
 		$cmb = new_cmb2_box( array(
 			'id'           => $this->metabox_id . '_link_suggestions',
-			'title'        => esc_html__( 'Link Suggestions', 'rank-math' ) . Helper::get_tooltip( esc_html__( 'Click on the button to copy URL or insert link in content. You can also drag and drop links in the post content.', 'rank-math' ) ),
+			'title'        => esc_html__( 'Link Suggestions', 'rank-math' ),
 			'object_types' => $allowed_post_types,
 			'context'      => 'side',
 			'priority'     => 'default',
+		) );
+
+		$cmb->add_field( array(
+			'id'   => $this->metabox_id . '_link_suggestions_tooltip',
+			'type' => 'raw',
+			'content' => '<div id="rank-math-link-suggestions-tooltip" class="hidden">' . Admin_Helper::get_tooltip( esc_html__( 'Click on the button to copy URL or insert link in content. You can also drag and drop links in the post content.', 'rank-math' ) ) . '</div>',
 		) );
 
 		$cmb->add_field( array(
@@ -217,12 +227,17 @@ class Metabox {
 			<th scope="row"><label for="description"><?php esc_html_e( 'Description', 'rank-math' ); ?></label></th>
 			<td>
 				<?php
-				wp_editor( html_entity_decode( $term->description, ENT_QUOTES, 'UTF-8' ), 'description', array(
+				wp_editor( html_entity_decode( $term->description, ENT_QUOTES, 'UTF-8' ), 'rank_math_description', array(
+					'textarea_name' => 'description',
 					'textarea_rows' => 5,
 					'quicktags'     => false,
 				) );
 				?>
 			</td>
+			<script>
+				// Remove the non-html field
+				jQuery('textarea#description').closest('.form-field').remove();
+			</script>
 		</tr>
 		<?php
 	}
@@ -304,7 +319,9 @@ class Metabox {
 	private function get_priority() {
 		$post_type = isset( $_GET['post_type'] ) ? $_GET['post_type'] : ( isset( $_GET['post'] ) ? get_post_type( $_GET['post'] ) : '' );
 
-		return 'product' === $post_type ? 'default' : 'high';
+		$priority = 'product' === $post_type ? 'default' : 'high';
+
+		return $this->do_filter( 'metabox/priority', $priority );
 	}
 
 	/**
@@ -390,11 +407,16 @@ class Metabox {
 	 */
 	private function assessor() {
 		$data = array(
-			'powerWords'   => $this->power_words(),
-			'hasTOCPlugin' => $this->has_toc_plugin(),
+			'powerWords'       => $this->power_words(),
+			'hasTOCPlugin'     => $this->has_toc_plugin(),
+			'mtsConnected'     => GlobalHelper::is_mythemeshop_connected(),
+			'tocKbLink'        => KB::get( 'toc' ),
+			'sentimentKbLink'  => KB::get( 'sentiments' ),
+			'focusKeywordLink' => admin_url( 'edit.php?focus_keyword=%focus_keyword%&post_type=%post_type%' ),
 		);
 
-		rank_math()->add_json( 'assessor', $data );
+		GlobalHelper::add_json( 'assessor', $data );
+		GlobalHelper::add_json( 'isUserRegistered', GlobalHelper::is_mythemeshop_connected() );
 	}
 
 	/**
@@ -427,6 +449,7 @@ class Metabox {
 			'wp-shortcode/wp-shortcode.php'               => 'WP Shortcode by MyThemeShop',
 			'wp-shortcode-pro/wp-shortcode-pro.php'       => 'WP Shortcode Pro by MyThemeShop',
 			'thrive-visual-editor/thrive-visual-editor.php' => 'Thrive Architect',
+			'fixed-toc/fixed-toc.php'                     => 'Fixed TOC',
 		);
 
 		foreach ( $toc_plugins as $plugin_slug => $plugin_name ) {

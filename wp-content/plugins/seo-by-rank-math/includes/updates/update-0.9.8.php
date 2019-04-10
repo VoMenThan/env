@@ -5,12 +5,12 @@
  * @since      1.0.0
  * @package    RankMath
  * @subpackage RankMath\Updates
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 use RankMath\Helper;
-use TheLeague\Database\Database;
-use RankMath\Modules\Redirections\DB as Redirections_DB;
+use RankMath\Redirections\DB as Redirections_DB;
+use MyThemeShop\Helpers\DB;
 
 /**
  * Create and update table schema
@@ -26,9 +26,9 @@ function rank_math_0_9_8_update_tables() {
 	$redirections     = array();
 
 	// Rename old tables.
-	if ( Helper::check_table_exists( 'rank_math_redirections' ) ) {
-		$redirections = Database::table( 'rank_math_redirections' )->get( ARRAY_A );
-		$wpdb->query( "ALTER TABLE {$wpdb->prefix}rank_math_redirections RENAME TO {$wpdb->prefix}rank_math_redirections_old;" ); // WPCS: unprepared SQL ok.
+	if ( DB::check_table_exists( 'rank_math_redirections' ) ) {
+		$redirections = DB::query_builder( 'rank_math_redirections' )->get( ARRAY_A );
+		$wpdb->query( "ALTER TABLE {$wpdb->prefix}rank_math_redirections RENAME TO {$wpdb->prefix}rank_math_redirections_old;" ); // phpcs:ignore
 	}
 
 	// Create new tables.

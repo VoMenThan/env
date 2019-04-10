@@ -5,12 +5,11 @@
  * @since      1.0.0
  * @package    RankMath
  * @subpackage RankMath\Updates
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
-use RankMath\Helper;
-use RankMath\Modules\Redirections\Form;
-use TheLeague\Database\Database;
+use MyThemeShop\Helpers\DB;
+use RankMath\Redirections\Redirection;
 
 /**
  * Create and update table schema
@@ -23,16 +22,16 @@ function rank_math_0_10_0_update_redirections() {
 
 	$charset_collate = $wpdb->get_charset_collate();
 
-	if ( Helper::check_table_exists( 'rank_math_redirections' ) ) {
-		$redirections         = Database::table( 'rank_math_redirections' )->get( ARRAY_A );
-		$redirections_sources = Database::table( 'rank_math_redirection_sources' )->get( ARRAY_A );
+	if ( DB::check_table_exists( 'rank_math_redirections' ) ) {
+		$redirections         = DB::query_builder( 'rank_math_redirections' )->get( ARRAY_A );
+		$redirections_sources = DB::query_builder( 'rank_math_redirection_sources' )->get( ARRAY_A );
 
 		// Save old redirections as backup.
-		$wpdb->query( "ALTER TABLE {$wpdb->prefix}rank_math_redirections RENAME TO {$wpdb->prefix}rank_math_redirections_0_9_17;" ); // WPCS: unprepared SQL ok.
-		$wpdb->query( "ALTER TABLE {$wpdb->prefix}rank_math_redirection_sources RENAME TO {$wpdb->prefix}rank_math_redirection_sources_0_9_17;" ); // WPCS: unprepared SQL ok.
+		$wpdb->query( "ALTER TABLE {$wpdb->prefix}rank_math_redirections RENAME TO {$wpdb->prefix}rank_math_redirections_0_9_17;" ); // phpcs:ignore
+		$wpdb->query( "ALTER TABLE {$wpdb->prefix}rank_math_redirection_sources RENAME TO {$wpdb->prefix}rank_math_redirection_sources_0_9_17;" ); // phpcs:ignore
 	}
 
-	if ( ! Helper::check_table_exists( 'rank_math_redirections' ) ) {
+	if ( ! DB::check_table_exists( 'rank_math_redirections' ) ) {
 		$sql = "CREATE TABLE {$wpdb->prefix}rank_math_redirections (
 			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 			sources TEXT NOT NULL,
@@ -50,7 +49,7 @@ function rank_math_0_10_0_update_redirections() {
 		dbDelta( $sql );
 	}
 
-	if ( ! Helper::check_table_exists( 'rank_math_redirections_cache' ) ) {
+	if ( ! DB::check_table_exists( 'rank_math_redirections_cache' ) ) {
 		$sql = "CREATE TABLE {$wpdb->prefix}rank_math_redirections_cache (
 			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 			from_url TEXT NOT NULL,
@@ -85,7 +84,6 @@ function rank_math_0_10_0_update_redirections() {
 	}
 
 	// Convert to the new version structure.
-	$form = new Form();
 	foreach ( $old_redirections as $old_redirection ) {
 		// Sources column.
 		$new_sources = array();
@@ -96,7 +94,7 @@ function rank_math_0_10_0_update_redirections() {
 			);
 		}
 
-		$form->save_redirection(array(
+		Redirection::from([
 			'sources'       => $new_sources,
 			'url_to'        => $old_redirection['url_to'],
 			'header_code'   => $old_redirection['header_code'],
@@ -104,7 +102,7 @@ function rank_math_0_10_0_update_redirections() {
 			'status'        => $old_redirection['redirection_status'],
 			'updated'       => $old_redirection['last_edit'],
 			'last_accessed' => $old_redirection['last_accessed'],
-		));
+		])->save();
 	}
 }
 
@@ -118,7 +116,7 @@ function rank_math_0_10_0_create_links_table() {
 	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 	$charset_collate = $wpdb->get_charset_collate();
-	if ( ! Helper::check_table_exists( 'rank_math_internal_links' ) ) {
+	if ( ! DB::check_table_exists( 'rank_math_internal_links' ) ) {
 		$sql = "CREATE TABLE {$wpdb->prefix}rank_math_internal_links (
 			id BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
 			url VARCHAR(255) NOT NULL,
@@ -131,7 +129,7 @@ function rank_math_0_10_0_create_links_table() {
 		dbDelta( $sql );
 	}
 
-	if ( ! Helper::check_table_exists( 'rank_math_internal_meta' ) ) {
+	if ( ! DB::check_table_exists( 'rank_math_internal_meta' ) ) {
 		$sql = "CREATE TABLE {$wpdb->prefix}rank_math_internal_meta (
 			object_id bigint(20) UNSIGNED NOT NULL,
 			internal_link_count int(10) UNSIGNED NULL DEFAULT 0,

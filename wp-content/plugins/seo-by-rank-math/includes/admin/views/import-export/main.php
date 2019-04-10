@@ -16,7 +16,7 @@
 	<p style="font-size: 1rem;">
 		<?php
 		/* translators: Link to learn about import export panel KB article */
-		printf( esc_html__( 'Import your previous backed up setting. Or, Export your Rank Math settings and meta data for backup or for reuse on (another) blog. %s', 'rank-math' ), '<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/import-export-settings/" target="_blank">' . esc_html__( 'Learn more about the Import/Export option.', 'rank-math' ) . '</a>' );
+		printf( esc_html__( 'Import your previous backed up setting. Or, Export your Rank Math settings and meta data for backup or for reuse on (another) blog. %s', 'rank-math' ), '<a href="' . \RankMath\KB::get( 'import-export-settings' ) . '" target="_blank">' . esc_html__( 'Learn more about the Import/Export option.', 'rank-math' ) . '</a>' );
 		?>
 	</p>
 

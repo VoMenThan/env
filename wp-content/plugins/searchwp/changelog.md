@@ -1,3 +1,26 @@
+### 3.0.5
+- **[New]** Pasting of comma separated Stopwords will create individual Stopwords from the list
+- **[Fix]** Conditional disabling of partial matches per engine by using provided filter
+- **[Fix]** Prevent missing exact matches when finding partial matches
+- **[Improvement]** Post types that are excluded from search during registration are now listed out
+- **[Improvement]** When Metrics is installed the engine configuration Search Statistics link is correct
+- **[Change]** Enabling partial matches no longer gives exact matches full priority, short circuiting on exact matches is now opt in via filter
+- **[Change]** Third party dependencies have been reorganized to reduce file path which should help to avoid issues on certain Windows servers
+- **[Update]** Translation source
+- **[Update]** PHP version compatibility
+- **[Update]** Dependency update which brings additional PHP compatibility
+- **[Update]** TCPDF security update (which as evaluated could NOT have been exploited)
+
+### 3.0.4
+- **[Improvement]** Handling of multiple word highlighting
+- **[Improvement]** Better restriction during indexing
+- **[Fix]** Issue with Advanced Custom Fields repeater detection
+- **[Fix]** Better handling of cached data
+- **[Fix]** Prevent unwanted indexer activity when using `searchwp_indexed_post_types`
+- **[Change]** Removal of ACF field references is now opt-in
+- **[Change]** `searchwp_lenient_accents` now applies during searches as well
+- **[New]** Filter `searchwp_lenient_accents_on_search` to allow refined control over leinient accent treatment
+
 ### 3.0.3
 - **[Fix]** Fixes an issue with checking for unused meta keys when configuring search engines
 - **[Fix]** Fixes a potential issue with `searchwp_short_circuit` being incorrectly overridden

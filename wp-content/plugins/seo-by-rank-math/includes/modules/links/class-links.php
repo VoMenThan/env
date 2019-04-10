@@ -4,11 +4,11 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Links
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Links
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Links;
+namespace RankMath\Links;
 
 use WP_Post;
 use RankMath\Helper;
@@ -78,7 +78,7 @@ class Links {
 	public function post_column_content( $post_id ) {
 		global $wpdb;
 
-		$counts = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}rank_math_internal_meta WHERE object_id = {$post_id}" ); // WPCS: unprepared SQL ok.
+		$counts = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}rank_math_internal_meta WHERE object_id = {$post_id}" ); // phpcs:ignore
 		$counts = ! empty( $counts ) ? $counts : (object) array(
 			'internal_link_count' => 0,
 			'external_link_count' => 0,
@@ -104,8 +104,9 @@ class Links {
 		unset( $post_types['attachment'] );
 
 		$posts = get_posts( array(
-			'post_type'  => array_keys( $post_types ),
-			'meta_query' => array(
+			'post_type'   => array_keys( $post_types ),
+			'post_status' => array( 'publish', 'future' ),
+			'meta_query'  => array(
 				array(
 					'key'     => 'rank_math_internal_links_processed',
 					'compare' => 'NOT EXISTS',
@@ -121,7 +122,7 @@ class Links {
 
 		// Process!
 		foreach ( $posts as $post ) {
-			$this->save_post( $post->ID, get_post( $post->ID ) );
+			$this->save_post( $post->ID, $post );
 		}
 	}
 

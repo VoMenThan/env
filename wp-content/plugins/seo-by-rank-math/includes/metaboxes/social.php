@@ -7,7 +7,7 @@
  */
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 
 $cmb->add_field( array(
 	'id'   => 'rank_math_social_tabs',

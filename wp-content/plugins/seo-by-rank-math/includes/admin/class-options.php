@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
@@ -15,6 +15,7 @@ use CMB2_hookup;
 use RankMath\CMB2;
 use RankMath\Replace_Vars;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 use RankMath\Helper as GlobalHelper;
 
 defined( 'ABSPATH' ) || exit;
@@ -85,7 +86,7 @@ class Options {
 		$this->config( $config );
 		$this->cmb_id = $this->key . '_options';
 
-		$this->action( 'cmb2_admin_init', 'register_option_metabox', $this->position );
+		$this->action( 'cmb2_admin_init', 'register_option_page', $this->position );
 		$this->action( 'admin_post_' . $this->key, 'reset_options', 2 );
 
 		if ( true === empty( get_option( $this->key ) ) ) {
@@ -104,7 +105,7 @@ class Options {
 	/**
 	 * Create option object and add settings
 	 */
-	function register_option_metabox() {
+	function register_option_page() {
 
 		$cmb = new_cmb2_box( array(
 			'id'           => $this->cmb_id,
@@ -203,19 +204,19 @@ class Options {
 	public function enqueue() {
 		$screen = get_current_screen();
 
-		if ( ! GlobalHelper::str_contains( $this->key, $screen->id ) ) {
+		if ( ! Str::contains( $this->key, $screen->id ) ) {
 			return;
 		}
 
 		CMB2_hookup::enqueue_cmb_css();
 		Replace_Vars::setup_json();
-		wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', null, rank_math()->get_version() );
-		wp_enqueue_style( 'rank-math-options', rank_math()->plugin_url() . 'assets/admin/css/option-panel.css', array( 'select2-rm', 'rank-math-common', 'rank-math-cmb2' ), rank_math()->get_version() );
-		wp_enqueue_script( 'rank-math-options', rank_math()->plugin_url() . 'assets/admin/js/option-panel.js', array( 'underscore', 'select2-rm', 'rank-math-common' ), rank_math()->get_version(), true );
+		wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', null, rank_math()->version );
+		wp_enqueue_style( 'rank-math-options', rank_math()->plugin_url() . 'assets/admin/css/option-panel.css', array( 'select2-rm', 'rank-math-common', 'rank-math-cmb2' ), rank_math()->version );
+		wp_enqueue_script( 'rank-math-options', rank_math()->plugin_url() . 'assets/admin/js/option-panel.js', array( 'underscore', 'select2-rm', 'rank-math-common' ), rank_math()->version, true );
 
 		// Add thank you.
-		rank_math()->add_json( 'indexUrl', rank_math()->plugin_url() . 'assets/admin/js/search-index/' );
-		rank_math()->add_json( 'optionPage', str_replace( 'rank-math-options-', '', $this->key ) );
+		GlobalHelper::add_json( 'indexUrl', rank_math()->plugin_url() . 'assets/admin/js/search-index/' );
+		GlobalHelper::add_json( 'optionPage', str_replace( 'rank-math-options-', '', $this->key ) );
 	}
 
 	/**
@@ -278,8 +279,8 @@ class Options {
 	 * @return bool
 	 */
 	public function is_current_page() {
-		$page   = isset( $_REQUEST['page'] ) && ! empty( $_REQUEST['page'] ) ? $_REQUEST['page'] : false;
-		$action = isset( $_REQUEST['action'] ) && ! empty( $_REQUEST['action'] ) ? $_REQUEST['action'] : false;
+		$page   = isset( $_REQUEST['page'] ) && ! empty( $_REQUEST['page'] ) ? sanitize_text_field( $_REQUEST['page'] ) : false;
+		$action = isset( $_REQUEST['action'] ) && ! empty( $_REQUEST['action'] ) ? sanitize_text_field( $_REQUEST['action'] ) : false;
 
 		return $page === $this->key || $action === $this->key;
 	}

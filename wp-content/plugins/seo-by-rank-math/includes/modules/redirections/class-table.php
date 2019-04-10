@@ -4,16 +4,15 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use RankMath\Helper;
-use RankMath\Admin\List_Table;
-
-defined( 'ABSPATH' ) || exit;
+use MyThemeShop\Helpers\Util;
+use MyThemeShop\Admin\List_Table;
 
 /**
  * Table class.
@@ -24,13 +23,11 @@ class Table extends List_Table {
 	 * The Constructor.
 	 */
 	public function __construct() {
-
-		parent::__construct( array(
+		parent::__construct([
 			'singular' => esc_html__( 'redirection', 'rank-math' ),
 			'plural'   => esc_html__( 'redirections', 'rank-math' ),
-		) );
-
-		$this->strings['no_items'] = $this->is_trashed_page() ? esc_html__( 'No redirections found in Trash.', 'rank-math' ) : wp_kses_post( __( 'No redirections added yet. <a href="#" class="rank-math-add-new-redirection">Add New Redirection</a>', 'rank-math' ) );
+			'no_items' => $this->is_trashed_page() ? esc_html__( 'No redirections found in Trash.', 'rank-math' ) : wp_kses_post( __( 'No redirections added yet. <a href="#" class="rank-math-add-new-redirection">Add New Redirection</a>', 'rank-math' ) ),
+		]);
 	}
 
 	/**
@@ -41,25 +38,27 @@ class Table extends List_Table {
 
 		$per_page = $this->get_items_per_page( 'rank_math_redirections_per_page' );
 
-		$data = DB::get_redirections( array(
+		$data = DB::get_redirections([
 			'limit'   => $per_page,
 			'order'   => $this->get_order(),
 			'orderby' => $this->get_orderby( 'id' ),
 			'paged'   => $this->get_pagenum(),
 			'search'  => $this->get_search(),
 			'status'  => isset( $_REQUEST['status'] ) ? $_REQUEST['status'] : 'any',
-		) );
+		]);
 
 		$this->items = $data['redirections'];
 
-		$this->set_pagination_args( array(
+		$this->set_pagination_args([
 			'total_items' => $data['count'],
 			'per_page'    => $per_page,
-		) );
+		]);
 	}
 
 	/**
 	 * Handles the checkbox column output.
+	 *
+	 * @codeCoverageIgnore
 	 *
 	 * @param object $item The current item.
 	 */
@@ -71,6 +70,8 @@ class Table extends List_Table {
 
 	/**
 	 * Handles the default column output.
+	 *
+	 * @codeCoverageIgnore
 	 *
 	 * @param object $item        The current item.
 	 * @param string $column_name The current column name.
@@ -86,11 +87,13 @@ class Table extends List_Table {
 			return $no_last_accessed ? '' : mysql2date( 'F j, Y, G:i', $item['last_accessed'] );
 		}
 
-		return in_array( $column_name, array( 'hits', 'header_code', 'url_to' ) ) ? $item[ $column_name ] : print_r( $item, true );
+		return in_array( $column_name, [ 'hits', 'header_code', 'url_to' ] ) ? $item[ $column_name ] : print_r( $item, true );
 	}
 
 	/**
 	 * Get html for sources column
+	 *
+	 * @codeCoverageIgnore
 	 *
 	 * @param  array $sources Array of sources.
 	 * @return string
@@ -115,7 +118,7 @@ class Table extends List_Table {
 		$html .= '<div class="rank-math-more">';
 
 		// Loop remaining.
-		$parts = array();
+		$parts = [];
 		foreach ( $sources as $source ) {
 			$parts[] = $this->get_source_html( $source, $comparison_hash );
 		}
@@ -130,14 +133,16 @@ class Table extends List_Table {
 	/**
 	 * Get html of a source
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @param  array $source          Source for which render html.
 	 * @param  array $comparison_hash Comparison array hash.
 	 * @return string
 	 */
 	private function get_source_html( $source, $comparison_hash ) {
-		$html = '<span class="value-url_from"><strong><a href="' . home_url( $source['pattern'] ) . '" target="_blank">' . $source['pattern'] . '</a></strong></span>';
+		$html = '<span class="value-url_from"><strong><a href="' . esc_url( home_url( $source['pattern'] ) ) . '" target="_blank">' . esc_html( stripslashes( $source['pattern'] ) ) . '</a></strong></span>';
 		if ( 'exact' !== $source['comparison'] ) {
-			$html .= ' <span class="value-source-comparison">(' . $comparison_hash[ $source['comparison'] ] . ')</span>';
+			$html .= ' <span class="value-source-comparison">(' . esc_html( $comparison_hash[ $source['comparison'] ] ) . ')</span>';
 		}
 
 		return $html;
@@ -146,27 +151,29 @@ class Table extends List_Table {
 	/**
 	 * Generate row actions div.
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @param object $item The current item.
 	 */
 	public function column_actions( $item ) {
-		$url = esc_url( Helper::get_admin_url( 'redirections', array(
+		$url = esc_url( Helper::get_admin_url( 'redirections', [
 			'redirection' => $item['id'],
 			'security'    => wp_create_nonce( 'redirection_list_action' ),
-		) ) );
+		] ) );
 
 		if ( $this->is_trashed_page() ) {
-			return $this->row_actions( array(
+			return $this->row_actions([
 				'restore' => '<a href="' . $url . '" data-action="restore" class="rank-math-redirection-action">' . esc_html__( 'Restore', 'rank-math' ) . '</a>',
 				'delete'  => '<a href="' . $url . '" data-action="delete" class="rank-math-redirection-action">' . esc_html__( 'Delete Permanently', 'rank-math' ) . '</a>',
-			));
+			]);
 		}
 
-		return $this->row_actions( array(
+		return $this->row_actions([
 			'edit'       => '<a href="' . $url . '&action=edit" class="rank-math-redirection-edit">' . esc_html__( 'Edit', 'rank-math' ) . '</a>',
 			'deactivate' => '<a href="' . $url . '" data-action="deactivate" class="rank-math-redirection-action">' . esc_html__( 'Deactivate', 'rank-math' ) . '</a>',
 			'activate'   => '<a href="' . $url . '" data-action="activate" class="rank-math-redirection-action">' . esc_html__( 'Activate', 'rank-math' ) . '</a>',
 			'trash'      => '<a href="' . $url . '" data-action="trash" class="rank-math-redirection-action">' . esc_html__( 'Trash', 'rank-math' ) . '</a>',
-		));
+		]);
 	}
 
 	/**
@@ -175,14 +182,14 @@ class Table extends List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
-		return array(
+		return [
 			'cb'            => '<input type="checkbox" />',
 			'sources'       => esc_html__( 'From', 'rank-math' ),
 			'url_to'        => esc_html__( 'To', 'rank-math' ),
 			'header_code'   => esc_html__( 'Type', 'rank-math' ),
 			'hits'          => esc_html__( 'Hits', 'rank-math' ),
 			'last_accessed' => esc_html__( 'Last Accessed', 'rank-math' ),
-		);
+		];
 	}
 
 	/**
@@ -191,33 +198,35 @@ class Table extends List_Table {
 	 * @return array
 	 */
 	public function get_sortable_columns() {
-		return array(
-			'url_to'        => array( 'url_to', false ),
-			'header_code'   => array( 'header_code', false ),
-			'hits'          => array( 'hits', false ),
-			'last_accessed' => array( 'last_accessed', false ),
-		);
+		return [
+			'url_to'        => [ 'url_to', false ],
+			'header_code'   => [ 'header_code', false ],
+			'hits'          => [ 'hits', false ],
+			'last_accessed' => [ 'last_accessed', false ],
+		];
 	}
 
 	/**
 	 * Get an associative array ( option_name => option_title ) with the list
 	 * of bulk actions available on this table.
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @return array
 	 */
 	public function get_bulk_actions() {
 		if ( $this->is_trashed_page() ) {
-			return array(
+			return [
 				'restore' => esc_html__( 'Restore', 'rank-math' ),
 				'delete'  => esc_html__( 'Delete Permanently', 'rank-math' ),
-			);
+			];
 		}
 
-		return array(
+		return [
 			'activate'   => esc_html__( 'Activate', 'rank-math' ),
 			'deactivate' => esc_html__( 'Deactivate', 'rank-math' ),
 			'trash'      => esc_html__( 'Move to Trash', 'rank-math' ),
-		);
+		];
 	}
 
 	/**
@@ -228,16 +237,16 @@ class Table extends List_Table {
 	public function get_views() {
 
 		$url     = Helper::get_admin_url( 'redirections' );
-		$current = Helper::param_get( 'status', 'all' );
+		$current = Util::param_get( 'status', 'all' );
 		$counts  = DB::get_counts();
-		$labels  = array(
+		$labels  = [
 			'all'      => esc_html__( 'All', 'rank-math' ),
 			'active'   => esc_html__( 'Active', 'rank-math' ),
 			'inactive' => esc_html__( 'Inactive', 'rank-math' ),
 			'trashed'  => esc_html__( 'Trash', 'rank-math' ),
-		);
+		];
 
-		$links = array();
+		$links = [];
 		foreach ( $labels as $key => $label ) {
 			$links[ $key ] = sprintf(
 				'<a href="%1$s"%2$s>%3$s <span class="count">(%4$d)</span></a>',
@@ -253,6 +262,8 @@ class Table extends List_Table {
 
 	/**
 	 * Generates content for a single row of the table.
+	 *
+	 * @codeCoverageIgnore
 	 *
 	 * @param object $item The current item.
 	 */
@@ -289,6 +300,6 @@ class Table extends List_Table {
 	 * @return bool
 	 */
 	protected function is_trashed_page() {
-		return 'trashed' === Helper::param_get( 'status' );
+		return 'trashed' === Util::param_get( 'status' );
 	}
 }

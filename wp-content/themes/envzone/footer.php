@@ -258,6 +258,123 @@
 
 <script type="text/javascript">
 
+    $(document).ready(function() {
+
+        $('.slider-home').owlCarousel({
+            animateOut: 'slideOutRight',
+            animateIn: 'slideInLeft',
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            lazyLoad:true,
+            autoplay: true,
+            autoplayTimeout: 8000,
+            smartSpeed:450,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: false
+                },
+                768: {
+                    items: 1,
+                    dots: false
+                },
+                1024: {
+                    items: 1
+                }
+            }
+        });
+
+        $('.slider-partners').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                425: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+        $('.slider-news').owlCarousel({
+            loop: false,
+            margin: 30,
+            nav: true,
+            dots: false,
+            autoplay: false,
+            autoplayTimeout: 2000,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                425: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                }
+            }
+        });
+
+        $('.box-industries').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            autoplay: false,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+        $('.list-video').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: true,
+            autoplay: false,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+    });
 
     /*============ custom scroll =================*/
 
@@ -266,14 +383,14 @@
             $(".content-scroll").mCustomScrollbar({ theme: "3d" });
         });
 
-        $( window ).load(function() {
-            /*  [ Page loader ]
-            - - - - - - - - - - - - - - - - - - - - */
+        /*$( window ).load(function() {
+            /!*  [ Page loader ]
+            - - - - - - - - - - - - - - - - - - - - *!/
             $( 'body' ).addClass( 'loaded' );
             setTimeout(function () {
                 $('#pageloader').fadeOut();
-            }, 500);
-        });
+            }, 100);
+        });*/
     })(jQuery);
 
     /*============ end custom scroll =================*/

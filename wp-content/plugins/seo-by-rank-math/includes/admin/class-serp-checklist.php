@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
@@ -13,6 +13,7 @@ namespace RankMath\Admin;
 use RankMath\CMB2;
 use RankMath\Traits\Hooker;
 use RankMath\Helper as GlobalHelper;
+use RankMath\KB;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -39,7 +40,7 @@ class Serp_Checklist {
 					<div class="group-handle">
 						<span class="group-status"></span>
 						<h4><?php echo $this->get_heading( $group ); ?></h4>
-						<button type="button" class="group-handlediv" aria-expanded="true"><span class="screen-reader-text"><?php printf( esc_html__( 'Toggle tests: %s', 'rank-math' ), $this->get_heading( $group ) ); // @codingStandardsIgnoreLine ?></span><span class="toggle-indicator" aria-hidden="true"></span></button>
+						<button type="button" class="group-handlediv" aria-expanded="true"><span class="screen-reader-text"><?php printf( esc_html__( 'Toggle tests: %s', 'rank-math' ), $this->get_heading( $group ) ); // phpcs:ignore ?></span><span class="toggle-indicator" aria-hidden="true"></span></button>
 					</div>
 					<ul>
 						<?php $this->print_list( $list[ $group ], $locale ); ?>
@@ -51,7 +52,7 @@ class Serp_Checklist {
 			?>
 		</div>
 		<?php
-		rank_math()->add_json( 'assessor', array( '__' => $locale ) );
+		GlobalHelper::add_json( 'assessor', array( '__' => $locale ) );
 	}
 
 	/**
@@ -61,9 +62,9 @@ class Serp_Checklist {
 		$is_connected = GlobalHelper::is_mythemeshop_connected();
 
 		/* translators: link to registration screen */
-		$power_words_not_connected = sprintf( esc_html__( 'Please connect your %s to calculate the Power Words used.', 'rank-math' ), '<a href="' . GlobalHelper::get_admin_url( '', 'view=help' ) . '" target="_blank">MyThemeShop account</a>' );
+		$power_words_not_connected = sprintf( esc_html__( 'Please connect your %s to calculate the Power Words used.', 'rank-math' ), '<a href="' . GlobalHelper::get_connect_url() . '" target="_blank">Rank Math account</a>' );
 		/* translators: link to registration screen */
-		$sentiments_not_connected = sprintf( esc_html__( 'Please connect your %s to calculate the Sentiments of the content.', 'rank-math' ), '<a href="' . GlobalHelper::get_admin_url( '', 'view=help' ) . '" target="_blank">MyThemeShop account</a>' );
+		$sentiments_not_connected = sprintf( esc_html__( 'Please connect your %s to calculate the Sentiments of the content.', 'rank-math' ), '<a href="' . GlobalHelper::get_connect_url() . '" target="_blank">Rank Math account</a>' );
 
 		$tests = array(
 			'basic'               => array(
@@ -106,7 +107,7 @@ class Serp_Checklist {
 					'ok'      => esc_html__( 'Your content is {0} words long. Good job!', 'rank-math' ),
 					'fail'    => esc_html__( 'Your content is {0} words long. Consider using at least 600 words.', 'rank-math' ),
 					/* translators: link to kb article */
-					'empty'   => sprintf( esc_html__( 'Content should be %s long.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/score-100-in-tests/?utm_source=Rank+Math+Plugin&utm_medium=LP+CPC&utm_content=Rank+Math+KB&utm_campaign=Rank+Math#content-length" target="_blank">600-2500 words</a>' ),
+					'empty'   => sprintf( esc_html__( 'Content should be %s long.', 'rank-math' ), '<a href="' . KB::get( 'content-length' ) . '" target="_blank">600-2500 words</a>' ),
 					'tooltip' => esc_html__( 'Minimum recommended content length should be 600 words.', 'rank-math' ),
 					'score'   => 8,
 				),
@@ -182,7 +183,7 @@ class Serp_Checklist {
 				'titleSentiment'        => array(
 					'ok'      => $is_connected ? esc_html__( 'Your title has a positive or a negative sentiment.', 'rank-math' ) : $sentiments_not_connected,
 					/* translators: link to kb article */
-					'fail'    => $is_connected ? sprintf( __( 'Your title doesn\'t contain a %s word.', 'rank-math' ), '<a href="https://monkeylearn.com/sentiment-analysis/" target="_blank">positive or a negative sentiment</a>' ) : $sentiments_not_connected,
+					'fail'    => $is_connected ? sprintf( __( 'Your title doesn\'t contain a %s word.', 'rank-math' ), '<a href="' . KB::get( 'sentiments' ) . '" target="_blank">positive or a negative sentiment</a>' ) : $sentiments_not_connected,
 					'empty'   => esc_html__( 'Titles with positive or negative sentiment work best for higher CTR.', 'rank-math' ),
 					'tooltip' => esc_html__( 'Headlines with a strong emotional sentiment (positive or negative) tend to receive more clicks.', 'rank-math' ),
 					'score'   => 1,
@@ -208,9 +209,9 @@ class Serp_Checklist {
 			'content-readability' => array(
 				'contentHasTOC'             => array(
 					/* translators: link to kb article */
-					'ok'      => sprintf( esc_html__( 'You seem to be using a %s to break-down your text.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/score-100-in-tests/#table-of-contents?utm_source=Rank+Math+Plugin&utm_medium=LP+CPC&utm_content=Rank+Math+KB&utm_campaign=Rank+Math" target="_blank">Table of Contents plugin</a>' ),
+					'ok'      => sprintf( __( 'You seem to be using a <a href="%s" target="_blank">Table of Contents plugin</a> to break-down your text.', 'rank-math' ), KB::get( 'toc' ) ),
 					/* translators: link to kb article */
-					'fail'    => sprintf( esc_html__( 'You don\'t seem to be using a %s.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/score-100-in-tests/#table-of-contents?utm_source=Rank+Math+Plugin&utm_medium=LP+CPC&utm_content=Rank+Math+KB&utm_campaign=Rank+Math" target="_blank">Table of Contents plugin</a>' ),
+					'fail'    => sprintf( __( 'You don\'t seem to be using a <a href="%s" target="_blank">Table of Contents plugin</a>.', 'rank-math' ), KB::get( 'toc' ) ),
 					'empty'   => esc_html__( 'Use Table of Content to break-down your text.', 'rank-math' ),
 					'tooltip' => esc_html__( ' Table of Contents help break down content into smaller, digestible chunks. It makes reading easier which in turn results in better rankings.', 'rank-math' ),
 					'score'   => 2,
@@ -240,7 +241,7 @@ class Serp_Checklist {
 			),
 		);
 		$tests = $this->do_filter( 'researches/tests', $tests, 'post' );
-		rank_math()->add_json( 'assessor', array( 'researchesTests' => array_merge( $tests['basic'], $tests['advanced'], $tests['title-readability'], $tests['content-readability'] ) ) );
+		GlobalHelper::add_json( 'assessor', array( 'researchesTests' => array_merge( $tests['basic'], $tests['advanced'], $tests['title-readability'], $tests['content-readability'] ) ) );
 
 		return $tests;
 	}
@@ -291,7 +292,7 @@ class Serp_Checklist {
 		);
 
 		$tests = $this->do_filter( 'researches/tests', $tests, 'term' );
-		rank_math()->add_json( 'assessor', array( 'researchesTests' => array_merge( $tests['basic'], $tests['advanced'] ) ) );
+		GlobalHelper::add_json( 'assessor', array( 'researchesTests' => array_merge( $tests['basic'], $tests['advanced'] ) ) );
 
 		return $tests;
 	}
@@ -342,7 +343,7 @@ class Serp_Checklist {
 		);
 
 		$tests = $this->do_filter( 'researches/tests', $tests, 'user' );
-		rank_math()->add_json( 'assessor', array( 'researchesTests' => array_merge( $tests['basic'], $tests['advanced'] ) ) );
+		GlobalHelper::add_json( 'assessor', array( 'researchesTests' => array_merge( $tests['basic'], $tests['advanced'] ) ) );
 
 		return $tests;
 	}
@@ -383,7 +384,7 @@ class Serp_Checklist {
 			?>
 			<li class="seo-check-<?php echo $id; ?> test-fail<?php echo in_array( $id, $primary ) ? ' is-primary' : ''; ?>">
 				<span class="seo-check-text"><?php echo str_replace( array( '{0}', '{1}' ), '_', $item['fail'] ); ?></span>
-				<?php echo isset( $item['tooltip'] ) ? Helper::get_tooltip( $item['tooltip'] ) : ''; ?>
+				<?php echo isset( $item['tooltip'] ) ? Admin_Helper::get_tooltip( $item['tooltip'] ) : ''; ?>
 			</li>
 			<?php
 		endforeach;

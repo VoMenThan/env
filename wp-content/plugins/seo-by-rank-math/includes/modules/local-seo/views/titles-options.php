@@ -3,7 +3,7 @@
  * The local seo settings.
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Local_Seo
+ * @subpackage RankMath\Local_Seo
  */
 
 use RankMath\Helper;

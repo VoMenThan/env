@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\OpenGraph
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\OpenGraph;
@@ -97,16 +97,15 @@ class Twitter extends OpenGraph {
 
 		$this->tag( 'twitter:card', $this->type );
 
-		if ( in_array( $this->type, array( 'app', 'player' ) ) && is_singular() && ! is_front_page() ) {
-			if ( 'app' === $this->type ) {
-				$this->remove_tags();
-			}
-
+		$remove_tags = false;
+		if ( is_singular() && ! is_front_page() && in_array( $this->type, array( 'app', 'player' ) ) ) {
+			$remove_tags = 'app' === $this->type;
 			$this->action( 'rank_math/opengraph/twitter', $this->type, 15 );
 		}
 
-		$is_archive = is_archive() && ! ( is_author() || is_category() || is_tag() || is_tax() );
-		if ( $is_archive && in_array( $this->type, array( 'summary', 'summary_large_image' ) ) ) {
+		$is_archive  = is_archive() && ! ( is_author() || is_category() || is_tag() || is_tax() || is_post_type_archive() );
+		$remove_tags = $is_archive && in_array( $this->type, array( 'summary', 'summary_large_image' ) );
+		if ( $remove_tags ) {
 			$this->remove_tags();
 		}
 	}
@@ -185,7 +184,8 @@ class Twitter extends OpenGraph {
 	public function image() {
 		$images = new Image( false, $this );
 		foreach ( $images->get_images() as $image_url => $image_meta ) {
-			$this->tag( 'twitter:image', esc_url( $image_url ) );
+			$img_url = $this->get_overlay_image( $this->prefix ) ? admin_url( "admin-ajax.php?action=rank_math_overlay_thumb&id={$image_meta['id']}&type={$this->get_overlay_image( $this->prefix )}" ) : $image_url;
+			$this->tag( 'twitter:image', esc_url( $img_url ) );
 		}
 	}
 
@@ -193,8 +193,10 @@ class Twitter extends OpenGraph {
 	 * Outputs the authors twitter handle.
 	 */
 	public function article_author() {
-		$author = Helper::get_user_meta( 'twitter', $GLOBALS['post']->post_author );
-		$author = $author ? $author : Helper::get_settings( 'titles.twitter_author_names' );
+		$author = Helper::get_user_meta( 'twitter_author', $GLOBALS['post']->post_author );
+		if ( ! $author && ! $author = get_user_meta( $GLOBALS['post']->post_author, 'twitter', true ) ) { // phpcs:ignore
+			$author = Helper::get_settings( 'titles.twitter_author_names' );
+		}
 		$author = $this->get_twitter_id( ltrim( trim( $author ), '@' ) );
 
 		if ( is_string( $author ) && '' !== $author ) {

@@ -4,14 +4,14 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use RankMath\Helper;
-use TheLeague\Database\Database;
+use MyThemeShop\Database\Database;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -55,20 +55,20 @@ class Cache {
 	 *
 	 * @param array $args Values to insert.
 	 */
-	public static function add( $args = array() ) {
+	public static function add( $args = [] ) {
 		if ( empty( $args ) ) {
-			return;
+			return false;
 		}
 
-		$args = wp_parse_args( $args, array(
+		$args = wp_parse_args( $args, [
 			'from_url'       => '',
 			'redirection_id' => '',
 			'object_id'      => '',
 			'object_type'    => 'post',
 			'is_redirected'  => '1',
-		));
+		]);
 
-		return self::table()->insert( $args, array( '%s', '%d', '%d', '%s', '%d' ) );
+		return self::table()->insert( $args, [ '%s', '%d', '%d', '%s', '%d' ] );
 	}
 
 	/**

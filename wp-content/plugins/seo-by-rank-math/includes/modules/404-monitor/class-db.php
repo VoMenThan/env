@@ -4,14 +4,14 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Monitor
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Monitor;
+namespace RankMath\Monitor;
 
 use RankMath\Helper;
-use TheLeague\Database\Database;
+use MyThemeShop\Database\Database;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -23,7 +23,7 @@ class DB {
 	/**
 	 * Get query builder.
 	 *
-	 * @return \TheLeague\Database\Query_Builder
+	 * @return Query_Builder
 	 */
 	private static function table() {
 		return Database::table( 'rank_math_404_logs' );
@@ -148,15 +148,10 @@ class DB {
 	 * @return int|false The number of rows updated, or false on error.
 	 */
 	private static function update_counter( $row ) {
-		$id = absint( $row['id'] );
-		if ( 0 === $id ) {
-			return false;
-		}
-
 		$update_data = array(
 			'accessed'       => current_time( 'mysql' ),
 			'times_accessed' => absint( $row['times_accessed'] ) + 1,
 		);
-		return self::table()->set( $update_data )->where( 'id', $id )->update();
+		return self::table()->set( $update_data )->where( 'id', absint( $row['id'] ) )->update();
 	}
 }

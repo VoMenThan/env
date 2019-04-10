@@ -5,7 +5,7 @@
  * @since      1.0.3
  * @package    RankMath
  * @subpackage RankMath\Traits
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Traits;
@@ -24,6 +24,11 @@ trait Wizard {
 	 */
 	public function body() {
 		if ( ! isset( $this->steps[ $this->step ] ) ) {
+			return;
+		}
+
+		if ( ! is_null( $this->wizard_step ) ) {
+			$this->wizard_step->render( $this );
 			return;
 		}
 

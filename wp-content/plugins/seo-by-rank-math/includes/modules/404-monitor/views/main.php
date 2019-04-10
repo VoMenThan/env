@@ -3,10 +3,13 @@
  * Main template for 404 monitor
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Monitor
+ * @subpackage RankMath\Monitor
  */
 
-$monitor = RankMath\Helper::get_module( '404-monitor' )->admin;
+use RankMath\Helper;
+use RankMath\KB;
+
+$monitor = Helper::get_module( '404-monitor' )->admin;
 ?>
 <div class="wrap rank-math-404-monitor-wrap">
 
@@ -23,8 +26,8 @@ $monitor = RankMath\Helper::get_module( '404-monitor' )->admin;
 		printf(
 			/* Translators: 1: link to Monitor docs 2: link to Fix 404 docs */
 			__( 'Find out where users are unable to find your content with the 404 monitor tool. You can also learn more about how to %1$s and %2$s with Rank Math.', 'rank-math' ),
-			'<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/monitor-404-errors/" target="_blank">' . _x( 'monitor', 'in 404 monitor description', 'rank-math' ) . '</a>',
-			'<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/fix-404-errors/" target="_blank">' . _x( 'fix 404s', 'in 404 monitor description', 'rank-math' ) . '</a>'
+			'<a href="' . KB::get( '404-monitor' ) . '" target="_blank">' . _x( 'monitor', 'in 404 monitor description', 'rank-math' ) . '</a>',
+			'<a href="' . KB::get( 'fix-404' ) . '" target="_blank">' . _x( 'fix 404s', 'in 404 monitor description', 'rank-math' ) . '</a>'
 		);
 		?>
 	</p>

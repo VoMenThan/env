@@ -3,7 +3,7 @@
  * Sitemap - General
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
+ * @subpackage RankMath\Sitemap
  */
 
 $cmb->add_field( array(
@@ -11,7 +11,7 @@ $cmb->add_field( array(
 	'type'       => 'text',
 	'name'       => esc_html__( 'Links Per Sitemap', 'rank-math' ),
 	'desc'       => esc_html__( 'Max number of links on each sitemap page.', 'rank-math' ),
-	'default'    => '1000',
+	'default'    => '200',
 	'attributes' => array( 'type' => 'number' ),
 ) );
 

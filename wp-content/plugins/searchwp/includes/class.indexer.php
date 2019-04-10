@@ -369,6 +369,7 @@ class SearchWPIndexer {
 
 		// allow dev to forcefully omit post types that would normally be indexed
 		$this->postTypesToIndex = apply_filters( 'searchwp_indexed_post_types', $this->postTypesToIndex );
+		$this->postTypesToIndex = array_unique( $this->postTypesToIndex );
 
 		// attachments cannot be included here, to omit attachments use the searchwp_index_attachments filter
 		// so we have to check to make sure attachments were not included
@@ -1820,6 +1821,10 @@ class SearchWPIndexer {
 	 * @since 1.0
 	 */
 	function index_title( $title = '' ) {
+		if ( ! $this->is_attribute_used( 'title' ) ) {
+			return '';
+		}
+
 		$title = ( ! is_string( $title ) || empty( $title ) ) && ! empty( $this->post->post_title ) ? $this->post->post_title : $title;
 		$title = $this->clean_content( $title );
 
@@ -1828,6 +1833,47 @@ class SearchWPIndexer {
 		} else {
 			return false;
 		}
+	}
+
+	public function is_attribute_used( $attribute = '' ) {
+		$used = false;
+		$attributes = array( 'title', 'slug', 'content', 'excerpt' );
+
+		if ( ! in_array( $attribute, $attributes, true ) ) {
+			return apply_filters( 'searchwp_is_attribute_used', $used, $attribute );
+		}
+
+		foreach ( SWP()->settings['engines'] as $engine => $post_types ) {
+			foreach ( $post_types as $post_type => $post_type_settings ) {
+
+				if ( $post_type !== $this->post->post_type ) {
+					continue;
+				}
+
+				if ( ! isset( $post_type_settings['enabled'] ) || empty( $post_type_settings['enabled'] ) ) {
+					continue;
+				}
+
+				if ( empty( $post_type_settings['weights'] ) ) {
+					continue;
+				}
+
+				if ( empty( $post_type_settings['weights'][ $attribute ] ) ) {
+					continue;
+				}
+
+				$used = true;
+			}
+
+			if ( $used ) {
+				break;
+			}
+		}
+
+		$used = apply_filters( 'searchwp_is_attribute_used', $used, $attribute );
+		$used = ! empty( $used );
+
+		return $used;
 	}
 
 
@@ -1912,6 +1958,10 @@ class SearchWPIndexer {
 	 * @since 1.0
 	 */
 	function index_slug( $slug = '' ) {
+		if ( ! $this->is_attribute_used( 'slug' ) ) {
+			return '';
+		}
+
 		$slug = ( ! is_string( $slug ) || empty( $slug ) ) && ! empty( $this->post->post_name ) ? $this->post->post_name : $slug;
 		$slug = str_replace( '-', ' ', $slug );
 		$slug = $this->clean_content( $slug );
@@ -1932,6 +1982,10 @@ class SearchWPIndexer {
 	 * @since 1.0
 	 */
 	function index_content( $content = '' ) {
+		if ( ! $this->is_attribute_used( 'content' ) ) {
+			return '';
+		}
+
 		$content = ( ! is_string( $content ) || empty( $content ) ) && ! empty( $this->post->post_content ) ? $this->post->post_content : $content;
 
 		$content = $this->clean_content( $content );
@@ -2055,6 +2109,10 @@ class SearchWPIndexer {
 	 * @since 1.0
 	 */
 	function index_excerpt( $excerpt = '' ) {
+		if ( ! $this->is_attribute_used( 'excerpt' ) ) {
+			return '';
+		}
+
 		$excerpt = ( ! is_string( $excerpt ) || empty( $excerpt ) ) && ! empty( $this->post->post_excerpt ) ? $this->post->post_excerpt : $excerpt;
 		$excerpt = $this->clean_content( $excerpt );
 

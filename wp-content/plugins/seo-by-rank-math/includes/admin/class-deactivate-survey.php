@@ -5,7 +5,7 @@
  * @since      1.0.3
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
@@ -41,30 +41,35 @@ class Deactivate_Survey implements Runner {
 
 		check_ajax_referer( 'rank_math_deactivate_feedback_nonce', 'security' );
 
-		$reason_key  = '';
-		$reason_text = '';
+		$reason_key = '';
 		if ( ! empty( $_POST['reason_key'] ) ) {
 			$reason_key = $_POST['reason_key'];
 		}
+
+		$reason_text = $this->get_uninstall_reasons()[ $reason_key ]['title'];
 		if ( ! empty( $_POST[ "reason_{$reason_key}" ] ) ) {
 			$reason_text = $_POST[ "reason_{$reason_key}" ];
 		}
 
-		wp_safe_remote_post( 'https://mythemeshop.com/mtsapi/v1/deactivate_feedback', array(
-			'timeout'   => 30,
-			'blocking'  => false,
-			'sslverify' => false,
-			'cookies'   => array(),
-			'headers'   => array( 'user-agent' => 'RankMath/' . md5( esc_url( home_url( '/' ) ) ) . ';' ),
-			'body'      => array(
-				'product_name'    => 'rank-math',
-				'product_version' => rank_math()->get_version(),
-				'site_url'        => esc_url( site_url() ),
-				'site_lang'       => get_bloginfo( 'language' ),
-				'feedback_key'    => $reason_key,
-				'feedback'        => $reason_text,
-			),
-		));
+		wp_safe_remote_post(
+			'https://rankmath.com/wp-json/rankmath/v1/deactivationSurvey',
+			[
+				'timeout'   => 30,
+				'blocking'  => false,
+				'sslverify' => false,
+				'cookies'   => [],
+				'headers'   => [ 'user-agent' => 'RankMath/' . md5( esc_url( home_url( '/' ) ) ) . ';' ],
+				'body'      => [
+					'product_slug'    => 'rank-math-suite',
+					'product_name'    => 'Rank Math Suite',
+					'product_version' => rank_math()->version,
+					'site_url'        => esc_url( site_url() ),
+					'site_lang'       => get_bloginfo( 'language' ),
+					'feedback_key'    => $reason_key,
+					'feedback'        => $reason_text,
+				],
+			]
+		);
 
 		wp_send_json_success();
 	}
@@ -76,7 +81,7 @@ class Deactivate_Survey implements Runner {
 		$screen = get_current_screen();
 
 		// Early Bail!
-		if ( ! in_array( $screen->id, array( 'plugins', 'plugins-network' ), true ) ) {
+		if ( ! in_array( $screen->id, [ 'plugins', 'plugins-network' ], true ) ) {
 			return;
 		}
 
@@ -141,27 +146,27 @@ class Deactivate_Survey implements Runner {
 	 * @return array
 	 */
 	private function get_uninstall_reasons() {
-		return array(
-			'no_longer_needed'           => array(
+		return [
+			'no_longer_needed'           => [
 				'title'       => esc_html__( 'I no longer need the plugin', 'rank-math' ),
 				'placeholder' => '',
-			),
-			'found_a_better_plugin'      => array(
+			],
+			'found_a_better_plugin'      => [
 				'title'       => esc_html__( 'I found a better plugin', 'rank-math' ),
 				'placeholder' => esc_html__( 'Please share which plugin', 'rank-math' ),
-			),
-			'couldnt_get_plugin_to_work' => array(
+			],
+			'couldnt_get_plugin_to_work' => [
 				'title'       => esc_html__( 'I couldn\'t get the plugin to work', 'rank-math' ),
 				'placeholder' => '',
-			),
-			'temporary_deactivation'     => array(
+			],
+			'temporary_deactivation'     => [
 				'title'       => esc_html__( 'It\'s a temporary deactivation', 'rank-math' ),
 				'placeholder' => '',
-			),
-			'other'                      => array(
+			],
+			'other'                      => [
 				'title'       => esc_html__( 'Other', 'rank-math' ),
 				'placeholder' => esc_html__( 'Please share the reason', 'rank-math' ),
-			),
-		);
+			],
+		];
 	}
 }

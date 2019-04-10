@@ -28,6 +28,7 @@
 	</table>
 
 	<footer>
+		<?php wp_nonce_field( 'rank-math-import-settings' ); ?>
 		<input type="hidden" name="object_id" value="import-plz">
 		<input type="hidden" name="action" value="wp_handle_upload">
 		<button type="submit" class="button button-primary button-xlarge"><?php esc_html_e( 'Import', 'rank-math' ); ?></button>

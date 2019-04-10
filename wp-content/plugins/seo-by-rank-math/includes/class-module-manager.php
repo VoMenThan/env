@@ -5,12 +5,13 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Core
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath;
 
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Conditional;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -46,13 +47,13 @@ class Module_Manager {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		if ( Helper::is_heartbeat() ) {
+		if ( Conditional::is_heartbeat() ) {
 			return;
 		}
 
-		$this->action( 'admin_post_save_modules', 'save' );
-		$this->action( 'plugins_loaded', 'setup_modules', 1 );
-		$this->action( 'plugins_loaded', 'load_modules', 2 );
+		$this->action( 'plugins_loaded', 'setup_modules' );
+		$this->action( 'plugins_loaded', 'load_modules', 11 );
+		add_action( 'rank_math/module_changed', [ '\RankMath\Admin\Watcher', 'module_changed' ], 10, 2 );
 	}
 
 	/**
@@ -69,7 +70,7 @@ class Module_Manager {
 				'id'            => '404-monitor',
 				'title'         => esc_html__( '404 Monitor', 'rank-math' ),
 				'desc'          => esc_html__( 'Records the URLs on which visitors & search engines run into 404 Errors. You can also turn on Redirections to redirect the error causing URLs to other URLs.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\Monitor\Monitor',
+				'class'         => 'RankMath\Monitor\Monitor',
 				'icon'          => 'dashicons-dismiss',
 				'settings_link' => Helper::get_admin_url( 'options-general' ) . '#setting-panel-404-monitor',
 			),
@@ -78,8 +79,8 @@ class Module_Manager {
 				'id'            => 'local-seo',
 				'title'         => esc_html__( 'Local SEO & Google Knowledge Graph', 'rank-math' ),
 				'desc'          => esc_html__( 'Dominate the search results for local audience by optimizing your website and posts using this Rank Math module.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\Local_Seo\Local_Seo',
-				'icon'          => 'dashicons-admin-links',
+				'class'         => 'RankMath\Local_Seo\Local_Seo',
+				'icon'          => 'dashicons-location-alt',
 				'settings_link' => Helper::get_admin_url( 'options-titles' ) . '#setting-panel-local',
 			),
 
@@ -87,7 +88,7 @@ class Module_Manager {
 				'id'            => 'redirections',
 				'title'         => esc_html__( 'Redirections', 'rank-math' ),
 				'desc'          => esc_html__( 'Redirect non-existent content easily with 301 and 302 status code. This can help reduce errors and improve your site ranking.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\Redirections\Redirections',
+				'class'         => 'RankMath\Redirections\Redirections',
 				'icon'          => 'dashicons-randomize',
 				'settings_link' => Helper::get_admin_url( 'options-general' ) . '#setting-panel-redirections',
 			),
@@ -96,7 +97,7 @@ class Module_Manager {
 				'id'            => 'rich-snippet',
 				'title'         => esc_html__( 'Rich Snippets', 'rank-math' ),
 				'desc'          => esc_html__( 'Enable support for the Rich Snippets, which adds metadata to your website, resulting in rich search results and more traffic.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\RichSnippet\RichSnippet',
+				'class'         => 'RankMath\RichSnippet\RichSnippet',
 				'icon'          => 'dashicons-awards',
 				'settings_link' => Helper::get_admin_url( 'options-titles' ) . '#setting-panel-post-type-post',
 			),
@@ -105,7 +106,7 @@ class Module_Manager {
 				'id'            => 'role-manager',
 				'title'         => esc_html__( 'Role Manager', 'rank-math' ),
 				'desc'          => esc_html__( 'The Role Manager allows you to use internal WordPress\' roles to control which of your site admins can change Rank Math\'s settings', 'rank-math' ),
-				'class'         => 'RankMath\Modules\Role_Manager\Role_Manager',
+				'class'         => 'RankMath\Role_Manager\Role_Manager',
 				'icon'          => 'dashicons-admin-users',
 				'only'          => 'admin',
 				'settings_link' => Helper::get_admin_url( 'role-manager' ),
@@ -115,7 +116,7 @@ class Module_Manager {
 				'id'            => 'search-console',
 				'title'         => esc_html__( 'Search Console', 'rank-math' ),
 				'desc'          => esc_html__( 'Connect Rank Math with Google Search Console to see the most important information from Google directly in your WordPress dashboard.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\Search_Console\Search_Console',
+				'class'         => 'RankMath\Search_Console\Search_Console',
 				'icon'          => 'dashicons-search',
 				'only'          => 'admin',
 				'settings_link' => Helper::get_admin_url( 'options-general' ) . '#setting-panel-search-console',
@@ -125,7 +126,7 @@ class Module_Manager {
 				'id'            => 'seo-analysis',
 				'title'         => esc_html__( 'SEO Analysis', 'rank-math' ),
 				'desc'          => esc_html__( 'Let Rank Math analyze your website and your website\'s content using 70+ different tests to provide tailor-made SEO Analysis to you.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\SEO_Analysis\SEO_Analysis',
+				'class'         => 'RankMath\SEO_Analysis\SEO_Analysis',
 				'icon'          => 'dashicons-chart-bar',
 				'only'          => 'admin',
 				'settings_link' => Helper::get_admin_url( 'seo-analysis' ),
@@ -135,7 +136,7 @@ class Module_Manager {
 				'id'            => 'sitemap',
 				'title'         => esc_html__( 'Sitemap', 'rank-math' ),
 				'desc'          => esc_html__( 'Enable Rank Math\'s sitemap feature, which helps search engines index your website\'s content effectively.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\Sitemap\Sitemap',
+				'class'         => 'RankMath\Sitemap\Sitemap',
 				'icon'          => 'dashicons-networking',
 				'settings_link' => Helper::get_admin_url( 'options-sitemap' ),
 			),
@@ -143,8 +144,11 @@ class Module_Manager {
 			'amp'            => array(
 				'id'    => 'amp',
 				'title' => esc_html__( 'AMP', 'rank-math' ),
-				/* translators: Link to AMP plugin */
-				'desc'  => sprintf( esc_html__( 'Install %s from WordPress.org to make Rank Math work with Accelerated Mobile Pages. It is required because AMP are different than WordPress pages and our plugin doesn\'t work with them out-of-the-box.', 'rank-math' ), '<a href="https://wordpress.org/plugins/amp/" target="_blank">' . esc_html__( 'AMP plugin', 'rank-math' ) . '</a>' ),
+				'desc'  => sprintf(
+					/* translators: Link to AMP plugin */
+					esc_html__( 'Install %s from WordPress.org to make Rank Math work with Accelerated Mobile Pages. It is required because AMP are different than WordPress pages and our plugin doesn\'t work with them out-of-the-box.', 'rank-math' ),
+					'<a href="' . Helper::get_admin_url( 'help#help-panel-amp' ) . '">' . esc_html__( 'AMP plugin', 'rank-math' ) . '</a>'
+				),
 				'icon'  => 'dashicons-smartphone',
 				'only'  => 'skip',
 			),
@@ -153,17 +157,17 @@ class Module_Manager {
 				'id'            => 'woocommerce',
 				'title'         => esc_html__( 'WooCommerce', 'rank-math' ),
 				'desc'          => esc_html__( 'WooCommerce module to use Rank Math to optimize WooCommerce Product Pages.', 'rank-math' ),
-				'class'         => 'RankMath\Modules\WooCommerce\WooCommerce',
+				'class'         => 'RankMath\WooCommerce\WooCommerce',
 				'icon'          => 'dashicons-cart',
-				'disabled'      => ( ! Helper::is_woocommerce_active() ),
+				'disabled'      => ( ! Conditional::is_woocommerce_active() ),
 				'disabled_text' => esc_html__( 'Please activate WooCommerce plugin to use this module.', 'rank-math' ),
 			),
 
 			'link-counter'   => array(
 				'id'    => 'link-counter',
 				'title' => esc_html__( 'Link Counter', 'rank-math' ),
-				'desc'  => esc_html__( 'Counts the total number of internal, external links, to and fro links inside your posts.', 'rank-math' ),
-				'class' => 'RankMath\Modules\Links\Links',
+				'desc'  => esc_html__( 'Counts the total number of internal, external links, to and from links inside your posts.', 'rank-math' ),
+				'class' => 'RankMath\Links\Links',
 				'icon'  => 'dashicons-admin-links',
 			),
 		) );
@@ -220,7 +224,7 @@ class Module_Manager {
 
 		$is_disabled = isset( $module['disabled'] ) && $module['disabled'];
 		$can_skip    = isset( $module['only'] ) && 'skip' === $module['only'];
-		$inactive    = ! in_array( $module_id, $this->active );
+		$inactive    = ! is_array( $this->active ) || ! in_array( $module_id, $this->active );
 		if ( $is_disabled || $can_skip || $inactive ) {
 			return false;
 		}
@@ -239,9 +243,7 @@ class Module_Manager {
 			return;
 		}
 		?>
-		<form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" class="rank-math-ui module-listing">
-			<input type="hidden" name="action" value="save_modules">
-			<?php wp_nonce_field( 'rank-math-save-module', 'security' ); ?>
+		<div class="rank-math-ui module-listing">
 
 			<div class="two-col">
 			<?php
@@ -250,10 +252,15 @@ class Module_Manager {
 					continue;
 				}
 
-				$is_active = is_array( $this->active ) && in_array( $module_id, $this->active );
+				$is_active   = is_array( $this->active ) && in_array( $module_id, $this->active );
+				$label_class = '';
+				if ( isset( $module['disabled'] ) && $module['disabled'] ) {
+					$is_active   = false;
+					$label_class = 'rank-math-tooltip';
+				}
 				?>
 				<div class="col">
-					<div class="rank-math-box">
+					<div class="rank-math-box <?php echo $is_active ? 'active' : ''; ?>">
 
 						<span class="dashicons <?php echo isset( $module['icon'] ) ? $module['icon'] : 'dashicons-category'; ?>"></span>
 
@@ -262,57 +269,32 @@ class Module_Manager {
 
 							<p><em><?php echo $module['desc']; ?></em></p>
 
-							<?php if ( $is_active && ! empty( $module['settings_link'] ) ) : ?>
-								<a href="<?php echo esc_url( $module['settings_link'] ); ?>" style="font-size: 17px; line-height: 1.2; display: block;"><?php esc_html_e( 'Settings', 'rank-math' ); ?></a>
+							<?php if ( ! empty( $module['settings_link'] ) ) : ?>
+								<a class="module-settings" href="<?php echo esc_url( $module['settings_link'] ); ?>"><?php esc_html_e( 'Settings', 'rank-math' ); ?></a>
 							<?php endif; ?>
 
 						</header>
-						<?php
-						$label_class = '';
-						if ( isset( $module['disabled'] ) && $module['disabled'] ) {
-							$is_active   = false;
-							$label_class = 'rank-math-tooltip';
-						}
-						?>
-						<div class="status <?php echo $is_active ? 'active' : ''; ?> wp-clearfix">
+						<div class="status wp-clearfix">
 							<span class="rank-math-switch">
-								<input type="checkbox" id="module-<?php echo $module_id; ?>" name="modules[]" value="<?php echo $module_id; ?>"<?php checked( $is_active ); ?> <?php disabled( ( isset( $module['disabled'] ) && $module['disabled'] ), true ); ?>>
+								<input type="checkbox" class="rank-math-modules" id="module-<?php echo $module_id; ?>" name="modules[]" value="<?php echo $module_id; ?>"<?php checked( $is_active ); ?> <?php disabled( ( isset( $module['disabled'] ) && $module['disabled'] ), true ); ?>>
 								<label for="module-<?php echo $module_id; ?>" class="<?php echo $label_class; ?>"><?php esc_html_e( 'Toggle', 'rank-math' ); ?>
 									<?php echo isset( $module['disabled_text'] ) ? '<span>' . $module['disabled_text'] . '</span>' : ''; ?>
 								</label>
+								<span class="input-loading"></span>
 							</span>
-							<label><?php esc_html_e( 'Status:', 'rank-math' ); ?> <span><?php echo $is_active ? esc_html__( 'Active', 'rank-math' ) : esc_html__( 'Inactive', 'rank-math' ); ?></span></label>
+							<label>
+								<?php esc_html_e( 'Status:', 'rank-math' ); ?>
+								<span class="module-status active-text"><?php echo esc_html__( 'Active', 'rank-math' ); ?> </span>
+								<span class="module-status inactive-text"><?php echo esc_html__( 'Inactive', 'rank-math' ); ?> </span>
+							</label>
 						</div>
 					</div>
 				</div>
 			<?php endforeach; ?>
 			</div>
 
-			<?php submit_button( esc_attr__( 'Save Modules', 'rank-math' ), 'primary button-xlarge', 'submit-modules', false ); ?>
-
-		</form>
+		</div>
 		<?php
-	}
-
-	/**
-	 * Save handler.
-	 *
-	 * @codeCoverageIgnore
-	 */
-	public function save() {
-
-		if ( ! check_admin_referer( 'rank-math-save-module', 'security' ) ) {
-			die;
-		}
-
-		$modules = isset( $_POST['modules'] ) ? $_POST['modules'] : array();
-
-		update_option( 'rank_math_modules', $modules );
-
-		Helper::schedule_flush_rewrite();
-
-		wp_safe_redirect( $_POST['_wp_http_referer'] );
-		exit;
 	}
 
 	/**

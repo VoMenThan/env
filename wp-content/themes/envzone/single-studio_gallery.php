@@ -36,11 +36,11 @@ get_header();
                 <div class="col-8">
                     <div class="carousel-photo-detail owl-carousel owl-theme">
                         <?php
-                            $album = get_field('album', $post->ID);
+                            $album = get_field('photo_album', $post->ID);
                             foreach ($album as $k => $item):
                         ?>
                         <div class="item"  data-hash="<?php echo $k; ?>">
-                            <img src="<?php echo $item['photo'];?>" alt="">
+                            <img title="<?php echo $item['title'];?>" src="<?php echo $item['url'];?>" alt="<?php echo $item['alt'];?>">
                             <?php if (($item['description']) != ''):?>
                             <div class="description-photo">
                                 <?php echo $item['description'];?>
@@ -129,7 +129,7 @@ get_header();
                             foreach ($album as $k => $item):
                         ?>
                         <div class="item">
-                            <a href="#<?php echo $k;?>"><img src="<?php echo $item['photo'];?>" alt=""></a>
+                            <a href="#<?php echo $k;?>"><img title="<?php echo $item['title']?>" src="<?php echo $item['sizes']['medium'];?>" alt="<?php echo $item['alt']?>"></a>
                         </div>
                         <?php endforeach;?>
 
@@ -182,11 +182,11 @@ get_header();
                             <p>
                                 Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
                             </p>
-                            <form action="" method="get">
-                                <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                                <input type="submit" hidden>
-                                <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-                            </form>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
                         </div>
                     </div>
 
@@ -210,11 +210,17 @@ get_header();
                         $args = array(
                             'posts_per_page' => 7,
                             'offset'=> 0,
-                            'post_type' => 'studio',
+                            'post_type' => 'studio_gallery',
                             'orderby' => 'id',
                             'order' =>'desc',
-                            'meta_key' => 'highlight_activities',
-                            'meta_value' => true
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'album_show',
+                                    'value' => 'watch-more',
+                                    'compare' => 'LIKE',
+                                )
+                            )
 
                         );
                         $photo_studio = get_posts( $args );
@@ -244,7 +250,7 @@ get_header();
                                             $avatar = get_field('avatar', 'user_'.$item->post_author);
                                         }
                                         ?>
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
@@ -271,8 +277,14 @@ get_header();
                             'post_type' => 'post',
                             'orderby' => 'id',
                             'order' =>'desc',
-                            'meta_key' => 'experts',
-                            'meta_value' => true
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'post_show',
+                                    'value' => 'read-more-from-experts',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $news_expert = get_posts( $args );
 
@@ -300,7 +312,7 @@ get_header();
                                             $avatar = get_field('avatar', 'user_'.$item->post_author);
                                         }
                                         ?>
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
@@ -315,8 +327,8 @@ get_header();
 
             <div class="row section-trending">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">LEARN MORE ABOUT C-LEVEL ADVICES</h3>
-                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                    <h3 class="title-head-blue have-border">WATCH MORE FROM C-LEVEL ADVICES</h3>
+                    <a href="<?php echo home_url('knowledge_center')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-theme d-flex slider-news">
@@ -324,11 +336,17 @@ get_header();
                         $args = array(
                             'posts_per_page' => 7,
                             'offset'=> 0,
-                            'post_type' => 'knowledge',
+                            'post_type' => 'knowledge_center',
                             'orderby' => 'id',
                             'order' =>'desc',
-                            'meta_key' => 'clevel',
-                            'meta_value' => true
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'video_show',
+                                    'value' => 'clevel-advice',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -358,7 +376,7 @@ get_header();
                                         </h2>
                                     </a>
                                     <div class="audit">
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
@@ -374,7 +392,7 @@ get_header();
             <div class="row section-trending">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
-                    <a href="<?php echo home_url('knowledge')?>" class="view-all">VIEW ALL</a>
+                    <a href="<?php echo home_url('knowledge_center')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-theme d-flex slider-news">
@@ -382,11 +400,17 @@ get_header();
                         $args = array(
                             'posts_per_page' => 7,
                             'offset'=> 0,
-                            'post_type' => 'knowledge',
+                            'post_type' => 'knowledge_center',
                             'orderby' => 'id',
                             'order' =>'desc',
-                            'meta_key' => 'events',
-                            'meta_value' => true
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'video_show',
+                                    'value' => 'watch-rock',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $news_expert = get_posts( $args );
                         foreach ($news_expert as $item):
@@ -415,7 +439,7 @@ get_header();
                                         </h2>
                                     </a>
                                     <div class="audit">
-                                        <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
@@ -435,8 +459,6 @@ get_header();
 <script>
     /*============ slide news =================*/
     $(document).ready(function() {
-
-        $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
         /*slider product detail*/
         $(".carousel-photo-detail").owlCarousel({

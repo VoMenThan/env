@@ -1,42 +1,6 @@
 <?php
     global $wp_query;
 
-    $terms = get_terms(array(
-        'taxonomy' => 'category',
-        'hide_empty' => false,
-        'orderby' => 'id',
-        'order' => 'asc',
-        'parent' => 0
-    ));
-
-    foreach ( $terms as $k => $v) {
-        $args = array(
-            'posts_per_page' => -1,
-            'post_type' => 'post',
-            'order' => 'desc',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'category',
-                    'field' => 'id',
-                    'orderby' => 'id',
-                    'order' => 'desc',
-                    'terms' => $v->term_id
-                )
-            )
-        );
-        $terms[$k]->list = get_posts($args);
-
-    }
-
-    $args = array(
-        'posts_per_page' => 12,
-        'offset'=> 0,
-        'post_type' => 'post',
-        'orderby' => 'id',
-        'order' =>'desc'
-    );
-    $news_all = get_posts( $args );
-
     get_header();
 ?>
 
@@ -69,8 +33,14 @@
                     'post_type' => 'post',
                     'orderby' => 'post_modified',
                     'order' =>'desc',
-                    'meta_key' => 'main_article',
-                    'meta_value' => true
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                        array(
+                            'key' => 'post_show',
+                            'value' => 'featured-insights',
+                            'compare' => 'LIKE',
+                        )
+                    )
                 );
                 $news_main = get_posts( $args );
                 ?>
@@ -109,7 +79,7 @@
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                     <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_main[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_main[0]->post_author);?></a>
                                     <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_main[0]->ID );?></div>
                                 </div>
@@ -128,7 +98,15 @@
                     'offset'=> 0,
                     'post_type' => 'post',
                     'orderby' => 'id',
-                    'order' =>'desc'
+                    'order' =>'desc',
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                        array(
+                            'key' => 'post_show',
+                            'value' => 'featured-insights',
+                            'compare' => 'LIKE',
+                        )
+                    )
                 );
                 $news_special = get_posts( $args );
 
@@ -154,7 +132,7 @@
                                     </a>
                                 </div>
                                 <div class="info-author">
-                                    <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                     <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                         By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
@@ -177,36 +155,53 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <?php for($i=7; $i<12; $i++):?>
+                    <?php
+                    $args = array(
+                        'posts_per_page' => 7,
+                        'offset'=> 0,
+                        'post_type' => 'post',
+                        'orderby' => 'id',
+                        'order' =>'desc',
+                        'meta_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'post_show',
+                                'value' => 'featured-insights',
+                                'compare' => 'NOT EXISTS',
+                            )
+                        )
+                    );
+                    $news_recent = get_posts( $args );
+                    foreach($news_recent as $item):?>
                     <article class="highlight-news-right clearfix">
                         <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_all[$i]->ID);?>">
+                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
                         </a>
                         <div class="info-news">
-                            <a href="<?php echo home_url('category/').get_the_category($news_all[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_all[$i]->ID)[0]->cat_name;?></a>
-                            <a href="<?php echo get_home_url().'/blog/'.$news_all[$i]->post_name;?>">
+                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
                                 <h2>
-                                    <?php echo $news_all[$i]->post_title;?>
+                                    <?php echo $item->post_title;?>
                                 </h2>
                             </a>
                             <div class="audit">
                                 <?php
-                                if (get_field('avatar', 'user_'.$news_all[$i]->post_author)== ''){
+                                if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                     $avatar = ASSET_URL.'images/avatar-default.png';
                                 }
                                 else{
-                                    $avatar = get_field('avatar', 'user_'.$news_all[$i]->post_author);
+                                    $avatar = get_field('avatar', 'user_'.$item->post_author);
                                 }
                                 ?>
-                                <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_all[$i]->post_author);?>">
-                                    By <?php echo get_the_author_meta('display_name', $news_all[$i]->post_author);?>
+                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>">
+                                    By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                 </a>
-                                <div class="date-public">on <?php echo get_the_date( 'M d, Y', $news_all[$i]->ID );?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'M d, Y', $item->ID );?></div>
                             </div>
                         </div>
                     </article>
-                    <?php endfor;?>
+                    <?php endforeach;?>
                     <!--<a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 

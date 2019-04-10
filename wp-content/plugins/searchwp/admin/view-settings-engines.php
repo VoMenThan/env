@@ -12,6 +12,8 @@ if ( class_exists( 'SearchWPUpgrade' ) && empty( SWP()->settings['engines'] ) ) 
 $indexer = new SearchWPIndexer();
 $indexer->update_running_counts();
 
+do_action( 'searchwp_settings_engines' );
+
 // The data store
 $data = array();
 
@@ -84,6 +86,32 @@ $max_weight = apply_filters( 'searchwp_weight_max', 100 );
 
 $enabled_post_types = SWP()->get_enabled_post_types_across_all_engines();
 
+$stats_url = admin_url( 'index.php?page=searchwp-stats' );
+
+if ( class_exists( 'SearchWP_Metrics' ) ) {
+	$stats_url = admin_url( 'index.php?page=searchwp-metrics' );
+}
+
+$excluded = array();
+
+$excluded_post_types = get_post_types(
+	array(
+		'exclude_from_search' => true,
+		'_builtin'            => false,
+	)
+);
+
+if ( ! empty( $excluded_post_types ) ) {
+	foreach ( $excluded_post_types as $key => $var ) {
+		$post_type = get_post_type_object( $key );
+		$excluded[ $key ] = array(
+			'name'   => $key,
+			'label'  => $post_type->label,
+			'labels' => $post_type->labels,
+		);
+	}
+}
+
 // Misc data
 $data['misc'] = array(
 	'max_weight'             => absint( $max_weight ),
@@ -95,13 +123,8 @@ $data['misc'] = array(
 	'ziparchive'             => class_exists( 'ZipArchive' ),
 	'domdocument'            => class_exists( 'DOMDocument' ),
 	'empty_engines'          => empty( $enabled_post_types ),
-	'stats_url'              => admin_url( 'index.php?page=searchwp-stats' ),
-	'excluded_from_search'   => get_post_types(
-		array(
-			'exclude_from_search' => true,
-			'_builtin'            => false,
-		)
-	),
+	'stats_url'              => $stats_url,
+	'excluded_from_search'   => $excluded,
 	'mimes' => array(
 		__( 'All Documents', 'searchwp' ),
 		__( 'PDFs', 'searchwp' ),

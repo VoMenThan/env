@@ -3,7 +3,7 @@
  * Help Role page template.
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Role_Manager
+ * @subpackage RankMath\Role_Manager
  */
 
 ?>
@@ -18,7 +18,7 @@
 			<p>
 				<?php
 					/* translators: %s is a Learn More link to the documentation */
-					printf( __( 'Control which user has access to which options of Rank Math. %s', 'rank-math' ), '<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/role-manager/" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>.' );
+					printf( __( 'Control which user has access to which options of Rank Math. %s', 'rank-math' ), '<a href="' . \RankMath\KB::get( 'role-manager' ) . '" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>.' );
 				?>
 			</p>
 		</header>

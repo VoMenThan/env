@@ -3,15 +3,16 @@
  * The SEO Analysis
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\SEO_Analysis;
+namespace RankMath\SEO_Analysis;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Conditional;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -26,7 +27,7 @@ class SEO_Analysis {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		if ( Helper::is_heartbeat() ) {
+		if ( Conditional::is_heartbeat() ) {
 			return;
 		}
 

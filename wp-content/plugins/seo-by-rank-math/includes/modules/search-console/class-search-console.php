@@ -3,19 +3,22 @@
  * The Search Console Module
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use Exception;
 use RankMath\Helper;
 use RankMath\Module;
-use RankMath\Admin\Page;
-use RankMath\Admin\Helper as Admin_Helper;
+use RankMath\Admin\Admin_Helper;
 use RankMath\Traits\Ajax;
+use MyThemeShop\Admin\Page;
+use MyThemeShop\Helpers\Arr;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Conditional;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -52,7 +55,7 @@ class Search_Console extends Module {
 	 */
 	public function __construct() {
 
-		if ( Helper::is_heartbeat() ) {
+		if ( Conditional::is_heartbeat() ) {
 			return;
 		}
 
@@ -89,7 +92,8 @@ class Search_Console extends Module {
 				$this->current_tab = isset( $_GET['view'] ) ? $_GET['view'] : 'overview';
 
 				if ( $this->client->is_authorized ) {
-					$class = '\\RankMath\\Modules\\Search_Console\\' . ucfirst( $this->current_tab );
+					$class = 'RankMath\Search_Console\\' . ucfirst( $this->current_tab );
+
 					if ( class_exists( $class ) ) {
 						$this->{$this->current_tab} = new $class( $this->client );
 					}
@@ -111,10 +115,10 @@ class Search_Console extends Module {
 		?>
 		<h3><?php esc_html_e( 'Search Console Stats', 'rank-math' ); ?></h3>
 		<ul>
-			<li><span><?php esc_html_e( 'Total Keywords', 'rank-math' ); ?></span><?php echo Helper::human_number( $data_info['keywords'] ); ?></li>
-			<li><span><?php esc_html_e( 'Total Pages', 'rank-math' ); ?></span><?php echo Helper::human_number( $data_info['pages'] ); ?></li>
-			<li><span><?php esc_html_e( 'Total Clicks', 'rank-math' ); ?></span><?php echo Helper::human_number( $data_info['totals']->clicks ); ?></li>
-			<li><span><?php esc_html_e( 'Total Impressions', 'rank-math' ); ?></span><?php echo Helper::human_number( $data_info['totals']->impressions ); ?></li>
+			<li><span><?php esc_html_e( 'Total Keywords', 'rank-math' ); ?></span><?php echo Str::human_number( $data_info['keywords'] ); ?></li>
+			<li><span><?php esc_html_e( 'Total Pages', 'rank-math' ); ?></span><?php echo Str::human_number( $data_info['pages'] ); ?></li>
+			<li><span><?php esc_html_e( 'Total Clicks', 'rank-math' ); ?></span><?php echo Str::human_number( $data_info['totals']->clicks ); ?></li>
+			<li><span><?php esc_html_e( 'Total Impressions', 'rank-math' ); ?></span><?php echo Str::human_number( $data_info['totals']->impressions ); ?></li>
 			<li><span><?php esc_html_e( 'Average Position', 'rank-math' ); ?></span><?php echo round( $data_info['totals']->position, 2 ); ?></li>
 			<li><span><?php esc_html_e( 'Average CTR', 'rank-math' ); ?></span><?php echo round( $data_info['totals']->ctr, 2 ); ?></li>
 		</ul>
@@ -134,22 +138,19 @@ class Search_Console extends Module {
 			'parent'     => 'rank-math',
 			'capability' => 'rank_math_search_console',
 			'render'     => $dir . 'main.php',
+			'classes'    => array( 'rank-math-page' ),
 			'help'       => array(
-				'search-console-overview'     => array(
+				'search-console-overview'  => array(
 					'title'   => esc_html__( 'Overview', 'rank-math' ),
 					'content' => '<p>' . esc_html__( 'Connect Rank Math with Google Search Console to see the most important information from Google directly in your WordPress dashboard.', 'rank-math' ) . '</p>',
 				),
-				'search-console-analytics'    => array(
+				'search-console-analytics' => array(
 					'title'   => esc_html__( 'Screen Content', 'rank-math' ),
 					'content' => '<p>' . esc_html__( 'The Search Analytics tab will give you insights about how your site performs in search engines: you can see the top search queries to find your site and your most popular landing pages.', 'rank-math' ) . '</p>',
 				),
-				'search-console-sitemaps'     => array(
+				'search-console-sitemaps'  => array(
 					'title'   => esc_html__( 'Available Actions', 'rank-math' ),
 					'content' => '<p>' . esc_html__( 'The Sitemaps tab gives you an overview of the sitemaps submitted to the Search Console.', 'rank-math' ) . '</p>',
-				),
-				'search-console-crawl-errors' => array(
-					'title'   => esc_html__( 'Bulk Actions', 'rank-math' ),
-					'content' => '<p>' . esc_html__( 'The Crawl Errors tab informs you about any error the Google bot encountered while indexing your site. Desktop and mobile issues can be listed separately.', 'rank-math' ) . '</p>',
 				),
 			),
 			'assets'     => array(
@@ -177,12 +178,12 @@ class Search_Console extends Module {
 	 */
 	public function add_settings( $tabs ) {
 
-		Helper::array_insert( $tabs, array(
+		Arr::insert( $tabs, array(
 			'search-console' => array(
 				'icon'  => 'fa fa-search-plus',
 				'title' => esc_html__( 'Search Console', 'rank-math' ),
 				/* translators: Link to kb article */
-				'desc'  => sprintf( esc_html__( 'Connect Rank Math with your Google Search Console profile to see the most important information from Google directly in your WordPress dashboard. %s.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/rank-math-seo-plugin/general-settings/#search-console" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>' ),
+				'desc'  => sprintf( esc_html__( 'Connect Rank Math with your Google Search Console profile to see the most important information from Google directly in your WordPress dashboard. %s.', 'rank-math' ), '<a href="' . \RankMath\KB::get( 'search-console-settings' ) . '" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>' ),
 				'file'  => $this->directory . '/views/options.php',
 			),
 		), 9 );
@@ -199,9 +200,16 @@ class Search_Console extends Module {
 			'overview'  => esc_html__( 'Overview', 'rank-math' ),
 			'analytics' => esc_html__( 'Search Analytics', 'rank-math' ),
 			'sitemaps'  => esc_html__( 'Sitemaps', 'rank-math' ),
-			'errors'    => esc_html__( 'Crawl Errors', 'rank-math' ),
 			'tracker'   => esc_html__( 'Keyword Tracker', 'rank-math' ),
 		);
+
+		// Sitemaps not available for Domain Property.
+		if ( $this->client->is_authorized ) {
+			$this->sitemaps = new Sitemaps( $this->client );
+			if ( $this->sitemaps->selected_site_is_domain_property() ) {
+				unset( $tabs['sitemaps'] );
+			}
+		}
 
 		$filters = $this->get_filters();
 		?>
@@ -280,6 +288,10 @@ class Search_Console extends Module {
 			$this->error( 'No profiles found.' );
 		}
 
+		foreach ( $profiles as $key => $value ) {
+			$profiles[ $key ] = str_replace( 'sc-domain:', __( 'Domain Property: ', 'rank-math' ), $value );
+		}
+
 		$this->success( array(
 			'profiles' => $profiles,
 			'selected' => $this->select_profile( $profiles ),
@@ -324,7 +336,7 @@ class Search_Console extends Module {
 		DB::delete( intval( $days ) );
 		$db_info            = DB::info();
 		$db_info['message'] = sprintf( '<div class="rank-math-console-db-info"><span class="dashicons dashicons-calendar-alt"></span> Cached Days: <strong>%s</strong></div>', $db_info['days'] ) .
-		sprintf( '<div class="rank-math-console-db-info"><span class="dashicons dashicons-editor-ul"></span> Data Rows: <strong>%s</strong></div>', Helper::human_number( $db_info['rows'] ) ) .
+		sprintf( '<div class="rank-math-console-db-info"><span class="dashicons dashicons-editor-ul"></span> Data Rows: <strong>%s</strong></div>', Str::human_number( $db_info['rows'] ) ) .
 		sprintf( '<div class="rank-math-console-db-info"><span class="dashicons dashicons-editor-code"></span> Size: <strong>%s</strong></div>', size_format( $db_info['size'] ) );
 
 		$this->success( $db_info );

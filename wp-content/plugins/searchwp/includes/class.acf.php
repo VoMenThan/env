@@ -22,7 +22,9 @@ class SearchWP_ACF {
 	 * @since 3.0
 	 */
 	public function __construct() {
-		add_action( 'searchwp_loaded', array( $this, 'init_meta_groups' ) );
+		add_action( 'searchwp_settings_before\default', array( $this, 'init_meta_groups' ) );
+
+		// Prevent interference with ACF oEmbed.
 		add_filter( 'searchwp_short_circuit', array( $this, 'oembed_compat' ), 5 );
 	}
 
@@ -126,7 +128,7 @@ class SearchWP_ACF {
 
 		// ACF also makes 'private' versions of all fields which are references to other IDs used
 		// interally by ACF but will likely never be applicable to us, so let's remove them.
-		$remove_acf_refs = apply_filters( 'searchwp_acf_remove_field_references', true, array(
+		$remove_acf_refs = apply_filters( 'searchwp_acf_remove_field_references', false, array(
 			'post_type' => $post_type,
 		) );
 		if ( $remove_acf_refs ) {

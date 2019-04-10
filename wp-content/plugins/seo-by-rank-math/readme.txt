@@ -1,11 +1,11 @@
 === WordPress SEO Plugin - Rank Math ===
-Contributors: MyThemeShop
-Plugin link: https://link.mythemeshop.com/rankmathseo
+Contributors: rankmath
+Plugin link: https://s.rankmath.com/homepage
 Tags: seo, sitemap, google search console, schema.org, redirection
-Tested up to: 5.0.2
+Tested up to: 5.1
 Requires at least: 4.6.0
 Requires PHP: 5.6
-Stable tag: 1.0.9
+Stable tag: 1.0.23
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -16,12 +16,12 @@ Rank Math is a revolutionary SEO plugin that combines the features of many SEO t
 **SEO Plugin For WordPress**
 ★★★★★<br>
 
-**SEO is the most consistent source of traffic for any website.** We created <a href="https://link.mythemeshop.com/rankmathplugin" target="_blank">**Rank Math, a WordPress SEO plugin**</a>, to help every website owner get access to the SEO tools they need to improve their SEO and attract more traffic to their website.
-## <center><a href="https://link.mythemeshop.com/rmdemo" target="_blank">Try The Demo</a></center> ##
+**SEO is the most consistent source of traffic for any website.** We created <a href="https://s.rankmath.com/seo" target="_blank">**Rank Math, a WordPress SEO plugin**</a>, to help every website owner get access to the SEO tools they need to improve their SEO and attract more traffic to their website.
+## <center><a href="https://s.rankmath.com/demo" target="_blank">Try The Demo</a></center> ##
 
-[youtube https://www.youtube.com/watch?v=WxwLYITsqt8]
+[youtube https://www.youtube.com/watch?v=NgeaqIy2OB0]
 
-<a href="https://link.mythemeshop.com/rankmathfeatures" target="_blank">Features</a> | <a href="https://link.mythemeshop.com/whyuserankmath" target="_blank">Why Choose Rank Math?</a> | <a href="https://link.mythemeshop.com/comparerankmath" target="_blank">Compare</a> | <a href="https://link.mythemeshop.com/rankmathscreenshots" target="_blank">Screenshots</a> | <a href="https://link.mythemeshop.com/rankmathbenefits" target="_blank">Benefits</a>
+<a href="https://s.rankmath.com/suitefeatures" target="_blank">Features</a> | <a href="https://s.rankmath.com/whyseosuite" target="_blank">Why Choose Rank Math?</a> | <a href="https://s.rankmath.com/compare" target="_blank">Compare</a> | <a href="https://s.rankmath.com/screenshots" target="_blank">Screenshots</a> | <a href="https://s.rankmath.com/benefits" target="_blank">Benefits</a>
 
 SEO might be the best and most **consistent source of traffic** for one's website, but it's not without its quirks. The constant process of optimizing your posts can sometimes take more time than actually writing the content. **If you always feel that you can do more on the SEO** front for your website but don't have the time, *then Rank Math is what you're looking for.
 
@@ -219,7 +219,6 @@ Coming Soon!
 	* **Google Site Verification**
 	* Pinterest Site Verification
 	* Norton Safe Web Site Verification
-* **Fix Google Crawl Errors**
 * Advanced **Redirection Manager**
 	* **Smart & Automatic Post Redirects**
 	* 301 Redirection Type
@@ -261,34 +260,48 @@ Coming Soon!
 	* Contextual Help
 
 ### Bloggers Are Raving About Us ###
-<a href="https://link.mythemeshop.com/rm-review" target="_blank">Rank Math SEO Plugin – The Stormbreaker to Win SEO Infinity War</a>
+<a href="https://s.rankmath.com/suganthan" target="_blank">Rank Math SEO Plugin Review from an SEO Consultant</a>
 
-<a href="https://link.mythemeshop.com/seorelation-review" target="_blank">Rank Math SEO Plugin Review</a>
+<a href="https://s.rankmath.com/ankitreview" target="_blank">Rank Math SEO Plugin – The Stormbreaker to Win SEO Infinity War</a>
 
-<a href="https://link.mythemeshop.com/bloginwp-review" target="_blank">Rank Math WordPress SEO Plugin review</a>
+<a href="https://s.rankmath.com/jacksonreview" target="_blank">Rank Math SEO Plugin Review</a>
 
-<a href="https://link.mythemeshop.com/blogginggenie-review" target="_blank">Rank Math SEO Plugin Review</a>
+<a href="https://s.rankmath.com/bloginwpreview" target="_blank">Rank Math WordPress SEO Plugin review</a>
 
-<a href="https://link.mythemeshop.com/sharjeel-review" target="_blank">Rank Math SEO Review</a>
+<a href="https://s.rankmath.com/lokenderreview" target="_blank">Rank Math SEO Plugin Review</a>
 
-<a href="https://link.mythemeshop.com/oww-rm" target="_blank">Rank Math – The Best SEO Plugin Review</a>
+<a href="https://s.rankmath.com/malikreview" target="_blank">Rank Math SEO Review</a>
+
+<a href="https://s.rankmath.com/onewhitereview" target="_blank">Rank Math – The Best SEO Plugin Review</a>
+
+<a href="https://s.rankmath.com/santanureview" target="_blank">#1 SEO Plugin - Rank Math</a>
 
 
 ## CONNECT WITH THE TEAM AND SEO EXPERTS ##
 
-**<a href="https://link.mythemeshop.com/fbgrouprankmath" target="_blank">JOIN FACEBOOK GROUP COMMUNITY</a>**: The purpose of this Facebook group is to have a collective place where the community can help each other, and we can get some feedback to improve Rank Math as well. Joining the group is also a great way to connect with like-minded people and share your SEO experience.
+**<a href="https://s.rankmath.com/groupfb" target="_blank">JOIN FACEBOOK GROUP COMMUNITY</a>**: The purpose of this Facebook group is to have a collective place where the community can help each other, and we can get some feedback to improve Rank Math as well. Joining the group is also a great way to connect with like-minded people and share your SEO experience.
 
+= Branding Guideline =
+Rank Math® is a registered trademark. Please use the following format when mentioning Rank Math SEO plugin anywhere.
+* Rank Math [correct]
+* rank math [incorrect]
+* Rank math [incorrect]
+* rank Math [incorrect]
+* RankMath [incorrect]
+* Rankmath [incorrect]
+* rankmath [incorrect]
+* rankMath [incorrect]
 
 = Getting Started: =
-**<a href="https://link.mythemeshop.com/setuprm" target="_blank">1. How to Setup Rank Math:</a>** Once you install Rank Math for the first time, you will be greeted with the Setup Wizard which is discussed in detail here.
+**<a href="https://s.rankmath.com/setuprm" target="_blank">1. How to Setup Rank Math:</a>** Once you install Rank Math for the first time, you will be greeted with the Setup Wizard which is discussed in detail here.
 
-**<a href="https://link.mythemeshop.com/fbgrouprankmath" target="_blank">2. Facebook Group:</a>** In this group, you will find the team of Rank Math SEO plugin fairly active and ready to answer your SEO related queries.
+**<a href="https://s.rankmath.com/groupfb" target="_blank">2. Facebook Group:</a>** In this group, you will find the team of Rank Math SEO plugin fairly active and ready to answer your SEO related queries.
 
-**<a href="https://link.mythemeshop.com/rankmathkb" target="_blank">3. User Documentation:</a>** Although Rank Math is already easy to set up, we've put together tutorials, guides, and some knowledge bases to help you set up and get started with Rank Math.
+**<a href="https://s.rankmath.com/documentation" target="_blank">3. User Documentation:</a>** Although Rank Math is already easy to set up, we've put together tutorials, guides, and some knowledge bases to help you set up and get started with Rank Math.
 
-**<a href="https://link.mythemeshop.com/wordpresscommonerrors" target="_blank">4. Fixing Common Errors:</a>** Sometimes avoidable or common issues can get you stuck. We’ve created a common guide where we discuss all the common issues and how to fix them.
+**<a href="https://s.rankmath.com/wp-errors-fixes" target="_blank">4. Fixing Common Errors:</a>** Sometimes avoidable or common issues can get you stuck. We’ve created a common guide where we discuss all the common issues and how to fix them.
 
-**<a href="https://link.mythemeshop.com/supporttickethelp" target="_blank">5. Support Ticket Forum:</a>** Our dedicated forum is where you can get support for any issues that you face with Rank Math. In the forum, we'll also try to answer some SEO queries. User experience is important to us, and our aim is to answer all the queries on the forum in a timely manner.
+**<a href="https://s.rankmath.com/support" target="_blank">5. Support Ticket Forum:</a>** Our dedicated forum is where you can get support for any issues that you face with Rank Math. In the forum, we'll also try to answer some SEO queries. User experience is important to us, and our aim is to answer all the queries on the forum in a timely manner.
 
 **[6. Frequently Asked Questions:](#faq-header)** Here we’ve answered the most commonly asked questions about Rank Math. The questions are related to features, pricing, and others.
 
@@ -334,7 +347,7 @@ Rank Math has been designed using WordPress' strict plugin development guideline
 No. Rank Math's code has been created and optimized for maximum performance. That is why using Rank Math on your website will not slow down your website. On the contrary, there is a good chance that your website will perform better than ever with Rank Math, as it does the job of multiple plugins. Once you remove the unnecessary plugins from your website, your website's performance is sure to get better.
 
 = Will you setup Rank Math on my website? =
-Rank Math is pretty easy to setup on your website. Apart from detailed instructions on how to install Rank Math on your website, we've built in a user-friendly setup wizard that will help you setup and configure Rank Math perfectly for your website. If you face any issues even after using the setup wizard, please get in touch with the support team by sending an email to support-team@mythemeshop.com
+Rank Math is pretty easy to setup on your website. Apart from detailed instructions on how to install Rank Math on your website, we've built in a user-friendly setup wizard that will help you setup and configure Rank Math perfectly for your website. If you face any issues even after using the setup wizard, please get in touch with the support team by sending an email to support@rankmath.com
 
 = Do I have to remove other SEO plugins if I install Rank Math? =
 That is preferred. Rank Math is designed to be an all in one SEO plugin that takes care of everything SEO-related. If you use other SEO plugins with Rank Math on your website, not only will the performance of your website be negatively affected, but both plugins working together can produce unexpected SEO results.
@@ -363,7 +376,7 @@ Google is almost never willing to index all the pages and images available on a 
 
 = How do I noindex inner paginated posts of a website? =
 
-<a href="https://link.mythemeshop.com/googlepaginatedcontent" target="_blank">According to Google</a>, they treat the pagination pages with `rel="prev"` & `rel="next"` very similar to canonical and only show when it matches a certain query that another page in your site doesn't fit, so duplication of meta descriptions and titles should not be an issue as Google says they will treat the series of pages as consolidated content, and links will be consolidated to the first page. However, you do get warnings in webmaster tools for duplication and it is safe to ignore them.
+<a href="https://s.rankmath.com/googlepaginatedcontent" target="_blank">According to Google</a>, they treat the pagination pages with `rel="prev"` & `rel="next"` very similar to canonical and only show when it matches a certain query that another page in your site doesn't fit, so duplication of meta descriptions and titles should not be an issue as Google says they will treat the series of pages as consolidated content, and links will be consolidated to the first page. However, you do get warnings in webmaster tools for duplication and it is safe to ignore them.
 
 Google understands and honors the `rel="next"` and `rel="prev"` tags on the archive pages. Like the inner pages of your homepage and there is no need to add noindex tag to them.
 
@@ -385,14 +398,14 @@ Google WILL NOT necessarily show the Schema data though. They check a few things
 Here is a quote from one of Google's help article:
 `We perform algorithmic and manual quality checks to ensure that structured data meets relevancy standards. In cases where we see structured data that does not comply with these standards, we reserve the right to disable rich snippets for a site in order to maintain a high-quality search experience for our users. Read our webmaster guidelines for more details.`
 
-Link: <a href="https://link.mythemeshop.com/googlerichsnippetguidelines" target="_blank">https://link.mythemeshop.com/googlerichsnippetguidelines</a>
+Link: <a href="https://s.rankmath.com/googlestructureddata" target="_blank">https://s.rankmath.com/googlestructureddata</a>
 
 = Why is the Carousel or Data Highlighter Not Working? =
 Google can actually extract contents from your pages and display as a rich carousel (AMP or not).
 
 But to make it easier, the best you can do is to use the Data Highlighter option in your Search Appearance tab in Webmaster Tools for your important pages (especially the pillar posts) but not on all content types. Rank Math makes it extremely convenient to do so.
 
-To learn more about using this feature, visit <a href="https://link.mythemeshop.com/googledatahighlighter" target="_blank">https://link.mythemeshop.com/googledatahighlighter</a>
+To learn more about using this feature, visit <a href="https://s.rankmath.com/googledatahighlighter" target="_blank">https://s.rankmath.com/googledatahighlighter</a>
 
 = How to enter Meta Keywords in the plugin? =
 Google does not use the keywords meta tag in web ranking. Here's a video supporting that:
@@ -410,9 +423,9 @@ Please try the following and see if it helps:
 1. Head over to WP Dashboard >> Settings >> Permalinks (wp-admin/options-permalink.php) and click on the 'Save Changes' button without making any change to the settings.
 2. Make sure you have at least one piece of content published and you haven't excluded it from being included in the Sitemap.
 
-You can read more about the possible Sitemap errors and the solutions on this page: <a href="https://link.mythemeshop.com/sitemaperrors" target="_blank">Sitemap Errors & Fixes</a>
+You can read more about the possible Sitemap errors and the solutions on this page: <a href="https://s.rankmath.com/sitemapissues" target="_blank">Sitemap Errors & Fixes</a>
 
-These steps will sort your issue in 9 out of 10 cases. If not, please open a new support ticket here: <a href="https://link.mythemeshop.com/supporttickethelp" target="_blank">https://link.mythemeshop.com/supporttickethelp</a>
+These steps will sort your issue in 9 out of 10 cases. If not, please open a new support ticket here: <a href="https://s.rankmath.com/support" target="_blank">https://s.rankmath.com/support</a>
 
 You do not need to register separately and can even use your free account to open a ticket.
 
@@ -434,110 +447,7 @@ We look forward to helping you.
 
 == Changelog ==
 
-= 1.0.9 [Dec 26, 2018] =
-* Removed debug functions from the plugin to make the Redirections work properly
+= 1.0.23 [Apr 4th, 2019] =
+* Fixed a bug where the indexing of the posts was getting affected if someone previously selected any value in the custom tab of the general settings of the plugin but saved the settings using the default tab. Yep, it's confusing, and thus it skipped through our nose. The good thing is, it's caught and fixed. Hurray!
 
-= 1.0.8 [Dec 26, 2018] =
-* Added new fields for Product Schema in accordance to latest product schema changes recommended by Google
-* Added a Pinterest validator to External Tools in SEO Analysis
-* Added some minor CSS tweaks to the author pages on the frontend
-* Improved the Readability Score algorithm to take into consideration the usage of codes inside your text
-* Improved the Breadcrumbs functionality which now adds page numbers when a user enters a paginated series
-* Improved the display of automated titles inside the Rank Math single post editor meta box
-* Fixed an issue with WooCommerce notices where an error message wasn't visible when Rank Math was active
-* Fixed the Undefined index: access_token error on some installations
-* Fixed an issue with JS Console on new Rank Math installations
-* Fixed conflict with the Sensei LMS plugin, now Rank Math single post editor box appears in the custom post types
-* Fixed and improved OG image and Twitter tags on taxonomy pages
-* Fixed a bug in the focus keyword when underscore is used in it
-* Fixed an issue with OpenGraph fields on author archive pages
-* Improved cron job handling when Google Search Console account is removed from the Rank Math settings
-* Removed Rank Math's CSS file from loading on the frontend when the admin bar is disabled
-
-= 1.0.7 [Dec 18, 2018] =
-* Fixed an issue with the color coding of focus keywords when you moved their position to the first place
-* Fixed a bug with the Google Search Console
-* Fixed a redirection issue happening with Regex patterns
-* Fixed an issue with PHP 7.3 where users were getting an error related to switch case
-* Fixed an issue with the admin bar,  top menu options were not working
-* Fixed an issue with comparing url_encoded string with Focus Keyword so that they can work with other languages
-* Fixed noindex was not being appropriately added to the Paginated Pages on the Homepage
-* Fixed author custom URL option was not working
-* Added full compatibility with the WP Rocket cache plugin
-* Changed the text inside the sitemaps to make it clearer
-* Optimized the detection of internal and external links in Gutenberg blocks
-* Improved Redirection notices so that the errors and messages are more clear
-
-= 1.0.6 [Dec 11, 2018] =
-* Added compatibility for the Classic Editor plugin
-* Fixed a typo in the tests
-
-= 1.0.5 [Dec 10, 2018] =
-* Improved: deeper code changes to make the plugin lightweight and faster
-* Enhanced: the Redirection Module to handle 410 and 451 redirections as they should be
-* Enhanced Sitemap's functions
-* Changed Pillar content icon
-* Changed few critical things in the Search Console Module to fix an incompatibility with WP v5.0
-* Added XML version declaration header in SVG files to remove any false warnings
-* Added conditions for conflicting plugins, no more nag notices if a particular module is disabled
-* Added filters to disable the auto OG image using the fallback conditions
-* Added connect to MyThemeShop's link back in the registration step
-* Fixed already used focus keywords link wasn't working when multiple focus keywords were used in an article
-* Fixed translated posts not showing in the Sitemap
-* Fixed some vital Breadcrumb related issues
-* Fixed WooCommerce product categories showing two description boxes and hiding the product's thumbnail
-* Fixed a bug with the quick edit page options
-* Fixed auto post redirect not working with the WordPress v5.0
-* Fixed focus keyword not used in title test issue in the SEO Analysis
-* Fixed the word count test to reflect the correct count
-* Fixed auto description length issue in the WP Real Estate free plugin's listing
-* Continued adding support for extending the plugin's API
-
-= 1.0.4 [Dec 04, 2018] =
-* Added new internal tests and increased their coverage
-* Added code to log API error shown in SEO Analysis for better error handling and reporting
-* Added code to detect gallery shortcode inside the posts for better content analysis
-* Added a new filter to disable each test and modify the score accordingly
-* Fixed an error in word-count when content was 2000+ words long
-* Fixed 'Add SEO Metabox' was enabled by default for Attachment page, it is disabled now
-* Fixed an error on posts where the author didn't exist
-* Improved SEO Details column. It is now more detailed and easy to understand
-* Improved internal link counter further
-* Improved the Asset Manager
-* Improved Featured image is now counted as an image asset
-* Improved handling of the Search Console module
-* Improved importing from the Redirection plugin
-* Improved and optimized the code in several core files.
-
-= 1.0.3 [Nov 26, 2018] =
-* Added a condition to check if terms are updated or not
-* Added support for WooCommerce's reviews in Search Preview
-* Added breadcrumb shortcode in the description of 'Breadcrumbs' tab
-* Added links to the posts where focus keyword is missing in the SEO Analysis section
-* Added an option to change the meta of Data/Author archive easily
-* Added validation for Schema data fields
-* Fixed the fatal error on the multisite activation
-* Fixed the bug which was not detecting 'Strong Testimonials' plugin's CPT
-* Fixed small RTL issue in the focus keywords section
-* Fixed Unicode error in SEO title and description
-* Fixed a rare issue in which Media attachment settings weren't getting saved
-* Fixed import issue of some redirections from the latest version of Yoast
-* Fixed an issue in the Redirection module where the imported links were not working properly
-* Various other small fixes and optimizations
-
-= 1.0.2 [Nov 24, 2018] =
-* Added relative URL support for importing from the 'Redirection' plugin
-* Added 'Not Set' words when we do not find any focus keyword set for an article
-* Fixed Importing from Yoast's Premium version
-* Improved some files with a better code
-
-= 1.0.1 [Nov 22, 2018] =
-* Fixed a minor JS Console error caused by using images as the first thing inside a paragraph
-* Fixed wired fatal error for Editor role that didn't have full access to Rank Math features
-* Fixed a minor issue that caused the error message NOT to show up when the wrong credentials were entered
-* Fixed sync issue of 'Nofollow External Link' option in the Settings with JS Tests
-* Fixed "too many redirects" error, 'Auto Post Redirection' option enabled by default was causing the manual redirections not to work
-* Fixed multiple other incorrect error messages
-
-= 1.0.0 [Nov 19, 2018] =
-* Official Plugin release
+Full changelog can be found here - **[Rank Math SEO changelog](https://rankmath.com/changelog)**

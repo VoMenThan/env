@@ -3,15 +3,16 @@
  * Methods for frontend and backend in admin-only module
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
 use RankMath\Module;
+use MyThemeShop\Helpers\Conditional;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -25,7 +26,7 @@ class Search_Console_Common extends Module {
 	 */
 	public function __construct() {
 
-		if ( Helper::is_heartbeat() ) {
+		if ( Conditional::is_heartbeat() ) {
 			return;
 		}
 
@@ -48,7 +49,7 @@ class Search_Console_Common extends Module {
 			'title'     => esc_html__( 'Search Console', 'rank-math' ),
 			'href'      => Helper::get_admin_url( 'search-console' ),
 			'parent'    => 'rank-math',
-			'meta'      => array( 'title' => esc_html__( 'Review analytics, sitemaps and crawl errors', 'rank-math' ) ),
+			'meta'      => array( 'title' => esc_html__( 'Review analytics and sitemaps', 'rank-math' ) ),
 			'_priority' => 50,
 		);
 

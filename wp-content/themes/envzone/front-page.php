@@ -133,15 +133,21 @@
     <!-- /*============BLOG HOME=================*/ -->
     <?php
     $args = array(
-        'posts_per_page' => 1,
+        'posts_per_page' => 7,
         'offset'=> 0,
         'post_type' => 'post',
-        'orderby' => 'post_modified',
+        'orderby' => 'id',
         'order' =>'desc',
-        'meta_key' => 'main_article',
-        'meta_value' => true
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => 'post_show',
+                'value' => 'featured-insights',
+                'compare' => 'LIKE',
+            )
+        )
     );
-    $news_main = get_posts( $args );
+    $news_special = get_posts( $args );
     ?>
     <div class="container background-gray-mobile section-blog">
         <div class="content-blog define-headline">
@@ -160,38 +166,38 @@
 
                             <div class="col-lg-7 img-special">
                                 <a href="#">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[0]->ID);?>" align="job-openings">
                                 </a>
                             </div>
                             <div class="col-lg-5 d-flex info-special flex-column align-items-start">
                                 <div class="box-info">
-                                    <a href="<?php echo home_url('category/').get_the_category($news_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_main[0]->ID)[0]->cat_name;?></a>
+                                    <a href="<?php echo home_url('category/').get_the_category($news_special[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
 
-                                    <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
-                                        <h3 class="title-special"><?php echo $news_main[0]->post_title;?></h3>
+                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
+                                        <h3 class="title-special"><?php echo $news_special[0]->post_title;?></h3>
                                     </a>
 
                                     <div class="excerpt">
                                         <p>
-                                            <?php echo $news_main[0]->post_excerpt;?>
+                                            <?php echo $news_special[0]->post_excerpt;?>
                                         </p>
-                                        <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>" class="read-more">Read more</a>
+                                        <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>" class="read-more">Read more</a>
                                     </div>
                                 </div>
 
                                 <div class="box-author mt-auto">
                                     <?php
-                                    if (get_field('avatar', 'user_'.$news_main[0]->post_author)== ''){
+                                    if (get_field('avatar', 'user_'.$news_special[0]->post_author)== ''){
                                         $avatar = ASSET_URL.'images/avatar-default.png';
                                     }
                                     else{
-                                        $avatar = get_field('avatar', 'user_'.$news_main[0]->post_author);
+                                        $avatar = get_field('avatar', 'user_'.$news_special[0]->post_author, 'thumbnail');
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
-                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_main[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_main[0]->post_author);?></a>
-                                    <div class="date-by">on <?php echo get_the_date( 'F d, Y', $news_main[0]->ID );?></div>
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_special[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_special[0]->post_author);?></a>
+                                    <div class="date-by">on <?php echo get_the_date( 'F d, Y', $news_special[0]->ID );?></div>
                                 </div>
 
                             </div>
@@ -200,16 +206,8 @@
 
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
-                        $args = array(
-                            'posts_per_page' => 7,
-                            'offset'=> 0,
-                            'post_type' => 'post',
-                            'orderby' => 'id',
-                            'order' =>'desc'
-                        );
-                        $news_special = get_posts( $args );
-                        foreach($news_special as $item):
-                            if ($item->ID == $news_main[0]->ID) continue;
+                        foreach($news_special as $k => $item):
+                            if ($k == 0) continue;
                             if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                 $avatar = ASSET_URL.'images/avatar-default.png';
                             }
@@ -229,7 +227,7 @@
                                             </a>
                                         </div>
                                         <div class="info-author">
-                                            <img src="<?php echo $avatar;?>" alt="" class="img-fluid avatar">
+                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                             <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                                 By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                             </a>
@@ -250,27 +248,27 @@
             <div class="row d-lg-none d-block py-5">
 
                 <div class="col-12 box-head-blog">
-                    <h2 class="title-head-blue underline-head"><span>INSIGHTS FOR C-LEVEL</span></h2>
+                    <h2 class="title-head-blue underline-head"><span>FEATURED INSIGHTS</span></h2>
                 </div>
 
                 <div class="col-md-12">
-                    <?php for($i=4; $i<8; $i++):?>
+                    <?php foreach($news_special as $k => $item):?>
                     <div class="item-blog-mobile-horizontal clearfix">
-                        <a href="<?php echo get_permalink($news_special[$i]->ID);?>">
-                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[$i]->ID);?>" align="job-openings">
+                        <a href="<?php echo get_permalink($item->ID);?>">
+                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
                         </a>
                         <div class="info">
-                            <a href="<?php echo home_url('category/').get_the_category($news_special[$i]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[$i]->ID)[0]->cat_name;?></a>
-                            <a href="<?php echo get_permalink($news_special[$i]->ID);?>">
-                            <h4><?php echo $news_special[$i]->post_title;?></h4>
+                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
+                            <a href="<?php echo get_permalink($item->ID);?>">
+                            <h4><?php echo $item->post_title;?></h4>
                             </a>
                             <div class="box-author-by">
-                                <div class="author-by">By <?php echo get_the_author_meta('displayname', $news_special[$i]->ID);?></div>
-                                <div class="date-by">on <?php echo get_the_date( 'M d, Y', $news_special[$i]->ID );?></div>
+                                <div class="author-by">By <?php echo get_the_author_meta('displayname', $item->ID);?></div>
+                                <div class="date-by">on <?php echo get_the_date( 'M d, Y', $item->ID );?></div>
                             </div>
                         </div>
                     </div>
-                    <?php endfor;?>
+                    <?php endforeach;?>
                 </div>
             </div>
         </div>
@@ -379,198 +377,6 @@
         </div>
     </div>
 
-    <!-- /*============ABOUT US=================*/ -->
-    <!--<div class="bg-about-us">
-        <div class="container">
-            <div class="row content-about-us">
-                <div class="col-lg-6 col-md-6">
-                    <img class="img-fluid img-feature" src="<?php /*echo ASSET_URL;*/?>images/img-about-us.png" alt="About Us EnvZone">
-                </div>
-                <div class="col-lg-6 col-md-6 text-center d-flex align-items-center">
-                    <article class="px-lg-5">
-                        <h2 class="title-head-blue">BUSINESS ORIENTED</h2>
-                        <p class="pb-lg-3 description-about">As business owners ourselves, we will all it takes to make your business thrive</p>
-                        <a href="<?php /*echo get_home_url();*/?>/about-us" class="btn btn-blue-env">About Us</a>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!-- /*============END ABOUT US=================*/ -->
-
-
-    <!-- /*============INDUSTRY HOME=================*/ -->
-    <!--<div class="container-fluid content-industries">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="title-head-blue">
-                        THE POSITIVE IMPACTS THAT OUR CLIENTS RECEIVE IN HIGHLIGHTED INDUSTRIES
-                    </div>
-                    <div class="description-head">
-                        When we say we know your industry, we mean business.
-                        At EnvZone, we take a holistic approach to our industry-specific services to address issues such as web-based applications, mobile access, safe data storage, easy data access, updates of existing infrastructure, and much more.
-                    </div>
-                    <div class="tab-content" id="pills-tabContentMenu">
-                        <div class="tab-pane fade show active" id="tab-healthcare" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Healthcare
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-healthcare.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    EnvZone delivers solutions and services to clients in healthcare industry to store, analyze and maintain data processed on daily basis.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/healthcare" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-logistics" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Logistics & Supply Chain
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-logistics-supply-chain.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    At EnvZone, we provide the much needed high-tech software solutions that scales to meet the unique needs of every logistics and supply chain.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/logistics" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-financial" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Financial Service
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-financial-services.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    Sophisticated and optimized algorithms in financial industries provided by our company keep your businesses at the top of the game.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/financial-services" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-education" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Education
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-education.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    We understand the education sector. We offer education solutions that ensure you have the right products in place and the most reliable learning platform.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/education" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-hospitality" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Hospitality & Travel
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-hospitality-travel.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    We understand hospitality & travel industry and develop the latest technology to provide solutions leveraging on customer experience to help you meet and surpass your goals.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/hospitality" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-ecommerce" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Ecommerce & Retail
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-ecommerce-retail.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    We develop competitive solutions for e-commerce and retail  to manage the business more efficiently and use our services to help business owners boost their sales
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/e-commerce-retail" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-real" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Real Estate & Property
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-real-estate.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    Discover the new real estate & property technology from EnvZone. We cover the latest technology including highly effective real estate portals that help our clients manage their project easily.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/real-estate" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="tab-organization" role="tabpanel">
-                            <div class="box-field">
-                                <div class="title-field">
-                                    Non-profit Organization
-                                </div>
-                                <div class="icon-field"><img src="<?php /*echo ASSET_URL;*/?>images/icon-non-profit.png" alt=""></div>
-                                <div class="excerpt-field">
-                                    We offer the right accounting and fundraising software that fulfill your nonprofit’s need, help you run the organization easier.
-                                </div>
-                                <div class="box-learn-more text-right">
-                                    <a href="<?php /*echo get_home_url();*/?>/non-profit-organization" class="learn-more">LEARN MORE <i class="icon-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="box-tab-industries">
-                    <ul class="nav flex-column" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#tab-healthcare" data-toggle="pill" role="tab" aria-controls="tab-healthcare" aria-selected="true">Healthcare</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-logistics" data-toggle="pill" role="tab" aria-controls="tab-logistics" aria-selected="false">Logistics & Supply Chain</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-financial" data-toggle="pill" role="tab" aria-controls="tab-financial" aria-selected="false">Financial Service</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-education" data-toggle="pill" role="tab" aria-controls="tab-education" aria-selected="false">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-hospitality" data-toggle="pill" role="tab" aria-controls="tab-hospitality" aria-selected="false">Hospitality & Travel</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-ecommerce" data-toggle="pill" role="tab" aria-controls="tab-ecommerce" aria-selected="false">Ecommerce & Retail</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-real" data-toggle="pill" role="tab" aria-controls="tab-real" aria-selected="false">Real Estate & Property</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tab-organization" data-toggle="pill" role="tab" aria-controls="tab-organization" aria-selected="false">Non-Profit Organization</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>-->
-
-    <!-- /*============END INDUSTRY HOME=================*/ -->
 
     <div class="container">
         <!-- /*============SERVICES HOME=================*/ -->
@@ -1045,7 +851,7 @@
 
                         <div class="form-subscribe">
                             <?php
-                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
                             ?>
                         </div>
                     </div>
@@ -1075,121 +881,5 @@
 
     })(jQuery);
     /*============ slide news =================*/
-    $(document).ready(function() {
-
-        $('.slider-home').owlCarousel({
-            animateOut: 'slideOutRight',
-            animateIn: 'slideInLeft',
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 8000,
-            smartSpeed:450,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                    dots: false
-                },
-                768: {
-                    items: 1,
-                    dots: false
-                },
-                1024: {
-                    items: 1
-                }
-            }
-        });
-
-        $('.slider-partners').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 2
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-        $('.slider-news').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            dots: false,
-            autoplay: false,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 3
-                }
-            }
-        });
-
-        $('.box-industries').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-        $('.list-video').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-    });
 </script>
 <?php get_footer();?>

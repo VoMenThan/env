@@ -2,7 +2,7 @@
  * Rank Math - Search Console
  *
  * @version 0.9.0
- * @author  MyThemeShop
+ * @author  Rank Math
  */
 /*global moment google*/
 ;( function( $ ) {

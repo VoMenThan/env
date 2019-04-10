@@ -3,16 +3,16 @@
  * Analytics List
  *
  * @since      0.9.0
- * @package    RANK_MATH
- * @subpackage RANK_MATH/modules
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @package    RankMath
+ * @subpackage RankMath\modules
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Search_Console;
+namespace RankMath\Search_Console;
 
 use RankMath\Helper;
-use RankMath\Admin\List_Table;
-use RankMath\Admin\Helper as Admin_Helper;
+use MyThemeShop\Admin\List_Table;
+use RankMath\Admin\Admin_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -42,10 +42,10 @@ class Analytics_List extends List_Table {
 		parent::__construct( array(
 			'singular' => esc_html__( 'analytic', 'rank-math' ),
 			'plural'   => esc_html__( 'analytics', 'rank-math' ),
+			'no_items' => esc_html__( 'No data.', 'rank-math' ),
 		) );
 
-		$this->filters             = Helper::search_console()->get_filters();
-		$this->strings['no_items'] = esc_html__( 'No data.', 'rank-math' );
+		$this->filters = Helper::search_console()->get_filters();
 	}
 
 	/**

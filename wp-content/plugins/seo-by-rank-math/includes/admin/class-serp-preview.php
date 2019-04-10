@@ -5,7 +5,7 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
@@ -13,6 +13,8 @@ namespace RankMath\Admin;
 use RankMath\CMB2;
 use RankMath\Rewrite;
 use RankMath\Helper as GlobalHelper;
+use MyThemeShop\Helpers\WordPress;
+use MyThemeShop\Helpers\Conditional;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -104,7 +106,7 @@ class Serp_Preview {
 
 					<div class="rank-math-ui">
 						<a href="#" class="button button-secondary rank-math-edit-snippet"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Edit Snippet', 'rank-math' ); ?></a>
-						<a href="#" class="button button-secondary rank-math-edit-snippet hidden"><span class="dashicons dashicons-no-alt"></span> Close Editor</a>
+						<a href="#" class="button button-secondary rank-math-edit-snippet hidden"><span class="dashicons dashicons-no-alt"></span> <?php esc_html_e( 'Close Editor', 'rank-math' ); ?></a>
 					</div>
 
 				</div>
@@ -123,7 +125,7 @@ class Serp_Preview {
 		global $post;
 		setup_postdata( $post );
 
-		$post_type    = Helper::get_post_type();
+		$post_type    = WordPress::get_post_type();
 		$title_format = GlobalHelper::get_settings( "titles.pt_{$post_type}_title" );
 		$desc_format  = GlobalHelper::get_settings( "titles.pt_{$post_type}_description" );
 		$title_format = $title_format ? $title_format : '%title%';
@@ -172,16 +174,8 @@ class Serp_Preview {
 		if ( empty( $termlink ) ) {
 			$permalink_format = $permalink;
 		} else {
-
-			$slugs     = array();
-			$ancestors = get_ancestors( $term_id, $term->taxonomy, 'taxonomy' );
-
-			foreach ( (array) $ancestors as $ancestor ) {
-				$ancestor_term = get_term( $ancestor, $term->taxonomy );
-				$slugs[]       = $ancestor_term->slug;
-			}
-
-			$slugs            = array_reverse( $slugs );
+			$slugs            = $this->get_ancestors( $term_id, $term->taxonomy );
+			$termlink         = $this->get_termlink( $termlink, $term->taxonomy );
 			$slugs[]          = '%postname%';
 			$termlink         = str_replace( "%$term->taxonomy%", implode( '/', $slugs ), $termlink );
 			$permalink_format = home_url( user_trailingslashit( $termlink, 'category' ) );
@@ -190,6 +184,50 @@ class Serp_Preview {
 		$url = untrailingslashit( esc_url( $permalink ) );
 
 		return compact( 'title_format', 'desc_format', 'url', 'permalink', 'permalink_format' );
+	}
+
+	/**
+	 * Filter term link.
+	 *
+	 * @param string $termlink Term Link.
+	 * @param string $taxonomy Taxonomy name.
+	 *
+	 * @return string
+	 */
+	private function get_termlink( $termlink, $taxonomy ) {
+		if ( 'category' === $taxonomy && GlobalHelper::get_settings( 'general.strip_category_base' ) ) {
+			$termlink = str_replace( '/category/', '', $termlink );
+		}
+
+		if ( Conditional::is_woocommerce_active() && 'product_cat' === $taxonomy && GlobalHelper::get_settings( 'general.wc_remove_category_base' ) ) {
+			$termlink = str_replace( 'product-category', '', $termlink );
+		}
+
+		return $termlink;
+	}
+
+	/**
+	 * Whether to add ancestors in taxonomy page.
+	 *
+	 * @param int    $term_id  Term ID.
+	 * @param string $taxonomy Taxonomy name.
+	 *
+	 * @return array
+	 */
+	private function get_ancestors( $term_id, $taxonomy ) {
+		$slugs = [];
+
+		if ( Conditional::is_woocommerce_active() && 'product_cat' === $taxonomy && GlobalHelper::get_settings( 'general.wc_remove_category_parent_slugs' ) ) {
+			return $slugs;
+		}
+
+		$ancestors = get_ancestors( $term_id, $taxonomy, 'taxonomy' );
+		foreach ( (array) $ancestors as $ancestor ) {
+			$ancestor_term = get_term( $ancestor, $taxonomy );
+			$slugs[]       = $ancestor_term->slug;
+		}
+
+		return array_reverse( $slugs );
 	}
 
 	/**
@@ -220,15 +258,6 @@ class Serp_Preview {
 	 * @return string
 	 */
 	private function get_author_permalink( $link ) {
-		global $user_id;
-
-		$user     = get_userdata( $user_id );
-		$nicename = '';
-
-		if ( ! empty( $user->user_nicename ) ) {
-			$nicename = $user->user_nicename;
-		}
-
 		$link = str_replace( '%author%', '%postname%', $link );
 		return home_url( user_trailingslashit( $link ) );
 	}
@@ -238,7 +267,7 @@ class Serp_Preview {
 	 */
 	private function get_snippet_html() {
 		$snippet_data = $this->get_snippet_data();
-		if ( ! $snippet_data ) {
+		if ( ! $snippet_data || ! isset( $snippet_data['data'] ) ) {
 			return false;
 		}
 
@@ -450,6 +479,10 @@ class Serp_Preview {
 
 			foreach ( $hash as $key => $value ) {
 				$value = get_post_meta( $post->ID, 'rank_math_snippet_' . $value, true );
+				if ( ! $value ) {
+					continue;
+				}
+
 				if ( 'event_place' === $key ) {
 					$value = implode( ', ', array_filter( $value ) );
 				}
@@ -469,7 +502,7 @@ class Serp_Preview {
 			}
 		}
 
-		if ( ! isset( $snippet_data['rating'] ) && GlobalHelper::is_woocommerce_active() && 'product' === $post->post_type ) {
+		if ( ! isset( $snippet_data['rating'] ) && Conditional::is_woocommerce_active() && 'product' === $post->post_type ) {
 			$product = wc_get_product( $post->ID );
 			if ( $product->get_rating_count() > 0 ) {
 				$snippet_data['data']['rating']       = $product->get_average_rating();

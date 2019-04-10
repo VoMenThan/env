@@ -3,7 +3,7 @@
  * Redirections general settings.
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
+ * @subpackage RankMath\Redirections
  */
 
 use RankMath\Helper;

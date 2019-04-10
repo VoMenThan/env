@@ -4,15 +4,14 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap;
+namespace RankMath\Sitemap;
 
-use RankMath\Admin\Helper;
-use RankMath\Traits\Hooker;
-use RankMath\Helper as GlobalHelper;
+use RankMath\Helper;
+use MyThemeShop\Helpers\WordPress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -20,8 +19,6 @@ defined( 'ABSPATH' ) || exit;
  * Cache class.
  */
 class Cache {
-
-	use Hooker;
 
 	/**
 	 * Cache mode.
@@ -48,7 +45,7 @@ class Cache {
 	 * The Constructor
 	 */
 	public function __construct() {
-		$this->wp_filesystem = Helper::get_filesystem();
+		$this->wp_filesystem = WordPress::get_filesystem();
 		$this->mode          = $this->is_writable() ? 'file' : 'db';
 	}
 
@@ -126,7 +123,7 @@ class Cache {
 		}
 
 		$filename = "sitemap_{$type}_$filename";
-		return set_transient( $filename, serialize( $sitemap ) );
+		return set_transient( $filename, serialize( $sitemap ), DAY_IN_SECONDS * 100 );
 	}
 
 	/**
@@ -177,12 +174,12 @@ class Cache {
 	 */
 	public static function cached_files( $value = null, $type = '' ) {
 		if ( '' !== $type ) {
-			$options           = GlobalHelper::option( 'sitemap_cache_files' );
+			$options           = Helper::option( 'sitemap_cache_files' );
 			$options[ $value ] = $type;
-			return GlobalHelper::option( 'sitemap_cache_files', $options );
+			return Helper::option( 'sitemap_cache_files', $options );
 		}
 
-		return GlobalHelper::option( 'sitemap_cache_files', $value );
+		return Helper::option( 'sitemap_cache_files', $value );
 	}
 
 	/**
@@ -192,14 +189,14 @@ class Cache {
 	 */
 	public static function invalidate_storage( $type = null ) {
 		$directory     = self::get_cache_directory();
-		$wp_filesystem = Helper::get_filesystem();
+		$wp_filesystem = WordPress::get_filesystem();
 
 		if ( is_null( $type ) ) {
 			$wp_filesystem->delete( $directory, true );
 			$wp_filesystem->mkdir( $directory, FS_CHMOD_FILE );
 			self::clear_transients();
 			self::cached_files( false );
-			self::clear_cache();
+			Helper::clear_cache();
 			return;
 		}
 
@@ -216,7 +213,7 @@ class Cache {
 
 		self::clear_transients( $type );
 		self::cached_files( $data );
-		self::clear_cache();
+		Helper::clear_cache();
 	}
 
 	/**
@@ -230,69 +227,6 @@ class Cache {
 			return $wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_sitemap_%'" );
 		}
 
-		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_sitemap_" . $type . "_%'" ); // WPCS: unprepared SQL ok.
-	}
-
-	/**
-	 * Clear cache from:
-	 *  - W3TC,
-	 *  - WordPress Total Cache
-	 *  - WPEngine
-	 *  - Varnish
-	 *
-	 * @access public
-	 */
-	private static function clear_cache() {
-		// If W3 Total Cache is being used, clear the cache.
-		if ( function_exists( 'w3tc_pgcache_flush' ) ) {
-			w3tc_pgcache_flush();
-		}
-
-		// if WP Super Cache is being used, clear the cache.
-		if ( function_exists( 'wp_cache_clean_cache' ) ) {
-			global $file_prefix;
-			wp_cache_clean_cache( $file_prefix );
-		}
-
-		// If SG CachePress is installed, rese its caches.
-		if ( class_exists( 'SG_CachePress_Supercacher' ) && is_callable( array( 'SG_CachePress_Supercacher', 'purge_cache' ) ) ) {
-			SG_CachePress_Supercacher::purge_cache();
-		}
-
-		// Clear caches on WPEngine-hosted sites.
-		if ( class_exists( 'WpeCommon' ) ) {
-			WpeCommon::purge_memcached();
-			WpeCommon::clear_maxcdn_cache();
-			WpeCommon::purge_varnish_cache();
-		}
-
-		// Clear Varnish caches.
-		self::clear_varnish_cache();
-	}
-
-	/**
-	 * Clear varnish cache for the dynamic CSS file.
-	 */
-	private static function clear_varnish_cache() {
-		// Parse the URL for proxy proxies.
-		$parsed_url = wp_parse_url( home_url() );
-
-		// Build a varniship.
-		$varniship = get_option( 'vhp_varnish_ip' );
-		if ( defined( 'VHP_VARNISH_IP' ) && VHP_VARNISH_IP != false ) {
-			$varniship = VHP_VARNISH_IP;
-		}
-
-		// If we made varniship, let it sail.
-		$purgeme = ( isset( $varniship ) && null != $varniship ) ? $varniship : $parsed_url['host'];
-		wp_remote_request( 'http://' . $purgeme,
-			array(
-				'method'  => 'PURGE',
-				'headers' => array(
-					'host'           => $parsed_url['host'],
-					'X-Purge-Method' => 'default',
-				),
-			)
-		);
+		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_sitemap_" . $type . "_%'" ); // phpcs:ignore
 	}
 }

@@ -18,70 +18,70 @@
 			<li>
 				<setting
 					:name="'debugging'"
-					:label="'Debugging enabled'"
+					:label="i18n.debuggingEnabled"
 					:value="debugging"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
 			</li>
 			<li><setting
 					:name="'indexer_alternate'"
-					:label="'Use alternate indexer'"
+					:label="i18n.useAlternateIndexer"
 					:value="indexer_alternate"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
 			</li>
 			<li><setting
 					:name="'parse_shortcodes'"
-					:label="'Parse Shortcodes when indexing'"
+					:label="i18n.parseShortcodes"
 					:value="parse_shortcodes"
 					:disabled="saving"
 					v-on:change="updateSetting($event);flagIndex()"/>
 			</li>
 			<li><setting
 					:name="'partial_matches'"
-					:label="'Partial matches when applicable'"
+					:label="i18n.partialMatches"
 					:value="partial_matches"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
 			</li>
 			<li><setting
 					:name="'indexer_aggressiveness'"
-					:label="'Reduced indexer aggressiveness'"
+					:label="i18n.reducedIndexerAggressiveness"
 					:value="indexer_aggressiveness"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
 			</li>
 			<li><setting
 					:name="'min_word_length'"
-					:label="'Remove minimum word length'"
+					:label="i18n.removeMinWordLength"
 					:value="min_word_length"
 					:disabled="saving"
 					v-on:change="updateSetting($event);flagIndex()"/>
 			</li>
 			<li><setting
 					:name="'admin_search'"
-					:label="'Intercept Admin/Dashboard searches'"
+					:label="i18n.interceptAdminSearches"
 					:value="admin_search"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
 			</li>
 			<li><setting
 					:name="'highlight_terms'"
-					:label="'Highlight terms in results'"
+					:label="i18n.highlightResults"
 					:value="highlight_terms"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
 			</li>
 			<li><setting
 					:name="'exclusive_regex_matches'"
-					:label="'Exclusive regex matches'"
+					:label="i18n.exclusiveRegexMatches"
 					:value="exclusive_regex_matches"
 					:disabled="saving"
 					v-on:change="updateSetting($event);flagIndex()"/>
 			</li>
 			<li><setting
 					:name="'nuke_on_delete'"
-					:label="'Remove all data on uninstall'"
+					:label="i18n.removeAllData"
 					:value="nuke_on_delete"
 					:disabled="saving"
 					v-on:change="updateSetting($event)"/>
@@ -195,8 +195,18 @@ export default {
 			original_parse_shortcodes: _SEARCHWP_VARS.data.settings.parse_shortcodes,
 			original_partial_matches: _SEARCHWP_VARS.data.settings.partial_matches,
 			i18n: {
+				debuggingEnabled: _SEARCHWP_VARS.i18n.debugging_enabled,
+				exclusiveRegexMatches: _SEARCHWP_VARS.i18n.exclusive_regex_matches,
 				indexNeedsReset: _SEARCHWP_VARS.i18n.index_needs_reset,
-				partialMatchesNote: _SEARCHWP_VARS.i18n.partial_matches_note
+				interceptAdminSearches: _SEARCHWP_VARS.i18n.intercept_admin_searches,
+				highlightResults: _SEARCHWP_VARS.i18n.highlight_results,
+				parseShortcodes: _SEARCHWP_VARS.i18n.parse_shortcodes,
+				partialMatches: _SEARCHWP_VARS.i18n.partial_matches,
+				partialMatchesNote: _SEARCHWP_VARS.i18n.partial_matches_note,
+				reducedIndexerAggressiveness: _SEARCHWP_VARS.i18n.reduced_indexer_aggressiveness,
+				removeAllData: _SEARCHWP_VARS.i18n.remove_all_data,
+				removeMinWordLength: _SEARCHWP_VARS.i18n.remove_min_word_length,
+				useAlternateIndexer: _SEARCHWP_VARS.i18n.use_alternate_indexer
 			}
 		}
 	}

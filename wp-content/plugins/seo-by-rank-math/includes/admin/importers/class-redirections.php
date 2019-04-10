@@ -3,16 +3,16 @@
  * The Redirections Import Class
  *
  * @since      0.9.0
- * @package    RANK_MATH
+ * @package    RankMath
  * @subpackage RankMath\Admin\Importers
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin\Importers;
 
 use RankMath\Helper;
-use RankMath\Admin\Helper as Admin_Helper;
-use RankMath\Modules\Redirections\Form as Form;
+use RankMath\Admin\Admin_Helper;
+use RankMath\Redirections\Redirection;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -33,14 +33,14 @@ class Redirections extends Plugin_Importer {
 	 *
 	 * @var array
 	 */
-	protected $option_keys = array( 'redirection_options' );
+	protected $option_keys = [ 'redirection_options' ];
 
 	/**
 	 * Array of choices keys to import
 	 *
 	 * @var array
 	 */
-	protected $choices = array( 'redirections' );
+	protected $choices = [ 'redirections' ];
 
 	/**
 	 * Import redirections of plugin.
@@ -57,24 +57,26 @@ class Redirections extends Plugin_Importer {
 			return false;
 		}
 
-		$form = new Form;
-
 		foreach ( (array) $rows as $row ) {
-			$sources = array(
-				array(
-					'pattern'    => $row->url,
-					'comparison' => empty( $row->regex ) ? 'exact' : 'regex',
-				),
+			$item = Redirection::from(
+				[
+					'sources'     => [
+						[
+							'pattern'    => $row->url,
+							'comparison' => empty( $row->regex ) ? 'exact' : 'regex',
+						],
+					],
+					'url_to'      => $this->get_url_to( $row ),
+					'header_code' => $row->action_code,
+				]
 			);
-			$form->save_redirection(array(
-				'sources'     => $sources,
-				'url_to'      => $this->get_url_to( $row ),
-				'header_code' => $row->action_code,
-			));
-			$count++;
+
+			if ( false !== $item->save() ) {
+				$count++;
+			}
 		}
 
-		Helper::update_modules( array( 'redirections' => 'on' ) );
+		Helper::update_modules( [ 'redirections' => 'on' ] );
 		return compact( 'count' );
 	}
 
@@ -103,8 +105,8 @@ class Redirections extends Plugin_Importer {
 	 * @return array
 	 */
 	public function get_choices() {
-		return array(
+		return [
 			'redirections' => esc_html__( 'Import Redirections', 'rank-math' ) . Admin_Helper::get_tooltip( esc_html__( 'Plugin redirections.', 'rank-math' ) ),
-		);
+		];
 	}
 }

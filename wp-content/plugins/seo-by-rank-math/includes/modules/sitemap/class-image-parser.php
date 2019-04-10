@@ -4,15 +4,18 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap;
+namespace RankMath\Sitemap;
 
 use DOMDocument;
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\Url;
+use MyThemeShop\Helpers\Attachment;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -92,7 +95,7 @@ class Image_Parser {
 		if ( Helper::get_settings( 'sitemap.include_featured_image' ) && $thumbnail_id ) {
 			if ( Helper::attachment_in_sitemap( $thumbnail_id ) ) {
 				$src      = $this->get_absolute_url( $this->image_url( $thumbnail_id ) );
-				$alt      = Helper::get_attachment_alt_tag( $thumbnail_id );
+				$alt      = Attachment::get_alt_tag( $thumbnail_id );
 				$title    = get_post_field( 'post_title', $thumbnail_id );
 				$images[] = $this->get_image_item( $post, $src, $title, $alt );
 			}
@@ -112,7 +115,7 @@ class Image_Parser {
 		}
 
 		foreach ( $this->parse_galleries( $post->post_content, $post->ID ) as $attachment ) {
-			$alt = Helper::get_attachment_alt_tag( $attachment->ID );
+			$alt = Attachment::get_alt_tag( $attachment->ID );
 			$src = $this->get_absolute_url( $this->image_url( $attachment->ID ) );
 
 			$images[] = $this->get_image_item( $post, $src, $attachment->post_title, $alt );
@@ -120,7 +123,7 @@ class Image_Parser {
 
 		if ( 'attachment' === $post->post_type && wp_attachment_is_image( $post ) ) {
 			$src = $this->get_absolute_url( $this->image_url( $post->ID ) );
-			$alt = Helper::get_attachment_alt_tag( $post->ID );
+			$alt = Attachment::get_alt_tag( $post->ID );
 
 			$images[] = $this->get_image_item( $post, $src, $post->post_title, $alt );
 		}
@@ -164,7 +167,7 @@ class Image_Parser {
 			$images[] = array(
 				'src'   => $this->get_absolute_url( $this->image_url( $attachment->ID ) ),
 				'title' => $attachment->post_title,
-				'alt'   => Helper::get_attachment_alt_tag( $attachment->ID ),
+				'alt'   => Attachment::get_alt_tag( $attachment->ID ),
 			);
 		}
 
@@ -206,7 +209,7 @@ class Image_Parser {
 			$class = $img->getAttribute( 'class' );
 			if ( // This detects WP-inserted images, which we need to upsize. R.
 				! empty( $class )
-				&& ! Helper::str_contains( 'size-full', $class )
+				&& ! Str::contains( 'size-full', $class )
 				&& preg_match( '|wp-image-(?P<id>\d+)|', $class, $matches )
 				&& get_post_status( $matches['id'] )
 			) {
@@ -214,7 +217,7 @@ class Image_Parser {
 			}
 
 			$src = $this->get_absolute_url( $src );
-			if ( ! Helper::str_contains( $this->host, $src ) ) {
+			if ( ! Str::contains( $this->host, $src ) ) {
 				continue;
 			}
 
@@ -387,7 +390,7 @@ class Image_Parser {
 			return $src;
 		}
 
-		if ( Helper::is_url_relative( $src ) === true ) {
+		if ( Url::is_relative( $src ) === true ) {
 
 			if ( '/' !== $src[0] ) {
 				return $src;

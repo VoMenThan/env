@@ -8,7 +8,7 @@
 
 use RankMath\Helper;
 
-$current_version = rank_math()->get_version();
+$current_version = rank_math()->version;
 $latest_version  = '0.0.8';
 $is_updateable   = version_compare( $current_version, $latest_version, '<' );
 $class           = $is_updateable ? 'status-red' : 'status-green';

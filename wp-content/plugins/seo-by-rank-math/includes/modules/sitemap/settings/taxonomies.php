@@ -3,7 +3,7 @@
  * Sitemap - Taxonomies
  *
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
+ * @subpackage RankMath\Sitemap
  */
 
 $taxonomy   = $tab['taxonomy'];

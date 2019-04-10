@@ -4,18 +4,18 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Redirections
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Redirections
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Redirections;
+namespace RankMath\Redirections;
 
 use RankMath\Traits\Hooker;
 
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Export class.
+ *
+ * @codeCoverageIgnore
  */
 class Export {
 
@@ -32,8 +32,8 @@ class Export {
 	 * Export redirections.
 	 */
 	public function export() {
-		$server = isset( $_GET['export'] ) ? $_GET['export'] : false;
-		if ( ! $server || ! in_array( $server, array( 'apache', 'nginx' ) ) ) {
+		$server = isset( $_GET['export'] ) ? filter_input( INPUT_GET, 'export' ) : false;
+		if ( ! $server || ! in_array( $server, [ 'apache', 'nginx' ] ) ) {
 			return;
 		}
 
@@ -45,10 +45,10 @@ class Export {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		$items = DB::get_redirections( array(
+		$items = DB::get_redirections([
 			'limit'  => 1000,
 			'status' => 'active',
-		));
+		]);
 
 		if ( 0 === $items['count'] ) {
 			return;
@@ -56,7 +56,7 @@ class Export {
 
 		$text[] = '# Created by Rank Math';
 		$text[] = '# ' . date( 'r' );
-		$text[] = '# Rank Math ' . trim( rank_math()->get_version() ) . ' - https://mythemeshop.com/';
+		$text[] = '# Rank Math ' . trim( rank_math()->version ) . ' - https://rankmath.com/';
 		$text[] = '';
 
 		$text = array_merge( $text, $this->$server( $items['redirections'] ) );
@@ -89,15 +89,8 @@ class Export {
 					$text[]    = sprintf( 'RewriteCond %%{QUERY_STRING} ^%s$', preg_quote( $url_parts['query'] ) );
 				}
 
-				// Check if it's a valid pattern.
-				// So we don't break the site when it's inserted in the .htaccess.
-				$commented_out = '';
-				if ( 'regex' == $from['comparison'] && @preg_match( $from['pattern'], null ) === false ) { // @codingStandardsIgnoreLine
-					$commented_out = '# ';
-				}
-
 				// Get rewrite string.
-				$text[] = sprintf( '%sRewriteRule %s %s', $commented_out, $this->get_comparison( $url, $from ), $to );
+				$text[] = sprintf( '%sRewriteRule %s %s', $this->is_valid_regex( $from ), $this->get_comparison( $url, $from ), $to );
 			}
 		}
 
@@ -121,8 +114,7 @@ class Export {
 
 			$sources = maybe_unserialize( $item['sources'] );
 			foreach ( $sources as $from ) {
-				// Check if it's a valid pattern.
-				if ( 'regex' == $from['comparison'] && @preg_match( $from['pattern'], null ) === false ) { // @codingStandardsIgnoreLine
+				if ( '' !== $this->is_valid_regex( $from ) ) {
 					continue;
 				}
 
@@ -133,6 +125,22 @@ class Export {
 		$text[] = '}';
 
 		return $text;
+	}
+
+	/**
+	 * Check if it's a valid pattern.
+	 *
+	 * So we don't break the site when it's inserted in the .htaccess.
+	 *
+	 * @param  array $source Source array.
+	 * @return string
+	 */
+	private function is_valid_regex( $source ) {
+		if ( 'regex' == $source['comparison'] && @preg_match( $source['pattern'], null ) === false ) { // phpcs:ignore
+			return '# ';
+		}
+
+		return '';
 	}
 
 	/**
@@ -165,12 +173,12 @@ class Export {
 			return $this->encode_regex( $from['pattern'] );
 		}
 
-		$hash = array(
+		$hash = [
 			'exact'    => '^{url}$',
 			'contains' => '^(.*){url}(.*)$',
 			'start'    => '^{url}',
 			'end'      => '{url}$',
-		);
+		];
 
 		$url = preg_quote( $url );
 		return isset( $hash[ $comparison ] ) ? str_replace( '{url}', $url, $hash[ $comparison ] ) : $url;

@@ -4,15 +4,17 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Sitemap
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Sitemap
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Sitemap;
+namespace RankMath\Sitemap;
 
 use RankMath\Helper;
 use RankMath\Module;
 use RankMath\Admin\Options;
+use MyThemeShop\Helpers\Str;
+use RankMath\KB;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -60,7 +62,7 @@ class Admin extends Module {
 				'icon'  => 'fa fa-cogs',
 				'title' => esc_html__( 'General', 'rank-math' ),
 				'file'  => $this->directory . '/settings/general.php',
-				'desc'  => esc_html__( 'This tab contains settings related to the XML sitemaps.', 'rank-math' ) . ' <a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#general" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>',
+				'desc'  => esc_html__( 'This tab contains settings related to the XML sitemaps.', 'rank-math' ) . ' <a href="' . KB::get( 'sitemap-general' ) . '" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>',
 				/* translators: sitemap url */
 				'after' => $this->get_notice_start() . sprintf( esc_html__( 'When sitemaps are enabled, your sitemap index can be found here: %s', 'rank-math' ), '<a href="' . $sitemap_url . '" target="_blank">' . $sitemap_url . '</a>' ) . '</p></div>',
 			),
@@ -71,7 +73,7 @@ class Admin extends Module {
 				'icon'  => 'fa fa-users',
 				'title' => esc_html__( 'Authors', 'rank-math' ),
 				/* translators: Learn more link. */
-				'desc'  => sprintf( esc_html__( 'Set the sitemap options for author archive pages. %s.', 'rank-math' ), '<a href="https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#authors" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>' ),
+				'desc'  => sprintf( esc_html__( 'Set the sitemap options for author archive pages. %s.', 'rank-math' ), '<a href="https://s.rankmath.com/sitemaps" target="_blank">' . esc_html__( 'Learn more', 'rank-math' ) . '</a>' ),
 				'file'  => $this->directory . '/settings/authors.php',
 			);
 		}
@@ -102,8 +104,8 @@ class Admin extends Module {
 			'product'    => esc_html__( 'your product pages', 'rank-math' ),
 		);
 		$urls   = array(
-			'attachment' => 'https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#media',
-			'product'    => 'https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#products',
+			'attachment' => KB::get( 'sitemap-media' ),
+			'product'    => KB::get( 'sitemap-product' ),
 		);
 
 		// Post type label seprator.
@@ -120,7 +122,7 @@ class Admin extends Module {
 
 			/* translators: Post Type label */
 			$thing = isset( $things[ $post_type ] ) ? $things[ $post_type ] : sprintf( __( 'single %s', 'rank-math' ), $name );
-			$url   = isset( $urls[ $post_type ] ) ? $urls[ $post_type ] : 'https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#' . $name;
+			$url   = isset( $urls[ $post_type ] ) ? $urls[ $post_type ] : in_array( $name, [ 'post', 'page' ] ) ? KB::get( "sitemap-{$name}" ) : '';
 
 			$tabs[ 'sitemap-post-type-' . $object->name ] = array(
 				'title'     => $object->label,
@@ -168,13 +170,14 @@ class Admin extends Module {
 				case 'product_tag':
 					/* translators: Taxonomy singular label */
 					$thing = sprintf( __( 'your product %s pages', 'rank-math' ), strtolower( $taxonomy->labels->singular_name ) );
-					$url   = 'https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#product-' . ( 'product_cat' === $taxonomy->name ? 'categories' : 'tags' );
+					$url   = KB::get( "sitemap-$taxonomy->name" );
 					break;
 
 				default:
 					/* translators: Taxonomy singular label */
 					$thing = sprintf( __( '%s archives', 'rank-math' ), strtolower( $taxonomy->labels->singular_name ) );
-					$url   = 'https://mythemeshop.com/kb/wordpress-seo-plugin-rank-math/configure-sitemaps/#' . strtolower( $taxonomy->labels->name );
+					$name  = strtolower( $taxonomy->labels->name );
+					$url   = in_array( $name, [ 'category', 'tags' ] ) ? KB::get( "sitemap-{$name}" ) : '';
 			}
 
 			$tabs[ 'sitemap-taxonomy-' . $taxonomy->name ] = array(
@@ -310,7 +313,7 @@ class Admin extends Module {
 	 */
 	public function media_popup_html( $html, $attachment_id ) {
 		$post = get_post( $attachment_id );
-		if ( Helper::str_start_with( 'image', $post->post_mime_type ) && get_post_meta( $attachment_id, 'rank_math_exclude_sitemap', true ) ) {
+		if ( Str::starts_with( 'image', $post->post_mime_type ) && get_post_meta( $attachment_id, 'rank_math_exclude_sitemap', true ) ) {
 			$html = str_replace( ' class="', ' data-sitemapexclude="true" class="', $html );
 		}
 		return $html;

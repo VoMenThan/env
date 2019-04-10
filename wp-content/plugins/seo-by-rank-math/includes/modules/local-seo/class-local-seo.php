@@ -4,16 +4,17 @@
  *
  * @since      0.9.0
  * @package    RankMath
- * @subpackage RankMath\Modules\Local_Seo
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @subpackage RankMath\Local_Seo
+ * @author     Rank Math <support@rankmath.com>
  */
 
-namespace RankMath\Modules\Local_Seo;
+namespace RankMath\Local_Seo;
 
 use RankMath\Post;
 use RankMath\Helper;
 use RankMath\Traits\Ajax;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -56,8 +57,9 @@ class Local_Seo {
 		}
 
 		$pages = get_posts(array(
-			's'         => $_GET['term'],
-			'post_type' => 'page',
+			's'              => $_GET['term'],
+			'post_type'      => 'page',
+			'posts_per_page' => -1,
 		));
 
 		$data = array();
@@ -137,7 +139,7 @@ class Local_Seo {
 		$this->add_business_hours( $entity );
 
 		// Price Range.
-		if ( $price_range = Helper::get_settings( 'titles.price_range' ) ) { // @codingStandardsIgnoreLine
+		if ( $price_range = Helper::get_settings( 'titles.price_range' ) ) { // phpcs:ignore
 			$entity['priceRange'] = $price_range;
 		}
 
@@ -196,7 +198,7 @@ class Local_Seo {
 	 * @param array $entity Array of json-ld entity.
 	 */
 	private function add_geo_cordinates( &$entity ) {
-		$geo = Helper::str_to_arr( Helper::get_settings( 'titles.geo' ) );
+		$geo = Str::to_arr( Helper::get_settings( 'titles.geo' ) );
 		if ( empty( $geo ) || ! isset( $geo[0], $geo[1] ) ) {
 			return;
 		}
@@ -260,7 +262,7 @@ class Local_Seo {
 		}
 
 		// Remove Logo, contactPoint and add image & telephone.
-		$types = array( 'AnimalShelter', 'AutomotiveBusiness', 'Campground', 'ChildCare', 'DryCleaningOrLaundry', 'EmergencyService', 'FireStation', 'PoliceStation', 'EntertainmentBusiness', 'EmploymentAgency', 'TravelAgency', 'Store', 'BikeStore', 'BookStore', 'ClothingStore', 'ComputerStore', 'ConvenienceStore', 'DepartmentStore', 'ElectronicsStore', 'Florist', 'FurnitureStore', 'GardenStore', 'GroceryStore', 'HardwareStore', 'HobbyShop', 'HomeGoodsStore', 'JewelryStore', 'LiquorStore', 'MensClothingStore', 'MobilePhoneStore', 'MovieRentalStore', 'MusicStore', 'OfficeEquipmentStore', 'OutletStore', 'PawnShop', 'PetStore', 'ShoeStore', 'SportingGoodsStore', 'TireShop', 'ToyStore', 'WholesaleStore', 'FinancialService', 'Hospital', 'MovieTheater', 'HomeAndConstructionBusiness', 'Electrician', 'GeneralContractor', 'Plumber', 'InternetCafe', 'Library', 'LocalBusiness', 'LodgingBusiness', 'Hostel', 'Hotel', 'Motel', 'BedAndBreakfast', 'RadioStation', 'RealEstateAgent', 'RecyclingCenter', 'SelfStorage', 'ShoppingCenter', 'SportsActivityLocation', 'BowlingAlley', 'ExerciseGym', 'GolfCourse', 'HealthClub', 'PublicSwimmingPool', 'SkiResort', 'SportsClub', 'TennisComplex', 'StadiumOrArena', 'TelevisionStation', 'TouristInformationCenter' );
+		$types = array( 'AnimalShelter', 'AutomotiveBusiness', 'Campground', 'ChildCare', 'DryCleaningOrLaundry', 'EmergencyService', 'FireStation', 'PoliceStation', 'EntertainmentBusiness', 'EmploymentAgency', 'TravelAgency', 'Store', 'BikeStore', 'BookStore', 'ClothingStore', 'ComputerStore', 'ConvenienceStore', 'DepartmentStore', 'ElectronicsStore', 'Florist', 'FurnitureStore', 'GardenStore', 'GroceryStore', 'HardwareStore', 'HobbyShop', 'HomeGoodsStore', 'JewelryStore', 'LiquorStore', 'MensClothingStore', 'MobilePhoneStore', 'MovieRentalStore', 'MusicStore', 'OfficeEquipmentStore', 'OutletStore', 'PawnShop', 'PetStore', 'ShoeStore', 'SportingGoodsStore', 'TireShop', 'ToyStore', 'WholesaleStore', 'FinancialService', 'Hospital', 'MovieTheater', 'HomeAndConstructionBusiness', 'Electrician', 'GeneralContractor', 'Plumber', 'InternetCafe', 'Library', 'LocalBusiness', 'LodgingBusiness', 'Hostel', 'Hotel', 'Motel', 'BedAndBreakfast', 'RadioStation', 'RealEstateAgent', 'RecyclingCenter', 'SelfStorage', 'ShoppingCenter', 'SportsActivityLocation', 'BowlingAlley', 'ExerciseGym', 'GolfCourse', 'HealthClub', 'PublicSwimmingPool', 'SkiResort', 'SportsClub', 'TennisComplex', 'StadiumOrArena', 'TelevisionStation', 'TouristInformationCenter', 'MovingCompany', 'InsuranceAgency' );
 		if ( in_array( $type, $types ) ) {
 
 			if ( isset( $entity['logo'] ) ) {
@@ -294,7 +296,6 @@ class Local_Seo {
 		$services = array(
 			'facebook',
 			'twitter',
-			'gplus',
 			'google_places',
 			'yelp',
 			'foursquare',
@@ -311,7 +312,7 @@ class Local_Seo {
 
 		$profiles = array();
 		foreach ( $services as $profile ) {
-			if ( $profile = Helper::get_settings( 'titles.social_url_' . $profile ) ) { // @codingStandardsIgnoreLine
+			if ( $profile = Helper::get_settings( 'titles.social_url_' . $profile ) ) { // phpcs:ignore
 				$profiles[] = $profile;
 			}
 		}

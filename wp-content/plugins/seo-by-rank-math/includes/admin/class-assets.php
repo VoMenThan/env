@@ -5,11 +5,12 @@
  * @since      0.9.0
  * @package    RankMath
  * @subpackage RankMath\Admin
- * @author     MyThemeShop <admin@mythemeshop.com>
+ * @author     Rank Math <support@rankmath.com>
  */
 
 namespace RankMath\Admin;
 
+use RankMath\Runner;
 use RankMath\Traits\Hooker;
 use RankMath\Helper as GlobalHelper;
 
@@ -20,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @codeCoverageIgnore
  */
-class Assets {
+class Assets implements Runner {
 
 	use Hooker;
 
@@ -30,11 +31,11 @@ class Assets {
 	const PREFIX = 'rank-math-';
 
 	/**
-	 * The Constructor.
+	 * Register hooks.
 	 */
-	public function __construct() {
+	public function hooks() {
 		$this->action( 'admin_enqueue_scripts', 'register' );
-		$this->action( 'admin_enqueue_scripts', 'enqueue', 25 );
+		$this->action( 'admin_enqueue_scripts', 'enqueue' );
 		$this->action( 'admin_enqueue_scripts', 'overwrite_wplink', 99 );
 	}
 
@@ -48,22 +49,26 @@ class Assets {
 		$vendor = rank_math()->plugin_url() . 'assets/vendor/';
 
 		// Styles.
-		wp_register_style( self::PREFIX . 'common', $css . 'common.css', null, rank_math()->get_version() );
-		wp_register_style( self::PREFIX . 'cmb2', $css . 'cmb2.css', null, rank_math()->get_version() );
-		wp_register_style( self::PREFIX . 'dashboard', $css . 'dashboard.css', array( 'rank-math-common' ), rank_math()->get_version() );
-		wp_register_style( self::PREFIX . 'plugin-feedback', $css . 'feedback.css', array( 'rank-math-common' ), rank_math()->get_version() );
+		wp_register_style( self::PREFIX . 'common', $css . 'common.css', null, rank_math()->version );
+		wp_register_style( self::PREFIX . 'cmb2', $css . 'cmb2.css', null, rank_math()->version );
+		wp_register_style( self::PREFIX . 'dashboard', $css . 'dashboard.css', array( 'rank-math-common' ), rank_math()->version );
+		wp_register_style( self::PREFIX . 'plugin-feedback', $css . 'feedback.css', array( 'rank-math-common' ), rank_math()->version );
 
 		// Scripts.
 		wp_register_script( 'clipboard', rank_math()->plugin_url() . 'assets/vendor/clipboard.min.js', null, '2.0.0', true );
-		wp_register_script( self::PREFIX . 'common', $js . 'common.js', array( 'jquery' ), rank_math()->get_version(), true );
-		wp_register_script( self::PREFIX . 'dashboard', $js . 'dashboard.js', array( 'jquery', 'clipboard' ), rank_math()->get_version(), true );
-		wp_register_script( self::PREFIX . 'plugin-feedback', $js . 'feedback.js', array( 'jquery' ), rank_math()->get_version(), true );
+		wp_register_script( self::PREFIX . 'common', $js . 'common.js', array( 'jquery' ), rank_math()->version, true );
+		wp_register_script( self::PREFIX . 'dashboard', $js . 'dashboard.js', array( 'jquery', 'clipboard' ), rank_math()->version, true );
+		wp_register_script( self::PREFIX . 'plugin-feedback', $js . 'feedback.js', array( 'jquery' ), rank_math()->version, true );
 
 		// Select2.
 		wp_register_style( 'select2-rm', $vendor . 'select2/select2.min.css', null, '4.0.6-rc.1' );
 		wp_register_script( 'select2-rm', $vendor . 'select2/select2.min.js', null, '4.0.6-rc.1', true );
 
-		rank_math()->add_json( 'hasPremium', \class_exists( '\\RankMath\\Premium' ) );
+		GlobalHelper::add_json( 'hasPremium', \class_exists( '\\RankMath\\Premium' ) );
+		GlobalHelper::add_json( 'api', array(
+			'root'  => esc_url_raw( get_rest_url() ),
+			'nonce' => ( wp_installing() && ! is_multisite() ) ? '' : wp_create_nonce( 'wp_rest' ),
+		) );
 
 		/**
 		 * Allow other plugins to register styles or scripts into admin after plugin assets.
@@ -85,7 +90,7 @@ class Assets {
 		// Add thank you.
 		$this->filter( 'admin_footer_text', 'admin_footer_text' );
 
-		rank_math()->add_json( 'maxTags', GlobalHelper::is_mythemeshop_connected() ? 5 : 1 );
+		GlobalHelper::add_json( 'maxTags', GlobalHelper::is_mythemeshop_connected() ? 5 : 1 );
 
 		/**
 		 * Allow other plugins to enqueue styles or scripts into admin after plugin assets.
@@ -101,7 +106,7 @@ class Assets {
 	 */
 	public function admin_footer_text( $text ) {
 		/* translators: plugin url */
-		return GlobalHelper::is_whitelabel() ? $text : '<em>' . sprintf( wp_kses_post( __( 'Thank you for using <a href="%s" target="_blank">Rank Math</a>', 'rank-math' ) ), 'https://mythemeshop.com/plugins/wordpress-seo/' ) . '</em>';
+		return GlobalHelper::is_whitelabel() ? $text : '<em>' . sprintf( wp_kses_post( __( 'Thank you for using <a href="%s" target="_blank">Rank Math</a>', 'rank-math' ) ), 'https://s.rankmath.com/home' ) . '</em>';
 	}
 
 	/**
