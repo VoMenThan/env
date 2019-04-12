@@ -456,7 +456,7 @@
     function changeTextBtn() {
         $("header #gform_submit_button_3").val('KEEP ME UPDATED');
     }
-
+tea
     $(function () {
         toggle_obj(".btn-toggle-menu", "#menuBarMobile");
         toggle_obj(".btn-toggle-search", "#detailBoxSearch");
@@ -464,6 +464,13 @@
         get_attr();
         select_next_element();
         changeTextBtn();
+    });
+
+    $(document).ready(function(){
+        $('input[id="input_2_7"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $("#field_2_7 label").html(fileName);
+        });
     });
 
 </script>

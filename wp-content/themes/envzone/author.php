@@ -45,7 +45,7 @@ get_header();?>
                         if ($avatar == ''){
                             echo get_avatar( get_the_author_meta( 'user_email' ), 110 );
                         }else{?>
-                            <img src="<?php echo $avatar;?>" alt="" class="img-fluid">
+                            <img src="<?php echo $avatar['sizes']['medium'];?>" alt="" class="img-fluid">
                         <?php
                         }
                         ?>
@@ -94,7 +94,7 @@ get_header();?>
                                         }
 
                                         ?>
-                                        <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
                                         <span>By </span>
                                         <span class="author"><?php echo $authorName;?></span>
                                         <div class="date-public">on <?php echo get_the_modified_date();?></div>
@@ -140,7 +140,7 @@ get_header();?>
                             if ($id == 7 || $id == 8 || $id == 9 || $id == 1) continue;
                         ?>
                         <div class="item-author clearfix">
-                            <img src="<?php echo get_field('avatar', 'user_'. $user->ID );?>" alt="" class="img-fluid">
+                            <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['thumbnail'];?>" alt="" class="img-fluid">
                             <?php //echo get_avatar( get_the_author_meta( 'user_email' ), 110 );?>
                             <div class="author-name">
                                 <a href="<?php echo home_url('author/').$user->nickname;?>">

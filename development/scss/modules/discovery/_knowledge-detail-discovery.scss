@@ -1,5 +1,5 @@
 .blog-knowledge-detail-page{
-  background: #F2F2F2;
+  background: #ffffff;
   .box-breadcrumb{
     margin-bottom: 50px;
   }
@@ -41,8 +41,20 @@
     font-family: $font-roboto;
     color: #90989E;
     border-bottom: 1px solid #BDBDBD;
+    .avatar{
+      width: 35px;
+      height: 35px;
+      @include radius(50%);
+      float: left;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+    .info-author{
+      width: 50%;
+    }
     .edit-by, .public-on{
       color: $color-gray-text;
+      font-family: $font-roboto;
     }
 
     .author, .date{
@@ -52,9 +64,10 @@
       font-family: $font-roboto;
     }
     .tags{
-      font-family: $font-roboto;
       padding-top: 15px;
       a{
+        font-family: $font-roboto;
+        font-weight: 500;
         padding-right: 5px;
         color: $color-blue-lv4;
         &:after{
@@ -76,6 +89,9 @@
     padding: 15px;
     position: relative;
     padding-bottom: 40px;
+    *{
+      font-family: $font-roboto;
+    }
     .show-more, .hide-less {
       position: absolute;
       bottom: 15px;
@@ -87,8 +103,8 @@
     }
 
     .hide-less {display: none;}
-    .show-more:target {display: none;}
-    .show-more:target ~ .hide-less {display: block;}
+    .show-more:target {display: none; @include transition(.3s);}
+    .show-more:target ~ .hide-less {display: block; @include transition(.3s);}
     .show-more:target ~ .content-description {
       max-height: 10000px;
     }
@@ -98,6 +114,10 @@
       max-height: 75px;
       overflow: hidden;
       transition: max-height .5s ease;
+      font-family: $font-roboto;
+      p{
+        font-size: 17px;
+      }
     }
   }
 
@@ -106,6 +126,7 @@
     .label-share-socials{
       padding-bottom: 10px;
       text-align: center;
+      font-family: $font-roboto;
     }
 
     .list-social{

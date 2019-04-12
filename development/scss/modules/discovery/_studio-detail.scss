@@ -28,30 +28,32 @@
         .owl-nav{
             .owl-next{
                 position: absolute;
-                right: 0;
+                right: -10px;
                 top: calc(50% - 15px);
                 outline: none;
                 height: 35px;
-                background: rgba(255, 255, 255, 0.6);
+                background: rgba(255, 255, 255, 1);
                 width: 35px;
                 border-radius: 50%;
                 padding-top: 7px !important;
                 display: inline-block;
+                @include box-shadow(0, 4px, 4px, rgba(0, 0, 0, 0.25));
                 &.disabled{
                     opacity: .5;
                 }
             }
             .owl-prev{
                 position: absolute;
-                left: 0;
+                left: -10px;
                 top: calc(50% - 15px);
                 outline: none;
                 height: 35px;
-                background: rgba(255, 255, 255, 0.6);
+                background: rgba(255, 255, 255, 1);
                 width: 35px;
                 border-radius: 50%;
                 padding-top: 7px !important;
                 display: inline-block;
+                @include box-shadow(0, 4px, 4px, rgba(0, 0, 0, 0.25));
                 &.disabled{
                     opacity: .3;
                 }
@@ -63,30 +65,32 @@
         .owl-nav{
             .owl-next{
                 position: absolute;
-                right: 0;
+                right: -10px;
                 top: calc(50% - 7px);
                 outline: none;
                 height: 25px;
-                background: rgba(255, 255, 255, 0.6);
+                background: rgba(255, 255, 255, 1);
                 width: 25px;
                 border-radius: 50%;
                 padding-top: 3px !important;
                 display: inline-block;
+                @include box-shadow(0, 4px, 4px, rgba(0, 0, 0, 0.25));
                 &.disabled{
                     opacity: .5;
                 }
             }
             .owl-prev{
                 position: absolute;
-                left: 0;
+                left: -10px;
                 top: calc(50% - 7px);
                 outline: none;
                 height: 25px;
-                background: rgba(255, 255, 255, 0.6);
+                background: rgba(255, 255, 255, 1);
                 width: 25px;
                 border-radius: 50%;
                 padding-top: 3px !important;
                 display: inline-block;
+                @include box-shadow(0, 4px, 4px, rgba(0, 0, 0, 0.25));
                 &.disabled{
                     opacity: .3;
                 }
@@ -103,10 +107,11 @@
         color: #BDBDBD;
         font-size: 17px;
         line-height: 120%;
-        h2{
+        h1{
             color: $color-green-logo;
             font-weight: bold;
             min-height: 70px;
+            font-size: 24px;
         }
         *:not(h2){
             font-family: $font-roboto;
@@ -118,8 +123,6 @@
             font-family: $font-roboto;
         }
         .public-on{
-            border-bottom: 1px solid #E0E0E0;
-            margin-bottom: 10px;
             padding-bottom: 10px;
         }
         .edit-by, .public-on{
@@ -156,6 +159,14 @@
             bottom: 0;
             right: 25px;
             width: calc(100% - 50px);
+            .avatar{
+                width: 35px;
+                height: 35px;
+                @include radius(50%);
+                float: left;
+                margin-right: 10px;
+                margin-top: 5px;
+            }
             .share-share-social{
                 margin-bottom: 10px;
             }

@@ -32,12 +32,11 @@
                     'offset'=> 0,
                     'post_type' => 'post',
                     'orderby' => 'post_modified',
-                    'order' =>'desc',
                     'meta_query' => array(
                         'relation' => 'OR',
                         array(
                             'key' => 'post_show',
-                            'value' => 'featured-insights',
+                            'value' => 'main-article',
                             'compare' => 'LIKE',
                         )
                     )
@@ -63,8 +62,13 @@
 
                                     <div class="excerpt">
                                         <p>
-                                            <?php echo $news_main[0]->post_excerpt;?>
+                                            <?php
+                                                $title = $news_main[0]->post_excerpt;
+                                                $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
+                                                echo $title;
+                                            ?>
                                         </p>
+
                                         <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>" class="read-more">Read more</a>
                                     </div>
                                 </div>
@@ -123,7 +127,9 @@
                 <div class="col-lg-4 item-blog-mb-30">
                     <div class="box-item-special item">
                         <div class="item-blog">
-                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
+                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
+                            </a>
                             <div class="info">
                                 <div class="info-news">
                                     <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -157,25 +163,17 @@
                 <div class="col-lg-8">
                     <?php
                     $args = array(
-                        'posts_per_page' => 7,
+                        'posts_per_page' => -1,
                         'offset'=> 0,
                         'post_type' => 'post',
                         'orderby' => 'id',
-                        'order' =>'desc',
-                        'meta_query' => array(
-                            'relation' => 'OR',
-                            array(
-                                'key' => 'post_show',
-                                'value' => 'featured-insights',
-                                'compare' => 'NOT EXISTS',
-                            )
-                        )
+                        'order' =>'desc'
                     );
                     $news_recent = get_posts( $args );
                     foreach($news_recent as $item):?>
                     <article class="highlight-news-right clearfix">
-                        <a class="thumbnail-news" href="#">
-                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                        <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                            <?php echo get_the_post_thumbnail( $item->ID, 'medium');?>
                         </a>
                         <div class="info-news">
                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>

@@ -35,8 +35,14 @@ get_header();
                         'post_type' => 'knowledge_center',
                         'orderby' => 'post_modified',
                         'order' =>'desc',
-                        'meta_key' => 'main_article',
-                        'meta_value' => true
+                        'meta_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'video_show',
+                                'value' => 'knowledge-center',
+                                'compare' => 'LIKE',
+                            )
+                        )
                     );
                     $video_main = get_posts( $args );
                     ?>
@@ -54,7 +60,11 @@ get_header();
                             </h2>
                             </a>
                             <p>
-                                <?php echo wp_trim_words($video_main[0]->post_excerpt, 20);?>
+                                <?php
+                                        $title = $video_main[0]->post_excerpt;
+                                        $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
+                                        echo $title;
+                                ?>
                             </p>
 
                             <div class="audit">

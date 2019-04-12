@@ -133,21 +133,21 @@
     <!-- /*============BLOG HOME=================*/ -->
     <?php
     $args = array(
-        'posts_per_page' => 7,
+        'posts_per_page' => 1,
         'offset'=> 0,
         'post_type' => 'post',
-        'orderby' => 'id',
+        'orderby' => 'post_modified',
         'order' =>'desc',
         'meta_query' => array(
             'relation' => 'OR',
             array(
                 'key' => 'post_show',
-                'value' => 'featured-insights',
+                'value' => 'main-article',
                 'compare' => 'LIKE',
             )
         )
     );
-    $news_special = get_posts( $args );
+    $news_main = get_posts( $args );
     ?>
     <div class="container background-gray-mobile section-blog">
         <div class="content-blog define-headline">
@@ -166,38 +166,38 @@
 
                             <div class="col-lg-7 img-special">
                                 <a href="#">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_special[0]->ID);?>" align="job-openings">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
                                 </a>
                             </div>
                             <div class="col-lg-5 d-flex info-special flex-column align-items-start">
                                 <div class="box-info">
-                                    <a href="<?php echo home_url('category/').get_the_category($news_special[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_special[0]->ID)[0]->cat_name;?></a>
+                                    <a href="<?php echo home_url('category/').get_the_category($news_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_main[0]->ID)[0]->cat_name;?></a>
 
-                                    <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>">
-                                        <h3 class="title-special"><?php echo $news_special[0]->post_title;?></h3>
+                                    <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
+                                        <h3 class="title-special"><?php echo $news_main[0]->post_title;?></h3>
                                     </a>
 
                                     <div class="excerpt">
                                         <p>
-                                            <?php echo $news_special[0]->post_excerpt;?>
+                                            <?php echo $news_main[0]->post_excerpt;?>
                                         </p>
-                                        <a href="<?php echo get_home_url().'/blog/'.$news_special[0]->post_name;?>" class="read-more">Read more</a>
+                                        <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>" class="read-more">Read more</a>
                                     </div>
                                 </div>
 
                                 <div class="box-author mt-auto">
                                     <?php
-                                    if (get_field('avatar', 'user_'.$news_special[0]->post_author)== ''){
+                                    if (get_field('avatar', 'user_'.$news_main[0]->post_author)== ''){
                                         $avatar = ASSET_URL.'images/avatar-default.png';
                                     }
                                     else{
-                                        $avatar = get_field('avatar', 'user_'.$news_special[0]->post_author, 'thumbnail');
+                                        $avatar = get_field('avatar', 'user_'.$news_main[0]->post_author, 'thumbnail');
                                     }
 
                                     ?>
                                     <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_special[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_special[0]->post_author);?></a>
-                                    <div class="date-by">on <?php echo get_the_date( 'F d, Y', $news_special[0]->ID );?></div>
+                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_main[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_main[0]->post_author);?></a>
+                                    <div class="date-by">on <?php echo get_the_date( 'F d, Y', $news_main[0]->ID );?></div>
                                 </div>
 
                             </div>
@@ -206,6 +206,22 @@
 
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
+                        $args = array(
+                            'posts_per_page' => 7,
+                            'offset'=> 0,
+                            'post_type' => 'post',
+                            'orderby' => 'id',
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'post_show',
+                                    'value' => 'featured-insights',
+                                    'compare' => 'LIKE',
+                                )
+                            )
+                        );
+                        $news_special = get_posts( $args );
                         foreach($news_special as $k => $item):
                             if ($k == 0) continue;
                             if (get_field('avatar', 'user_'.$item->post_author)== ''){
@@ -685,7 +701,7 @@
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>KNOWLEDGE CENTER</h2>
-                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge-center">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -701,7 +717,7 @@
                 </div>
                 <div class="col-lg-4 d-lg-block d-none">
                     <article class="list-item">
-                        <div class="label-headline">#1 News Trending</div>
+                        <div class="label-headline">FEATURED INSIGHTS</div>
                         <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
                             <?php foreach ($video_list as $k => $item):
                                 if ($k == 0) continue;

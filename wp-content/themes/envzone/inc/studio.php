@@ -1,3 +1,8 @@
+<?php
+
+get_header();
+?>
+
 <main class="main-content">
     <div class="container">
         <div class="row">
@@ -23,8 +28,14 @@
                         'post_type' => 'studio_gallery',
                         'orderby' => 'post_modified',
                         'order' =>'desc',
-                        'meta_key' => 'main_article',
-                        'meta_value' => true
+                        'meta_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'album_show',
+                                'value' => 'studio-gallery',
+                                'compare' => 'LIKE'
+                            )
+                        )
                     );
                     $studio_main = get_posts( $args );
                     ?>
@@ -40,6 +51,13 @@
                                     <h1>
                                         <?php echo $studio_main[0]->post_title;?>
                                     </h1>
+                                    <p style="color:#fff;font-size: 20px; font-family: 'Roboto ',sans-serif;">
+                                        <?php
+                                            $title = $studio_main[0]->post_excerpt;
+                                            $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
+                                            echo $title;
+                                        ?>
+                                    </p>
                                 </a>
                             </div>
 
@@ -54,7 +72,7 @@
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $studio_main[0]->post_author);?>">
                                         By <?php echo get_the_author_meta('display_name', $studio_main[0]->post_author);?>
                                     </a>
@@ -74,7 +92,7 @@
                 </div>
                 <?php
                 $args = array(
-                    'posts_per_page' => 7,
+                    'posts_per_page' => 6,
                     'offset'=> 0,
                     'post_type' => 'studio_gallery',
                     'orderby' => 'ID',
@@ -109,7 +127,7 @@
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
 
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>">
                                         By <?php echo get_the_author_meta('display_name', $item->post_author);?>
@@ -129,7 +147,7 @@
 
                 <?php
                 $args = array(
-                    'posts_per_page' => 3,
+                    'posts_per_page' => 6,
                     'offset'=> 0,
                     'post_type' => 'studio_motion',
                     'orderby' => 'id',
@@ -163,7 +181,7 @@
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar;?>" class="img-fluid avatar" alt="">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                         By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
@@ -252,4 +270,4 @@
 
     })(jQuery);
 </script>
-
+<?php get_footer(); ?>

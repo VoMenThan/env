@@ -1028,3 +1028,54 @@ body {
 }
 /*END CUSTOM SUBSCRIBER CONTACT CONFIRMATION*/
 
+
+
+.form-horizontal {
+    #gform_wrapper_5 {
+        ul.gform_fields:not(.top_label) {
+            #field_5_13{
+                .gfield_label{
+                    border: 1px solid #BDBDBD;
+                    width: auto;
+                    text-align: center;
+                    padding: 5px 20px;
+                    margin-left: 40%;
+                    text-transform: none;
+                    font-size: 18px;
+
+                }
+            }
+        }
+        #input_5_13{
+            display: none;
+
+        }
+
+
+    }
+}
+
+#gform_wrapper_2 {
+
+    #field_2_7{
+        .gfield_label{
+            border: 1px solid #E0E0E0;
+            width: auto;
+            text-align: center;
+            padding: 5px 20px;
+            text-transform: none;
+            font-size: 18px;
+            font-weight: 600;
+            span{
+                display: none;
+            }
+        }
+    }
+
+    #input_2_7{
+        display: none;
+    }
+
+
+}
+

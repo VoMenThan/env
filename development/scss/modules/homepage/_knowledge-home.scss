@@ -19,7 +19,7 @@
 			color: $color-white;
 			padding-top: 15px;
 			display: 	block;
-			font-family: $font-pt;
+			font-family: $font-roboto;
 			line-height: 56px;
 			font-size: 36px;
 		}
@@ -53,6 +53,7 @@
 				padding-top: 0;
 				padding-left: calc(35% + 15px);
 				font-size: .8rem;
+				font-family: $font-roboto;
 			}
 			.info{
 				position: absolute;
