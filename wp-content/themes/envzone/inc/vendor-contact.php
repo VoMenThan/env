@@ -65,7 +65,7 @@
                         <div class="col-blue d-flex align-items-center justify-content-center">
                             <div class="title-already">
                                 Already registered? <br>
-                                Login <a href="#">here</a>.
+                                Login <a href="https://www.envzone.com/vendor-portal">here</a>.
                             </div>
                         </div>
                         <div class="box-img">

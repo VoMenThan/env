@@ -160,7 +160,7 @@ get_header();
                     <div class="col-lg-4">
                         <article class="highlight-news-right img-center">
 
-                            <a class="thumbnail-news" href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>">
+                            <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                 <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
                                 <i class="icon-video-play"></i>
                             </a>

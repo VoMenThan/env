@@ -412,7 +412,7 @@ get_header();
                                 <?php
                                 $vimeo = get_post_meta($item->ID, 'embed', true);
                                 ?>
-                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                     <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
                                     <i class="icon-video-play"></i>
                                 </a>
