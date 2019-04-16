@@ -80,7 +80,7 @@ get_header();
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_main[0]->post_author);?>">
                                    By <?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?>
                                 </a>
-                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $video_main[0]->ID );?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'F d, Y', $video_main[0]->ID );?></div>
                             </div>
                         </div>
                     </article>
@@ -134,7 +134,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

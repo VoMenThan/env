@@ -51,7 +51,7 @@ get_header();
                         <div class="audit">
                             <span>By </span>
                             <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a> <span>| <?php echo get_field('staff', 'user_'.$post->post_author);?></span>
-                            <div class="date">Updated on: <?php echo get_the_date( 'F d,Y', $item->ID );?> | <?php echo get_field('estimate_reading', $post->ID);?> min read</div>
+                            <div class="date">Updated on: <?php echo get_the_date( 'F d, Y', $item->ID );?> | <?php echo get_field('estimate_reading', $post->ID);?> min read</div>
                         </div>
 
                         <div class="box-share no-print">
@@ -268,6 +268,9 @@ get_header();
 
                         </div>
                         <?php
+
+                            $post_isset = array();
+
                             $args = array(
                                 'posts_per_page' => 5,
                                 'offset'=> 0,
@@ -292,11 +295,13 @@ get_header();
                             <a href="<?php echo get_home_url().'/blog/'.$news_relate[0]->post_name;?>">
                                 <h2><?php echo $news_relate[0]->post_title;?></h2>
                             </a>
-                            <div class="date">on <?php echo get_the_date( 'F d,Y', $news_relate[0]->ID );?></div>
+                            <div class="date">on <?php echo get_the_date( 'F d, Y', $news_relate[0]->ID );?></div>
                         </div>
 
                             <?php
                             foreach ($news_relate as $k => $item):
+                                array_push($post_isset, $item->ID);
+
                                 if ($k == 0) continue;
                         ?>
                         <div class="item-relate clearfix">
@@ -306,7 +311,7 @@ get_header();
                             <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
                                 <h2><?php echo $item->post_title;?></h2>
                             </a>
-                            <div class="date">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                            <div class="date">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
 
                         </div>
                         <?php endforeach;?>
@@ -354,9 +359,10 @@ get_header();
                     <div class="owl-carousel owl-theme d-flex slider-news">
                     <?php
                     $args = array(
-                        'posts_per_page' => 7,
+                        'posts_per_page' => 10,
                         'offset'=> 0,
                         'post_type' => 'post',
+                        'post__not_in' => $post_isset,
                         'orderby' => 'id',
                         'order' =>'desc',
                         'meta_query' => array(
@@ -399,11 +405,14 @@ get_header();
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                     By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                 </a>
-                                <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                             </div>
                         </div>
                     </article>
-                    <?php endforeach;?>
+                    <?php
+                        endforeach;
+                        $post_isset = '';
+                    ?>
                     </div>
                 </div>
             </div>
@@ -463,7 +472,7 @@ get_header();
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                        By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
-                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                 </div>
                             </div>
                         </article>
@@ -518,7 +527,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

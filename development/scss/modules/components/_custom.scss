@@ -1079,3 +1079,26 @@ body {
 
 }
 
+#gform_wrapper_6 {
+
+    #field_6_9{
+        .gfield_label{
+            border: 1px solid #E0E0E0;
+            width: auto;
+            text-align: center;
+            padding: 5px 20px;
+            text-transform: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: 40%;
+            span{
+                display: none;
+            }
+        }
+    }
+
+    #input_6_9{
+        display: none;
+    }
+}
+

@@ -91,4 +91,12 @@
 
         </section>
     </main>
+    <script>
+        $(document).ready(function(){
+            $('input[id="input_6_9"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                $("#field_6_9 label").html(fileName);
+            });
+        });
+    </script>
 <?php get_footer();?>

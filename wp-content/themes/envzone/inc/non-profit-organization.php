@@ -63,15 +63,12 @@ get_header();
                         </p>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5"> 
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                <div class="row">
+                    <div class="col-12 text-center my-lg-5 my-3">
+                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                    </div>
                 </div>
+
             </div>
         </div>
 

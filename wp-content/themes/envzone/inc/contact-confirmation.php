@@ -53,17 +53,17 @@
                             </p>
                             <ul class="nav list-social-mb">
                                 <li class="nav-item px-1">
-                                    <a class="nav-link link-twitter" href="https://twitter.com/Envzone">
+                                    <a class="nav-link link-twitter" target="_blank" rel="nofollow" href="https://twitter.com/Envzone">
                                         <i class="icon-twitter-green"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item px-1">
-                                    <a class="nav-link link-facebook" href="https://www.facebook.com/envzone/">
+                                    <a class="nav-link link-facebook" target="_blank" rel="nofollow" href="https://www.facebook.com/envzone/">
                                         <i class="icon-facebook-green"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item px-1">
-                                    <a class="nav-link link-linkedin"  href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home">
+                                    <a class="nav-link link-linkedin" target="_blank" rel="nofollow" href="https://www.linkedin.com/company/evnzone-inc.?trk=top_nav_home">
                                         <i class="icon-linkedin-green"></i>
                                     </a>
                                 </li>

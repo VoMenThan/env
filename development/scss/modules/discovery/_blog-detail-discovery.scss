@@ -92,7 +92,7 @@
 				margin-bottom: 20px;
 			}
 			figcaption{
-				font-size: 16px;
+				font-size: 12px;
 				font-family: $font-roboto;
 				color: #ffffff;
 				position: absolute;
@@ -101,7 +101,7 @@
 				background: rgba(13, 49, 83, .7);
 				padding: 0 15px;
 				margin-bottom: 0;
-				line-height: 30px;
+				line-height: 18px;
 			}
 
 			h2, h3, h4{
@@ -162,11 +162,12 @@
 					font-family: $font-merriweather;
 				}
 			}
-			> a{
+			a{
 				font-family: $font-merriweather;
 				font-size: 20px;
 				text-decoration: underline;
 				color: $color-blue-lv4;
+
 			}
 
 		}
@@ -175,6 +176,11 @@
 		.box-info-footer{
 			border-top: 2px solid #1A1A1A;
 			margin-top: 50px;
+			a{
+				text-decoration: none;
+				font-size: inherit;
+				font-family: inherit;
+			}
 			.box-tag{
 				padding: 20px 0;
 				a{

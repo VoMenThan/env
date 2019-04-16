@@ -27,6 +27,7 @@
             </div>
             <div class="row section-head-blog content-blog">
                 <?php
+                $post_isset = array();
                 $args = array(
                     'posts_per_page' => 1,
                     'offset'=> 0,
@@ -42,6 +43,8 @@
                     )
                 );
                 $news_main = get_posts( $args );
+
+                array_push($post_isset, $news_main[0]->ID);
                 ?>
                 <div class="col-lg-12 item-blog-mb-80">
                     <div class="item-special">
@@ -98,11 +101,12 @@
                 </div>
                 <?php
                 $args = array(
-                    'posts_per_page' => 7,
+                    'posts_per_page' => 6,
                     'offset'=> 0,
                     'post_type' => 'post',
-                    'orderby' => 'id',
+                    'orderby' => 'post_modified',
                     'order' =>'desc',
+                    'post__not_in' => array($news_main[0]->ID),
                     'meta_query' => array(
                         'relation' => 'OR',
                         array(
@@ -115,7 +119,9 @@
                 $news_special = get_posts( $args );
 
                 foreach($news_special as $item):
-                    if ($item->ID == $news_main[0]->ID)continue;
+
+                    array_push($post_isset, $item->ID);
+
                     if (get_field('avatar', 'user_'.$item->post_author)== ''){
                         $avatar = ASSET_URL.'images/avatar-default.png';
                     }
@@ -167,6 +173,7 @@
                         'offset'=> 0,
                         'post_type' => 'post',
                         'orderby' => 'id',
+                        'post__not_in' => $post_isset,
                         'order' =>'desc'
                     );
                     $news_recent = get_posts( $args );
@@ -199,7 +206,10 @@
                             </div>
                         </div>
                     </article>
-                    <?php endforeach;?>
+                    <?php
+                        endforeach;
+                        $post_isset = ''; //reset array post isset
+                    ?>
                     <!--<a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 

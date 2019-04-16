@@ -17,7 +17,7 @@
                             </div>
                             <p>
                                 Your submission has been successful! <br>
-                                We will respond to your request really soon.
+                                A notification email has been sent to your inbox. We will respond to your request really soon.
                             </p>
                         </div>
                         <div class="box-nav d-flex justify-content-around align-items-center">

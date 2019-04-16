@@ -76,7 +76,7 @@ get_header();
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $studio_main[0]->post_author);?>">
                                         By <?php echo get_the_author_meta('display_name', $studio_main[0]->post_author);?>
                                     </a>
-                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $studio_main[0]->ID );?></div>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d, Y', $studio_main[0]->ID );?></div>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@ get_header();
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('display_name', $item->post_author);?>">
                                         By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
-                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID )?></div>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID )?></div>
                                 </div>
                             </div>
                         </article>
@@ -160,7 +160,7 @@ get_header();
                     <div class="col-lg-4">
                         <article class="highlight-news-right img-center">
 
-                            <a class="thumbnail-news" href="#">
+                            <a class="thumbnail-news" href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>">
                                 <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
                                 <i class="icon-video-play"></i>
                             </a>
@@ -185,7 +185,7 @@ get_header();
                                     <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                         By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                     </a>
-                                    <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                    <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                 </div>
                             </div>
                         </article>

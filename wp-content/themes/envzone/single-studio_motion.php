@@ -10,32 +10,33 @@ get_header();
 ?>
 
 <main class="main-content">
-    <div class="container-fluid bg-blue-home">
+
+    <section class="artical-page blog-page blog-detail-page blog-knowledge-page blog-knowledge-detail-page">
+
+        <div class="container-fluid bg-blue-home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="<?php echo get_home_url().'/category/'.get_the_category($post->ID)[0]->slug;?>" class="current-category"><?php echo get_the_category($post->ID)[0]->name;?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
-                    <a href="<?php echo get_home_url().'/category/'.get_the_category($post->ID)[0]->slug;?>" class="current-category"><?php echo get_the_category($post->ID)[0]->name;?></a>
+                <div class="col-12">
+                    <div class="box-breadcrumb">
+                        <span class="you-here">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo home_url('studio');?>">Studio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $post->post_title;?></li>
+                        </ol>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="box-breadcrumb">
-                    <span class="you-here">You are here:</span>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?php echo home_url('studio');?>">Studio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><?php echo $post->post_title;?></li>
-                    </ol>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <section class="artical-page blog-page blog-knowledge-page blog-knowledge-detail-page">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-12">
@@ -63,7 +64,7 @@ get_header();
                                     By <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"><b><?php echo get_the_author_meta('display_name', $post->post_author);?></b></a> | <?php echo get_field('staff', 'user_'.$post->post_author);?>
                                 </div>
                                 <div class="public-on">
-                                    on <?php echo get_the_date( 'F d,Y', $post->ID ); ?>
+                                    on <?php echo get_the_date( 'F d, Y', $post->ID ); ?>
                                 </div>
 
                                 <div class="tags">
@@ -258,10 +259,10 @@ get_header();
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
                         $args = array(
-                            'posts_per_page' => 7,
+                            'posts_per_page' => 10,
                             'offset'=> 0,
                             'post_type' => 'post',
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -303,7 +304,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -327,7 +328,7 @@ get_header();
                             'posts_per_page' => 7,
                             'offset'=> 0,
                             'post_type' => 'knowledge_center',
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -371,7 +372,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -395,7 +396,7 @@ get_header();
                             'posts_per_page' => 7,
                             'offset'=> 0,
                             'post_type' => 'studio_motion',
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc'
                         );
                         $news_expert = get_posts( $args );
@@ -431,7 +432,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>

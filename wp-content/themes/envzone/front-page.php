@@ -165,7 +165,7 @@
                         <div class="row">
 
                             <div class="col-lg-7 img-special">
-                                <a href="#">
+                                <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
                                 </a>
                             </div>
@@ -207,9 +207,10 @@
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
                         $args = array(
-                            'posts_per_page' => 7,
+                            'posts_per_page' => 10,
                             'offset'=> 0,
                             'post_type' => 'post',
+                            'post__not_in' => array($news_main[0]->ID),
                             'orderby' => 'id',
                             'order' =>'desc',
                             'meta_query' => array(
@@ -223,7 +224,6 @@
                         );
                         $news_special = get_posts( $args );
                         foreach($news_special as $k => $item):
-                            if ($k == 0) continue;
                             if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                 $avatar = ASSET_URL.'images/avatar-default.png';
                             }
@@ -234,7 +234,7 @@
                             ?>
                             <div class="box-item-special item">
                                 <div class="item-blog">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings">
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -642,14 +642,16 @@
             <div class="container content-contact-quote-book">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 ">
-                        <h4>COLORADO IS COLD!</h4>
-                        <p>Book a 30-min coffee meeting at our office</p>
+                        <h4>BOOKING</h4>
+                        <p>Meet a representative to assist with your project</p>
                         <!--<a class="btn btn-green-env btn-transparent" href="#">
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>-->
 
                         <!-- Calendly link widget begin -->
-                        <a href="<?php echo home_url('contact-us');?>" class="btn btn-white-env">
+                        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                        <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-white-env">
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>
                         <!-- Calendly link widget end -->

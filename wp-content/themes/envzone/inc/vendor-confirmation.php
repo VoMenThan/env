@@ -18,8 +18,8 @@
                             </div>
                             <div class="box-info">
                                 <p>
-                                    Your submission has been successful! A confirmation notification email has been sent to your inbox at {email}
-                                    We will respond to your request really soon.
+                                    Your submission has been successful! <br>
+                                    A notification email has been sent to your inbox. We will respond to your request really soon.
                                 </p>
                             </div>
 

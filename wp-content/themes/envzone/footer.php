@@ -456,7 +456,7 @@
     function changeTextBtn() {
         $("header #gform_submit_button_3").val('KEEP ME UPDATED');
     }
-tea
+
     $(function () {
         toggle_obj(".btn-toggle-menu", "#menuBarMobile");
         toggle_obj(".btn-toggle-search", "#detailBoxSearch");

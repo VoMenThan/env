@@ -60,7 +60,7 @@ get_header();
                                     By <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"><b><?php echo get_the_author_meta('display_name', $post->post_author);?></b></a> | <?php echo get_field('staff', 'user_'.$post->post_author);?>
                                 </div>
                                 <div class="public-on">
-                                    on <?php echo get_the_date( 'F d,Y', $post->ID ); ?>
+                                    on <?php echo get_the_date( 'F d, Y', $post->ID ); ?>
                                 </div>
 
                                 <div class="tags">
@@ -257,7 +257,7 @@ get_header();
                             'posts_per_page' => 7,
                             'offset'=> 0,
                             'post_type' => 'knowledge_center',
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -301,7 +301,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -321,10 +321,10 @@ get_header();
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
                         $args = array(
-                            'posts_per_page' => 7,
+                            'posts_per_page' => 10,
                             'offset'=> 0,
                             'post_type' => 'post',
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -366,7 +366,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
@@ -389,7 +389,7 @@ get_header();
                             'posts_per_page' => 7,
                             'offset'=> 0,
                             'post_type' => 'studio_motion',
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc'
                         );
                         $news_expert = get_posts( $args );
@@ -425,7 +425,7 @@ get_header();
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
                                             <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d,Y', $item->ID );?></div>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
                                 </div>
                             </article>
