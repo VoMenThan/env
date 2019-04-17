@@ -509,9 +509,9 @@
                             Deliverables:
                         </div>
                         <ul class="include-process">
-                            <li class="include-process-item">Proposals</li>
-                            <li class="include-process-item">Needs Assessment</li>
                             <li class="include-process-item">Initial Meeting</li>
+                            <li class="include-process-item">Needs Assessment</li>
+                            <li class="include-process-item">Proposals</li>
                             <li class="include-process-item">Team Selection</li>
                         </ul>
                     </article>

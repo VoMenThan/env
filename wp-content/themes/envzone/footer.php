@@ -220,7 +220,12 @@
             <div class="row">
                 <div class="col-lg-4 d-none-768 box-certified">
                     <p>Certified Business Credentials</p>
-                    <img class="img-verified img-fluid" src="<?php echo ASSET_URL;?>images/img-verified.png" alt="">
+                    <div class="d-flex justify-content-around">
+                    <a href="https://www.dandb.com/verified/business/113367122/" target="_blank">
+                        <img class="img-verified img-fluid" src="<?php echo ASSET_URL;?>images/img-verified.png" alt="">
+                    </a>
+                    <script language="JavaScript" type="text/javascript"> SiteSeal("https://seal.networksolutions.com/images/confirmrecgreen.gif", "NETSS", "none");</script>
+                    </div>
                 </div>
                 <div class="col-lg-8 pt-3">
                     <div class="box-policy text-center d-none-768">

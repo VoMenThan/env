@@ -26,6 +26,8 @@
     <![endif]-->
 
     <?php wp_head();?>
+
+    <script language="JavaScript" src="https://seal.networksolutions.com/siteseal/javascript/siteseal.js" type="text/javascript"></script>
 </head>
 <body>
 
