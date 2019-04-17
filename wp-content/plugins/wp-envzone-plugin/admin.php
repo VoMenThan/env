@@ -7,6 +7,9 @@ class EnvzoneMTAdmin
     {
         //echo '<br>' . __METHOD__;
         add_action('admin_menu', array($this, 'settingMenuPost'));
+
+        add_action('init', array($this, 'addUserRole'));
+
     }
 
 
@@ -48,5 +51,51 @@ class EnvzoneMTAdmin
     public function settingPageMotion(){
         require ENVZONE_MT_VIEWS_DIR . '/setting-page-motion.php';
     }
+
+    //=======================================================
+    //2. Them mot role cho user
+    //=======================================================
+
+
+    public function addUserRole(){
+        $group = get_role('author');
+
+        $caps = $group->capabilities;
+
+        add_role('guest_author_env', 'Guest Author', $caps);
+        add_role('former_staff_env', 'Former Staff', $caps);
+
+        $group_env = get_role('guest_author_env');
+        $group_env->remove_cap('read');
+        $group_env->remove_cap('rank_math_onpage_analysis');
+        $group_env->remove_cap('rank_math_onpage_general');
+        $group_env->remove_cap('rank_math_onpage_social');
+        $group_env->remove_cap('edit_posts');
+        $group_env->remove_cap('edit_published_posts');
+        $group_env->remove_cap('publish_posts');
+        $group_env->remove_cap('upload_files');
+        $group_env->remove_cap('level_2');
+        $group_env->remove_cap('level_1');
+        $group_env->remove_cap('level_0');
+
+
+        $group_staff_env = get_role('former_staff_env');
+        $group_staff_env->remove_cap('read');
+        $group_staff_env->remove_cap('rank_math_onpage_analysis');
+        $group_staff_env->remove_cap('rank_math_onpage_general');
+        $group_staff_env->remove_cap('rank_math_onpage_social');
+        $group_staff_env->remove_cap('edit_posts');
+        $group_staff_env->remove_cap('edit_published_posts');
+        $group_staff_env->remove_cap('publish_posts');
+        $group_staff_env->remove_cap('upload_files');
+        $group_staff_env->remove_cap('level_2');
+        $group_staff_env->remove_cap('level_1');
+        $group_staff_env->remove_cap('level_0');
+
+    }
+
+
+
+
 
 }
