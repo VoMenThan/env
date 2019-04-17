@@ -386,7 +386,7 @@ get_header();
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
                         $args = array(
-                            'posts_per_page' => 7,
+                            'posts_per_page' => 10,
                             'offset'=> 0,
                             'post_type' => 'studio_motion',
                             'orderby' => 'post_modified',

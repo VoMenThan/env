@@ -690,13 +690,21 @@
 
     <?php
         $args = array(
-            'posts_per_page' => 10,
+            'posts_per_page' => 1,
             'offset'=> 0,
             'post_type' => 'knowledge_center',
-            'orderby' => 'id',
-            'order' =>'desc'
+            'orderby' => 'post_modified',
+            'order' =>'desc',
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'video_show',
+                    'value' => 'knowledge-center',
+                    'compare' => 'LIKE',
+                )
+            )
         );
-        $video_list = get_posts( $args );
+        $video_main = get_posts( $args );
     ?>
     <div class="container-fluild bg-gray-home section-knowledge">
         <div class="container content-knowledge define-headline">
@@ -709,11 +717,11 @@
             <div class="row">
                 <div class="col-lg-8 video-play">
                     <div class="embed-video">
-                        <?php echo get_field('embed', $video_list[0]->ID);?>
+                        <?php echo get_field('embed', $video_main[0]->ID);?>
                     </div>
-                    <a href="<?php echo get_permalink($video_list[0]->ID);?>">
+                    <a href="<?php echo get_permalink($video_main[0]->ID);?>">
                         <h3>
-                            <?php echo $video_list[0]->post_title;?>
+                            <?php echo $video_main[0]->post_title;?>
                         </h3>
                     </a>
                 </div>
@@ -721,8 +729,27 @@
                     <article class="list-item">
                         <div class="label-headline">FEATURED INSIGHTS</div>
                         <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
-                            <?php foreach ($video_list as $k => $item):
-                                if ($k == 0) continue;
+                            <?php
+
+                            $args = array(
+                                'posts_per_page' => 10,
+                                'offset'=> 0,
+                                'post_type' => 'knowledge_center',
+                                'post__not_in' => array($video_main[0]->ID),
+                                'orderby' => 'post_modified',
+                                'order' =>'desc',
+                                'meta_query' => array(
+                                    'relation' => 'OR',
+                                    array(
+                                        'key' => 'video_show',
+                                        'value' => 'featured-videos',
+                                        'compare' => 'LIKE',
+                                    )
+                                )
+                            );
+                            $video_list = get_posts( $args );
+
+                            foreach ($video_list as $k => $item):
                                 $vimeo = get_post_meta($item->ID, 'embed', true);
                                 ?>
                             <div class="item-detail clearfix">

@@ -22,6 +22,7 @@ get_header();
             <div class="row mb-5">
                 <div class="col-12">
                     <?php
+                    $isset_gallery = array();
                     $args = array(
                         'posts_per_page' => 1,
                         'offset'=> 0,
@@ -38,6 +39,7 @@ get_header();
                         )
                     );
                     $studio_main = get_posts( $args );
+                    array_push($isset_gallery, $studio_main[0]->ID);
                     ?>
                     <article class="box-studio d-flex clearfix">
                         <a href="<?php echo get_permalink($studio_main[0]->ID);?>" class="box-photo-special">
@@ -95,14 +97,22 @@ get_header();
                     'posts_per_page' => 6,
                     'offset'=> 0,
                     'post_type' => 'studio_gallery',
-                    'orderby' => 'ID',
-                    'order' =>'desc'
+                    'post__not_in' => $isset_gallery,
+                    'orderby' => 'post_modified',
+                    'order' =>'desc',
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                        array(
+                            'key' => 'album_show',
+                            'value' => 'our-highlight',
+                            'compare' => 'LIKE',
+                        )
+                    )
                 );
                 $photo_studio = get_posts( $args );
                 ?>
                 <?php
                 foreach ($photo_studio as $k => $item):
-                    if($item->ID == $studio_main[0]->ID) continue;
                     ?>
                     <div class="col-lg-4 studio-highlight">
                         <article class="highlight-news-right img-center">
@@ -137,7 +147,9 @@ get_header();
                             </div>
                         </article>
                     </div>
-                <?php endforeach;?>
+                <?php endforeach;
+                    $isset_gallery = '';
+                ?>
 
                 <div class="col-lg-12 mt-5">
                     <div class="title-highlight-activities title-head-blue have-border">

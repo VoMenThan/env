@@ -29,6 +29,7 @@ get_header();
 
                 <div class="col-12">
                     <?php
+                    $isset_video = array();
                     $args = array(
                         'posts_per_page' => 1,
                         'offset'=> 0,
@@ -45,6 +46,8 @@ get_header();
                         )
                     );
                     $video_main = get_posts( $args );
+
+                    array_push($isset_video, $video_main[0]->ID);
                     ?>
                     <article class="box-knowledge clearfix">
                         <div class="box-video-special">
@@ -95,15 +98,23 @@ get_header();
                     <div class="row">
                         <?php
                         $args = array(
-                            'posts_per_page' => -1,
+                            'posts_per_page' => 10,
                             'offset'=> 0,
                             'post_type' => 'knowledge_center',
-                            'orderby' => 'id',
-                            'order' =>'desc'
+                            'post__not_in' => $isset_video,
+                            'orderby' => 'post_modified',
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'video_show',
+                                    'value' => 'featured-videos',
+                                    'compare' => 'LIKE',
+                                )
+                            )
                         );
                         $video_list = get_posts( $args );
                         foreach ($video_list as $k => $item):
-                            if ($item->ID == $video_main[0]->ID) continue;
                         ?>
                         <div class="col-lg-6">
                             <article class="highlight-news-right img-center">
@@ -139,7 +150,9 @@ get_header();
                                 </div>
                             </article>
                         </div>
-                        <?php endforeach;?>
+                        <?php endforeach;
+                            $isset_video = '';
+                        ?>
 
                     </div>
 <!--                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
