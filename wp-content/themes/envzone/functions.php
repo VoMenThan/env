@@ -238,6 +238,10 @@ if (is_admin()){
     add_action( 'init', 'change_post_object_label' );
 
 
+    /* Custom category ebook*/
+
+
+
 
 }
 

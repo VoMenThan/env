@@ -813,10 +813,14 @@
                 <a class="view-all" href="<?php echo get_home_url();?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 <?php foreach ($event_all as $item):?>
                     <div class="box-item-event clearfix">
-                        <?php echo $item->post_content;?>
+                        <div class="box-date"><?php echo get_field('date',$item->ID);?></div>
+                        <div class="box-info">
+                            <a target="_blank" href="<?php echo get_field('url_event', $item->ID);?>"><h2><?php echo $item->post_title;?></h2></a>
+                            <div class="location-1"><?php echo get_field('location', $item->ID);?></div>
+                            <div class="location"><i class="icon-location"></i><?php echo get_field('address', $item->ID);?></div>
+                        </div>
                     </div>
                 <?php endforeach;?>
-
 
             </div>
             <div class="col-lg-4 box-head-blog d-lg-block d-none">
