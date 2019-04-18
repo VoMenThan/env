@@ -4,9 +4,6 @@
         <div class="container">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo home_url('client-portal');?>">Client Portal</a>
-                </li>
-                <li class="nav-item">
                     <span class="nav-link active">Vendor Portal</span>
                 </li>
             </ul>

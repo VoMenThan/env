@@ -222,7 +222,7 @@
                     <p>Certified Business Credentials</p>
                     <div class="d-flex justify-content-around">
                     <a href="https://www.dandb.com/verified/business/113367122/" target="_blank">
-                        <img class="img-verified img-fluid" src="<?php echo ASSET_URL;?>images/img-verified.png" alt="">
+                        <img style="height: 65px" class="img-verified img-fluid" src="<?php echo ASSET_URL;?>images/img-verified.png" alt="Verify Business">
                     </a>
                     <script language="JavaScript" type="text/javascript"> SiteSeal("https://seal.networksolutions.com/images/confirmrecgreen.gif", "NETSS", "none");</script>
                     </div>
@@ -478,7 +478,16 @@
         });
     });
 
-</script>
 
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-88982528-1');
+</script>
 </body>
 </html>

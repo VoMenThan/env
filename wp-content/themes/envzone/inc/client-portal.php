@@ -5,9 +5,6 @@
                 <li class="nav-item">
                     <span class="nav-link active">Client Portal</span>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo home_url('vendor-portal');?>">Vendor Portal</a>
-                </li>
             </ul>
         </div>
     </div>

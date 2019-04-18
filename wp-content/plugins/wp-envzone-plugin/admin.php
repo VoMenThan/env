@@ -58,6 +58,7 @@ class EnvzoneMTAdmin
 
 
     public function addUserRole(){
+
         $group = get_role('author');
 
         $caps = $group->capabilities;
@@ -65,6 +66,7 @@ class EnvzoneMTAdmin
         add_role('guest_author_env', 'Guest Author', $caps);
         add_role('former_staff_env', 'Former Staff', $caps);
 
+        /*Remove capabilities role guest author*/
         $group_env = get_role('guest_author_env');
         $group_env->remove_cap('read');
         $group_env->remove_cap('rank_math_onpage_analysis');
@@ -79,6 +81,7 @@ class EnvzoneMTAdmin
         $group_env->remove_cap('level_0');
 
 
+        /*Remove capabilities role former staff*/
         $group_staff_env = get_role('former_staff_env');
         $group_staff_env->remove_cap('read');
         $group_staff_env->remove_cap('rank_math_onpage_analysis');
@@ -91,6 +94,22 @@ class EnvzoneMTAdmin
         $group_staff_env->remove_cap('level_2');
         $group_staff_env->remove_cap('level_1');
         $group_staff_env->remove_cap('level_0');
+
+        /*Add capabilities role editor*/
+        $group_editor_env = get_role('editor');
+
+        $group_editor_env->add_cap('rank_math_onpage_advanced');
+        $group_editor_env->add_cap('rank_math_edit_htaccess');
+        $group_editor_env->add_cap('rank_math_titles');
+        $group_editor_env->add_cap('rank_math_site_analysis');
+        $group_editor_env->add_cap('rank_math_onpage_general');
+        $group_editor_env->add_cap('rank_math_role_manager');
+        $group_editor_env->add_cap('rank_math_onpage_analysis');
+        $group_editor_env->add_cap('rank_math_site_analysis');
+        $group_editor_env->add_cap('rank_math_link_builder');
+        $group_editor_env->add_cap('rank_math_onpage_snippet');
+        $group_editor_env->remove_cap('rank_math_titles');
+        $group_editor_env->add_cap('rank_math_general');
 
     }
 

@@ -7,9 +7,9 @@
             <img src="<?php echo ASSET_URL;?>images/banner-home-new.png">
             <div class="container">
                 <article class="box-headline">
-                    <h1 class="head-line-envzone">
+                    <h2 class="head-line-envzone">
                         DENVER SOFTWARE OUTSOURCING AUTHORITY
-                    </h1>
+                    </h2>
                     <p>Learn how we could help tech companies achieve their business goals.
                     </p>
                     <p>
@@ -40,9 +40,9 @@
             <img src="<?php echo ASSET_URL;?>images/banner-home-3.png">
             <div class="container">
                 <article class="box-headline">
-                    <h1 class="head-line-envzone">
+                    <h2 class="head-line-envzone">
                         A TRUST ENABLER IN DENVER AREA FOR YOUR SOFTWARE OUTSOURCING NEEDS
-                    </h1>
+                    </h2>
                     <p>
                         Clients let ENVZONE handle the risk of offshore outsourcing.
                     </p>
@@ -57,9 +57,9 @@
             <img src="<?php echo ASSET_URL;?>images/banner-home-4.png">
             <div class="container">
                 <article class="box-headline">
-                    <h1 class="head-line-envzone">
+                    <h2 class="head-line-envzone">
                         NO MORE LOSING DNA BOND WITH OFFSHORE OUTSOURCED TEAM
-                    </h1>
+                    </h2>
                     <p>
                         Our clients hire us to be their communication bridge.
 
@@ -207,11 +207,11 @@
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
                         $args = array(
-                            'posts_per_page' => 10,
+                            'posts_per_page' => 6,
                             'offset'=> 0,
                             'post_type' => 'post',
                             'post__not_in' => array($news_main[0]->ID),
-                            'orderby' => 'id',
+                            'orderby' => 'post_modified',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -511,8 +511,8 @@
                         <ul class="include-process">
                             <li class="include-process-item">Initial Meeting</li>
                             <li class="include-process-item">Needs Assessment</li>
-                            <li class="include-process-item">Proposals</li>
                             <li class="include-process-item">Team Selection</li>
+                            <li class="include-process-item">Proposals</li>
                         </ul>
                     </article>
                 </div>
@@ -820,7 +820,11 @@
 
             </div>
             <div class="col-lg-4 box-head-blog d-lg-block d-none">
-                <a class="twitter-timeline" data-lang="en" data-height="100%" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <h2 class="title-head-blue text-inherit tweet-env">
+                    Tweets <span class="by">by</span> <a target="_blank" href="https://twitter.com/envzone">@EnvZone</a>
+                </h2>
+                <a class="twitter-timeline" data-chrome="noheader nofooter noborders"  data-lang="en" data-height="calc(100% - 88px)" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
