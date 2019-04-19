@@ -835,10 +835,11 @@ nav #detailBoxSearch .icon-search { width: 20px; height: 20px; background: url("
 /*============EVENTS HOME=================*/
 .content-envent { margin-bottom: 80px; }
 .content-envent .box-head-blog .underline-head { margin-bottom: 30px; }
-.content-envent .box-head-blog .text-inherit { text-transform: inherit; }
+.content-envent .box-head-blog .text-inherit { text-transform: inherit; border-bottom: 3px solid #8DC63F; padding-bottom: 0; margin-bottom: 30px; line-height: 50px; position: relative; }
+.content-envent .box-head-blog .text-inherit:after { content: ''; display: inline-block; width: 100px; height: 3px; background: #0D3153; position: absolute; bottom: -3px; left: 0; }
 .content-envent .box-head-blog .text-inherit span.by { font-size: 24px; font-weight: normal; color: #525353; }
 .content-envent .box-head-blog .text-inherit span.by:after { background: transparent; }
-.content-envent .box-head-blog .text-inherit a { font-size: 24px; font-weight: normal; }
+.content-envent .box-head-blog .text-inherit a { font-size: 24px; font-weight: normal; color: #0D3153; }
 .content-envent h1 { font-family: "Raleway", sans-serif; padding-bottom: 50px; }
 .content-envent .box-item-event { position: relative; top: 0; border: 1px solid #C4C4C4; padding: 15px 0; margin-bottom: 30px; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; -webkit-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); -moz-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); min-height: 200px; }
 .content-envent .box-item-event:last-child { margin-bottom: 0; }
@@ -958,6 +959,7 @@ footer .section-donate .box-donate { border-bottom: 1px solid #808080; padding-b
 footer .section-donate .box-donate .description-same { font-size: 15px; line-height: 25px; color: #C4C4C4; }
 footer .section-donate .title-same { padding-bottom: 15px; color: #808080; }
 footer .section-donate img { padding-bottom: 15px; }
+footer .section-donate a img { height: 65px; margin-top: 10px; }
 footer .section-donate .btn-donate { margin-bottom: 15px; border: 1px solid #ffffff; font-size: .8rem; padding: 5px 20px; background: transparent; color: #C4C4C4 !important; font-weight: bold; }
 footer .section-donate .btn-donate:hover { color: #8DC63F !important; border: 1px solid #8DC63F; }
 footer .section-donate .box-certified { padding-top: 15px; border-right: 1px solid #808080; text-align: center; font-weight: bold; font-size: 20px; }
@@ -2103,14 +2105,14 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .blog-detail-page .content-blog .main-content figure { position: relative; display: inline-block; margin-bottom: 20px; }
 .blog-detail-page .content-blog .main-content figcaption { font-size: 12px; font-family: "Roboto", sans-serif; color: #ffffff; position: absolute; bottom: 0; right: 0; background: rgba(13, 49, 83, 0.7); padding: 0 15px; margin-bottom: 0; line-height: 18px; }
 .blog-detail-page .content-blog .main-content h2, .blog-detail-page .content-blog .main-content h3, .blog-detail-page .content-blog .main-content h4 { font-weight: bold; font-family: "Roboto", sans-serif; line-height: 125%; color: #000000; }
-.blog-detail-page .content-blog .main-content h2 { font-size: 34px; }
-.blog-detail-page .content-blog .main-content h3 { font-size: 28px; }
-.blog-detail-page .content-blog .main-content h4 { font-size: 24px; }
+.blog-detail-page .content-blog .main-content h2 { font-size: 34px; margin-top: 45px; }
+.blog-detail-page .content-blog .main-content h3 { font-size: 28px; margin-top: 40px; }
+.blog-detail-page .content-blog .main-content h4 { font-size: 24px; margin-top: 35px; }
 .blog-detail-page .content-blog .main-content blockquote { background: rgba(13, 49, 83, 0.1); padding: 10px 30px; margin-bottom: 20px; border-left: 5px solid #8DC63F; }
 .blog-detail-page .content-blog .main-content blockquote p { color: #90989e; font-size: 28px; font-style: italic; font-family: "Roboto", sans-serif; line-height: 125%; margin-bottom: 10px; }
 .blog-detail-page .content-blog .main-content blockquote cite { color: #90989e; text-align: right; }
 .blog-detail-page .content-blog .main-content p { font-family: "Merriweather", serif; font-size: 20px; color: #333333; margin-bottom: 20px; line-height: 2; }
-.blog-detail-page .content-blog .main-content ul li, .blog-detail-page .content-blog .main-content ol li { font-family: "Merriweather", serif; font-size: 20px; color: #333333; line-height: 2; list-style: inherit; margin-left: 30px; font-style: inherit; font-weight: inherit; }
+.blog-detail-page .content-blog .main-content ul li, .blog-detail-page .content-blog .main-content ol li { font-family: "Merriweather", serif; font-size: 20px; color: #333333; line-height: 2; list-style: inherit; margin-left: 30px; font-style: inherit; font-weight: inherit; margin-top: 20px; }
 .blog-detail-page .content-blog .main-content ol, .blog-detail-page .content-blog .main-content ul { margin-bottom: 20px; }
 .blog-detail-page .content-blog .main-content ol *, .blog-detail-page .content-blog .main-content ul * { font-family: "Merriweather", serif; }
 .blog-detail-page .content-blog .main-content a { font-family: "Merriweather", serif; font-size: 20px; text-decoration: underline; color: #45678A; }
@@ -2156,11 +2158,13 @@ section.testing-page .item-qa { padding: 15px; width: 180px; height: 180px; text
 .blog-detail-page .box-free-ebook .title-free-book { font-weight: bold; font-size: 22px; line-height: 28px; text-align: center; color: #8DC63F; padding: 15px 0; margin-bottom: 30px; }
 .blog-detail-page .box-free-ebook .ebook-top .title-ebook { font-size: 18px; padding: 15px; width: 50%; display: inline-block; line-height: 25px; font-weight: bold; }
 .blog-detail-page .box-free-ebook .ebook-top .box-img { width: 48%; display: inline-block; vertical-align: top; text-align: center; }
+.blog-detail-page .box-free-ebook .ebook-top .box-img img { width: 120px; }
 .blog-detail-page .box-free-ebook .ebook-top .btn-download { display: block; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; margin-top: 30px; font-weight: 500; }
 .blog-detail-page .box-free-ebook .ebook-top .btn-download:hover { color: #8DC63F !important; }
 .blog-detail-page .box-free-ebook .ebook { padding: 30px 0; margin: 0 5px; border-bottom: 1px solid #BDBDBD; }
 .blog-detail-page .box-free-ebook .ebook:last-child { border-bottom: 0; }
 .blog-detail-page .box-free-ebook .ebook .box-img { width: 38%; display: inline-block; vertical-align: top; text-align: center; }
+.blog-detail-page .box-free-ebook .ebook .box-img img { width: 95px; }
 .blog-detail-page .box-free-ebook .ebook .info { width: 60%; display: inline-block; vertical-align: top; }
 .blog-detail-page .box-free-ebook .ebook .info .title-ebook { font-size: 18px; display: inline-block; line-height: 25px; padding-bottom: 10px; font-weight: bold; }
 .blog-detail-page .box-free-ebook .ebook .info .btn-blue-env { font-size: 14px; padding: 5px 15px; font-weight: 500; }
@@ -2978,9 +2982,20 @@ body .box-thank #gform_wrapper_3 .top_label div.ginput_container { margin-top: 0
 #gform_wrapper_6 #input_6_9 { display: none; }
 
 .resource-page { background: #E0E0E0; }
-.resource-page .box-get-ebook { background: #ffffff; padding-bottom: 30px; }
+.resource-page .box-get-ebook { background: #fff; padding-bottom: 30px; }
 .resource-page .box-get-ebook .box-form-get-ebook { width: 80%; margin: auto; }
 .resource-page .box-get-ebook .title-head-green { background: #8DC63F; padding: 20px; font-size: 22px; color: #000000; font-weight: 600; text-align: center; }
 .resource-page .box-get-ebook h3 { font-size: 36px; padding-bottom: 30px; padding-top: 15px; text-align: left; padding-left: 15px; }
+
+.breadcrumb-ebook li > * { font-weight: bold; }
+
+.resources-ebook-page .have-border { border-bottom: 3px solid #8DC63F; padding-bottom: 0; margin-bottom: 30px; }
+.resources-ebook-page .have-border:after { content: ""; display: inline-block; width: 100px; border-bottom: 3px solid #0D3153; position: absolute; bottom: 30px; left: 15px; }
+.resources-ebook-page article.box-ebook { text-align: center; font-family: "Roboto", sans-serif; -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25); -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25); box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25); margin-bottom: 60px; }
+.resources-ebook-page article.box-ebook img { width: 120px; -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25); -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25); box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25); margin-bottom: 20px; }
+.resources-ebook-page article.box-ebook h2 { font-size: 22px; }
+.resources-ebook-page article.box-ebook .btn-download-ebook { padding: 5px 15px; font-size: 14px; margin: 20px 0; }
+.resources-ebook-page article.box-ebook .box-category { background: #8DC63F; padding: 10px; }
+.resources-ebook-page article.box-ebook .box-category a { color: #fff; font-size: 18px; text-transform: uppercase; }
 
 /*# sourceMappingURL=styles.css.map */

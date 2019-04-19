@@ -226,40 +226,44 @@ get_header();
                         <div class="title-free-book">
                             Free eBooks
                         </div>
-                        
+
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 3,
+                            'offset'=> 0,
+                            'post_type' => 'resources',
+                            'orderby' => 'ID',
+                            'order' =>'desc'
+                        );
+                        $ebook_resources = get_posts( $args );
+                        ?>
                         <div class="ebook-top">
                             <h4 class="title-ebook">
-                                The All-In-One Cheatsheet For A Strategic Outsourcing Decision
+                                <?php echo $ebook_resources[0]->post_title;?>
                             </h4>
                             <div class="box-img">
-                                <img class="img-fluild" src="<?php echo ASSET_URL;?>images/cover-ebook-all-in-one.png" alt="">
+                                <img class="img-fluild" src="<?php echo get_the_post_thumbnail_url($ebook_resources[0]->ID);?>" alt="">
                             </div>
 
-                            <a href="#" class="btn btn-blue-env btn-download">DOWNLOAD</a>
+                            <a href="<?php echo get_permalink($ebook_resources[0]->ID); ?>" class="btn btn-blue-env btn-download">DOWNLOAD</a>
                         </div>
 
+                        <?php
+                            foreach($ebook_resources as $k => $item):
+                                if ($k == 0) continue;
+                        ?>
                         <div class="ebook">
                             <div class="box-img">
-                                <img class="img-fluild" src="<?php echo ASSET_URL;?>images/cover-ebook-report-software.png" alt="">
+                                <img class="img-fluild" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
                             </div>
                             <div class="info">
                                 <h4 class="title-ebook">
-                                    Report on Software Outsourcing Needs and Content Preferences
+                                    <?php echo $item->post_title;?>
                                 </h4>
-                                <a href="#" class="btn btn-blue-env">DOWNLOAD</a>
+                                <a href="<?php echo get_permalink($item->ID);?>" class="btn btn-blue-env">DOWNLOAD</a>
                             </div>
                         </div>
-                        <div class="ebook">
-                            <div class="box-img">
-                                <img class="img-fluild" src="<?php echo ASSET_URL;?>images/cover-ebook-3quick-tips.png" alt="">
-                            </div>
-                            <div class="info">
-                                <h4 class="title-ebook">
-                                    3 Quick Tips to Have a Successful Outsourcing Experience
-                                </h4>
-                                <a href="#" class="btn btn-blue-env">DOWNLOAD</a>
-                            </div>
-                        </div>
+                        <?php endforeach;?>
                     </div>
                     
                     <div class="box-related-article no-print">
