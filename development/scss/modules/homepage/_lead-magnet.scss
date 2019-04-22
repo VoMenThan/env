@@ -1,0 +1,96 @@
+.lead-magnet-section{
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    h2{
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 55px;
+        color: #0D3153;
+        margin-bottom: 50px;
+    }
+    .box-infomation-ebook{
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 35px;
+        color: #6E716D;
+        .img-cover-ebook{
+            width: 215px;
+            @include shadow-out(6px, 6px, 4px, rgba(0, 0, 0, 0.5));
+            float: left;
+        }
+        .info-ebook{
+            padding-left: 300px;
+            p{
+                margin-bottom: 20px;
+            }
+            ul{
+                margin-left: 30px;
+                li{
+                    margin-bottom: 20px;
+                    &:before{
+                        content: '';
+                        @include setBackgroundIcon(25px, '../images/icon-check-security-blue.svg');
+                        margin-right: 10px;
+                    }
+
+                }
+            }
+        }
+
+    }
+    .title-download-free{
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 35px;
+        text-align: center;
+        color: #6E716D;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+    .lead-magnet-section{
+        h2{
+            font-size: 24px;
+            line-height: 37px;
+        }
+        .box-infomation-ebook {
+            .img-cover-ebook{
+                width: 100%;
+                margin-bottom: 20px;
+                float: none;
+            }
+            .info-ebook{
+                padding-left: 0;
+                font-size: 18px;
+                line-height: 1.5;
+                p{
+                    line-height: 1.5;
+                }
+                ul{
+                   li{
+                        margin-bottom: 10px;
+                        line-height: 1.5;
+                        position: relative;
+                        padding-left: 30px;
+                        &:before{
+                            vertical-align: middle;
+                            position: absolute;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .title-download-free{
+            font-size: 20px;
+            margin-top: 30px;
+        }
+    }
+}

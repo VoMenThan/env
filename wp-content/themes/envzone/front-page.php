@@ -831,6 +831,58 @@
     </div>
     <!-- /*============END EVENTS HOME=================*/ -->
 
+
+
+    <!-- /*============LEAD MAGNET HOME=================*/ -->
+
+    <?php
+        $args = array(
+            'posts_per_page' => 1,
+            'offset'=> 0,
+            'post_type' => 'resources',
+            'orderby' => 'post_modified',
+            'order' =>'desc',
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'lead_magnet_mode',
+                    'value' => 'feature',
+                    'compare' => 'LIKE',
+                )
+            )
+
+        );
+        $ebook_resources = get_posts( $args );
+    ?>
+    <div class="container-fluid bg-gray-process">
+        <div class="container lead-magnet-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>
+                        <?php echo $ebook_resources[0]->post_title;?>
+                    </h2>
+                    <div class="box-infomation-ebook clearfix">
+                        <img class="img-fluid img-cover-ebook" src="<?php echo get_the_post_thumbnail_url($ebook_resources[0]->ID);?>" alt="">
+
+                        <div class="info-ebook">
+                            <?php echo $ebook_resources[0]->post_content;?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="title-download-free">
+                        <?php echo get_field('title_download',$ebook_resources[0]->ID)?>
+                    </div>
+                    <a href="<?php echo home_url('resources/').$ebook_resources[0]->post_name;?>" class="btn btn-blue-env">
+                        <?php echo get_field('title_button_download',$ebook_resources[0]->ID)?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /*============END LEAD MAGNET HOME=================*/ -->
+
+
     <!-- /*============STUDIO HOME=================*/ -->
     <?php
     $args = array(

@@ -179,8 +179,17 @@ get_header();
                             'posts_per_page' => 3,
                             'offset'=> 0,
                             'post_type' => 'resources',
-                            'orderby' => 'ID',
-                            'order' =>'desc'
+                            'orderby' => 'post_modified',
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'lead_magnet_mode',
+                                    'value' => 'highlight',
+                                    'compare' => 'LIKE',
+                                )
+                            )
+
                         );
                         $ebook_resources = get_posts( $args );
                         ?>

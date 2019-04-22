@@ -10,8 +10,25 @@ $cat = $wp_query->query_vars['resources_cat'];
         <div class="container">
             <ul class="nav justify-content-center breadcrumb-ebook">
                 <li class="nav-item">
-                    <span class="nav-link active"><?php echo $cat;?></span>
+                    <a href="<?php echo home_url('resources')?>" class="nav-link">All Resources</a>
                 </li>
+
+                <?php
+                $terms = get_terms(array(
+                    'taxonomy' => 'resources_cat',
+                    'hide_empty' => false,
+                    'orderby' => 'id',
+                    'order' => 'asc',
+                    'parent' => 0
+                ));
+                foreach ($terms as $item):
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo (uri_segment(1)== $item->slug ? 'active': '');?>" href="<?php echo home_url('resources-category/').$item->slug;?>">
+                            <?php echo $item->name;?>
+                        </a>
+                    </li>
+                <?php endforeach;?>
             </ul>
         </div>
     </div>
