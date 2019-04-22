@@ -47,6 +47,148 @@
   }
 }
 
+
+/*VENDOR CERTIFICATION PROCESS */
+.certification-process-page{
+  h1{
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 73px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .slogan-vendor{
+    font-size: 26px;
+    line-height: 37px;
+    text-align: center;
+    color: #333333;
+    margin-bottom: 30px;
+  }
+  .description-how-it-work{
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 37px;
+    color: #808080;
+    margin-bottom: 50px;
+  }
+  h2{
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 55px;
+    margin-bottom: 30px;
+  }
+
+  .item-step-process{
+    padding: 15px 20px;
+    margin-bottom: 100px;
+    .icon-step{
+      width: 150px;
+      height: 150px;
+      @include radius(50%);
+      float: left;
+      background: #FFFFFF;
+      @include display-flex;
+      @include shadow-out(4px, 4px, 6px, rgba(0, 0, 0, 0.25));
+      @include align-items(center);
+      @include justify-content(center);
+      @include transition(.5s);
+      &:hover{
+        background: $color-blue-logo;
+      }
+    }
+    .box-info{
+      padding-left: 30%;
+    }
+    h3{
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 45px;
+      color: #000000;
+      margin-bottom: 15px;
+    }
+    p{
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 31px;
+      color: #808080;
+    }
+  }
+
+  .btn-already-verify{
+    line-height: normal;
+    text-align: center;
+    color: #828282;
+    border: 1px solid #BDBDBD;
+    display: block;
+    padding: 30px 10px;
+    background: #fff;
+    @include transition(.3s);
+    &:hover{
+      background: $color-blue-logo;
+      color: #fff;
+      cursor: pointer;
+      h4{
+        color: #fff;
+      }
+    }
+    img{
+      margin-bottom: 30px;
+    }
+    h4{
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p{
+      font-size: 16px;
+      line-height: 24px;
+
+    }
+  }
+
+}
+
+.box-features-sign-up{
+  h2{
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 55px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .description-features{
+    width: 50%;
+    margin: auto;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 37px;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .list-features{
+    .item-feature{
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 35px;
+      color: #6E716D;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 40px;
+      &:before{
+        content: '';
+        @include setBackgroundIcon(30px, '../images/icon-check-true-green.svg');
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
+
+
+
 /* =================== RESPONSIVE ======================= */
 
 

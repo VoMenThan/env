@@ -22,7 +22,10 @@ nav {
             height: 35px;
         }
     }
-
+    .icon-plus-green{
+        @include setBackgroundIcon(15px, '../images/icon-plus-green.svg');
+        margin-right: 3px;
+    }
     ul.menu-contact {
         margin-top: 10px;
         .nav-item {
@@ -183,6 +186,7 @@ nav {
       @include setBackgroundIcon(20px, '../images/icon-close-green.png');
       vertical-align: middle;
     }
+
     .close-menu-mb{
       display: none !important;
       &.active{
@@ -292,6 +296,87 @@ nav {
 		
 	}
 
+    /* =================== BOX NAV VENDORS ======================= */
+    .nav-vendor{
+        border-top: 3px solid $color-green-logo;
+        padding-bottom: 80px;
+
+        .vendor-university{
+            h3{
+                font-weight: bold;
+                font-size: 36px;
+                line-height: normal;
+                text-align: left;
+                color: #fff;
+            }
+            .title-head{
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 28px;
+                color: #fff;
+                margin-bottom: 15px;
+                display: block;
+            }
+            p{
+                font-size: 16px;
+            }
+            .list-step-process{
+                margin-left: 30px;
+                .step{
+                    color: #fff;
+                    font-size: 16px;
+                    line-height: 30px;
+                    padding: 10px;
+                    &:before{
+                        content: "";
+                        @include setBackgroundIcon(15px, '../images/icon-checked-vendor.svg');
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        .box-sign-up{
+            text-align: center;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 15px;
+            .item-sign-up{
+                width: calc(50% - 35px);
+                border: 1px solid;
+                color: #E0E0E0;
+                padding: 30px 10px;
+                margin-bottom: 10px;
+                &:hover{
+                    background: $color-blue-lv4;
+                    cursor: pointer;
+                }
+                h4{
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding-bottom: 10px;
+                    color: #fff;
+                    text-transform: uppercase;
+                }
+                p{
+                    font-size: 16px;
+                }
+            }
+            .icon-sign-up-now{
+                @include setBackgroundIcon(80px, '../images/icon-sign-up-now.svg');
+                margin-bottom: 20px;
+            }
+            .icon-already-verified{
+                margin-bottom: 20px;
+                @include setBackgroundIcon(80px, '../images/icon-already-verified.svg');
+            }
+
+        }
+        .description-nav-vendor{
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+    }
+
     /* =================== BOX SEARCH ======================= */
     #detailBoxSearch {
         z-index: 1000;
@@ -329,6 +414,10 @@ nav {
             @include setBackgroundIcon(20px, '../images/icon-search-active.png');
         }
     }
+
+
+
+
 }
 
 /* =================== RESPONSIVE ======================= */
@@ -406,6 +495,8 @@ nav {
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+
+
     .d-none-768{
         display: none !important;
     }
@@ -429,7 +520,7 @@ nav {
       ul.main-menu {
         .nav-item {
           .nav-link{
-            padding: .5rem;
+            padding: 17px;
             font-size: .8rem;
           }
         }
@@ -702,7 +793,33 @@ nav {
                 }
             }
         }
+
+        /* =================== BOX NAV VENDORS 768px ======================= */
+       .nav-vendor {
+           border: none;
+           padding-top: 20px;
+           .box-sign-up {
+               border-bottom: 0;
+               .item-sign-up{
+                   width: 100%;
+                   padding: 10px;
+                   margin-bottom: 0;
+                   i{
+                       width: 50px;
+                       height: 50px;
+                       float: left;
+                       margin-bottom: 0;
+                       margin-right: 15px;
+                   }
+               }
+           }
+           .description-nav-vendor{
+               font-size: 16px;
+               text-align: left;
+           }
+       }
     }
+
 }
 
 /* 	================================================================

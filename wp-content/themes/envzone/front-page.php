@@ -648,9 +648,6 @@
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>-->
 
-                        <!-- Calendly link widget begin -->
-                        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
                         <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-white-env">
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>

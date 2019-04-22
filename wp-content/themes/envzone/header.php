@@ -105,6 +105,9 @@
                                     Call Now 720-606-2900
                                 </a>
                             </li>
+
+                            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
                             <li class="nav-item">
                                 <a class="nav-link item-menu" href="#">COMPANY
                                     <span class="icon-arrow-right"></span>
@@ -211,7 +214,7 @@
                                                 <div class="description-check">
                                                     Schedule a Briefing Appointment with a Representative to Learn More.
                                                 </div>
-                                                <a href="#" class="btn btn-blue-env">
+                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
                                                     CHECK AVAIBILITY <i class="icon-arrow-down"></i>
                                                 </a>
                                             </div>
@@ -443,7 +446,7 @@
                                                 <div class="description-check">
                                                     Schedule a Briefing Appointment with a Representative to Learn More.
                                                 </div>
-                                                <a href="#" class="btn btn-blue-env">
+                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
                                                     CHECK AVAIBILITY <i class="icon-arrow-down"></i>
                                                 </a>
                                             </div>
@@ -537,7 +540,78 @@
                                                 <div class="description-check">
                                                     Schedule a Briefing Appointment with a Representative to Learn More.
                                                 </div>
-                                                <a href="#" class="btn btn-blue-env">
+                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
+                                                    CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link item-menu" href="#"><i class="icon-plus-green"></i>VENDOR
+                                    <span href="#" class="icon-arrow-right"></span>
+                                </a>
+                                <!-- BOX SUBMENU -->
+                                <div class="sub-menu text-left">
+                                    <div class="container">
+                                        <div class="row box-sub-menu nav-vendor">
+                                            <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-md-block d-none-768 d-none">
+                                                <div class="vendor-university">
+                                                    <h3 class="mb-3">
+                                                        VENDOR UNIVERSITY
+                                                    </h3>
+                                                    <div class="title-head">
+                                                        Get software development projects in Western Market
+                                                    </div>
+                                                    <div class="title-head">
+                                                        How it works?
+                                                    </div>
+                                                    <p>
+                                                        We have easy 5 step process for apply application
+                                                    </p>
+
+                                                   <ul class="list-step-process">
+                                                       <li class="step">Apply</li>
+                                                       <li class="step">Evaluate</li>
+                                                       <li class="step">On-site Inspection</li>
+                                                       <li class="step">Approved</li>
+                                                       <li class="step">Certifieda  </li>
+                                                   </ul>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-lg-7 order-lg-1 order-0 text-center">
+                                                <article class="box-sign-up d-flex justify-content-between flex-lg-row flex-column">
+                                                    <a href="<?php echo home_url('vendor-contact');?>" class="item-sign-up align-items-center d-lg-block d-flex">
+                                                        <i class="icon-sign-up-now"></i>
+                                                        <h4>sign up now</h4>
+                                                        <p>
+                                                            Not verified yet! Enroll your team in our verification program to get started
+                                                        </p>
+                                                    </a>
+                                                    <a href="<?php echo home_url('vendor-portal');?>" class="item-sign-up align-items-center d-lg-block d-flex">
+                                                        <i class="icon-already-verified"></i>
+                                                        <h4>Already Verified</h4>
+                                                        <p>
+                                                            Get access here to view and track your projects
+                                                        </p>
+                                                    </a>
+                                                </article>
+                                                <div class="description-nav-vendor">
+                                                    Still not clear how this works! No worries. We are here to help. Click the link below to learn more about our verification program
+                                                </div>
+                                                <a href="<?php echo home_url('certification-process')?>" class="btn btn-white-env">LEARN MORE</a>
+                                            </div>
+
+                                            <div class="col-12 d-md-none d-block-768 box-check-avaibility">
+                                                <div class="description-check">
+                                                    Schedule a Briefing Appointment with a Representative to Learn More.
+                                                </div>
+                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
                                                     CHECK AVAIBILITY <i class="icon-arrow-down"></i>
                                                 </a>
                                             </div>
