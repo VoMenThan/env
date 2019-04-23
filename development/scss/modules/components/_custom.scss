@@ -1102,3 +1102,63 @@ body {
     }
 }
 
+
+/*CSS CUSTOM GET MY SUCCESSION PLAN*/
+header {
+    #gform_wrapper_10 {
+        li.hidden_label {
+            input{
+                width: 100%;
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+        .gform_footer {
+            input{
+                width: 100%;
+                background: $color-green-logo;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
+body #gform_wrapper_10 .top_label div.ginput_container{
+    text-align: center;
+}
+#gform_wrapper_10 li.hidden_label input{
+    margin: auto;
+    padding: 5px 20px;
+    width: 350px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-size: 22px;
+    max-width: 100%;
+}
+#gform_wrapper_10 ul.gform_fields li.gfield{
+    padding-right: 0;
+}
+#gform_wrapper_10 .gform_footer{
+    text-align: center;
+}
+#gform_wrapper_10 .gform_footer input{
+    color: #ffffff !important;
+    background-color: #0D3153;
+    border-color: #0D3153;
+    padding: 10px 57px;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border-radius: 5px;
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    margin-right: 0;
+
+}
+
+/*END CSS CUSTOM GET MY SUCCESSION PLAN*/
+

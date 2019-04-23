@@ -83,6 +83,9 @@
 			line-height: 55px;
 		}
 		.main-content{
+			*{
+				font-family: $font-merriweather;
+			}
 			img{
 				margin-bottom: 0;
 			}
@@ -111,8 +114,8 @@
 				color: $color-black;
 			}
 			h2{
-				font-size: 34px;
-				margin-top: 45px;
+				font-size: 38px;
+				margin-top: 50px;
 			}
 			h3{
 				font-size: 28px;
@@ -135,7 +138,6 @@
 					line-height: 125%;
 					margin-bottom: 10px;
 				}
-
 				cite{
 					color: #90989e;
 					text-align: right;

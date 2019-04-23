@@ -533,6 +533,19 @@
                                                         </article>
                                                     </div>
 
+
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/resources">
+                                                                Resources
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                            <p>
+                                                                Looking for free ebooks and tools? This portal features the best free books in the area of tech resources, technical insights and outsourcing tips
+                                                            </p>
+                                                        </article>
+                                                    </div>
+
                                                 </div>
                                             </div>
 
@@ -550,7 +563,7 @@
 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link item-menu" href="#"><i class="icon-plus-green"></i>VENDOR
+                                <a class="nav-link item-menu" href="#"><i class="icon-plus-green"></i>VENDORS
                                     <span href="#" class="icon-arrow-right"></span>
                                 </a>
                                 <!-- BOX SUBMENU -->
@@ -577,7 +590,7 @@
                                                        <li class="step">Evaluate</li>
                                                        <li class="step">On-site Inspection</li>
                                                        <li class="step">Approved</li>
-                                                       <li class="step">Certifieda  </li>
+                                                       <li class="step">Certified</li>
                                                    </ul>
 
                                                 </div>

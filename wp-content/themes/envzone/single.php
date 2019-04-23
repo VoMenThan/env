@@ -51,7 +51,7 @@ get_header();
                         <div class="audit">
                             <span>By </span>
                             <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a> <span>| <?php echo get_field('staff', 'user_'.$post->post_author);?></span>
-                            <div class="date">Updated on: <?php echo get_the_date( 'F d, Y', $item->ID );?> | <?php echo get_field('estimate_reading', $post->ID);?> min read</div>
+                            <div class="date">on <?php echo get_the_date( 'F d, Y', $item->ID );?> | <?php echo get_field('estimate_reading', $post->ID);?> min read</div>
                         </div>
 
                         <div class="box-share no-print">
