@@ -19,10 +19,15 @@ h1, h2, h3, h4, h5, h6{
 .btn-blue-env{
 	color: $color-white !important;
     background-color: $color-blue-logo;
-    border-color: $color-blue-logo;
+    border-color: transparent;
 	padding: 10px 30px;
 	font-size: 18px;
 	font-weight: bold;
+	@include transition(.3s);
+	&:hover{
+		background: $color-blue-lv4;
+		cursor: pointer;
+	}
 }
 
 /*============BUTTON GREEN=================*/
@@ -32,6 +37,11 @@ h1, h2, h3, h4, h5, h6{
     border-color: $color-green-logo;
     padding: 10px 30px;
 	font-size: 1.125rem;
+	@include transition(.3s);
+	&:hover{
+		background: $color-green-lv2;
+		cursor: pointer;
+	}
 }
 
 /*============BUTTON GRAY=================*/
@@ -41,6 +51,11 @@ h1, h2, h3, h4, h5, h6{
     border-color: $color-gray-btn;
 	padding: 10px 30px;
 	font-size: 1.125rem;
+	@include transition(.3s);
+	&:hover{
+		color: $color-green-logo;
+		cursor: pointer;
+	}
 }
 
 /*============BUTTON GRAY=================*/
@@ -50,8 +65,10 @@ h1, h2, h3, h4, h5, h6{
 	border-color: $color-white;
 	padding: 10px 30px;
 	font-size: 1.125rem;
+	@include transition(.3s);
 	&:hover{
-		color: $color-green-logo;
+		color: $color-green-logo !important;
+		border-color: $color-green-logo;
 	}
 }
 

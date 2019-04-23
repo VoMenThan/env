@@ -53,6 +53,10 @@
 		}
 		.btn-white-env{
 			width: 50%;
+			&:hover{
+				border-color: $color-blue-logo;
+				color: $color-blue-logo !important;
+			}
 		}
 	}
 	.box-what-we-see{

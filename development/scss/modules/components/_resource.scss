@@ -24,6 +24,29 @@
         }
 
     }
+
+    .box-cover{
+        .image-cover-detail{
+            max-width: 250px;
+        }
+        padding-bottom: 50px;
+    }
+
+    .box-tags{
+        font-family: $font-roboto;
+        text-align: left;
+        a{
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 26px;
+            color: #45678A;
+            &:after{
+                content: ',';
+                display: inline-block;
+            }
+        }
+
+    }
 }
 
 .breadcrumb-ebook{
@@ -51,6 +74,13 @@
         text-align: center;
         font-family: $font-roboto;
         @include shadow-out(0, 4px, 5px,rgba(0, 0, 0, 0.25));
+        position: relative;
+        top: 0;
+        @include transitionInOut(.2s);
+        @include box-shadow(0px, 4px, 5px, rgba(0, 0, 0, 0.25));
+        &:hover{
+            top: -5px;
+        }
         margin-bottom: 60px;
         img{
             width: 120px;

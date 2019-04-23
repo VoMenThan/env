@@ -30,15 +30,15 @@ get_header();
             </ul>
         </div>
     </div>
-    <section class="artical-page resources-ebook-page">
+    <section class="artical-page blog-detail-page resources-ebook-page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3 class="title-head-blue have-border">ALL COLLECTIONS</h3>
-                        </div>
+                    <h3 class="title-head-blue have-border">ALL COLLECTIONS</h3>
+                </div>
 
+                <div class="col-lg-8">
+                    <div class="row">
                         <?php
                         $args = array(
                             'posts_per_page' => 6,
@@ -64,6 +64,21 @@ get_header();
                             </article>
                         </div>
                         <?php endforeach;?>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="box-subscriber-blog">
+                        <div class="box-border">
+                            <div class="title-sub">
+                                Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
+                            </div>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

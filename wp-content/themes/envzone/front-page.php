@@ -859,7 +859,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>
-                        <?php echo $ebook_resources[0]->post_title;?>
+                        <?php echo get_field('irresistible_headline', $ebook_resources[0]->ID);?>
                     </h2>
                     <div class="box-infomation-ebook clearfix">
                         <img class="img-fluid img-cover-ebook" src="<?php echo get_the_post_thumbnail_url($ebook_resources[0]->ID);?>" alt="">

@@ -41,6 +41,10 @@
     font-family: $font-roboto;
     color: #90989E;
     border-bottom: 1px solid #BDBDBD;
+    *{
+      font-family: $font-roboto;
+      font-size: 17px;
+    }
     .avatar{
       width: 35px;
       height: 35px;
@@ -53,10 +57,15 @@
       width: 50%;
     }
     .edit-by, .public-on{
-      color: $color-gray-text;
+      color: #90989E;
       font-family: $font-roboto;
     }
 
+    .edit-by{
+      a{
+        color: #90989E;
+      }
+    }
     .author, .date{
       color: $color-blue-lv2;
       text-align: right;
@@ -115,6 +124,7 @@
       overflow: hidden;
       transition: max-height .5s ease;
       font-family: $font-roboto;
+      font-size: 17px;
       p{
         font-size: 17px;
       }

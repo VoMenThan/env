@@ -102,7 +102,7 @@
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
                         <li><a href="<?php echo get_home_url();?>/ecommerce-and-retail">E-Commerce & Retail</a></li>
-                        <li><a href="<?php echo get_home_url();?>/financial">Financial Services</a></li>
+                        <li><a href="<?php echo get_home_url();?>/financial-services">Financial Services</a></li>
                         <li><a href="<?php echo get_home_url();?>/real-estate-property">Real Estate & Property</a></li>
                         <li><a href="<?php echo get_home_url();?>/hospitality-and-travel">Hospitality & Travel</a></li>
                         <li><a href="<?php echo get_home_url();?>/education">Education</a></li>

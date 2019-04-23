@@ -81,6 +81,23 @@
   .item-step-process{
     padding: 15px 20px;
     margin-bottom: 100px;
+    position: relative;
+    &:before{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 95px;
+      bottom: -121px;
+      border-left: 1px dashed #828282;
+      width: 1px;
+      height: 100%;
+      z-index: -1;
+    }
+    &:last-child{
+      &:before{
+        display: none;
+      }
+    }
     .icon-step{
       width: 150px;
       height: 150px;
