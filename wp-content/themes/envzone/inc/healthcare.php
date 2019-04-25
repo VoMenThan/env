@@ -40,7 +40,7 @@
             <div class="bg-gray-process">
                 <div class="container">
             <div class="row justify-content-md-center mb-5">
-                <div class="col-8">
+                <div class="col-lg-8">
                     <h1 class="title-head-blue text-center">What we offer</h1>
                     <div class="description-offer">
                         <p>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="row justify-content-md-center mb-lg-5">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="item-offer">
                         <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-patient-management.png" alt="">
                         <h3>
@@ -59,7 +59,7 @@
                         </h3>
                     </div>
                 </div>
-                <div class="col-8 content-offer">
+                <div class="col-lg-8 content-offer">
                     <ul>
                         <li>
                             The system tailored to hospitals and healthcare providers deliver the most effective solution to support their most complex circumstances.
@@ -75,7 +75,7 @@
             </div>
 
             <div class="row justify-content-md-center mb-lg-5">
-                <div class="col-8 content-offer">
+                <div class="col-lg-8 order-lg-0 order-1 content-offer">
                     <ul>
                         <li>
                             Deliver your employee an efficient digital platform to ensure their high productivity.
@@ -89,7 +89,7 @@
                     </ul>
                 </div>
 
-                <div class="col-4">
+                <div class="col-lg-4 order-lg-1 order-0">
                     <div class="item-offer">
                         <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-employee-management.png" alt="">
                         <h3>
@@ -100,7 +100,7 @@
             </div>
 
             <div class="row justify-content-md-center mb-lg-5">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="item-offer">
                         <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-administration.png" alt="">
                         <h3>
@@ -108,7 +108,7 @@
                         </h3>
                     </div>
                 </div>
-                <div class="col-8 content-offer">
+                <div class="col-lg-8 content-offer">
                     <ul>
                         <li>
                             Based on big data from your institution, integrate third-party software empower you to actively control and manage resources, analyze usage statistics for employees and patients, and make improvements in workflow.
@@ -140,7 +140,7 @@
                         Our dedicated teams provide value-based care through secure services and relentlessly adopt an integrated approach for digital healthcare transformation across the value chain.
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -149,7 +149,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -158,7 +158,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -167,7 +167,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>

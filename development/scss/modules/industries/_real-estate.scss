@@ -69,8 +69,14 @@ section.real-estate-page{
 @media screen and (max-width: $device-size-medium) {
 	.industries-page {
 		.btn-learn-more{
-			padding-top: 0;
+			padding-top: 15px;
 			padding-bottom: 50px;
+			padding-right: 15px;
+			padding-left: 15px;
+
+		}
+		.btn-blue-env{
+			width: 100%;
 		}
 		p{
 			font-size: 18px;

@@ -9,7 +9,7 @@
                     EnvZone gives you tools and services to compete in modern business environments.
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                 <div class="item-reason">
                     <i class="fa fa-check-circle"></i>
                     <p>
@@ -18,7 +18,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                 <div class="item-reason">
                     <i class="fa fa-check-circle"></i>
                     <p>
@@ -27,7 +27,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                 <div class="item-reason">
                     <i class="fa fa-check-circle"></i>
                     <p>
@@ -36,7 +36,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                 <div class="item-reason">
                     <i class="fa fa-check-circle"></i>
                     <p>

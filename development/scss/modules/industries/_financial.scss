@@ -65,9 +65,12 @@ section.financial-page{
 		h1 {
 			text-align: left !important;
 		}
-		.description-offer, .description-fully {
-			p {
+		.description-offer, .description-fully{
+			font-size: 18px;
+			line-height: 30px;
+			p{
 				font-size: 18px;
+				line-height: 30px;
 			}
 		}
 		.btn-blue-env {
@@ -98,6 +101,12 @@ section.financial-page{
     .btn-blue-env{
       width: 100%;
     }
+	  .p-note{
+		  margin-left: 0;
+		  font-size: 18px;
+		  margin-right: 0;
+	  }
+
 	  .btn-learn-more{
 		  margin-bottom: 50px;
 	  }

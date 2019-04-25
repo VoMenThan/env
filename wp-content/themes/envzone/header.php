@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex justify-content-lg-end position-static" id="menuBarMobile">
 
-                    <div class="d-flex align-items-end justify-content-lg-end w-100">
+                    <div class="d-flex flex-column align-items-end justify-content-lg-end w-100">
                         <ul class="main-menu nav text-right justify-content-lg-end justify-content-sm-between flex-md-row flex-column ">
                             <li class="nav-item d-sm-none">
                                 <a class="nav-link item-call" href="tel:7206062900">
@@ -183,7 +183,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/careers">
                                                                 Careers
@@ -291,7 +291,7 @@
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/ecommerce-and-retail">
-                                                                E-Commerce & Retail
+                                                                ECommerce & Retail
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
                                                             <p>
@@ -313,7 +313,7 @@
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/ngos">
-                                                                Non-profit Organization
+                                                                Non-Profit Organization
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
                                                             <p>
@@ -337,7 +337,7 @@
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/logistics-and-supply-chain">
-                                                                Logistics & Supply Chain
+                                                                Logistics and Supply Chain
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
                                                             <p>
@@ -349,6 +349,14 @@
                                                 </div>
                                             </div>
 
+                                            <div class="col-12 d-md-none d-block-768 box-check-avaibility">
+                                                <div class="description-check">
+                                                    Schedule My Appointment for Assistance
+                                                </div>
+                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
+                                                    CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                </a>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -428,7 +436,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/customer-support">
                                                                 Customer Support
@@ -444,7 +452,7 @@
 
                                             <div class="col-12 d-md-none d-block-768 box-check-avaibility">
                                                 <div class="description-check">
-                                                    Schedule a Briefing Appointment with a Representative to Learn More.
+                                                    Schedule My Appoitment with a Representative
                                                 </div>
                                                 <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
                                                     CHECK AVAIBILITY <i class="icon-arrow-down"></i>
@@ -499,7 +507,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/events">
                                                                 Events
@@ -510,7 +518,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/knowledge-center">
                                                                 Knowledge Center
@@ -521,7 +529,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/studio">
                                                                 Studio
@@ -534,7 +542,7 @@
                                                     </div>
 
 
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/resources">
                                                                 Resources
@@ -551,18 +559,19 @@
 
                                             <div class="col-12 d-md-none d-block-768 box-check-avaibility">
                                                 <div class="description-check">
-                                                    Schedule a Briefing Appointment with a Representative to Learn More.
+                                                    Subscribe for Three Things <br>
+                                                    Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting
                                                 </div>
-                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
-                                                    CHECK AVAIBILITY <i class="icon-arrow-down"></i>
-                                                </a>
+                                                <?php
+                                                echo do_shortcode('[gravityform id="3" title="false" description="false"]');
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-lg-block d-none">
                                 <a class="nav-link item-menu" href="#"><i class="icon-plus-green"></i>VENDORS
                                     <span href="#" class="icon-arrow-right"></span>
                                 </a>
@@ -648,11 +657,7 @@
                                         Denver, CO 80202 <br>
                                         M-F | 8:30 am - 5:30 pm MST
                                     </span>
-                                <a href="#" class="icon-right-arrow"></a>
-                            </div>
-                            <div class="box-portal clearfix">
-                                <a href="<?php echo get_home_url();?>/client-portal" class="client-portal">Client Portal</a>
-                                <a href="#" class="vendor-portal">Vendor Portal</a>
+                                <a href="https://goo.gl/maps/V7KQJrDY94t" target="_blank" class="icon-right-arrow"></a>
                             </div>
                         </div>
                     </div>

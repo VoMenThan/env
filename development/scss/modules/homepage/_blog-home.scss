@@ -316,7 +316,6 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.background-gray-mobile{
-		background:  #F2F2F2;
 		padding-top: 50px;
 	}
 	.item-blog-mobile-horizontal{
@@ -442,6 +441,43 @@
 				.btn-prev-slide {
 					width: 30px;
 					height: 30px;
+				}
+			}
+		}
+	}
+	.box-item-horizontal-mb {
+		padding-right: 0;
+		padding-left: 0;
+
+
+		.item-blog {
+			.info-author{
+				display: none;
+			}
+			.thumbnail-news {
+				display: inline-block;
+				width: 40%;
+				float: left;
+				margin-right: 5px;
+			}
+			.info-news {
+				padding-left: 15px;
+				padding-bottom: 0;
+				padding-top: 0;
+
+				.category {
+					font-size: 15px;
+					font-weight: 500;
+					margin-top: 0;
+					margin-bottom: 2px;
+				}
+
+				h2 {
+					font-size: 18px;
+					line-height: 22px;
+					margin-bottom: 0;
+					padding-bottom: 0;
+					padding-left: 40%;
 				}
 			}
 		}

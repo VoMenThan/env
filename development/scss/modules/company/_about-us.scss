@@ -242,6 +242,7 @@
 		.box-introduct {
 			p{
 				font-size: 18px;
+				line-height: 30px;
 			}
 		}
 		.box-two-col-full {
@@ -342,6 +343,16 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
 	.about-us-page {
+		.box-introduct {
+			p {
+				> i{
+					left: -29px;
+					top: 5px;
+					font-size: 1.5rem;
+				}
+
+			}
+		}
 		.box-two-col-full {
 			.title-head-blue{
 				margin-bottom: 0;
@@ -366,6 +377,11 @@
 	}
 	.box-why-business {
 		padding: 50px 0;
+		background: $color-blue-logo;
+		h2{
+			font-size: 24px;
+			line-height: 37px;
+		}
 		.item-reason{
 			padding: 10px;
 		}
@@ -376,14 +392,23 @@
 		}
 		.description-business{
 			font-size: 18px;
+			line-height: 1.5;
 		}
 		.box-dedicated {
+			padding-top: 30px;
 			h4{
 				font-size: 24px;
+				text-align: left;
+				margin-bottom: 15px;
 			}
 			p{
 				font-size: 18px;
 			}
+		}
+		.btn-green-env{
+			width: 100%;
+			font-size: 18px;
+			line-height: 25px;
 		}
 	}
 

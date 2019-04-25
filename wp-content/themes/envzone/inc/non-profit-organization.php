@@ -6,7 +6,7 @@ get_header();
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-non-profit-organization.png">
-        <h2>NON-PROFIT ORGANIZATION</h2>
+        <h1>NON-PROFIT ORGANIZATION</h1>
     </section>
     <section class="artical-page industries-page none-profit-page">
         <div class="container">
@@ -24,7 +24,7 @@ get_header();
 
             <div class="row justify-content-md-center fully-aware">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">We are fully aware of what you are struggling for</h1>
+                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
                 </div>
                 <div class="col-lg-4">
                     <div class="d-flex justify-content-center align-items-center item-different">
@@ -135,7 +135,7 @@ get_header();
                         We create an engaging and empowering environment across every aspect of your non-profit plans.
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -144,7 +144,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -153,7 +153,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -162,7 +162,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>

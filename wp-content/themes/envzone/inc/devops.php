@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-devops.png">
-        <h2>DEVOPS</h2>
+        <h1>DEVOPS</h1>
     </section>
     <section class="artical-page service-page devops-page">
         <div class="container">
@@ -156,7 +156,7 @@
                         A premium outsourcing solution for minimum management and maximum output
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -165,7 +165,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -174,7 +174,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -183,7 +183,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>

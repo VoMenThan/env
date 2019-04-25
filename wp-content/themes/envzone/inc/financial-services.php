@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-financial-services.png">
-        <h2>FINANCIAL SERVICES</h2>
+        <h1>FINANCIAL SERVICES</h1>
     </section>
     <section class="artical-page financial-page">
         <div class="container">
@@ -18,7 +18,7 @@
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">We are fully aware of what you are struggling for</h1>
+                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
                 </div>
                 <div class="col-lg-8 description-fully">
                     <p>
@@ -41,7 +41,7 @@
         <div class="container-fluid bg-gray-process">
             <div class="container">
                 <div class="row justify-content-md-center mb-5">
-                    <div class="col-8">
+                    <div class="col-lg-8">
                         <h1 class="title-head-blue text-center">What we offer</h1>
                         <div class="description-offer">
                             With Envzone's experienced pool of talent, you do not have to go through all the unnecessarily complicated workflows and let our team perform the magic of tailoring your on-point software of Digital Banking, Online Payment, Data Management, Personal Finance...
@@ -51,7 +51,7 @@
                 <div class="row justify-content-md-center">
                     <div class="col-12">
                         <div class="row justify-content-md-center">
-                            <div class="ml-5">
+                            <div class="ml-lg-5">
                                 <div class="item-offer">
                                     <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-uncover-new-method.png" alt="">
                                     <p>
@@ -67,7 +67,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="ml-5">
+                            <div class="ml-lg-5">
                                 <div class="item-offer">
                                     <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-offer-convenient.png" alt="">
                                     <p>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <p class="p-note mb-5">
+                                <p class="p-note mb-lg-5">
                                     By integrating customized software, your business shall be enabled to actively handle the ever-changing market of the financial industry
                                 </p>
                             </div>
@@ -115,7 +115,7 @@
                         We pursue digital transformation along with simplification, automation and standardization to help you run your operations smoothly and steadily from front to back processes.
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -124,7 +124,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -133,7 +133,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -142,7 +142,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>

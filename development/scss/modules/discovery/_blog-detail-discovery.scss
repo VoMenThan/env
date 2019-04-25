@@ -18,7 +18,23 @@
 		color: #141414;
 	}
 
-
+	figure{
+		position: relative;
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+	figcaption{
+		font-size: 12px;
+		font-family: $font-roboto;
+		color: #ffffff;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: rgba(13, 49, 83, .7);
+		padding: 0 15px;
+		margin-bottom: 0;
+		line-height: 18px;
+	}
 	.box-share{
 		.list-social{
 			padding-top: 10px;
@@ -50,7 +66,6 @@
 			padding-top: 15px;
 			border-top: 1px solid $color-gray-border;
 			border-bottom: 1px solid $color-gray-border;
-
 			.date{
 				padding-right: 30px;
 				font-family: $font-roboto;
@@ -88,23 +103,6 @@
 			}
 			img{
 				margin-bottom: 0;
-			}
-			figure{
-				position: relative;
-				display: inline-block;
-				margin-bottom: 20px;
-			}
-			figcaption{
-				font-size: 12px;
-				font-family: $font-roboto;
-				color: #ffffff;
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				background: rgba(13, 49, 83, .7);
-				padding: 0 15px;
-				margin-bottom: 0;
-				line-height: 18px;
 			}
 
 			h2, h3, h4{
@@ -522,4 +520,100 @@
 @page {
 	size: auto;
 	margin: 1cm;
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+	.blog-detail-page {
+		h1 {
+			font-size: 31px;
+		}
+		.box-share {
+			.list-social {
+				.nav-item{
+					&:first-child{
+						margin-left: 0;
+						padding-left: 0;
+					}
+				}
+			}
+		}
+		.sidebar-advert{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.box-advert{
+			margin-bottom: 0;
+
+		}
+		.content-blog {
+			.box-info-author-footer{
+				.linkedin{
+					padding-left: 10px;
+
+				}
+			}
+			.excerpt-news{
+				font-size: 18px;
+			}
+
+			.audit {
+				margin-bottom: 10px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				a, span{
+					font-size: 14px;
+					line-height: 130%;
+				}
+			}
+			.main-content {
+				h2 {
+					font-size: 24px;
+					line-height: 120%;
+				}
+
+				h3 {
+					font-size: 22px;
+					line-height: 120%;
+				}
+
+				h4 {
+					font-size: 20px;
+					line-height: 120%;
+				}
+
+				p {
+					font-size: 18px;
+					line-height: 160%;
+				}
+				a{
+					font-size: 18px;
+				}
+				blockquote {
+					p {
+						font-size: 20px;
+						line-height: 130%;
+
+						cite {
+							font-size: 20px;
+						}
+					}
+				}
+
+				ul li, ol li{
+					font-size: 18px;
+					line-height: 160%;
+				}
+				ol, ul{
+					margin-bottom: 10px;
+					*{
+						font-family: $font-merriweather;
+					}
+				}
+			}
+		}
+	}
 }

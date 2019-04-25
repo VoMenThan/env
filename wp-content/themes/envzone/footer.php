@@ -140,7 +140,7 @@
     <div class="container-fluid social-mobile">
         <div class="row">
             <div class="col-12">
-                <ul class="nav list-social-mb d-flex justify-content-center">
+                <ul class="nav list-social-mb d-flex justify-content-between">
                     <li class="nav-item px-1 py-3">
                         <a class="nav-link link-twitter" target="_blank" href="https://twitter.com/Envzone">
                             <i class="icon-twitter"></i>
@@ -167,7 +167,7 @@
                 <div class="title-check-vaibility-mb">
                     SCHEDULE AN APPOINTMENT
                 </div>
-                <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
+                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">CHECK AVAIBILITY <i class="icon-arrow-bottom"></i></a>
             </div>
         </div>
     </div>
@@ -175,16 +175,12 @@
     <div class="container-fluid bg-blue-footer">
         <div class="row address-footer-mb">
             <div class="col-6 box-info">
-                <p>1801 California St., Suite 2400 <br>
-                    Denver, CO 80202
-                </p>
-                <p>
+                <div class="address">1801 California St., Suite 2400 <br>
+                    Denver, CO 80202 <br>
                     M-F | 8:30 am - 5:30 pm MST
-                </p>
+                </div>
                 <p>
-                    Main: <a href="tel:+017206062900">720-606-2900</a>
-                </p>
-                <p>
+                    Main: <a href="tel:+017206062900">720-606-2900</a> <br>
                     Email: <a class="email-envzone" href="mailto:info@envzone.com">info@envzone.com</a>
                 </p>
             </div>
@@ -262,126 +258,6 @@
 <?php wp_footer();?>
 
 <script type="text/javascript">
-
-    $(document).ready(function() {
-
-        $('.slider-home').owlCarousel({
-            animateOut: 'slideOutRight',
-            animateIn: 'slideInLeft',
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            lazyLoad:true,
-            autoplay: true,
-            autoplayTimeout: 8000,
-            smartSpeed:450,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                    dots: false
-                },
-                768: {
-                    items: 1,
-                    dots: false
-                },
-                1024: {
-                    items: 1
-                }
-            }
-        });
-
-        $('.slider-partners').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 2
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-        $('.slider-news').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            dots: false,
-            autoplay: false,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 3
-                }
-            }
-        });
-
-        $('.box-industries').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-        $('.list-video').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-    });
-
-    /*============ custom scroll =================*/
 
     (function($) {
         $(window).on("load", function() {
@@ -461,6 +337,9 @@
     function changeTextBtn() {
         $("header #gform_submit_button_3").val('KEEP ME UPDATED');
     }
+    function changeTextBtn() {
+        $("header .box-check-avaibility #gform_submit_button_3").val('SUBSCRIBE NOW');
+    }
 
     $(function () {
         toggle_obj(".btn-toggle-menu", "#menuBarMobile");
@@ -481,13 +360,13 @@
 
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-88982528-1');
-</script>
+</script>-->
 </body>
 </html>

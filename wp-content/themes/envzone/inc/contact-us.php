@@ -38,7 +38,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 d-lg-block d-none">
                     <div class="box-contact-topic">
                         <div class="label-header">
                             CONTACT US BY TOPIC
@@ -77,8 +77,8 @@
                     <h2 class="title-head-blue title-top pb-3 pt-lg-0 pt-5">DOING BUSINESS WITH US IS EASY!</h2>
                 </div>
 
-                <div class="col-lg-12 box-visit-envzone clearfix pb-5">
-                    <div class="col-green">
+                <div class="col-lg-12 box-visit-envzone d-flex flex-lg-row flex-column clearfix pb-5">
+                    <div class="col-green order-lg-0 order-1">
                         <h4>VISIT ENVZONE!</h4>
                         <p>
                             Headquarters Location: <br>
@@ -93,7 +93,7 @@
                             Email: info@envzone.com
                         </p>
                     </div>
-                    <div class="box-img">
+                    <div class="box-img order-lg-1 order-0">
                         <img src="<?php echo ASSET_URL;?>images/img-doing-business.png" alt="" class="img-fluid">
                     </div>
                 </div>

@@ -6,7 +6,7 @@ get_header();
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-e-commerce-and-retail.png">
-        <h2>E-COMMERCE AND RETAIL</h2>
+        <h1>E-COMMERCE AND RETAIL</h1>
     </section>
     <section class="artical-page industries-page ecommerce-page">
         <div class="container">
@@ -23,7 +23,7 @@ get_header();
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">We are fully aware of what you are struggling for</h1>
+                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
                 </div>
                 <div class="col-lg-8 description-fully">
                     <p>
@@ -47,7 +47,7 @@ get_header();
                             to boost your sales
                         </h2>
                     </div> 
-                    <div class="description-offer col-8">
+                    <div class="description-offer col-lg-8">
                         <p>
                             Services provided by Envzone help in the improvement of customer experience, providing quality customer relationships, offering high-quality product and services and provide the best customer data management services.
                         </p>
@@ -121,7 +121,7 @@ get_header();
                         We provide meaningful experiences to enhance your customer’s journey in the competitive market. And more than that, we bring exciting technology and boundless expertise to boost your customer-focused value
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -130,7 +130,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -139,7 +139,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -148,7 +148,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>

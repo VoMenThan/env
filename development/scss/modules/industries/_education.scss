@@ -113,10 +113,12 @@
     h1{
       text-align: left;
       font-size: 24px;
+      line-height: 37px;
     }
     .description-industries{
       width: 100%;
       font-size: 18px;
+      padding-right: 0;
     }
     .box-question-education{
       div[class*="question-"]{
@@ -207,12 +209,12 @@
     .box-offer-education {
       div[class*="offer-"] {
         width: 190px;
+        padding-left: 0 !important;
       }
       .circle-offer{
-        margin-top: 100px;
+        margin-top: 160px;
       }
     }
-
     .section-offer{
       padding-bottom: 0;
     }

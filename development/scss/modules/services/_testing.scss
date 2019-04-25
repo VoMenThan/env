@@ -73,6 +73,7 @@ section.testing-page{
    .item-deploy-confidence {
      p{
        font-size: 18px;
+       line-height: 24px;
      }
    }
    .title-blue{
@@ -91,6 +92,10 @@ section.testing-page{
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
   section.testing-page {
+    .info-step{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
     .item-qa{
       padding: 5px;
       width: 100px;

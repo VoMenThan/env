@@ -25,7 +25,7 @@
                     <div class="title-page">BLOG</div>
                 </div>
             </div>
-            <div class="row section-head-blog content-blog">
+            <div class="row section-head-blog section-trending content-blog">
                 <?php
                 $post_isset = array();
                 $args = array(
@@ -46,7 +46,7 @@
 
                 array_push($post_isset, $news_main[0]->ID);
                 ?>
-                <div class="col-lg-12 item-blog-mb-80">
+                <div class="col-lg-12 box-item-horizontal-mb item-blog-mb-80">
                     <div class="item-special">
                         <div class="row">
 
@@ -130,31 +130,37 @@
                     }
 
                     ?>
-                <div class="col-lg-4 item-blog-mb-30">
-                    <div class="box-item-special item">
-                        <div class="item-blog">
-                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
+                <div class="col-lg-4 box-item-horizontal-mb item-blog-mb-30">
+                    <article class="highlight-news-right img-center clearfix item">
+                        <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                        </a>
+                        <div class="info-news">
+                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                <?php echo get_the_category($item->ID)[0]->cat_name;?>
                             </a>
-                            <div class="info">
-                                <div class="info-news">
-                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
-                                    <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                                        <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
-                                    </a>
-                                </div>
-                                <div class="info-author">
-                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                    <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
-                                        By <?php echo get_the_author_meta('display_name', $item->post_author);?>
-                                    </a>
-                                    <div class="date-by">on <?php echo get_the_date( 'M d, Y', $item->ID );?></div>
-                                </div>
-
+                            <a href="<?php echo get_permalink($item->ID);?>">
+                                <h2>
+                                    <?php echo $item->post_title;?>
+                                </h2>
+                            </a>
+                            <div class="audit d-lg-block d-none">
+                                <?php
+                                if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                    $avatar = ASSET_URL.'images/avatar-default.png';
+                                }
+                                else{
+                                    $avatar = get_field('avatar', 'user_'.$item->post_author);
+                                }
+                                ?>
+                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                    By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                </a>
+                                <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                             </div>
-
                         </div>
-                    </div>
+                    </article>
                 </div>
 
                 <?php endforeach;?>

@@ -1,7 +1,8 @@
 <?php get_header();?>
 
 <!--SLIDER HOME-->
-<div class="container-fluid p-0 position-relative">
+<div class="container-fluid p-0 position-relative box-slider">
+
     <div class="owl-carousel slider-home owl-theme">
         <div class="item">
             <img src="<?php echo ASSET_URL;?>images/banner-home-new.png">
@@ -85,7 +86,6 @@
     </a>
     <!--BUTTON DOWN-->
 
-
     <div class="connect-social d-lg-block d-none">
         <h3>
             Your best choice of offshore software outsourcing
@@ -150,7 +150,7 @@
     $news_main = get_posts( $args );
     ?>
     <div class="container background-gray-mobile section-blog">
-        <div class="content-blog define-headline">
+        <div class="content-blog blog-page blog-detail-page define-headline">
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2 class="title-head-blue underline-head"><span>FEATURED INSIGHTS</span></h2>
@@ -160,11 +160,11 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 px-mb-0">
                     <div class="item-special">
                         <div class="row">
 
-                            <div class="col-lg-7 img-special">
+                            <div class="col-lg-7 img-special ">
                                 <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
                                 </a>
@@ -204,7 +204,13 @@
                         </div>
                     </div>
 
-                    <div class="owl-carousel owl-theme d-flex slider-news">
+                </div>
+
+            </div>
+
+            <div class="row section-trending">
+                <div class="col-lg-12 box-item-horizontal-mb">
+                    <div class="owl-carousel owl-theme d-lg-flex d-block slider-news">
                         <?php
                         $args = array(
                             'posts_per_page' => 6,
@@ -230,61 +236,42 @@
                             else{
                                 $avatar = get_field('avatar', 'user_'.$item->post_author);
                             }
-                            
+
                             ?>
-                            <div class="box-item-special item">
-                                <div class="item-blog">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings">
-                                    <div class="info">
-                                        <div class="info-news">
-                                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
-                                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                                                <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
-                                            </a>
-                                        </div>
-                                        <div class="info-author">
-                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
-                                                By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
-                                            </a>
-                                            <div class="date-by">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
-                                        </div>
-
+                            <article class="highlight-news-right img-center clearfix item">
+                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                        <?php echo get_the_category($item->ID)[0]->cat_name;?>
+                                    </a>
+                                    <a href="<?php echo get_permalink($item->ID);?>">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit d-lg-block d-none">
+                                        <?php
+                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                            $avatar = ASSET_URL.'images/avatar-default.png';
+                                        }
+                                        else{
+                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
+                                        }
+                                        ?>
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
-
                                 </div>
-                            </div>
+                            </article>
                         <?php endforeach;?>
+
+                        <a href="<?php echo home_url('blog');?>" class="btn btn-blue-env w-100 d-lg-none d-block">VIEW ALL ARTICLES</a>
                     </div>
-
-                </div>
-
-            </div>
-
-            <div class="row d-lg-none d-block py-5">
-
-                <div class="col-12 box-head-blog">
-                    <h2 class="title-head-blue underline-head"><span>FEATURED INSIGHTS</span></h2>
-                </div>
-
-                <div class="col-md-12">
-                    <?php foreach($news_special as $k => $item):?>
-                    <div class="item-blog-mobile-horizontal clearfix">
-                        <a href="<?php echo get_permalink($item->ID);?>">
-                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="job-openings">
-                        </a>
-                        <div class="info">
-                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
-                            <a href="<?php echo get_permalink($item->ID);?>">
-                            <h4><?php echo $item->post_title;?></h4>
-                            </a>
-                            <div class="box-author-by">
-                                <div class="author-by">By <?php echo get_the_author_meta('displayname', $item->ID);?></div>
-                                <div class="date-by">on <?php echo get_the_date( 'M d, Y', $item->ID );?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endforeach;?>
                 </div>
             </div>
         </div>
@@ -983,5 +970,154 @@
 
     })(jQuery);
     /*============ slide news =================*/
+
+    $(document).ready(function() {
+
+        $('.slider-home').owlCarousel({
+            animateOut: 'slideOutRight',
+            animateIn: 'slideInLeft',
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            lazyLoad:true,
+            autoplay: true,
+            autoplayTimeout: 8000,
+            smartSpeed:450,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: false
+                },
+                768: {
+                    items: 1,
+                    dots: false
+                },
+                1024: {
+                    items: 1
+                }
+            }
+        });
+
+        $('.slider-partners').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                425: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+
+        $('.box-industries').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            autoplay: false,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+        $('.list-video').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: true,
+            autoplay: false,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+
+
+        if ( $(window).width() > 768 ) {
+            startCarousel();
+
+        } else {
+            $('.slider-news').addClass('off');
+            console.log('khong chay carauser');
+        }
+    });
+
+    /*============ custom scroll =================*/
+
+
+    $(window).resize(function() {
+        if ( $(window).width() > 768 ) {
+            startCarousel();
+            console.log('chay carauser');
+        } else {
+            stopCarousel();
+            console.log('Khong chay carauser');
+        }
+    });
+
+    function startCarousel() {
+        $('.slider-news').owlCarousel({
+            loop: false,
+            margin: 30,
+            nav: true,
+            dots: false,
+            autoplay: false,
+            autoplayTimeout: 2000,
+            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                425: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                }
+            }
+        });
+    }
+
+    function stopCarousel() {
+        var owl = $('.slider-news');
+        owl.trigger('destroy.owl.carousel');
+        owl.addClass('off');
+    }
 </script>
 <?php get_footer();?>

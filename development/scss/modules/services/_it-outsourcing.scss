@@ -78,6 +78,7 @@ section.it-outsourcing-page{
         text-align: center;
         width: 80%;
         font-size: 16px;
+        line-height: 24px;
       }
     }
 
@@ -87,6 +88,12 @@ section.it-outsourcing-page{
     .item-special{
       position: absolute;
       bottom: -440px;
+    }
+
+    .description-overhead {
+      .list-choose{
+        line-height: 1.5;
+      }
     }
   }
 }

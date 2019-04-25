@@ -111,12 +111,30 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
   .none-profit-page {
+    h3{
+      font-size: 24px;
+    }
     .btn-learn-more{
       padding-top: 0;
       padding-bottom: 50px;
     }
+    .bg-gray-process {
+      .title-blue{
+        padding-right: 0;
+        line-height: 1.5;
+      }
+    }
     .btn-blue-env{
       width: 100%;
     }
+    .fully-aware {
+      .title-head-blue{
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+  .description-business-np{
+    width: 100%!important;
   }
 }

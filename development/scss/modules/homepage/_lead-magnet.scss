@@ -61,9 +61,12 @@
         }
         .box-infomation-ebook {
             .img-cover-ebook{
-                width: 100%;
+                width: 50%;
+                min-width: 150px;
+                margin: auto;
                 margin-bottom: 20px;
                 float: none;
+                display: inherit;
             }
             .info-ebook{
                 padding-left: 0;

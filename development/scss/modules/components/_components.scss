@@ -180,6 +180,17 @@ h1, h2, h3, h4, h5, h6{
 	img{
 		width: 100%;
 	}
+	h1{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include translate(-555px, -50%);
+		font-size: 48px;
+		color: $color-green-logo;
+		font-weight: bold;
+		font-family: $font-raleway;
+		line-height: 73px;
+	}
 	h2{
 		position: absolute;
 		left: 50%;
@@ -188,13 +199,16 @@ h1, h2, h3, h4, h5, h6{
 		font-size: 48px;
 		color: $color-green-logo;
 		font-weight: bold;
-		font-family: Raleway;
+		font-family: $font-raleway;
 		line-height: 73px;
 	}
 
 	&.bg-blue{
 		background: $color-blue-lv4;
 		min-height: 515px;
+		h1{
+			@include translate(-50%, -50%);
+		}
 		h2{
 			@include translate(-50%, -50%);
 		}
@@ -211,6 +225,11 @@ h1, h2, h3, h4, h5, h6{
 		right: 50%;
 		@include translate-x(555px);
 	}
+	h1{
+		left: 50%;
+		top: 30%;
+		@include translate(-50%, -50%);
+	}
 	h2{
 		left: 50%;
 		top: 30%;
@@ -226,6 +245,11 @@ h1, h2, h3, h4, h5, h6{
 		bottom: 0;
 		right: 50%;
 		@include translate-x(555px);
+	}
+	&.bg-blue>h1{
+		left: 50%;
+		top: 50%;
+		@include translate(-555px, -50%);
 	}
 	&.bg-blue>h2{
 		left: 50%;
@@ -445,6 +469,10 @@ h1, h2, h3, h4, h5, h6{
 @media screen and (max-width: $device-size-extra-large) {
 	/*============BANNER TOP=================*/
 	.banner-top{
+		h1{
+			@include translate(0, -50%);
+			left: 30px;
+		}
 		h2{
 			@include translate(0, -50%);
 			left: 30px;
@@ -456,6 +484,11 @@ h1, h2, h3, h4, h5, h6{
 			@include translate-x(500px);
 		}
 		&.bg-blue {
+			> h1{
+				@include translate(-500px, -50%);
+			}
+		}
+		&.bg-blue {
 			> h2{
 				@include translate(-500px, -50%);
 			}
@@ -465,6 +498,11 @@ h1, h2, h3, h4, h5, h6{
 	.banner-industries{
 		img{
 			@include translate-x(500px);
+		}
+		&.bg-blue {
+			> h1{
+				@include translate(-500px, -50%);
+			}
 		}
 		&.bg-blue {
 			> h2{
@@ -491,6 +529,9 @@ h1, h2, h3, h4, h5, h6{
 			@include translate-x(380px);
 		}
 		&.bg-blue {
+			> h1{
+				@include translate(0, -50%);
+			}
 			> h2{
 				@include translate(0, -50%);
 			}
@@ -500,6 +541,11 @@ h1, h2, h3, h4, h5, h6{
 	.banner-industries{
 		img{
 			@include translate-x(380px);
+		}
+		&.bg-blue {
+			> h1{
+				@include translate(0, -50%);
+			}
 		}
 		&.bg-blue {
 			> h2{
@@ -524,6 +570,10 @@ h1, h2, h3, h4, h5, h6{
 	}
 	/*============BANNER TOP=================*/
 	.banner-top{
+		h1{
+			@include translate(-50%, -50%);
+			left: 50%;
+		}
 		h2{
 			@include translate(-50%, -50%);
 			left: 50%;
@@ -541,6 +591,9 @@ h1, h2, h3, h4, h5, h6{
   }
 
 	.banner-top {
+		h1{
+			font-size: 2rem;
+		}
 		h2{
 			font-size: 2rem;
 		}
@@ -579,6 +632,14 @@ h1, h2, h3, h4, h5, h6{
 			top: 50%;
 			@include translate(0, -50%);
 			max-width: 500px;
+		}
+	}
+
+
+	.section-parallax{
+		background: none;
+		.bg-green-home{
+			background: $color-green-logo;
 		}
 	}
 }
@@ -629,6 +690,12 @@ h1, h2, h3, h4, h5, h6{
 		img{
 			max-width: 320px;
 		}
+		&.bg-blue>h1{
+			left: 50%;
+			top: 20%;
+			@include translate(-50%, -50%);
+			text-align: center;
+		}
 		&.bg-blue>h2{
 			left: 50%;
 			top: 20%;
@@ -641,6 +708,13 @@ h1, h2, h3, h4, h5, h6{
 		img{
 			max-width: 100%;
 		}
+		&.bg-blue>h1{
+			left: 50%;
+			top: 20%;
+			@include translate(-50%, -50%);
+			text-align: center;
+			width: 80%;
+		}
 		&.bg-blue>h2{
 			left: 50%;
 			top: 20%;
@@ -651,6 +725,12 @@ h1, h2, h3, h4, h5, h6{
 	}
 
 	.banner-top{
+		h1{
+			line-height: 1.5;
+		}
+		h2{
+			line-height: 1.5;
+		}
 		&.bg-blue{
 			min-height: 70vh;
 		}
@@ -669,6 +749,9 @@ h1, h2, h3, h4, h5, h6{
 	}
 
 	.banner-top {
+		h1{
+			font-size: 1.5rem;
+		}
 		h2{
 			font-size: 1.5rem;
 		}

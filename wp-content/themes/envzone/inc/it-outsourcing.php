@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-it-outsourcing-services.png">
-        <h2>IT OUTSOURCING</h2>
+        <h1>IT OUTSOURCING</h1>
     </section>
     <section class="artical-page service-page it-outsourcing-page">
         <div class="container">
@@ -18,7 +18,7 @@
             </div>
             <div class="row justify-content-md-center mb-5">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">Why choose Envzone for IT Outsourcing</h1>
+                    <h2 class="title-head-blue text-center">Why choose Envzone for IT Outsourcing</h2>
                 </div>
                 <div class="col-lg-8">
                     <div class="description-overhead">
@@ -132,7 +132,7 @@
                         A premium outsourcing solution for minimum management and maximum output
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -141,7 +141,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -150,7 +150,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>
@@ -159,7 +159,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mbx-100 mb-lg-0 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
                     <div class="item-reason">
                         <i class="fa fa-check-circle"></i>
                         <p>

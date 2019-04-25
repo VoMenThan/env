@@ -1160,5 +1160,83 @@ body #gform_wrapper_10 .top_label div.ginput_container{
 
 }
 
+/*Button subscription menu mobile*/
+header{
+    .box-check-avaibility{
+        #gform_wrapper_3 {
+            .gform_footer {
+                input{
+                    background: transparent;
+                    border: 1px solid #E0E0E0;
+                }
+            }
+        }
+    }
+
+}
+
+/*Button subscription menu mobile*/
+
 /*END CSS CUSTOM GET MY SUCCESSION PLAN*/
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    .form-horizontal {
+        .gform_wrapper {
+            ul.gform_fields:not(.top_label) {
+                .gfield_label{
+                    width: 100%;
+                    display: block;
+                }
+            }
+            ul.gform_fields:not(.top_label) {
+                .ginput_container:not(.ginput_container_time):not(.ginput_container_date){
+                    width: 100% !important;
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+    .form-horizontal {
+        .gform_wrapper {
+            .gform_footer {
+                input.button, input[type=submit]{
+                    width: 100% !important;
+
+                }
+                &:not(.top_label){
+                    width: 100% !important;
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+
+    #gform_wrapper_3 {
+        li.hidden_label {
+            input{
+                font-size: 16px;
+                max-width: 100%;
+            }
+        }
+        .gform_footer{
+            input{
+                font-size: 16px;
+                width: 100%;
+            }
+        }
+    }
+}
 
