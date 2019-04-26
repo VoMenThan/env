@@ -150,7 +150,7 @@
     $news_main = get_posts( $args );
     ?>
     <div class="container background-gray-mobile section-blog">
-        <div class="content-blog blog-page blog-detail-page define-headline">
+        <div class="content-blog define-headline">
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2 class="title-head-blue underline-head"><span>FEATURED INSIGHTS</span></h2>
@@ -160,7 +160,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-12 px-mb-0">
+                <div class="col-lg-12 col-px-0">
                     <div class="item-special">
                         <div class="row">
 
@@ -208,9 +208,9 @@
 
             </div>
 
-            <div class="row section-trending">
-                <div class="col-lg-12 box-item-horizontal-mb">
-                    <div class="owl-carousel owl-theme d-lg-flex d-block slider-news">
+            <div class="row">
+                <div class="col-lg-12 box-item-scroll">
+                    <div class="owl-carousel owl-theme d-lg-flex d-flex flex-row slider-news">
                         <?php
                         $args = array(
                             'posts_per_page' => 6,
@@ -238,40 +238,33 @@
                             }
 
                             ?>
-                            <article class="highlight-news-right img-center clearfix item">
-                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
-                                </a>
-                                <div class="info-news">
-                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
-                                        <?php echo get_the_category($item->ID)[0]->cat_name;?>
-                                    </a>
-                                    <a href="<?php echo get_permalink($item->ID);?>">
-                                        <h2>
-                                            <?php echo $item->post_title;?>
-                                        </h2>
-                                    </a>
-                                    <div class="audit d-lg-block d-none">
-                                        <?php
-                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
-                                            $avatar = ASSET_URL.'images/avatar-default.png';
-                                        }
-                                        else{
-                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
-                                        }
-                                        ?>
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
-                                        </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
-                                    </div>
-                                </div>
-                            </article>
-                        <?php endforeach;?>
+                            <div class="box-item-special item">
+                                <div class="item-blog">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings">
+                                    <div class="info">
+                                        <div class="info-news">
+                                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
+                                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                                <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
+                                            </a>
+                                        </div>
+                                        <div class="info-author">
+                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
+                                                By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
+                                            </a>
+                                            <div class="date-by">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
+                                        </div>
 
-                        <a href="<?php echo home_url('blog');?>" class="btn btn-blue-env w-100 d-lg-none d-block">VIEW ALL ARTICLES</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        <?php endforeach;?>
                     </div>
+                </div>
+                <div class="col-lg-12 mt-lg-5 mt-3">
+                    <a href="<?php echo home_url('blog');?>" class="btn btn-blue-env w-100 d-lg-none d-block">VIEW ALL ARTICLES</a>
                 </div>
             </div>
         </div>
@@ -960,7 +953,7 @@
         "use strict";
         $(document).ready(function (e) {
 
-            $('.content-blog .box-item-special .item-blog').matchHeight({
+            $('.content-blog .box-item-special .item-blog h4').matchHeight({
                 byRow: true,
                 property: 'height',
                 target: null,

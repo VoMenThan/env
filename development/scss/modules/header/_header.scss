@@ -535,7 +535,7 @@ nav {
       .menu-bar-mobile{
         @include setBackgroundIcon(60px, "../images/icon-menu-bar.png", 60px, auto);
         vertical-align: middle;
-        border-right: .5px solid $color-white;
+        border-right: .5px solid #828282;
         margin-right: 10px;
         transition: .3s;
         &.active{
@@ -735,7 +735,7 @@ nav {
                     @include setBackgroundIcon(40px, "../images/icon-direction-mb.svg");
                 }
                 .icon-right-arrow{
-                    @include setBackgroundIcon(40px, "../images/icon-right-arrow.svg");
+                    @include setBackgroundIcon(20px, "../images/icon-right-arrow.svg");
                 }
             }
             .box-portal{
@@ -781,6 +781,7 @@ nav {
                 padding: 18px 0;
                 display: block;
                 font-family: $font-pt;
+                font-weight: normal;
             }
             p{
                 display: none;

@@ -3,12 +3,13 @@
 	padding-bottom: 0 !important;
 	.bg-blue-home{
 		background: $color-blue-lv2;
-		padding: 20px 0;
+		padding: 15px 0;
 	}
 	.current-category{
 		color: $color-green-logo;
 		font-weight: bold;
 		text-transform: uppercase;
+		font-size: 20px;
 	}
 	h1{
 		font-size: 48px;
@@ -25,7 +26,7 @@
 	}
 	figcaption{
 		font-size: 12px;
-		font-family: $font-roboto;
+		font-family: $font-roboto !important;
 		color: #ffffff;
 		position: absolute;
 		bottom: 0;
@@ -128,11 +129,14 @@
 				padding: 10px 30px;
 				margin-bottom: 20px;
 				border-left: 5px solid #8DC63F;
+				*, a{
+					font-family: $font-roboto;
+				}
 				p{
 					font-family: $font-roboto;
 					color: #90989e;
 					font-size: 24px;
-					line-height: 130%;
+					line-height: 145%;
 					margin-bottom: 10px;
 				}
 				cite{
@@ -325,9 +329,9 @@
 				margin-bottom: 10px;
 			}
 			h2{
-				font-family: $font-pt;
+				font-family: $font-roboto;
 				font-style: normal;
-				font-weight: bold;
+				font-weight: 500;
 				font-size: 20px;
 				line-height: 28px;
 				margin-bottom: 10px;
@@ -351,9 +355,11 @@
 			}
 			h2{
 				padding-left: calc(40% + 15px);
-				font-size: 16px;
+				font-size: 15px;
 				color: $color-blue-lv3;
-				font-family: $font-pt;
+				font-weight: normal;
+				line-height: 130%;
+				font-family: $font-roboto;
 				@include transition(.3s);
 				&:hover{
 					opacity: .8;
@@ -485,6 +491,7 @@
 					background: $color-white;
 					@include radius(0);
 					font-size: 18px;
+					color: #000;
 				}
 			}
 			.gform_footer {
@@ -528,6 +535,12 @@
 	================================================================== */
 @media screen and (max-width: 425px) {
 	.blog-detail-page {
+		.bg-blue-home{
+			padding: 8px 0;
+		}
+		.current-category{
+			font-size: 16px;
+		}
 		h1 {
 			font-size: 31px;
 		}

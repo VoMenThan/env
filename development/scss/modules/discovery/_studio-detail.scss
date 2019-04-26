@@ -4,7 +4,7 @@
     color: $color-blue-logo;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     .current-category{
         color: $color-blue-logo;
@@ -25,11 +25,14 @@
         }
     }
     .carousel-photo-detail{
+        .owl-item{
+            margin-top: 0 !important;
+        }
         .owl-nav{
             .owl-next{
                 position: absolute;
                 right: -20px;
-                top: 39%;
+                top: calc(50% - 25px);
                 outline: none;
                 height: 45px;
                 width: 45px;
@@ -44,10 +47,11 @@
                     opacity: .5;
                 }
             }
+
             .owl-prev{
                 position: absolute;
                 left: -20px;
-                top: 39%;
+                top: calc(50% - 25px);
                 outline: none;
                 height: 45px;
                 width: 45px;
@@ -66,11 +70,17 @@
     }
 
     .box-icon-mini{
+        .owl-item{
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+
+        }
+
         .owl-nav{
             .owl-next{
                 position: absolute;
                 right: -10px;
-                top: 39%;
+                top: calc(50% - 12px);
                 outline: none;
                 height: 25px;
                 background: url('../images/btn-next-slide.png') no-repeat center;

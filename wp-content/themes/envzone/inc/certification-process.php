@@ -144,9 +144,6 @@
                                 Collaborate with a personal Partner Success Manager for
                                 coaching and questions
                             </li>
-                            <li class="item-feature">
-                                No processing charges
-                            </li>
 
                         </ul>
                     </div>

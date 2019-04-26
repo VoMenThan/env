@@ -47,8 +47,12 @@ body{
         border: none !important;
         border-radius: 5px;
     }
-    .gform_footer:hover{
-        opacity: .8;
+    .gform_footer{
+        input{
+         &:hover{
+             opacity: .8;
+            }
+        }
     }
     .gform_footer input{
         border: none;
@@ -181,8 +185,12 @@ body{
         border: none !important;
         border-radius: 5px;
     }
-    .gform_footer:hover{
-        opacity: .8;
+    .gform_footer{
+        input{
+            &:hover{
+                opacity: .8;
+            }
+        }
     }
     .gform_footer input{
         border: none;
@@ -572,7 +580,7 @@ body .gform_wrapper .top_label div.ginput_container{
     border: none !important;
     border-radius: 5px;
 }
-.gform_wrapper .gform_footer:hover{
+.gform_wrapper .gform_footer input:hover{
     opacity: .8;
 }
 .gform_wrapper .gform_footer input{
@@ -630,7 +638,7 @@ body #gform_wrapper_1 .top_label div.ginput_container{
     border: none !important;
     border-radius: 5px;
 }
-#gform_wrapper_1 .gform_footer:hover{
+#gform_wrapper_1 .gform_footer input:hover{
     opacity: .8;
 }
 #gform_wrapper_1 .gform_footer input{
@@ -1066,6 +1074,10 @@ body {
             text-transform: none;
             font-size: 18px;
             font-weight: 600;
+            &:hover{
+                border-color: #8DC63F;
+                color: #8DC63F;
+            }
             span{
                 display: none;
             }
@@ -1075,8 +1087,6 @@ body {
     #input_2_7{
         display: none;
     }
-
-
 }
 
 #gform_wrapper_6 {
@@ -1091,6 +1101,10 @@ body {
             font-size: 18px;
             font-weight: 600;
             margin-left: 40%;
+            &:hover{
+                border-color: #8DC63F;
+                color: #8DC63F;
+            }
             span{
                 display: none;
             }

@@ -29,16 +29,18 @@
 		border-bottom: 3px solid $color-green-logo;
 		padding-bottom: 0;
 		margin-bottom: 30px;
+		position: relative;
 		&:after{
 			content: "";
 			display: inline-block;
 			width: 100px;
 			border-bottom: 3px solid $color-blue-logo;
 			position: absolute;
-			bottom: 30px;
-			left: 15px;
+			top: 100%;
+			left: 0;
 		}
 	}
+
 	.highlight-news{
 		border: .5px solid $color-gray-border;
 		img{
@@ -302,6 +304,22 @@
 	}
 }
 
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+	.blog-page{
+		.box-item-special{
+			padding-right: 0;
+			padding-left: 0;
+			margin-bottom: 0;
+		}
+		.reset-row-wrap{
+			@include flex-wrap(inherit);
+		}
+	}
+}
 
 /* 	================================================================
 	MOBILE DEVICE
@@ -309,6 +327,13 @@
 	================================================================== */
 @media screen and (max-width: 425px) {
 	.blog-page {
+		.title-page{
+			color: #4F4F4F !important;
+			border-bottom: none;
+			font-size: 22px !important;
+			line-height: 34px;
+			padding-top: 30px;
+		}
 		.item-special {
 			.excerpt{
 				display: none;
@@ -319,9 +344,11 @@
 			}
 		}
 		.title-head-blue.have-border{
-			color: #4F4F4F;
+			color: #4F4F4F !important;
 			border-bottom: none;
-			font-size: 18px;
+			font-size: 22px !important;
+			line-height: 34px;
+			margin-bottom: 0 !important;
 			&:after{
 				display: none;
 			}
@@ -357,7 +384,7 @@
 							margin-bottom: 2px;
 						}
 						h2{
-							font-size: 18px;
+							font-size: 16px;
 							line-height: 22px;
 							margin-bottom: 0;
 							padding-bottom: 0;
@@ -372,5 +399,35 @@
 		}
 
 
+		.highlight-news-right {
+			.thumbnail-news{
+				img{
+					width: 100%;
+					height: auto;
+				}
+			}
+			.info-news{
+				padding-bottom: 0;
+				padding-left: calc(40% + 5px);
+				.category{
+					display: inline-block;
+					margin-top: 0;
+					text-transform: uppercase;
+					font-size: 12px;
+					margin-bottom: 0;
+				}
+				h2{
+					line-height: 130%;
+					font-size: 16px;
+					padding-bottom: 0;
+					padding-top: 0;
+					margin-bottom: 0;
+				}
+				.audit{
+					display: none;
+				}
+			}
+		}
 	}
+
 }
