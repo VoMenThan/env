@@ -17,21 +17,25 @@ class EnvzoneMTAdmin
     //1. Them mot submenu vao Dashboard cua WP menus
     //=======================================================
     public function settingMenuPost(){
-        $menuSlug = 'envzone-mt-setting-post';
+        $menuSlugPost = 'envzone-mt-setting-post';
         add_posts_page('Promotion Mode', 'Promotion Mode', 'manage_options',
-            $menuSlug, array($this,'settingPagePost'));
+            $menuSlugPost, array($this,'settingPagePost'));
 
-        $menuSlug = 'envzone-mt-setting-knowledge';
+        $menuSlugKnowledge = 'envzone-mt-setting-knowledge';
         add_submenu_page('edit.php?post_type=knowledge_center','Promotion Mode', 'Promotion Mode', 'manage_options',
-            $menuSlug, array($this,'settingPageKnowledge'));
+            $menuSlugKnowledge, array($this,'settingPageKnowledge'));
 
-        $menuSlug = 'envzone-mt-setting-gallery';
+        $menuSlugGallery = 'envzone-mt-setting-gallery';
         add_submenu_page('edit.php?post_type=studio_gallery','Promotion Mode', 'Promotion Mode', 'manage_options',
-            $menuSlug, array($this,'settingPageGallery'));
+            $menuSlugGallery, array($this,'settingPageGallery'));
 
-        $menuSlug = 'envzone-mt-setting-motion';
+        $menuSlugMotion = 'envzone-mt-setting-motion';
         add_submenu_page('edit.php?post_type=studio_motion','Promotion Mode', 'Promotion Mode', 'manage_options',
-            $menuSlug, array($this,'settingPageMotion'));
+            $menuSlugMotion, array($this,'settingPageMotion'));
+
+        $menuSlugMagnet = 'envzone-mt-setting-resources';
+        add_submenu_page('edit.php?post_type=resources','Promotion Mode', 'Promotion Mode', 'manage_options',
+            $menuSlugMagnet, array($this,'settingPageMagnet'));
 
     }
 
@@ -50,6 +54,10 @@ class EnvzoneMTAdmin
 
     public function settingPageMotion(){
         require ENVZONE_MT_VIEWS_DIR . '/setting-page-motion.php';
+    }
+
+    public function settingPageMagnet(){
+        require ENVZONE_MT_VIEWS_DIR . '/setting-page-resources.php';
     }
 
     //=======================================================

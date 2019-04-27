@@ -10,15 +10,9 @@
 
                         <div class="box-thank">
                             <div class="notification">
-                                <img src="<?php echo ASSET_URL;?>images/icon-verified.png" alt="">
-                                <p>
-                                    THANK YOU!
-                                </p>
+                                <?php echo $post->post_content;?>
                             </div>
-                            <p>
-                                Your submission has been successful! <br>
-                                A notification email has been sent to your inbox. We will respond to your request really soon.
-                            </p>
+
                         </div>
                         <div class="box-nav d-flex justify-content-around align-items-center">
                             <a href="<?php echo home_url();?>" class="back-home">

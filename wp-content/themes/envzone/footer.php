@@ -233,9 +233,9 @@
                         <a href="<?php echo get_home_url();?>/sitemap">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
-                        <a href="<?php echo get_home_url();?>/employee-portal">Employee Portal</a>
+                        <a target="_blank" href="https://portal.envzone.com/">Employee Portal</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
-                        <a href="<?php echo get_home_url();?>/vendor-portal">Vendor Portal</a>
+                        <a target="_blank" href="https://portal.envzone.com/">Vendor Portal</a>
                     </div>
 
                     <div class="box-term-policy-mb">

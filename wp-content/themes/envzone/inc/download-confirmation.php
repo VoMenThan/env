@@ -9,21 +9,12 @@
                         </h3>
 
                         <div class="box-thank">
-                            <div class="notification">
-                                <img src="<?php echo ASSET_URL;?>images/icon-verified.png" alt="">
-                                <h1>
-                                    Thanks, Tech Leader! We’ve sent a copy to your inbox.
-                                </h1>
-                                <span class="border-gray"></span>
-                            </div>
-                            <div class="box-info">
-                                <p>
-                                    Developing software with in-house resources and outsourcing option is critical for your business success. See how EnvZone helps tech companies overcome this tough decision, and move business forward. Schedule an appointment at our office to learn more.
-                                </p>
-                            </div>
+                            <?php echo $post->post_content;?>
 
                             <div class="text-center box-button">
-                                <a href="" class="btn btn-blue-env""> GET AN APPOINTMENT NOW</a>
+                                <a href="" class="btn btn-blue-env" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">
+                                    GET AN APPOINTMENT NOW
+                                </a>
                             </div>
 
 

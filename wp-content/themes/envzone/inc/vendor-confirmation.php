@@ -9,20 +9,7 @@
                         </h3>
 
                         <div class="box-thank">
-                            <div class="notification">
-                                <img src="<?php echo ASSET_URL;?>images/icon-verified.png" alt="">
-                                <h1>
-                                    Thank you for signing up, future partner!
-                                </h1>
-                                <span class="border-gray"></span>
-                            </div>
-                            <div class="box-info">
-                                <p>
-                                    Your submission has been successful! <br>
-                                    A notification email has been sent to your inbox. We will respond to your request really soon.
-                                </p>
-                            </div>
-
+                            <?php echo $post->post_content;?>
                         </div>
                         <div class="box-nav d-flex justify-content-around align-items-center">
                             <a href="<?php echo home_url('blog');?>" class="back-home">

@@ -22,11 +22,15 @@
       color: $color-gray-blog;
       margin-bottom: 20px;
     }
+    ul{
+      padding-left: 30px;
+    }
     ul>li{
       font-family: $font-pt;
       font-size: 1.625rem;
       color: $color-gray-blog;
       margin-bottom: 20px;
+      list-style-type: disc;
     }
     cite{
       font-family: $font-pt;

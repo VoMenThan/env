@@ -9,19 +9,7 @@
                         </h3>
 
                         <div class="box-thank">
-                            <div class="notification">
-                                <img src="<?php echo ASSET_URL;?>images/icon-verified.png" alt="">
-                                <h1>
-                                    Unsubscribe Successful
-                                </h1>
-                                <span class="border-gray"></span>
-                            </div>
-                            <div class="box-info">
-                                <p>
-                                    You will no longer receive email marketing from ENVZONE.
-                                </p>
-                            </div>
-
+                            <?php echo $post->post_content;?>
                         </div>
                         <div class="box-nav d-flex justify-content-around align-items-center">
                             <a href="<?php echo home_url('blog');?>" class="back-home">

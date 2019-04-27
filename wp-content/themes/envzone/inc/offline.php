@@ -4,10 +4,7 @@
            <div class="row">
                <div class="col-12">
                    <div class="box-improvement">
-                       <h1>We’re making improvements.</h1>
-                       <p>
-                           Please accept our apologies for the inconvinience. This link is temporarily unavailable while we make scheduled updates.
-                       </p>
+                       <?php echo $post->post_content;?>
                    </div>
 
                </div>

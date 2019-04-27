@@ -13,12 +13,7 @@
                                 <img src="<?php echo ASSET_URL;?>images/icon-verification.png" alt="">
                             </div>
                             <div class="box-info">
-                                <p>
-                                    We need to confirm your email address.
-                                </p>
-                                <p>
-                                    To complete the process, please click the link in the email we just sent to your inbox.
-                                </p>
+                                <?php echo $post->post_content;?>
                             </div>
 
                         </div>

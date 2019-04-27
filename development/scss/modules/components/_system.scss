@@ -4,7 +4,7 @@
     font-size: 2.25rem;
     padding-bottom: 30px;
   }
-  p{
+  p, .box-info{
     font-size: 20px;
   }
   .box-go-home{
@@ -92,8 +92,10 @@
     .box-thank{
       padding: 30px;
       .notification{
-        color: $color-blue-logo;
         font-size: 2.25rem;
+        h1{
+          margin-bottom: 30px;
+        }
       }
 
       &.meantime{
@@ -116,6 +118,7 @@
           font-size: 1.625rem;
           font-weight: bold;
           margin-bottom: 50px;
+          margin-top: 30px;
         }
         h4{
           margin-bottom: 30px;
@@ -298,6 +301,20 @@
       }
       .notification{
         margin-bottom: 60px;
+        position: relative;
+        font-size: 20px;
+
+        &:after{
+          content: "";
+          display: inline-block;
+          border-bottom: 1px solid #C4C4C4;
+          max-width: 200px;
+          width: 30%;
+          margin: auto;
+          position: absolute;
+          bottom: -35px;
+          left: 35%;
+        }
         img{
           padding-bottom: 20px;
         }

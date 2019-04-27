@@ -9,16 +9,7 @@
                         </h3>
 
                         <div class="box-thank meantime">
-                            <div class="notification">
-                                <img src="<?php echo ASSET_URL;?>images/icon-verified.png" alt="">
-                                <p>
-                                    Donation Complete!
-                                </p>
-                            </div>
-                            <p>
-                                THANK YOU for making a donation in supporting us to commit in sponsorship. 100% of your money will fund the strategic goals of the Society of American Military Engineers including, the promotion of STEM-related initiatives, fostering engineering leadership for the national security
-
-                            </p>
+                            <?php echo $post->post_content;?>
                             <p>
                                 Share with Friends:
                             </p>

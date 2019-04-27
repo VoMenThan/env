@@ -83,7 +83,7 @@
                             </div>
                         </li>
                         <li class="nav-item d-lg-inline-block d-none client-portal">
-                            <a class="nav-link" href="<?php echo get_home_url();?>/client-portal">
+                            <a class="nav-link" target="_blank" href="https://portal.envzone.com/">
                                 <span>Client Portal</span>
                             </a>
                         </li>
@@ -615,7 +615,7 @@
                                                             Not verified yet! Enroll your team in our verification program to get started
                                                         </p>
                                                     </a>
-                                                    <a href="<?php echo home_url('vendor-portal');?>" class="item-sign-up align-items-center d-lg-block d-flex">
+                                                    <a target="_blank" href="https://portal.envzone.com/" class="item-sign-up align-items-center d-lg-block d-flex">
                                                         <i class="icon-already-verified"></i>
                                                         <h4>Already Verified</h4>
                                                         <p>
