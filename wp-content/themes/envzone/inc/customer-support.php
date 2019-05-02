@@ -53,7 +53,7 @@
 
                 </div>
                 <div class="col-lg-4">
-                    <a target="_blank" href="https://envzone.supportbee.com/portal/sign_in" class="item-customer-support">
+                    <a target="_blank" rel="nofollow" href="https://envzone.supportbee.com/portal/sign_in" class="item-customer-support">
                         <img src="<?php echo ASSET_URL;?>images/icon-technical-support.png" alt="">
                         <h2>SUBMIT A TICKET</h2>
                     </a>

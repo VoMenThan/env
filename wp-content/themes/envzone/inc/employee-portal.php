@@ -19,23 +19,27 @@
         <div class="container">
             <div class="row box-list-employee">
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="http://login.microsoftonline.com">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-project-management.png" alt="">
                         <h3>Project Management</h3>
                         <p>Get access to company intranet system. Collaborate on projects with your colleagues.</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="https://id.getharvest.com/harvest/sign_in">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-timesheet-tracker.png" alt="">
                         <h3>Timesheet Tracker</h3>
                         <p>Report your timesheet. Keep your track of your project status and budget.</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
-                    <a target="_blank" href="https://envzone.clinked.com/">
+                    <a rel="nofollow" target="_blank" href="https://app.hubspot.com/login">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-crm.png" alt="">
                         <h3>CRM</h3>
@@ -45,43 +49,53 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="https://accounts.zoho.com/signin?servicename=ZohoRecruit&signupurl=https://www.zoho.com/recruit/signup.html">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-hr-ats.png" alt="">
                         <h3>HR-ATS</h3>
                         <p>The integrated platform streamlines various recruiting activities.</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="https://www.lasso.net/go/login">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-resources.png" alt="">
                         <h3>Resources</h3>
                         <p>Keep track of sources, links, and articles in a sharing environment with teams.</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="https://lastpass.com/?ac=1">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-login-management.png" alt="">
                         <h3>Login Management</h3>
-                        <p>Manage all your company’s relationships and interactions with customers and potential customers</p>
+                        <p>Manage your access information in our secure gateway</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="https://portal.envzone.com/">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-client-and-vendor.png" alt="">
                         <h3>Client and Vendor Management</h3>
                         <p>Create private Workspaces to securely share information with your clients and vendors</p>
                     </article>
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
+                    <a rel="nofollow" target="_blank" href="https://envzone.supportbee.com/members/sign_in">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/icon-em-customer-support-partal.png" alt="">
                         <h3>Customer Support Portal</h3>
                         <p>Enhance High Touch customer service with ticketing system</p>
                     </article>
+                    </a>
                 </div>
             </div>
             <div class="row">

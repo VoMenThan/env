@@ -1,0 +1,119 @@
+.wpmf-gallery-list-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wpmf-gallery-block-item.is-transient img {
+    opacity: 0.3;
+}
+
+.wpmf-gallery-block-item.is-transient .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px !important;
+    margin-left: -9px !important;
+    visibility: visible !important;
+}
+
+.gallery-columns-1 .wpmf-gallery-block-item {
+    width: 100%;
+}
+
+.gallery-columns-2 .wpmf-gallery-block-item {
+    width: 50%;
+}
+
+.gallery-columns-3 .wpmf-gallery-block-item {
+    width: 33.3333%;
+}
+
+.gallery-columns-4 .wpmf-gallery-block-item {
+    width: 25%;
+}
+
+.gallery-columns-5 .wpmf-gallery-block-item {
+    width: 20%;
+}
+
+.gallery-columns-6 .wpmf-gallery-block-item {
+    width: calc(100%/6);
+}
+
+.gallery-columns-7 .wpmf-gallery-block-item {
+    width: calc(100%/7);
+}
+
+.gallery-columns-8 .wpmf-gallery-block-item {
+    width: 12.5%
+}
+
+.gallery-columns-9 .wpmf-gallery-block-item {
+    width: calc(100%/9);
+}
+
+.wpmf-gallery-list-items .wpmf-gallery-block-item img {
+    display: block;
+    cursor: pointer;
+}
+
+.wpmf-gallery-list-items .wpmf-gallery-block-item {
+    /*margin: 0 5px;*/
+    text-align: center;
+    height: max-content;
+}
+
+.wpmf-gallery-list-items.right-controll .wpmf-gallery-block-item {
+    margin: 5px;
+}
+
+.wpmf-gallery-block-item-infos {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.wpmf-gallery-image.active {
+    outline: #49bf88 5px solid;
+}
+
+.wpmf-gallery-list-items .wpmf-gallery-block-item .wpmf-gallery-block-item-remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    background-color: #ff0000;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.save_img_action span {
+    float: none;
+}
+
+.save_img_action span.visible {
+    visibility: visible;
+}
+
+.wpmf-pdf-block {
+    width: 100%;
+    padding-right: 10px;
+    margin-top: -1px;
+}
+
+.wpmf-pdf-block input {
+    margin: 0 4px 0 8px;
+}
+
+.wpmf-pdf-button {
+    margin: 0 4px;
+    height: 31px;
+}
+
+.wpmf-image-lightbox-block {
+    width: 100%;
+}
+
+.wpmf-pdf-button {
+    margin: 0 4px;
+}

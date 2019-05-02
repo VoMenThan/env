@@ -233,9 +233,9 @@
                         <a href="<?php echo get_home_url();?>/sitemap">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
-                        <a target="_blank" href="https://portal.envzone.com/">Employee Portal</a>
+                        <a href="<?php echo home_url('employee-portal');?>">Employee Portal</a>
                         <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
-                        <a target="_blank" href="https://portal.envzone.com/">Vendor Portal</a>
+                        <a href="<?php echo home_url('vendor-portal');?>">Vendor Portal</a>
                     </div>
 
                     <div class="box-term-policy-mb">
@@ -361,6 +361,7 @@
 
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
+
 <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -369,5 +370,6 @@
 
     gtag('config', 'UA-88982528-1');
 </script>-->
+
 </body>
 </html>

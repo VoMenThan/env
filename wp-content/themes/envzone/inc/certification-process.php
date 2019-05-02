@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <a href="https://portal.envzone.com/" class="btn-already-verify">
+                    <a href="<?php echo home_url('vendor-portal');?>" class="btn-already-verify">
                         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-already-verified.svg" alt="">
                         <h4>
                             Already Verified

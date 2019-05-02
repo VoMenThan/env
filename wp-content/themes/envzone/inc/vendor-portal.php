@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row box-list-employee justify-content-center">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <a target="_blank" href="https://envzone.clinked.com/">
+                    <a target="_blank" rel="nofollow" href="https://portal.envzone.com/">
                     <article class="item-employee">
                         <img src="<?php echo ASSET_URL;?>images/img-vd-projectmanagement.png" alt="">
                         <h3>Project Management</h3>
