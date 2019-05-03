@@ -180,3 +180,89 @@
     }
   }
 }
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .video-knowledge-detail-page{
+    .blog-page {
+      .section-trending {
+        .highlight-news-right {
+          .info-news {
+            .audit{
+              display: block;
+              margin-bottom: 10px;
+              margin-top: 10px;
+              a{
+                font-size: 16px;
+              }
+              img{
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .blog-knowledge-detail-page{
+    .pd-lr-0{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .box-lr-15{
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-top: 20px;
+    }
+    .box-video{
+      h2{
+        font-family: $font-pt;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 31px;
+        color: #333333;
+        padding: 10px 15px;
+      }
+    }
+    .box-author {
+      border-bottom: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+      .info-author{
+        width: 100%;
+        *{
+          font-size: 14px;
+        }
+        .public-on{
+          padding-bottom: 10px;
+          font-size: 14px;
+        }
+        .edit-by{
+          font-size: 14px;
+          border-top: 1px solid #BDBDBD;
+          padding-top: 10px;
+        }
+        .tags{
+          border-top: 1px solid #BDBDBD;
+          font-size: 16px;
+          a{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .box-description-video {
+      .content-description{
+        font-style: italic;
+        *{
+          font-size: 18px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

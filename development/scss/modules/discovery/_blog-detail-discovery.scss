@@ -530,6 +530,22 @@
 }
 
 /* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+	.blog-detail-page {
+		.section-trending {
+			.border-header {
+				.view-all{
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+/* 	================================================================
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */

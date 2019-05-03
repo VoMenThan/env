@@ -518,7 +518,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/knowledge-center">
                                                                 Knowledge Center
@@ -529,7 +529,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/studio">
                                                                 Studio

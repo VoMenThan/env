@@ -150,3 +150,49 @@
     }
   }
 }
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .main-studio-page{
+
+  }
+  .studio-page {
+    .title-head-blue{
+      &.have-border{
+        margin-bottom: 20px !important;
+      }
+    }
+    .box-studio {
+      border-bottom: 3px solid #8DC63F;
+      @include shadow-out(0px, 4px, 4px, rgba(0, 0, 0, 0.5));
+      .box-info-photo, .box-photo-special{
+        width: 100%;
+        float: none;
+      }
+      .box-info-photo {
+        background: #fff;
+        .info-photo {
+          h1{
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 22px;
+            line-height: 31px;
+            color: #000000;
+          }
+        }
+      }
+    }
+
+    .highlight-news-right{
+      &.img-center {
+        .thumbnail-news{
+          float: left;
+          width: 40%;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

@@ -37,7 +37,7 @@ get_header();?>
                         Author
                     </h2>
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8 pd-lr-0">
 
                     <div class="information-author clearfix">
                         <?php
@@ -112,8 +112,8 @@ get_header();?>
 
                 </div>
 
-                <div class="col-4">
-                    <div class="popup-hack-me">
+                <div class="col-lg-4">
+                    <div class="popup-hack-me d-lg-block d-none">
                         <h3>
                             Follow <?php echo $authorName;?> for featured insights to make your business successful
                         </h3>
@@ -156,6 +156,31 @@ get_header();?>
             </div>
 
         </div>
+    </section>
+    <section class="subscriber">
+        <!-- /*============SUBCRIBE HOME=================*/ -->
+        <div class="container-fluild section-parallax">
+            <div class="bg-green-home">
+                <div class="container content-subcribe">
+                    <div class="row">
+                        <div class="col-12 box-head-subcribe text-center">
+                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
+                            <p>
+                                Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
+                            </p>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
 </main>
 <script>

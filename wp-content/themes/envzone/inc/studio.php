@@ -3,7 +3,7 @@
 get_header();
 ?>
 
-<main class="main-content">
+<main class="main-content main-studio-page">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -20,7 +20,7 @@ get_header();
     <section class="artical-page blog-page studio-page">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-12">
+                <div class="col-lg-12 pd-lr-0">
                     <?php
                     $isset_gallery = array();
                     $args = array(
@@ -41,7 +41,7 @@ get_header();
                     $studio_main = get_posts( $args );
                     array_push($isset_gallery, $studio_main[0]->ID);
                     ?>
-                    <article class="box-studio d-flex clearfix">
+                    <article class="box-studio d-lg-flex clearfix">
                         <a href="<?php echo get_permalink($studio_main[0]->ID);?>" class="box-photo-special">
                             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($studio_main[0]->ID);?>" alt="">
                             <i class="icon-photo-play"></i>
@@ -53,7 +53,7 @@ get_header();
                                     <h1>
                                         <?php echo $studio_main[0]->post_title;?>
                                     </h1>
-                                    <p style="color:#fff;font-size: 20px; font-family: 'Roboto ',sans-serif;">
+                                    <p class="d-lg-block d-none" style="color:#fff;font-size: 20px; font-family: 'Roboto ',sans-serif;">
                                         <?php
                                             $title = $studio_main[0]->post_excerpt;
                                             $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
@@ -114,8 +114,8 @@ get_header();
                 <?php
                 foreach ($photo_studio as $k => $item):
                     ?>
-                    <div class="col-lg-4 studio-highlight">
-                        <article class="highlight-news-right img-center">
+                    <div class="col-lg-4 studio-highlight pd-lr-0">
+                        <article class="highlight-news-right img-center clearfix">
                             <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                 <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
                                 <i class="icon-photo-play"></i>
@@ -169,8 +169,8 @@ get_header();
                 foreach ($video as $item):
                     $vimeo = get_post_meta($item->ID, 'embed', true);
                     ?>
-                    <div class="col-lg-4">
-                        <article class="highlight-news-right img-center">
+                    <div class="col-lg-4 pd-lr-0">
+                        <article class="highlight-news-right img-center clearfix">
 
                             <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                 <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">

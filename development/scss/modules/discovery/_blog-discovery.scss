@@ -310,6 +310,13 @@
 	================================================================== */
 @media screen and (max-width: 768px) {
 	.blog-page{
+		.pd-lr-0{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.title-head-blue.have-border{
+			font-size: 18px !important;
+		}
 		.box-item-special{
 			padding-right: 0;
 			padding-left: 0;
@@ -346,8 +353,8 @@
 		.title-head-blue.have-border{
 			color: #4F4F4F !important;
 			border-bottom: none;
-			font-size: 22px !important;
-			line-height: 34px;
+			font-size: 18px !important;
+			line-height: 27px;
 			margin-bottom: 0 !important;
 			&:after{
 				display: none;
@@ -357,6 +364,7 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
+
 		.section-trending {
 			.box-item-horizontal-mb {
 				padding-right: 0;

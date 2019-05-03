@@ -134,3 +134,46 @@
   }
 
 }
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .blog-author-page {
+    .title-author{
+      font-size: 24px;
+      line-height: 34px;
+      color: #4F4F4F;
+      font-weight: bold;
+    }
+    .information-author {
+      .box-info {
+        .author-name{
+          font-size: 24px;
+          font-weight: bold;
+        }
+        .position-company{
+          font-size: 16px;
+          padding: 5px;
+        }
+        .position{
+          font-size: 16px;
+        }
+      }
+    }
+    .title-post-by-author{
+      font-size: 22px;
+      line-height: 34px;
+      color: #4F4F4F;
+      border-bottom: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 0;
+      margin-top: 0;
+      &:after{
+        display: none;
+      }
+    }
+  }
+}

@@ -25,6 +25,13 @@
     float: left;
     color: $color-white;
     padding: 20px 30px;
+    h1{
+      padding-bottom: 35px;
+      font-size: 26px;
+      color: $color-white;
+      font-family: $font-pt;
+      font-weight: bold;
+    }
     h2{
       padding-bottom: 35px;
       font-size: 26px;
@@ -89,5 +96,68 @@
 
   .info-news{
     padding: 10px !important;
+  }
+}
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .video-home-page{
+    .pd-lr-0{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .blog-knowledge-page {
+    .title-head-blue{
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 34px;
+      color: #4F4F4F;
+    }
+    .box-knowledge{
+      background: #fff;
+      border-bottom: 3px solid #8DC63F;
+      @include shadow-out(0px, 4px, 4px, rgba(0, 0, 0, 0.5));
+    }
+    .box-info-video , .box-video-special{
+      float: none;
+      width: 100%;
+    }
+    .box-info-video{
+      padding: 15px;
+      h1{
+        font-size: 22px;
+        line-height: 31px;
+        color: #000000;
+        padding-bottom: 15px;
+      }
+      .audit{
+        position: static;
+      }
+    }
+
+    .highlight-news-right{
+      &.img-center {
+        .thumbnail-news{
+        width: 40%;
+        float: left;
+        margin-right: 5px;
+      }
+        .info-news{
+          padding: 0 !important;
+        }
+      }
+      .info-news {
+        h2{
+          max-height: 60px;
+          overflow: hidden;
+        }
+      }
+    }
+
   }
 }

@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main class="main-content">
+<main class="main-content video-knowledge-detail-page">
 
     <section class="artical-page blog-page blog-detail-page blog-knowledge-page blog-knowledge-detail-page">
         <div class="container-fluid bg-blue-home">
@@ -23,7 +23,7 @@ get_header();
         </div>
         <div class="container">
             <div class="row mb-5">
-                <div class="col-12">
+                <div class="col-12 d-lg-block d-none">
                     <div class="box-breadcrumb">
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
@@ -34,16 +34,17 @@ get_header();
                     </div>
 
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 d-lg-block d-none">
                     <h1>
                         <?php echo $post->post_title;?>
                     </h1>
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8 pd-lr-0">
                     <div class="box-video">
                         <div class="embed-video">
                             <?php echo get_field('embed', $post->ID);?>
                         </div>
+                        <h2 class="d-lg-none d-block"><?php echo $post->post_title;?></h2>
                         <div class="box-author d-flex justify-content-between">
 
                             <div class="info-author">
@@ -55,7 +56,7 @@ get_header();
                                     $avatar = get_field('avatar', 'user_'.$post->post_author);
                                 }
                                 ?>
-                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar d-lg-block d-none">
                                 <div class="edit-by">
                                     By <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"><b><?php echo get_the_author_meta('display_name', $post->post_author);?></b></a> | <?php echo get_field('staff', 'user_'.$post->post_author);?>
                                 </div>
@@ -72,7 +73,7 @@ get_header();
                                         <?php endforeach; else: echo 'No tags!'; endif;?>
                                 </div>
                             </div>
-                            <div class="box-share-social">
+                            <div class="box-share-social d-lg-block d-none">
                                 <div class="label-share-socials">
                                     SHARE THIS VIDEO TO MY FAVORITES
                                 </div>
@@ -131,14 +132,16 @@ get_header();
 
                     </div>
 
-                    <?php
+                    <div class="box-lr-15">
+                        <?php
                         // If comments are open or we have at least one comment, load up the comment template.
                         if ( comments_open() || get_comments_number() ) {
                             comments_template();
                         }
-                    ?>
+                        ?>
+                    </div>
                 </div>
-                <div class="col-4 blog-detail-page">
+                <div class="col-lg-4 blog-detail-page d-lg-block d-none">
 
                     <div class="box-subscriber-blog">
                         <div class="box-border">
@@ -327,7 +330,7 @@ get_header();
             <!-- /*============END WATCH MORE FROM C-LEVEL ADVICES=================*/ -->
 
             <!-- /*============READ MORE FEATURED INSIGHTS=================*/ -->
-            <div class="row section-trending">
+            <div class="row section-trending d-lg-flex d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">READ MORE FEATURED INSIGHTS</h3>
                     <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
@@ -392,7 +395,7 @@ get_header();
             <!-- /*============END READ MORE FEATURED INSIGHTS=================*/ -->
 
             <!-- /*============WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS=================*/ -->
-            <div class="row section-trending">
+            <div class="row section-trending d-lg-flex d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
                     <a href="<?php echo home_url('studio')?>" class="view-all">VIEW ALL</a>

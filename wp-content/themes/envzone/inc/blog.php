@@ -167,7 +167,7 @@
                     <h3 class="title-head-blue have-border">RECENT ARTICLES</h3>
                 </div>
 
-                <div class="col-lg-8">
+                <div class="col-lg-8 pd-lr-0">
                     <?php
                     $args = array(
                         'posts_per_page' => -1,
@@ -214,7 +214,7 @@
                     <!--<a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 d-lg-block d-none">
                     <div class="box-subscriber-blog">
                         <div class="box-border">
                             <div class="title-sub">
@@ -284,6 +284,31 @@
 
             </div>
         </div>
+    </section>
+    <section class="subscriber">
+        <!-- /*============SUBCRIBE HOME=================*/ -->
+        <div class="container-fluild section-parallax">
+            <div class="bg-green-home">
+                <div class="container content-subcribe">
+                    <div class="row">
+                        <div class="col-12 box-head-subcribe text-center">
+                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
+                            <p>
+                                Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
+                            </p>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
 </main>
 

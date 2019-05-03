@@ -3,7 +3,7 @@ global $wp_query;
 get_header();
 ?>
 
-<main class="main-content">
+<main class="main-content video-home-page">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -20,14 +20,14 @@ get_header();
     <section class="artical-page blog-page blog-knowledge-page">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-12">
-                    <h1 class="title-head-blue">
+                <div class="col-lg-12">
+                    <h2 class="title-head-blue">
                         KNOWLEDGE CENTER
-                    </h1>
+                    </h2>
 
                 </div>
 
-                <div class="col-12">
+                <div class="col-lg-12 pd-lr-0">
                     <?php
                     $isset_video = array();
                     $args = array(
@@ -58,11 +58,11 @@ get_header();
                         <div class="box-info-video">
                             <a href="<?php echo home_url('category/').get_the_category($video_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($video_main[0]->ID)[0]->cat_name;?></a>
                             <a href="<?php echo get_permalink($video_main[0]->ID);?>">
-                            <h2>
+                            <h1>
                                 <?php echo $video_main[0]->post_title;?>
-                            </h2>
+                            </h1>
                             </a>
-                            <p>
+                            <p class="d-lg-block d-none">
                                 <?php
                                         $title = $video_main[0]->post_excerpt;
                                         $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
@@ -116,8 +116,8 @@ get_header();
                         $video_list = get_posts( $args );
                         foreach ($video_list as $k => $item):
                         ?>
-                        <div class="col-lg-6">
-                            <article class="highlight-news-right img-center">
+                        <div class="col-lg-6 pd-lr-0">
+                            <article class="highlight-news-right img-center clearfix">
                                 <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                     <?php
                                         $vimeo = get_post_meta($item->ID, 'embed', true);
@@ -158,7 +158,7 @@ get_header();
 <!--                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 
-                <div class="col-lg-4 blog-detail-page">
+                <div class="col-lg-4 blog-detail-page d-lg-block d-none">
                     <div class="box-subscriber-blog">
                         <div class="box-border">
                             <div class="title-sub">
@@ -229,6 +229,31 @@ get_header();
             </div>
 
         </div>
+    </section>
+    <section class="subscriber">
+        <!-- /*============SUBCRIBE HOME=================*/ -->
+        <div class="container-fluild section-parallax">
+            <div class="bg-green-home">
+                <div class="container content-subcribe">
+                    <div class="row">
+                        <div class="col-12 box-head-subcribe text-center">
+                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
+                            <p>
+                                Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
+                            </p>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
 </main>
 

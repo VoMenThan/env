@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main class="main-content">
+<main class="main-content studio-gallery-detail-page">
     <div class="container-fluid head-category">
         <div class="container">
             <div class="row">
@@ -22,7 +22,7 @@ get_header();
     <section class="artical-page blog-page blog-knowledge-page blog-knowledge-detail-page studio-detail-page">
         <div class="container">
             <div class="row pb-5">
-                <div class="col-12">
+                <div class="col-12 d-lg-block d-none">
                     <div class="box-breadcrumb">
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
@@ -33,7 +33,7 @@ get_header();
                     </div>
 
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8 box-gallery-detail">
                     <div class="carousel-photo-detail owl-carousel owl-theme">
                         <?php
                             $album = get_field('photo_album', $post->ID);
@@ -52,18 +52,18 @@ get_header();
                     </div>
                 </div>
 
-                <div class="col-4">
-                    <article class="info-video">
-                        <h1>
+                <div class="col-lg-4">
+                    <article class="info-video d-flex flex-column d-lg-block">
+                        <h1 class="order-0">
                             <?php echo $post->post_title;?>
                         </h1>
-                        <div class="description">
+                        <div class="description order-2 order-lg-1">
                             <?php echo $post->post_excerpt;?>
 
                         </div>
 
 
-                        <div class="box-share-social">
+                        <div class="box-share-social order-1 order-lg-2">
                             <?php
                             if (get_field('avatar', 'user_'.$post->post_author)== ''){
                                 $avatar = ASSET_URL.'images/avatar-default.png';
@@ -97,10 +97,10 @@ get_header();
                                         <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>
                                     <?php endforeach; else: echo 'No tags!'; endif;?>
                             </div>
-                            <div class="share-share-social">
+                            <div class="share-share-social d-lg-block d-none">
                                 SHARE THIS VIDEO TO MY FAVORITES
                             </div>
-                            <ul class="nav list-social justify-content-end">
+                            <ul class="nav list-social justify-content-end d-lg-flex d-none">
                                 <li class="nav-item">
                                     <a class="nav-link link-twitter" onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo get_the_title().' '.get_permalink();?>', '_blank', 'width = 700, height = 500')" >
                                         <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,7 +136,7 @@ get_header();
 
                 </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 d-none d-lg-block">
                     <div id="box-thumbnail-photo" class="box-icon-mini owl-carousel owl-theme">
                         <?php
                             foreach ($album as $k => $item):
@@ -155,10 +155,10 @@ get_header();
         </div>
     </section>
 
-    <section class="blog-comment">
+    <section class="blog-comment blog-advert-gallery">
         <div class="container">
             <div class="row">
-                <div class="col-8 px-2">
+                <div class="col-lg-8 px-2">
                     <?php
                     // If comments are open or we have at least one comment, load up the comment template.
                     if ( comments_open() || get_comments_number() ) {
@@ -167,7 +167,7 @@ get_header();
                     ?>
                 </div>
 
-                <div class="col-4">
+                <div class="col-lg-4 pd-lr-0">
                     <div class="box-advert">
                         <p>
                             ENVZONE team members are known being very active across disruptive events. Surely, they will be proactive and innovative on your projects too.
@@ -276,7 +276,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending">
+            <div class="row section-trending d-lg-flex d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">READ MORE FROM EXPERTS</h3>
                     <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
@@ -338,7 +338,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending">
+            <div class="row section-trending d-lg-flex d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH MORE FROM C-LEVEL ADVICES</h3>
                     <a href="<?php echo home_url('knowledge_center')?>" class="view-all">VIEW ALL</a>
@@ -402,7 +402,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending">
+            <div class="row section-trending d-lg-flex d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
                     <a href="<?php echo home_url('studio')?>" class="view-all">VIEW ALL</a>
