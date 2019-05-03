@@ -130,6 +130,34 @@
 
 <main class="main-content home-page">
 
+
+
+    <!-- /*============CTA ANALYZE HOME=================*/ -->
+    <section class="container-fluid analyze-section d-lg-block d-none">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 box-infomation-analyze">
+                    <h3>
+                        Find a Verified Team to Build Your Software
+                    </h3>
+                    <div class="description-analyze">
+                        Do you want to build a successful product or website? Enter your business or product background below.
+                    </div>
+                    <div class="analyze-form">
+                        <?php
+                        echo do_shortcode('[gravityform id="12" title="false" description="false"]');
+                        ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /*============CTA ANALYZE HOME END=================*/ -->
+
+
+
     <!-- /*============BLOG HOME=================*/ -->
     <?php
     $args = array(
