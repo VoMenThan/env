@@ -117,7 +117,7 @@
             </li>
         </ul>
         <div class="title-link">See our verified teams’ expertise</div>
-        <a class="btn btn-blue-env text-center" href="<?php echo home_url("contact-us");?>">CONNECT ME TO THE TEAM</a>
+        <a class="btn btn-blue-env text-center" href="<?php echo home_url("contact-us");?>">GET A VERIFIED TEAM</a>
         <hr class="d-none-1200">
         <div class="title-integrate d-none-1200">
             Your team is awesome!
@@ -395,7 +395,7 @@
                     <div class="description-overhead">
                         Don’t allow yourself or your management team to dismiss the option of outsourced software development
                     </div>
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET ME CONNECTED TO A TEAM</a>
+                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET A VERIFIED TEAM</a>
                 </div>
             </div>
         </div>

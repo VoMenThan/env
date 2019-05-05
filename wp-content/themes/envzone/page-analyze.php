@@ -39,7 +39,7 @@
                         <img src="<?php echo ASSET_URL;?>images/logo-envzone-blue.png" alt="Logo Envzone">
                         </a>
                         <div id="loading" class="text-center">
-                            Analyzing and sorting...
+                            Analyzing and sorting <img class="image-gif" style="width: 50px; position: relative; bottom: -6px; margin-left: -14px;" src="<?php echo ASSET_URL;?>images/icon-processing-gif.gif" alt="">
                         </div>
                         <div class="box-analyze-load invisible">
                             <div class="status">
@@ -86,7 +86,7 @@
                 setTimeout(function () {
                     $('#loading').hide();
                     $( '.box-analyze-load' ).removeClass( 'invisible' );
-                }, 1500);
+                }, 5000);
             });
         })(jQuery);
     </script>
