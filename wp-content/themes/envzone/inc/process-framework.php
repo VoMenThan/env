@@ -3,18 +3,22 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-process-framework.png">
         <h2>PROCESS FRAMEWORK</h2>
     </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Process Framework</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="artical-page process-framework-page">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Process Framework</li>
-                        </ol>
-                    </div>
-                </div>
 
                 <div class="col-12">
                     <div class="box-introduct">
@@ -125,7 +129,7 @@
                     <h4>DELIVERABLES</h4>
                 </div>
                 <div class="col-lg-6 col-md-8 col-sm-8">
-                    <p>
+                    <p class="p-header">
                         Initial engagement is the first real interaction between EnvZone and our customers.
                     </p>
                 </div>

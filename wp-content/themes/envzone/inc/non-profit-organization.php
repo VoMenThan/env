@@ -8,19 +8,22 @@ get_header();
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-non-profit-organization.png">
         <h1>NON-PROFIT ORGANIZATION</h1>
     </section>
-    <section class="artical-page industries-page none-profit-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Non-profit Organization</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Non-profit Organization</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page industries-page none-profit-page">
+        <div class="container">
+
 
             <div class="row justify-content-md-center fully-aware">
                 <div class="col-12">

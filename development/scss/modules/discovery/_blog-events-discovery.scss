@@ -36,14 +36,19 @@
     }
     .box-info{
       padding-left: 20%;
+      padding-right: 10px;
       .location-1{
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 500;
+        font-family: $font-roboto;
         margin-bottom: 15px;
         color: #333333;
       }
       .location-2{
         font-size: 20px;
+        font-family: $font-roboto;
+        position: absolute;
+        bottom: 15px;
       }
       .icon-location{
         @include setBackgroundIcon(30px, "../images/icon-location-event.svg");

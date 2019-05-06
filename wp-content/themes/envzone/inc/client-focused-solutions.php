@@ -3,8 +3,8 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-client-focus-solutions.png">
         <h2>CLIENT-FOCUSED <br> SOLUTIONS</h2>
     </section>
-    <section class="artical-page client-focused-solutions-page">
-        <div class="container">
+    <div class="container">
+        <div class="row">
             <div class="row">
                 <div class="col-12">
                     <div class="box-breadcrumb">
@@ -16,6 +16,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page client-focused-solutions-page">
+        <div class="container">
 
             <div class="row box-green">
                 <div class="col-lg-6 d-flex align-items-center">

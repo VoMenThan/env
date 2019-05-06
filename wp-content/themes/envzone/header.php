@@ -116,7 +116,7 @@
                                 <!-- BOX SUBMENU -->
                                 <div class="sub-menu text-left">
                                     <div class="container">
-                                        <div class="row box-sub-menu">
+                                        <div class="row box-sub-menu sub-menu-company">
                                             <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-md-block d-none-768 d-none">
                                                 <div class="bg-blue-lv4">
                                                     <h3 class="text-center mb-3">
@@ -129,7 +129,7 @@
                                                         Get to know more about our company, we are much more than happy to see you.
                                                     </p>
                                                     <div class="title-contact">
-                                                        It’s cold out there. We would love to invite you for a coffee at our office.
+                                                        We would love to invite you for a coffee at our office for a light talk.
                                                     </div>
                                                     <?php
                                                         echo do_shortcode('[gravityform id="1" title="false" description="false"]');
@@ -242,9 +242,6 @@
                                                     <p>
                                                         We bring top-notch custom-made solutions to businesses willing to take the leap into the digital world in different industries
                                                     </p>
-                                                    <div class="title-contact">
-                                                        Send us quick note of your concerns!
-                                                    </div>
                                                     <?php
                                                     echo do_shortcode('[gravityform id="1" title="false" description="false"]');
                                                     ?>
@@ -468,7 +465,7 @@
                                     <span href="#" class="icon-arrow-right"></span>
                                 </a>
                                 <!-- BOX SUBMENU -->
-                                <div class="sub-menu text-left">
+                                <div class="sub-menu sub-menu-discovery text-left">
                                     <div class="container">
                                         <div class="row box-sub-menu">
                                             <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-md-block d-none-768 d-none">
@@ -483,8 +480,6 @@
                                                         Go to our discovery section to get the latest news, learn more about IT industry overviews and trends, outsourcing, software development and discover our daily events from studio.
                                                     </p>
                                                     <div class="title-contact">
-                                                        Every other week we release a quick video of minutes from in-depth workshop events.
-                                                        <br>
                                                         Take 5 mins to improve your skill!
                                                     </div>
                                                     <?php

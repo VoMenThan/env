@@ -3,19 +3,22 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-full-cycle-development.png">
         <h1>FULL CYCLE DEVELOPMENT</h1>
     </section>
-    <section class="artical-page service-page full-cycle-development-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Full Cycle Development</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Full Cycle Development</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page service-page full-cycle-development-page">
+        <div class="container">
+
             <div class="row justify-content-md-center">
                 <div class="col-lg-5">
                     <h2 class="title-head-blue text-center pt-4">SOFTWARE PROTYPING</h2>

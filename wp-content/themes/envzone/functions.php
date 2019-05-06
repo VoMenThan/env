@@ -123,6 +123,7 @@ function misha_loadmore_ajax_handler(){
     $args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
     $args['post_status'] = 'publish';
     $category = $_POST['category'];
+    $event = $_POST['event'];
 
     // it is always better to use WP_Query but not here
     query_posts( $args );
@@ -136,6 +137,9 @@ function misha_loadmore_ajax_handler(){
             // do you remember? - my example is adapted for Twenty Seventeen theme
             if ($category == 'true'){
                 get_template_part( 'template-parts/content', get_post_format() );
+            }
+            elseif ($event == 'true'){
+                get_template_part('template-parts/content', 'event');
             }
             else{
                 get_template_part('template-parts/content', 'search');

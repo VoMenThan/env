@@ -14,8 +14,8 @@
 			line-height: 37px;
 			>i{
 				position: absolute;
-				left: -40px;
-				top: 3px;
+				left: -70px;
+				top: -5px;
 				font-size: 2.5rem;
 				color: $color-green-logo;
 
@@ -138,12 +138,11 @@
 		font-size: 1.5rem;
 		font-weight: bold;
 		.icon-arrow-bottom{
-			@include setBackgroundIcon(30px, "../images/icon-arrow-down.svg");
+			@include setBackgroundIcon(20px, "../images/icon-arrow-down.svg", 10px);
 			vertical-align: middle;
 			margin-left: 15px;
 		}
 	}
-
 	.btn-green-env{
 		font-size: 24px;
 		width: 50%;

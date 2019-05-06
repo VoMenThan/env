@@ -3,19 +3,22 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-it-outsourcing-services.png">
         <h1>IT OUTSOURCING</h1>
     </section>
-    <section class="artical-page service-page it-outsourcing-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">IT Outsourcing</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">IT Outsourcing</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page service-page it-outsourcing-page">
+        <div class="container">
+
             <div class="row justify-content-md-center mb-5">
                 <div class="col-12">
                     <h2 class="title-head-blue text-center">Why choose Envzone for IT Outsourcing</h2>

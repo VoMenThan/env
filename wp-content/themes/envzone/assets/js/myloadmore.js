@@ -1,12 +1,15 @@
 jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
     $('.misha_loadmore').click(function(){
-        $category = $('.misha_loadmore').hasClass('btn-category');
+        var event = $('.misha_loadmore').hasClass('btn-show-event');
+        var category = $('.misha_loadmore').hasClass('btn-category');
+
         var button = $(this),
             data = {
                 'action': 'loadmore',
                 'query': misha_loadmore_params.posts, // that's how we get params from wp_localize_script() function
                 'page' : misha_loadmore_params.current_page,
-                'category'  : $category
+                'category'  : category,
+                'event'  : event
             };
 
         $.ajax({ // you can also use $.post here

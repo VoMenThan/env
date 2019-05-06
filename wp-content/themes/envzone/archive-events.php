@@ -1,21 +1,21 @@
 <?php
-$args = array(
+$date_now = date('Y-m-d');
+$args_event = array(
     'posts_per_page' => 5,
-    'offset'=> 0,
     'post_type' => 'events',
-    'orderby' => 'id',
-    'order' =>'desc'
+    'meta_query'	=> array(
+        'relation' 			=> 'AND',
+        array(
+            'key'			=> 'date',
+            'compare'		=> '>=',
+            'value'			=> $date_now,
+            'type'			=> 'DATETIME'
+        )
+    ),
+    'orderby'	=> 'meta_value',
+    'order'     => 'asc'
 );
-$event_all = get_posts( $args );
-
-$args = array(
-    'posts_per_page' => 5,
-    'offset'=> 0,
-    'post_type' => 'post',
-    'orderby' => 'id',
-    'order' =>'desc'
-);
-$news_all = get_posts( $args );
+$the_query = new WP_Query( $args_event );
 
 
 get_header();
@@ -41,20 +41,33 @@ get_header();
                 <div class="col-lg-8 border-header">
                     <h3 class="title-head-blue have-border">EVENTS</h3>
                 </div>
+                <?php if( $the_query->have_posts() ): ?>
                 <div class="col-lg-8">
 
-                    <?php foreach ($event_all as $item):?>
-                        <div class="box-item-event clearfix">
-                            <div class="box-date"><?php echo get_field('date',$item->ID);?></div>
-                            <div class="box-info">
-                                <a target="_blank" href="<?php echo get_field('url_event', $item->ID);?>"><h2><?php echo $item->post_title;?></h2></a>
-                                <div class="location-1"><?php echo get_field('location', $item->ID);?></div>
-                                <div class="location-2"><i class="icon-location"></i><?php echo get_field('address', $item->ID);?></div>
-                            </div>
-                        </div>
-                    <?php endforeach;?>
+                    <?php while( $the_query->have_posts() ) : $the_query->the_post();
+
+                        get_template_part( 'template-parts/content', 'event' );
+
+                        endwhile;
+
+                        if (  $the_query->max_num_pages > 1 ){
+                            echo '<div class="misha_loadmore btn-show-event btn btn-blue-env w-100 my-5">Load more</div>'; // you can use <a> as well
+                        };
+                    ?>
+
+
 
                 </div>
+                <?php
+                    else :
+
+                        get_template_part( 'template-parts/content', 'none' );
+
+                    endif;
+                ?>
+
+                <?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
+
 
                 <div class="col-4">
                     <div class="box-subscriber-blog">

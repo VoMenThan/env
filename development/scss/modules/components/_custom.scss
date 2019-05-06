@@ -1090,7 +1090,8 @@ body {
 }
 
 #gform_wrapper_6 {
-
+    border-bottom: 1px solid #bdbdbd;
+    padding-bottom: 30px;
     #field_6_9{
         .gfield_label{
             border: 1px solid #E0E0E0;
@@ -1113,6 +1114,10 @@ body {
 
     #input_6_9{
         display: none;
+    }
+
+    .gsection{
+        border-bottom: 0 !important;
     }
 }
 

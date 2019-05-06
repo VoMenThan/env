@@ -3,19 +3,22 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-devops.png">
         <h1>DEVOPS</h1>
     </section>
-    <section class="artical-page service-page devops-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">DevOPS</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">DevOPS</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page service-page devops-page">
+        <div class="container">
+
             <div class="row justify-content-md-center">
                 <div class="col-lg-9">
                     <div class="description-overhead title-blue text-left">

@@ -3,19 +3,24 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-about-us-new.png">
         <h2>ABOUT US</h2>
     </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="artical-page about-us-page">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                        </ol>
-                    </div>
-                </div>
-
                 <div class="col-12">
                     <div class="box-introduct">
                         <h1 class="title-head-blue">Business Oriented</h1>

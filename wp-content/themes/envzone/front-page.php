@@ -716,7 +716,7 @@
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>KNOWLEDGE CENTER</h2>
-                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge-center">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge-center">View all videos <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -732,7 +732,7 @@
                 </div>
                 <div class="col-lg-4 d-lg-block d-none">
                     <article class="list-item">
-                        <div class="label-headline">FEATURED INSIGHTS</div>
+                        <div class="label-headline">LEARNING RESOURCES</div>
                         <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
                             <?php
 
@@ -1092,7 +1092,6 @@
 
         } else {
             $('.slider-news').addClass('off');
-            console.log('khong chay carauser');
         }
     });
 
@@ -1102,10 +1101,8 @@
     $(window).resize(function() {
         if ( $(window).width() > 768 ) {
             startCarousel();
-            console.log('chay carauser');
         } else {
             stopCarousel();
-            console.log('Khong chay carauser');
         }
     });
 

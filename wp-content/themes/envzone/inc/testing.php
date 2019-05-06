@@ -3,19 +3,22 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-testing.png">
         <h2>TESTING</h2>
     </section>
-    <section class="artical-page service-page testing-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Testing</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Testing</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page service-page testing-page">
+        <div class="container">
+
             <div class="row justify-content-md-center">
                 <div class="col-12">
                     <h1 class="title-head-blue text-center">Deliver high-quality software at a rapid pace</h1>

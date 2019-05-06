@@ -3,19 +3,22 @@
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-education.png">
         <h2>EDUCATION</h2>
     </section>
-    <section class="artical-page education-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Education</li>
-                        </ol>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Education</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+    <section class="artical-page education-page">
+        <div class="container">
+
             <div class="row justify-content-center">
                 <div class="col-md-12 col-12">
                     <h1>We are fully aware of what you are struggling for</h1>
