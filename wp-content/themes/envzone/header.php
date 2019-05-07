@@ -242,6 +242,9 @@
                                                     <p>
                                                         We bring top-notch custom-made solutions to businesses willing to take the leap into the digital world in different industries
                                                     </p>
+                                                    <div class="title-contact">
+                                                        Send us quick note of your concerns!
+                                                    </div>
                                                     <?php
                                                     echo do_shortcode('[gravityform id="1" title="false" description="false"]');
                                                     ?>
@@ -537,7 +540,7 @@
                                                     </div>
 
 
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/resources">
                                                                 Resources
@@ -554,7 +557,7 @@
 
                                             <div class="col-12 d-md-none d-block-768 box-check-avaibility">
                                                 <div class="description-check">
-                                                    Subscribe for Three Things <br>
+                                                    Subscribe for Three Things <br> <br>
                                                     Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting
                                                 </div>
                                                 <?php

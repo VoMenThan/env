@@ -97,6 +97,8 @@
 @media screen and (max-width: $device-size-medium) {
 	.content-framework {
 		padding: 0;
+		padding-top: 50px;
+		padding-bottom: 50px;
 		#pills-initial, #pills-development, #pills-discovery{
 			display: none;
 			opacity: 0;

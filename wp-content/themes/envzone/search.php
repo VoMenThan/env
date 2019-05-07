@@ -2,7 +2,7 @@
 <?php global $wp_query;?>
 <main class="main-content">
     <section class="artical-page system-page page-search">
-        <div class="container-fluid">
+        <div class="container-fluid d-lg-block d-none">
             <div class="box-search">
                 <div class="container">
                     <div class="row justify-content-center">

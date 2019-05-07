@@ -505,6 +505,73 @@
 			}
 		}
 	}
+
+
+	.box-analaze-blog{
+		border: 1px solid #BDBDBD;
+		padding: 30px 40px;
+		font-family: $font-roboto;
+		margin-bottom: 30px;
+		*{
+			font-family: $font-roboto;
+		}
+		.title-sub{
+			font-style: normal;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 140.88%;/* or 25px */
+			text-align: center;
+			color: #191919;
+			margin-bottom: 15px;
+		}
+		p{
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 140.88%;/* or 25px */
+			color: #191919;
+		}
+
+		.gform_wrapper {
+			ul.gform_fields {
+				li.gfield{
+					padding-right: 0;
+					margin-top: 10px !important;
+				}
+			}
+		}
+		#gform_wrapper_12 {
+			ul.gform_fields {
+				li#field_12_2{
+					display: block;
+				}
+
+			}
+			li.hidden_label {
+				input{
+					width: 100%;
+					background: #F2F2F2;
+					@include radius(0);
+					font-size: 18px;
+					color: #000;
+					border: none;
+					padding: 15px;
+				}
+			}
+			.gform_footer {
+				input{
+					width: 100%;
+					white-space: normal;
+					@include radius(3px);
+					font-size: 16px;
+					color: #fff;
+					background: #8DC63F;
+					padding: 15px;
+					font-weight: 500;
+				}
+			}
+		}
+	}
 }
 
 @media print {

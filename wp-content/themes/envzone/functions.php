@@ -124,6 +124,8 @@ function misha_loadmore_ajax_handler(){
     $args['post_status'] = 'publish';
     $category = $_POST['category'];
     $event = $_POST['event'];
+    $blog = $_POST['blog'];
+
 
     // it is always better to use WP_Query but not here
     query_posts( $args );
@@ -140,6 +142,9 @@ function misha_loadmore_ajax_handler(){
             }
             elseif ($event == 'true'){
                 get_template_part('template-parts/content', 'event');
+            }
+            elseif ($blog == 'true'){
+                get_template_part('template-parts/content', 'blog');
             }
             else{
                 get_template_part('template-parts/content', 'search');

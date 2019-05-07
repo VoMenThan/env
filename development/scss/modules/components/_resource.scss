@@ -15,14 +15,13 @@
             font-weight: 600;
             text-align: center;
         }
-        h3{
+        h1{
             font-size: 36px;
             padding-bottom: 30px;
             padding-top: 15px;
             text-align: left;
             padding-left: 15px;
         }
-
     }
 
     .box-cover{
@@ -108,4 +107,68 @@
             }
         }
     }
+}
+
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+
+    .resources-ebook-page {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+        .have-border{
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 34px;
+            color: #4F4F4F;
+            border-bottom: none;
+            &:after{
+                display: none;
+            }
+        }
+        article.box-ebook {
+            h2{
+                font-size: 18px;
+                line-height: 140.62%;/* or 25px */
+                text-align: center;
+                color: #000000;
+                font-weight: normal;
+                padding-left: 15px;
+                padding-right: 15px;
+
+            }
+            .btn-download-ebook{
+                width: auto;
+            }
+        }
+    }
+
+
+    .resource-page {
+        .box-cover {
+            text-align: center;
+            .image-cover-detail {
+                max-width: 15px;
+            }
+        }
+        .box-get-ebook{
+            background: transparent;
+            .title-head-green{
+                display: none;
+            }
+            h1{
+                padding-left: 0;
+                font-size: 24px;
+                line-height: 28px;
+                font-weight: bold;
+            }
+            .box-form-get-ebook{
+                width: 100%;
+            }
+        }
+    }
+
 }

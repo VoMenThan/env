@@ -263,7 +263,9 @@
     };
 
     function toggle_obj(btn_click, box_toggle) {
+
         $(btn_click).click(function () {
+
             $(box_toggle).toggleClass("show-obj");
             $(btn_click).toggleClass("active");
 
@@ -272,6 +274,7 @@
                 $(".btn-toggle-search").toggleClass("d-none");
 
             }
+
         });
     }
 
@@ -314,12 +317,27 @@
     }
 
     $(function () {
-        toggle_obj(".btn-toggle-menu", "#menuBarMobile");
         toggle_obj(".btn-toggle-search", "#detailBoxSearch");
         toggle_obj(".btn-search-pc", "#detailBoxSearch");
         get_attr();
         select_next_element();
         changeTextBtnHead();
+    });
+
+    $(function () {
+
+        $(".btn-toggle-menu").click(function (e) {
+
+            $("#menuBarMobile").toggleClass("show-obj");
+            $(".btn-toggle-menu").toggleClass("active");
+
+            $("body").toggleClass("overflow-hidden");
+            $("html").toggleClass("overflow-hidden");
+            $(".btn-toggle-search").toggleClass("d-none");
+
+            e.preventDefault();
+
+        });
     });
 
     $(document).ready(function(){

@@ -41,8 +41,9 @@ get_header();
                 <div class="col-lg-8 border-header">
                     <h3 class="title-head-blue have-border">EVENTS</h3>
                 </div>
-                <?php if( $the_query->have_posts() ): ?>
                 <div class="col-lg-8">
+                <?php if( $the_query->have_posts() ): ?>
+
 
                     <?php while( $the_query->have_posts() ) : $the_query->the_post();
 
@@ -53,19 +54,14 @@ get_header();
                         if (  $the_query->max_num_pages > 1 ){
                             echo '<div class="misha_loadmore btn-show-event btn btn-blue-env w-100 my-5">Load more</div>'; // you can use <a> as well
                         };
-                    ?>
 
-
-
-                </div>
-                <?php
                     else :
 
                         get_template_part( 'template-parts/content', 'none' );
 
                     endif;
                 ?>
-
+                </div>
                 <?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
 
 

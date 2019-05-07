@@ -1,6 +1,7 @@
 jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
     $('.misha_loadmore').click(function(){
         var event = $('.misha_loadmore').hasClass('btn-show-event');
+        var blog = $('.misha_loadmore').hasClass('btn-show-blog');
         var category = $('.misha_loadmore').hasClass('btn-category');
 
         var button = $(this),
@@ -9,7 +10,8 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
                 'query': misha_loadmore_params.posts, // that's how we get params from wp_localize_script() function
                 'page' : misha_loadmore_params.current_page,
                 'category'  : category,
-                'event'  : event
+                'event'  : event,
+                'blog'  : blog
             };
 
         $.ajax({ // you can also use $.post here

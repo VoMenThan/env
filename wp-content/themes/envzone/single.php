@@ -59,7 +59,7 @@ get_header();
                         <div class="audit">
                             <span>By </span>
                             <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a> <span>| <?php echo get_field('staff', 'user_'.$post->post_author);?></span>
-                            <div class="date">on <?php echo get_the_date( 'F d, Y', $item->ID );?> | <?php echo get_field('estimate_reading', $post->ID);?> min read</div>
+                            <div class="date">on <?php echo get_the_date( 'F d, Y', $post->ID );?> | <?php echo get_field('estimate_reading', $post->ID);?> min read</div>
                         </div>
 
                         <div class="box-share no-print d-lg-block d-none">
@@ -214,29 +214,27 @@ get_header();
                 <!-- /*============END SUBCRIBE HOME=================*/ -->
 
                 <div class="col-lg-4 sidebar-advert no-print">
-                    <div class="box-subscriber-blog d-lg-block d-none">
-                        <div class="box-border">
+
+                    <div class="box-analaze-blog d-lg-block d-none">
                         <div class="title-sub">
-                            Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
+                            Find a Verified Team to Build Your Software
                         </div>
-                        <div class="form-subscribe">
+                        <p>
+                            Hey, I’am <?php echo get_the_author_meta('display_name', $post->post_author);?>.
+                            I am determined to make your business success in
                             <?php
-                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            $cat_name = get_the_category($post->ID)[0]->name;
+                                    echo ($cat_name == 'News' or $cat_name == 'Team Activities' or $cat_name == 'Uncategorized') ? 'your' : $cat_name;
+
+                            ?>
+                            industry.
+                            My only question is, will it be yours?
+                        </p>
+                        <div class="analyze-form">
+                            <?php
+                            echo do_shortcode('[gravityform id=12 title=false description=false ajax=false]');
                             ?>
                         </div>
-                        </div>
-                    </div>
-
-                    <div class="box-advert">
-                        <p>
-                            <span class="fz-big-green">80%</span> of outsourcing relationships fail due to responsiveness & communication factors
-                        </p>
-                        <div class="sub-title">
-                            Do Not Let Your Projects Go South!
-                        </div>
-                        <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
-                            SEE OUR UNIQUE APPROACH FOR SUCCESS
-                        </a>
                     </div>
 
                     <div class="box-free-ebook d-lg-block d-none">
@@ -291,8 +289,21 @@ get_header();
                         </div>
                         <?php endforeach;?>
                     </div>
-                    
-                    <div class="box-related-article no-print d-lg-block d-none">
+
+                    <div class="box-subscriber-blog d-lg-block d-none">
+                        <div class="box-border">
+                            <div class="title-sub">
+                                Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
+                            </div>
+                            <div class="form-subscribe">
+                                <?php
+                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-related-article no-print mb-5 d-lg-block d-none">
                         <div class="title-article">
                             Latest from Experts
 
@@ -348,6 +359,18 @@ get_header();
                         <?php endforeach;?>
 
 
+                    </div>
+
+                    <div class="box-advert">
+                        <p>
+                            <span class="fz-big-green">80%</span> of outsourcing relationships fail due to responsiveness & communication factors
+                        </p>
+                        <div class="sub-title">
+                            Do Not Let Your Projects Go South!
+                        </div>
+                        <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
+                            SEE OUR UNIQUE APPROACH FOR SUCCESS
+                        </a>
                     </div>
 
                 </div>
@@ -582,13 +605,14 @@ get_header();
 
         $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
+        $(".box-analaze-blog .analyze-form #gform_submit_button_12").val('ANALYZE FOR CHANCE OF SUCCESS');
+
 
         if ( $(window).width() > 768 ) {
             startCarousel();
 
         } else {
             $('.slider-news').addClass('off');
-            console.log('khong chay carauser');
         }
 
     });
@@ -596,10 +620,8 @@ get_header();
     $(window).resize(function() {
         if ( $(window).width() > 768 ) {
             startCarousel();
-            console.log('chay carauser');
         } else {
             stopCarousel();
-            console.log('Khong chay carauser');
         }
     });
 

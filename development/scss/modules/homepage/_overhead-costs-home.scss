@@ -92,6 +92,7 @@
 @media screen and (max-width: $device-size-medium) {
   .overhead-costs-page{
     margin-bottom: 0;
+    padding: 80px 0 !important;
     .content-overhead-costs {
       .box-according {
         div[class*="cost-"]{

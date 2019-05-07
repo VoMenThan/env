@@ -77,7 +77,7 @@ $link = get_field('link_share');
                 <div class="col-lg-8">
                     <div class="box-get-ebook">
                         <div class="title-head-green">Get Your Freebies!</div>
-                        <h3>Guidance to Help You Make Software Outsourcing Decison</h3>
+                        <h1><?php echo $post->post_title;?></h1>
 
                         <div class="box-form-get-ebook form-horizontal">
                             <?php

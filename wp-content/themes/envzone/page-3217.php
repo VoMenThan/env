@@ -169,7 +169,7 @@
                 <div class="col-lg-8 text-center">
                     <h2>Retrace the Steps of Software Outsourcing</h2>
                     <div class="description">
-                        In a software development world, you can source practically every talents but the team mindset. Learn more a verified that is built for your business growth. A solution manual can help you:
+                        In a software development world, you can source practically every talents but the team mindset. Learn more a verified team that is built for your business growth. A trategic solution manual can help you:
                     </div>
                 </div>
                 <div class="col-lg-12">

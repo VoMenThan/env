@@ -51,7 +51,7 @@ get_header();
 
                         foreach($ebook_resources as $item):
                         ?>
-                        <div class="col-lg-6">
+                        <div class="col-md-6">
                             <article class="box-ebook">
                                 <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
                                 <h2>
@@ -67,7 +67,7 @@ get_header();
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 d-none d-lg-block">
                     <div class="box-subscriber-blog">
                         <div class="box-border">
                             <div class="title-sub">
@@ -84,6 +84,37 @@ get_header();
             </div>
         </div>
     </section>
+
+
+    <!-- /*============SUBCRIBE HOME=================*/ -->
+    <div class="container-fluild section-parallax">
+        <div class="bg-green-home">
+            <div class="container content-subcribe">
+                <div class="row">
+                    <div class="col-12 box-head-subcribe text-center">
+                        <h2>SUBSCRIBE FOR THREE THINGS</h2>
+                        <p>
+                            Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
+                        </p>
+                        <!--<form action="" method="get">
+                            <input type="text" class="input-search d-block" placeholder="Enter your email adress">
+                            <input type="submit" hidden>
+                            <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
+                        </form>-->
+
+                        <div class="form-subscribe">
+                            <?php
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /*============END SUBCRIBE HOME=================*/ -->
 </main>
 <script>
     (function ( $ ) {

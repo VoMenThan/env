@@ -105,7 +105,7 @@
                         <?php
                         $args = array(
                             'posts_per_page' => 6,
-                            'offset'=> 0,
+                            'offset'=> 6,
                             'post_type' => 'post',
                             'orderby' => 'post_modified',
                             'order' =>'desc',
@@ -169,46 +169,34 @@
 
                 <div class="col-lg-8 pd-lr-0">
                     <?php
-                    $args = array(
-                        'posts_per_page' => -1,
-                        'offset'=> 0,
-                        'post_type' => 'post',
-                        'orderby' => 'id',
-                        'post__not_in' => $post_isset,
-                        'order' =>'desc'
-                    );
-                    $news_recent = get_posts( $args );
-                    foreach($news_recent as $item):?>
-                    <article class="highlight-news-right clearfix">
-                        <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                            <?php echo get_the_post_thumbnail( $item->ID, 'medium');?>
-                        </a>
-                        <div class="info-news">
-                            <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
-                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
-                                <h2>
-                                    <?php echo $item->post_title;?>
-                                </h2>
-                            </a>
-                            <div class="audit">
-                                <?php
-                                if (get_field('avatar', 'user_'.$item->post_author)== ''){
-                                    $avatar = ASSET_URL.'images/avatar-default.png';
-                                }
-                                else{
-                                    $avatar = get_field('avatar', 'user_'.$item->post_author);
-                                }
-                                ?>
-                                <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                <a class="author" href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>">
-                                    By <?php echo get_the_author_meta('display_name', $item->post_author);?>
-                                </a>
-                                <div class="date-public">on <?php echo get_the_date( 'M d, Y', $item->ID );?></div>
-                            </div>
-                        </div>
-                    </article>
-                    <?php
-                        endforeach;
+                        $args_recent = array(
+                            'posts_per_page' => -1,
+                            'offset'=> 0,
+                            'post_type' => 'post',
+                            'orderby' => 'id',
+                            'post__not_in' => $post_isset,
+                            'order' =>'desc'
+                        );
+                        $the_query = new WP_Query( $args_recent );
+
+                        if ($the_query->have_posts()):
+
+                            while( $the_query->have_posts() ) : $the_query->the_post();
+
+                                get_template_part( 'template-parts/content', 'blog' );
+
+                            endwhile;
+
+                            if (  $the_query->max_num_pages > 1 ){
+                                echo '<div class="misha_loadmore btn-show-blog btn btn-blue-env w-100 my-5">Load more</div>'; // you can use <a> as well
+                            };
+
+                        else :
+
+                            get_template_part( 'template-parts/content', 'none' );
+
+                        endif;
+
                         $post_isset = ''; //reset array post isset
                     ?>
                     <!--<a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->

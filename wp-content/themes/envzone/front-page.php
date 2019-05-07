@@ -11,10 +11,10 @@
                     <h2 class="head-line-envzone">
                         DENVER SOFTWARE OUTSOURCING AUTHORITY
                     </h2>
-                    <p>Learn how we could help tech companies achieve their business goals.
-                    </p>
                     <p>
                         A premium outsourcing solution for minimum management and maximum output.
+                    </p>
+                    <p>Learn how we could help tech companies achieve their business goals.
                     </p>
                     <a href="<?php echo home_url("knowledge/guidance-to-keep-your-tech-company-ahead-of-the-competition");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
                 </article>
@@ -101,7 +101,7 @@
                         <image id="image0" width="128" height="128" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACT1BMVEUAAAD9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/v9+/sAAABGmFfSAAAAw3RSTlMAFicCRt31hwYdvf7KEhnbzhXVzxMR0A4UC8TRCNK2BK9tp8YBn/KXjoXZCXzqKXPuL2rxNWL0O1r990JS+/lISvpQQ/xXPV82ZzDvcCvreSbngiHjixzelBid1KUQrAMNyLQFCsK7B8GtRTPTofBhFyDfnOCQjOJ/gyVuKl5PaPhBPPPsyeVR3Flsacu6cix7JOaEH42VG5am2J61w0wPza4+DNoywLwouR6yNKujm5Kqj7MxN0RLQGtOb4aBkz9NXDmXNvpOAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAN1wAADdcBQiibeAAAAAd0SU1FB+IMBxIkO5A+ug0AAARRSURBVHja7dv5VxNXFAfwC6lUCCgIBqFAFGLUoIhGtmBE3AWNoqiIoAhuLa1F20IXtViXWru37kup+94qdq/a1vePOSooy3xn3kxmbs7pme+vvPs+7ySZvHdnApETJ06cOHHihD9x8a5Y8q+MECLh1ZGx4hOT3OJpklNi448aLfqSGpMVpI0RL5Kewe+P9YgB8bCvIDNZDIpnHK+flS2G5DXWFeQkiWHJZVzByDyhkmy2ryTveKGaCUy+K1/dFwU8vm8i8IWfZwGTkC88LP5k6IspHP4U7AcKGfyp2J9WxOBPx37xDAZ/JvaDsxj8Ejf0S8sY/PIK6IcqGfzZYejPqWLw51ZDPzyPwZ8fgv6ChQz+ogTouxcz+Ev8+AJcyuDX1GJ/GYO/PIL9FQz+yjrsr2LwV9djfw2Dv3Yd9hsY/PUB7Df67PfHbcB+E8MxvDkV+xs32e+3bMZ+a5v9/pat2N+23X4/Zxv2d2yx329rxf7mFvt97+vYT23WLc94oz26D4mrCftv6jbizW8pw3a+HYXva8R+oEOvetfu5yPfMf9N1YD9dWt1/Xf7x75n1u/EftcueV+I9835H2C/7kMjvhAfmfFXYD+yx5gv3HuN+8uwX1xj0FfO7PuM+h9j37/EsC9E935j/mKNBvATvWJvukrZAUN968IF0A/N161Wb98P6n5wXmaeRgM4V7/8kHrpYd1Ltz9Vc6Af/lSiPgiKj6yX8ytxA1jxmcwEBag8d6xMeVkp9N1yG8tROEFBln71rCAsF5/LvYSuL+AMX+o+WZpRjP2v5Hyir/GHSO8QWzQN+9/I+lpvgmjULPz2O1z5vbyvuZF1apQd68J1x434RCfMvJInR+CqU8Z8cp3Gc80ENR1ncM1Zw8eqtnNwMne5akVGLvZPm2gAC8/D6cI/qIzv+RH7F7zGfWXGdDhh6OKw0ZcKsH/O5HPpuMtwyuCVoa/XVexfyzHnK1cVvq0SuT5o5PYb2D8fRQNYdBBOW39zwLi2W9g/1GLeJ7qNby0G4l6M2nQH++lSOyjO/m48dU/fGNdP2N8Q9ZPYffh01/fm+n7G/mXJM4xWNM63ec9a57vY363bAMpEo8O4l0JZvfjP9aut8IlWYSJ0fyf+Y91Ka3zNLlsjkeVW+eRrMuHX/mKZr/RKrYZ9/68W+spX/VaDfsIiS32izFRDfug3i31lawwY8Kt/t9wnulkv7Ydn2+ATXY9I+hXl0WOqafdL+e4Sm3yiP0IyC/jTNp/or7C+P91Gn2ivW8+faqtP9LeO/8Bmn+ihpt9ru0/0SMOfxOCTD58AJzI8AVTivQ/8fK4f4uXsUPXHm2oATSVTrQ/N4/xhctrwOwFJphtAU0kcei8mW+IGnqWJH3w3LDmT2Ve2xuAA3xNlA2gq/7zcGsekxcAn+rd/axw9KiY+0X/PV3AkMUY+0WPlaqzO74l+IvNJ2ROz/4tw4sSJEydO/s95AsL03yNDBK3SAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTEyLTA3VDE4OjM2OjU5KzAxOjAwGSS0ggAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0xMi0wN1QxODozNjo1OSswMTowMGh5DD4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                     </defs>
                 </svg>
-                Choose the right team for your needs
+                <span>Choose the right team for your needs</span>
             </li>
             <li class="item-best-choose">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -113,7 +113,7 @@
                         <image id="image0" width="128" height="128" xlink:href="data:image/png;base64,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"/>
                     </defs>
                 </svg>
-                Eliminate risk through an outsourcing authority
+                <span>Eliminate risk through an outsourcing authority</span>
             </li>
         </ul>
         <div class="title-link">See our verified teams’ expertise</div>
@@ -170,7 +170,7 @@
             'relation' => 'OR',
             array(
                 'key' => 'post_show',
-                'value' => 'main-article',
+                'value' => 'home-article',
                 'compare' => 'LIKE',
             )
         )
@@ -802,14 +802,23 @@
 
     <!-- /*============EVENTS HOME=================*/ -->
     <?php
-    $args = array(
+    $date_now = date('Y-m-d');
+    $args_event = array(
         'posts_per_page' => 3,
-        'offset'=> 0,
         'post_type' => 'events',
-        'orderby' => 'id',
-        'order' =>'desc'
+        'meta_query'	=> array(
+            'relation' 			=> 'AND',
+            array(
+                'key'			=> 'date',
+                'compare'		=> '>=',
+                'value'			=> $date_now,
+                'type'			=> 'DATETIME'
+            )
+        ),
+        'orderby'	=> 'meta_value',
+        'order'     => 'asc'
     );
-    $event_all = get_posts( $args );
+    $event_all = get_posts( $args_event );
     ?>
     <div class="container content-envent define-headline">
         <div class="row">
@@ -916,6 +925,7 @@
                         <a href="<?php echo get_permalink($photo_studio[0]->ID); ?>">
                         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($photo_studio[0]->ID); ?>" align="">
                         <h5 class="large-item"><?php echo $photo_studio[0]->post_title; ?></h5>
+                            <i class="icon-photo-play"></i>
                         </a>
                     </div>
                 </div>
@@ -930,6 +940,7 @@
                                 <a href="<?php echo get_permalink($item->ID);?>">
                                 <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="">
                                 <h5><?php echo $item->post_title;?></h5>
+                                    <i class="icon-photo-play small"></i>
                                 </a>
                             </div>
                         </div>
