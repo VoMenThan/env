@@ -18,30 +18,44 @@
 	p{
 		font-size: 20px;
 		line-height: 28px;
-		padding-bottom: 15px;
-		width: 70%;
+		padding-bottom: 30px;
+		width: 300px;
 		margin: auto;
-		font-weight: bold;
+		font-weight: 500;
 	}
 	.btn-green-env{
-		width: 85%;
-		font-size: 25px;
-		font-weight: bold;
+		width: 300px;
+		font-size: 24px;
+		font-weight: 600;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		outline: none;
+		border: none;
 		&:hover{
-			opacity: .8;
+			background: $color-blue-logo;
 		}
+	}
+	.btn-white-env{
+		width: 300px;
+		font-size: 24px;
+		font-weight: 600;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		outline: none;
 	}
 	.btn-transparent{
 		background: transparent;
 		border: 1px solid $color-white;
 	}
 	.icon-arrow-bottom{
-		@include setBackgroundIcon(25px, "../images/icon-arrow-bottom.png");
+		@include setBackgroundIcon(20px, "../images/icon-arrow-bottom.png", 10px);
 		vertical-align: middle;
+		background-size: 100% 100%;
 	}
 	.form-toggle{
 		padding: 50px 15px;
 		background: $color-blue-logo;
+		width: 300px !important;
 		input{
 			background: transparent;
 			border-radius: 0;

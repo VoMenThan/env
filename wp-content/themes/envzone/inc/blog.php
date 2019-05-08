@@ -105,7 +105,7 @@
                         <?php
                         $args = array(
                             'posts_per_page' => 6,
-                            'offset'=> 6,
+                            'offset'=> 0,
                             'post_type' => 'post',
                             'orderby' => 'post_modified',
                             'order' =>'desc',
@@ -114,7 +114,7 @@
                                 'relation' => 'OR',
                                 array(
                                     'key' => 'post_show',
-                                    'value' => 'featured-insights',
+                                    'value' => 'fi-blog',
                                     'compare' => 'LIKE',
                                 )
                             )

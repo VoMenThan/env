@@ -303,7 +303,7 @@ get_header();
                         </div>
                     </div>
 
-                    <div class="box-related-article no-print mb-5 d-lg-block d-none">
+                    <div class="box-related-article no-print d-lg-block d-none">
                         <div class="title-article">
                             Latest from Experts
 

@@ -183,7 +183,7 @@
 
                 </div>
                 <div class="col-lg-2 d-flex align-items-end">
-                    <a href="#" class="btn-donate btn btn-gray-env">DONATE NOW</a>
+                    <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KW8D2MCJD7PVC&source=url" class="btn-donate btn btn-gray-env">DONATE NOW</a>
                 </div>
             </div>
             <div class="row">

@@ -301,6 +301,7 @@
 	}
 	.box-related-article{
 		border: 1px solid $color-gray-border;
+		margin-bottom: 50px;
 		.title-article{
 			font-size: 1.5rem;
 			width: 100%;
@@ -378,7 +379,7 @@
 
 	.box-free-ebook{
 		border: 1px solid #BDBDBD;
-		margin-bottom: 30px;
+		margin-bottom: 50px;
 		.title-free-book{
 			font-weight: bold;
 			font-size: 22px;
@@ -460,7 +461,7 @@
 	.box-subscriber-blog{
 		background: #E0E0E0;
 		padding: 15px;
-		margin-bottom: 40px;
+		margin-bottom: 50px;
 		.box-border{
 			border: 1px solid #BDBDBD;
 			padding: 25px;
@@ -511,18 +512,29 @@
 		border: 1px solid #BDBDBD;
 		padding: 30px 40px;
 		font-family: $font-roboto;
-		margin-bottom: 30px;
+		margin-bottom: 50px;
 		*{
 			font-family: $font-roboto;
 		}
 		.title-sub{
+			margin-bottom: 25px;
 			font-style: normal;
-			font-weight: 500;
-			font-size: 18px;
-			line-height: 140.88%;/* or 25px */
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 140%;/* or 34px */
 			text-align: center;
-			color: #191919;
-			margin-bottom: 15px;
+			color: #0D3153;
+			position: relative;
+			padding-bottom: 10px;
+			&:after{
+				content: "";
+				display: inline-block;
+				width: 100px;
+				border-bottom: 2px solid #8DC63F;
+				position: absolute;
+				left: calc(50% - 50px);
+				bottom: 0;
+			}
 		}
 		p{
 			font-style: normal;
@@ -530,6 +542,7 @@
 			font-size: 18px;
 			line-height: 140.88%;/* or 25px */
 			color: #191919;
+			margin-bottom: 30px;
 		}
 
 		.gform_wrapper {
@@ -559,15 +572,21 @@
 				}
 			}
 			.gform_footer {
+				margin-top: 0;
 				input{
 					width: 100%;
 					white-space: normal;
 					@include radius(3px);
-					font-size: 16px;
+					font-size: 15px;
 					color: #fff;
 					background: #8DC63F;
 					padding: 15px;
-					font-weight: 500;
+					font-weight: normal;
+					transition: .3s;
+					&:hover{
+						background: $color-blue-logo;
+						opacity: 1;
+					}
 				}
 			}
 		}

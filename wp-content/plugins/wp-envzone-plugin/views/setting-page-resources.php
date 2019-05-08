@@ -41,7 +41,7 @@
             <tr class="iedit author-other level-0 post-261 type-post status-private format-standard has-post-thumbnail hentry category-ecommerce-and-retail">
                 <td class="title column-title has-row-actions column-primary page-title" data-colname="Title">
                     <strong>
-                        <a class="row-title" href="http://localhost/envzone/wp-admin/post.php?post=<?php echo $item->ID;?>&amp;action=edit">
+                        <a class="row-title" href="<?php echo home_url();?>/wp-admin/post.php?post=<?php echo $item->ID;?>&amp;action=edit">
                             <?php echo $item->post_title;?>
                         </a>
                     </strong>
@@ -114,7 +114,7 @@
             <tr class="iedit author-other level-0 post-261 type-post status-private format-standard has-post-thumbnail hentry category-ecommerce-and-retail">
                 <td class="title column-title has-row-actions column-primary page-title" data-colname="Title">
                     <strong>
-                        <a class="row-title" href="http://localhost/envzone/wp-admin/post.php?post=<?php echo $item->ID;?>&amp;action=edit">
+                        <a class="row-title" href="<?php echo home_url();?>/wp-admin/post.php?post=<?php echo $item->ID;?>&amp;action=edit">
                             <?php echo $item->post_title;?>
                         </a>
                     </strong>

@@ -2439,34 +2439,48 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 .content-contact-quote-book p {
   font-size: 20px;
   line-height: 28px;
-  padding-bottom: 15px;
-  width: 70%;
+  padding-bottom: 30px;
+  width: 300px;
   margin: auto;
-  font-weight: bold;
+  font-weight: 500;
 }
 .content-contact-quote-book .btn-green-env {
-  width: 85%;
-  font-size: 25px;
-  font-weight: bold;
+  width: 300px;
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  outline: none;
+  border: none;
 }
 .content-contact-quote-book .btn-green-env:hover {
-  opacity: 0.8;
+  background: #0D3153;
+}
+.content-contact-quote-book .btn-white-env {
+  width: 300px;
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  outline: none;
 }
 .content-contact-quote-book .btn-transparent {
   background: transparent;
   border: 1px solid #ffffff;
 }
 .content-contact-quote-book .icon-arrow-bottom {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 10px;
   background: url("../images/icon-arrow-bottom.png") no-repeat center;
   display: inline-block;
   background-size: 100%;
   vertical-align: middle;
+  background-size: 100% 100%;
 }
 .content-contact-quote-book .form-toggle {
   padding: 50px 15px;
   background: #0D3153;
+  width: 300px !important;
 }
 .content-contact-quote-book .form-toggle input {
   background: transparent;
@@ -8323,6 +8337,7 @@ section.testing-page .item-qa {
 }
 .blog-detail-page .box-related-article {
   border: 1px solid #C4C4C4;
+  margin-bottom: 50px;
 }
 .blog-detail-page .box-related-article .title-article {
   font-size: 1.5rem;
@@ -8403,7 +8418,7 @@ section.testing-page .item-qa {
 }
 .blog-detail-page .box-free-ebook {
   border: 1px solid #BDBDBD;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .blog-detail-page .box-free-ebook .title-free-book {
   font-weight: bold;
@@ -8484,7 +8499,7 @@ section.testing-page .item-qa {
 .blog-detail-page .box-subscriber-blog {
   background: #E0E0E0;
   padding: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 .blog-detail-page .box-subscriber-blog .box-border {
   border: 1px solid #BDBDBD;
@@ -8528,20 +8543,31 @@ section.testing-page .item-qa {
   border: 1px solid #BDBDBD;
   padding: 30px 40px;
   font-family: "Roboto", sans-serif;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .blog-detail-page .box-analaze-blog * {
   font-family: "Roboto", sans-serif;
 }
 .blog-detail-page .box-analaze-blog .title-sub {
+  margin-bottom: 25px;
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 140.88%;
-  /* or 25px */
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 140%;
+  /* or 34px */
   text-align: center;
-  color: #191919;
-  margin-bottom: 15px;
+  color: #0D3153;
+  position: relative;
+  padding-bottom: 10px;
+}
+.blog-detail-page .box-analaze-blog .title-sub:after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  border-bottom: 2px solid #8DC63F;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 0;
 }
 .blog-detail-page .box-analaze-blog p {
   font-style: normal;
@@ -8550,6 +8576,7 @@ section.testing-page .item-qa {
   line-height: 140.88%;
   /* or 25px */
   color: #191919;
+  margin-bottom: 30px;
 }
 .blog-detail-page .box-analaze-blog .gform_wrapper ul.gform_fields li.gfield {
   padding-right: 0;
@@ -8571,6 +8598,9 @@ section.testing-page .item-qa {
   border: none;
   padding: 15px;
 }
+.blog-detail-page .box-analaze-blog #gform_wrapper_12 .gform_footer {
+  margin-top: 0;
+}
 .blog-detail-page .box-analaze-blog #gform_wrapper_12 .gform_footer input {
   width: 100%;
   white-space: normal;
@@ -8579,11 +8609,16 @@ section.testing-page .item-qa {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: 15px;
   color: #fff;
   background: #8DC63F;
   padding: 15px;
-  font-weight: 500;
+  font-weight: normal;
+  transition: 0.3s;
+}
+.blog-detail-page .box-analaze-blog #gform_wrapper_12 .gform_footer input:hover {
+  background: #0D3153;
+  opacity: 1;
 }
 
 @media print {
@@ -12472,7 +12507,7 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
     text-align: center;
   }
   .resource-page .box-cover .image-cover-detail {
-    max-width: 15px;
+    max-width: 150px;
   }
   .resource-page .box-get-ebook {
     background: transparent;
