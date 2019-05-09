@@ -689,6 +689,8 @@ nav {
             height: auto;
             min-height: calc(100vh - 50px);
             transition: .5s;
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
             &.show-obj{
                 left: 0;
             }
@@ -789,6 +791,7 @@ nav {
 
             .box-check-avaibility{
                 padding-top: 15px;
+                padding-bottom: 15px;
                 .description-check{
                     color: #E0E0E0;
                     text-align: left;

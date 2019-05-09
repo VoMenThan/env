@@ -1,6 +1,5 @@
 <?php
 global $wp_query;
-get_header();
 ?>
 
 <main class="main-content video-home-page">
@@ -58,15 +57,15 @@ get_header();
                         <div class="box-info-video">
                             <a href="<?php echo home_url('category/').get_the_category($video_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($video_main[0]->ID)[0]->cat_name;?></a>
                             <a href="<?php echo get_permalink($video_main[0]->ID);?>">
-                            <h1>
-                                <?php echo $video_main[0]->post_title;?>
-                            </h1>
+                                <h1>
+                                    <?php echo $video_main[0]->post_title;?>
+                                </h1>
                             </a>
                             <p class="d-lg-block d-none">
                                 <?php
-                                        $title = $video_main[0]->post_excerpt;
-                                        $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
-                                        echo $title;
+                                $title = $video_main[0]->post_excerpt;
+                                $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";
+                                echo $title;
                                 ?>
                             </p>
 
@@ -81,7 +80,7 @@ get_header();
                                 ?>
                                 <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                 <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $video_main[0]->post_author);?>">
-                                   By <?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?>
+                                    By <?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?>
                                 </a>
                                 <div class="date-public">on <?php echo get_the_date( 'F d, Y', $video_main[0]->ID );?></div>
                             </div>
@@ -115,47 +114,47 @@ get_header();
                         );
                         $video_list = get_posts( $args );
                         foreach ($video_list as $k => $item):
-                        ?>
-                        <div class="col-lg-6 pd-lr-0">
-                            <article class="highlight-news-right img-center clearfix">
-                                <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
-                                    <?php
-                                        $vimeo = get_post_meta($item->ID, 'embed', true);
-                                    ?>
-                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
-                                    <i class="icon-video-play"></i>
-                                </a>
-                                <div class="info-news">
-                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
-                                    <a href="<?php echo get_permalink($item->ID);?>">
-                                        <h2>
-                                            <?php echo $item->post_title;?>
-                                        </h2>
-                                    </a>
-                                    <div class="audit position-static">
+                            ?>
+                            <div class="col-lg-6 pd-lr-0">
+                                <article class="highlight-news-right img-center clearfix">
+                                    <a class="thumbnail-news" href="<?php echo get_permalink($item->ID);?>">
                                         <?php
-                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
-                                            $avatar = ASSET_URL.'images/avatar-default.png';
-                                        }
-                                        else{
-                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
-                                        }
+                                        $vimeo = get_post_meta($item->ID, 'embed', true);
                                         ?>
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                           By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>">
+                                        <i class="icon-video-play"></i>
+                                    </a>
+                                    <div class="info-news">
+                                        <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
+                                        <a href="<?php echo get_permalink($item->ID);?>">
+                                            <h2>
+                                                <?php echo $item->post_title;?>
+                                            </h2>
                                         </a>
-                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
+                                        <div class="audit position-static">
+                                            <?php
+                                            if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                                $avatar = ASSET_URL.'images/avatar-default.png';
+                                            }
+                                            else{
+                                                $avatar = get_field('avatar', 'user_'.$item->post_author);
+                                            }
+                                            ?>
+                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                            <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                                By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                            </a>
+                                            <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </div>
+                                </article>
+                            </div>
                         <?php endforeach;
-                            $isset_video = '';
+                        $isset_video = '';
                         ?>
 
                     </div>
-<!--                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
+                    <!--                    <a href="#" class="btn btn-blue-env btn-show-more">Show more</a>-->
                 </div>
 
                 <div class="col-lg-4 blog-detail-page d-lg-block d-none">
@@ -272,5 +271,3 @@ get_header();
 
     })(jQuery);
 </script>
-
-<?php get_footer(); ?>

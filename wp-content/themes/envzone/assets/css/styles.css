@@ -715,6 +715,8 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
     height: auto;
     min-height: calc(100vh - 50px);
     transition: 0.5s;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
   }
   nav #menuBarMobile.show-obj {
     left: 0;
@@ -823,6 +825,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   }
   nav .box-sub-menu .box-check-avaibility {
     padding-top: 15px;
+    padding-bottom: 15px;
   }
   nav .box-sub-menu .box-check-avaibility .description-check {
     color: #E0E0E0;
@@ -2444,17 +2447,21 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   margin: auto;
   font-weight: 500;
 }
+.content-contact-quote-book article {
+  width: 300px;
+}
 .content-contact-quote-book .btn-green-env {
   width: 300px;
   font-size: 24px;
   font-weight: 600;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   outline: none;
   border: none;
 }
 .content-contact-quote-book .btn-green-env:hover {
-  background: #0D3153;
+  background: #71AB20;
+  color: #0D3153 !important;
 }
 .content-contact-quote-book .btn-white-env {
   width: 300px;
@@ -2464,13 +2471,18 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   padding-bottom: 6px;
   outline: none;
 }
+.content-contact-quote-book .btn-white-env:hover .icon-arrow-bottom {
+  background: url("../images/icon-arrow-bottom-green.png") no-repeat;
+  vertical-align: middle;
+  background-size: 100% 100%;
+}
 .content-contact-quote-book .btn-transparent {
   background: transparent;
   border: 1px solid #ffffff;
 }
 .content-contact-quote-book .icon-arrow-bottom {
   width: 20px;
-  height: 10px;
+  height: 13px;
   background: url("../images/icon-arrow-bottom.png") no-repeat center;
   display: inline-block;
   background-size: 100%;
@@ -4413,10 +4425,15 @@ footer .copyright-footer {
   font-size: 1.5rem;
   font-weight: bold;
 }
+.box-why-business .btn-white-env:hover .icon-arrow-bottom {
+  background: url("../images/icon-arrow-bottom-green.png") no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
 .box-why-business .btn-white-env .icon-arrow-bottom {
   width: 20px;
   height: 10px;
-  background: url("../images/icon-arrow-down.svg") no-repeat center;
+  background: url("../images/icon-arrow-bottom.png") no-repeat center;
   display: inline-block;
   background-size: 100%;
   vertical-align: middle;
@@ -8964,6 +8981,7 @@ section.testing-page .item-qa {
   font-size: 1.875rem;
   font-weight: bold;
   color: #021320;
+  margin-bottom: 15px;
 }
 .blog-events-page .box-item-event p {
   font-size: 1.625rem;
@@ -11959,14 +11977,14 @@ body #gform_wrapper_3 .top_label div.ginput_container {
   color: #ffffff !important;
   background-color: #0D3153;
   border-color: #0D3153;
-  padding: 10px 30px;
+  padding: 10px 25px;
   font-size: 1.125rem;
   font-weight: bold;
   border-radius: 5px;
-  width: auto;
   max-width: 100%;
   white-space: normal;
   margin-right: 0;
+  width: 350px;
 }
 
 .form-subscribe .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description {

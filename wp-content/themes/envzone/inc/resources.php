@@ -1,6 +1,5 @@
 <?php
 global $wp_query;
-get_header();
 ?>
 
 <main class="main-content">
@@ -21,10 +20,10 @@ get_header();
                     'parent' => 0
                 ));
                 foreach ($terms as $item):
-                ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo home_url('resources-category/').$item->slug;?>"><?php echo $item->name;?></a>
-                </li>
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo home_url('resources-category/').$item->slug;?>"><?php echo $item->name;?></a>
+                    </li>
                 <?php endforeach;?>
 
             </ul>
@@ -50,19 +49,19 @@ get_header();
                         $ebook_resources = get_posts( $args );
 
                         foreach($ebook_resources as $item):
-                        ?>
-                        <div class="col-md-6">
-                            <article class="box-ebook">
-                                <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
-                                <h2>
-                                    <?php echo $item->post_title;?>
-                                </h2>
-                                <a href="<?php echo get_permalink($item->ID);?>" class="btn-download-ebook btn btn-blue-env">DOWNLOAD</a>
-                                <div class="box-category">
-                                    <a href="<?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->slug;?>"><?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?></a>
-                                </div>
-                            </article>
-                        </div>
+                            ?>
+                            <div class="col-md-6">
+                                <article class="box-ebook">
+                                    <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                                    <h2>
+                                        <?php echo $item->post_title;?>
+                                    </h2>
+                                    <a href="<?php echo get_permalink($item->ID);?>" class="btn-download-ebook btn btn-blue-env">DOWNLOAD</a>
+                                    <div class="box-category">
+                                        <a href="<?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->slug;?>"><?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?></a>
+                                    </div>
+                                </article>
+                            </div>
                         <?php endforeach;?>
                     </div>
                 </div>
@@ -131,4 +130,3 @@ get_header();
 
     })(jQuery);
 </script>
-<?php get_footer(); ?>

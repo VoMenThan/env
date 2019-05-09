@@ -650,6 +650,7 @@
             <div class="container content-contact-quote-book">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 ">
+                        <article>
                         <h4>BOOKING</h4>
                         <p>Meet a representative to assist with your project</p>
                         <!--<a class="btn btn-green-env btn-transparent" href="#">
@@ -660,6 +661,7 @@
                             CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
                         </a>
                         <!-- Calendly link widget end -->
+                        </article>
 
                     </div>
                     <div class="col-lg-4 d-lg-block d-none">
@@ -674,6 +676,7 @@
                     </div>
 
                     <div class="col-lg-4 d-lg-block d-none">
+                        <article class="float-right">
                         <h4>CONTACT US</h4>
                         <p>Have a quick question? Let’s talk</p>
                         <a class="btn btn-green-env" data-toggle="collapse" href="#sendMail" role="button" aria-expanded="false" aria-controls="collapseExample">SEND EMAIL</a>
@@ -682,6 +685,7 @@
                             echo do_shortcode('[gravityform id=4 title=false description=false ajax=false]');
                             ?>
                         </div>
+                        </article>
                     </div>
                 </div>
 

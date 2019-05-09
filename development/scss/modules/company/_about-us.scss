@@ -137,8 +137,15 @@
 	.btn-white-env{
 		font-size: 1.5rem;
 		font-weight: bold;
+		&:hover{
+			.icon-arrow-bottom{
+				background: url('../images/icon-arrow-bottom-green.png') no-repeat;
+				background-size: 100% 100%;
+				vertical-align: middle;
+			}
+		}
 		.icon-arrow-bottom{
-			@include setBackgroundIcon(20px, "../images/icon-arrow-down.svg", 10px);
+			@include setBackgroundIcon(20px, "../images/icon-arrow-bottom.png", 10px);
 			vertical-align: middle;
 			margin-left: 15px;
 		}
