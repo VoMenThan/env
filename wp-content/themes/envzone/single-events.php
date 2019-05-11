@@ -9,192 +9,67 @@
 get_header();
 ?>
 
-<main class="main-content studio-gallery-detail-page">
-    <div class="container-fluid head-category">
-        <div class="container">
+<main class="main-content">
+    <section class="artical-page blog-page blog-detail-page event-detail-page">
+        <div class="container d-lg-block d-none">
             <div class="row">
-                <div class="col-lg-12">
-                    <a href="<?php echo get_home_url().'/category/'.get_the_category($post->ID)[0]->slug;?>" class="current-category"><?php echo get_the_category($post->ID)[0]->name;?></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="artical-page blog-page blog-knowledge-page blog-knowledge-detail-page studio-detail-page">
-        <div class="container">
-            <div class="row pb-5">
-                <div class="col-12 d-lg-block d-none">
-                    <div class="box-breadcrumb">
+                <div class="col-12 mb-lg-5">
+                    <div class="box-breadcrumb no-print">
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo home_url('studio');?>">Studio</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>/events">Events</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $post->post_title;?></li>
                         </ol>
                     </div>
-
                 </div>
-                <div class="col-lg-8 box-gallery-detail">
-                    <div class="carousel-photo-detail owl-carousel owl-theme">
-                        <?php
-                            $album = get_field('photo_album', $post->ID);
-                            foreach ($album as $k => $item):
-                        ?>
-                        <div class="item"  data-hash="<?php echo $k; ?>">
-                            <img title="<?php echo $item['title'];?>" src="<?php echo $item['url'];?>" alt="<?php echo $item['alt'];?>">
-                            <?php if (($item['description']) != ''):?>
-                            <div class="description-photo">
-                                <?php echo $item['description'];?>
-                            </div>
-                            <?php endif;?>
-                        </div>
-                        <?php endforeach;?>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <article class="info-video d-flex flex-column d-lg-block">
-                        <h1 class="order-0">
-                            <?php echo $post->post_title;?>
-                        </h1>
-                        <div class="description order-2 order-lg-1">
-                            <?php echo $post->post_excerpt;?>
-
-                        </div>
-
-
-                        <div class="box-share-social order-1 order-lg-2">
-                            <?php
-                            if (get_field('avatar', 'user_'.$post->post_author)== ''){
-                                $avatar = ASSET_URL.'images/avatar-default.png';
-                            }
-                            else{
-                                $avatar = get_field('avatar', 'user_'.$post->post_author);
-                            }
-                            ?>
-                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                            <div class="article-author">
-                                <div class="edit-by">
-                                    By
-                                    <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"><span class="author">
-                                <?php echo get_the_author_meta('display_name', $post->post_author);?>
-                            </span>
-                                    </a>
-                                </div>
-                                <div class="public-on">
-                                    on
-                                    <span class="date">
-                                <?php echo get_the_date( 'F d, Y', $item->ID ); ?>
-                            </span>
-                                </div>
-                            </div>
-
-                            <div class="tags">
-                                TAGS:
-                                <?php
-                                if (get_the_tags() != ''):
-                                    foreach (get_the_tags() as $tag):?>
-                                        <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>
-                                    <?php endforeach; else: echo 'No tags!'; endif;?>
-                            </div>
-                            <div class="share-share-social d-lg-block d-none">
-                                SHARE THIS GALLERY TO MY FAVORITES
-                            </div>
-                            <ul class="nav list-social justify-content-end d-lg-flex d-none">
-                                <li class="nav-item">
-                                    <a class="nav-link link-twitter" onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo get_the_title().' '.get_permalink();?>', '_blank', 'width = 700, height = 500')" >
-                                        <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M45 0H5C2.25 0 0 2.25 0 5V45C0 47.75 2.25 50 5 50H45C47.75 50 50 47.75 50 45V5C50 2.25 47.75 0 45 0ZM39.25 18.25C39 29.75 31.75 37.75 20.75 38.25C16.25 38.5 13 37 10 35.25C13.25 35.7501 17.5 34.5001 19.75 32.5C16.5 32.25 14.5 30.5 13.5 27.75C14.5 28 15.5 27.75 16.25 27.75C13.25 26.75 11.25 25 11 21C11.75 21.5 12.75 21.75 13.75 21.75C11.5 20.5 10 15.75 11.75 12.75C15 16.25 19 19.25 25.5 19.75C23.75 12.75 33.2501 9 37.0001 13.75C38.7501 13.5 40.0001 12.75 41.2501 12.25C40.7501 14 39.7501 15 38.5001 16C39.7501 15.75 41.0001 15.5 42.0001 15C41.75 16.25 40.5 17.25 39.25 18.25Z" fill="#8DC63F"/>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link link-facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink();?>', '_blank', 'width = 700, height = 500')">
-                                        <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0)">
-                                                <path d="M50 8.33389C50 3.955 46.0467 0 41.6667 0H8.33333C3.95333 0 0 3.955 0 8.33389V41.6661C0 46.045 3.95333 50 8.33389 50H25V31.1111H18.8889V22.7778H25V19.5311C25 13.9317 29.2044 8.88889 34.375 8.88889H41.1111V17.2222H34.375C33.6378 17.2222 32.7778 18.1172 32.7778 19.4578V22.7778H41.1111V31.1111H32.7778V50H41.6667C46.0467 50 50 46.045 50 41.6661V8.33389Z" fill="#8DC63F"/>
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0">
-                                                    <rect width="50" height="50" fill="white"/>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link link-linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=<?php echo get_permalink();?>', '_blank', 'width = 700, height = 500')">
-                                        <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M42.6758 0H7.32422C3.28598 0 0 3.28598 0 7.32422V42.6758C0 46.714 3.28598 50 7.32422 50H42.6758C46.714 50 50 46.714 50 42.6758V7.32422C50 3.28598 46.714 0 42.6758 0ZM17.6758 39.6484H11.8164V19.1406H17.6758V39.6484ZM17.6758 16.2109H11.8164V10.3516H17.6758V16.2109ZM38.1836 39.6484H32.3242V27.9297C32.3242 26.3145 31.0097 25 29.3945 25C27.7794 25 26.4648 26.3145 26.4648 27.9297V39.6484H20.6055V19.1406H26.4648V20.245C27.9999 19.7678 28.997 19.1406 30.8594 19.1406C34.8331 19.1448 38.1836 22.7097 38.1836 26.9226V39.6484Z" fill="#8DC63F"/>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </article>
-
-                </div>
-
-                <div class="col-lg-12 d-none d-lg-block">
-                    <div id="box-thumbnail-photo" class="box-icon-mini owl-carousel owl-theme">
-                        <?php
-                            foreach ($album as $k => $item):
-                        ?>
-                        <div class="item">
-                            <a href="#<?php echo $k;?>"><img title="<?php echo $item['title']?>" src="<?php echo $item['sizes']['medium'];?>" alt="<?php echo $item['alt']?>"></a>
-                        </div>
-                        <?php endforeach;?>
-
-
-                    </div>
-                </div>
-
             </div>
-
         </div>
-    </section>
 
-    <section class="blog-comment blog-advert-gallery">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 px-2">
-                    <?php
-                    // If comments are open or we have at least one comment, load up the comment template.
-                    if ( comments_open() || get_comments_number() ) {
-                        comments_template();
-                    }
-                    ?>
+
+            <div class="row mb-lg-5">
+
+
+                <div class="col-lg-12">
+                    <h2 class="title-head-blue">
+                        EVENTS
+                    </h2>
                 </div>
 
-                <div class="col-lg-4 pd-lr-0">
-                    <div class="box-advert">
-                        <p>
-                            ENVZONE team members are known being very active across disruptive events. Surely, they will be proactive and innovative on your projects too.
-                        </p>
-                        <div class="sub-title">
-                            Interested in working with the team?
-                        </div>
-                        <a href="<?php echo home_url('contact-us')?>" class="btn btn-green-env">
-                            SCHEDULE ME WITH THE TEAM
-                        </a>
+                <div class="col-lg-4 order-lg-0 order-1 sidebar-advert">
+
+                    <div class="meeting-envzone-staff">
+                        <div class="title">Meet with EnvZone Staff</div>
+
+                        <?php
+                        $available = get_field('staff_join', $post->ID);
+                        if ($available ==  true):?>
+                        <article class="status-availible text-center">
+                            <img src="<?php echo ASSET_URL;?>images/icon-available-green.png" alt="">
+                            <div class="status">Available</div>
+                            <div class="form-connect">
+                                <?php
+                                echo do_shortcode('[gravityform id=16 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                            <p>No, I attend alone</p>
+                        </article>
+                        <?php else:?>
+                        <article class="status-unavailible text-center">
+                            <img src="<?php echo ASSET_URL;?>images/icon-unavailable-gray.png" alt="">
+                            <div class="status">Unavailable</div>
+                            <p>We will see you at next event.</p>
+                        </article>
+                        <?php endif;?>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="subscriber">
-        <!-- /*============SUBCRIBE HOME=================*/ -->
-        <div class="container-fluild section-parallax">
-            <div class="bg-green-home">
-                <div class="container content-subcribe">
-                    <div class="row">
-                        <div class="col-12 box-head-subcribe text-center">
-                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                            <p>
-                                Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
-                            </p>
+
+                    <div class="box-subscriber-blog d-lg-block d-none">
+                        <div class="box-border">
+                            <div class="title-sub">
+                                Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
+                            </div>
                             <div class="form-subscribe">
                                 <?php
                                 echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
@@ -203,16 +78,85 @@ get_header();
                         </div>
                     </div>
 
+
                 </div>
+
+                <div class="col-lg-8 order-lg-1 order-0 box-info-event-0">
+                    <article class="content-event">
+                        <div class="box-head">
+                            <h1>
+                                <?php echo $post->post_title;?>
+                            </h1>
+                            <div class="host-name">
+                                <?php echo get_field('location', $post->ID);?>
+                            </div>
+                        </div>
+
+
+                        <div class="event-time clearfix">
+                            <span class="date"><?php echo get_field('date', $post->ID);?></span>
+                            <div class="time">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 0C6.729 0 0 6.729 0 15C0 23.271 6.729 30 15 30C23.271 30 30 23.271 30 15C30 6.729 23.271 0 15 0ZM15 29C7.2805 29 1 22.7195 1 15C1 7.2805 7.2805 1 15 1C22.7195 1 29 7.2805 29 15C29 22.7195 22.7195 29 15 29Z" fill="#8DC63F"/>
+                                    <path d="M15 3C14.724 3 14.5 3.2235 14.5 3.5V15H7C6.724 15 6.5 15.2235 6.5 15.5C6.5 15.7765 6.724 16 7 16H15C15.276 16 15.5 15.7765 15.5 15.5V3.5C15.5 3.2235 15.276 3 15 3Z" fill="#8DC63F"/>
+                                </svg>
+                                <?php echo get_field('time_duration', $post->ID);?>
+                            </div>
+                            <div class="tag">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M29.4558 13.2382L24.321 6.23397C23.6446 5.31155 22.2732 4.61667 21.1356 4.61667H2.41058C1.0823 4.61667 0 5.69897 0 7.02725V22.9727C0 24.301 1.0823 25.3833 2.41058 25.3833H21.1356C22.2794 25.3833 23.6507 24.6884 24.321 23.766L29.4558 16.7618C30.1814 15.7779 30.1814 14.2282 29.4558 13.2382ZM28.1152 15.7902L22.9804 22.7944C22.6238 23.2863 21.7382 23.7291 21.1294 23.7291H2.41058C1.99857 23.7291 1.66035 23.3909 1.66035 22.9789V7.02725C1.66035 6.61523 1.99857 6.27702 2.41058 6.27702H21.1356C21.7444 6.27702 22.6238 6.72592 22.9866 7.21173L28.1213 14.2159C28.4165 14.6279 28.4165 15.3782 28.1152 15.7902Z" fill="#8DC63F"/>
+                                </svg>
+                                    <?php
+                                        if (get_the_tags($post->ID) != ''):
+                                            foreach (get_the_tags($post->ID) as $tag):
+                                    ?>
+                                                <a href="<?php echo home_url('tag/'.$tag->slug);?>"><?php echo $tag->name;?></a>,
+
+                                    <?php endforeach;
+                                        else:
+                                            echo 'No Efficiency';
+                                        endif;
+
+                                    ?>
+
+                            </div>
+                        </div>
+
+                        <div class="post-content">
+                            <?php
+                                echo $post->post_content;
+                            ?>
+                        </div>
+
+                        <div class="box-direct">
+                            <a target="_blank" rel="nofollow" href="<?php echo get_field('url_event', $post->ID);?>" class="btn btn-blue-env btn-make-direct">MAKE RSVP</a>
+                        </div>
+
+                    </article>
+
+                    <div class="location-event d-lg-block d-none">
+                        <div class="title-local">Location of Event</div>
+                        <p>
+                            <?php echo get_field('address', $post->ID);?>
+                        </p>
+                    </div>
+
+                    <div class="box-comments">
+                    <?php
+                    if ( comments_open() || get_comments_number() ) {
+                        comments_template();
+                    }
+                    ?>
+                    </div>
+                </div>
+
             </div>
 
         </div>
-        <!-- /*============END SUBCRIBE HOME=================*/ -->
-    </section>
 
-    <section class="artical-page blog-page blog-detail-page">
+
         <div class="container">
-            <div class="row section-trending">
+            <div class="row section-trending no-print d-lg-block d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH MORE OUR HIGHLIGHT ACTIVITIES</h3>
                     <a href="<?php echo home_url('studio')?>" class="view-all">VIEW ALL</a>
@@ -276,19 +220,20 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending d-lg-flex d-none">
+            <div class="row section-trending no-print d-lg-block d-none">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">READ MORE FROM EXPERTS</h3>
-                    <a href="<?php echo home_url('blog')?>" class="view-all">VIEW ALL</a>
+                    <a href="<?php echo home_url('blog')?>"><h3 class="title-head-blue have-border">READ MORE FROM EXPERTS</h3></a>
+                    <a href="<?php echo home_url('blog')?>" class="view-all d-lg-inline-block d-none">VIEW ALL</a>
                 </div>
-                <div class="col-lg-12">
-                    <div class="owl-carousel owl-theme d-flex slider-news">
+                <div class="col-lg-12 box-item-horizontal-mb">
+                    <div class="owl-carousel owl-theme d-lg-flex d-block slider-news">
                         <?php
                         $args = array(
                             'posts_per_page' => 10,
                             'offset'=> 0,
                             'post_type' => 'post',
-                            'orderby' => 'post_modified',
+                            'post__not_in' => $post_isset,
+                            'orderby' => 'id',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -298,12 +243,13 @@ get_header();
                                     'compare' => 'LIKE',
                                 )
                             )
+
                         );
                         $news_expert = get_posts( $args );
 
                         foreach ($news_expert as $item):
                             ?>
-                            <article class="highlight-news-right img-center item">
+                            <article class="highlight-news-right img-center clearfix item">
                                 <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
                                 </a>
@@ -316,7 +262,7 @@ get_header();
                                             <?php echo $item->post_title;?>
                                         </h2>
                                     </a>
-                                    <div class="audit">
+                                    <div class="audit d-lg-block d-none">
                                         <?php
                                         if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                             $avatar = ASSET_URL.'images/avatar-default.png';
@@ -333,15 +279,18 @@ get_header();
                                     </div>
                                 </div>
                             </article>
-                        <?php endforeach;?>
+                        <?php
+                        endforeach;
+                        $post_isset = '';
+                        ?>
                     </div>
                 </div>
             </div>
 
-            <div class="row section-trending d-lg-flex d-none">
+            <div class="row section-trending no-print d-lg-block d-none">
                 <div class="col-12 border-header">
-                    <h3 class="title-head-blue have-border">WATCH MORE FROM C-LEVEL ADVICES</h3>
-                    <a href="<?php echo home_url('knowledge_center')?>" class="view-all">VIEW ALL</a>
+                    <h3 class="title-head-blue have-border">LEARN MORE ABOUT C-LEVEL ADVICES</h3>
+                    <a href="<?php echo home_url('knowledge-center')?>" class="view-all">VIEW ALL</a>
                 </div>
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-theme d-flex slider-news">
@@ -350,7 +299,7 @@ get_header();
                             'posts_per_page' => 7,
                             'offset'=> 0,
                             'post_type' => 'knowledge_center',
-                            'orderby' => 'post_modified',
+                            'orderby' => 'id',
                             'order' =>'desc',
                             'meta_query' => array(
                                 'relation' => 'OR',
@@ -391,7 +340,7 @@ get_header();
                                     <div class="audit">
                                         <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
                                         <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
-                                           By <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                            By <?php echo get_the_author_meta('display_name', $item->post_author);?>
                                         </a>
                                         <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                     </div>
@@ -402,7 +351,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="row section-trending d-lg-flex d-none">
+            <div class="row section-trending no-print d-lg-block d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">WATCH OUR ROCKSTARS ON DISRUPTIVE EVENTS</h3>
                     <a href="<?php echo home_url('studio')?>" class="view-all">VIEW ALL</a>
@@ -411,10 +360,10 @@ get_header();
                     <div class="owl-carousel owl-theme d-flex slider-news">
                         <?php
                         $args = array(
-                            'posts_per_page' => 10,
+                            'posts_per_page' => 7,
                             'offset'=> 0,
                             'post_type' => 'studio_motion',
-                            'orderby' => 'post_modified',
+                            'orderby' => 'id',
                             'order' =>'desc'
                         );
                         $news_expert = get_posts( $args );
@@ -457,51 +406,11 @@ get_header();
                 </div>
             </div>
         </div>
+
     </section>
-
 </main>
-
-<script>
-    /*============ slide news =================*/
-    $(document).ready(function() {
-
-        /*slider product detail*/
-        $(".carousel-photo-detail").owlCarousel({
-            items:1,
-            margin:0,
-            stagePadding: 0,
-            smartSpeed: 500,
-            loop: false,
-            nav: true,
-            dots: false,
-            autoplay: true,
-            slideBy: 1,
-            autoplayTimeout:5000,
-            URLhashListener:true,
-            autoplayHoverPause:true,
-            startPosition: 'URLHash',
-            navText: [
-                '<i class="btn-next-slide"></i>',
-                '<i class="btn-prev-slide"></i>'
-            ]
-        });
-
-        $(".box-icon-mini").owlCarousel({
-            center: false,
-            items:6,
-            margin:10,
-            stagePadding: 0,
-            smartSpeed: 300,
-            loop: false,
-            nav: true,
-            dots: false,
-            slideBy: 3,
-            navText: [
-                '<i class="btn-next-slide"></i>',
-                '<i class="btn-prev-slide"></i>'
-            ]
-        });
-        /* end slider product detail*/
+<script type="text/javascript">
+    $(document).ready(function () {
 
         $('.blog-page .highlight-news-right .info-news h2').matchHeight({
             byRow: true,
@@ -510,13 +419,36 @@ get_header();
             remove: false
         });
 
+        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+
+        $(".box-analaze-blog .analyze-form #gform_submit_button_12").val('ANALYZE FOR CHANCE OF SUCCESS');
+
+
+        if ( $(window).width() > 768 ) {
+            startCarousel();
+
+        } else {
+            $('.slider-news').addClass('off');
+        }
+
+    });
+
+    $(window).resize(function() {
+        if ( $(window).width() > 768 ) {
+            startCarousel();
+        } else {
+            stopCarousel();
+        }
+    });
+
+    function startCarousel() {
         $('.slider-news').owlCarousel({
             loop: false,
             margin: 30,
             nav: true,
             dots: false,
             autoplay: false,
-            autoplayTimeout: 5000,
+            autoplayTimeout: 2000,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {
                 0: {
@@ -533,10 +465,14 @@ get_header();
                 }
             }
         });
+    }
 
-    });
+    function stopCarousel() {
+        var owl = $('.slider-news');
+        owl.trigger('destroy.owl.carousel');
+        owl.addClass('off');
+    }
 </script>
-
 <?php
 get_footer();
 ?>

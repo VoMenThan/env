@@ -26,7 +26,7 @@
             <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
             <span>By:</span>
             <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a>
-            <div class="date-public">Updated <?php echo get_the_date( 'M d, Y', $item->ID );?></div>
+            <div class="date-public">Updated <?php echo get_the_date( 'M d, Y', $post->ID );?></div>
         </div>
     </div>
 </article>

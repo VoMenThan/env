@@ -71,3 +71,229 @@
     margin-bottom: 30px;
   }
 }
+
+.event-detail-page{
+  .content-event{
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    @include shadow-out(0px, 6px, 4px, rgba(0, 0, 0, 0.5));
+    margin-bottom: 30px;
+    *{
+      font-family: $font-roboto;
+    }
+    .box-head{
+      padding: 20px 15px;
+      border-bottom: 1px solid #BDBDBD;
+    }
+    h1{
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 152.62%;
+      color: #4F4F4F;
+      margin-bottom: 20px;
+    }
+    .host-name{
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 152.62%;
+      color: #828282;
+    }
+    .event-time{
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 152.62%;
+      color: #808080;
+      padding: 20px 15px;
+      border-bottom: 1px solid #BDBDBD;
+      .date{
+        background: #0D3153;
+        @include radius(50%);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        @include display-flex();
+        @include align-items(center);
+        @include justify-content(center);
+        color: #E0E0E0;
+        width: 80px;
+        height: 80px;
+        float: left;
+        margin-right: 30px;
+      }
+      svg{
+        vertical-align: middle;
+        margin-right: 15px;
+      }
+      .time{
+        margin-bottom: 15px;
+      }
+    }
+    .post-content{
+      padding: 20px 15px;
+      padding-bottom: 50px;
+    }
+    .box-direct{
+      background: #E0E0E0;
+      padding: 20px;
+      .btn-make-direct{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 129.14%;
+        color: #FFFFFF;
+        width: 100%;
+      }
+    }
+    p{
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 140.62%;
+      color: #808080;
+    }
+  }
+  .location-event{
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    @include shadow-out(0px, 6px, 4px, rgba(0, 0, 0, 0.5));
+    margin-bottom: 30px;
+    *{
+      font-family: $font-roboto;
+    }
+    .title-local{
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 152.62%;
+      color: #4F4F4F;
+      margin-bottom: 15px;
+    }
+    p{
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 152.62%;
+      color: #808080;
+    }
+  }
+
+  .meeting-envzone-staff{
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    padding: 40px;
+    margin-bottom: 30px;
+    .title{
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 140%;
+      text-align: center;
+      color: #0D3153;
+      position: relative;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      &:after{
+        content: '';
+        width: 50px;
+        display: inline-block;
+        border-bottom: 2px solid #8DC63F;
+        position: absolute;
+        left: calc(50% - 25px);
+        bottom: 0;
+      }
+    }
+    img{
+      margin-bottom: 15px;
+    }
+    .status-availible{
+      .status{
+        text-align: center;
+        color: #4F4F4F;
+        font-size: 18px;
+        line-height: 140.88%;
+        margin-bottom: 20px;
+      }
+      p{
+        font-size: 16px;
+        line-height: 129.14%;
+        text-align: center;
+        color: #828282;
+      }
+    }
+
+    .status-unavailible{
+      .status{
+        text-align: center;
+        color: #4F4F4F;
+        font-size: 18px;
+        line-height: 140.88%;
+        margin-bottom: 20px;
+      }
+      p{
+        font-size: 16px;
+        line-height: 129.14%;
+        text-align: center;
+        color: #828282;
+      }
+    }
+  }
+}
+
+
+
+/*END CSS CUSTOM GET MY SUCCESSION PLAN*/
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .event-detail-page {
+    .title-head-blue{
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 34px;
+      color: #4F4F4F;
+    }
+    .box-info-event-0{
+      padding-right: 0;
+      padding-left: 0;
+    }
+    .box-comments{
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 30px;
+    }
+    .content-event {
+      h1 {
+        font-size: 22px;
+        line-height: 152.62%;
+        margin-bottom: 0;
+      }
+      .host-name{
+        font-size: 18px;
+        line-height: 152.62%;
+      }
+      .event-time {
+        svg{
+          margin-right: 5px;
+          width: 25px;
+          height: 25px;
+        }
+        .date{
+          margin-right: 10px;
+          width: 65px;
+          height: 65px;
+        }
+        .time{
+          margin-bottom: 5px;
+        }
+        .time, .tag{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

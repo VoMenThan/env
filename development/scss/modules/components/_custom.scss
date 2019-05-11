@@ -1179,6 +1179,8 @@ body #gform_wrapper_10 .top_label div.ginput_container{
 
 }
 
+
+
 /*Button subscription menu mobile*/
 header{
     .box-check-avaibility{
@@ -1193,8 +1195,49 @@ header{
     }
 
 }
-
 /*Button subscription menu mobile*/
+
+
+#gform_wrapper_16 {
+    ul.gform_fields {
+        li.gfield{
+            padding-right: 0;
+        }
+    }
+    li.hidden_label {
+        input {
+            margin: auto;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 5px;
+            background: #F2F2F2;
+            border: none;
+            max-width: 100%;
+            font-size: 16px;
+            line-height: 152.62%;
+            color: #BDBDBD;
+        }
+    }
+   .gform_footer {
+       input{
+           color: #ffffff !important;
+           background-color: $color-green-logo;
+           padding: 10px 25px;
+           font-weight: bold;
+           border-radius: 5px;
+           max-width: 100%;
+           white-space: normal;
+           margin-right: 0;
+           width: 100%;
+           font-size: 16px;
+           line-height: 129.14%;
+           margin-top: 0;
+       }
+   }
+}
+
+
+
 
 /*END CSS CUSTOM GET MY SUCCESSION PLAN*/
 
