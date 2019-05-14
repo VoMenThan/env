@@ -30,33 +30,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="box-customer-support">
-                        <h1 class="title-head-blue title-top">Is ENVZONE a Fit for you?</h1>
-                        <p>
-                            We have the capabilities to streamline the development process of building everything from custom simple marketing sites to robust integrated platforms, and every custom feature in between. To scope every project, we start by understanding the goals, recommending features, and estimating the effort to build that feature set.
-                        </p>
-                        <p>
-                            Here is some information that may help you understand if ENVZONE is a fit for your project. If you meet these criteria, it’s likely that we can help.
-                        </p>
-
-                        <h4>1. I’m looking to hire a couple developers for a short-term contract.
-                        </h4>
-
-                        <p>
-                            If you are just looking for one or two developers for a couple of months, ENVZONE probably isn’t a fit. A website like Upwork can supply your demand for temporary need. Our specialty is the full life-cycle project. That means planning, designing and building a new site from scratch. It’s the best way we know to get the best possible results.
-                        </p>
-
-                        <h4>
-                            2. My budget is aligned with my expectations.
-                        </h4>
-                        <p>The outcome is an integrated website platform or custom app. Given that our process is robust and critical to the success of our projects, the custom responsive sites with business value driven have budgets starting around $30,000 and ranging up to six figures.
-                        </p>
-
-                        <h4>
-                            3. I’m looking for a long-term partner.
-                        </h4>
-                        <p>
-                            ENVZONE is staffed and structured to provide ongoing technical support, maintenance advice, and performance reviews. While some software companies might launch a site and then part ways, ENVZONE prefers to remain available to ensure that long-term expectations are met.
-                        </p>
+                        <?php echo get_the_content();?>
                     </div>
 
 

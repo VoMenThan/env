@@ -20,33 +20,9 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="box-customer-support">
-                        <h1 class="title-head-blue title-top">Customer Support</h1>
+                        <h1 class="title-head-blue title-top"><?php echo get_the_title();?></h1>
                         <article>
-                            <p>Help is on the way!</p>
-                            <p>
-                                <b>There are two ways to connect with the support team:</b>
-                            </p>
-                            <p>
-                                1. SUBMIT A TICKET FOR THE FASTEST SERVICE ON OUR PORTAL.
-                            </p>
-                            <p>
-                                2. CALL 720.606.2900 AND LEAVE US A MESSAGE.
-                            </p>
-
-                        </article>
-                        <article>
-                            <p>
-                                <b>How much does support cost?</b>
-                            </p>
-
-                            <p>If something is broken or there is a problem with hosting, there is no charge for support!</p>
-
-                            <p>
-                                If it’s something else, EnvZone charges $135 per hour for support services. If the request will take more than four hours to complete, we’ll provide an estimate for approval.
-                            </p>
-                            <p>
-                                Any questions? Take a look at our Support and Maintenance Policy.
-                            </p>
+                            <?php echo get_the_content();?>
                         </article>
                     </div>
 

@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-it-outsourcing-services.png">
-        <h1>IT OUTSOURCING</h1>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
         <div class="row">
@@ -21,101 +21,78 @@
 
             <div class="row justify-content-md-center mb-5">
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">Why choose Envzone for IT Outsourcing</h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_why_choose_envzone', $post->ID);?></h2>
                 </div>
                 <div class="col-lg-8">
                     <div class="description-overhead">
                         <ul>
+                            <?php
+                                $list_why_choose = get_field('list_reason_choose_envzone', $post->ID);
+                                foreach ($list_why_choose as $item):
+                            ?>
                             <li class="list-choose">
-                                Envzone has high quality IT engineers as partners.
+                                <?php echo $item['name_reason'];?>
                             </li>
-                            <li class="list-choose">
-                                We provide services across almost all technology platforms, work on operating systems and infrastructures.
-                            </li>
-                            <li class="list-choose">
-                                Our virtual workers can deliver your product within record time to let you focus better to meet your requirements.
-                            </li>
+                            <?php endforeach;?>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET YOUR OWN DEDICATED TEAM</a>
+                    <a href="<?php echo get_field('link_dedicated_team', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('name_button_dedicated_team', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
             <div class="row justify-content-md-center mb-5">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">Services offered by our trusted partners</h1>
+                    <h2 class="title-head-blue text-center">
+                        <?php echo get_field('title_services_offered', $post->ID);?>
+                    </h2>
                 </div>
 
                 <div class="col-lg-9 col-md-10">
                     <div class="row">
+
+                        <?php
+                        $list_services = get_field('list_services_offered', $post->ID);
+                        for($i = 0; $i < 3; $i++):
+                        ?>
                         <div class="col-lg-4 col-md-4 col-6">
                             <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-custom-software-development.png" alt="">
+                                <img src="<?php echo $list_services[$i]['icon_service']?>" alt="">
                                 <p>
-                                    Custom Software Development
+                                    <?php echo $list_services[$i]['name_service']?>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-6">
-                            <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-tech-customer-support.png" alt="">
-                                <p>
-                                    Tech/Customer Support
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 item-special text-center">
-                            <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-application-integration-soa.png" alt="">
-                                <p>
-                                    Application Integration / SOA
-                                </p>
-                            </div>
-                        </div>
+                        <?php endfor;?>
                     </div>
                 </div>
 
                 <div class="col-lg-12 col-md-12 box-mb-120">
                     <div class="row">
+
+                        <?php
+
+                        for($i = 3; $i < count($list_services); $i++):
+                        ?>
                         <div class="col-lg-3 col-md-3 col-6 text-center">
                             <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-qa-outsourcing-services.png" alt="">
+                                <img src="<?php echo $list_services[$i]['icon_service']?>" alt="">
                                 <p>
-                                    QA Outsourcing Services
+                                    <?php echo $list_services[$i]['name_service']?>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-6 text-center">
-                            <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-mobile-solutions-development.png" alt="">
-                                <p>
-                                    Mobile Solutions Development
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-6 text-center">
-                            <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-embedded-development.png" alt="">
-                                <p>
-                                    Embedded Development
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-6 text-center">
-                            <div class="item-service-offered d-flex align-items-center justify-content-center flex-column text-center">
-                                <img src="<?php echo ASSET_URL;?>images/icon-database-consulting.png" alt="">
-                                <p>
-                                    Database Consulting
-                                </p>
-                            </div>
-                        </div>
+                        <?php endfor;?>
                     </div>
                 </div>
 
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">SUBMIT YOUR REQUIREMENTS</a>
+                    <a href="<?php echo get_field('link_button_requirement', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('name_button_requirement', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
@@ -129,66 +106,46 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        WE MAKE TEAM LEADERS FREE UP THEIR THEIR MIND
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
                     <div class="description-business">
-                        A premium outsourcing solution for minimum management and maximum output
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">Schedule an Appointment Now</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>

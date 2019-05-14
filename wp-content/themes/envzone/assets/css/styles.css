@@ -10890,6 +10890,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-transform: uppercase;
 }
 .banner-top.bg-blue h2 {
   -webkit-transform: translate(-50%, -50%);

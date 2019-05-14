@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-devops.png">
-        <h1>DEVOPS</h1>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
         <div class="row">
@@ -22,124 +22,88 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-9">
                     <div class="description-overhead title-blue text-left">
-                        <p>
-                            A holistic approach that ties the bond with software engineer and IT operations employee - DevOps ensures fast, continuous delivery and consistently high level of software quality for your business.
-                        </p>
-                        <p>
-                            Our Envzone's engineers guarantee to devote their expertise to the development, testing, security, and support so that your business is equipped with high-quality software.
-                        </p>
+                        <?php echo get_the_content();?>
                     </div>
                 </div>
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">OUR PROCESS</h1>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_our_process', $post->ID);?></h2>
                 </div>
                 <div class="col-12 text-center d-sm-block d-none">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-our-process.png" alt="">
+                    <img class="img-fluid" src="<?php echo get_field('image_process', $post->ID);?>" alt="">
                 </div>
                 <div class="col-12 d-sm-none d-block">
+
+                    <?php
+                        $list_our_process = get_field('list_our_process', $post->ID);
+                        foreach ($list_our_process as $item):
+                    ?>
                     <div class="item-our-process clearfix">
                         <div class="box-img">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-our-analyze.png" alt="">
+                            <img class="img-fluid" src="<?php echo $item['image_process']?>" alt="">
                             <div class="title-our-process">
-                                ANALYZE
+                                <?php echo $item['title_process']?>
                             </div>
                         </div>
                         <p>
-                            We take a look from A to Z at your IT processes to identify and pinpoint obstacles preventing you from your success
+                            <?php echo $item['description_process']?>
                         </p>
                     </div>
-
-                    <div class="item-our-process clearfix">
-                        <div class="box-img">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-our-determine.png" alt="">
-                            <div class="title-our-process">
-                                DETERMINE A SOLUTION
-                            </div>
-                        </div>
-                        <p>
-                            We take a look from A to Z at your IT processes to identify and pinpoint obstacles preventing you from your success
-                        </p>
-                    </div>
-
-                    <div class="item-our-process clearfix">
-                        <div class="box-img">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-our-impemention.png" alt="">
-                            <div class="title-our-process">
-                                IMPLEMEN- -TATION
-                            </div>
-                        </div>
-                        <p>
-                            Our talent team can deal with any problem may arise to your software with continuous and consistent update aligning with
-                            your business goals and culture.
-                        </p>
-                    </div>
-
-                    <div class="item-our-process clearfix mb-0">
-                        <div class="box-img">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-our-support.png" alt="">
-                            <div class="title-our-process">
-                                SUPPORT
-                            </div>
-                        </div>
-                        <p>
-                            The integration is a continued and complex procedure. We provide support until the software fully operates
-                            in line with your business.
-                        </p>
-                    </div>
-
+                    <?php endforeach;?>
 
                 </div>
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">REQUEST YOUR ACTIVE PROCESS</a>
+                    <a href="<?php echo get_field('link_button_process', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('name_button_process', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
             <div class="row justify-content-md-center mb-lg-5">
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">WHAT WE OFFER</h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_we_offer', $post->ID);?></h2>
                 </div>
 
                 <div class="col-lg-12">
                     <div class="item-offer-experience">
                         <div class="topic-left">
                             <h3>
-                                Broad Experience
+                                <?php echo get_field('title_broad_experience', $post->ID);?>
                             </h3>
                             <p>
-                                We serve clients in multiple industries with our clear and consistent approach to project management.
+                                <?php echo get_field('description_broad_experience', $post->ID);?>
                             </p>
                         </div>
                         <div class="topic-right">
                             <h3>
-                                Niche Skills
+                                <?php echo get_field('title_niche_skills', $post->ID);?>
                             </h3>
                             <p>
-                                With our experienced, equipped with different hard and soft skills team, your business can expect an impactful DevOps solution.
+                                <?php echo get_field('description_niche_skills', $post->ID);?>
                             </p>
                         </div>
                     </div>
                     <div class="item-offer-experience">
                         <div class="topic-left">
                             <h3>
-                                Flexibility
+                                <?php echo get_field('title_flexibility', $post->ID);?>
                             </h3>
                             <p>
-                                Our process of pricing and hiring can be customized to your business needs in an ever-changing marketplace.
+                                <?php echo get_field('description_holistic_approach', $post->ID);?>
                             </p>
                         </div>
                         <div class="topic-right">
                             <h3>
-                                Holistic Approach
+                                <?php echo get_field('title_holistic_approach', $post->ID);?>
                             </h3>
                             <p>
-                                We take a full-scale look from all perspectives to provide a suitable approach that fits your business.
+                                <?php echo get_field('description_holistic_approach', $post->ID);?>
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">SUBMIT YOUR REQUIREMENTS</a>
+                    <a href="<?php echo get_field('link_button_requirement', $post->ID);?>" class="btn btn-blue-env"><?php echo get_field('name_button_requirement', $post->ID);?></a>
                 </div>
             </div>
 
@@ -153,69 +117,48 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        WE MAKE TEAM LEADERS FREE UP THEIR THEIR MIND
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
                     <div class="description-business">
-                        A premium outsourcing solution for minimum management and maximum output
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">Schedule an Appointment Now</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
-        </div>
     </div>
     <!--END WHY BUSINESS-->
 

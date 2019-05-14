@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-testing.png">
-        <h2>TESTING</h2>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
         <div class="row">
@@ -21,102 +21,94 @@
 
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h1 class="title-head-blue text-center">Deliver high-quality software at a rapid pace</h1>
+                    <h2 class="title-head-blue text-center">
+                        <?php echo get_field('title_deliver', $post->ID);?>
+                    </h2>
                 </div>
 
                 <div class="col-lg-6 col-md-6 order-md-0 order-1 info-step d-flex align-items-center">
                     <p>
-                        Instead of struggling with legacy software that hasn’t kept up with the changes in testing and development, the solution from our teams that supports all the latest processes and methodologies like Agile, DevOps, BDD and more.
+                        <?php echo get_field('description_test_smarter', $post->ID);?>
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-6 order-md-1 order-0 text-center item-test bg-green">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-test-smarter.png" alt="">
-                    <h3>Test Smarter</h3>
+                    <img class="img-fluid" src="<?php echo get_field('icon_test_smarter', $post->ID);?>" alt="">
+                    <h3>
+                        <?php echo get_field('title_test_smarter', $post->ID);?>
+                    </h3>
                 </div>
             </div>
 
             <div class="row justify-content-md-center">
                 <div class="col-lg-6 col-md-6 text-center item-test bg-blue">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/test-faster.png" alt="">
-                    <h3 class="title-green">Test Faster</h3>
+                    <img class="img-fluid" src="<?php echo get_field('icon_test_faster', $post->ID);?>" alt="">
+                    <h3 class="title-green"><?php echo get_field('title_test_faster', $post->ID);?></h3>
                 </div>
                 <div class="col-lg-6 col-md-6 info-step d-flex align-items-center">
                     <p>
-                        EnvZone qualified testing teams use effective tools integrates in real-time with your tech stack and helps testing keep up with the pace of development.
-
+                        <?php echo get_field('description_test_faster', $post->ID);?>
                     </p>
                 </div>
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-lg-6 col-md-6 order-md-0 order-1 info-step d-flex align-items-center">
                     <p>
-                        Instead of being forced to settle for suboptimal testing solution because the size of your enterprise, you need an innovative platform with functionality, flexibility, reporting and security that can scale for your organization.
+                        <?php echo get_field('description_test_at_scale', $post->ID);?>
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-6 order-md-1 order-0 text-center item-test bg-green">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/test-at-scale.png" alt="">
-                    <h3>Test at Scale</h3>
+                    <img class="img-fluid" src="<?php echo get_field('icon_test_at_scale', $post->ID);?>" alt="">
+                    <h3><?php echo get_field('title_at_scale', $post->ID);?></h3>
                 </div>
 
                 <div class="col-12 text-center btn-submit order-2">
-                    <a href="#" class="btn btn-blue-env">Connect Me to a Testing Team</a>
+                    <a href="<?php echo get_field('link_connect_me', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('name_button_connect_me', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">Deploy with confidence</h2>
+                    <h2 class="title-head-blue text-center">
+                        <?php echo get_field('title_deploy', $post->ID);?>
+                    </h2>
                 </div>
+                <?php
+                    $list_deploy = get_field('list_deploy_with_confidence', $post->ID);
+                    foreach ($list_deploy as $item):
+                ?>
                 <div class="col-lg-6 col-md-6">
                     <div class="item-deploy-confidence d-flex justify-content-between align-items-center">
                         <p>
-                            Deliver integrated and stand-alone testing services
+                            <?php echo $item['description_deploy']?>
                         </p>
-                        <img src="<?php echo ASSET_URL;?>images/icon-deliver-intergrated.png" alt="">
+                        <img src="<?php echo $item['icon_deploy']?>" alt="">
                     </div>
                 </div>
+                <?php endforeach;?>
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="item-deploy-confidence d-flex justify-content-between align-items-center">
-                        <p>
-                            Expert in various technologies
-                        </p>
-                        <img src="<?php echo ASSET_URL;?>images/icon-expert-in-various.png" alt="">
-                    </div>
-                </div>
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="item-deploy-confidence d-flex justify-content-between align-items-center">
-                        <p>
-                            Use testing processes
-                        </p>
-                        <img src="<?php echo ASSET_URL;?>images/icon-use-testing-processes.png" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="item-deploy-confidence d-flex justify-content-between align-items-center">
-                        <p>
-                            Expert in testing software applications; web, mobile and cross-platform
-                        </p>
-                        <img src="<?php echo ASSET_URL;?>images/expert-in-testing-software.png" alt="">
-                    </div>
-                </div>
 
                 <div class="col-12 mb-5">
                     <div class="title-blue">
-                        Our offshore vendors offer supreme quality assurance with deep understanding of your business application.
+                        <?php echo get_field('description_deploy_with_confidence', $post->ID);?>
                     </div>
                 </div>
 
                 <div class="col-12 d-flex justify-content-around">
-                    <div class="item-qa d-flex align-items-center">QA Consulting</div>
-                    <div class="item-qa d-flex align-items-center">Full-Cycle QA</div>
-                    <div class="item-qa d-flex align-items-center">Software Testing</div>
+                    <?php
+                    $list_qa = get_field('list_qa', $post->ID);
+                    foreach ($list_qa as $item):
+                    ?>
+                    <div class="item-qa d-flex align-items-center"><?php echo $item['name_qa']?></div>
+                    <?php endforeach;?>
                 </div>
 
                 <div class="col-12 text-center btn-submit">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">SUBMIT MY REQUIREMENTS</a>
+                    <a href="<?php echo get_field('link_button_submit_requirement', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('name_button_submit_requirement', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
@@ -130,66 +122,46 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        WE MAKE TEAM LEADERS FREE UP THEIR THEIR MIND
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
                     <div class="description-business">
-                        A premium outsourcing solution for minimum management and maximum output
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">Schedule an Appointment Now</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>

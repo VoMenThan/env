@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-real-estate.png">
-        <h1>REAL ESTATE & PROPERTY</h1>
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
         <div class="row">
@@ -21,40 +21,41 @@
 
             <div class="row justify-content-md-center mb-5">
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_fully_aware', $post->ID);?></h2>
                 </div>
             </div>
 
+            <?php $list_aware = get_field('list_aware', $post->ID);
+                foreach ($list_aware as $item):
+            ?>
             <div class="row mb-3">
                 <div class="col-lg-3 text-lg-center">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-eighty-percent.png" alt="">
+                    <img class="img-fluid" src="<?php echo $item['image_aware'];?>" alt="">
                 </div>
                 <div class="col-lg-9 info-fully">
-                    investors believe CRE companies should utilize the use of technology advancement such as business analytics, business intelligence to make future buildings ready(*)
+                    <?php echo $item['description_aware'];?>
                 </div>
             </div>
+            <?php endforeach;?>
+
             <div class="row">
-                <div class="col-lg-3 text-lg-center">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-strategy.png" alt="">
-                </div>
-                <div class="col-lg-9 info-fully info-fully-below">
-                    most companies tactically concentrate on individual technologies relevant for a specific business area.
-                </div>
-                <div class="col-12 mt-3 info-note">*according to Deloitte’s commercial real estate report</div>
+                <div class="col-12 info-note"><?php echo get_field('note_aware', $post->ID);?></div>
             </div>
+
+
             <div class="col-12 text-center btn-learn-more">
-                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                <a href="<?php echo get_field('link_button_learn_more', $post->ID);?>" class="btn btn-blue-env">
+                    <?php echo get_field('name_button_learn_more', $post->ID);?>
+                </a>
             </div>
         </div>
         <div class="container-fluid bg-gray-process real-estate-article">
             <div class="container">
                 <div class="row justify-content-md-center mb-5">
                     <div class="col-lg-6">
-                        <h2 class="title-head-blue text-center">What we offer</h2>
+                        <h2 class="title-head-blue text-center"><?php echo get_field('title_we_offer', $post->ID);?></h2>
                         <div class="description-offer">
-                            At Envzone, we get real with real estate.
-                            <br>
-                            We understand the complexity of your business and the challenges you meet daily. Our top-notch offshore team know precisely how to deliver a property management software supporting your wise decisions.
+                            <?php echo get_field('description_we_offer', $post->ID);?>
                         </div>
                     </div>
                 </div>
@@ -62,51 +63,23 @@
                 <div class="row justify-content-md-center">
                     <div class="col-lg-10">
                         <div class="row justify-content-md-center">
+                            <?php $list_we_offer = get_field('list_we_offer', $post->ID);
+                            foreach ($list_we_offer as $item):
+                            ?>
                             <div class="col-xl-4 col-lg-4 ">
                                 <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-evaluete-cost.png" alt="">
+                                    <img class="img-fluid m-auto d-block" src="<?php echo $item['icon_offer']?>" alt="">
                                     <p>
-                                        Evaluate cost, feasibility and monitor property availability
+                                        <?php echo $item['description_offer']?>
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 ">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-help-in.png" alt="">
-                                    <p>
-                                        Secure your data to meet the strict regulatory standards of the industry
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 ">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-software-development.png" alt="">
-                                    <p>
-                                        Develop ERP solutions to handle legal documents, reports, property data and sales.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 ">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-deliver-customized.png" alt="">
-                                    <p>
-                                        Deliver customized CRM tools.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 ">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-boost-your-client.png" alt="">
-                                    <p>
-                                        Boost your client’s engagement and enhance your service
-                                    </p>
-                                </div>
-                            </div>
-
+                            <?php endforeach;?>
                             <div class="col-12 text-center">
-                                <h3 class="pb-4 pt-4">READY TO GET REAL?</h3>
-                                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mb-4">SCHEDULE AN APPOINTMENT</a>
+                                <h3 class="pb-4 pt-4"><?php echo get_field('subtitle_offer', $post->ID);?></h3>
+                                <a href="<?php echo get_field('link_button_schedule_an_appointment', $post->ID);?>" class="btn btn-blue-env mb-4">
+                                    <?php echo get_field('name_button_schedule_an_appointment', $post->ID);?>
+                                </a>
                             </div>
 
                         </div>
@@ -124,66 +97,46 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        THE REASONS TO CHOOSE ENVZONE
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
                     <div class="description-business">
-                        We help you to be an active element in the competitive market by providing top notch technologies, thus enhance customer experience once they access to your platforms.
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">CONNECT ME TO A TEAM</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>
