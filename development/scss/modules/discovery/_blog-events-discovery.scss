@@ -33,9 +33,11 @@
       margin-left: 15px;
       float: left;
       font-weight: bold;
+      width: 130px;
+      text-align: center;
     }
     .box-info{
-      padding-left: 20%;
+      padding-left: 160px;
       padding-right: 10px;
       .location-1{
         font-size: 20px;
@@ -52,10 +54,11 @@
       }
       .icon-location{
         @include setBackgroundIcon(30px, "../images/icon-location-event.svg");
+        vertical-align: middle;
       }
     }
     h2{
-      font-size: 1.875rem;
+      font-size: 26px;
       font-weight: bold;
       color: $color-blue-lv1;
       margin-bottom: 15px;
@@ -130,10 +133,18 @@
       .time{
         margin-bottom: 15px;
       }
+      .tag{
+        a{
+          color: #0D3153;
+        }
+      }
     }
     .post-content{
       padding: 20px 15px;
       padding-bottom: 50px;
+      a{
+        color: #0D3153;
+      }
     }
     .box-direct{
       background: #E0E0E0;
@@ -154,6 +165,14 @@
       line-height: 140.62%;
       color: #808080;
     }
+    ul, ol{
+      padding-left: 30px;
+      li{
+        list-style-type: inherit;
+        padding-bottom: 10px;
+        font-size: 18px;
+      }
+    }
   }
   .location-event{
     border: 1px solid #BDBDBD;
@@ -164,6 +183,7 @@
     *{
       font-family: $font-roboto;
     }
+
     .title-local{
       font-weight: bold;
       font-size: 26px;
@@ -296,4 +316,44 @@
       }
     }
   }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .blog-events-page {
+    .box-item-event {
+      min-height: 150px;
+      .box-date{
+        font-size: 20px;
+        width: 100px;
+      }
+    }
+    .box-item-event {
+      .box-info{
+        padding-left: 130px;
+        .location-1{
+          font-size: 14px;
+        }
+        .location-2{
+          font-size: 14px;
+        }
+        .icon-location{
+          width: 20px;
+          height: 20px;
+        }
+      }
+      h2 {
+        font-size: 16px;
+        font-weight: normal;
+        color: #021320;
+        margin-bottom: 5px;
+        line-height: 150%;
+      }
+
+    }
+  }
+
 }

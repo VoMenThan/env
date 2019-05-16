@@ -255,4 +255,25 @@ if (is_admin()){
 }
 
 
+
+add_action( 'gform_after_submission_17', 'post_to_third_party', 10, 2 );
+function post_to_third_party( $entry ) {
+
+    $post_id = wp_insert_post(
+        array(  'post_title'    => rgar( $entry, '3' ),
+            'post_status'   => 'publish',
+            'post_type'     => 'discussion_board'));
+
+    $display_name = rgar( $entry, '1' );
+    $email_address = rgar( $entry, '2' );
+    if (isset($display_name)) {
+        update_post_meta($post_id, 'display_name', $display_name);
+    }
+    if (isset($email_address)) {
+        update_post_meta($post_id, 'email_address', $email_address);
+    }
+
+}
+
+
 ?>

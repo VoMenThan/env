@@ -10,7 +10,15 @@
 
                         <div class="box-thank">
                             <div class="notification">
-                                <?php echo $post->post_content;?>
+                                <?php echo $post->post_content;
+
+                                echo '<pre>';
+                                print_r($_SESSION);
+                                echo '<pre>';
+                                ?>
+
+
+
                             </div>
 
                         </div>

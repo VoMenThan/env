@@ -1050,7 +1050,11 @@ body {
                     margin-left: 40%;
                     text-transform: none;
                     font-size: 18px;
-
+                    &:hover{
+                        border-color: #8DC63F;
+                        color: #8DC63F;
+                        cursor: pointer;
+                    }
                 }
             }
         }

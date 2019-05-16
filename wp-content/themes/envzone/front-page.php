@@ -138,15 +138,39 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9 box-infomation-analyze">
                     <h3>
-                        Find a Verified Team to Build Your Software
+                        Your Built-In “QUORA” for Outsourcing Concerns
                     </h3>
                     <div class="description-analyze">
-                        Do you want to build a successful product or website? Enter your business or product background below.
+                        Find a verified team to build your successful product or website? Enter your business or product background below.
                     </div>
                     <div class="analyze-form">
                         <?php
                         echo do_shortcode('[gravityform id="12" title="false" description="false"]');
                         ?>
+                    </div>
+
+                    <div class="discussion-box">
+                        or Post A Question for Our Experts
+                        <a href="<?php echo home_url('discussion-board');?>">
+                            <svg width="160" height="40" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="159" height="49" rx="2.5" stroke="#8DC63F"/>
+                                <g clip-path="url(#clip0)">
+                                    <path d="M30 10C21.729 10 15 16.729 15 25C15 33.2709 21.729 40 30 40C38.2709 40 45.0001 33.2709 45.0001 25C45.0001 16.729 38.2716 10 30 10ZM30 38.5366C22.5361 38.5366 16.4635 32.4641 16.4635 25C16.4635 17.5361 22.5361 11.4635 30 11.4635C37.4641 11.4635 43.5366 17.5361 43.5366 25C43.5366 32.4641 37.4641 38.5366 30 38.5366ZM31.3802 32.9408V35.1916C31.3802 35.4946 31.1351 35.7404 30.8314 35.7404H28.8874C28.5841 35.7404 28.3386 35.4946 28.3386 35.1916V32.9408C28.3386 32.6377 28.5841 32.392 28.8874 32.392H30.8314C31.1352 32.392 31.3802 32.6377 31.3802 32.9408ZM33.7426 15.1785C34.1191 15.5494 34.31 16.0249 34.31 16.5932V21.0959C34.31 21.7142 34.146 22.2765 33.823 22.7664L31.3037 26.6067V30.6891C31.3037 30.9921 31.0586 31.2379 30.755 31.2379H28.9642C28.6608 31.2379 28.4154 30.9921 28.4154 30.6891V26.8654C28.4154 26.1937 28.5717 25.6217 28.8804 25.164L31.4345 21.3516V17.2956H28.4388V21.2496C28.4388 21.5526 28.1933 21.7984 27.89 21.7984H26.112C25.8086 21.7984 25.5632 21.5526 25.5632 21.2496V16.5933C25.5632 16.0228 25.757 15.5462 26.1395 15.1759C26.5176 14.8101 26.9945 14.6246 27.5572 14.6246H32.3156C32.8887 14.6249 33.3686 14.8111 33.7426 15.1785Z" fill="#8DC63F"/>
+                                </g>
+                                <path d="M124 24.5626C128.447 24.5626 132.053 20.1834 132.053 14.7814C132.053 9.3792 130.869 5 124 5C117.131 5 115.947 9.3792 115.947 14.7814C115.947 20.1834 119.552 24.5626 124 24.5626Z" fill="#8DC63F"/>
+                                <path d="M108.79 39.4975C108.788 39.1681 108.787 39.4047 108.79 39.4975V39.4975Z" fill="#8DC63F"/>
+                                <path d="M139.21 39.7547C139.214 39.6646 139.211 39.1292 139.21 39.7547V39.7547Z" fill="#8DC63F"/>
+                                <path d="M139.193 39.1025C139.043 29.692 137.814 27.0105 128.409 25.3131C128.409 25.3131 127.086 27.0001 124 27.0001C120.914 27.0001 119.59 25.3131 119.59 25.3131C110.288 26.992 108.984 29.6337 108.813 38.7968C108.799 39.545 108.792 39.5843 108.789 39.4975C108.79 39.6602 108.791 39.9613 108.791 40.4862C108.791 40.4862 111.03 45 124 45C136.97 45 139.209 40.4862 139.209 40.4862C139.209 40.1489 139.209 39.9144 139.21 39.7549C139.207 39.8086 139.202 39.7045 139.193 39.1025Z" fill="#8DC63F"/>
+                                <path d="M126.927 12.4746C126.829 12.3751 126.671 12.3751 126.573 12.4746L123.25 15.8644L121.427 14.0047C121.329 13.9053 121.171 13.9053 121.073 14.0047C120.976 14.1042 120.976 14.2659 121.073 14.3653L123.073 16.4055C123.122 16.455 123.186 16.48 123.25 16.48C123.314 16.48 123.378 16.455 123.427 16.4055L126.927 12.8352C127.024 12.7357 127.024 12.574 126.927 12.4746Z" fill="white"/>
+                                <path d="M128.83 10.4386L124.068 9.00999C124.023 8.99667 123.976 8.99667 123.931 9.00999L119.17 10.4386C119.069 10.4686 119 10.5614 119 10.6667V15.9048C119 18.0105 122.21 19.8833 123.93 20.4181C123.952 20.4252 123.976 20.4286 124 20.4286C124.024 20.4286 124.048 20.4252 124.07 20.4181C125.79 19.8829 129 18.0105 129 15.9047V10.6667C129 10.5614 128.931 10.469 128.83 10.4386ZM128.524 15.9047C128.524 17.5766 125.875 19.3347 124 19.9409C122.125 19.3347 119.476 17.5766 119.476 15.9047V10.8438L124 9.48667L128.524 10.8438V15.9047Z" fill="white"/>
+                                <path d="M83.4678 18.1801C83.1953 17.8981 82.7418 17.8981 82.4598 18.1801C82.1874 18.4525 82.1874 18.906 82.4598 19.1778L87.5707 24.2887H70.7056C70.3125 24.2893 70 24.6018 70 24.9949C70 25.3881 70.3125 25.7107 70.7056 25.7107H87.5707L82.4598 30.812C82.1874 31.094 82.1874 31.5481 82.4598 31.8199C82.7418 32.1019 83.1959 32.1019 83.4678 31.8199L89.7885 25.4992C90.0705 25.2267 90.0705 24.7733 89.7885 24.5014L83.4678 18.1801Z" fill="#8DC63F"/>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="30.0001" height="30" fill="white" transform="translate(15 10)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
                     </div>
 
                 </div>
@@ -406,9 +430,9 @@
         <!-- /*============SERVICES HOME=================*/ -->
         <div class="row content-services">
             <div class="col-12 text-center box-head-services">
-                <h2 class="title-head-blue">OUTSOURCING NEEDS THAT MOST CLIENTS SEEK</h2>
+                <h2 class="title-head-blue">REALIZE THE POTENTIAL OF YOUR DECISION.</h2>
                 <p class="description-services text-left m-auto">
-                    EnvZone is an outsourcing consultancy company for software and web development services. We have high quality IT engineers as partners. We provide services across almost all technology platforms, work on operating systems and infrastructures.
+                    Reach your potential through streamlined efficiency. We’ll analyze your outsourcing concerns and needs, what system to run, what solution to implement. And, ask about our multi-sourced development teams. We can help you with an on-going operation support, development procedures.
                 </p>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">

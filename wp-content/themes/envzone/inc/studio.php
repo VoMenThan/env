@@ -53,7 +53,7 @@ get_header();
                                     <h1>
                                         <?php echo $studio_main[0]->post_title;?>
                                     </h1>
-                                    <p class="d-lg-block d-none" style="color:#fff;font-size: 20px; font-family: 'Roboto ',sans-serif;">
+                                    <p class="d-lg-block d-none">
                                         <?php
                                             $title = $studio_main[0]->post_excerpt;
                                             $title = (mb_strlen($title,'utf-8')<170) ? $title : mb_substr($title,0,170,'utf-8')."...";

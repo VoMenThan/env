@@ -446,7 +446,7 @@ get_header();
                                     <?php echo $item->post_title;?>
                                 </h2>
                             </a>
-                            <div class="audit d-lg-block d-none">
+                            <div class="audit">
                                 <?php
                                 if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                     $avatar = ASSET_URL.'images/avatar-default.png';

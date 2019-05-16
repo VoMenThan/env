@@ -1,8 +1,8 @@
 jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
     $('.misha_loadmore').click(function(){
+        var category = $('.misha_loadmore').hasClass('btn-category');
         var event = $('.misha_loadmore').hasClass('btn-show-event');
         var blog = $('.misha_loadmore').hasClass('btn-show-blog');
-        var category = $('.misha_loadmore').hasClass('btn-category');
 
         var button = $(this),
             data = {

@@ -1,7 +1,7 @@
 <?php
 $date_now = date('Y-m-d');
 $args_event = array(
-    'posts_per_page' => 5,
+    'posts_per_page' => -1,
     'post_type' => 'events',
     'meta_query'	=> array(
         'relation' 			=> 'AND',
@@ -35,11 +35,11 @@ $the_query = new WP_Query( $args_event );
         </div>
         <section class="artical-page blog-page blog-events-page blog-detail-page">
             <div class="container">
-                <div class="row mb-5">
+                <div class="row mb-lg-5">
                     <div class="col-lg-8 border-header">
                         <h3 class="title-head-blue have-border">EVENTS</h3>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 mb-5">
                         <?php if( $the_query->have_posts() ): ?>
 
 
@@ -63,8 +63,8 @@ $the_query = new WP_Query( $args_event );
                     <?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
 
 
-                    <div class="col-4">
-                        <div class="box-subscriber-blog">
+                    <div class="col-lg-4 pd-lr-0">
+                        <div class="box-subscriber-blog d-lg-block d-none">
                             <div class="box-border">
                                 <div class="title-sub">
                                     Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
@@ -93,8 +93,31 @@ $the_query = new WP_Query( $args_event );
                 </div>
 
             </div>
+            <!-- /*============SUBCRIBE HOME=================*/ -->
+            <div class="container-fluild section-parallax">
+                <div class="bg-green-home">
+                    <div class="container content-subcribe">
+                        <div class="row">
+                            <div class="col-12 box-head-subcribe text-center">
+                                <h2>SUBSCRIBE FOR THREE THINGS</h2>
+                                <p>
+                                    Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
+                                </p>
+                                <div class="form-subscribe">
+                                    <?php
+                                    echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /*============END SUBCRIBE HOME=================*/ -->
         </section>
     </main>
     <script>
-        $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
     </script>
