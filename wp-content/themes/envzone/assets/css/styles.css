@@ -3252,6 +3252,8 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   margin-left: 15px;
   font-weight: bold;
   padding: 5px 10px;
+  width: 130px;
+  text-align: center;
 }
 .content-envent .box-item-event .box-date span {
   display: inline-block;
@@ -3262,7 +3264,8 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   background: #8DC63F;
 }
 .content-envent .box-item-event .box-info {
-  padding-left: 25%;
+  padding-left: 160px;
+  padding-right: 10px;
 }
 .content-envent .box-item-event .box-info .location-1 {
   font-size: 20px;
@@ -3297,8 +3300,8 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   bottom: 15px;
 }
 .content-envent .box-item-event .location .icon-location {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background: url("../images/icon-location-event.svg") no-repeat center;
   display: inline-block;
   background-size: 100%;
@@ -9320,10 +9323,11 @@ section.testing-page .item-qa {
   }
   .blog-events-page .box-item-event .box-date {
     font-size: 20px;
-    width: 100px;
+    width: 85px;
+    font-weight: normal;
   }
   .blog-events-page .box-item-event .box-info {
-    padding-left: 130px;
+    padding-left: 115px;
   }
   .blog-events-page .box-item-event .box-info .location-1 {
     font-size: 14px;

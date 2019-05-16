@@ -67,6 +67,8 @@
 			margin-left: 15px;
 			font-weight: bold;
 			padding: 5px 10px;
+			width: 130px;
+			text-align: center;
 			span{
 				display: inline-block;
 				padding: 5px 10px;
@@ -77,7 +79,8 @@
 			}
 		}
 		.box-info{
-			padding-left: 25%;
+			padding-left: 160px;
+			padding-right: 10px;
 			.location-1{
 				font-size: 20px;
 				font-weight: 500;
@@ -111,7 +114,7 @@
 			position: absolute;
 			bottom: 15px;
 			.icon-location{
-				@include setBackgroundIcon(25px, "../images/icon-location-event.svg");
+				@include setBackgroundIcon(30px, "../images/icon-location-event.svg");
 				vertical-align: bottom;
 				margin-right: 5px;
 			}

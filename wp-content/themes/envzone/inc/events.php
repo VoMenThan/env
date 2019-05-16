@@ -39,7 +39,7 @@ $the_query = new WP_Query( $args_event );
                     <div class="col-lg-8 border-header">
                         <h3 class="title-head-blue have-border">EVENTS</h3>
                     </div>
-                    <div class="col-lg-8 mb-5">
+                    <div class="col-lg-8 mb-5 pd-lr-0">
                         <?php if( $the_query->have_posts() ): ?>
 
 
