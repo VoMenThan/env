@@ -469,8 +469,7 @@ get_header();
         "use strict";
         $(document).ready(function (e) {
 
-
-            $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+            $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
 
             $('.blog-page .highlight-news-right .info-news h2').matchHeight({
                 byRow: true,

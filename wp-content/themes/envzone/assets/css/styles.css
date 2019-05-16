@@ -9501,7 +9501,7 @@ section.testing-page .item-qa {
 .blog-knowledge-detail-page h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: #021A32;
+  color: #141414;
   font-family: "PT Serif", serif;
   margin-bottom: 30px;
 }
@@ -10369,16 +10369,25 @@ section.testing-page .item-qa {
 }
 
 /*==================discussion detail page====================*/
-.discussion-board-detail-page h1 {
+.discussion-board-detail-page .box-question {
   border: 1px solid #BDBDBD;
   box-sizing: border-box;
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
   padding: 25px;
   margin-bottom: 30px;
+  color: #4F4F4F;
+}
+.discussion-board-detail-page .box-question .display-name {
   font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  line-height: 152.62%;
+  margin-bottom: 10px;
+}
+.discussion-board-detail-page .box-question h1 {
+  font-family: "Roboto", sans-serif !important;
   font-style: normal;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 152.62%;
   color: #4F4F4F;
 }

@@ -35,11 +35,13 @@ get_header();
                 </div>
                 <div class="col-lg-8">
                     <article class="content-blog">
+                            <div class="box-question">
+                                <div class="display-name"><?php echo get_field('display_name', $post->ID);?>:</div>
+                                <h1>
+                                    <?php echo $post->post_title;?>
+                                </h1>
+                            </div>
 
-                        <div class="main-content">
-                            <h1>
-                                <?php echo $post->post_title;?>
-                            </h1>
                             <div class="no-print">
                                 <?php
                                     if ( comments_open() || get_comments_number() ) {
@@ -47,36 +49,8 @@ get_header();
                                     }
                                 ?>
                             </div>
-                        </div>
                     </article>
                 </div>
-
-                <!-- /*============SUBCRIBE HOME=================*/ -->
-                <div class="col-12 d-lg-none d-none">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-parallax no-print">
-                                <div class="bg-green-home">
-                                    <div class="content-subcribe">
-                                        <div class="box-head-subcribe text-center">
-                                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                                            <p>
-                                                Three links or tips of interest curated about offshore outsourcing every
-                                                week by the experts at ENVZONE Consulting.
-                                            </p>
-                                            <div class="form-subscribe">
-                                                <?php
-                                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /*============END SUBCRIBE HOME=================*/ -->
 
                 <div class="col-lg-4 sidebar-advert no-print">
 
@@ -187,8 +161,6 @@ get_header();
             target: null,
             remove: false
         });
-
-        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
         $(".box-analaze-blog .analyze-form #gform_submit_button_12").val('ANALYZE FOR CHANCE OF SUCCESS');
 
