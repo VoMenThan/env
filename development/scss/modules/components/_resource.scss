@@ -90,7 +90,13 @@
             margin-bottom: 20px;
         }
         h2{
+            font-family: $font-roboto;
+            font-style: normal;
+            font-weight: normal;
             font-size: 22px;
+            line-height: 31px;
+            text-align: center;
+            color: #000000;
         }
         .btn-download-ebook{
             padding: 5px 15px;
@@ -106,6 +112,10 @@
                 text-transform: uppercase;
             }
         }
+    }
+
+    .box-subscriber-blog{
+        margin-top: -33px;
     }
 }
 

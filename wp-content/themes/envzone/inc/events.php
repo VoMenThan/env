@@ -119,5 +119,5 @@ $the_query = new WP_Query( $args_event );
         </section>
     </main>
     <script>
-        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
+        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
     </script>

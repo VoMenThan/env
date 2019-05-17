@@ -73,19 +73,16 @@
 
 
   .box-list-question{
-    margin-top: 50px;
+    margin-top: 30px;
+    *{
+      font-family: $font-roboto;
+    }
     .ask-question{
       background: #FFFFFF;
       border: 1px solid #BDBDBD;
       @include shadow-out(0px, 6px, 4px, rgba(0, 0, 0, 0.5));
       margin-bottom: 30px;
       padding: 15px;
-      position: relative;
-      top: 0;
-      @include transitionInOut(.2s);
-      &:hover{
-        top: -5px;
-      }
       .display-name{
         font-weight: normal;
         font-size: 20px;
@@ -118,6 +115,19 @@
 /*==================discussion detail page====================*/
 
 .discussion-board-detail-page{
+  .btn-back-discussion{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    align-items: center;
+    color: #4F4F4F;
+    margin-bottom: 25px;
+    display: inline-block;
+    svg{
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
   .box-question{
     border: 1px solid #BDBDBD;
     box-sizing: border-box;
@@ -125,6 +135,7 @@
     padding: 25px;
     margin-bottom: 30px;
     color: #4F4F4F;
+    border-bottom: 3px solid #8DC63F;
     .display-name{
       font-family: $font-roboto;
       font-size: 20px;

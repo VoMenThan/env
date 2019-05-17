@@ -2668,6 +2668,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 }
 .content-blog .item-special .read-more {
   color: #4F4F4F;
+  font-family: "Roboto", sans-serif;
 }
 .content-blog .owl-stage {
   padding-bottom: 15px;
@@ -7955,9 +7956,12 @@ section.testing-page .item-qa {
   padding: 15px;
 }
 .blog-page .popup-hack-me h3 {
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140.88%;
+  color: #191919;
 }
 .blog-page .popup-hack-me input {
   background: transparent;
@@ -8090,7 +8094,7 @@ section.testing-page .item-qa {
     display: inline-block;
     margin-top: 0;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 0;
   }
   .blog-page .highlight-news-right .info-news h2 {
@@ -8837,7 +8841,7 @@ section.testing-page .item-qa {
   background: #E0E0E0;
 }
 .blog-author-page .information-author img {
-  width: 40%;
+  width: 30%;
   float: left;
   margin-right: 15px;
   -webkit-border-radius: 50%;
@@ -8853,18 +8857,21 @@ section.testing-page .item-qa {
   font-size: 1.25rem;
 }
 .blog-author-page .information-author .box-info .author-name {
-  font-size: 2.215rem;
+  font-size: 36px;
   color: #0D3153;
+  font-weight: bold;
 }
 .blog-author-page .information-author .box-info .position-company {
   color: #808080;
   border-bottom: 1px solid #C4C4C4;
   padding: 10px 0;
-  margin-left: calc(40% + 15px);
+  margin-left: calc(30% + 15px);
+  padding-bottom: 0;
 }
 .blog-author-page .information-author .box-info .position {
   color: #808080;
   padding: 10px 0;
+  padding-top: 0;
 }
 .blog-author-page .information-author .box-info .description {
   color: #4F4F4F;
@@ -8953,6 +8960,24 @@ section.testing-page .item-qa {
 .blog-author-page .list-trend-author .info-news .audit {
   font-size: 1.08rem;
   border-bottom: 10px;
+}
+.blog-author-page .popup-hack-me #gform_wrapper_3 li.hidden_label input {
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+.blog-author-page .popup-hack-me #gform_wrapper_3 ul.gform_fields li.gfield {
+  max-width: 100% !important;
+}
+.blog-author-page .popup-hack-me #gform_wrapper_3 .gform_footer {
+  margin-top: 0;
+}
+.blog-author-page .popup-hack-me #gform_wrapper_3 .gform_footer input {
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+.blog-author-page .popup-hack-me #gform_wrapper_3 li.gfield.gfield_error.gfield_contains_required div.gfield_description {
+  max-width: 100% !important;
+  text-align: left;
 }
 
 /* 	================================================================
@@ -9628,6 +9653,13 @@ section.testing-page .item-qa {
 }
 .blog-knowledge-detail-page .box-description-video .content-description p {
   font-size: 17px;
+}
+.blog-knowledge-detail-page .box-description-video .content-description ul, .blog-knowledge-detail-page .box-description-video .content-description ol {
+  margin-left: 30px;
+}
+.blog-knowledge-detail-page .box-description-video .content-description ul li, .blog-knowledge-detail-page .box-description-video .content-description ol li {
+  list-style-type: inherit;
+  padding-bottom: 5px;
 }
 .blog-knowledge-detail-page .box-share-social {
   padding: 0;
@@ -10327,7 +10359,10 @@ section.testing-page .item-qa {
   padding: 100px 0;
 }
 .discussion-board-page .box-list-question {
-  margin-top: 50px;
+  margin-top: 30px;
+}
+.discussion-board-page .box-list-question * {
+  font-family: "Roboto", sans-serif;
 }
 .discussion-board-page .box-list-question .ask-question {
   background: #FFFFFF;
@@ -10337,16 +10372,6 @@ section.testing-page .item-qa {
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 30px;
   padding: 15px;
-  position: relative;
-  top: 0;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-.discussion-board-page .box-list-question .ask-question:hover {
-  top: -5px;
 }
 .discussion-board-page .box-list-question .ask-question .display-name {
   font-weight: normal;
@@ -10373,6 +10398,19 @@ section.testing-page .item-qa {
 }
 
 /*==================discussion detail page====================*/
+.discussion-board-detail-page .btn-back-discussion {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  align-items: center;
+  color: #4F4F4F;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+.discussion-board-detail-page .btn-back-discussion svg {
+  display: inline-block;
+  vertical-align: top;
+}
 .discussion-board-detail-page .box-question {
   border: 1px solid #BDBDBD;
   box-sizing: border-box;
@@ -10380,6 +10418,7 @@ section.testing-page .item-qa {
   padding: 25px;
   margin-bottom: 30px;
   color: #4F4F4F;
+  border-bottom: 3px solid #8DC63F;
 }
 .discussion-board-detail-page .box-question .display-name {
   font-family: "Roboto", sans-serif;
@@ -13019,7 +13058,13 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
   margin-bottom: 20px;
 }
 .resources-ebook-page article.box-ebook h2 {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
   font-size: 22px;
+  line-height: 31px;
+  text-align: center;
+  color: #000000;
 }
 .resources-ebook-page article.box-ebook .btn-download-ebook {
   padding: 5px 15px;
@@ -13034,6 +13079,9 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
   color: #fff;
   font-size: 18px;
   text-transform: uppercase;
+}
+.resources-ebook-page .box-subscriber-blog {
+  margin-top: -33px;
 }
 
 /* 	================================================================

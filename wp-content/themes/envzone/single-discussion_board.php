@@ -31,7 +31,19 @@ get_header();
             <div class="row mb-lg-5">
 
                 <div class="col-lg-8">
-                    <h3 class="title-head-blue">DISCUSSION BOARD</h3>
+                    <a href="<?php echo home_url('discussion-board');?>" class="btn-back-discussion">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path d="M13.8333 20L16.1667 17.6667L8.50001 10L16.1667 2.33333L13.8333 -1.08778e-06L3.83334 10L13.8333 20Z" fill="#4F4F4F"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="20" height="20" fill="white" transform="translate(20 20) rotate(-180)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        BACK TO BOARD
+                    </a>
                 </div>
                 <div class="col-lg-8">
                     <article class="content-blog">

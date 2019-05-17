@@ -13,7 +13,7 @@
     </a>
     <div class="info-news">
         <div class="category"><?php single_cat_title();?></div>
-        <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+        <?php the_title( sprintf( '<a href="%s" rel="bookmark"><h2 class="entry-title">', esc_url( get_permalink() ) ), '</h2></a>' ); ?>
         <div class="audit">
             <?php
             if (get_field('avatar', 'user_'.$post->post_author)== ''){
@@ -24,8 +24,7 @@
             }
             ?>
             <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-            <span>By:</span>
-            <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>"> <?php echo get_the_author_meta('display_name', $post->post_author);?></a>
+            <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>">By <?php echo get_the_author_meta('display_name', $post->post_author);?></a>
             <div class="date-public">Updated <?php echo get_the_date( 'M d, Y', $post->ID );?></div>
         </div>
     </div>

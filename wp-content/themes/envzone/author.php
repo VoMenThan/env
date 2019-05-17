@@ -95,8 +95,7 @@ get_header();?>
 
                                         ?>
                                         <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar" alt="">
-                                        <span>By </span>
-                                        <span class="author"><?php echo $authorName;?></span>
+                                        <span class="author">By <?php echo $authorName;?></span>
                                         <div class="date-public">on <?php echo get_the_modified_date();?></div>
                                     </div>
                                 </div>

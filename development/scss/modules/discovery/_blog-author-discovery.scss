@@ -9,7 +9,7 @@
     padding: 15px;
     background: #E0E0E0;
     img{
-      width: 40%;
+      width: 30%;
       float: left;
       margin-right: 15px;
       @include radius(50%);
@@ -22,18 +22,21 @@
       color: $color-blue-lv1;
       font-size: 1.25rem;
       .author-name{
-        font-size: 2.215rem;
+        font-size: 36px;
         color: $color-blue-lv3;
+        font-weight: bold;
       }
       .position-company{
         color: $color-gray-text;
         border-bottom: 1px solid $color-gray-border;
         padding: 10px 0;
-        margin-left: calc(40% + 15px);
+        margin-left: calc(30% + 15px);
+        padding-bottom: 0;
       }
       .position{
         color: $color-gray-text;
         padding: 10px 0;
+        padding-top: 0;
       }
       .description{
         color: #4F4F4F;
@@ -129,6 +132,36 @@
         font-size: 1.08rem;
         border-bottom: 10px;
 
+      }
+    }
+  }
+
+  .popup-hack-me{
+
+    #gform_wrapper_3 {
+     li.hidden_label {
+       input{
+         padding-top: 17px;
+         padding-bottom: 17px;
+       }
+     }
+      ul.gform_fields {
+        li.gfield{
+          max-width: 100% !important;
+        }
+      }
+      .gform_footer {
+        margin-top: 0;
+        input{
+          padding-top: 21px;
+          padding-bottom: 21px;
+        }
+      }
+      li.gfield.gfield_error.gfield_contains_required {
+        div.gfield_description{
+          max-width: 100% !important;
+          text-align: left;
+        }
       }
     }
   }

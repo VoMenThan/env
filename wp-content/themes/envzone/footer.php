@@ -101,7 +101,7 @@
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/blog">Blog</a></li>
                         <li><a href="<?php echo get_home_url();?>/events">Events</a></li>
-                        <li><a href="<?php echo get_home_url();?>/knowledge">Knowledge Center</a></li>
+                        <li><a href="<?php echo get_home_url();?>/knowledge-center">Knowledge Center</a></li>
                         <li><a href="<?php echo get_home_url();?>/studio">EnvZone Studio</a></li>
                         <li><a href="<?php echo get_home_url();?>/resources">Resources</a></li>
                     </ul>

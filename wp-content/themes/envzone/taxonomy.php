@@ -62,7 +62,7 @@ $cat = $wp_query->query_vars['resources_cat'];
                     </div>
                 </div>
 
-                <div class="col-lg-4 d-none d-lg-blog">
+                <div class="col-lg-4 d-none d-lg-block">
                     <div class="box-subscriber-blog">
                         <div class="box-border">
                             <div class="title-sub">
@@ -114,6 +114,7 @@ $cat = $wp_query->query_vars['resources_cat'];
     (function ( $ ) {
         "use strict";
         $(document).ready(function (e) {
+            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
             $('.box-ebook h2').matchHeight({
                 byRow: true,

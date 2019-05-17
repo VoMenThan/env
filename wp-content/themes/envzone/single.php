@@ -603,7 +603,7 @@ get_header();
             remove: false
         });
 
-        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
+        $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 
         $(".box-analaze-blog .analyze-form #gform_submit_button_12").val('ANALYZE FOR CHANCE OF SUCCESS');
 

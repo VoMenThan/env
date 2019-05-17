@@ -120,6 +120,8 @@ global $wp_query;
         "use strict";
         $(document).ready(function (e) {
 
+            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+
             $('.box-ebook h2').matchHeight({
                 byRow: true,
                 property: 'height',
