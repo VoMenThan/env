@@ -8862,14 +8862,16 @@ section.testing-page .item-qa {
   font-weight: bold;
 }
 .blog-author-page .information-author .box-info .position-company {
-  color: #808080;
-  border-bottom: 1px solid #C4C4C4;
+  font-family: "Roboto", sans-serif;
+  color: #828282;
+  border-bottom: 1px solid #828282;
   padding: 10px 0;
   margin-left: calc(30% + 15px);
   padding-bottom: 0;
 }
 .blog-author-page .information-author .box-info .position {
-  color: #808080;
+  font-family: "Roboto", sans-serif;
+  color: #828282;
   padding: 10px 0;
   padding-top: 0;
 }

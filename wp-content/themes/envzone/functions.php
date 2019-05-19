@@ -77,7 +77,8 @@ function mt_env_register_style(){
 
 if( ! function_exists( 'uri_segment' ) ) {
     function uri_segment($n = 0){
-        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
         $full_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
         $url = str_replace( home_url() . '/', "", $full_url );

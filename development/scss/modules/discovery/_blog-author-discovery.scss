@@ -27,14 +27,16 @@
         font-weight: bold;
       }
       .position-company{
-        color: $color-gray-text;
-        border-bottom: 1px solid $color-gray-border;
+        font-family: $font-roboto;
+        color: #828282;
+        border-bottom: 1px solid #828282;
         padding: 10px 0;
         margin-left: calc(30% + 15px);
         padding-bottom: 0;
       }
       .position{
-        color: $color-gray-text;
+        font-family: $font-roboto;
+        color: #828282;
         padding: 10px 0;
         padding-top: 0;
       }
