@@ -48,7 +48,7 @@ get_header();
                 <div class="col-lg-8">
                     <article class="content-blog">
                             <div class="box-question">
-                                <div class="display-name"><?php echo get_field('display_name', $post->ID);?>:</div>
+                                <div class="display-name"><?php echo get_field('display_name', $post->ID);?></div>
                                 <h1>
                                     <?php echo $post->post_title;?>
                                 </h1>

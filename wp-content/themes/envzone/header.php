@@ -505,7 +505,7 @@
                                                             </p>
                                                         </article>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
                                                         <article>
                                                             <a class="title-submenu" href="<?php echo get_home_url();?>/events">
                                                                 Events
@@ -548,6 +548,18 @@
                                                             </a>
                                                             <p>
                                                                 Looking for free ebooks and tools? This portal features the best free books in the area of tech resources, technical insights and outsourcing tips
+                                                            </p>
+                                                        </article>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('discussion-board');?>">
+                                                                Discussion Board
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                            <p>
+                                                                Join our forum and get learned from basic to in-depth topics across software outsourcing industry
                                                             </p>
                                                         </article>
                                                     </div>

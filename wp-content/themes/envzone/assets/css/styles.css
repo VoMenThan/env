@@ -607,7 +607,7 @@ nav #detailBoxSearch .icon-search {
   }
   nav ul.main-menu .nav-item .sub-menu.show-submenu {
     display: block !important;
-    height: calc(100vh - 50px);
+    height: 100vh;
     top: 0;
   }
   nav nav ul.main-menu .nav-item .nav-link:hover:before,
@@ -3513,6 +3513,13 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: 425px) {
+  .content-subcribe .box-success-plan h2 {
+    font-size: 24px;
+  }
+  .content-subcribe .box-success-plan p {
+    font-size: 18px;
+    font-weight: 500;
+  }
   .content-subcribe .box-head-subcribe h2 {
     font-size: 24px;
   }
@@ -8213,6 +8220,7 @@ section.testing-page .item-qa {
   padding-right: 30px;
   font-family: "Roboto", sans-serif;
   color: #90989E;
+  font-size: 17px;
 }
 .blog-detail-page .content-blog .audit .author {
   font-weight: 600;
@@ -8776,6 +8784,9 @@ section.testing-page .item-qa {
   .blog-detail-page .box-advert {
     margin-bottom: 0;
   }
+  .blog-detail-page .content-blog .audit span, .blog-detail-page .content-blog .audit a {
+    font-size: 16px !important;
+  }
   .blog-detail-page .content-blog .box-info-author-footer .linkedin {
     padding-left: 10px;
   }
@@ -9101,6 +9112,83 @@ section.testing-page .item-qa {
 .blog-events-page .popup-hack-me {
   margin-bottom: 30px;
 }
+.blog-events-page .list-archived-events {
+  border: 1px solid #BDBDBD;
+}
+.blog-events-page .list-archived-events .title {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  font-family: "Roboto", sans-serif;
+  color: #0D3153;
+  padding: 15px;
+}
+.blog-events-page .list-archived-events .box-year {
+  width: 100%;
+  border-top: 1px solid #BDBDBD;
+  border-bottom: 1px solid #BDBDBD;
+  position: relative;
+}
+.blog-events-page .list-archived-events .box-year:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon-arrow-left-gray.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 5px;
+  top: 17px;
+}
+.blog-events-page .list-archived-events .box-year:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon-arrow-left-gray.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  background-size: 100% 100%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  position: absolute;
+  right: 5px;
+  top: 17px;
+}
+.blog-events-page .list-archived-events .box-year .year {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  font-family: "Roboto", sans-serif;
+  padding: 15px;
+}
+.blog-events-page .list-archived-events .list-month .month a {
+  color: #828282;
+  font-size: 22px;
+  line-height: 26px;
+  font-family: "Roboto", sans-serif;
+  padding: 10px 15px;
+  display: block;
+}
+.blog-events-page .list-archived-events .list-month .month a:hover {
+  color: #0D3153;
+}
+.blog-events-page .upcoming-events a {
+  color: #0D3153;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #BDBDBD;
+  width: 100%;
+  padding: 10px;
+}
+.blog-events-page .upcoming-events a:hover {
+  color: #45678A;
+}
 
 .event-detail-page .content-event {
   border: 1px solid #BDBDBD;
@@ -9293,6 +9381,10 @@ section.testing-page .item-qa {
   color: #828282;
 }
 
+.blog-events-page.archive-events-page .box-item-event .box-date {
+  background: #BDBDBD;
+}
+
 /*END CSS CUSTOM GET MY SUCCESSION PLAN*/
 /* 	================================================================
 	MEDIUM DEVICE
@@ -9304,6 +9396,7 @@ section.testing-page .item-qa {
     font-size: 22px;
     line-height: 34px;
     color: #4F4F4F;
+    margin-top: 15px;
   }
   .event-detail-page .box-info-event-0 {
     padding-right: 0;
@@ -9373,6 +9466,12 @@ section.testing-page .item-qa {
     margin-bottom: 5px;
     line-height: 150%;
   }
+  .blog-events-page .location-event .title-local {
+    font-size: 22px;
+  }
+  .blog-events-page .location-event p {
+    font-size: 20px;
+  }
 }
 .blog-knowledge-page .knowledge-pt-30 {
   padding-top: 30px;
@@ -9405,7 +9504,7 @@ section.testing-page .item-qa {
   font-size: 26px;
   color: #ffffff;
   font-family: "PT Serif", serif;
-  font-weight: bold;
+  font-weight: normal;
 }
 .blog-knowledge-page .box-info-video h2 {
   padding-bottom: 35px;
@@ -9417,6 +9516,7 @@ section.testing-page .item-qa {
 .blog-knowledge-page .box-info-video p {
   font-size: 20px;
   font-family: "Roboto", sans-serif;
+  line-height: 140%;
 }
 .blog-knowledge-page .box-info-video .audit {
   position: absolute;
@@ -9859,7 +9959,7 @@ section.testing-page .item-qa {
   color: #ffffff;
   margin-bottom: 30px;
   margin-top: 30px;
-  font-weight: bold;
+  font-weight: normal;
 }
 .studio-page .box-studio .box-info-photo .info-photo p {
   font-weight: 400;
@@ -10447,6 +10547,45 @@ section.testing-page .item-qa {
     max-width: 600px;
   }
 }
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 425px and top (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .discussion-board-page h3 {
+    color: #4F4F4F;
+    font-size: 22px;
+  }
+  .discussion-board-page .box-ask-question {
+    font-size: 16px;
+  }
+  .discussion-board-page .box-list-question .ask-question .display-name {
+    font-size: 15px;
+  }
+  .discussion-board-page .box-list-question .ask-question .question {
+    font-size: 16px;
+  }
+  .discussion-board-page .box-list-question .ask-question .post-date, .discussion-board-page .box-list-question .ask-question .view-answer {
+    font-size: 14px;
+  }
+  .discussion-board-page #modalAskQuestion .modal-body {
+    padding: 10px;
+  }
+
+  .discussion-board-detail-page .btn-back-discussion {
+    margin-top: 25px;
+    font-size: 16px;
+  }
+  .discussion-board-detail-page .box-question {
+    padding: 15px;
+  }
+  .discussion-board-detail-page .box-question .display-name {
+    font-size: 16px;
+  }
+  .discussion-board-detail-page .box-question h1 {
+    font-size: 18px;
+  }
+}
 .legals-page .date-affective {
   font-family: "PT Serif", serif;
   color: #808080;
@@ -10531,12 +10670,16 @@ section.testing-page .item-qa {
   /*css error 404*/
 }
 .system-page h3 {
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 15px;
+  font-size: 26px;
+  line-height: 150%;
   text-align: center;
-  font-size: 2.25rem;
-  padding-bottom: 30px;
 }
 .system-page p, .system-page .box-info {
   font-size: 20px;
+  line-height: 150%;
+  margin-bottom: 15px;
 }
 .system-page .box-go-home {
   color: #6e716d;
@@ -10549,6 +10692,9 @@ section.testing-page .item-qa {
   text-align: center;
   font-size: 1.625rem;
   margin-bottom: 50px;
+}
+.system-page .notification img {
+  margin-bottom: 15px;
 }
 .system-page .box-get-notification {
   background: #0D3153;
@@ -10622,7 +10768,7 @@ section.testing-page .item-qa {
 }
 .system-page article.thank-you h3 {
   color: #808080;
-  font-size: 1.625rem;
+  font-size: 26px;
   padding: 10px 0;
   border-bottom: 1px solid #C4C4C4;
 }
@@ -10633,7 +10779,11 @@ section.testing-page .item-qa {
   font-size: 2.25rem;
 }
 .system-page article.thank-you .box-thank .notification h1 {
-  margin-bottom: 30px;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 15px;
+  font-size: 36px;
+  line-height: 150%;
+  font-weight: bold;
 }
 .system-page article.thank-you .box-thank.meantime .icon-twitter-green {
   width: 50px;
@@ -10725,8 +10875,11 @@ section.testing-page .item-qa {
   margin-bottom: 100px;
 }
 .system-page .notification-error h1 {
-  font-size: 5rem;
   text-align: center;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 15px;
+  font-size: 36px;
+  line-height: 150%;
   font-weight: bold;
 }
 .system-page .box-search {
@@ -10818,8 +10971,7 @@ section.testing-page .item-qa {
   padding-bottom: 10px;
 }
 .employee-login-page .item-employee p {
-  font-weight: 500;
-  line-height: 31px;
+  line-height: 150%;
   font-size: 20px;
 }
 
@@ -10830,7 +10982,10 @@ section.testing-page .item-qa {
   min-height: 500px;
 }
 .download-confirmation article.thank-you .box-thank h1 {
-  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 15px;
+  font-size: 36px;
+  line-height: 150%;
   font-weight: bold;
 }
 .download-confirmation article.thank-you .box-thank .notification {
@@ -10902,7 +11057,11 @@ section.testing-page .item-qa {
   padding: 100px 0;
 }
 .page-offline .box-improvement h1 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-family: "Raleway", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 150%;
 }
 
 /*OFFLINE PAGE----------END*/
@@ -10964,19 +11123,73 @@ section.testing-page .item-qa {
     line-height: 23px;
     color: #808080;
   }
+  .system-page article.thank-you {
+    border: 0;
+  }
+  .system-page article.thank-you .box-thank {
+    padding: 0;
+  }
+
+  /*OFFLINE PAGE*/
+  .page-offline .box-improvement h1 {
+    font-size: 24px;
+    line-height: 140%;
+  }
+
+  /*OFFLINE PAGE----------END*/
+  .download-confirmation article.thank-you .box-thank {
+    padding: 30px;
+  }
+  .download-confirmation article.thank-you .box-thank .box-social {
+    margin-left: 0;
+  }
 }
 /* 	================================================================
 	MEDIUM DEVICE
 	Mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: 425px) {
+  .system-page .box-go-home {
+    font-size: 18px;
+  }
+  .system-page h3 {
+    font-size: 22px;
+  }
+  .system-page p, .system-page .box-info {
+    font-size: 18px;
+    line-height: 140%;
+  }
+  .system-page .notification-error h1 {
+    font-size: 24px;
+    line-height: 140%;
+  }
+  .system-page .box-search .title-search {
+    font-size: 22px;
+  }
+  .system-page article.thank-you h3 {
+    font-size: 22px;
+  }
+  .system-page article.thank-you .box-thank .notification h1 {
+    font-size: 24px;
+  }
+  .system-page article.thank-you .box-thank.meantime h4 {
+    font-size: 22px;
+  }
+  .system-page article.thank-you .box-thank.meantime .btn-check-availibity {
+    font-size: 20px;
+  }
+
   .page-offline .box-improvement {
     width: 100%;
     padding: 50px 0;
   }
   .page-offline .box-improvement h1 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 24px;
+  }
+  .page-offline .box-improvement p {
+    font-size: 18px;
+    line-height: 140%;
   }
 }
 html.overflow-hidden {
@@ -12939,6 +13152,17 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
     width: 100% !important;
     margin-left: 0 !important;
   }
+
+  .box-thank #gform_wrapper_3 .gform_body {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .box-thank #gform_wrapper_3 .gform_footer {
+    width: 100%;
+  }
+  .box-thank #gform_wrapper_3 .gform_footer input {
+    margin-left: 0;
+  }
 }
 /* 	================================================================
 	MOBILE DEVICE
@@ -12960,6 +13184,10 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
   #gform_wrapper_3 .gform_footer input {
     font-size: 16px;
     width: 100%;
+  }
+
+  #gform_wrapper_10 .gform_footer input {
+    padding: 10px;
   }
 }
 .resource-page {
@@ -13171,9 +13399,7 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
   margin-bottom: 100px;
 }
 .landing-page-all-in-one .form-ebook-section .icon-this-ebook {
-  position: relative;
-  top: -80%;
-  left: calc(50% - 70px);
+  margin-top: -300px;
 }
 .landing-page-all-in-one .form-ebook-section .box-form-get-ebook {
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
@@ -13181,6 +13407,10 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
   margin-top: -250px;
   background: #fff;
+}
+.landing-page-all-in-one .form-ebook-section .box-form-get-ebook p {
+  font-size: 18px;
+  color: #4F4F4F;
 }
 .landing-page-all-in-one .ebook-section {
   background: #00465D;
@@ -13355,6 +13585,148 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
   color: #E0E0E0;
   font-size: 17px;
   line-height: 30px;
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .landing-page-all-in-one .banner-landing {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-size: auto 100%;
+    min-height: 550px;
+  }
+  .landing-page-all-in-one .banner-landing h1 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .landing-page-all-in-one .banner-landing .link-home {
+    margin-bottom: 30px;
+  }
+  .landing-page-all-in-one .banner-landing .link-home img {
+    width: 130px;
+  }
+  .landing-page-all-in-one .form-ebook-section .icon-this-ebook {
+    margin-top: -180px;
+    max-width: 100px;
+  }
+  .landing-page-all-in-one .form-ebook-section .cover-ebook {
+    max-width: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .landing-page-all-in-one .form-ebook-section .box-form-get-ebook {
+    margin-top: 0;
+    box-shadow: none;
+  }
+  .landing-page-all-in-one .form-ebook-section .form-horizontal .gform_wrapper .gform_footer:not(.top_label) {
+    width: 100%;
+    margin-left: 0;
+  }
+  .landing-page-all-in-one .form-ebook-section .form-horizontal .gform_wrapper .gform_footer input.button, .landing-page-all-in-one .form-ebook-section .form-horizontal .gform_wrapper .gform_footer input[type=submit] {
+    width: 100% !important;
+    font-size: 18px;
+  }
+  .landing-page-all-in-one .ebook-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .landing-page-all-in-one .ebook-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .landing-page-all-in-one .ebook-section .box-info {
+    margin-left: 0;
+  }
+  .landing-page-all-in-one .ebook-section .box-info .description {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+  .landing-page-all-in-one .ebook-section .box-info .list-true {
+    margin-left: 0;
+  }
+  .landing-page-all-in-one .ebook-section .box-info .list-true .item-list {
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 30px;
+  }
+  .landing-page-all-in-one .ebook-section .box-info .list-true .item-list:before {
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+  }
+  .landing-page-all-in-one .video-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .landing-page-all-in-one .video-section h2 {
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
+  .landing-page-all-in-one .video-section h3 {
+    font-size: 26px;
+    text-align: left;
+  }
+  .landing-page-all-in-one .video-section iframe {
+    width: 100%;
+    height: 220px;
+  }
+  .landing-page-all-in-one .matters-section {
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+  .landing-page-all-in-one .matters-section h2 {
+    font-size: 28px;
+  }
+  .landing-page-all-in-one .matters-section .description {
+    font-size: 20px;
+    margin-bottom: 50px;
+    font-weight: normal;
+  }
+  .landing-page-all-in-one .matters-section .list-circle .item-circle {
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
+  .landing-page-all-in-one .referral-section {
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+  .landing-page-all-in-one .referral-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  .landing-page-all-in-one .referral-section .item-referral {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: normal;
+  }
+  .landing-page-all-in-one .referral-section .item-referral img {
+    width: 50px;
+  }
+  .landing-page-all-in-one .retrace-section {
+    margin-bottom: 80px;
+    margin-top: 80px;
+  }
+  .landing-page-all-in-one .retrace-section h2 {
+    font-size: 28px;
+  }
+  .landing-page-all-in-one .retrace-section .description {
+    font-size: 20px;
+    font-weight: normal;
+  }
+  .landing-page-all-in-one .retrace-section .list-circle-green .item-circle-green {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .footer-landing-page-blue *, .footer-landing-page-blue p {
+    font-size: 14px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

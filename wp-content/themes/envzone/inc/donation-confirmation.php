@@ -10,10 +10,10 @@
 
                         <div class="box-thank meantime">
                             <?php echo $post->post_content;?>
-                            <p>
+                            <p class="d-lg-block d-none">
                                 Share with Friends:
                             </p>
-                            <ul class="nav list-social-mb">
+                            <ul class="nav list-social-mb d-lg-flex d-none">
                                 <li class="nav-item px-1">
                                     <a class="nav-link link-twitter" href="https://twitter.com/Envzone">
                                         <i class="icon-twitter-green"></i>
@@ -29,15 +29,10 @@
                                         <i class="icon-linkedin-green"></i>
                                     </a>
                                 </li>
-                                <li class="nav-item px-1">
-                                    <a class="nav-link link-google" href="https://plus.google.com/+EnvZoneWashington">
-                                        <i class="icon-google-plus-green"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                         <div class="box-go-home">
-                            <a href="<?php echo home_url();?>">
+                            <a class="back-home" href="<?php echo home_url();?>">
                                 GO BACK TO HOMEPAGE
                             </a>
                         </div>

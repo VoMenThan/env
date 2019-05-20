@@ -23,7 +23,7 @@ global $wp_query;
                     <h3 class="title-head-blue">DISCUSSION BOARD</h3>
                 </div>
 
-                <div class="col-lg-8 knowledge-pt-30">
+                <div class="col-lg-8 knowledge-pt-30 pd-lr-0">
 
                     <!-- Button trigger modal -->
                     <div class="box-ask-question" data-toggle="modal" data-target="#modalAskQuestion">

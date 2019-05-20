@@ -1267,6 +1267,21 @@ header{
             }
         }
     }
+
+    .box-thank {
+        #gform_wrapper_3 {
+            .gform_body{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .gform_footer {
+                width: 100%;
+                input{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 }
 
 
@@ -1304,5 +1319,13 @@ header{
             }
         }
     }
+    #gform_wrapper_10 {
+        .gform_footer {
+            input{
+                padding: 10px;
+            }
+        }
+    }
+
 }
 

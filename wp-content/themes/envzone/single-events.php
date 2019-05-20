@@ -134,7 +134,7 @@ get_header();
 
                     </article>
 
-                    <div class="location-event d-lg-block d-none">
+                    <div class="location-event">
                         <div class="title-local">Location of Event</div>
                         <p>
                             <?php echo get_field('address', $post->ID);?>

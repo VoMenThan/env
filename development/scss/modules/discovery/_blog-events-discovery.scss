@@ -73,6 +73,79 @@
   .popup-hack-me{
     margin-bottom: 30px;
   }
+  .list-archived-events{
+    border: 1px solid #BDBDBD;
+    .title{
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 26px;
+      font-family: $font-roboto;
+      color: #0D3153;
+      padding: 15px;
+    }
+    .box-year{
+      width: 100%;
+      border-top: 1px solid #BDBDBD;
+      border-bottom: 1px solid #BDBDBD;
+      position: relative;
+      &:before{
+        content: "";
+        @include setBackgroundIcon(20px, '../images/icon-arrow-left-gray.svg');
+        background-size: 100% 100%;
+        position: absolute;
+        left: 5px;
+        top: 17px;
+      }
+      &:after{
+        content: "";
+        @include setBackgroundIcon(20px, '../images/icon-arrow-left-gray.svg');
+        background-size: 100% 100%;
+        @include rotate(180deg);
+        position: absolute;
+        right: 5px;
+        top: 17px;
+      }
+
+      .year{
+        text-align: center;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 26px;
+        font-family: $font-roboto;
+        padding: 15px;
+      }
+    }
+    .list-month{
+      .month{
+        a{
+          color: #828282;
+          font-size: 22px;
+          line-height: 26px;
+          font-family: $font-roboto;
+          padding: 10px 15px;
+          display: block;
+          &:hover{
+            color: $color-blue-logo;
+          }
+        }
+
+      }
+    }
+  }
+  .upcoming-events{
+    a{
+      color: $color-blue-logo;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #BDBDBD;
+      width: 100%;
+      padding: 10px;
+      &:hover{
+        color: $color-blue-lv4;
+      }
+    }
+  }
 }
 
 .event-detail-page{
@@ -260,6 +333,16 @@
   }
 }
 
+.blog-events-page {
+  &.archive-events-page {
+    .box-item-event {
+      .box-date {
+        background: #BDBDBD;
+      }
+    }
+  }
+}
+
 
 
 /*END CSS CUSTOM GET MY SUCCESSION PLAN*/
@@ -276,6 +359,7 @@
       font-size: 22px;
       line-height: 34px;
       color: #4F4F4F;
+      margin-top: 15px;
     }
     .box-info-event-0{
       padding-right: 0;
@@ -354,6 +438,14 @@
         line-height: 150%;
       }
 
+    }
+    .location-event {
+      .title-local{
+        font-size: 22px;
+      }
+      p{
+        font-size: 20px;
+      }
     }
   }
 

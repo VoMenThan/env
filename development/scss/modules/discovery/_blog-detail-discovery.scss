@@ -71,6 +71,7 @@
 				padding-right: 30px;
 				font-family: $font-roboto;
 				color: #90989E;
+				font-size: 17px;
 			}
 			.author{
 				font-weight: 600;
@@ -665,6 +666,11 @@
 
 		}
 		.content-blog {
+			.audit {
+				span, a{
+					font-size: 16px !important;
+				}
+			}
 			.box-info-author-footer{
 				.linkedin{
 					padding-left: 10px;

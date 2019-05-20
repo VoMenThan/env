@@ -31,14 +31,16 @@
       margin-bottom: 100px;
     }
     .icon-this-ebook{
-      position: relative;
-      top: -80%;
-      left: calc(50% - 70px);
+      margin-top: -300px;
     }
     .box-form-get-ebook{
       @include shadow-out(4px, 4px, 4px, rgba(0, 0, 0, 0.5));
       margin-top: -250px;
       background: #fff;
+      p{
+        font-size: 18px;
+        color: #4F4F4F;
+      }
     }
   }
 
@@ -213,5 +215,177 @@
     color: #E0E0E0;
     font-size: 17px;
     line-height: 30px;
+  }
+}
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+  .landing-page-all-in-one {
+    .banner-landing{
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-size: auto 100%;
+      min-height: 550px;
+      h1{
+        font-size: 30px;
+        font-weight: 500;
+      }
+      .link-home{
+        margin-bottom: 30px;
+        img{
+          width: 130px;
+        }
+      }
+    }
+
+
+   .form-ebook-section {
+     .icon-this-ebook{
+       margin-top: -180px;
+       max-width: 100px;
+     }
+    .cover-ebook{
+      max-width: 200px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+     .box-form-get-ebook{
+       margin-top: 0;
+       box-shadow: none;
+     }
+     .form-horizontal {
+       .gform_wrapper {
+         .gform_footer {
+           &:not(.top_label){
+             width: 100%;
+             margin-left: 0;
+           }
+           input.button, input[type=submit]{
+             width: 100% !important;
+             font-size: 18px;
+           }
+         }
+       }
+     }
+   }
+
+
+    .ebook-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      h2{
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+      .box-info{
+        margin-left: 0;
+        .description{
+          font-size: 20px;
+          font-weight: normal;
+          margin-bottom: 15px;
+        }
+        .list-true{
+          margin-left: 0;
+          .item-list{
+            font-size: 18px;
+            font-weight: normal;
+            padding-left: 30px;
+            &:before{
+              width: 20px;
+              height: 20px;
+              top: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+
+
+
+    .video-section {
+      padding-left: 0;
+      padding-right: 0;
+      h2{
+        font-size: 28px;
+        margin-bottom: 50px;
+      }
+      h3{
+        font-size: 26px;
+        text-align: left;
+      }
+      iframe{
+        width: 100%;
+        height: 220px;
+      }
+    }
+
+    .matters-section {
+      padding-bottom: 80px;
+      padding-top: 80px;
+      h2{
+        font-size: 28px;
+      }
+      .description{
+        font-size: 20px;
+        margin-bottom: 50px;
+        font-weight: normal;
+      }
+      .list-circle {
+        .item-circle{
+          margin-bottom: 30px;
+          font-size: 18px;
+        }
+      }
+    }
+
+
+    .referral-section {
+      padding-bottom: 80px;
+      padding-top: 80px;
+      h2{
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-align: left;
+      }
+     .item-referral{
+       font-size: 18px;
+       margin-bottom: 30px;
+       font-weight: normal;
+       img{
+         width: 50px;
+       }
+     }
+    }
+
+
+    .retrace-section {
+      margin-bottom: 80px;
+      margin-top: 80px;
+      h2{
+        font-size: 28px;
+      }
+      .description{
+        font-size: 20px;
+        font-weight: normal;
+      }
+       .list-circle-green {
+         .item-circle-green{
+           margin-bottom: 30px;
+           font-size: 20px;
+         }
+       }
+    }
+
+
+  }
+  .footer-landing-page-blue {
+    *, p{
+      font-size: 14px;
+    }
   }
 }

@@ -170,3 +170,54 @@
   }
 
 }
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 425px and top (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .discussion-board-page {
+    h3{
+      color: #4F4F4F;
+      font-size: 22px;
+    }
+    .box-ask-question {
+      font-size: 16px;
+    }
+    .box-list-question {
+      .ask-question {
+        .display-name{
+          font-size: 15px;
+        }
+        .question{
+          font-size: 16px;
+        }
+        .post-date, .view-answer{
+          font-size: 14px;
+        }
+      }
+    }
+
+    #modalAskQuestion {
+      .modal-body{
+        padding:10px;
+      }
+    }
+  }
+
+  .discussion-board-detail-page {
+    .btn-back-discussion{
+      margin-top: 25px;
+      font-size: 16px;
+    }
+    .box-question{
+      padding: 15px;
+      .display-name{
+        font-size: 16px;
+      }
+      h1{
+        font-size: 18px;
+      }
+    }
+  }
+}

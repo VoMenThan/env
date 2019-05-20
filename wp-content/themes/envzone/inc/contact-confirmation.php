@@ -16,10 +16,10 @@
                                 echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
                                 ?>
                             </div>
-                            <p>
+                            <p class="d-lg-block d-none">
                                 Or connect with us on:
                             </p>
-                            <ul class="nav list-social-mb">
+                            <ul class="nav list-social-mb d-lg-flex d-none">
                                 <li class="nav-item px-1">
                                     <a class="nav-link link-twitter" target="_blank" rel="nofollow" href="https://twitter.com/Envzone">
                                         <i class="icon-twitter-green"></i>

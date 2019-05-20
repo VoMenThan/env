@@ -1,5 +1,8 @@
 <?php
 $date_now = date('Y-m-d');
+$get_date_max = $_GET['date'].'-31';
+$get_date_min = $_GET['date'].'-01';
+
 $args_event = array(
     'posts_per_page' => -1,
     'post_type' => 'events',
@@ -7,8 +10,20 @@ $args_event = array(
         'relation' 			=> 'AND',
         array(
             'key'			=> 'date',
-            'compare'		=> '>=',
+            'compare'		=> '<=',
             'value'			=> $date_now,
+            'type'			=> 'DATETIME'
+        ),
+        array(
+            'key'			=> 'date',
+            'compare'		=> '<=',
+            'value'			=> $get_date_max,
+            'type'			=> 'DATETIME'
+        ),
+        array(
+            'key'			=> 'date',
+            'compare'		=> '>=',
+            'value'			=> $get_date_min,
             'type'			=> 'DATETIME'
         )
     ),
@@ -27,17 +42,17 @@ $the_query = new WP_Query( $args_event );
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Events</li>
+                            <li class="breadcrumb-item active" aria-current="page">Archived Events</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="artical-page blog-page blog-events-page blog-detail-page">
+        <section class="artical-page blog-page blog-events-page blog-detail-page archive-events-page">
             <div class="container">
                 <div class="row mb-lg-5">
                     <div class="col-lg-8 border-header">
-                        <h3 class="title-head-blue have-border">EVENTS</h3>
+                        <h3 class="title-head-blue have-border">ARCHIVED EVENTS: <?php echo $_GET['date'] == '2019-04' ? 'APR 2019' : 'MAY 2019';?></h3>
                     </div>
                     <div class="col-lg-8 mb-5 pd-lr-0">
                         <?php if( $the_query->have_posts() ): ?>
@@ -89,21 +104,10 @@ $the_query = new WP_Query( $args_event );
                             </a>
                         </div>
 
-                        <div class="list-archived-events">
-                            <div class="title">Archived Events</div>
-                            <ul class="box-year">
-                                <li class="year">2019</li>
-                            </ul>
-                            <ul class="list-month">
-                                <li class="month"><a href="<?php echo home_url('archived-events').'?date=2019-04'?>">April</a></li>
-                                <li class="month"><a href="<?php echo home_url('archived-events').'?date=2019-05'?>">May</a></li>
-                            </ul>
+                        <div class="upcoming-events">
+                            <a class="btn" href="<?php echo home_url('events')?>">Upcoming Events</a>
                         </div>
                     </div>
-
-
-
-
 
                 </div>
 

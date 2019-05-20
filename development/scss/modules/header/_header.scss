@@ -575,7 +575,7 @@ nav {
                 .sub-menu{
                     &.show-submenu{
                         display: block !important;
-                        height: calc(100vh - 50px);
+                        height: 100vh;
                         top: 0;
                     }
                 }

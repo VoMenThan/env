@@ -18,11 +18,6 @@
                             </div>
 
                         </div>
-                        <div class="box-nav d-flex justify-content-around align-items-center">
-                            <a href="<?php echo home_url();?>" class="back-home">
-                                GO BACK TO HOMEPAGE
-                            </a>
-                        </div>
                     </article>
 
                 </div>

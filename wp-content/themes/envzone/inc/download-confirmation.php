@@ -18,7 +18,7 @@
                             </div>
 
 
-                            <div class="box-social">
+                            <div class="box-social d-lg-block d-none">
                                 <p>
                                     Or connect with us on:
                                 </p>

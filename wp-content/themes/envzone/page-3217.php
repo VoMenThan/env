@@ -56,7 +56,7 @@
     <section class="container-fluid resource-page form-ebook-section">
         <div class="container box-get-ebook">
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center">
+                <div class="col-lg-6 d-flex align-items-center flex-column">
                     <img src="<?php echo ASSET_URL;?>images/icon-take-this-ebook.png" alt="" class="icon-this-ebook">
                     <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($lead_magnet->ID);?>" alt="">
                 </div>
@@ -124,7 +124,7 @@
                         <div class="description">
                             Since software companies implement this proven framework for development needs, the typical results we received include:
                         </div>
-                        <ul class="list-circle d-flex justify-content-between">
+                        <ul class="list-circle d-flex align-items-center justify-content-between flex-lg-row flex-column">
                             <li class="item-circle d-flex justify-content-center align-items-center">
                                 89% Reduction of Communication Conflicts
                             </li>
@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <ul class="list-circle-green d-flex justify-content-between">
+                    <ul class="list-circle-green d-flex align-items-center justify-content-between flex-lg-row flex-column">
                         <li class="item-circle-green d-flex align-items-center justify-content-center">
                             Track Daily Progress
                         </li>
