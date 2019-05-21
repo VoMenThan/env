@@ -159,6 +159,7 @@
                     <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
+        </div>
     </div>
     <!--END WHY BUSINESS-->
 

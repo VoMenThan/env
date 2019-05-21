@@ -224,7 +224,7 @@ get_header();
                             I am determined to make your business success in
                             <?php
                             $cat_name = get_the_category($post->ID)[0]->name;
-                                    echo ($cat_name == 'News' or $cat_name == 'Team Activities' or $cat_name == 'Uncategorized') ? 'your' : $cat_name;
+                                    echo ($cat_name == 'News' or $cat_name == 'Team Activities'or $cat_name == 'Outsourcing Insights' or $cat_name == 'Uncategorized') ? 'your' : $cat_name;
 
                             ?>
                             industry.

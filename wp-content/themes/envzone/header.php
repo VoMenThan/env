@@ -12,6 +12,7 @@
         ?>
     </title>
 
+    <link rel="alternate" href="https://www.envzone.com" hreflang="en-us" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo ASSET_URL;?>images/favicon-envzone.png">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
