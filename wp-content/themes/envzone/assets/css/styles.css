@@ -10586,6 +10586,11 @@ section.testing-page .item-qa {
     font-size: 18px;
   }
 }
+.box-sort-industries {
+  background: #375D81;
+  color: #fff;
+}
+
 .legals-page .date-affective {
   font-family: "PT Serif", serif;
   color: #808080;
