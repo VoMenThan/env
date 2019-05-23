@@ -4,30 +4,40 @@ $args_event = array(
     'posts_per_page' => -1,
     'post_type' => 'companies',
     'orderby'	=> 'meta_value',
-    'order'     => 'asc'
+    'order'     => 'desc'
 );
 $the_query = new WP_Query( $args_event );
 
+
+$terms_companies = get_terms( array(
+    'taxonomy' => 'industries',
+    'hide_empty' => false
+) );
 ?>
 
     <main class="main-content">
-        <div class="container-fluid">
+        <div class="container-fluid filter-companies-page">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-12 box-filter">
                         <div class="box-sort-industries">
-                            <div class="title">
-                                <span class="default-title">Industry (1)</span>
+                            <div class="title" data-toggle="collapse" data-target="#collapseFilterIndustries" aria-expanded="false" aria-controls="collapseExample">
+                                SORT BY: <span class="default-title">Industry (0)</span>
                             </div>
                             <div class="arrow-right"></div>
                         </div>
-                        <div class="list-sort-industries">
+                        <div class="collapse list-sort-industries" id="collapseFilterIndustries">
                             <div class="wrap">
+                                <?php foreach ($terms_companies as $item):?>
                                 <div class="item-industry">
                                     <a href="">
-                                        <span class="">Healthcare</span>
+                                        <span class="">
+                                            <?php echo $item->name;?>
+                                        </span>
                                     </a>
                                 </div>
+                                <?php endforeach;?>
+
                             </div>
                         </div>
                     </div>
@@ -35,12 +45,9 @@ $the_query = new WP_Query( $args_event );
             </div>
         </div>
 
-        <section class="artical-page blog-page blog-detail-page blog-companies-page">
+        <section class="artical-page blog-page blog-detail-page companies-page">
             <div class="container">
                 <div class="row mb-lg-5">
-                    <div class="col-lg-8 border-header">
-                        <h3 class="title-head-blue have-border">COMPANIES</h3>
-                    </div>
                     <div class="col-lg-8 mb-5 pd-lr-0">
                         <?php if( $the_query->have_posts() ): ?>
 

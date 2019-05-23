@@ -10,7 +10,7 @@ get_header();
 ?>
 
 <main class="main-content">
-    <section class="artical-page blog-page blog-detail-page">
+    <section class="artical-page blog-page blog-detail-page companies-page company-detail-page">
         <div class="container d-lg-block d-none">
             <div class="row">
                 <div class="col-12 mb-lg-5">
@@ -26,58 +26,84 @@ get_header();
             </div>
         </div>
 
-        <div class="container">
+        <div class="container-fluid box-info-company">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 infomation-company clearfix">
+                        <div class="box-logo">
+                            <a href="">
+                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>" alt="">
+                            </a>
+                        </div>
+                        <div class="box-info">
+                            <h1>ABC COMPANY</h1>
+                            <div class="box-industries">
+                                <span>Industry:</span>
+                                <ul class="list-industries list-inline">
 
-            <div class="row mb-lg-5">
-                <div class="col-12 mb-lg-3">
-                    <h1>
-                        <?php echo $post->post_title;?>
-                    </h1>
-                </div>
-                <div class="col-lg-8">
-                    <article class="content-blog">
-
-                        <div class="main-content">
-                            <?php
-                                echo $post->post_content;
-                            ?>
-                            <div class="no-print">
-                                <?php
-                                    if ( comments_open() || get_comments_number() ) {
-                                        comments_template();
-                                    }
-                                ?>
+                                    <?php
+                                    $category_industries = get_the_terms( get_the_ID(), 'industries' );
+                                    foreach ($category_industries as $item):
+                                        ?>
+                                        <li class="item list-inline-item">
+                                            <?php echo $item->name;?>
+                                        </li>
+                                    <?php endforeach;?>
+                                </ul>
                             </div>
                         </div>
-                    </article>
-                </div>
 
-                <!-- /*============SUBCRIBE HOME=================*/ -->
-                <div class="col-12 d-lg-none d-none">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-parallax no-print">
-                                <div class="bg-green-home">
-                                    <div class="content-subcribe">
-                                        <div class="box-head-subcribe text-center">
-                                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                                            <p>
-                                                Three links or tips of interest curated about offshore outsourcing every
-                                                week by the experts at ENVZONE Consulting.
-                                            </p>
-                                            <div class="form-subscribe">
-                                                <?php
-                                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="" class="btn btn-green-env">VIEW WEBSITE</a>
                     </div>
                 </div>
-                <!-- /*============END SUBCRIBE HOME=================*/ -->
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <article class="section-overview">
+                        <h2 class="label-heading">OVERVIEW</h2>
+                        <div class="content-overview">
+                            <p>
+                                Drud is a suite of integrated, automated, Open Source, enterprise-grade development tools, DevOps workflows, and hosting platform. We have a rich history of experience and have strong investors that share our vision. Drud Technology, LLC. was formed in January 2017, but we have been working collaboratively over the past 5 years.
+                            </p>
+                            <img src="<?php echo ASSET_URL;?>images/image-overview-company.png" alt="">
+                        </div>
+                    </article>
+
+                    <article class="section-screenshots box-gallery-detail">
+                        <div class="carousel-photo-detail owl-carousel owl-theme">
+                                <?php
+                                $album = get_field('screenshots', $post->ID);
+                                foreach ($album as $k => $item):
+                                    ?>
+                                    <div class="item"  data-hash="<?php echo $k; ?>">
+                                        <img title="<?php echo $item['title'];?>" src="<?php echo $item['url'];?>" alt="<?php echo $item['alt'];?>">
+                                        <?php if (($item['description']) != ''):?>
+                                            <div class="description-photo">
+                                                <?php echo $item['description'];?>
+                                            </div>
+                                        <?php endif;?>
+                                    </div>
+                                <?php endforeach;?>
+
+                            </div>
+
+                            <div id="box-thumbnail-photo" class="box-icon-mini owl-carousel owl-theme">
+                                <?php
+                                foreach ($album as $k => $item):
+                                    ?>
+                                    <div class="item">
+                                        <a href="#<?php echo $k;?>"><img title="<?php echo $item['title']?>" src="<?php echo $item['sizes']['medium'];?>" alt="<?php echo $item['alt']?>"></a>
+                                    </div>
+                                <?php endforeach;?>
+
+
+                            </div>
+                    </article>
+                </div>
 
                 <div class="col-lg-4 sidebar-advert no-print">
 
@@ -180,6 +206,44 @@ get_header();
 </main>
 <script type="text/javascript">
     $(document).ready(function () {
+
+        /*slider product detail*/
+        $(".carousel-photo-detail").owlCarousel({
+            items:1,
+            margin:0,
+            stagePadding: 0,
+            smartSpeed: 500,
+            loop: false,
+            nav: true,
+            dots: false,
+            autoplay: true,
+            slideBy: 1,
+            autoplayTimeout:5000,
+            URLhashListener:true,
+            autoplayHoverPause:true,
+            startPosition: 'URLHash',
+            navText: [
+                '<i class="btn-next-slide"></i>',
+                '<i class="btn-prev-slide"></i>'
+            ]
+        });
+
+        $(".box-icon-mini").owlCarousel({
+            center: false,
+            items:6,
+            margin:10,
+            stagePadding: 0,
+            smartSpeed: 300,
+            loop: false,
+            nav: true,
+            dots: false,
+            slideBy: 3,
+            navText: [
+                '<i class="btn-next-slide"></i>',
+                '<i class="btn-prev-slide"></i>'
+            ]
+        });
+        /* end slider product detail*/
 
         $('.blog-page .highlight-news-right .info-news h2').matchHeight({
             byRow: true,

@@ -1,0 +1,47 @@
+.company-detail-page{
+  .box-info-company{
+    background: #E0E0E0;
+    padding: 25px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    .infomation-company{
+      .box-logo{
+        float: left;
+        img{
+          border: 1px solid #BDBDBD;
+        }
+      }
+      .box-info{
+        padding-left: 175px;
+        h1{
+          font-size: 36px;
+          line-height: 42px;
+          color: #021A32;
+          font-family: $font-roboto;
+        }
+        .box-industries{
+          span, li{
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 150%;
+            color: #808080;
+            font-family: $font-roboto;
+          }
+          .list-industries{
+            display: inline-block;
+          }
+        }
+      }
+
+      .btn-green-env{
+        position: absolute;
+        bottom: 0;
+        right: 25px;
+        &:hover{
+          color: $color-blue-logo;
+        }
+      }
+    }
+
+  }
+}
