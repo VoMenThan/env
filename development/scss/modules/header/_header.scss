@@ -241,20 +241,26 @@ nav {
             font-size: 20px;
 		}
 		article{
-			padding-bottom: 20px;
+            padding-bottom: 0;
+            border: 1px solid #E0E0E0;
+            text-align: center;
+            vertical-align: middle;
+            margin-bottom: 30px;
+            border-top: 3px solid #8DC63F;
             >p{
               font-size: 18px;
               line-height: 25px;
             }
 		}
 		.title-submenu{
-			color: $color-green-logo;
-			font-size: 24px;
-			padding-bottom: 15px;
+            color: #fff;
+            font-size: 20px;
             font-weight: bold;
             display: inline-block;
+            padding: 32px 0;
+            width: 100%;
             &:hover{
-                color: #53880B;
+                background: #45678A;
             }
 		}
 		.title-contact{
@@ -340,8 +346,10 @@ nav {
         }
         .box-sign-up{
             text-align: center;
+            border: none;
             border-bottom: 1px solid #E0E0E0;
             margin-bottom: 15px;
+            padding-bottom: 30px;
             .item-sign-up{
                 width: calc(50% - 35px);
                 border: 1px solid;
@@ -776,6 +784,9 @@ nav {
             }
             article{
                 padding: 0;
+                border: none;
+                text-align: left;
+                margin-bottom: 0;
             }
             .title-submenu{
                 font-size: 1rem;
@@ -784,6 +795,10 @@ nav {
                 display: block;
                 font-family: $font-pt;
                 font-weight: normal;
+                &:hover {
+                    background: transparent;
+                    color: $color-green-logo;
+                }
             }
             p{
                 display: none;

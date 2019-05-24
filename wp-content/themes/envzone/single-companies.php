@@ -7,6 +7,55 @@
  */
 
 get_header();
+
+
+
+$result = new stdClass();
+$star = get_field('rating_star');
+$poll = get_field('list_vote');
+
+if(isset($_POST) && count($_POST)>1){
+
+    $post_id = $post->post_ID;
+    switch ($_POST['rating_star']):
+        case 1:
+            $star['1_star'] += 1;
+            break;
+        case 2:
+            $star['2_stars'] += 1;
+            break;
+        case 3:
+            $star['3_stars'] += 1;
+            break;
+        case 4:
+            $star['4_stars'] += 1;
+            break;
+        case 5:
+            $star['5_stars'] += 1;
+            break;
+        default:
+            break;
+    endswitch;
+    update_field( 'rating_star', $star, $post_id );
+
+    $number_poll =  count($poll);
+    for ($i = 0; $i < $number_poll; $i++):
+        if ($_POST['poll'.$i] == 'on'){
+            $poll[$i]['count_vote'] += 1;
+        }
+    endfor;
+    update_field( 'list_vote', $poll, $post_id );
+
+    $result->st = 1;
+
+}
+
+$total_vote_star = $star['1_star'] + $star['2_stars'] + $star['3_stars'] + $star['4_stars'] + $star['5_stars'];
+if ($total_vote_star == 0){
+    $average_rating = 0;
+}else{
+    $average_rating = round(($star['1_star']*1 + $star['2_stars']*2 + $star['3_stars']*3 + $star['4_stars']*4 + $star['5_stars']*5)/$total_vote_star, 1);
+}
 ?>
 
 <main class="main-content">
@@ -36,24 +85,40 @@ get_header();
                             </a>
                         </div>
                         <div class="box-info">
-                            <h1>ABC COMPANY</h1>
+                            <h1><?php echo get_the_title();?></h1>
                             <div class="box-industries">
                                 <span>Industry:</span>
                                 <ul class="list-industries list-inline">
 
                                     <?php
                                     $category_industries = get_the_terms( get_the_ID(), 'industries' );
+                                    if ($category_industries != ''):
                                     foreach ($category_industries as $item):
                                         ?>
                                         <li class="item list-inline-item">
                                             <?php echo $item->name;?>
                                         </li>
-                                    <?php endforeach;?>
+                                    <?php endforeach; endif;?>
                                 </ul>
                             </div>
+                            <div class="box-rating clearfix">
+                                <div class="rate">
+                                    <input class="nohover" type="radio" id="star5" name="rate" value="5" disabled <?php echo (round($average_rating)==5) ? 'checked' : '';?>/>
+                                    <label class="nohover" for="star5" title="5 stars">5 stars</label>
+                                    <input class="nohover" type="radio" id="star4" name="rate" value="4" disabled <?php echo (round($average_rating)==4) ? 'checked' : '';?>/>
+                                    <label class="nohover" for="star4" title="4 star">4 stars</label>
+                                    <input class="nohover" type="radio" id="star3" name="rate" value="3" disabled <?php echo (round($average_rating)==3) ? 'checked' : '';?>/>
+                                    <label class="nohover" for="star3" title="3 stars">3 stars</label>
+                                    <input class="nohover" type="radio" id="star2" name="rate" value="2" disabled <?php echo (round($average_rating)==2) ? 'checked' : '';?>/>
+                                    <label class="nohover" for="star2" title="2 stars">2 stars</label>
+                                    <input class="nohover" type="radio" id="star1" name="rate" value="1" disabled <?php echo (round($average_rating)==1) ? 'checked' : '';?>/>
+                                    <label class="nohover" for="star1" title="1 star">1 star</label>
+                                </div>
+                            </div>
+                            <p>(Average rating <?php echo $average_rating;?>. Vote count: <?php echo $total_vote_star;?>)</p>
                         </div>
 
-                        <a href="" class="btn btn-green-env">VIEW WEBSITE</a>
+                        <a target="_blank" href="<?php echo get_field('link_website', $post->ID);?>" rel="nofollow" class="btn btn-green-env">VIEW WEBSITE</a>
                     </div>
                 </div>
             </div>
@@ -63,46 +128,188 @@ get_header();
 
             <div class="row">
                 <div class="col-lg-8">
-                    <article class="section-overview">
+                    <article class="box-section section-overview">
                         <h2 class="label-heading">OVERVIEW</h2>
                         <div class="content-overview">
-                            <p>
-                                Drud is a suite of integrated, automated, Open Source, enterprise-grade development tools, DevOps workflows, and hosting platform. We have a rich history of experience and have strong investors that share our vision. Drud Technology, LLC. was formed in January 2017, but we have been working collaboratively over the past 5 years.
-                            </p>
-                            <img src="<?php echo ASSET_URL;?>images/image-overview-company.png" alt="">
+                            <?php echo get_the_content();?>
                         </div>
                     </article>
 
-                    <article class="section-screenshots box-gallery-detail">
+                    <?php $album = get_field('screenshots', get_the_ID());
+                    if ($album != ''):
+                    ?>
+                    <article class="box-section section-screenshots box-gallery-detail">
+                        <h2 class="label-heading"><?php echo get_the_title();?> SCREENSHOTS</h2>
+
                         <div class="carousel-photo-detail owl-carousel owl-theme">
-                                <?php
-                                $album = get_field('screenshots', $post->ID);
-                                foreach ($album as $k => $item):
-                                    ?>
-                                    <div class="item"  data-hash="<?php echo $k; ?>">
-                                        <img title="<?php echo $item['title'];?>" src="<?php echo $item['url'];?>" alt="<?php echo $item['alt'];?>">
-                                        <?php if (($item['description']) != ''):?>
-                                            <div class="description-photo">
-                                                <?php echo $item['description'];?>
-                                            </div>
-                                        <?php endif;?>
-                                    </div>
-                                <?php endforeach;?>
+                            <?php
+                            foreach ($album as $k => $item):
+                                ?>
+                                <div class="item"  data-hash="<?php echo $k; ?>">
+                                    <img title="<?php echo $item['title'];?>" src="<?php echo $item['url'];?>" alt="<?php echo $item['alt'];?>">
+                                    <?php if (($item['description']) != ''):?>
+                                        <div class="description-photo">
+                                            <?php echo $item['description'];?>
+                                        </div>
+                                    <?php endif;?>
+                                </div>
+                            <?php endforeach;?>
 
-                            </div>
-
-                            <div id="box-thumbnail-photo" class="box-icon-mini owl-carousel owl-theme">
-                                <?php
-                                foreach ($album as $k => $item):
-                                    ?>
-                                    <div class="item">
-                                        <a href="#<?php echo $k;?>"><img title="<?php echo $item['title']?>" src="<?php echo $item['sizes']['medium'];?>" alt="<?php echo $item['alt']?>"></a>
-                                    </div>
-                                <?php endforeach;?>
-
-
-                            </div>
+                        </div>
+                        <hr>
+                        <div id="box-thumbnail-photo" class="box-icon-mini owl-carousel owl-theme">
+                            <?php
+                            foreach ($album as $k => $item):
+                                ?>
+                                <div class="item">
+                                    <a href="#<?php echo $k;?>"><img title="<?php echo $item['title']?>" src="<?php echo $item['sizes']['medium'];?>" alt="<?php echo $item['alt']?>"></a>
+                                </div>
+                            <?php endforeach;?>
+                        </div>
                     </article>
+                    <?php endif;?>
+
+                    <article class="box-section section-voice">
+                        <h2 class="label-heading">LET YOUR VOICE BE HEARD BY LEADERSHIP AT ABC</h2>
+                        <div class="content-voice">
+                            <div class="description-voice">
+                                This poll is updated periodically every quarter based on the input data for best best recommendation practices.
+                            </div>
+                            <form action="" id="formVoice" name="form-voice" method="post">
+                                <div class="section-rating">
+                                    <div class="title-rating">Overall Rating</div>
+                                    <div class="box-rating clearfix">
+                                        <div class="rate">
+                                            <input type="radio" id="rating_star_5" name="rating_star" value="5" />
+                                            <label for="rating_star_5" title="5 stars">5 stars</label>
+                                            <input type="radio" id="rating_star_4" name="rating_star" value="4" />
+                                            <label for="rating_star_4" title="4 star">4 stars</label>
+                                            <input type="radio" id="rating_star_3" name="rating_star" value="3" />
+                                            <label for="rating_star_3" title="3 stars">3 stars</label>
+                                            <input type="radio" id="rating_star_2" name="rating_star" value="2" />
+                                            <label for="rating_star_2" title="2 stars">2 stars</label>
+                                            <input type="radio" id="rating_star_1" name="rating_star" value="1" />
+                                            <label for="rating_star_1" title="1 star">1 star</label>
+                                        </div>
+                                    </div>
+                                    <p>(Average rating <?php echo $average_rating;?>. Vote count: <?php echo $total_vote_star;?>)</p>
+                                </div>
+                                <?php if ($poll!=''):?>
+                                <div class="section-poll">
+                                    <div class="title-poll">Poll</div>
+                                    <div class="subtitle-poll">
+                                        <?php echo get_field('question_vote');?>
+                                    </div>
+
+                                    <?php
+                                        foreach ($poll as $k => $item):
+                                            $percent = ceil(($item['count_vote']/$total_vote_star)*100);
+                                    ?>
+                                    <div class="article-poll clearfix">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="poll<?php echo $k;?>" class="custom-control-input" id="pollCheck<?php echo $k;?>">
+                                            <label class="custom-control-label" for="pollCheck<?php echo $k;?>">
+                                                <?php echo $item['recommend'];?>
+                                            </label>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: <?php echo $percent;?>%" aria-valuenow="<?php echo $percent;?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span>(<?php echo $percent;?>%, <?php echo $total_vote_star;?> votes)</span>
+                                    </div>
+                                    <?php endforeach;?>
+
+                                </div>
+                                <?php endif;?>
+
+                                <div class="text-center  mt-lg-5 mt-3">
+                                    <button type="submit" class="btn btn-green-env">VOTE</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalVoteStar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15 1.5L13.5 0L7.5 6L1.5 0L0 1.5L6 7.5L0 13.5L1.5 15L7.5 9L13.5 15L15 13.5L9 7.5L15 1.5Z" fill="#0D3153"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-center p-5">
+                                        <img class="alignnone size-full wp-image-3030" src="https://www.envzone.com/wp-content/uploads/2019/04/icon-verified.png" alt="" width="50" height="50" />
+                                        <h2>THANK YOU!</h2>
+                                        Your vote has been submitted successfully!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Model -->
+                    </article>
+
+                    <?php $article_relate = get_field('article_for_company', $post->ID);
+                    if ($article_relate != ''):
+                    ?>
+                    <article class="box-section section-article-relate">
+                        <h2 class="label-heading"><?php echo get_the_title();?> COMPANY IS FEATURED IN</h2>
+                        <div class="section-blog py-0">
+                            <div class="content-blog my-0">
+                                <div class="owl-carousel owl-theme d-lg-flex d-flex flex-row slider-news">
+                                    <?php
+
+                                    $news_special = $article_relate;
+                                    foreach($news_special as $k => $item):
+                                        if (get_field('avatar', 'user_'.$item['article']->post_author)== ''){
+                                            $avatar = ASSET_URL.'images/avatar-default.png';
+                                        }
+                                        else{
+                                            $avatar = get_field('avatar', 'user_'.$item['article']->post_author);
+                                        }
+
+                                        ?>
+                                        <div class="box-item-special item">
+                                            <div class="item-blog">
+                                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item['article']->ID);?>" alt="" align="job-openings">
+                                                <div class="info">
+                                                    <div class="info-news">
+                                                        <a href="<?php echo home_url('category/').get_the_category($item['article']->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item['article']->ID)[0]->cat_name;?></a>
+                                                        <a href="<?php echo get_home_url().'/blog/'.$item['article']->post_name;?>">
+                                                            <h4 class="title-list-special"><?php echo $item['article']->post_title;?></h4>
+                                                        </a>
+                                                    </div>
+                                                    <div class="info-author">
+                                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                                        <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item['article']->post_author);?>" class="author-by">
+                                                            By <b><?php echo get_the_author_meta('display_name', $item['article']->post_author);?></b>
+                                                        </a>
+                                                        <div class="date-by">on <?php echo get_the_date( 'F d, Y', $item['article']->ID );?></div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    <?php endforeach;?>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <?php endif;?>
+
+                    <div class="box-comments">
+                        <?php
+                        if ( comments_open() || get_comments_number() ) {
+                            comments_template();
+                        }
+                        ?>
+                    </div>
+
                 </div>
 
                 <div class="col-lg-4 sidebar-advert no-print">
@@ -178,6 +385,7 @@ get_header();
             </div>
 
         </div>
+
         <!-- /*============SUBCRIBE HOME=================*/ -->
         <div class="container-fluild section-parallax no-print">
             <div class="bg-green-home">
@@ -204,9 +412,12 @@ get_header();
 
     </section>
 </main>
+
 <script type="text/javascript">
     $(document).ready(function () {
-
+        <?php if (count($_POST)>1):?>
+        $('#modalVoteStar').modal('show');
+        <?php endif;?>
         /*slider product detail*/
         $(".carousel-photo-detail").owlCarousel({
             items:1,
@@ -230,14 +441,14 @@ get_header();
 
         $(".box-icon-mini").owlCarousel({
             center: false,
-            items:6,
+            items:4,
             margin:10,
             stagePadding: 0,
             smartSpeed: 300,
             loop: false,
             nav: true,
             dots: false,
-            slideBy: 3,
+            slideBy: 1,
             navText: [
                 '<i class="btn-next-slide"></i>',
                 '<i class="btn-prev-slide"></i>'
@@ -294,7 +505,7 @@ get_header();
                     items: 2
                 },
                 1024: {
-                    items: 3
+                    items: 2
                 }
             }
         });
@@ -305,6 +516,8 @@ get_header();
         owl.trigger('destroy.owl.carousel');
         owl.addClass('off');
     }
+
+
 </script>
 <?php
 get_footer();

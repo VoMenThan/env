@@ -314,21 +314,27 @@ nav .box-sub-menu p {
   font-size: 20px;
 }
 nav .box-sub-menu article {
-  padding-bottom: 20px;
+  padding-bottom: 0;
+  border: 1px solid #E0E0E0;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 30px;
+  border-top: 3px solid #8DC63F;
 }
 nav .box-sub-menu article > p {
   font-size: 18px;
   line-height: 25px;
 }
 nav .box-sub-menu .title-submenu {
-  color: #8DC63F;
-  font-size: 24px;
-  padding-bottom: 15px;
+  color: #fff;
+  font-size: 20px;
   font-weight: bold;
   display: inline-block;
+  padding: 32px 0;
+  width: 100%;
 }
 nav .box-sub-menu .title-submenu:hover {
-  color: #53880B;
+  background: #45678A;
 }
 nav .box-sub-menu .title-contact {
   font-size: 22px;
@@ -408,8 +414,10 @@ nav .nav-vendor .vendor-university .list-step-process .step:before {
 }
 nav .nav-vendor .box-sign-up {
   text-align: center;
+  border: none;
   border-bottom: 1px solid #E0E0E0;
   margin-bottom: 15px;
+  padding-bottom: 30px;
 }
 nav .nav-vendor .box-sign-up .item-sign-up {
   width: calc(50% - 35px);
@@ -811,6 +819,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   }
   nav .box-sub-menu article {
     padding: 0;
+    border: none;
+    text-align: left;
+    margin-bottom: 0;
   }
   nav .box-sub-menu .title-submenu {
     font-size: 1rem;
@@ -819,6 +830,10 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
     display: block;
     font-family: "PT Serif", serif;
     font-weight: normal;
+  }
+  nav .box-sub-menu .title-submenu:hover {
+    background: transparent;
+    color: #8DC63F;
   }
   nav .box-sub-menu p {
     display: none;
@@ -10772,16 +10787,48 @@ section.testing-page .item-qa {
 .companies-page .box-rating .rate > input:checked ~ label:before {
   background: url("../images/icon-rated-star.svg") no-repeat;
 }
-.companies-page .box-rating .rate:not(:checked) > label:hover:before,
-.companies-page .box-rating .rate:not(:checked) > label:hover ~ label:before {
+.companies-page .box-rating .rate:not(:checked) > label:not(.nohover):hover:before,
+.companies-page .box-rating .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
   background: url("../images/icon-rated-star.svg") no-repeat;
 }
-.companies-page .box-rating .rate > input:checked + label:hover:before,
-.companies-page .box-rating .rate > input:checked + label:hover ~ label:before,
-.companies-page .box-rating .rate > input:checked ~ label:hover:before,
-.companies-page .box-rating .rate > input:checked ~ label:hover ~ label:before,
-.companies-page .box-rating .rate > label:hover ~ input:checked ~ label:before {
+.companies-page .box-rating .rate > input:checked + label:not(.nohover):hover:before,
+.companies-page .box-rating .rate > input:checked + label:not(.nohover):hover ~ label:before,
+.companies-page .box-rating .rate > input:checked ~ label:not(.nohover):hover:before,
+.companies-page .box-rating .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+.companies-page .box-rating .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
   background: url("../images/icon-rated-star.svg") no-repeat;
+}
+.companies-page .box-rating .rate label.nohover:hover {
+  cursor: auto !important;
+}
+.companies-page #modalVoteStar .modal-content {
+  background: #E0E0E0;
+}
+.companies-page #modalVoteStar .modal-header {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.companies-page #modalVoteStar .modal-body {
+  padding: 0 100px;
+}
+.companies-page #modalVoteStar .modal-body h2 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.companies-page #modalVoteStar .modal-body input, .companies-page #modalVoteStar .modal-body textarea {
+  width: 100%;
+  border: 1px solid #FFFFFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #4F4F4F;
+  background: transparent;
+  padding: 5px 15px;
 }
 
 .company-detail-page .box-info-company {
@@ -10799,6 +10846,9 @@ section.testing-page .item-qa {
 .company-detail-page .box-info-company .infomation-company .box-info {
   padding-left: 175px;
 }
+.company-detail-page .box-info-company .infomation-company .box-info * {
+  font-family: "Roboto", sans-serif;
+}
 .company-detail-page .box-info-company .infomation-company .box-info h1 {
   font-size: 36px;
   line-height: 42px;
@@ -10815,6 +10865,14 @@ section.testing-page .item-qa {
 .company-detail-page .box-info-company .infomation-company .box-info .box-industries .list-industries {
   display: inline-block;
 }
+.company-detail-page .box-info-company .infomation-company .box-info .box-industries .list-industries .item:after {
+  content: "+";
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.company-detail-page .box-info-company .infomation-company .box-info .box-industries .list-industries .item:last-child:after {
+  content: "";
+}
 .company-detail-page .box-info-company .infomation-company .btn-green-env {
   position: absolute;
   bottom: 0;
@@ -10822,6 +10880,160 @@ section.testing-page .item-qa {
 }
 .company-detail-page .box-info-company .infomation-company .btn-green-env:hover {
   color: #0D3153;
+}
+.company-detail-page .box-section {
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-top: 3px solid #8DC63F;
+  margin-bottom: 50px;
+}
+.company-detail-page .box-section .label-heading {
+  border-bottom: 1px solid #BDBDBD;
+  font-size: 22px;
+  line-height: 150%;
+  color: #0D3153;
+  padding: 10px 35px;
+}
+.company-detail-page .section-overview * {
+  font-family: "Roboto", sans-serif;
+}
+.company-detail-page .section-overview .content-overview {
+  padding: 20px 35px;
+  padding-bottom: 0;
+}
+.company-detail-page .section-overview .content-overview p, .company-detail-page .section-overview .content-overview li {
+  font-size: 20px;
+  line-height: 150%;
+  color: #808080;
+}
+.company-detail-page .section-overview .content-overview ul, .company-detail-page .section-overview .content-overview ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.company-detail-page .section-overview .content-overview ul li, .company-detail-page .section-overview .content-overview ol li {
+  list-style-type: inherit;
+  margin-top: 5px;
+}
+.company-detail-page .section-overview .content-overview figure {
+  width: calc(100% + 70px);
+  max-width: calc(100% + 70px);
+  margin-left: -35px;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+.company-detail-page .section-overview .content-overview img {
+  width: 100%;
+}
+.company-detail-page .section-screenshots .carousel-photo-detail {
+  margin: auto;
+  width: 70%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.company-detail-page .section-screenshots .box-icon-mini {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.company-detail-page .section-voice * {
+  font-family: "Roboto", sans-serif;
+}
+.company-detail-page .section-voice .content-voice {
+  padding: 15px 35px;
+}
+.company-detail-page .section-voice .content-voice .description-voice {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 150%;
+  color: #808080;
+  margin-bottom: 30px;
+}
+.company-detail-page .section-voice .content-voice .section-rating {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.company-detail-page .section-voice .content-voice .section-rating .box-rating {
+  display: inline-block;
+}
+.company-detail-page .section-voice .content-voice .section-rating .title-rating {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 150%;
+  color: #808080;
+}
+.company-detail-page .section-voice .content-voice .section-rating p {
+  font-size: 14px;
+  line-height: 150%;
+  color: #808080;
+}
+.company-detail-page .section-voice .content-voice .section-poll .title-poll {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 150%;
+  color: #808080;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.company-detail-page .section-voice .content-voice .section-poll .subtitle-poll {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  color: #808080;
+  width: 80%;
+  margin-bottom: 30px;
+}
+.company-detail-page .section-voice .content-voice .section-poll .progress {
+  margin-left: 24px;
+  float: left;
+  width: 270px;
+  border-radius: 0;
+}
+.company-detail-page .section-voice .content-voice .section-poll .progress .progress-bar {
+  background: #45678A;
+}
+.company-detail-page .section-voice .content-voice .section-poll span {
+  font-size: 14px;
+  color: #808080;
+  vertical-align: top;
+  line-height: 14px;
+  margin-left: 10px;
+}
+.company-detail-page .section-voice .content-voice .section-poll .custom-control-label::before {
+  background-color: #fff;
+  border: 1px solid #45678A;
+  border-radius: 0 !important;
+}
+.company-detail-page .section-voice .content-voice .section-poll .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  top: 7px;
+  left: 3px;
+  background: #45678A;
+  width: 10px;
+  height: 10px;
+}
+.company-detail-page .section-voice p {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 150%;
+  color: #808080;
+}
+.company-detail-page .section-voice .btn-green-env {
+  color: #0D3153 !important;
+  padding: 5px 20px;
+}
+.company-detail-page .section-voice .btn-green-env:hover {
+  color: #fff !important;
+}
+.company-detail-page .section-article-relate {
+  background: #E0E0E0;
+}
+.company-detail-page .section-article-relate .label-heading {
+  margin-bottom: 30px;
+}
+.company-detail-page .section-article-relate .owl-carousel.owl-drag .owl-item {
+  margin-bottom: 0 !important;
 }
 
 .legals-page .date-affective {

@@ -192,18 +192,53 @@
     .rate > input:checked ~ label:before {
       background: url("../images/icon-rated-star.svg") no-repeat;
     }
-    .rate:not(:checked) > label:hover:before,
-    .rate:not(:checked) > label:hover ~ label:before {
+    .rate:not(:checked) > label:not(.nohover):hover:before,
+    .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
       background: url("../images/icon-rated-star.svg") no-repeat;
     }
-    .rate > input:checked + label:hover:before,
-    .rate > input:checked + label:hover ~ label:before,
-    .rate > input:checked ~ label:hover:before,
-    .rate > input:checked ~ label:hover ~ label:before,
-    .rate > label:hover ~ input:checked ~ label:before {
+    .rate > input:checked + label:not(.nohover):hover:before,
+    .rate > input:checked + label:not(.nohover):hover ~ label:before,
+    .rate > input:checked ~ label:not(.nohover):hover:before,
+    .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+    .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
       background: url("../images/icon-rated-star.svg") no-repeat;
+    }
+
+    .rate{
+      label.nohover:hover{
+        cursor: auto !important;
+      }
     }
   }
   /*RATING STAR END*/
+
+  #modalVoteStar{
+    .modal-content{
+      background: #E0E0E0;
+    }
+    .modal-header{
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .modal-body{
+      padding: 0 100px;
+      h2{
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+      input, textarea{
+        width: 100%;
+        border: 1px solid #FFFFFF;
+        @include radius(3px);
+        font-family: $font-roboto;
+        font-size: 18px;
+        line-height: 152.62%;
+        color: #4F4F4F;
+        background: transparent;
+        padding: 5px 15px;
+      }
+
+    }
+  }
 
 }

@@ -124,13 +124,7 @@
                                                         COMPANY
                                                     </h3>
                                                     <div class="sub-title-form">
-                                                        A top choice of offshore software outsourcing consultant in Denver Metro area.
-                                                    </div>
-                                                    <p>
-                                                        Get to know more about our company, we are much more than happy to see you.
-                                                    </p>
-                                                    <div class="title-contact">
-                                                        We would love to invite you for a coffee at our office for a light talk.
+                                                        How an innovative development approach would change the tide of your organization
                                                     </div>
                                                     <?php
                                                         echo do_shortcode('[gravityform id="1" title="false" description="false"]');
@@ -146,9 +140,6 @@
                                                                 About Us
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Enzone is an outsouring company that provide software development and IT consulting services located in the US with over a hundred software developers located internationally
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -157,9 +148,6 @@
                                                                 Partnership
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Our Channel Partner Program provides you with the opportunity to benefit from our pool of IT and software development expert partners
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -168,9 +156,6 @@
                                                                 Process Framework
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We design special process to ensure that we provide quality services which are safety, skills, and authenticity.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -179,9 +164,6 @@
                                                                 Client - Focused Solutions
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We have ample experience with hundreds of successful projects to our name, you have nothing to be scared of, and we are always on your team.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
@@ -190,9 +172,6 @@
                                                                 Careers
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                EnvZone is always seeking talented individuals who are looking for challenging projects. And we are interested in those individuals who can offer reliability, expertise, and versatility that will make them an asset to the company.
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -202,9 +181,6 @@
                                                                 Contact Us
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Contact EnvZone for answers to all of your software outsourcing questions or to sign up for our services! ... Tell us about your issue so we can help you more quickly.
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -238,13 +214,7 @@
                                                         INDUSTRIES
                                                     </h3>
                                                     <div class="sub-title-form">
-                                                        EnvZone specializes custom software development requests across a diverse array of industries.
-                                                    </div>
-                                                    <p>
-                                                        We bring top-notch custom-made solutions to businesses willing to take the leap into the digital world in different industries
-                                                    </p>
-                                                    <div class="title-contact">
-                                                        Send us quick note of your concerns!
+                                                        When we say we know your industry, we mean business.
                                                     </div>
                                                     <?php
                                                     echo do_shortcode('[gravityform id="1" title="false" description="false"]');
@@ -260,9 +230,6 @@
                                                                 Real Estate & Property
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We deliver highly efficient and flexible real estate solutions to our clients. With our best IT solutions, we will help you reduce cost and increase profit
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -272,9 +239,6 @@
                                                                 Hospitality and Travel
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We provide solutions leveraging on customer experience to help businesses in the hospitality industry meet and surpass their goals
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -284,9 +248,6 @@
                                                                 Education
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We develop education softwares which include everything from student information systems to reference management software
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -295,9 +256,6 @@
                                                                 ECommerce & Retail
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We provide a staff of industry experts to help you boost your sales. Our easy-to-use solutions help you to extend the benefits from the online word
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -306,9 +264,6 @@
                                                                 Financial  Services
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We have deep expertise in financial services and provide these services to keep your commercial businesses at the top of the game
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -317,9 +272,6 @@
                                                                 Non-Profit Organization
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Envzone provides top-of-the-line services for non-profit organization to help your orgranization become more effective and efficient
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -329,9 +281,6 @@
                                                                 Healthcare
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We offer foremost help to healthcare industries in need of software developed for them to store, analyze and maintain data processed on a daily basis
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -341,9 +290,6 @@
                                                                 Logistics and Supply Chain
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Envzone has the capability to provide viable logistic and supply chain solutions to deal with the challenges and help the right products reach the right customers.
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -377,13 +323,7 @@
                                                         SERVICES
                                                     </h3>
                                                     <div class="sub-title-form">
-                                                        At EnvZone, we offer affordable services which are critical to the growth of your business
-                                                    </div>
-                                                    <p>
-                                                        Whatever your organization, whatever your industry, we provide you with services you need to ensure your projects operate smoothly.
-                                                    </p>
-                                                    <div class="title-contact">
-                                                        Send us a quick note of your current business conflicts!
+                                                        Realize the full potential of your decision
                                                     </div>
                                                     <?php
                                                     echo do_shortcode('[gravityform id="1" title="false" description="false"]');
@@ -399,9 +339,6 @@
                                                                 Full Cycle Development
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We are seasoned experts in full cycle development, including: software prototyping, custom software development, product development.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -410,9 +347,6 @@
                                                                 IT Outsourcing
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We provide services across almost all technology platforms, work on operating systems and infrastructures.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -421,9 +355,6 @@
                                                                 Testing
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                EnvZone helps provide top-notch technology consultants that are certified and capable of providing established and cutting edge technologies.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -432,9 +363,6 @@
                                                                 DevOps
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                EnvZone provides maintenance and support services to increase productivity and quality of your service.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub d-lg-block d-none">
@@ -443,9 +371,6 @@
                                                                 Customer Support
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Your satisfaction is our concern, and we make sure that our experts adhere to your specifications and industry standards.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                 </div>
@@ -478,14 +403,11 @@
                                                         DISCOVERY
                                                     </h3>
                                                     <div class="sub-title-form">
-                                                        Envzone features daily news, blogs, events and keeps up to date with the latest technology news.
+                                                        EnvZone features resources, daily news, blogs, events and keeps up to date with the insights for your success.
                                                     </div>
                                                     <p>
-                                                        Go to our discovery section to get the latest news, learn more about IT industry overviews and trends, outsourcing, software development and discover our daily events from studio.
-                                                    </p>
-                                                    <div class="title-contact">
                                                         Take 5 mins to improve your skill!
-                                                    </div>
+                                                    </p>
                                                     <?php
                                                     echo do_shortcode('[gravityform id="3" title="false" description="false"]');
                                                     ?>
@@ -501,9 +423,6 @@
                                                                 Blog
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                We create influencial blogs which provide fresh news and the most interesting events focus on technology and software development.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -512,9 +431,6 @@
                                                                 Events
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Looking for some IT & Technology events? Go to our Events section and discover full list of upcoming events.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -523,9 +439,6 @@
                                                                 Knowledge Center
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Here you can find useful materials and information about IT outsourcing and other related resources.
-                                                            </p>
                                                         </article>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6 col-12 element-sub">
@@ -534,9 +447,6 @@
                                                                 Studio
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Take a look around our studio to see the collection of our stories and activities
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -547,9 +457,6 @@
                                                                 Resources
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Looking for free ebooks and tools? This portal features the best free books in the area of tech resources, technical insights and outsourcing tips
-                                                            </p>
                                                         </article>
                                                     </div>
 
@@ -559,9 +466,15 @@
                                                                 Discussion Board
                                                                 <span class="icon-arrow-right"></span>
                                                             </a>
-                                                            <p>
-                                                                Join our forum and get learned from basic to in-depth topics across software outsourcing industry
-                                                            </p>
+                                                        </article>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('companies');?>">
+                                                                Review Platform
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
                                                         </article>
                                                     </div>
 
