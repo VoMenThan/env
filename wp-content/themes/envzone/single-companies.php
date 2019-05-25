@@ -170,7 +170,7 @@ if ($total_vote_star == 0){
                     <?php endif;?>
 
                     <article class="box-section section-voice">
-                        <h2 class="label-heading">LET YOUR VOICE BE HEARD BY LEADERSHIP AT ABC</h2>
+                        <h2 class="label-heading">LET YOUR VOICE BE HEARD BY LEADERSHIP AT <?php echo get_the_title();?></h2>
                         <div class="content-voice">
                             <div class="description-voice">
                                 This poll is updated periodically every quarter based on the input data for best best recommendation practices.
@@ -203,7 +203,10 @@ if ($total_vote_star == 0){
 
                                     <?php
                                         foreach ($poll as $k => $item):
-                                            $percent = ceil(($item['count_vote']/$total_vote_star)*100);
+                                            $percent = 0;
+                                            if ($total_vote_star > 0){
+                                                $percent = ceil(($item['count_vote']/$total_vote_star)*100);
+                                            }
                                     ?>
                                     <div class="article-poll clearfix">
                                         <div class="custom-control custom-checkbox">
@@ -431,7 +434,6 @@ if ($total_vote_star == 0){
             slideBy: 1,
             autoplayTimeout:5000,
             URLhashListener:true,
-            autoplayHoverPause:true,
             startPosition: 'URLHash',
             navText: [
                 '<i class="btn-next-slide"></i>',

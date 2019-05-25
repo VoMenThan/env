@@ -10,7 +10,7 @@ if ($total_vote_star == 0){
 
 <div class="box-item-company clearfix">
     <div class="box-logo">
-        <a href="">
+        <a href="<?php echo get_permalink();?>">
             <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>" alt="">
         </a>
     </div>
