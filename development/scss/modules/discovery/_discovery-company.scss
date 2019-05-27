@@ -191,10 +191,12 @@
     }
     .rate > input:checked ~ label:before {
       background: url("../images/icon-rated-star.svg") no-repeat;
+      background-size: 100% 100%;
     }
     .rate:not(:checked) > label:not(.nohover):hover:before,
     .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
       background: url("../images/icon-rated-star.svg") no-repeat;
+      background-size: 100% 100%;
     }
     .rate > input:checked + label:not(.nohover):hover:before,
     .rate > input:checked + label:not(.nohover):hover ~ label:before,
@@ -202,6 +204,7 @@
     .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
     .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
       background: url("../images/icon-rated-star.svg") no-repeat;
+      background-size: 100% 100%;
     }
 
     .rate{
@@ -238,6 +241,80 @@
         padding: 5px 15px;
       }
 
+    }
+  }
+
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .filter-companies-page {
+    padding-left: 0;
+    padding-right: 0;
+    .list-sort-industries {
+      width: 100%;
+      left: 0;
+      .item-industry{
+        width: 100%;
+      }
+    }
+  }
+
+  .companies-page {
+    .box-item-company {
+      .box-logo {
+        img{
+          width: 90px;
+        }
+      }
+      .box-info{
+        padding-left: 105px;
+        h2{
+          font-size: 22px;
+          margin-bottom: 0;
+        }
+        .list-industries{
+          .item{
+            font-size: 16px;
+            margin-right: 0;
+            &:after{
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .companies-page{
+    .box-rating{
+      &.resize{
+        height: 22px;
+        margin: 5px 0;
+        .rate:not(:checked) > label{
+          width: 22px;
+        }
+        .rate:not(:checked) > label:before{
+          width: 22px;
+          height: 22px;
+        }
+        .rate:not(:checked) > label:before{
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+    .description-rating{
+      float: left;
     }
   }
 

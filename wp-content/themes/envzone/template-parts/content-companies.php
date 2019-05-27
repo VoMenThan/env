@@ -32,7 +32,7 @@ if ($total_vote_star == 0){
 
         </ul>
 
-        <div class="box-rating clearfix">
+        <div class="box-rating resize clearfix">
             <div class="rate">
                 <input class="nohover" type="radio" id="star5<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="5" disabled <?php echo (round($average_rating)==5) ? 'checked' : '';?>/>
                 <label class="nohover" for="star5<?php echo the_ID();?>" title="5 stars">5 stars</label>

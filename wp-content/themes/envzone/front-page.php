@@ -217,7 +217,7 @@
                         <div class="row">
 
                             <div class="col-lg-7 img-special ">
-                                <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
+                                <a href="<?php echo get_the_permalink($news_main[0]->ID);?>">
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
                                 </a>
                             </div>
@@ -225,7 +225,7 @@
                                 <div class="box-info">
                                     <a href="<?php echo home_url('category/').get_the_category($news_main[0]->ID)[0]->slug;?>" class="category"><?php echo get_the_category($news_main[0]->ID)[0]->cat_name;?></a>
 
-                                    <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>">
+                                    <a href="<?php echo get_the_permalink($news_main[0]->ID);?>">
                                         <h3 class="title-special"><?php echo $news_main[0]->post_title;?></h3>
                                     </a>
 
@@ -233,7 +233,7 @@
                                         <p>
                                             <?php echo $news_main[0]->post_excerpt;?>
                                         </p>
-                                        <a href="<?php echo get_home_url().'/blog/'.$news_main[0]->post_name;?>" class="read-more">Read more</a>
+                                        <a href="<?php echo get_the_permalink($news_main[0]->ID);?>" class="read-more">Read more</a>
                                     </div>
                                 </div>
 
@@ -292,11 +292,11 @@
                             ?>
                             <div class="box-item-special item">
                                 <div class="item-blog">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings">
+                                    <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
-                                            <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                            <a href="<?php echo get_the_permalink($item->ID);?>">
                                                 <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
                                             </a>
                                         </div>

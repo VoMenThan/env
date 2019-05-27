@@ -13,42 +13,53 @@ get_header();
 $result = new stdClass();
 $star = get_field('rating_star');
 $poll = get_field('list_vote');
+$error_msg = '';
+if (count($_POST) >= 1){
 
-if(isset($_POST) && count($_POST)>1){
+    if (count($_POST) >= 2){
+        if (isset($_POST['rating_star'])){
 
-    $post_id = $post->post_ID;
-    switch ($_POST['rating_star']):
-        case 1:
-            $star['1_star'] += 1;
-            break;
-        case 2:
-            $star['2_stars'] += 1;
-            break;
-        case 3:
-            $star['3_stars'] += 1;
-            break;
-        case 4:
-            $star['4_stars'] += 1;
-            break;
-        case 5:
-            $star['5_stars'] += 1;
-            break;
-        default:
-            break;
-    endswitch;
-    update_field( 'rating_star', $star, $post_id );
+            $post_id = $post->post_ID;
+            switch ($_POST['rating_star']):
+                case 1:
+                    $star['1_star'] += 1;
+                    break;
+                case 2:
+                    $star['2_stars'] += 1;
+                    break;
+                case 3:
+                    $star['3_stars'] += 1;
+                    break;
+                case 4:
+                    $star['4_stars'] += 1;
+                    break;
+                case 5:
+                    $star['5_stars'] += 1;
+                    break;
+                default:
+                    break;
+            endswitch;
+            update_field( 'rating_star', $star, $post_id );
 
-    $number_poll =  count($poll);
-    for ($i = 0; $i < $number_poll; $i++):
-        if ($_POST['poll'.$i] == 'on'){
-            $poll[$i]['count_vote'] += 1;
+            $number_poll =  count($poll);
+            for ($i = 0; $i < $number_poll; $i++):
+                if ($_POST['poll'.$i] == 'on'){
+                    $poll[$i]['count_vote'] += 1;
+                }
+            endfor;
+            update_field( 'list_vote', $poll, $post_id );
+
+            $result->st = 1;
+
         }
-    endfor;
-    update_field( 'list_vote', $poll, $post_id );
-
-    $result->st = 1;
-
+        else{
+            $error_msg = 'Please rate us!';
+        }
+    }else{
+        $error_msg = 'Please rate us and choose the poll!';
+    }
 }
+
 
 $total_vote_star = $star['1_star'] + $star['2_stars'] + $star['3_stars'] + $star['4_stars'] + $star['5_stars'];
 if ($total_vote_star == 0){
@@ -56,6 +67,7 @@ if ($total_vote_star == 0){
 }else{
     $average_rating = round(($star['1_star']*1 + $star['2_stars']*2 + $star['3_stars']*3 + $star['4_stars']*4 + $star['5_stars']*5)/$total_vote_star, 1);
 }
+
 ?>
 
 <main class="main-content">
@@ -127,7 +139,7 @@ if ($total_vote_star == 0){
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 pd-lr-0">
                     <article class="box-section section-overview">
                         <h2 class="label-heading">OVERVIEW</h2>
                         <div class="content-overview">
@@ -204,9 +216,10 @@ if ($total_vote_star == 0){
                                     <?php
                                         foreach ($poll as $k => $item):
                                             $percent = 0;
-                                            if ($total_vote_star > 0){
+                                            if ($total_vote_star != 0){
                                                 $percent = ceil(($item['count_vote']/$total_vote_star)*100);
                                             }
+
                                     ?>
                                     <div class="article-poll clearfix">
                                         <div class="custom-control custom-checkbox">
@@ -225,6 +238,9 @@ if ($total_vote_star == 0){
                                 </div>
                                 <?php endif;?>
 
+                                <div class="box-error my-lg-3 my-1 text-danger">
+                                    <?php echo $error_msg;?>
+                                </div>
                                 <div class="text-center  mt-lg-5 mt-3">
                                     <button type="submit" class="btn btn-green-env">VOTE</button>
                                 </div>
@@ -262,7 +278,7 @@ if ($total_vote_star == 0){
                     <article class="box-section section-article-relate">
                         <h2 class="label-heading"><?php echo get_the_title();?> COMPANY IS FEATURED IN</h2>
                         <div class="section-blog py-0">
-                            <div class="content-blog my-0">
+                            <div class="content-blog my-0 box-item-scroll">
                                 <div class="owl-carousel owl-theme d-lg-flex d-flex flex-row slider-news">
                                     <?php
 
@@ -418,9 +434,11 @@ if ($total_vote_star == 0){
 
 <script type="text/javascript">
     $(document).ready(function () {
-        <?php if (count($_POST)>1):?>
+        <?php if ($result->st == 1):?>
         $('#modalVoteStar').modal('show');
-        <?php endif;?>
+        <?php endif;
+        $result->st = 0;
+        ?>
         /*slider product detail*/
         $(".carousel-photo-detail").owlCarousel({
             items:1,
@@ -470,7 +488,7 @@ if ($total_vote_star == 0){
         $(".box-analaze-blog .analyze-form #gform_submit_button_12").val('ANALYZE FOR CHANCE OF SUCCESS');
 
 
-        if ( $(window).width() > 768 ) {
+        if ( $(window).width() > 425 ) {
             startCarousel();
 
         } else {
@@ -480,7 +498,7 @@ if ($total_vote_star == 0){
     });
 
     $(window).resize(function() {
-        if ( $(window).width() > 768 ) {
+        if ( $(window).width() > 425 ) {
             startCarousel();
         } else {
             stopCarousel();

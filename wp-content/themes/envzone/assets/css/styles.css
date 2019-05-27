@@ -297,14 +297,15 @@ nav .box-sub-menu {
   padding: 50px 0;
 }
 nav .box-sub-menu h3 {
-  color: #8DC63F;
+  color: #fff;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 26px;
+  margin-bottom: 50px !important;
 }
 nav .box-sub-menu .sub-title-form {
   font-weight: bold;
-  line-height: 34px;
-  font-size: 24px;
+  line-height: 140%;
+  font-size: 18px;
   color: #ffffff;
   margin-bottom: 15px;
 }
@@ -10786,10 +10787,12 @@ section.testing-page .item-qa {
 }
 .companies-page .box-rating .rate > input:checked ~ label:before {
   background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
 }
 .companies-page .box-rating .rate:not(:checked) > label:not(.nohover):hover:before,
 .companies-page .box-rating .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
   background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
 }
 .companies-page .box-rating .rate > input:checked + label:not(.nohover):hover:before,
 .companies-page .box-rating .rate > input:checked + label:not(.nohover):hover ~ label:before,
@@ -10797,6 +10800,7 @@ section.testing-page .item-qa {
 .companies-page .box-rating .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
 .companies-page .box-rating .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
   background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
 }
 .companies-page .box-rating .rate label.nohover:hover {
   cursor: auto !important;
@@ -10831,6 +10835,65 @@ section.testing-page .item-qa {
   padding: 5px 15px;
 }
 
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .filter-companies-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .filter-companies-page .list-sort-industries {
+    width: 100%;
+    left: 0;
+  }
+  .filter-companies-page .list-sort-industries .item-industry {
+    width: 100%;
+  }
+
+  .companies-page .box-item-company .box-logo img {
+    width: 90px;
+  }
+  .companies-page .box-item-company .box-info {
+    padding-left: 105px;
+  }
+  .companies-page .box-item-company .box-info h2 {
+    font-size: 22px;
+    margin-bottom: 0;
+  }
+  .companies-page .box-item-company .box-info .list-industries .item {
+    font-size: 16px;
+    margin-right: 0;
+  }
+  .companies-page .box-item-company .box-info .list-industries .item:after {
+    margin-left: 0;
+  }
+}
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .companies-page .box-rating.resize {
+    height: 22px;
+    margin: 5px 0;
+  }
+  .companies-page .box-rating.resize .rate:not(:checked) > label {
+    width: 22px;
+  }
+  .companies-page .box-rating.resize .rate:not(:checked) > label:before {
+    width: 22px;
+    height: 22px;
+  }
+  .companies-page .box-rating.resize .rate:not(:checked) > label:before {
+    width: 22px;
+    height: 22px;
+  }
+  .companies-page .description-rating {
+    float: left;
+  }
+}
 .company-detail-page .box-info-company {
   background: #E0E0E0;
   padding: 25px;
@@ -10854,6 +10917,9 @@ section.testing-page .item-qa {
   line-height: 42px;
   color: #021A32;
   font-family: "Roboto", sans-serif;
+}
+.company-detail-page .box-info-company .infomation-company .box-info p {
+  font-weight: 300;
 }
 .company-detail-page .box-info-company .infomation-company .box-info .box-industries span, .company-detail-page .box-info-company .infomation-company .box-info .box-industries li {
   font-weight: 300;
@@ -11038,6 +11104,96 @@ section.testing-page .item-qa {
   margin-bottom: 0 !important;
 }
 
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .company-detail-page .box-info-company .infomation-company .btn-green-env {
+    position: static;
+  }
+}
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .company-detail-page .box-info-company .infomation-company .box-logo {
+    float: none;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-logo img {
+    width: 70px;
+    height: 70px;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-info {
+    padding-left: 0;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-info h1 {
+    font-size: 28px;
+    line-height: 150%;
+    padding-bottom: 0;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-info p {
+    font-size: 16px;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-info .box-industries span, .company-detail-page .box-info-company .infomation-company .box-info .box-industries li {
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-info .box-industries .list-industries .item {
+    margin-right: 0;
+  }
+  .company-detail-page .box-info-company .infomation-company .box-info .box-industries .list-industries .item:after {
+    margin-left: 0;
+  }
+  .company-detail-page .box-info-company .infomation-company .btn-green-env {
+    position: absolute;
+    bottom: calc(100% - 50px);
+    right: 0;
+    width: 150px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  .company-detail-page .box-section .label-heading {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 10px 15px;
+  }
+  .company-detail-page .section-overview .content-overview {
+    padding: 20px 15px;
+    padding-bottom: 0;
+  }
+  .company-detail-page .section-overview .content-overview figure {
+    max-width: calc(100% + 30px);
+    width: calc(100% + 30px);
+    margin-left: -15px;
+  }
+  .company-detail-page .section-screenshots .carousel-photo-detail {
+    width: 95%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .company-detail-page .section-voice .content-voice {
+    padding: 20px 15px;
+  }
+  .company-detail-page .section-voice .content-voice .section-poll .progress {
+    float: none;
+    width: 250px;
+  }
+  .company-detail-page .section-voice .content-voice .section-poll span {
+    display: block;
+    margin-left: 24px;
+    padding: 5px 0;
+  }
+  .company-detail-page .section-voice .article-poll {
+    margin-bottom: 15px;
+  }
+
+  .box-comments {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .legals-page .date-affective {
   font-family: "PT Serif", serif;
   color: #808080;
