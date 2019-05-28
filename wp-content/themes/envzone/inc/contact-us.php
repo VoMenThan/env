@@ -26,7 +26,7 @@
                         <p>
                             You have a project but not quite ready to contact us?
                         </p>
-                        <a href="<?php echo home_url('process-framework');?>">
+                        <a href="<?php echo home_url('buyer-guidelines');?>">
                             Is ENVZONE a fit for you?
                         </a>
                     </div>

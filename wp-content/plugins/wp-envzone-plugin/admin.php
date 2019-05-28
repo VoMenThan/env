@@ -37,6 +37,10 @@ class EnvzoneMTAdmin
         add_submenu_page('edit.php?post_type=resources','Promotion Mode', 'Promotion Mode', 'manage_options',
             $menuSlugMagnet, array($this,'settingPageMagnet'));
 
+        $menuSlugMagnet = 'envzone-mt-setting-companies';
+        add_submenu_page('edit.php?post_type=companies','Promotion Mode', 'Promotion Mode', 'manage_options',
+            $menuSlugMagnet, array($this,'settingPageCompanies'));
+
     }
 
 
@@ -58,6 +62,9 @@ class EnvzoneMTAdmin
 
     public function settingPageMagnet(){
         require ENVZONE_MT_VIEWS_DIR . '/setting-page-resources.php';
+    }
+    public function settingPageCompanies(){
+        require ENVZONE_MT_VIEWS_DIR . '/setting-page-companies.php';
     }
 
     //=======================================================

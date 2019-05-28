@@ -426,83 +426,110 @@
     </div>
 
 
-    <div class="container">
-        <!-- /*============SERVICES HOME=================*/ -->
-        <div class="row content-services">
-            <div class="col-12 text-center box-head-services">
-                <h2 class="title-head-blue">REALIZE THE POTENTIAL OF YOUR DECISION.</h2>
-                <p class="description-services text-left m-auto">
-                    Reach your potential through streamlined efficiency. We’ll analyze your outsourcing concerns and needs, what system to run, what solution to implement. And, ask about our multi-sourced development teams. We can help you with an on-going operation support, development procedures.
-                </p>
+    <div class="container section-companies-homepage">
+        <!-- /*============COMPANY HOME=================*/ -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title-section-companies">A COMMUNITY-DRIVEN RECOMMENDATION PLATFORM</h2>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">
-                <article class="item-service">
-                    <div class="box-info-services d-lg-flex align-items-lg-center">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-full-cycle-development.png"  alt="Full Cycle Development">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-full-cycle-development-gr.png"  alt="Full Cycle Development">
-                        <p>
-                            You’re seeking for managing full cycle development. From software prototyping, custom software development to product development, our exceptional experts will be your trust enablers working relentlessly to provide you the best performances  .
-                        </p>
-                        <a href="<?php echo get_home_url();?>/full-cycle-development" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/full-cycle-development" class="plus-gray d-lg-none d-block"></a>
-                    </div>
+            <div class="col-lg-7 d-lg-flex flex-column justify-content-center">
+                <div class="excerpt-companies">
+                    <p>
+                        A dedicated listening platform for your voice to be heard by top leaders
+                    </p>
+                    <p>
+                        It’s about YOUR benefits not OUR rating system. Let’s make the service expectation an enjoyable experience
+                    </p>
+                </div>
 
-                    <h3>
-                        Full Cycle Development
-                    </h3>
-                </article>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">
-                <article class="item-service">
-                    <div class="box-info-services d-lg-flex align-items-lg-center">
-                        <img class="img-fluid d-lg-block d-none"  src="<?php echo ASSET_URL;?>images/icon-outsourcing-services.png" alt="technology consulting">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-outsourcing-services-gr.png"  alt="Full Cycle Development">
-                        <p>
-                            You will easily get access to our top-notch technology consultants that have vast experience addressing IT and business requirements for different organizations.
-                        </p>
-                        <a href="<?php echo get_home_url();?>/it-outsourcing" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/it-outsourcing" class="plus-gray d-lg-none d-block"></a>
-                    </div>
-                    <h3>
-                        IT Outsourcing Services
-                    </h3>
-                </article>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">
-                <article class="item-service">
-                    <div class="box-info-services d-lg-flex align-items-lg-center">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-testing.png" alt="Support">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-testing-gr.png"  alt="Full Cycle Development">
+            <div class="col-lg-5 pd-lr-0">
+                <?php
+                    $args_companies = array(
+                        'posts_per_page' => 2,
+                        'offset'=> 0,
+                        'post_type' => 'companies',
+                        'orderby' => 'post_modified',
+                        'order' =>'desc',
+                        'meta_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'homepage_location',
+                                'value' => 'show-homepage',
+                                'compare' => 'LIKE'
+                            )
+                        )
+                    );
 
-                        <p>
-                            The quality of your products are our concern, and we make sure that our experts adhere to your specifications and industry standards
-                        </p>
-                        <a href="<?php echo get_home_url();?>/testing" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/testing" class="plus-gray d-lg-none d-block"></a>
+                    $list_companies = get_posts( $args_companies );
+
+                    foreach ($list_companies as $item):
+                    $star = get_field('rating_star', $item->ID);
+                    $total_vote_star = $star['1_star'] + $star['2_stars'] + $star['3_stars'] + $star['4_stars'] + $star['5_stars'];
+                    if ($total_vote_star == 0){
+                        $average_rating = 0;
+                    }else{
+                        $average_rating = round(($star['1_star']*1 + $star['2_stars']*2 + $star['3_stars']*3 + $star['4_stars']*4 + $star['5_stars']*5)/$total_vote_star, 1);
+                    }
+                ?>
+                <div class="box-item-company clearfix">
+                    <div class="box-logo">
+                        <a href="<?php echo home_url('companies/').$item->post_name;?>">
+                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                        </a>
                     </div>
-                    <h3>
-                        Testing
-                    </h3>
-                </article>
+                    <div class="box-info">
+                        <a href="<?php echo home_url('companies/').$item->post_name;?>">
+                            <h2><?php echo $item->post_title;?></h2>
+                        </a>
+                        <ul class="list-industries list-inline">
+
+                            <?php
+                            $category_industries = get_the_terms( $item->ID, 'industries' );
+                            if ($category_industries != ''):
+                                foreach ($category_industries as $industry):
+                                    ?>
+                                    <li class="item list-inline-item">
+                                        <?php echo $industry->name;?>
+                                    </li>
+                                <?php endforeach; endif;?>
+
+                        </ul>
+
+                        <div class="box-rating resize clearfix">
+                            <div class="rate">
+                                <input class="nohover" type="radio" id="star5<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="5" disabled <?php echo (round($average_rating)==5) ? 'checked' : '';?>/>
+                                <label class="nohover" for="star5<?php echo $item->ID;?>" title="5 stars">5 stars</label>
+                                <input class="nohover" type="radio" id="star4<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="4" disabled <?php echo (round($average_rating)==4) ? 'checked' : '';?>/>
+                                <label class="nohover" for="star4<?php echo $item->ID;?>" title="4 star">4 stars</label>
+                                <input class="nohover" type="radio" id="star3<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="3" disabled <?php echo (round($average_rating)==3) ? 'checked' : '';?>/>
+                                <label class="nohover" for="star3<?php echo $item->ID;?>" title="3 stars">3 stars</label>
+                                <input class="nohover" type="radio" id="star2<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="2" disabled <?php echo (round($average_rating)==2) ? 'checked' : '';?>/>
+                                <label class="nohover" for="star2<?php echo $item->ID;?>" title="2 stars">2 stars</label>
+                                <input class="nohover" type="radio" id="star1<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="1" disabled <?php echo (round($average_rating)==1) ? 'checked' : '';?>/>
+                                <label class="nohover" for="star1<?php echo $item->ID;?>" title="1 star">1 star</label>
+                            </div>
+                        </div>
+
+
+                        <div class="description-rating">
+                            <p>(Average rating <?php echo $average_rating;?>. Vote count: <?php echo $total_vote_star;?>)</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <?php endforeach;?>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-4 col-6 col-mbx-100">
-                <article class="item-service">
-                    <div class="box-info-services d-lg-flex align-items-lg-center">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-devops.png" alt="IT Outsourcing">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-devops-gr.png" alt="IT Outsourcing">
-                        <p>
-                            Regardless of your technology platforms, what you are seeking for will be specialized by our high quality IT engineers as partners, giving your business its leap to being a world-class phenomenon.
-                        </p>
-                        <a href="<?php echo get_home_url();?>/devops" class="learn-more">LEARN MORE</a>
-                        <a href="<?php echo get_home_url();?>/devops" class="plus-gray d-lg-none d-block"></a>
-                    </div>
-                    <h3>
-                        DevOps
-                    </h3>
-                </article>
+
+            <div class="col-lg-12 content-connect">
+                <div class="subtitle-companies">
+                    Read Review. Write Review. Recommend Improvements.
+                </div>
+                <a href="<?php echo home_url('companies')?>" class="btn btn-green-env">SEARCH FOR A COMPANY</a>
             </div>
         </div>
-        <!-- /*============END SERVICES HOME=================*/ -->
+        <!-- /*============END COMPANY HOME=================*/ -->
     </div>
 
     <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->

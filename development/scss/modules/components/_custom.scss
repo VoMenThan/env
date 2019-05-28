@@ -136,6 +136,9 @@ body{
         }
     }
 
+    .gsection_description{
+        font-size: 18px !important;
+    }
 
 }
 .gform_wrapper.gform_validation_error {
@@ -950,12 +953,6 @@ html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_lab
 }
 /*CSS CUSTOM CONTACT US*/
 
-/*CSS CUSTOM CLIENT PORTAL*/
-.box-form-client-portal{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-/*END CSS CUSTOM CLIENT PORTAL*/
 
 
 /*CUSTOM SUBSCRIBER CONTACT CONFIRMATION*/
@@ -1095,7 +1092,7 @@ body {
 
 #gform_wrapper_6 {
     border-bottom: 1px solid #bdbdbd;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     #field_6_9{
         .gfield_label{
             border: 1px solid #E0E0E0;

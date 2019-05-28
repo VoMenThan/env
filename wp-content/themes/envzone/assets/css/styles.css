@@ -3855,6 +3855,212 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 }
 
 /*=============ANALYZE PAGE END==============*/
+.section-companies-homepage {
+  padding-bottom: 200px;
+  padding-top: 200px;
+  /*RATING STAR*/
+  /*RATING STAR END*/
+}
+.section-companies-homepage .title-section-companies {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 140%;
+  margin-bottom: 100px;
+}
+.section-companies-homepage .excerpt-companies {
+  width: 90%;
+}
+.section-companies-homepage .excerpt-companies p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 150%;
+  color: #808080;
+  margin-bottom: 20px;
+}
+.section-companies-homepage .btn-green-env {
+  color: #0D3153 !important;
+  font-weight: bold;
+  font-size: 18px;
+}
+.section-companies-homepage .btn-green-env:hover {
+  color: #fff !important;
+}
+.section-companies-homepage .content-connect {
+  margin-top: 80px;
+}
+.section-companies-homepage .subtitle-companies {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #8DC63F;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 15px;
+}
+.section-companies-homepage .box-item-company {
+  padding: 25px;
+  margin-bottom: 30px;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.section-companies-homepage .box-item-company .box-logo {
+  float: left;
+}
+.section-companies-homepage .box-item-company .box-logo img {
+  border: 1px solid #BDBDBD;
+  width: 90px;
+}
+.section-companies-homepage .box-item-company .box-info {
+  padding-left: 105px;
+}
+.section-companies-homepage .box-item-company .box-info * {
+  font-family: "Roboto", sans-serif;
+}
+.section-companies-homepage .box-item-company .box-info h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 150%;
+  color: #0D3153;
+}
+.section-companies-homepage .box-item-company .box-info .list-industries .item {
+  font-size: 16px;
+  line-height: 140%;
+  color: #808080;
+}
+.section-companies-homepage .box-item-company .box-info .list-industries .item:after {
+  content: "|";
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.section-companies-homepage .box-item-company .box-info .list-industries .item:last-child:after {
+  content: "";
+  display: inline-block;
+}
+.section-companies-homepage .box-rating {
+  display: block;
+  height: 35px;
+  margin: 10px 0;
+}
+.section-companies-homepage .box-rating .rate {
+  float: left;
+  height: 35px;
+  padding: 0;
+}
+.section-companies-homepage .box-rating .rate:not(:checked) > input {
+  display: none;
+}
+.section-companies-homepage .box-rating .rate:not(:checked) > label {
+  float: right;
+  width: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #ccc;
+  margin-right: 10px;
+}
+.section-companies-homepage .box-rating .rate:not(:checked) > label:before {
+  content: "";
+  display: inline-block;
+  background: url("../images/icon-rating-star.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 35px;
+  height: 35px;
+}
+.section-companies-homepage .box-rating .rate > input:checked ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.section-companies-homepage .box-rating .rate:not(:checked) > label:not(.nohover):hover:before,
+.section-companies-homepage .box-rating .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.section-companies-homepage .box-rating .rate > input:checked + label:not(.nohover):hover:before,
+.section-companies-homepage .box-rating .rate > input:checked + label:not(.nohover):hover ~ label:before,
+.section-companies-homepage .box-rating .rate > input:checked ~ label:not(.nohover):hover:before,
+.section-companies-homepage .box-rating .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+.section-companies-homepage .box-rating .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.section-companies-homepage .box-rating .rate label.nohover:hover {
+  cursor: auto !important;
+}
+.section-companies-homepage .description-rating {
+  font-size: 14px;
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .section-companies-homepage {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  .section-companies-homepage .pd-lr-0 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .section-companies-homepage .title-section-companies {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .section-companies-homepage .excerpt-companies {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .section-companies-homepage .excerpt-companies p {
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .section-companies-homepage .box-item-company .box-info h2 {
+    font-size: 22px;
+  }
+  .section-companies-homepage .box-item-company .box-info .list-industries .item {
+    margin-right: 0;
+  }
+  .section-companies-homepage .box-item-company .box-info .list-industries .item:after {
+    margin-left: 0;
+  }
+  .section-companies-homepage .content-connect {
+    margin-top: 30px;
+  }
+  .section-companies-homepage .subtitle-companies {
+    font-size: 20px;
+  }
+}
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 375px and down (<375px)
+	================================================================== */
+@media screen and (max-width: 375px) {
+  .section-companies-homepage .box-rating {
+    height: 22px;
+    margin: 5px 0;
+  }
+  .section-companies-homepage .box-rating .rate:not(:checked) > label {
+    width: 22px;
+  }
+  .section-companies-homepage .box-rating .rate:not(:checked) > label:before {
+    width: 22px;
+    height: 22px;
+  }
+  .section-companies-homepage .box-rating .rate:not(:checked) > label:before {
+    width: 22px;
+    height: 22px;
+  }
+  .section-companies-homepage .description-rating {
+    float: left;
+  }
+}
 /* ======================FOOTER============== */
 footer {
   padding-top: 100px;
@@ -5866,15 +6072,23 @@ footer .copyright-footer {
   transition: 0.3s;
 }
 .vendor-contact-form-page .box-already-registered .item-vendor h3 {
-  color: #828282;
+  color: #0D3153;
+  font-size: 20px;
   padding-top: 20px;
   padding-bottom: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.vendor-contact-form-page .box-already-registered .item-vendor p {
+  font-size: 15px;
+  line-height: 150%;
+  color: #828282;
 }
 .vendor-contact-form-page .box-already-registered .item-vendor:hover {
   background: #0D3153;
   color: #ffffff;
 }
-.vendor-contact-form-page .box-already-registered .item-vendor:hover h3 {
+.vendor-contact-form-page .box-already-registered .item-vendor:hover h3, .vendor-contact-form-page .box-already-registered .item-vendor:hover p {
   color: #fff;
 }
 .vendor-contact-form-page .box-email-us {
@@ -10834,6 +11048,9 @@ section.testing-page .item-qa {
   background: transparent;
   padding: 5px 15px;
 }
+.companies-page .box-comments {
+  margin-bottom: 30px;
+}
 
 /* 	================================================================
 	MOBILE DEVICE
@@ -10868,6 +11085,9 @@ section.testing-page .item-qa {
   }
   .companies-page .box-item-company .box-info .list-industries .item:after {
     margin-left: 0;
+  }
+  .companies-page.blog-detail-page .box-subscriber-blog {
+    margin-bottom: 0;
   }
 }
 /* 	================================================================
@@ -10975,6 +11195,9 @@ section.testing-page .item-qa {
   font-size: 20px;
   line-height: 150%;
   color: #808080;
+}
+.company-detail-page .section-overview .content-overview p {
+  margin-bottom: 20px;
 }
 .company-detail-page .section-overview .content-overview ul, .company-detail-page .section-overview .content-overview ol {
   margin-left: 30px;
@@ -12763,6 +12986,9 @@ body .gform_wrapper ul li.gfield {
 .gform_wrapper li.gfield.gfield_error .gfield_contains_required div.gfield_description {
   position: absolute;
 }
+.gform_wrapper .gsection_description {
+  font-size: 18px !important;
+}
 
 .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half {
   margin-bottom: 0 !important;
@@ -13531,13 +13757,6 @@ html:not([dir=rtl]) .form-horizontal .gform_wrapper ul.gform_fields:not(.top_lab
 }
 
 /*CSS CUSTOM CONTACT US*/
-/*CSS CUSTOM CLIENT PORTAL*/
-.box-form-client-portal {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-/*END CSS CUSTOM CLIENT PORTAL*/
 /*CUSTOM SUBSCRIBER CONTACT CONFIRMATION*/
 .box-thank .form-subscribe form:after {
   content: "";
@@ -13632,7 +13851,7 @@ body .box-thank #gform_wrapper_3 .top_label div.ginput_container {
 
 #gform_wrapper_6 {
   border-bottom: 1px solid #bdbdbd;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 #gform_wrapper_6 #field_6_9 .gfield_label {
   border: 1px solid #E0E0E0;

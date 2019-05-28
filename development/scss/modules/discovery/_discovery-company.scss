@@ -244,6 +244,9 @@
     }
   }
 
+  .box-comments{
+    margin-bottom: 30px;
+  }
 }
 
 /* 	================================================================
@@ -285,6 +288,12 @@
             }
           }
         }
+      }
+    }
+
+    &.blog-detail-page {
+      .box-subscriber-blog{
+        margin-bottom: 0;
       }
     }
   }

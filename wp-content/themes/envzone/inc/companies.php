@@ -1,11 +1,32 @@
 <?php
 $date_now = date('Y-m-d');
-$args_event = array(
-    'posts_per_page' => -1,
-    'post_type' => 'companies',
-    'orderby'	=> 'meta_value',
-    'order'     => 'desc'
-);
+
+$get_terms = $_GET['t'];
+if(count($get_terms)>=1){
+    $args_event = array(
+        'posts_per_page' => -1,
+        'post_type' => 'companies',
+        'orderby'	=> 'meta_value',
+        'order'     => 'desc',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'industries',
+                'field'    => 'slug',
+                'terms'    => $get_terms
+            ),
+        )
+    );
+}else{
+    $args_event = array(
+        'posts_per_page' => -1,
+        'post_type' => 'companies',
+        'orderby'	=> 'meta_value',
+        'order'     => 'desc'
+    );
+}
+
+
+
 $the_query = new WP_Query( $args_event );
 
 
@@ -13,6 +34,13 @@ $terms_companies = get_terms( array(
     'taxonomy' => 'industries',
     'hide_empty' => false
 ) );
+
+
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$full_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+$count_industries = count($_GET['t']);
+
 ?>
 
     <main class="main-content">
@@ -22,7 +50,7 @@ $terms_companies = get_terms( array(
                     <div class="col-lg-12 box-filter">
                         <div class="box-sort-industries">
                             <div class="title" data-toggle="collapse" data-target="#collapseFilterIndustries" aria-expanded="false" aria-controls="collapseExample">
-                                SORT BY: <span class="default-title">Industry (0)</span>
+                                SORT BY: <span class="default-title">Industry (<?php echo $count_industries;?>)</span>
                             </div>
                             <div class="arrow-right"></div>
                         </div>
@@ -30,11 +58,31 @@ $terms_companies = get_terms( array(
                             <div class="wrap">
                                 <?php foreach ($terms_companies as $item):?>
                                 <div class="item-industry">
-                                    <a href="">
+                                    <?php
+
+                                        if (!isset($_GET['t'])){
+                                            $slug = home_url('companies/?t[0]=').$item->slug;
+                                        }else{
+                                            for ($i = 0; $i < $count_industries; $i++){
+                                                if ($_GET['t'][$i] == $item->slug){
+                                                    $checked = 'checked';
+                                                    break;
+                                                }
+                                                else{
+                                                    $checked = '';
+                                                }
+
+                                            }
+                                            $slug = $full_url.'&t['.$count_industries.']='.$item->slug;
+
+                                        }
+                                    ?>
+                                    <a class="<?php echo $checked?>" href="<?php echo $slug;?>">
                                         <span class="">
                                             <?php echo $item->name;?>
                                         </span>
                                     </a>
+
                                 </div>
                                 <?php endforeach;?>
 
@@ -64,7 +112,7 @@ $terms_companies = get_terms( array(
 
                         else :
 
-                            get_template_part( 'template-parts/content', 'none' );
+                            get_template_part( 'template-parts/content', 'none-company' );
 
                         endif;
                         ?>
@@ -74,7 +122,7 @@ $terms_companies = get_terms( array(
 
                     <div class="col-lg-4 pd-lr-0">
 
-                        <div class="box-subscriber-blog d-lg-block d-none">
+                        <div class="box-subscriber-blog">
                             <div class="box-border">
                                 <div class="title-sub">
                                     Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
@@ -91,29 +139,7 @@ $terms_companies = get_terms( array(
                 </div>
 
             </div>
-            <!-- /*============SUBCRIBE HOME=================*/ -->
-            <div class="container-fluild section-parallax">
-                <div class="bg-green-home">
-                    <div class="container content-subcribe">
-                        <div class="row">
-                            <div class="col-12 box-head-subcribe text-center">
-                                <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                                <p>
-                                    Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
-                                </p>
-                                <div class="form-subscribe">
-                                    <?php
-                                    echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-
-            </div>
-            <!-- /*============END SUBCRIBE HOME=================*/ -->
         </section>
     </main>
     <script>
