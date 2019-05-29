@@ -1,13 +1,18 @@
 <?php
+global $wp_query;
 $date_now = date('Y-m-d');
 
 $get_terms = $_GET['t'];
+
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+
 if(count($get_terms)>=1){
     $args_event = array(
-        'posts_per_page' => -1,
         'post_type' => 'companies',
         'orderby'	=> 'meta_value',
         'order'     => 'desc',
+        'paged' => $paged,
         'tax_query' => array(
             array(
                 'taxonomy' => 'industries',
@@ -18,10 +23,10 @@ if(count($get_terms)>=1){
     );
 }else{
     $args_event = array(
-        'posts_per_page' => -1,
         'post_type' => 'companies',
-        'orderby'	=> 'meta_value',
-        'order'     => 'desc'
+        'posts_per_page' => 2,
+        'paged' => $paged,
+        'page' => $paged
     );
 }
 
@@ -66,16 +71,40 @@ $count_industries = count($_GET['t']);
                                             for ($i = 0; $i < $count_industries; $i++){
                                                 if ($_GET['t'][$i] == $item->slug){
                                                     $checked = 'checked';
+                                                    if($i==0){
+                                                        $slug = str_replace('?t[0]='.$item->slug, '',$full_url);
+                                                        for ($j=0; $j<$count_industries; $j++){
+                                                            $t = $j+1;
+                                                            if ($j==0){
+                                                                $slug = str_replace("&t[$t]", "?t[$j]", $slug);
+                                                            }else{
+                                                                $slug = str_replace("&t[$t]", "&t[$j]", $slug);
+                                                            }
+                                                        }
+
+                                                    }else{
+                                                        $slug = str_replace("&t[$i]=".$item->slug, '',$full_url);
+                                                        for ($j=1; $j <= $count_industries; $j++){
+                                                            if ($j >= $i){
+                                                                $t = $j+1;
+                                                                $slug = str_replace("&t[$t]", "&t[$j]", $slug);
+                                                            }
+                                                            else{
+                                                                $slug = str_replace("&t[$j]", "&t[$j]", $slug);
+                                                            }
+
+                                                        }
+                                                    }
+
                                                     break;
                                                 }
                                                 else{
                                                     $checked = '';
+                                                    $slug = $full_url.'&t['.$count_industries.']='.$item->slug;
                                                 }
-
                                             }
-                                            $slug = $full_url.'&t['.$count_industries.']='.$item->slug;
-
                                         }
+
                                     ?>
                                     <a class="<?php echo $checked?>" href="<?php echo $slug;?>">
                                         <span class="">
@@ -97,27 +126,35 @@ $count_industries = count($_GET['t']);
             <div class="container">
                 <div class="row mb-lg-5">
                     <div class="col-lg-8 mb-5 pd-lr-0">
-                        <?php if( $the_query->have_posts() ): ?>
+                        <?php
+                            if( $the_query->have_posts() ): ?>
 
 
-                            <?php while( $the_query->have_posts() ) : $the_query->the_post();
+                                <?php while( $the_query->have_posts() ) : $the_query->the_post();
 
-                                get_template_part( 'template-parts/content', 'companies' );
+                                    get_template_part( 'template-parts/content', 'companies' );
 
-                            endwhile;
+                                endwhile;
 
-                            if (  $the_query->max_num_pages > 1 ){
-                                echo '<div class="misha_loadmore btn-show-event btn btn-blue-env w-100 my-5">Load more</div>'; // you can use <a> as well
-                            };
+                                $big = 999999999; // need an unlikely integer
 
-                        else :
+                                echo paginate_links( array(
+                                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                                    'format' => '?paged=%#%',
+                                    'current' => max( 1, $paged ),
+                                    'total' => $the_query->max_num_pages
+                                ) );
 
-                            get_template_part( 'template-parts/content', 'none-company' );
+                            else :
 
-                        endif;
+                                get_template_part( 'template-parts/content', 'none-company' );
+
+                            endif;
+
+                            wp_reset_postdata();	 // Restore global post data stomped by the_post().
                         ?>
                     </div>
-                    <?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
+
 
 
                     <div class="col-lg-4 pd-lr-0">
