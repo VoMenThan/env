@@ -303,7 +303,7 @@ nav .box-sub-menu h3 {
   margin-bottom: 50px !important;
 }
 nav .box-sub-menu .sub-title-form {
-  font-weight: bold;
+  font-weight: 600;
   line-height: 140%;
   font-size: 18px;
   color: #ffffff;
@@ -312,7 +312,7 @@ nav .box-sub-menu .sub-title-form {
 nav .box-sub-menu p {
   color: #ffffff;
   line-height: 28px;
-  font-size: 20px;
+  font-size: 18px;
 }
 nav .box-sub-menu article {
   padding-bottom: 0;
@@ -329,13 +329,18 @@ nav .box-sub-menu article > p {
 nav .box-sub-menu .title-submenu {
   color: #fff;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
   display: inline-block;
   padding: 32px 0;
   width: 100%;
 }
 nav .box-sub-menu .title-submenu:hover {
   background: #45678A;
+}
+nav .box-sub-menu .title-submenu svg {
+  position: absolute;
+  top: 10px;
+  right: 25px;
 }
 nav .box-sub-menu .title-contact {
   font-size: 22px;
@@ -835,6 +840,10 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   nav .box-sub-menu .title-submenu:hover {
     background: transparent;
     color: #8DC63F;
+  }
+  nav .box-sub-menu .title-submenu svg {
+    top: 18px;
+    right: 40px;
   }
   nav .box-sub-menu p {
     display: none;
@@ -5064,12 +5073,29 @@ footer .copyright-footer {
 	MOBILE DEVICE
 	Large mobile 425px and down (<425px)
 	================================================================== */
+.contact-us-page .box-form-contact {
+  margin-bottom: 100px;
+}
+.contact-us-page .box-form-contact .title-head-blue {
+  text-transform: inherit;
+  padding-bottom: 80px;
+}
+.contact-us-page .box-form-contact .process-step-working {
+  margin-bottom: 50px;
+}
 .contact-us-page .box-form-contact p {
   font-size: 26px;
 }
 .contact-us-page .box-form-contact a {
   text-decoration: underline;
   color: #808080;
+}
+.contact-us-page .box-form-contact .box-litter p {
+  font-size: 20px;
+}
+.contact-us-page .box-form-contact .box-litter a {
+  font-size: 20px;
+  display: inline-block;
 }
 .contact-us-page .box-form-contact .btn-green-env {
   font-size: 25px;
@@ -5293,9 +5319,19 @@ footer .copyright-footer {
   }
   .contact-us-page .box-header .title-head-blue {
     font-size: 28px;
+    padding-bottom: 50px;
+  }
+  .contact-us-page .box-form-contact {
+    margin-bottom: 0;
+  }
+  .contact-us-page .box-form-contact .process-step-working {
+    margin-bottom: 30px;
   }
   .contact-us-page .box-form-contact p {
     font-size: 18px;
+  }
+  .contact-us-page .box-form-contact .box-litter p, .contact-us-page .box-form-contact .box-litter a {
+    font-size: 16px;
   }
 }
 /* 	================================================================
@@ -6052,6 +6088,7 @@ footer .copyright-footer {
   color: #888888;
   margin-bottom: 15px;
   margin-top: 30px;
+  text-transform: uppercase;
 }
 .vendor-contact-form-page p {
   font-size: 26px;
@@ -9672,7 +9709,7 @@ section.testing-page .item-qa {
     min-height: 150px;
   }
   .blog-events-page .box-item-event .box-date {
-    font-size: 20px;
+    font-size: 16px;
     width: 85px;
     font-weight: normal;
   }
@@ -10871,6 +10908,27 @@ section.testing-page .item-qa {
   -o-transition: 0.2s;
   transition: 0.2s;
 }
+.filter-companies-page .box-sort-industries .btn-clear {
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: calc(50% - 15px);
+  font-size: 18px;
+}
+.filter-companies-page .box-sort-industries .btn-clear a {
+  display: inline-block;
+  cursor: pointer;
+}
+.filter-companies-page .box-sort-industries .btn-clear .text-clear {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 15px;
+  color: #8DC63F;
+}
+.filter-companies-page .box-sort-industries .btn-clear svg {
+  margin-bottom: -4px;
+  margin-left: 5px;
+}
 .filter-companies-page .list-sort-industries {
   width: 770px;
   position: absolute;
@@ -11095,6 +11153,10 @@ section.testing-page .item-qa {
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: 425px) {
+  .filter-companies-page .box-sort-industries .default-title {
+    min-width: 200px;
+  }
+
   .companies-page .box-rating.resize {
     height: 22px;
     margin: 5px 0;
@@ -11565,6 +11627,9 @@ section.testing-page .item-qa {
 .system-page .box-client-portal {
   border: 1px solid #E4E1E1;
 }
+.system-page .box-client-portal .box-form-client-portal {
+  padding: 25px;
+}
 .system-page .box-client-portal .title-head-gray {
   background: #E4E1E1;
   text-align: center;
@@ -11924,6 +11989,16 @@ section.testing-page .item-qa {
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) {
+  .system-page .pd-lr-0 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .system-page .box-client-portal {
+    border: none;
+  }
+  .system-page .box-client-portal .box-form-client-portal {
+    padding: 15px;
+  }
   .system-page .box-get-notification input {
     margin-bottom: 15px;
     width: 100%;
@@ -12525,6 +12600,44 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
   }
 }
+/*========================PAGINATION CSS==============================*/
+.box-pagination {
+  position: relative;
+  text-align: center;
+  padding: 10px 15px;
+  border: 1px solid #BDBDBD;
+}
+.box-pagination a, .box-pagination span {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #808080;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.box-pagination a.next, .box-pagination a.prev {
+  width: auto;
+  height: auto;
+}
+.box-pagination span.current {
+  border-radius: 50%;
+  background: #E0E0E0;
+}
+.box-pagination .prev {
+  position: absolute;
+  left: 15px;
+}
+.box-pagination .next {
+  position: absolute;
+  right: 15px;
+}
+
+/*========================PAGINATION CSS END==============================*/
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
 	EXTRA LARGE DEVICE

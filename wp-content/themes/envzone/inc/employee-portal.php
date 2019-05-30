@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="row justify-content-center box-form-employee">
-                <div class="col-lg-8">
+                <div class="col-lg-8 pd-lr-0">
                     <div class="box-client-portal">
                         <h1 class="title-head-gray">DO NOT HAVE AN ACCOUNT YET!</h1>
                         <h3>SUBMIT A REQUEST TO GET YOU ON THE SYSTEM</h3>

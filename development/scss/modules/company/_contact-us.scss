@@ -1,11 +1,28 @@
 .contact-us-page{
 	.box-form-contact{
+		margin-bottom: 100px;
+		.title-head-blue{
+			text-transform: inherit;
+			padding-bottom: 80px;
+		}
+		.process-step-working{
+			margin-bottom: 50px;
+		}
 		p{
 			font-size: 26px;
 		}
 		a{
 			text-decoration: underline;
 			color: #808080;
+		}
+		.box-litter{
+			p{
+				font-size: 20px;
+			}
+			a{
+				font-size: 20px;
+				display: inline-block;
+			}
 		}
 		.btn-green-env{
 			font-size: 25px;
@@ -206,6 +223,7 @@
 				p{
 					font-size: 18px;
 				}
+
 			}
 			.box-img{
 				width: 100%;
@@ -251,11 +269,22 @@
 		.box-header{
 			.title-head-blue{
 				font-size: 28px;
+				padding-bottom: 50px;
 			}
 		}
+
 		.box-form-contact {
+			margin-bottom: 0;
+			.process-step-working{
+				margin-bottom: 30px;
+			}
 			p{
 				font-size: 18px;
+			}
+			.box-litter{
+				p, a{
+					font-size: 16px;
+				}
 			}
 		}
 	}

@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8 pd-lr-0">
                     <div class="box-client-portal">
                         <h1 class="title-head-gray">DO NOT HAVE AN ACCOUNT YET!</h1>
-                        <h3>SUBMIT A REQUEST TO GET YOU ON OUR VENDOR DATABASE</h3>
+                        <h3>SUBMIT A REQUEST TO GET YOU STARTED</h3>
 
                         <div class="box-form-client-portal form-horizontal">
                             <?php

@@ -56,6 +56,9 @@
 
   .box-client-portal{
     border: 1px solid $color-gray-process;
+    .box-form-client-portal{
+      padding: 25px;
+    }
     .title-head-gray{
       background: $color-gray-process;
       text-align: center;
@@ -438,6 +441,16 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
   .system-page{
+    .pd-lr-0{
+      padding-right: 0;
+      padding-left: 0;
+    }
+    .box-client-portal {
+      border: none;
+      .box-form-client-portal {
+        padding: 15px;
+      }
+    }
     .box-get-notification{
       input{
         margin-bottom: 15px;

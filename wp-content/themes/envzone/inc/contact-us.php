@@ -18,17 +18,25 @@
             <div class="row">
                 <div class="col-lg-8 box-form-contact">
                     <div class="box-header mb-5">
-                        <h1 class="title-head-blue title-top">COLLABORATE WITH ENVZONE!</h1>
+                        <h1 class="title-head-blue title-top">Great! You are working towards your goals!</h1>
+
+                        <div class="process-step-working">
+                            <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-process-bar.png" alt="">
+                            <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-process-bar-mb.png" alt="">
+                        </div>
+
                         <p>
-                            Ready to start a flow? Let’s fill out the form to collect some basic information
-                            prior to scheduling appoitment.
+                            Please fill out the fields below so we can learn some information about you.
                         </p>
-                        <p>
-                            You have a project but not quite ready to contact us?
-                        </p>
-                        <a href="<?php echo home_url('buyer-guidelines');?>">
-                            Is ENVZONE a fit for you?
-                        </a>
+                        <div class="box-litter">
+                            <p>
+                                You have a project but not quite ready to contact us?
+                                <a href="<?php echo home_url('buyer-guidelines');?>">
+                                    Is ENVZONE a fit for you?
+                                </a>
+                            </p>
+                        </div>
+
                     </div>
 
                     <div class="box-form-contact form-horizontal">

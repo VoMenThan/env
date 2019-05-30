@@ -45,6 +45,27 @@
         @include transition(.2s);
       }
     }
+    .btn-clear{
+      display: inline-block;
+      position: absolute;
+      right: 15px;
+      top: calc(50% - 15px);
+      font-size: 18px;
+      a{
+        display: inline-block;
+        cursor: pointer;
+      }
+      .text-clear{
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: 15px;
+        color: $color-green-logo;
+      }
+      svg{
+        margin-bottom: -4px;
+        margin-left: 5px;
+      }
+    }
 
   }
   .list-sort-industries{
@@ -304,6 +325,13 @@
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: 425px) {
+  .filter-companies-page {
+    .box-sort-industries {
+      .default-title{
+        min-width: 200px;
+      }
+    }
+  }
   .companies-page{
     .box-rating{
       &.resize{
