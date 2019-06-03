@@ -11312,7 +11312,7 @@ section.testing-page .item-qa {
 }
 .company-detail-page .section-voice .content-voice .section-rating .title-rating {
   font-weight: 500;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 150%;
   color: #808080;
 }
@@ -11321,9 +11321,12 @@ section.testing-page .item-qa {
   line-height: 150%;
   color: #808080;
 }
+.company-detail-page .section-voice .content-voice .section-poll .article-poll {
+  margin-bottom: 10px;
+}
 .company-detail-page .section-voice .content-voice .section-poll .title-poll {
   font-weight: 500;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 150%;
   color: #808080;
   text-align: center;
@@ -11336,6 +11339,12 @@ section.testing-page .item-qa {
   color: #808080;
   width: 80%;
   margin-bottom: 30px;
+}
+.company-detail-page .section-voice .content-voice .section-poll .recommend-poll {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 150%;
+  padding-left: 25px;
 }
 .company-detail-page .section-voice .content-voice .section-poll .progress {
   margin-left: 24px;
@@ -11353,13 +11362,17 @@ section.testing-page .item-qa {
   line-height: 14px;
   margin-left: 10px;
 }
-.company-detail-page .section-voice .content-voice .section-poll .custom-control-label::before {
+.company-detail-page .section-voice .content-voice .section-poll .custom-control-label {
+  font-size: 20px;
+}
+.company-detail-page .section-voice .content-voice .section-poll .custom-control-label:before {
   background-color: #fff;
   border: 1px solid #45678A;
   border-radius: 0 !important;
+  top: 0.5rem;
 }
 .company-detail-page .section-voice .content-voice .section-poll .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-  top: 7px;
+  top: 11px;
   left: 3px;
   background: #45678A;
   width: 10px;
@@ -12606,6 +12619,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 10px 15px;
   border: 1px solid #BDBDBD;
+  margin-bottom: 50px;
 }
 .box-pagination a, .box-pagination span {
   font-size: 18px;

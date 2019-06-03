@@ -152,7 +152,7 @@
         }
         .title-rating{
           font-weight: 500;
-          font-size: 22px;
+          font-size: 26px;
           line-height: 150%;
           color: #808080;
         }
@@ -164,9 +164,12 @@
       }
 
       .section-poll{
+        .article-poll{
+          margin-bottom: 10px;
+        }
         .title-poll{
           font-weight: 500;
-          font-size: 22px;
+          font-size: 26px;
           line-height: 150%;
           color: #808080;
           text-align: center;
@@ -179,6 +182,12 @@
           color: #808080;
           width: 80%;
           margin-bottom: 30px;
+        }
+        .recommend-poll{
+          font-size: 20px;
+          font-style: italic;
+          line-height: 150%;
+          padding-left: 25px;
         }
         .progress{
           margin-left: 24px;
@@ -197,14 +206,19 @@
           margin-left: 10px;
         }
 
-        .custom-control-label::before{
-          background-color: #fff;
-          border: 1px solid #45678A;
-          border-radius: 0 !important;
+        .custom-control-label{
+          font-size: 20px;
+          &:before{
+            background-color: #fff;
+            border: 1px solid #45678A;
+            border-radius: 0 !important;
+            top: .5rem;
+          }
         }
+
         .custom-checkbox {
           .custom-control-input:checked~.custom-control-label::after{
-            top: 7px;
+            top: 11px;
             left: 3px;
             background: #45678A;
             width: 10px;

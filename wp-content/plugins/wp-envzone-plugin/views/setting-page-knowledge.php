@@ -107,7 +107,7 @@
                  'meta_query' => array(
                      'relation' => 'OR',
                      array(
-                         'key' => 'post_show',
+                         'key' => 'video_show',
                          'value' => 'featured-videos',
                          'compare' => 'LIKE',
                      )

@@ -14,7 +14,7 @@ $paged = get_query_var( 'paged' );
 if(count($get_terms)>=1){
     $args_event = array(
         'post_type' => 'companies',
-        'posts_per_page' => 5,
+        'posts_per_page' => 10,
         'orderby'	=> 'meta_value',
         'order'     => 'desc',
         'paged' => $paged,
@@ -29,7 +29,7 @@ if(count($get_terms)>=1){
 }else{
     $args_event = array(
         'post_type' => 'companies',
-        'posts_per_page' => 5,
+        'posts_per_page' => 10,
         'paged' => $paged
     );
 }

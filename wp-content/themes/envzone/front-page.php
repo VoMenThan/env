@@ -275,7 +275,7 @@
                                 'relation' => 'OR',
                                 array(
                                     'key' => 'post_show',
-                                    'value' => 'featured-insights',
+                                    'value' => 'home-featured-insights',
                                     'compare' => 'LIKE',
                                 )
                             )

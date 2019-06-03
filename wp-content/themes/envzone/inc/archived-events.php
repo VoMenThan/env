@@ -27,8 +27,7 @@ $args_event = array(
             'type'			=> 'DATETIME'
         )
     ),
-    'orderby'	=> 'meta_value',
-    'order'     => 'asc'
+    'orderby'	=> 'meta_value'
 );
 $the_query = new WP_Query( $args_event );
 
@@ -65,7 +64,7 @@ $the_query = new WP_Query( $args_event );
                             endwhile;
 
                             if (  $the_query->max_num_pages > 1 ){
-                                echo '<div class="misha_loadmore btn-show-event btn btn-blue-env w-100 my-5">Load more</div>'; // you can use <a> as well
+                                echo '<div class="misha_loadmore btn-show-event btn btn-blue-env w-100 my-5">Show more</div>'; // you can use <a> as well
                             };
 
                         else :

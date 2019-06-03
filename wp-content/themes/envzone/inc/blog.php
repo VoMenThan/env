@@ -170,7 +170,7 @@
                 <div class="col-lg-8 pd-lr-0">
                     <?php
                         $args_recent = array(
-                            'posts_per_page' => -1,
+                            'posts_per_page' => 20,
                             'offset'=> 0,
                             'post_type' => 'post',
                             'orderby' => 'id',
@@ -187,9 +187,26 @@
 
                             endwhile;
 
-                            if (  $the_query->max_num_pages > 1 ){
-                                echo '<div class="misha_loadmore btn-show-blog btn btn-blue-env w-100 my-5">Load more</div>'; // you can use <a> as well
-                            };
+                            if ($the_query->max_num_pages > 1):
+
+                                //echo '<div class="misha_loadmore btn-show-blog btn btn-blue-env w-100 my-5">Show more</div>'; // you can use <a> as well
+
+                                $big = 999999999; // need an unlikely integer
+
+                                echo '<div class="box-pagination">';
+                                echo paginate_links( array(
+                                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                                    'format' => '?paged=%#%',
+                                    'end_size'           => 4,
+                                    'mid_size'           => 1,
+                                    'current'            => max( 1, $paged ),
+                                    'total'              => $the_query->max_num_pages,
+                                    'prev_next'          => true,
+                                    'prev_text'          => __('Previous'),
+                                    'next_text'          => __('Next')
+                                ) );
+                                echo '</div>';
+                            endif;
 
                         else :
 

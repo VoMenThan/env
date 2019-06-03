@@ -23,7 +23,7 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
             },
             success : function( data ){
                 if( data ) {
-                    button.text( 'Load more' ).prev().before(data); // insert new posts
+                    button.text( 'Show more' ).prev().before(data); // insert new posts
                     misha_loadmore_params.current_page++;
 
                     if ( misha_loadmore_params.current_page == misha_loadmore_params.max_page )

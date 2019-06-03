@@ -234,7 +234,9 @@ if ($total_vote_star == 0){
                                         <span>(<?php echo $percent;?>%, <?php echo $total_vote_star;?> votes)</span>
                                     </div>
                                     <?php endforeach;?>
-
+                                    <div class="recommend-poll">
+                                        or suggest with your recommendation in the comment below
+                                    </div>
                                 </div>
                                 <?php endif;?>
 

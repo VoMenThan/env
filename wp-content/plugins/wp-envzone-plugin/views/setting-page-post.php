@@ -104,8 +104,8 @@
                         'relation' => 'OR',
                         array(
                             'key' => 'post_show',
-                            'value' => 'featured-insights',
-                            'compare' => 'LIKE',
+                            'value' => 'home-featured-insights',
+                            'compare' => 'like'
                         )
                     )
                 );
