@@ -1,5 +1,7 @@
 <?php
 $date_now = date('Y-m-d');
+$paged = get_query_var( 'paged' );
+
 $args_event = array(
     'posts_per_page' => 10,
     'post_type' => 'events',
@@ -13,7 +15,8 @@ $args_event = array(
             'value'			=> $date_now,
             'type'			=> 'DATETIME'
         )
-    )
+    ),
+    'paged' => $paged
 );
 $the_query = new WP_Query( $args_event );
 
@@ -43,7 +46,6 @@ get_header();
                 <div class="col-lg-8 mb-5 pd-lr-0">
                     <?php if( $the_query->have_posts() ): ?>
 
-
                         <?php while( $the_query->have_posts() ) : $the_query->the_post();
 
                             get_template_part( 'template-parts/content', 'event' );
@@ -51,7 +53,22 @@ get_header();
                         endwhile;
 
                         if (  $the_query->max_num_pages > 1 ){
-                            echo '<div class="misha_loadmore btn-show-event btn btn-blue-env w-100 my-5">Show more</div>'; // you can use <a> as well
+
+                            $big = 999999999; // need an unlikely integer
+
+                            echo '<div class="box-pagination">';
+                            echo paginate_links( array(
+                                'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                                'format' => '?paged=%#%',
+                                'end_size'           => 4,
+                                'mid_size'           => 1,
+                                'current'            => max( 1, $paged ),
+                                'total'              => $the_query->max_num_pages,
+                                'prev_next'          => true,
+                                'prev_text'          => __('Previous'),
+                                'next_text'          => __('Next')
+                            ) );
+                            echo '</div>';
                         };
 
                     else :
@@ -90,14 +107,22 @@ get_header();
                         </a>
                     </div>
 
+
                     <div class="list-archived-events">
                         <div class="title">Archived Events</div>
                         <ul class="box-year">
                             <li class="year">2019</li>
                         </ul>
                         <ul class="list-month">
-                            <li class="month"><a href="<?php echo home_url('archived-events').'?date=2019-04'?>">April</a></li>
-                            <li class="month"><a href="<?php echo home_url('archived-events').'?date=2019-05'?>">May</a></li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-events').'?date=2019-04'?>">April</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-events').'?date=2019-05'?>">May</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-events').'?date=2019-06'?>">Jun</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -1,6 +1,10 @@
+<?php
+    $date = get_field('date');
+    $date =  new DateTime($date);
+?>
 <div class="box-item-event clearfix">
     <div class="box-date">
-        <?php echo get_field('date', get_the_ID());?>
+        <?php echo $date->format('M j');?>
     </div>
     <div class="box-info">
         <a href="<?php echo get_permalink();?>"><h2><?php echo the_title();?></h2></a>
