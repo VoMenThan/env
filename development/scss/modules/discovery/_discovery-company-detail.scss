@@ -243,6 +243,14 @@
     }
   }
 
+  .section-profile-report{
+    .form-profile-report{
+      width: 50%;
+      text-align: center;
+      margin: auto;
+    }
+  }
+
   .section-article-relate{
     .label-heading{
       margin-bottom: 30px;
@@ -270,6 +278,13 @@
         .btn-green-env{
           position: static;
         }
+      }
+    }
+    .section-profile-report{
+      .form-profile-report{
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
       }
     }
   }

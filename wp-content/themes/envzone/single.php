@@ -373,6 +373,27 @@ get_header();
                         </a>
                     </div>
 
+                    <div class="list-archived-events">
+                        <div class="title">Archived Events</div>
+                        <ul class="box-year">
+                            <li class="year">2019</li>
+                        </ul>
+                        <ul class="list-month">
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-articles').'?date=2019-03'?>">Mar</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-articles').'?date=2019-04'?>">April</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-articles').'?date=2019-05'?>">May</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-articles').'?date=2019-06'?>">Jun</a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>

@@ -235,7 +235,7 @@ if ($total_vote_star == 0){
                                     </div>
                                     <?php endforeach;?>
                                     <div class="recommend-poll">
-                                        or suggest with your recommendation in the comment below
+                                        or share your recommendations in the comments below
                                     </div>
                                 </div>
                                 <?php endif;?>
@@ -272,6 +272,16 @@ if ($total_vote_star == 0){
                             </div>
                         </div>
                         <!-- Model -->
+                    </article>
+
+
+                    <article class="box-section section-profile-report">
+                        <h2 class="label-heading">GET THIS FREE PROFILE REPORT</h2>
+                        <div class="form-profile-report">
+                            <?php
+                            echo do_shortcode('[gravityform id=18 title=false description=false ajax=false]');
+                            ?>
+                        </div>
                     </article>
 
                     <?php $article_relate = get_field('article_for_company', $post->ID);

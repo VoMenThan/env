@@ -37,7 +37,7 @@ if(count($get_terms)>=1){
 
 
 $the_query = new WP_Query( $args_event );
-
+$total_posts = $the_query->found_posts;//total post show
 
 $terms_companies = get_terms( array(
     'taxonomy' => 'industries',
@@ -63,17 +63,18 @@ get_header();
                         </div>
                         <div class="arrow-right"></div>
 
-                        <?php if (count($get_terms)>=1):?>
                             <div class="btn-clear">
-                                <span class="d-lg-inline-block d-none"><?php echo count($the_query->posts);?> Companies</span>
+                                <span class="d-lg-inline-block d-none"><?php echo $total_posts;?> Companies</span>
+                                <?php if (count($get_terms)>=1):?>
                                 <a href="<?php echo home_url('companies')?>">
                                     <span class="d-lg-inline-block d-none text-clear">CLEAR</span>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M20 2L18 0L10 8L2 0L0 2L8 10L0 18L2 20L10 12L18 20L20 18L12 10L20 2Z" fill="#8DC63F"/>
                                     </svg>
                                 </a>
+                                <?php endif;?>
                             </div>
-                        <?php endif;?>
+
                     </div>
                     <div class="collapse list-sort-industries" id="collapseFilterIndustries">
                         <div class="wrap">

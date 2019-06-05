@@ -305,6 +305,14 @@
 			color: #E0E0E0;
 		}
 	}
+
+	.archived-posts-page{
+		.highlight-news-right{
+			&:first-child{
+				margin-top: 30px;
+			}
+		}
+	}
 }
 
 /* 	================================================================

@@ -8259,6 +8259,9 @@ section.testing-page .item-qa {
   /* Microsoft Edge */
   color: #E0E0E0;
 }
+.blog-page .archived-posts-page .highlight-news-right:first-child {
+  margin-top: 30px;
+}
 
 /* 	================================================================
 	MOBILE DEVICE
@@ -9382,10 +9385,23 @@ section.testing-page .item-qa {
 .blog-events-page .popup-hack-me {
   margin-bottom: 30px;
 }
-.blog-events-page .list-archived-events {
+.blog-events-page .upcoming-events a {
+  color: #0D3153;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #BDBDBD;
+  width: 100%;
+  padding: 10px;
+}
+.blog-events-page .upcoming-events a:hover {
+  color: #45678A;
+}
+
+.list-archived-events {
   border: 1px solid #BDBDBD;
 }
-.blog-events-page .list-archived-events .title {
+.list-archived-events .title {
   font-weight: bold;
   font-size: 22px;
   line-height: 26px;
@@ -9393,13 +9409,13 @@ section.testing-page .item-qa {
   color: #0D3153;
   padding: 15px;
 }
-.blog-events-page .list-archived-events .box-year {
+.list-archived-events .box-year {
   width: 100%;
   border-top: 1px solid #BDBDBD;
   border-bottom: 1px solid #BDBDBD;
   position: relative;
 }
-.blog-events-page .list-archived-events .box-year:before {
+.list-archived-events .box-year:before {
   content: "";
   width: 20px;
   height: 20px;
@@ -9411,7 +9427,7 @@ section.testing-page .item-qa {
   left: 5px;
   top: 17px;
 }
-.blog-events-page .list-archived-events .box-year:after {
+.list-archived-events .box-year:after {
   content: "";
   width: 20px;
   height: 20px;
@@ -9428,7 +9444,7 @@ section.testing-page .item-qa {
   right: 5px;
   top: 17px;
 }
-.blog-events-page .list-archived-events .box-year .year {
+.list-archived-events .box-year .year {
   text-align: center;
   font-weight: bold;
   font-size: 22px;
@@ -9436,7 +9452,7 @@ section.testing-page .item-qa {
   font-family: "Roboto", sans-serif;
   padding: 15px;
 }
-.blog-events-page .list-archived-events .list-month .month a {
+.list-archived-events .list-month .month a {
   color: #828282;
   font-size: 22px;
   line-height: 26px;
@@ -9444,20 +9460,8 @@ section.testing-page .item-qa {
   padding: 10px 15px;
   display: block;
 }
-.blog-events-page .list-archived-events .list-month .month a:hover {
+.list-archived-events .list-month .month a:hover {
   color: #0D3153;
-}
-.blog-events-page .upcoming-events a {
-  color: #0D3153;
-  font-size: 22px;
-  font-weight: bold;
-  text-align: center;
-  border: 1px solid #BDBDBD;
-  width: 100%;
-  padding: 10px;
-}
-.blog-events-page .upcoming-events a:hover {
-  color: #45678A;
 }
 
 .event-detail-page .content-event {
@@ -11394,6 +11398,11 @@ section.testing-page .item-qa {
 .company-detail-page .section-voice .btn-green-env:hover {
   color: #fff !important;
 }
+.company-detail-page .section-profile-report .form-profile-report {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
 .company-detail-page .section-article-relate {
   background: #E0E0E0;
 }
@@ -11412,6 +11421,11 @@ section.testing-page .item-qa {
 @media screen and (max-width: 768px) {
   .company-detail-page .box-info-company .infomation-company .btn-green-env {
     position: static;
+  }
+  .company-detail-page .section-profile-report .form-profile-report {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 /* 	================================================================
@@ -14096,6 +14110,46 @@ header .box-check-avaibility #gform_wrapper_3 .gform_footer input {
 }
 
 /*END CSS CUSTOM GET MY SUCCESSION PLAN*/
+/*CSS CUSTOM PROFILE REPORT*/
+body #gform_wrapper_18 .top_label div.ginput_container {
+  text-align: center;
+}
+
+#gform_wrapper_18 li.hidden_label input {
+  margin: auto;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid #BDBDBD;
+  color: #000;
+  font-size: 16px;
+  max-width: 100%;
+  width: 100%;
+}
+
+#gform_wrapper_18 ul.gform_fields li.gfield {
+  padding-right: 0;
+  max-width: 100% !important;
+}
+
+#gform_wrapper_18 .gform_footer {
+  text-align: center;
+}
+
+#gform_wrapper_18 .gform_footer input {
+  color: #0D3153 !important;
+  background-color: #8DC63F;
+  border-color: #8DC63F;
+  padding: 15px 25px;
+  font-size: 1.125rem;
+  border-radius: 5px;
+  max-width: 100%;
+  white-space: normal;
+  margin-right: 0;
+  width: 100%;
+}
+
+/*END CSS CUSTOM PROFILE REPORT*/
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
