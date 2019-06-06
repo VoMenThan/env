@@ -374,7 +374,7 @@ get_header();
                     </div>
 
                     <div class="list-archived-events">
-                        <div class="title">Archived Events</div>
+                        <div class="title">ARCHIVES</div>
                         <ul class="box-year">
                             <li class="year">2019</li>
                         </ul>

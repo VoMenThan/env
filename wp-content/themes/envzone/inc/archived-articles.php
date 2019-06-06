@@ -3,8 +3,11 @@ $date_now = date('Y-m-d');
 
 $get_date = $_GET['date'];
 
-$get_month =  new DateTime($get_date);
-$get_month = $get_month->format('m');
+if ($get_date != ''){
+    $get_month =  new DateTime($get_date);
+    $get_month = $get_month->format('m');
+}
+
 
 $paged = get_query_var( 'paged' );
 if (count($get_date) >= 1){
@@ -62,7 +65,7 @@ if (count($get_date) >= 1){
             <div class="container">
                 <div class="row mb-lg-5">
                     <div class="col-lg-8 border-header">
-                        <h3 class="title-head-blue have-border">ARCHIVED ARTICLES: <?php echo $date;?></h3>
+                        <h3 class="title-head-blue have-border">ARTICLES: <?php echo $date;?></h3>
                     </div>
                     <div class="col-lg-8 mb-5 pd-lr-0 archived-posts-page">
                         <?php if( $the_query->have_posts() ): ?>
@@ -109,33 +112,25 @@ if (count($get_date) >= 1){
 
 
                     <div class="col-lg-4 pd-lr-0">
-                        <div class="box-subscriber-blog d-lg-block d-none">
-                            <div class="box-border">
-                                <div class="title-sub">
-                                    Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
-                                </div>
-                                <div class="form-subscribe">
-                                    <?php
-                                    echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="box-advert">
-                            <p>
-                                <span class="fz-big-green">80%</span> of outsourcing relationships fail due to responsiveness & communication factors
-                            </p>
-                            <div class="sub-title">
-                                Do Not Let Your Projects Go South!
-                            </div>
-                            <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
-                                SEE OUR UNIQUE APPROACH FOR SUCCESS
-                            </a>
-                        </div>
-
-                        <div class="upcoming-events">
-                            <a class="btn" href="<?php echo home_url('blog')?>">Upcoming Articles</a>
+                        <div class="list-archived-events">
+                            <div class="title">Archived Articles</div>
+                            <ul class="box-year">
+                                <li class="year">2019</li>
+                            </ul>
+                            <ul class="list-month">
+                                <li class="month">
+                                    <a class="<?php echo $get_month == 03 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-03'?>">Mar</a>
+                                </li>
+                                <li class="month">
+                                    <a class="<?php echo $get_month == 04 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-04'?>">April</a>
+                                </li>
+                                <li class="month">
+                                    <a class="<?php echo $get_month == 05 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-05'?>">May</a>
+                                </li>
+                                <li class="month">
+                                    <a class="<?php echo $get_month == 06 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-06'?>">Jun</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 

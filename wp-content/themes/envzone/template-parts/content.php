@@ -12,7 +12,9 @@
         <img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>">
     </a>
     <div class="info-news">
-        <div class="category"><?php single_cat_title();?></div>
+        <a href="<?php echo home_url('category/').get_the_category($post->ID)[0]->slug;?>" class="category">
+            <?php echo get_the_category($post->ID)[0]->cat_name;?>
+        </a>
         <?php the_title( sprintf( '<a href="%s" rel="bookmark"><h2 class="entry-title">', esc_url( get_permalink() ) ), '</h2></a>' ); ?>
         <div class="audit">
             <?php

@@ -73,6 +73,7 @@
             </div>
         </div>
     </div>
+
     <!--INFORMED-->
     <div class="title-security">
         <i class="icon-security"></i>

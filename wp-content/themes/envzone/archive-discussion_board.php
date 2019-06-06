@@ -1,9 +1,7 @@
 <?php
-/*
-Template Name: Archive Discussion Board
-*/
 global $wp_query;
 $paged = get_query_var( 'paged' );
+get_header();
 ?>
 
 <main class="main-content video-home-page">
@@ -50,7 +48,7 @@ $paged = get_query_var( 'paged' );
                                 <div class="modal-body">
 
                                     <?php
-                                        echo do_shortcode('[gravityform id=17 title=false description=false ajax=true]');
+                                    echo do_shortcode('[gravityform id=17 title=false description=false ajax=true]');
                                     ?>
                                 </div>
                             </div>
@@ -233,3 +231,5 @@ $paged = get_query_var( 'paged' );
 
     })(jQuery);
 </script>
+
+<?php get_footer();?>

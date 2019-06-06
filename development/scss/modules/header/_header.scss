@@ -589,7 +589,7 @@ nav {
                 .sub-menu{
                     &.show-submenu{
                         display: block !important;
-                        height: 100vh;
+                        height: calc(100vh - 60px);
                         top: 0;
                     }
                 }
@@ -816,7 +816,7 @@ nav {
 
             .box-check-avaibility{
                 padding-top: 15px;
-                padding-bottom: 15px;
+                padding-bottom: 150px;
                 .description-check{
                     color: #E0E0E0;
                     text-align: left;

@@ -12,8 +12,9 @@
                             <div class="notification">
                                 <?php echo $post->post_content;
                                 ?>
-
-
+                                <p class="text-left">
+                                    <a href="mailto:<?php echo $_GET['email'];?>"><?php echo $_GET['email'];?></a>
+                                </p>
 
                             </div>
 

@@ -274,6 +274,8 @@ function post_to_third_party( $entry ) {
         update_post_meta($post_id, 'email_address', $email_address);
     }
 
+    rocket_clean_post( 3593 );
+
 }
 
 
