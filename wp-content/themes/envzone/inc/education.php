@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-education.png">
-        <h2>EDUCATION</h2>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h2><?php echo get_the_title();?></h2>
     </section>
     <div class="container">
         <div class="row">
@@ -9,8 +9,8 @@
                 <div class="box-breadcrumb">
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Education</li>
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>
@@ -21,14 +21,9 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-12">
-                    <h1>We are fully aware of what you are struggling for</h1>
+                    <h1><?php echo get_field('title_fully_aware', $post->ID);?></h1>
                     <div class="description-industries">
-                        <p>
-                            Education technology is gradually challenging the traditional method of teaching. The way we learn, where we learn, how we learn will be remarkably altered by the integration of technology in education.
-                        </p>
-                        <p>
-                            One obvious fact that we stick our eyes to mobile devices, laptop from day to night and we gain knowledge through various sites resulting in a huge potential for e-learning programs.
-                        </p>
+                        <?php echo get_field('description_fully_aware', $post->ID);?>
                     </div>
                 </div>
             </div>
@@ -40,16 +35,16 @@
                 <div class="row">
                     <div class="col-12">
                         <section class="col-12 text-center box-question-education">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-comment-education.png" alt="">
+                            <img class="img-fluid" src="<?php echo get_field('image_question', $post->ID);?>" alt="">
 
                             <div class="question-1">
-                                How to help learners find their passion in learning and improve their skill?
+                                <?php echo get_field('question_1', $post->ID);?>
                             </div>
                             <div class="question-2">
-                                How to utilize the fact above in training programs?
+                                <?php echo get_field('question_2', $post->ID);?>
                             </div>
                             <div class="question-3">
-                                How to create an interactive learning experience for your learners?
+                                <?php echo get_field('question_3', $post->ID);?>
                             </div>
                         </section>
                     </div>
@@ -61,31 +56,31 @@
         <div class="container section-offer">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">What we offer</h2>
+                    <h2 class="text-center"><?php echo get_field('title_we_offer', $post->ID);?></h2>
                 </div>
                 <section class="col-12 text-left box-offer-education">
 
                     <div class="circle-offer">
-                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-offer-education.png" alt="">
+                        <img class="img-fluid" src="<?php echo get_field('image_we_offer', $post->ID);?>" alt="">
                         <div class="main-offer">
-                            Collaborate to
-                            make, design, plan, evaluate
-                            your academic training effort
+                            <?php echo get_field('center_offer', $post->ID);?>
                         </div>
                     </div>
 
                     <div class="offer-1">
-                        Apply user-driven IT solutions for an engaging learning environment.
+                        <?php echo get_field('offer_1', $post->ID);?>
                     </div>
                     <div class="offer-2 pl-5">
-                        Design your own digital on-the-job training resources to better employee's performance.
+                        <?php echo get_field('offer_2', $post->ID);?>
                     </div>
                     <div class="offer-3">
-                        Develop customized and gamified training modules to boost learning spirit
+                        <?php echo get_field('offer_3', $post->ID);?>
                     </div>
 
                     <div class="text-center">
-                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mt-4">MORE QUESTIONS? CONTACT US NOW</a>
+                        <a href="<?php echo get_field('url_more_question', $post->ID);?>" class="btn btn-blue-env mt-4">
+                            <?php echo get_field('button_name_more_question', $post->ID);?>
+                        </a>
                     </div>
                 </section>
             </div>
@@ -99,66 +94,46 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        THE REASONS TO CHOOSE ENVZONE
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
-                    <div class="description-business description-business-edu">
-                        We want you to truly experience the fastest instructional platforms. By leveraging our dedicated teams, we engage you in new and better digital ways that surely create possibilities beyond the limits.
+                    <div class="description-business">
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">CONNECT ME TO A TEAM</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>

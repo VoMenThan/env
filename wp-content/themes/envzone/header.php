@@ -10,7 +10,6 @@
     <title>
         <?php
             wp_title('|', true, 'right');
-            bloginfo('name');
         ?>
     </title>
 

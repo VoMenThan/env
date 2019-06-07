@@ -244,6 +244,8 @@ if (is_admin()){
         $labels->search_items = 'Search Blogs';
         $labels->not_found = 'No Blogs found';
         $labels->not_found_in_trash = 'No Blogs found in Trash';
+        $menu_icon = &$wp_post_types['post']->menu_icon;// menu icon dashboard
+        $menu_icon = 'dashicons-welcome-learn-more';
     }
     add_action( 'init', 'change_post_object_label' );
 

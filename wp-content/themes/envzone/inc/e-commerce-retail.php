@@ -5,8 +5,8 @@ get_header();
 ?>
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-e-commerce-and-retail.png">
-        <h1>E-COMMERCE AND RETAIL</h1>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
         <div class="row">
@@ -14,8 +14,8 @@ get_header();
                 <div class="box-breadcrumb">
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">E-commerce and Retail</li>
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>
@@ -26,17 +26,19 @@ get_header();
 
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
+                    <h2 class="title-head-blue text-center">
+                        <?php echo get_field('title_fully_aware', $post->ID);?>
+                    </h2>
                 </div>
                 <div class="col-lg-8 description-fully">
                     <p>
-                        Focusing on client experience is what the e-commerce and retail industry thrives on. We use our services to help business owners boost their sales. We also offer site functionality and promotional efforts.
+                        <?php echo get_field('description_fully_aware', $post->ID);?>
                     </p>
                 </div>
             </div>
 
             <div class="col-12 text-center btn-learn-more">
-                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                <a href="<?php echo get_field('url_button_learn_more', $post->ID);?>" class="btn btn-blue-env"><?php echo get_field('button_name_learn_more', $post->ID);?></a>
             </div>
 
         </div>
@@ -46,13 +48,12 @@ get_header();
                 <div class="row justify-content-md-center mb-5">
                     <div class="col-10">
                         <h2 class="title-head-blue text-center pl-2 pr-2">
-                            We provide E-Commerce and Retail Solutions for you
-                            to boost your sales
+                            <?php echo get_field('title_provide_e_commerce', $post->ID);?>
                         </h2>
                     </div> 
                     <div class="description-offer col-lg-8">
                         <p>
-                            Services provided by Envzone help in the improvement of customer experience, providing quality customer relationships, offering high-quality product and services and provide the best customer data management services.
+                            <?php echo get_field('description_provide_e_commerce', $post->ID);?>
                         </p>
                     </div>
                     
@@ -60,51 +61,22 @@ get_header();
 
                 <div class="row justify-content-md-center mt-5">
 
+                    <?php $list_provide_e_commerce = get_field('list_provide_e_commerce', $post->ID);
+                    foreach ($list_provide_e_commerce as $item):
+                    ?>
                     <div class="col-lg-4">
                         <div class="d-flex justify-content-between align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-retail-software.png" alt="" class="icon-different">
-                            <h4>Retail software</h4>
+                            <img src="<?php echo $item['icon_provide'];?>" alt="" class="icon-different">
+                            <h4><?php echo $item['name_provide'];?></h4>
                         </div>
                     </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-between align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-online-store.png" alt="" class="icon-different">
-                            <h4>Online Store</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-between align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-operations-management.png" alt="" class="icon-different">
-                            <h4>Operations Management</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-between align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-warehouse-management.png" alt="" class="icon-different">
-                            <h4>Warehouse management</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-between align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-marketing-automation.png" alt="" class="icon-different">
-                            <h4>Marketing automation</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-between align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-user-engagement.png" alt="" class="icon-different">
-                            <h4>User engagement</h4>
-                        </div>
-                    </div>
+                    <?php endforeach;?>
 
                     <div class="col-12 text-center btn-learn-more">
-                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">FOLLOW THE SOLUTIONS</a>
+                        <a href="<?php echo get_field('url_button_follow', $post->ID);?>" class="btn btn-blue-env"><?php echo get_field('button_name_follow', $post->ID);?></a>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -118,66 +90,46 @@ get_header();
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        THE REASONS TO CHOOSE ENVZONE
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
-                    <div class="description-business description-business-ecm">
-                        We provide meaningful experiences to enhance your customer’s journey in the competitive market. And more than that, we bring exciting technology and boundless expertise to boost your customer-focused value
+                    <div class="description-business">
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">CONNECT ME TO A TEAM</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>

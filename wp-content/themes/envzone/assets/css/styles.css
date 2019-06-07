@@ -1268,13 +1268,29 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   }
 }
 .box-slider {
-  min-height: 600px;
+  min-height: 500px;
   background: #45678A;
 }
 .box-slider .bg-home-mobile {
   height: 300px;
 }
 
+/* 	================================================================
+	MINI PC
+	================================================================== */
+@media screen and (max-width: 1366px) {
+  .box-slider {
+    min-height: 400px;
+  }
+}
+/* 	================================================================
+	MINI PC
+	================================================================== */
+@media screen and (max-width: 1200px) {
+  .box-slider {
+    min-height: 300px;
+  }
+}
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)

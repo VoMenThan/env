@@ -65,7 +65,7 @@ if (count($get_date) >= 1){
             <div class="container">
                 <div class="row mb-lg-5">
                     <div class="col-lg-8 border-header">
-                        <h3 class="title-head-blue have-border">ARTICLES: <?php echo $date;?></h3>
+                        <h3 class="title-head-blue have-border">ARCHIVES: <?php echo $date;?></h3>
                     </div>
                     <div class="col-lg-8 mb-5 pd-lr-0 archived-posts-page">
                         <?php if( $the_query->have_posts() ): ?>
@@ -113,7 +113,7 @@ if (count($get_date) >= 1){
 
                     <div class="col-lg-4 pd-lr-0">
                         <div class="list-archived-events">
-                            <div class="title">Archived Articles</div>
+                            <div class="title">ARCHIVES</div>
                             <ul class="box-year">
                                 <li class="year">2019</li>
                             </ul>

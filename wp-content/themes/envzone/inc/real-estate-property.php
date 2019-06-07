@@ -1,6 +1,6 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-real-estate.png">
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
         <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
@@ -9,8 +9,8 @@
                 <div class="box-breadcrumb">
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Real Estate & Property</li>
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>

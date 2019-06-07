@@ -5,8 +5,8 @@ get_header();
 ?>
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-hospitality-new.png">
-        <h1>HOSPITALITY AND TRAVEL</h1>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <div class="container">
         <div class="row">
@@ -14,8 +14,8 @@ get_header();
                 <div class="box-breadcrumb">
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Hospitality & Travel</li>
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>
@@ -27,16 +27,16 @@ get_header();
             <div class="row justify-content-md-center">
 
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_fully_aware', $post->ID);?></h2>
                 </div>
 
                 <div class="col-lg-5">
                     <div class="item-reason">
                         <h3>
-                            Customer Satisfaction Focus
+                            <?php echo get_field('title_customer_satisfaction', $post->ID);?>
                         </h3>
                         <p>
-                            Envzone understands that the hospitality industry focuses on customer satisfaction to maintain profitability.
+                            <?php echo get_field('description_customer_satisfaction', $post->ID);?>
                         </p>
                     </div>
                 </div>
@@ -44,15 +44,17 @@ get_header();
                 <div class="col-lg-5">
                     <div class="item-reason">
                         <h3>
-                            Latest Technology Needs
+                            <?php echo get_field('title_lastest_technology', $post->ID);?>
                         </h3>
                         <p>
-                            We have developed the latest technology to provide solutions leveraging on customer experience to help businesses in the hospitality industry meet and surpass their goals.
+                            <?php echo get_field('description_lastest_technology', $post->ID);?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12 text-center btn-learn-more">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                    <a href="<?php echo get_field('url_button_learn_more', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('button_name_learn_more', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
@@ -63,42 +65,24 @@ get_header();
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <h2 class="title-head-blue text-center">
-                            We provide solutions leveraging on customer experience to help your business meet and surpass your goals
+                            <?php echo get_field('title_provide_solutions', $post->ID);?>
                         </h2>
                     </div>
 
+                    <?php $list_provide_solution = get_field('list_provide_solution', $post->ID);
+                    foreach ($list_provide_solution as $item):
+                        ?>
                     <div class="col-lg-5">
                         <div class="item-solution">
                             <h3>
-                                Customer Satisfaction improvement
+                                <?php echo $item['title_solution']?>
                             </h3>
                             <p>
-                                We provide your business an opportunity to improve your customer satisfaction and has been proven to work effectively for large hotel chains and major businesses with branches spread across multiple locations in which they serve customers in many sectors.
+                                <?php echo $item['description_solution']?>
                             </p>
                         </div>
                     </div>
-
-                    <div class="col-lg-5">
-                        <div class="item-solution">
-                            <h3>
-                                Covering Various Business Models
-                            </h3>
-                            <p>
-                                Our clients include but are not limited to the owners of restaurants, casinos, hotels and entertainment venues; amusement parks, motels, and timeshares.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="item-solution">
-                            <h3>
-                                World-class Technology
-                            </h3>
-                            <p>
-                                Our world-class technology such as cloud-based services, help businesses manage their data effectively. We help them sync their mobile and web applications to give them easier management platforms at all times.
-                            </p>
-                        </div>
-                    </div>
-
+                    <?php endforeach;?>
 
                 </div>
 
@@ -110,32 +94,25 @@ get_header();
             <div class="row justify-content-md-center mt-5">
 
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">We offer different types of applications</h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_offer_different', $post->ID)?></h2>
                 </div>
 
+                <?php
+                    $list_offer_different = get_field('list_offer_different', $post->ID);
+                    foreach ($list_offer_different as $item):
+                ?>
                 <div class="col-lg-4">
                     <div class="d-flex justify-content-center align-items-center item-different">
-                        <img src="<?php echo ASSET_URL;?>images/icon-travel-guide-app.png" alt="" class="icon-different">
-                        <h4>Travel Guide App</h4>
+                        <img src="<?php echo $item['icon_offer']?>" alt="" class="icon-different">
+                        <h4><?php echo $item['offer_name']?></h4>
                     </div>
                 </div>
-
-                <div class="col-lg-4">
-                    <div class="d-flex justify-content-center align-items-center item-different">
-                        <img src="<?php echo ASSET_URL;?>images/icon-hotel-guest-services.png" alt="" class="icon-different">
-                        <h4>Hotel Guest Services</h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="d-flex justify-content-center align-items-center item-different">
-                        <img src="<?php echo ASSET_URL;?>images/icon-hospitality-service-platform.png" alt="" class="icon-different">
-                        <h4>Hospitality Service Platform</h4>
-                    </div>
-                </div>
+                <?php endforeach;?>
 
                 <div class="col-12 text-center btn-learn-more">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mt-4">LEARN MORE ABOUT OUR PROCESS</a>
+                    <a href="<?php echo get_field('url_button_our_process', $post->ID)?>" class="btn btn-blue-env mt-4">
+                        <?php echo get_field('button_name_our_process', $post->ID)?>
+                    </a>
                 </div>
             </div>
         </div>
@@ -150,66 +127,46 @@ get_header();
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        THE REASONS TO CHOOSE ENVZONE
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
                     <div class="description-business">
-                        Our approach is mainly based on understanding your customer journey to  edge out your core competencies in the market.
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">CONNECT ME TO A TEAM</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>
