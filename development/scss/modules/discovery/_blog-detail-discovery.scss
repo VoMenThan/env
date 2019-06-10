@@ -630,7 +630,44 @@
 			}
 		}
 	}
+
+	.layout-none-sidebar{
+		h1{
+			text-align: center;
+		}
+		.sidebar-advert{
+			display: none;
+		}
+
+	}
+	.rate-blog{
+		padding: 40px 25px;
+		background: #0D3153;
+		margin-bottom: 100px;
+		.title-company{
+			font-family: $font-roboto;
+			font-weight: 500;
+			font-size: 26px;
+			line-height: 140.88%;
+			text-align: center;
+			color: #FFFFFF;
+			margin-bottom: 30px;
+		}
+		.box-item-company{
+			margin-bottom: 0;
+		}
+		.btn-green-env{
+			font-family: $font-roboto;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 16px;
+			line-height: 19px;
+			@include radius(3px);
+		}
+	}
 }
+
+
 
 @media print {
 	header{
@@ -665,6 +702,14 @@
 				.view-all{
 					display: none;
 				}
+			}
+		}
+
+		.rate-blog {
+			margin-bottom: 0;
+			margin-top: 30px;
+			.box-item-company {
+				margin-bottom: 30px;
 			}
 		}
 	}

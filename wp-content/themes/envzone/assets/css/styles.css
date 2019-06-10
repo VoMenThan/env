@@ -9055,6 +9055,41 @@ section.testing-page .item-qa {
   background: #0D3153;
   opacity: 1;
 }
+.blog-detail-page .layout-none-sidebar h1 {
+  text-align: center;
+}
+.blog-detail-page .layout-none-sidebar .sidebar-advert {
+  display: none;
+}
+.blog-detail-page .rate-blog {
+  padding: 40px 25px;
+  background: #0D3153;
+  margin-bottom: 100px;
+}
+.blog-detail-page .rate-blog .title-company {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140.88%;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+.blog-detail-page .rate-blog .box-item-company {
+  margin-bottom: 0;
+}
+.blog-detail-page .rate-blog .btn-green-env {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
 
 @media print {
   header {
@@ -9085,6 +9120,13 @@ section.testing-page .item-qa {
 @media screen and (max-width: 768px) {
   .blog-detail-page .section-trending .border-header .view-all {
     display: none;
+  }
+  .blog-detail-page .rate-blog {
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  .blog-detail-page .rate-blog .box-item-company {
+    margin-bottom: 30px;
   }
 }
 /* 	================================================================

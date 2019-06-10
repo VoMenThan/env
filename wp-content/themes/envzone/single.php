@@ -35,9 +35,9 @@ get_header();
             </div>
         </div>
 
-        <div class="container">
+        <div class="container layout-none-sidebar">
 
-            <div class="row mb-lg-5">
+            <div class="row mb-lg-5 justify-content-center">
                 <figure class="wp-block-image mb-lg-5 mb-3 w-100 d-lg-none d-block">
                     <img src="<?php echo get_the_post_thumbnail_url($post->ID);?>" class="img-fluid w-100" alt="">
                     <figcaption>
@@ -182,8 +182,100 @@ get_header();
                                     }
                                 ?>
                             </div>
+
                         </div>
                     </article>
+
+
+                    <?php
+
+                        // filter
+                        function my_posts_where( $where ) {
+
+                            $where = str_replace("meta_key = 'article_for_company_%", "meta_key LIKE 'article_for_company_%", $where);
+
+                            return $where;
+                        }
+
+                        add_filter('posts_where', 'my_posts_where');
+
+                        $args_cpn = array(
+                            'posts_per_page' => -1,
+                            'post_type' => 'companies',
+                            'orderby' => 'post_modified',
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation'      => 'AND',
+                                array(
+                                    'key' => 'article_for_company_%_article',
+                                    'value' => '1906',
+                                    'compare' => 'LIKE'
+                                )
+                            )
+
+                        );
+                        $get_company = get_posts( $args_cpn );
+
+                        echo '<pre>';
+                        print_r($get_company);
+                        print_r($post->ID);
+                        echo '</pre>';
+                        exit();
+
+                    ?>
+                    <div class="row rate-blog section-companies-homepage">
+                        <div class="col-lg-12 order-0 text-center">
+                            <div class="title-company">RATE THIS COMPANY</div>
+                        </div>
+                        <div class="col-lg-4 order-lg-1 order-2 justify-content-center align-items-center justify-content-center d-flex">
+                            <a href="" class="btn btn-green-env">RATE NOW</a>
+                        </div>
+                        <div class="col-lg-8 order-lg-2 order-1">
+                            <div class="box-item-company clearfix">
+                                <div class="box-logo">
+                                    <a href="">
+                                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-same-company.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="box-info">
+                                    <a href="">
+                                        <h2>ABC Technology</h2>
+                                    </a>
+                                    <ul class="list-industries list-inline">
+
+
+                                        <li class="item list-inline-item">
+                                            Healthcare
+                                        </li>
+
+
+                                    </ul>
+
+                                    <div class="box-rating resize clearfix">
+                                        <div class="rate">
+                                            <input class="nohover" type="radio" id="star5<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="5" />
+                                            <label class="nohover" for="star5<?php echo the_ID();?>" title="5 stars">5 stars</label>
+                                            <input class="nohover" type="radio" id="star4<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="4" />
+                                            <label class="nohover" for="star4<?php echo the_ID();?>" title="4 star">4 stars</label>
+                                            <input class="nohover" type="radio" id="star3<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="3" />
+                                            <label class="nohover" for="star3<?php echo the_ID();?>" title="3 stars">3 stars</label>
+                                            <input class="nohover" type="radio" id="star2<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="2" />
+                                            <label class="nohover" for="star2<?php echo the_ID();?>" title="2 stars">2 stars</label>
+                                            <input class="nohover" type="radio" id="star1<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="1"/>
+                                            <label class="nohover" for="star1<?php echo the_ID();?>" title="1 star">1 star</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="description-rating">
+                                        <p>(Average rating 3. Vote count: 12)</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <!-- /*============SUBCRIBE HOME=================*/ -->
