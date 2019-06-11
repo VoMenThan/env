@@ -296,30 +296,30 @@ if ($total_vote_star == 0){
 
                                     $news_special = $article_relate;
                                     foreach($news_special as $k => $item):
-                                        if (get_field('avatar', 'user_'.$item['article']->post_author)== ''){
+                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
                                             $avatar = ASSET_URL.'images/avatar-default.png';
                                         }
                                         else{
-                                            $avatar = get_field('avatar', 'user_'.$item['article']->post_author);
+                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
                                         }
 
                                         ?>
                                         <div class="box-item-special item">
                                             <div class="item-blog">
-                                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item['article']->ID);?>" alt="" align="job-openings">
+                                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings">
                                                 <div class="info">
                                                     <div class="info-news">
-                                                        <a href="<?php echo home_url('category/').get_the_category($item['article']->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item['article']->ID)[0]->cat_name;?></a>
-                                                        <a href="<?php echo get_home_url().'/blog/'.$item['article']->post_name;?>">
-                                                            <h4 class="title-list-special"><?php echo $item['article']->post_title;?></h4>
+                                                        <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
+                                                        <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                                            <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
                                                         </a>
                                                     </div>
                                                     <div class="info-author">
                                                         <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
-                                                        <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item['article']->post_author);?>" class="author-by">
-                                                            By <b><?php echo get_the_author_meta('display_name', $item['article']->post_author);?></b>
+                                                        <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
+                                                            By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                                         </a>
-                                                        <div class="date-by">on <?php echo get_the_date( 'F d, Y', $item['article']->ID );?></div>
+                                                        <div class="date-by">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
                                                     </div>
 
                                                 </div>

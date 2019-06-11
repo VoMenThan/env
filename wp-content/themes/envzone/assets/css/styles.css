@@ -9078,6 +9078,9 @@ section.testing-page .item-qa {
 .blog-detail-page .rate-blog .box-item-company {
   margin-bottom: 0;
 }
+.blog-detail-page .rate-blog .item-company {
+  margin-bottom: 30px;
+}
 .blog-detail-page .rate-blog .btn-green-env {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -9126,7 +9129,7 @@ section.testing-page .item-qa {
     margin-top: 30px;
   }
   .blog-detail-page .rate-blog .box-item-company {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 }
 /* 	================================================================

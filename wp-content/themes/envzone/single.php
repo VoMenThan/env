@@ -35,7 +35,7 @@ get_header();
             </div>
         </div>
 
-        <div class="container layout-none-sidebar">
+        <div class="container <?php if(get_field('theme_custom', $post->ID) == 'review_company_blog') {echo 'layout-none-sidebar';}?>">
 
             <div class="row mb-lg-5 justify-content-center">
                 <figure class="wp-block-image mb-lg-5 mb-3 w-100 d-lg-none d-block">
@@ -189,93 +189,94 @@ get_header();
 
                     <?php
 
-                        // filter
-                        function my_posts_where( $where ) {
-
-                            $where = str_replace("meta_key = 'article_for_company_%", "meta_key LIKE 'article_for_company_%", $where);
-
-                            return $where;
-                        }
-
-                        add_filter('posts_where', 'my_posts_where');
-
                         $args_cpn = array(
                             'posts_per_page' => -1,
+                            'post_status' => 'publish',
                             'post_type' => 'companies',
-                            'orderby' => 'post_modified',
-                            'order' =>'desc',
                             'meta_query' => array(
                                 'relation'      => 'AND',
                                 array(
-                                    'key' => 'article_for_company_%_article',
-                                    'value' => '1906',
+                                    'key' => 'article_for_company',
+                                    'value' => $post->ID,
                                     'compare' => 'LIKE'
                                 )
                             )
-
                         );
-                        $get_company = get_posts( $args_cpn );
-
-                        echo '<pre>';
-                        print_r($get_company);
-                        print_r($post->ID);
-                        echo '</pre>';
-                        exit();
-
+                        $get_company = get_posts($args_cpn);
+                        if (count($get_company)>=1):
                     ?>
-                    <div class="row rate-blog section-companies-homepage">
-                        <div class="col-lg-12 order-0 text-center">
-                            <div class="title-company">RATE THIS COMPANY</div>
+                    <div class="rate-blog section-companies-homepage">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="title-company">RATE THIS COMPANY</div>
+                            </div>
                         </div>
-                        <div class="col-lg-4 order-lg-1 order-2 justify-content-center align-items-center justify-content-center d-flex">
-                            <a href="" class="btn btn-green-env">RATE NOW</a>
-                        </div>
-                        <div class="col-lg-8 order-lg-2 order-1">
-                            <div class="box-item-company clearfix">
-                                <div class="box-logo">
-                                    <a href="">
-                                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-same-company.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="box-info">
-                                    <a href="">
-                                        <h2>ABC Technology</h2>
-                                    </a>
-                                    <ul class="list-industries list-inline">
+                        <?php
+                        foreach ($get_company as $item):
+                        $star = get_field('rating_star', $item->ID);
+                        $total_vote_star = $star['1_star'] + $star['2_stars'] + $star['3_stars'] + $star['4_stars'] + $star['5_stars'];
+                        if ($total_vote_star == 0){
+                            $average_rating = 0;
+                        }else{
+                            $average_rating = round(($star['1_star']*1 + $star['2_stars']*2 + $star['3_stars']*3 + $star['4_stars']*4 + $star['5_stars']*5)/$total_vote_star, 1);
+                        }
+                        ?>
+                        <div class="row item-company">
+                            <div class="col-lg-4 order-lg-0 order-1 justify-content-center align-items-center justify-content-center d-flex">
+                                <a href="<?php echo home_url('companies/').$item->post_name;?>" class="btn btn-green-env">RATE NOW</a>
+                            </div>
+                            <div class="col-lg-8 order-lg-1 order-0">
+                                <div class="box-item-company clearfix">
+                                    <div class="box-logo">
+                                        <a href="<?php echo home_url('companies/').$item->post_name;?>">
+                                            <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="box-info">
+                                        <a href="<?php echo home_url('companies/').$item->post_name;?>">
+                                            <h2><?php echo $item->post_title;?></h2>
+                                        </a>
+                                        <ul class="list-industries list-inline">
 
+                                            <?php
+                                            $category_industries = get_the_terms( $item->ID, 'industries' );
+                                            if ($category_industries != ''):
+                                                foreach ($category_industries as $industry):
+                                                    ?>
+                                                    <li class="item list-inline-item">
+                                                        <?php echo $industry->name;?>
+                                                    </li>
+                                                <?php endforeach; endif;?>
 
-                                        <li class="item list-inline-item">
-                                            Healthcare
-                                        </li>
+                                        </ul>
 
-
-                                    </ul>
-
-                                    <div class="box-rating resize clearfix">
-                                        <div class="rate">
-                                            <input class="nohover" type="radio" id="star5<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="5" />
-                                            <label class="nohover" for="star5<?php echo the_ID();?>" title="5 stars">5 stars</label>
-                                            <input class="nohover" type="radio" id="star4<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="4" />
-                                            <label class="nohover" for="star4<?php echo the_ID();?>" title="4 star">4 stars</label>
-                                            <input class="nohover" type="radio" id="star3<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="3" />
-                                            <label class="nohover" for="star3<?php echo the_ID();?>" title="3 stars">3 stars</label>
-                                            <input class="nohover" type="radio" id="star2<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="2" />
-                                            <label class="nohover" for="star2<?php echo the_ID();?>" title="2 stars">2 stars</label>
-                                            <input class="nohover" type="radio" id="star1<?php echo the_ID();?>" name="rate<?php echo the_ID();?>" value="1"/>
-                                            <label class="nohover" for="star1<?php echo the_ID();?>" title="1 star">1 star</label>
+                                        <div class="box-rating resize clearfix">
+                                            <div class="rate">
+                                                <input class="nohover" type="radio" id="star5<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="5" disabled <?php echo (round($average_rating)==5) ? 'checked' : '';?>/>
+                                                <label class="nohover" for="star5<?php echo $item->ID;?>" title="5 stars">5 stars</label>
+                                                <input class="nohover" type="radio" id="star4<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="4" disabled <?php echo (round($average_rating)==4) ? 'checked' : '';?>/>
+                                                <label class="nohover" for="star4<?php echo $item->ID;?>" title="4 star">4 stars</label>
+                                                <input class="nohover" type="radio" id="star3<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="3" disabled <?php echo (round($average_rating)==3) ? 'checked' : '';?>/>
+                                                <label class="nohover" for="star3<?php echo $item->ID;?>" title="3 stars">3 stars</label>
+                                                <input class="nohover" type="radio" id="star2<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="2" disabled <?php echo (round($average_rating)==2) ? 'checked' : '';?>/>
+                                                <label class="nohover" for="star2<?php echo $item->ID;?>" title="2 stars">2 stars</label>
+                                                <input class="nohover" type="radio" id="star1<?php echo $item->ID;?>" name="rate<?php echo $item->ID;?>" value="1" disabled <?php echo (round($average_rating)==1) ? 'checked' : '';?>/>
+                                                <label class="nohover" for="star1<?php echo $item->ID;?>" title="1 star">1 star</label>
+                                            </div>
                                         </div>
+
+
+                                        <div class="description-rating">
+                                            <p>(Average rating <?php echo $average_rating;?>. Vote count: <?php echo $total_vote_star;?>)</p>
+                                        </div>
+
                                     </div>
-
-
-                                    <div class="description-rating">
-                                        <p>(Average rating 3. Vote count: 12)</p>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-
+                        <?php endforeach;?>
                     </div>
+                    <?php endif;?>
                 </div>
 
                 <!-- /*============SUBCRIBE HOME=================*/ -->

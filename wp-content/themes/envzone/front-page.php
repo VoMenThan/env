@@ -426,7 +426,7 @@
         </div>
     </div>
 
-
+    <!-- /*============REVIEW COMPANIES HOME=================*/ -->
     <div class="container section-companies-homepage">
         <!-- /*============COMPANY HOME=================*/ -->
         <div class="row">
@@ -532,6 +532,7 @@
         </div>
         <!-- /*============END COMPANY HOME=================*/ -->
     </div>
+    <!-- /*============END REVIEW COMPANIES HOME=================*/ -->
 
     <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->
     <div class="container-fluid bg-gray-process">
