@@ -25,39 +25,71 @@
 
     <?php wp_head();?>
 
-    <script language="JavaScript" src="https://seal.networksolutions.com/siteseal/javascript/siteseal.js" type="text/javascript"></script>
 
+    <link href="<?php echo ASSET_URL;?>css/nouislider.min.css" rel="stylesheet">
 </head>
 <body>
 
     <main class="main-content">
-        <section class="analyze-page">
+        <section class="analyze-page cost-estimator">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-7 box-info-done">
+                    <div class="col-lg-8">
                         <a href="<?php echo  home_url();?>" class="box-logo">
                         <img src="<?php echo ASSET_URL;?>images/logo-envzone-blue.png" alt="Logo Envzone">
                         </a>
-                        <div id="loading" class="text-center">
-                            Analyzing and sorting <img class="image-gif" style="width: 50px; position: relative; bottom: -6px; margin-left: -14px;" src="<?php echo ASSET_URL;?>images/icon-processing-gif.gif" alt="">
+
+                        <h1>Development Cost Estimator</h1>
+                        <p>
+                            This calculator simulates the potential savings of development cost  that you could realize by optimizing development approach with EnvZone outsourcing solutions.
+                        </p>
+                        <div class="note">
+                            Enter your metrics to calculate your potential results, then scroll down to view them.
                         </div>
-                        <div class="box-analyze-load invisible">
-                            <div class="status">
-                                Done.
+
+                        <form>
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-6 col-form-label">LOCATION OF YOUR OFFICE</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control form-control-lg">
+                                        <option>Please select state</option>
+                                        <option value="">Alabama - AL</option>
+                                        <option value="">Alaska - AK</option>
+                                        <option value="">Arizona - AZ</option>
+                                    </select>
+                                </div>
                             </div>
-                            <p>
-                                We found teams that are capable of building products that match the queries below.
-                            </p>
-                            <div class="keyword-analyze">
-                                <?php echo $_REQUEST['analyze'];?>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-6 col-form-label">BUDGET</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control form-control-lg">
+                                        <option>Please select estimated budget</option>
+                                        <option value="">< 25k</option>
+                                        <option value="">25k-100k</option>
+                                        <option value="">100k-250k</option>
+                                        <option value="">> 250k</option>
+                                    </select>
+                                </div>
                             </div>
-                            <p>
-                                They should be ready to work on your project in coming weeks!
-                            </p>
-                            <div class="description">
-                                Interested in working with the team? Fill out the form below to speak with an advisor.
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="box-estimated-developers">
+                                        <div class="info-estimated d-flex justify-content-between">
+                                            <span class="title">Estimated developers involved in the project</span>
+                                            <span id="huge-value" class="number">5</span>
+                                        </div>
+                                        <div id="slider-huge"></div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn btn-green-env">CALCULATE</button>
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
@@ -72,6 +104,33 @@
     </main>
 
 
+    <script language="JavaScript" src="<?php echo ASSET_URL;?>js/nouislider.min.js" type="text/javascript"></script>
+    <script language="JavaScript" src="<?php echo ASSET_URL;?>js/wNumb.js" type="text/javascript"></script>
+    <script>
+        var bigValueSlider = document.getElementById('slider-huge');
+        var bigValueSpan = document.getElementById('huge-value');
+
+        noUiSlider.create(bigValueSlider, {
+            start: 5,
+            step: 5,
+            format: wNumb({
+                decimals: 0
+            }),
+            range: {
+                min: 5,
+                max: 100
+            },
+            pips: {
+                mode: 'values',
+                values: [5, 25, 50, 75, 100],
+                density: 4
+            }
+        });
+
+        bigValueSlider.noUiSlider.on('change', function (values, handle) {
+            bigValueSpan.innerHTML = values[handle];
+        });
+    </script>
     <?php wp_footer();?>
 </body>
 </html>

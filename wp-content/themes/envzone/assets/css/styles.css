@@ -4090,6 +4090,10 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
     float: left;
   }
 }
+.cost-estimator .box-estimated-developers {
+  height: 200px;
+}
+
 /* ======================FOOTER============== */
 footer {
   padding-top: 100px;

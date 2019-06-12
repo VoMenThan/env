@@ -59,8 +59,8 @@
 
                         <article>
                             <h4>Media Inquiries:</h4>
-                            <div class="name-label">Alina Vo</div>
-                            <a href="mailto:belle.nguyen@envzone.com">alina.vo@envzone.com</a>
+                            <div class="name-label">Media</div>
+                            <a href="mailto:media@envzone.com">media@envzone.com</a>
                         </article>
 
                         <article>

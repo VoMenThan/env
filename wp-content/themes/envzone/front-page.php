@@ -42,33 +42,12 @@
             <div class="container">
                 <article class="box-headline">
                     <h2 class="head-line-envzone">
-                        A TRUST ENABLER IN DENVER AREA FOR YOUR SOFTWARE OUTSOURCING NEEDS
+                        SEE THE POTENTIAL SAVING YOU COULD ACHIEVE TODAY
                     </h2>
                     <p>
-                        Clients let ENVZONE handle the risk of offshore outsourcing.
+                        Calculate your company’s potential saving with EnvZone’s solution using this handy tool.
                     </p>
-                    <p>
-                        ENVZONE due diligence process making sure the programming team that will innovate and not just code.
-                    </p>
-                    <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THIS UNIQUE APPROACH</a>
-                </article>
-            </div>
-        </div>
-        <div class="item">
-            <img src="<?php echo ASSET_URL;?>images/banner-home-4.png">
-            <div class="container">
-                <article class="box-headline">
-                    <h2 class="head-line-envzone">
-                        NO MORE LOSING DNA BOND WITH OFFSHORE OUTSOURCED TEAM
-                    </h2>
-                    <p>
-                        Our clients hire us to be their communication bridge.
-
-                    </p>
-                    <p>
-                        They retain us because we do all it takes to help them finish the race.
-                    </p>
-                    <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">GET MY PROJECT GOING</a>
+                    <a href="<?php echo home_url("cost-estimator ");?>" class="btn btn-green-env btn-get-started">CALCULATE NOW</a>
                 </article>
             </div>
         </div>
@@ -1071,7 +1050,7 @@
             dots: true,
             lazyLoad:true,
             autoplay: true,
-            autoplayTimeout: 8000,
+            autoplayTimeout: 11000,
             smartSpeed:450,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {

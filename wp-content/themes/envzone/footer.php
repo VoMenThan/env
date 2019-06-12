@@ -172,20 +172,6 @@
 
         <div class="container section-donate">
 
-            <div class="row box-donate">
-                <div class="col-lg-2">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-society-same.png">
-                </div>
-                <div class="col-lg-8 col-12">
-                    <div class="description-same">
-                        We were delighted to have been given the opportunity to sponsor the Society of American Military Engineers Denver Post. For the promotion of this Non-Profit Organization’s dedication to National Security, a small immediate donation from you or your organization would help us to continue our journey to show the appreciation to this great organization.
-                    </div>
-
-                </div>
-                <div class="col-lg-2 d-flex align-items-end">
-                    <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KW8D2MCJD7PVC&source=url" class="btn-donate btn btn-gray-env">DONATE NOW</a>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-4 d-none-768 box-certified">
                     <p>Certified Business Credentials</p>
@@ -218,7 +204,7 @@
                         </p>
                     </div>
 
-                    <p class="text-lg-left text-center copyright-footer">Copyright © 2016 EnvZone LLC. <span class="all-rights">All rights reserved.</span></p>
+                    <p class="text-lg-left text-center copyright-footer">Copyright © 2019 EnvZone LLC. <span class="all-rights">All rights reserved.</span></p>
                 </div>
             </div>
         </div>
