@@ -59,7 +59,6 @@
 
                         <article>
                             <h4>Media Inquiries:</h4>
-                            <div class="name-label">Media</div>
                             <a href="mailto:media@envzone.com">media@envzone.com</a>
                         </article>
 

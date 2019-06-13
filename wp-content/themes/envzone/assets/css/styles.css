@@ -4090,8 +4090,183 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
     float: left;
   }
 }
+.cost-estimator {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.cost-estimator * {
+  font-family: "Roboto", sans-serif;
+}
+.cost-estimator .box-logo {
+  display: inline-block;
+  margin-bottom: 60px;
+}
+.cost-estimator h1 {
+  border-top: 3px solid #828282;
+  padding: 30px 0;
+  color: #4F4F4F;
+  font-size: 28px;
+  font-weight: 400;
+}
+.cost-estimator p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: left;
+}
+.cost-estimator .note {
+  font-size: 18px;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.cost-estimator .form-estimated {
+  margin-bottom: 70px;
+}
+.cost-estimator .form-estimated .btn-green-env {
+  font-weight: 400;
+  width: 400px;
+  color: #0D3153 !important;
+}
+.cost-estimator .form-estimated .btn-green-env:hover {
+  color: #fff !important;
+}
+.cost-estimator .form-group {
+  margin-bottom: 45px;
+}
+.cost-estimator .form-group label {
+  text-align: right;
+}
+.cost-estimator .form-group select {
+  outline: none;
+  border-radius: 3px;
+  border: none;
+  font-size: 18px;
+  color: #828282;
+}
+.cost-estimator .form-group select:focus, .cost-estimator .form-group select:hover {
+  outline: none;
+}
 .cost-estimator .box-estimated-developers {
-  height: 200px;
+  height: 143px;
+  padding: 0 30px;
+  background: #fff;
+  margin-bottom: 50px;
+}
+.cost-estimator .box-estimated-developers .info-estimated .title {
+  font-size: 18px;
+  color: #4F4F4F;
+  padding: 20px 0;
+}
+.cost-estimator .box-estimated-developers .info-estimated .number {
+  font-size: 36px;
+  padding: 5px;
+  color: #4F4F4F;
+}
+.cost-estimator .chart-estimated {
+  margin-bottom: 100px;
+}
+.cost-estimator .chart-estimated .box-chart-estimated .title-chart {
+  font-size: 18px;
+  color: #4F4F4F;
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.cost-estimator .chart-estimated .label-chart li {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.cost-estimator .chart-estimated .label-chart li span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+.cost-estimator .chart-estimated .label-chart .traditional-method span {
+  background: #BDBDBD;
+}
+.cost-estimator .chart-estimated .label-chart .envzone-solution span {
+  background: #0D3153;
+}
+.cost-estimator .potential-saving .title-potential {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 60px;
+  color: #4F4F4F;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cost-estimator .potential-saving .circle-potential li {
+  width: 33.3%;
+  position: relative;
+  padding-bottom: 40px;
+}
+.cost-estimator .potential-saving .circle-potential span[class*=circle-] {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background: #8DC63F;
+  display: block;
+  color: #0D3153;
+  text-align: center;
+}
+.cost-estimator .potential-saving .circle-potential span.circle-1 {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+}
+.cost-estimator .potential-saving .circle-potential span.circle-2 {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}
+.cost-estimator .potential-saving .circle-potential span.circle-3 {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+}
+.cost-estimator .potential-saving .circle-potential .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.cost-estimator .potential-saving .box-share .title-share {
+  color: #4F4F4F;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.cost-estimator .potential-saving .box-share .link-copy .link {
+  color: #828282;
+  font-style: italic;
+  font-size: 16px;
+  background: #fff;
+  padding: 15px;
+  border: none;
+  width: 300px;
+}
+.cost-estimator .potential-saving .box-share .link-copy .copy {
+  color: #45678A;
+  font-size: 16px;
+}
+.cost-estimator .potential-saving .box-optimize-envzone {
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+.cost-estimator .potential-saving .box-optimize-envzone .title-button {
+  color: #4F4F4F;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.cost-estimator .potential-saving .box-optimize-envzone .btn-blue-env {
+  font-weight: 400;
+  width: 400px;
 }
 
 /* ======================FOOTER============== */
