@@ -4153,6 +4153,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   background: #fff;
   margin-bottom: 50px;
 }
+.cost-estimator .box-estimated-developers .noUi-touch-area {
+  background: #8DC63F;
+}
 .cost-estimator .box-estimated-developers .info-estimated .title {
   font-size: 18px;
   color: #4F4F4F;
@@ -4165,6 +4168,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 }
 .cost-estimator .chart-estimated {
   margin-bottom: 100px;
+  padding-top: 100px;
 }
 .cost-estimator .chart-estimated .box-chart-estimated .title-chart {
   font-size: 18px;
@@ -4251,9 +4255,10 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   border: none;
   width: 300px;
 }
-.cost-estimator .potential-saving .box-share .link-copy .copy {
+.cost-estimator .potential-saving .box-share .link-copy .copy-clipboard {
   color: #45678A;
   font-size: 16px;
+  cursor: pointer;
 }
 .cost-estimator .potential-saving .box-optimize-envzone {
   margin-top: 100px;

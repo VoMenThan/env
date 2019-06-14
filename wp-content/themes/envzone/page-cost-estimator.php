@@ -52,11 +52,11 @@
                             Enter your metrics to calculate your potential results, then scroll down to view them.
                         </div>
 
-                        <form method="get" action="">
+                        <form id="estimated-form" method="get" action="#chart-estimated">
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-6 col-form-label">LOCATION OF YOUR OFFICE</label>
                                 <div class="col-sm-6">
-                                    <select name="state" class="form-control form-control-lg">
+                                    <select name="state" class="form-control form-control-lg" required>
                                         <option value="">Please select state</option>
                                         <?php
                                             $state = get_field('average_hourly_rate' , $post->ID);
@@ -74,7 +74,7 @@
                             <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-6 col-form-label">BUDGET</label>
                                 <div class="col-sm-6">
-                                    <select name="estimated-budget" class="form-control form-control-lg">
+                                    <select name="estimated-budget" class="form-control form-control-lg" required>
                                         <option value="">Please select estimated budget</option>
                                         <option value="25k" <?php echo ($_GET['estimated-budget'] == '25k')? 'selected':'';?>>< 25k</option>
                                         <option value="25_100k" <?php echo ($_GET['estimated-budget'] == '25_100k')? 'selected':'';?>>25k-100k</option>
@@ -90,7 +90,7 @@
                                         <div class="info-estimated d-flex justify-content-between">
                                             <span class="title">Estimated developers involved in the project</span>
                                             <span id="huge-value" class="number"><?php $get_dev = (isset($_GET['estimated-developers']))? $_GET['estimated-developers']:5; echo $get_dev;?></span>
-                                            <input class="d-none" type="text" name="estimated-developers" id="huge-input" value="<?php echo $get_dev?>">
+                                            <input class="d-none" type="text" name="estimated-developers" id="huge-input" value="<?php echo $get_dev?>" required>
                                         </div>
                                         <div id="slider-huge"></div>
                                     </div>
@@ -154,6 +154,20 @@
                     $saving_year = $chart_traditional[2] - $chart_env[2];
 
 
+                    function convertDola($number){
+
+                        if ($number < 1000000){
+                            $number = round($number, -3);
+                            $number = $number/1000;
+                            $number = number_format($number , 0, '.', ',').'K';
+                        }else{
+                            $number = round($number, -5);
+                            $number = $number/1000000;
+                            $number = number_format($number , 1, '.', ',').'M';
+                        }
+                        return $number;
+                    }
+
                     ?>
                 <div id="chart-estimated" class="row chart-estimated">
                     <div class="col-lg-6 box-chart-estimated">
@@ -174,15 +188,15 @@
 
                         <ul class="circle-potential nav">
                             <li class="nav-item d-flex align-items-center justify-content-center position-relative">
-                                <span class="circle-1">$<?php echo number_format ( $saving_week ,  0 , "." , "," );?></span>
+                                <span class="circle-1">$<?php echo convertDola($saving_week);?></span>
                                 <span class="title">2-Week Saving</span>
                             </li>
                             <li class="nav-item d-flex align-items-center justify-content-center position-relative">
-                                <span class="circle-2">$<?php echo number_format ( $saving_month ,  0 , "." , "," );?></span>
+                                <span class="circle-2">$<?php echo convertDola($saving_month);?></span>
                                 <span class="title">6-Month Saving</span>
                             </li>
                             <li class="nav-item d-flex align-items-center justify-content-center position-relative">
-                                <span class="circle-3">$<?php echo number_format ( $saving_year ,  0 , "." , "," );?></span>
+                                <span class="circle-3">$<?php echo convertDola( $saving_year);?></span>
                                 <span class="title">1-Year Saving</span>
                             </li>
                         </ul>
@@ -194,8 +208,8 @@
                         <div class="box-share">
                             <div class="title-share">SHARE THIS REPORT.</div>
                             <div class="link-copy">
-                                <input type="text" class="link" value="<?php echo $full_url;?>"/>
-                                <span class="copy">Copy</span>
+                                <input id="copy-link" type="text" class="link" value="<?php echo $full_url;?>#chart-estimated"/>
+                                <span class="copy-clipboard">Copy</span>
                             </div>
                         </div>
 
@@ -246,6 +260,15 @@
             bigValueInput.value = values[handle];
         });
 
+        $('.copy-clipboard').click(
+            function (e) {
+                let el = document.getElementById('copy-link');
+                el.select();
+                document.execCommand('copy');
+            }
+        );
+
+        <?php if (isset($_GET['state']) and $_GET['estimated-developers'] != '' and $_GET['estimated-budget'] != ''):?>
         /*Chart JS*/
         var ctx = document.getElementById('myChart').getContext('2d');
         var data_env = [<?php echo $chart_env[0].','.$chart_env[1].','. $chart_env[2]?>];
@@ -256,12 +279,12 @@
                 labels: ['2-Week Cost', '6-Month Cost', '1-Year Cost'],
                 datasets: [
                     {
-                        label: '',
+                        label: 'EnvZone Solution',
                         data: data_env,
                         backgroundColor: 'rgba(13, 49, 83)',
                     },
                     {
-                        label: '',
+                        label: 'Traditional Method',
                         data: data_traditional,
                         backgroundColor: 'rgba(189, 189, 189)'
                     }
@@ -283,15 +306,35 @@
                     }],
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
-                        }
+                            beginAtZero:true,
+                            callback: function(value, index, values) {
+                                return  '$' + (value/1000)+ 'K';
+                            }
+                        },
                     }]
+                },
+
+                legend: {
+                    display: false
                 },
                 tooltips: false
             },
 
         });
         /*Chart JS END*/
+        <?php endif;?>
+
+        $( document ).ready(function() {
+
+            if(window.location.hash) {
+                var hash = window.location.hash;
+
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 'slow');
+            }
+
+        });
 
     </script>
     <?php wp_footer();?>

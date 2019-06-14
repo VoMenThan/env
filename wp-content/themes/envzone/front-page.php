@@ -8,9 +8,9 @@
             <img src="<?php echo ASSET_URL;?>images/banner-home-new.png">
             <div class="container">
                 <article class="box-headline">
-                    <h2 class="head-line-envzone">
+                    <h1 class="head-line-envzone">
                         DENVER SOFTWARE OUTSOURCING AUTHORITY
-                    </h2>
+                    </h1>
                     <p>
                         A premium outsourcing solution for minimum management and maximum output.
                     </p>
@@ -21,31 +21,14 @@
             </div>
         </div>
         <div class="item">
-            <img src="<?php echo ASSET_URL;?>images/banner-home-2.png">
-            <div class="container">
-                <article class="box-headline">
-                    <h1 class="head-line-envzone">
-                        RE-ENVISIONING THE EXPERIENCE OF SOFTWARE OUTSOURCING
-                    </h1>
-                   <p>
-                       Your outsourced vendor will be tracked by results.
-                   </p>
-                    <p>
-                        Performance inspector clears the way, so you can focus on doing what you do best.
-                    </p>
-                    <a href="<?php echo home_url("contact-us");?>" class="btn btn-green-env btn-get-started">SCHEDULE AN APPOINTMENT NOW</a>
-                </article>
-            </div>
-        </div>
-        <div class="item">
             <img src="<?php echo ASSET_URL;?>images/banner-home-3.png">
             <div class="container">
                 <article class="box-headline">
                     <h2 class="head-line-envzone">
-                        SEE THE POTENTIAL SAVING YOU COULD ACHIEVE TODAY
+                        SEE THE POTENTIAL SAVINGS YOU COULD ACHIEVE
                     </h2>
                     <p>
-                        Calculate your company’s potential saving with EnvZone’s solution using this handy tool.
+                        Calculate your company’s potential savings with EnvZone’s solution using this handy tool.
                     </p>
                     <a href="<?php echo home_url("cost-estimator ");?>" class="btn btn-green-env btn-get-started">CALCULATE NOW</a>
                 </article>
@@ -1050,7 +1033,7 @@
             dots: true,
             lazyLoad:true,
             autoplay: true,
-            autoplayTimeout: 11000,
+            autoplayTimeout: 10000,
             smartSpeed:450,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {

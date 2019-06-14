@@ -59,6 +59,9 @@
     padding: 0 30px;
     background: #fff;
     margin-bottom: 50px;
+    .noUi-touch-area{
+      background: #8DC63F;
+    }
     .info-estimated{
       .title{
         font-size: 18px;
@@ -76,6 +79,7 @@
 
   .chart-estimated{
     margin-bottom: 100px;
+    padding-top: 100px;
     .box-chart-estimated{
       .title-chart{
         font-size: 18px;
@@ -173,9 +177,10 @@
           border: none;
           width: 300px;
         }
-        .copy{
+        .copy-clipboard{
           color: #45678A;
           font-size: 16px;
+          cursor: pointer;
         }
       }
     }
