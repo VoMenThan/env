@@ -999,8 +999,15 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
+.slider-home.owl-theme .box-headline .btn-get-started svg {
+  vertical-align: middle;
+  margin-left: 20px;
+}
 .slider-home.owl-theme .box-headline .btn-get-started:hover {
   color: #ffffff !important;
+}
+.slider-home.owl-theme .box-headline .btn-get-started:hover svg path {
+  fill: #ffffff !important;
 }
 
 .title-security {
@@ -3748,10 +3755,14 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   padding-right: 15px;
   font-weight: bold;
   color: #fff;
+  max-height: 50px;
 }
 .analyze-section .box-infomation-analyze .analyze-form .gform_wrapper .gform_footer input.button:hover,
 .analyze-section .box-infomation-analyze .analyze-form .gform_wrapper .gform_footer input[type=submit]:hover {
   color: #0D3153;
+}
+.analyze-section .box-infomation-analyze .analyze-form .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+  max-width: 100% !important;
 }
 .analyze-section .box-infomation-analyze .discussion-box {
   font-weight: 500;
@@ -4502,6 +4513,26 @@ footer .box-term-policy-mb {
 footer .copyright-footer {
   font-size: 15px;
   color: #E0E0E0;
+}
+footer .btn-back-to-top {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #45678A;
+  padding-top: 4px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+}
+footer .btn-back-to-top .icon-arrow-down-green {
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon-arrow-top-green.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  vertical-align: middle;
 }
 
 /* =================== RESPONSIVE ======================= */
@@ -12986,6 +13017,101 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*========================PAGINATION CSS END==============================*/
+/*========================POPUP ADVERT INDUSTRY==============================*/
+.book-advert {
+  background: rgba(32, 70, 107, 0.7);
+}
+.book-advert * {
+  font-family: "Roboto", sans-serif;
+}
+.book-advert .modal-body {
+  padding: 30px;
+  background: #F2F2F2;
+}
+.book-advert .modal-body button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.book-advert .modal-body h3 {
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #4F4F4F;
+  font-weight: normal;
+  margin-bottom: 40px;
+}
+.book-advert .modal-body .info-ebook {
+  margin-bottom: 50px;
+}
+.book-advert .modal-body .info-ebook .cover-ebook {
+  width: 150px;
+  margin-right: 15px;
+  -webkit-box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+  float: left;
+}
+.book-advert .modal-body .info-ebook p {
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+  color: #4F4F4F;
+}
+.book-advert .modal-body .btn-green-env {
+  margin-bottom: 15px;
+  padding: 10px 120px;
+}
+.book-advert .modal-body .btn-green-env svg {
+  vertical-align: middle;
+  margin-left: 15px;
+}
+.book-advert .modal-body .note {
+  font-size: 14px;
+}
+
+.box-subscribe .title-subscriber {
+  font-size: 20px;
+  text-align: center;
+}
+.box-subscribe h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #20466B !important;
+}
+.box-subscribe .info-subscriber .description {
+  font-size: 18px;
+  color: #4F4F4F;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.box-subscribe .info-subscriber .tip {
+  font-size: 14px;
+  position: absolute;
+  bottom: 150px;
+  width: calc(100% - 60px);
+}
+.box-subscribe .form-subscribe #gform_wrapper_3 li.hidden_label input {
+  color: #828282;
+  background: #fff;
+  margin-bottom: 100px;
+}
+.box-subscribe .form-subscribe #gform_wrapper_3 .gform_footer input {
+  background-color: #8DC63F;
+  border-color: #8DC63F;
+}
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and top (<768px)
+	================================================================== */
+@media screen and (min-width: 768px) {
+  .book-advert .modal-dialog {
+    max-width: 600px;
+  }
+}
+/*========================POPUP ADVERT INDUSTRY END==============================*/
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
 	EXTRA LARGE DEVICE
@@ -13104,6 +13230,10 @@ h1, h2, h3, h4, h5, h6 {
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) {
+  .box-subscribe .info-subscriber .tip {
+    bottom: 170px;
+  }
+
   .box-breadcrumb {
     display: none;
   }

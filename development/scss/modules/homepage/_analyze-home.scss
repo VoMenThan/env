@@ -60,8 +60,19 @@
             padding-right: 15px;
             font-weight: bold;
             color: #fff;
+            max-height: 50px;
             &:hover{
               color: $color-blue-logo;
+            }
+          }
+        }
+
+        &.gform_validation_error {
+          .gform_body {
+            ul {
+              li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half){
+                max-width: 100% !important;
+              }
             }
           }
         }

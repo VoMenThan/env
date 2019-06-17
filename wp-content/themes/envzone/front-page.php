@@ -30,7 +30,17 @@
                     <p>
                         Calculate your company’s potential savings with EnvZone’s solution using this handy tool.
                     </p>
-                    <a href="<?php echo home_url("cost-estimator ");?>" class="btn btn-green-env btn-get-started">CALCULATE NOW</a>
+                    <a href="<?php echo home_url("cost-estimator ");?>" class="btn btn-green-env btn-get-started">
+                        CALCULATE NOW
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.05175 6.03448H6.89658V3.87931C6.89658 3.64095 6.70348 3.44827 6.46554 3.44827C6.22761 3.44827 6.03451 3.64095 6.03451 3.87931V6.03448H3.87934C3.64141 6.03448 3.4483 6.22715 3.4483 6.46551C3.4483 6.70388 3.64141 6.89655 3.87934 6.89655H6.03451V9.05172C6.03451 9.29008 6.22761 9.48275 6.46554 9.48275C6.70348 9.48275 6.89658 9.29008 6.89658 9.05172V6.89655H9.05175C9.28968 6.89655 9.48279 6.70388 9.48279 6.46551C9.48279 6.22715 9.28968 6.03448 9.05175 6.03448Z" fill="#0D3153"/>
+                            <path d="M21.1207 6.03448H15.9482C15.7103 6.03448 15.5172 6.22716 15.5172 6.46552C15.5172 6.70388 15.7103 6.89655 15.9482 6.89655H21.1207C21.3586 6.89655 21.5517 6.70388 21.5517 6.46552C21.5517 6.22716 21.3586 6.03448 21.1207 6.03448Z" fill="#0D3153"/>
+                            <path d="M12.931 0H12.069H0V12.069V12.931V25H12.069H12.931H25V12.931V12.069V0H12.931ZM0.862069 0.862069H12.069V12.069H0.862069V0.862069ZM0.862069 24.1379V12.931H12.069V24.1379H0.862069ZM24.1379 24.1379H12.931V12.931H24.1379V24.1379ZM12.931 12.069V0.862069H24.1379V12.069H12.931Z" fill="#0D3153"/>
+                            <path d="M15.9482 20.2586H21.1207C21.3586 20.2586 21.5517 20.0659 21.5517 19.8276C21.5517 19.5892 21.3586 19.3965 21.1207 19.3965H15.9482C15.7103 19.3965 15.5172 19.5892 15.5172 19.8276C15.5172 20.0659 15.7103 20.2586 15.9482 20.2586Z" fill="#0D3153"/>
+                            <path d="M15.9482 17.6724H21.1207C21.3586 17.6724 21.5517 17.4797 21.5517 17.2414C21.5517 17.003 21.3586 16.8103 21.1207 16.8103H15.9482C15.7103 16.8103 15.5172 17.003 15.5172 17.2414C15.5172 17.4797 15.7103 17.6724 15.9482 17.6724Z" fill="#0D3153"/>
+                            <path d="M8.92544 16.0746C8.75691 15.906 8.48449 15.906 8.31596 16.0746L6.46553 17.925L4.61509 16.0746C4.44656 15.906 4.17415 15.906 4.00561 16.0746C3.83708 16.2431 3.83708 16.5155 4.00561 16.684L5.85604 18.5345L4.00561 20.3849C3.83708 20.5534 3.83708 20.8258 4.00561 20.9944C4.08966 21.0784 4.20001 21.1207 4.31035 21.1207C4.4207 21.1207 4.53104 21.0784 4.61509 20.9944L6.46553 19.1439L8.31596 20.9944C8.40001 21.0784 8.51035 21.1207 8.6207 21.1207C8.73104 21.1207 8.84139 21.0784 8.92544 20.9944C9.09398 20.8258 9.09398 20.5534 8.92544 20.3849L7.07501 18.5345L8.92544 16.684C9.09398 16.5155 9.09398 16.2431 8.92544 16.0746Z" fill="#0D3153"/>
+                        </svg>
+                    </a>
                 </article>
             </div>
         </div>
@@ -1003,6 +1013,50 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 
+
+
+    <!-- Modal -->
+    <div class="modal fade book-advert box-subscribe" id="modal-advert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 1.5L13.5 0L7.5 6L1.5 0L0 1.5L6 7.5L0 13.5L1.5 15L7.5 9L13.5 15L15 13.5L9 7.5L15 1.5Z" fill="#0D3153"/>
+                        </svg>
+                    </button>
+                    <div class="title-subscriber">
+                        SUBSCRIBE TO:
+                    </div>
+                    <h3>
+                        EXECUTIVE INSIGHTS
+                    </h3>
+                    <div class="info-subscriber clearfix">
+                        <div class="description">
+                            Join over 5,000 of your peers who recieve the most valuable industry updates business leaders, CEOs, CTOs, COOs, need to know, operation, development hacking and tactics to get a head of the competition.
+                        </div>
+                        <div class="form-subscribe">
+                            <?php
+                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                            ?>
+                        </div>
+
+                        <div class="tip">
+                            ENVZONE will use the information you provide to send you insights, development hacking tips. You may unsubscribe from these communications at any time. For more information, check out our Privacy Policy.
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+                        <div class="note">No thanks, I don’t want insights to reduce costs of business.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </main>
 
 <script>
@@ -1023,6 +1077,15 @@
     /*============ slide news =================*/
 
     $(document).ready(function() {
+
+        $('body').mouseleave(function(){
+            $(".book-advert .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
+            var cookie = getCookie('cookie-subscribe');
+            if (cookie !== 'true'){
+                $('#modal-advert').modal('show');
+                setCookie('cookie-subscribe', true, 0.5);
+            }
+        });
 
         $('.slider-home').owlCarousel({
             animateOut: 'slideOutRight',

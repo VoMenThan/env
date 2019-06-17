@@ -1,6 +1,6 @@
 <!-- FOOTER -->
 <footer>
-    <div class="container">
+    <div class="container position-relative">
         <div class="row mb-lg-5 py-3">
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
                 <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-envzone-gray.png" alt="">
@@ -108,6 +108,10 @@
                 </div>
             </div>
         </div>
+
+        <a href="#header-top" class="btn-back-to-top">
+            <i class="icon-arrow-down-green"></i>
+        </a>
     </div>
 
     <div class="container-fluid social-mobile">
@@ -233,6 +237,35 @@
         });*/
     })(jQuery);
 
+
+    /*============ set get erase Cookie =================*/
+    function setCookie(name,value,hours) {
+        var expires = "";
+        if (hours) {
+            var date = new Date();
+            date.setTime(date.getTime() + (hours*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        document.cookie = name+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+    /*============ set get erase Cookie end=================*/
+
+
     /*============ end custom scroll =================*/
 
 
@@ -337,7 +370,7 @@
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -359,7 +392,7 @@
             }
         }
     </script>
-</amp-analytics>-->
+</amp-analytics>
 
 </body>
 </html>

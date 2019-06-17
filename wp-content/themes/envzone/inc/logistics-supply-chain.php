@@ -198,5 +198,7 @@ get_header();
 
 
     <?php require_once "subscribe.php";?>
+
+    <?php require_once "popup-industries.php";?>
 </main>
 <?php get_footer();?>

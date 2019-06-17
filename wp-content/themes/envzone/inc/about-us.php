@@ -106,5 +106,7 @@
 
         <?php require_once "why-business.php";?>
         <?php require_once "subscribe.php";?>
+
+        <?php require_once "popup-company.php";?>
     </section>
 </main>

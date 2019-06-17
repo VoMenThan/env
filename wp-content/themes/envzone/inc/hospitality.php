@@ -196,5 +196,7 @@ get_header();
 
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
+
+    <?php require_once "popup-industries.php";?>
 </main>
 <?php get_footer();?>

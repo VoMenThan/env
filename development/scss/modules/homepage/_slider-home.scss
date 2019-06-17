@@ -55,9 +55,17 @@
                 margin-bottom: 20px;
                 margin-top: 20px;
                 @include transition(.3s);
+                svg{
+                    vertical-align: middle;
+                    margin-left: 20px;
+                }
                 &:hover{
                     color: $color-white !important;
-
+                    svg{
+                        path{
+                            fill: $color-white !important;
+                        }
+                    }
                 }
             }
         }
