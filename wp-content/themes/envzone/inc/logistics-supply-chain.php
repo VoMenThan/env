@@ -5,8 +5,9 @@ get_header();
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-logistics.png">
-        <h2 class="text-center">LOGISTICS<br>
-            AND SUPPLY CHAIN</h2>
+        <h1 class="text-center">LOGISTICS<br>
+            AND SUPPLY CHAIN</h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">

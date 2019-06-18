@@ -1,7 +1,8 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-healthcare-new.png">
-        <h2>HEALTHCARE</h2>
+        <h1>HEALTHCARE</h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">

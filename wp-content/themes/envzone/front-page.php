@@ -30,6 +30,19 @@
                     <p>
                         Calculate your company’s potential savings with EnvZone’s solution using this handy tool.
                     </p>
+                    <span class="direction-arrow">
+                       <svg width="60" height="50" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path d="M59.4244 37.3492L59.4263 37.3508C59.4281 37.3531 59.43 37.3555 59.4319 37.3586C59.5931 37.5109 59.7113 37.6945 59.8059 37.8883C59.8359 37.9477 59.8556 38.0039 59.8772 38.0641C59.9316 38.2133 59.9653 38.368 59.9766 38.5297C59.9822 38.5891 59.9934 38.6453 59.9916 38.7063C59.9916 38.7375 60.0009 38.7656 59.9991 38.7961C59.9859 38.9828 59.9409 39.1633 59.8716 39.3328C59.8659 39.3508 59.8509 39.3649 59.8434 39.3828C59.7609 39.5695 59.6428 39.7352 59.5031 39.8867C59.4834 39.9078 59.4769 39.9359 59.4562 39.957L49.7897 49.4461C49.05 50.1727 47.8359 50.1867 47.0766 49.475C46.3191 48.7641 46.305 47.5984 47.0466 46.8703L52.2572 41.7539C44.6437 42.5945 37.1597 41.2594 36.8062 41.1938C13.7006 37.7039 -2.65032 19.9227 0.356246 1.55626C0.505308 0.646889 1.32 1.52588e-05 2.24906 1.52588e-05C2.34843 1.52588e-05 2.44781 0.00704575 2.54906 0.0211067C3.59531 0.179703 4.30968 1.12189 4.14656 2.12736C1.46812 18.4867 16.3866 34.3789 37.4625 37.5633C37.5591 37.582 45.2916 38.9649 52.5722 38.0117L44.5312 34.0328C43.5891 33.5656 43.2206 32.4547 43.7053 31.5508C44.1891 30.6453 45.3441 30.2945 46.2891 30.7563L58.9641 37.0281C59.1356 37.1149 59.2894 37.2234 59.4244 37.3492Z" fill="#8DC63F"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="60" height="50" fill="white" transform="matrix(1 0 0 -1 0 50)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    </span>
+
                     <a href="<?php echo home_url("cost-estimator ");?>" class="btn btn-green-env btn-get-started">
                         CALCULATE NOW
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -658,9 +671,9 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="box-clients">
                         <div class="info-optimize d-flex align-items-center">
-                            Our clients have been succeeded with our succession roadmap. This is something we can do for you too!
+                            A desired solution for your organization that works without the costly risk tag.
                         </div>
-                        <a href="<?php echo get_home_url()."/contact-us";?>" class="btn btn-green-env">Optimize Our Dev Workflow for Business Success <i class="icon-right-arrow-simple"></i></a>
+                        <a href="<?php echo get_home_url()."/contact-us";?>" class="btn btn-green-env">GET HELP NOW</a>
                     </div>
                 </div>
 
@@ -1078,15 +1091,6 @@
 
     $(document).ready(function() {
 
-        $('body').mouseleave(function(){
-            $(".book-advert .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
-            var cookie = getCookie('cookie-subscribe');
-            if (cookie !== 'true'){
-                $('#modal-advert').modal('show');
-                setCookie('cookie-subscribe', true, 0.5);
-            }
-        });
-
         $('.slider-home').owlCarousel({
             animateOut: 'slideOutRight',
             animateIn: 'slideInLeft',
@@ -1095,7 +1099,7 @@
             nav: false,
             dots: true,
             lazyLoad:true,
-            autoplay: true,
+            autoplay: false,
             autoplayTimeout: 10000,
             smartSpeed:450,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],

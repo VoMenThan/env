@@ -7,6 +7,7 @@ get_header();
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
         <h1><?php echo get_the_title();?></h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">

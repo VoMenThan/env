@@ -34,16 +34,3 @@
         </div>
     </div>
 </div>
-
-<script>
-
-    $(document).ready(function (e) {
-        $('body').mouseleave(function(){
-            var cookie = getCookie('cookie-company');
-            if (cookie !== 'true'){
-                $('#modal-advert').modal('show');
-                setCookie('cookie-company', true, 0.5);
-            }
-        });
-    });
-</script>

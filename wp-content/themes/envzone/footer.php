@@ -54,7 +54,7 @@
 
             </div>
         </div>
-        <div class="row mb-5 menu-footer">
+        <div class="row pb-5 menu-footer">
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="box-info-footer">
                     <h5 class="label-menu-footer">Company</h5>
@@ -213,6 +213,41 @@
             </div>
         </div>
     </div>
+
+    <div id="popup-satisfaction-servey" class="box-satisfaction-survey section-companies-homepage show">
+        <div id="close-survey-form" class="btn-close-form">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2L18 0L10 8L2 0L0 2L8 10L0 18L2 20L10 12L18 20L20 18L12 10L20 2Z" fill="#BDBDBD"/>
+            </svg>
+        </div>
+        <div class="title-survey">User Satisfaction Survey</div>
+
+        <form id="form-rate-survey" name="form-rate-survey" action="" method="post">
+            <div class="box-rating resize clearfix">
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" disabled />
+                    <label for="star5" title="5 stars">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" disabled />
+                    <label for="star4" title="4 star">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" disabled />
+                    <label for="star3" title="3 stars">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" disabled />
+                    <label for="star2" title="2 stars">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" disabled />
+                    <label for="star1" title="1 star">1 star</label>
+                </div>
+            </div>
+        </form>
+        <div class="question">
+            What do you like least/most about our website?
+        </div>
+
+        <div class="form-survey">
+            <?php
+                echo do_shortcode('[gravityform id=13 title=false description=false ajax=true]');
+            ?>
+        </div>
+    </div>
 </footer>
 
 
@@ -263,6 +298,15 @@
     function eraseCookie(name) {
         document.cookie = name+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
     }
+
+    $('body').mouseleave(function(){
+        $(".book-advert .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
+        var cookie = getCookie('cookie-advert');
+        if (cookie !== 'true'){
+            $('#modal-advert').modal('show');
+            setCookie('cookie-advert', true, 1);
+        }
+    });
     /*============ set get erase Cookie end=================*/
 
 
@@ -360,6 +404,42 @@
     });
 
     $(document).ready(function(){
+
+        $('#close-survey-form').click(function () {
+            $('#popup-satisfaction-servey').removeClass('show');
+        });
+
+
+        $('.box-satisfaction-survey .box-rating label').click(function () {
+            $('#form-rate-survey').submit();
+        });
+
+        $('#form-rate-survey').on('submit', function (e) {
+            e.preventDefault();
+
+           $.ajax({
+               dataType :   'json',
+               type     :   'post',
+               data     :   $('#form-rate-survey').serializeObject(),
+               url      :   '../admin-ajax.php',
+               success  :   function (data) {
+                   alert('form success'+data);
+               }
+           });
+
+           return false;
+        });
+
+
+        /*var cookie = getCookie('cookie-survey');
+        if (cookie !== 'true'){
+            setTimeout(function () {
+                $('#popup-satisfaction-servey').addClass('show');
+                setCookie('cookie-survey', true, 0.1);
+            }, 1000);
+        }*/
+
+
         $('input[id="input_2_7"]').change(function(e){
             var fileName = e.target.files[0].name;
             $("#field_2_7 label").html(fileName);
@@ -370,7 +450,7 @@
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -392,7 +472,7 @@
             }
         }
     </script>
-</amp-analytics>
+</amp-analytics>-->
 
 </body>
 </html>

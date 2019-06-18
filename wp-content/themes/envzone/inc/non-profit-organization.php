@@ -7,6 +7,7 @@ get_header();
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-non-profit-organization.png">
         <h1>NON-PROFIT ORGANIZATION</h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">

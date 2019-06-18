@@ -595,6 +595,9 @@ h1, h2, h3, h4, h5, h6{
 	}
 }
 
+
+
+
 /* 	================================================================
 	TABLET DEVICE
 	Large tablet 768px and top (<768px)
@@ -608,6 +611,190 @@ h1, h2, h3, h4, h5, h6{
 
 }
 /*========================POPUP ADVERT INDUSTRY END==============================*/
+
+/*========================FORM BANNER==============================*/
+.banner-top{
+
+	.form-banner{
+		@include translate(calc(-585px), -50%);
+		width: 480px;
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		.title-form{
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 140.88%;
+			color: #FFFFFF;
+			margin-bottom: 30px;
+		}
+		.gform_wrapper {
+			margin: 0;
+			ul.gform_fields {
+				li.gfield{
+					width: 100%;
+					float: left;
+					margin: 0 !important;
+					padding: 0;
+					max-width: 100% !important;
+
+					&.gf_right_half{
+						float: none;
+						text-align: right;
+						max-width: 100%;
+					}
+				}
+			}
+			.top_label {
+				div.ginput_container{
+					margin: 0;
+				}
+				div:not(.ginput_container_date) {
+					select.medium{
+						height: 50px;
+					}
+				}
+				li.gfield.gf_right_half {
+					div:not(.ginput_container_date) {
+						select.medium{
+							width: 100%;
+							border: none !important;
+							background: #fff;
+						}
+					}
+				}
+			}
+			input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
+				padding: 12px 25px;
+				border: none !important;
+				font-size: 18px;
+				@include radius(5px);
+				width: 100%;
+				margin-top: 0;
+				margin-bottom: 0;
+
+			}
+			.gform_footer{
+				text-align: center;
+				margin: 0;
+				padding: 0;
+			}
+
+			input.button,
+			input[type=submit]{
+				background: #8DC63F;
+				@include radius(0 5px 5px 0);
+				margin-right: 0;
+				padding: 15px 20px;
+				font-size: 18px;
+				line-height: 21px;
+				text-align: center;
+				color: #0D3153;
+				font-weight: bold;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+
+			&.gform_validation_error {
+				.gform_body {
+					ul {
+						li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half){
+							max-width: 100% !important;
+						}
+					}
+				}
+			}
+			li.gfield.gfield_error.gfield_contains_required {
+				div.gfield_description{
+					max-width: 50%;
+				}
+			}
+		}
+	}
+}
+/*========================FORM BANNER END==============================*/
+
+
+
+/*========================SURVEY FORM==============================*/
+.box-satisfaction-survey{
+	width: 370px;
+	padding: 15px 10px;
+	position: fixed;
+	bottom: 0;
+	right: -100%;
+	background: #F2F2F2;
+	z-index: 999;
+	text-align: center;
+	@include transition(.3s);
+	&.show{
+		right: 0;
+	}
+	.btn-close-form{
+		display: inline-block;
+		position: absolute;
+		left: 10px;
+		cursor: pointer;
+	}
+	.title-survey{
+		color: #4F4F4F;
+		font-size: 18px;
+		font-family: $font-roboto;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	.box-rating{
+		display: inline-block;
+		margin: 0;
+		margin-bottom: 5px;
+	}
+	.question{
+		color: #4F4F4F;
+		font-size: 16px;
+		font-family: $font-roboto;
+	}
+	.form-survey{
+		.gform_confirmation_message{
+			font-family: $font-roboto;
+			padding: 15px 10px;
+			font-size: 18px;
+			color: #4F4F4F;
+		}
+
+	}
+	.gform_wrapper {
+		margin-bottom: 0;
+		ul {
+			li.gfield{
+				margin-top: 0 !important;
+			}
+		}
+		textarea.small{
+			border: none;
+		}
+		ul.gform_fields {
+			li.gfield{
+				padding-right: 0;
+			}
+		}
+		.gform_footer{
+			text-align: center;
+			margin-top: 0;
+			padding-bottom: 0;
+			input.button,
+			input[type=submit]{
+				background: #8DC63F;
+				color: $color-blue-logo;
+				padding: 10px 25px;
+				font-size: 14px;
+				font-family: $font-roboto;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+/*========================SURVEY FORM END==============================*/
 
 
 

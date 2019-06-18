@@ -164,6 +164,9 @@ function misha_loadmore_ajax_handler(){
 
 
 
+
+
+
 add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_{action}
 add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
 /* END LOAD MORE SEARCH*/

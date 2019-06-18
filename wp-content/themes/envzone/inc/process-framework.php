@@ -1,7 +1,8 @@
 <main class="main-content">
     <section class="banner-top banner-company bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-process-framework.png">
-        <h2>PROCESS FRAMEWORK</h2>
+        <h1>PROCESS FRAMEWORK</h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">
@@ -22,7 +23,7 @@
 
                 <div class="col-12">
                     <div class="box-introduct">
-                        <h1 class="title-head-blue">HOW WE WORK</h1>
+                        <h2 class="title-head-blue">HOW WE WORK</h2>
                         <p>
                             <i class="icon-one"></i>
                             Our first point of call is to consult with you to understand the rudiments of your project. We pay attention to your business model and services your company required

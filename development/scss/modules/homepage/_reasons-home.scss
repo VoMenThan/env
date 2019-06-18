@@ -62,7 +62,7 @@
     }
     .btn-green-env{
       white-space: normal;
-      padding: 20px 30px;
+      padding: 35px 30px;
       border-radius: 0;
       color: $color-blue-logo !important;
       font-weight: 600;
@@ -70,6 +70,7 @@
       position: absolute;
       bottom: 0;
       line-height: 34px;
+      width: 100%;
     }
     .icon-right-arrow-simple{
       @include setBackgroundIcon(20px, "../images/icon-right-arrow-simple.png");

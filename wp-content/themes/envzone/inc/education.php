@@ -1,7 +1,8 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
-        <h2><?php echo get_the_title();?></h2>
+        <h1><?php echo get_the_title();?></h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">
@@ -21,7 +22,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-12">
-                    <h1><?php echo get_field('title_fully_aware', $post->ID);?></h1>
+                    <h2><?php echo get_field('title_fully_aware', $post->ID);?></h2>
                     <div class="description-industries">
                         <?php echo get_field('description_fully_aware', $post->ID);?>
                     </div>

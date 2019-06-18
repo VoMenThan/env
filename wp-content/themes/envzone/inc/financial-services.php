@@ -2,6 +2,7 @@
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-financial-services.png">
         <h1>FINANCIAL SERVICES</h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">

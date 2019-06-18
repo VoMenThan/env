@@ -28,30 +28,65 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     <div class="box-customer-support">
                         <?php echo get_the_content();?>
                     </div>
 
 
                 </div>
-                <div class="col-lg-5">
-                    <div class="box-unique-approach">
-                        <p>
-                            The <span class="big">2</span> reasons that our clients from a wide range of major startups in the State of Colorado love working with EnvZone team because we commit in support them:
-                        </p>
-                        <ul class="list-checked">
-                            <li>
-                                <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                Achieve business goals
-                            </li>
-                            <li>
-                                <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                Leverage the competition
-                            </li>
-                        </ul>
+                <div class="col-lg-4 blog-page blog-detail-page">
+                    <div class="box-free-ebook d-lg-block d-none">
+                        <div class="title-free-book">
+                            Free eBooks
+                        </div>
 
-                        <a href="<?php echo get_home_url();?>/process-framework" class="btn btn-green-env">LEARN MORE ABOUT THEIR UNIQUE APPROACH</a>
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 3,
+                            'offset'=> 0,
+                            'post_type' => 'resources',
+                            'orderby' => 'post_modified',
+                            'order' =>'desc',
+                            'meta_query' => array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'lead_magnet_mode',
+                                    'value' => 'highlight',
+                                    'compare' => 'LIKE',
+                                )
+                            )
+
+                        );
+                        $ebook_resources = get_posts( $args );
+                        ?>
+                        <div class="ebook-top">
+                            <h4 class="title-ebook">
+                                <?php echo $ebook_resources[0]->post_title;?>
+                            </h4>
+                            <div class="box-img">
+                                <img class="img-fluild" src="<?php echo get_the_post_thumbnail_url($ebook_resources[0]->ID);?>" alt="">
+                            </div>
+
+                            <a href="<?php echo get_permalink($ebook_resources[0]->ID); ?>" class="btn btn-blue-env btn-download">DOWNLOAD</a>
+                        </div>
+
+                        <?php
+                        foreach($ebook_resources as $k => $item):
+                            if ($k == 0) continue;
+                            ?>
+                            <div class="ebook">
+                                <div class="box-img">
+                                    <img class="img-fluild" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                                </div>
+                                <div class="info">
+                                    <h4 class="title-ebook">
+                                        <?php echo $item->post_title;?>
+                                    </h4>
+                                    <a href="<?php echo get_permalink($item->ID);?>" class="btn btn-blue-env">DOWNLOAD</a>
+                                </div>
+                            </div>
+                        <?php endforeach;?>
                     </div>
                 </div>
 
