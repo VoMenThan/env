@@ -1,202 +1,289 @@
 .cost-estimator{
-  padding-bottom: 30px;
-  padding-top: 30px;
-  *{
-    font-family: $font-roboto;
-  }
-  .box-logo{
-    display: inline-block;
-    margin-bottom: 60px;
-  }
-  h1{
-    border-top: 3px solid #828282;
-    padding: 30px 0;
-    color: #4F4F4F;
-    font-size: 28px;
-    font-weight: 400;
-  }
-  p{
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 150%;
-    text-align: left;
-  }
-  .note{
-    font-size: 18px;
-    font-style: italic;
-    text-align: left;
-    margin-bottom: 30px;
-  }
-  .form-estimated{
-    margin-bottom: 70px;
-    .btn-green-env{
-      font-weight: 400;
-      width: 400px;
-      color: $color-blue-logo !important;
-      &:hover{
-        color: #fff !important;
-      }
+    padding-bottom: 30px;
+    padding-top: 30px;
+    min-height: 100vh;
+    *{
+        font-family: $font-roboto;
     }
-  }
-  .form-group{
-    margin-bottom: 45px;
-    label{
-      text-align: right;
-    }
-    select{
-      outline: none;
-      border-radius: 3px;
-      border: none;
-      font-size: 18px;
-      color: #828282;
-      &:focus, &:hover{
-        outline: none;
-      }
-    }
-  }
-  .box-estimated-developers{
-    height: 143px;
-    padding: 0 30px;
-    background: #fff;
-    margin-bottom: 50px;
-    .noUi-touch-area{
-      background: #8DC63F;
-    }
-    .info-estimated{
-      .title{
-        font-size: 18px;
-        color: #4F4F4F;
-        padding: 20px 0;
-      }
-      .number{
-        font-size: 36px;
-        padding: 5px;
-        color: #4F4F4F;
-      }
-    }
-  }
-
-
-  .chart-estimated{
-    margin-bottom: 100px;
-    padding-top: 100px;
-    .box-chart-estimated{
-      .title-chart{
-        font-size: 18px;
-        color: #4F4F4F;
+    .box-logo{
+        display: inline-block;
         margin-bottom: 60px;
-        text-align: center;
+    }
+    h1{
+        border-top: 3px solid #828282;
+        padding: 30px 0;
+        color: #4F4F4F;
+        font-size: 28px;
         font-weight: 400;
-        text-transform: uppercase;
-      }
     }
-    .label-chart{
-      li{
-        font-size: 16px;
-        margin-bottom: 20px;
-        span{
-          display: inline-block;
-          width: 25px;
-          height: 25px;
-          margin-right: 15px;
-          vertical-align: middle;
-        }
-      }
-      .traditional-method{
-        span{
-          background: #BDBDBD;
-        }
-      }
-      .envzone-solution{
-        span{
-          background: #0D3153;
-        }
-      }
-    }
-  }
-
-  .potential-saving{
-    .title-potential{
-      font-size: 18px;
-      font-weight: 400;
-      margin-bottom: 60px;
-      color: #4F4F4F;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .circle-potential{
-      li{
-        width: 33.3%;
-        position: relative;
-        padding-bottom: 40px;
-      }
-      span[class*='circle-']{
-        @include radius(50%);
-        background: #8DC63F;
-        display: block;
-        color: $color-blue-logo;
-        text-align: center;
-      }
-      span.circle-1{
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
-      }
-      span.circle-2{
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-      }
-      span.circle-3{
-        width: 150px;
-        height: 150px;
-        line-height: 150px;
-      }
-      .title{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    .box-share{
-      .title-share{
-        color: #4F4F4F;
-        font-size: 16px;
-        margin-bottom: 15px;
-      }
-      .link-copy{
-        .link{
-          color: #828282;
-          font-style: italic;
-          font-size: 16px;
-          background: #fff;
-          padding: 15px;
-          border: none;
-          width: 300px;
-        }
-        .copy-clipboard{
-          color: #45678A;
-          font-size: 16px;
-          cursor: pointer;
-        }
-      }
-    }
-    .box-optimize-envzone{
-      margin-top: 100px;
-      margin-bottom: 200px;
-      .title-button{
-        color: #4F4F4F;
+    p{
         font-size: 18px;
-        margin-bottom: 15px;
-      }
-      .btn-blue-env{
         font-weight: 400;
-        width: 400px;
-      }
-
+        line-height: 150%;
+        text-align: left;
     }
-  }
+    .note{
+        font-size: 18px;
+        font-style: italic;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    .form-estimated{
+        margin-bottom: 70px;
+        .btn-green-env{
+            font-weight: 400;
+            width: 400px;
+            color: $color-blue-logo !important;
+            &:hover{
+                color: #fff !important;
+            }
+        }
+    }
+    .form-group{
+        margin-bottom: 45px;
+        label{
+            text-align: right;
+        }
+        select{
+            outline: none;
+            border-radius: 3px;
+            border: none;
+            font-size: 18px;
+            color: #828282;
+            &:focus, &:hover{
+                outline: none;
+            }
+        }
+    }
+    .box-estimated-developers{
+        height: 143px;
+        padding: 0 30px;
+        background: #fff;
+        margin-bottom: 50px;
+        .noUi-touch-area{
+            background: #8DC63F;
+        }
+        .info-estimated{
+            .title{
+                font-size: 18px;
+                color: #4F4F4F;
+                padding: 20px 0;
+            }
+            .number{
+                font-size: 36px;
+                padding: 5px;
+                color: #4F4F4F;
+            }
+        }
+    }
+
+
+    .chart-estimated{
+        margin-bottom: 100px;
+        padding-top: 100px;
+        .box-chart-estimated{
+            .title-chart{
+                font-size: 18px;
+                color: #4F4F4F;
+                margin-bottom: 60px;
+                text-align: center;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+        }
+        .label-chart{
+            li{
+                font-size: 16px;
+                margin-bottom: 20px;
+                span{
+                    display: inline-block;
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 15px;
+                    vertical-align: middle;
+                }
+            }
+            .traditional-method{
+                span{
+                    background: #BDBDBD;
+                }
+            }
+            .envzone-solution{
+                span{
+                    background: #0D3153;
+                }
+            }
+        }
+    }
+
+    .potential-saving{
+        .title-potential{
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 60px;
+            color: #4F4F4F;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .circle-potential{
+            li{
+                width: 33.3%;
+                position: relative;
+                padding-bottom: 40px;
+            }
+            span[class*='circle-']{
+                @include radius(50%);
+                background: #8DC63F;
+                display: block;
+                color: $color-blue-logo;
+                text-align: center;
+            }
+            span.circle-1{
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+            }
+            span.circle-2{
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+            }
+            span.circle-3{
+                width: 150px;
+                height: 150px;
+                line-height: 150px;
+            }
+            .title{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .box-share{
+            .title-share{
+                color: #4F4F4F;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            .link-copy{
+                .link{
+                    color: #828282;
+                    font-style: italic;
+                    font-size: 16px;
+                    background: #fff;
+                    padding: 15px;
+                    border: none;
+                    width: 300px;
+                }
+                .copy-clipboard{
+                    color: #45678A;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .box-optimize-envzone{
+            margin-top: 100px;
+            margin-bottom: 200px;
+            .title-button{
+                color: #4F4F4F;
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            .btn-blue-env{
+                font-weight: 400;
+                width: 400px;
+            }
+
+        }
+    }
+}
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+    .cost-estimator {
+        h1{
+            border-top: 1px solid #828282;
+        }
+        .box-logo{
+            margin-bottom: 30px;
+            padding: 25px 0;
+            font-size: 24px;
+        }
+        .form-group {
+            label{
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+        .box-estimated-developers {
+            height: 170px;
+            .info-estimated {
+                .title{
+                    text-align: left;
+                    padding-right: 50px;
+                }
+            }
+        }
+        .form-estimated {
+            .btn-green-env{
+                width: 100%;
+            }
+        }
+        .chart-estimated{
+            padding-top: 50px;
+            margin-bottom: 50px;
+        }
+        .label-chart{
+            margin: auto;
+            margin-top: 30px;
+        }
+        .potential-saving {
+            .circle-potential {
+                li{
+                    width: 100%;
+                    margin-bottom: 40px;
+                }
+            }
+            .box-optimize-envzone{
+                margin-top: 50px;
+                margin-bottom: 100px;
+            }
+            .box-optimize-envzone {
+                .btn-blue-env{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 375px and down (<375px)
+	================================================================== */
+@media screen and (max-width: 375px) {
+    .cost-estimator {
+        .potential-saving {
+            .box-share {
+                .link-copy {
+                    .link{
+                        width: 240px;
+                    }
+                }
+            }
+        }
+        .footer-analyze {
+            *{
+                font-size: 16px;
+            }
+        }
+    }
 }

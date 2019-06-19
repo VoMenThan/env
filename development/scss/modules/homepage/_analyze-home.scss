@@ -109,6 +109,9 @@
   background: #F2F2F2;
   padding-top: 80px;
   padding-bottom: 80px;
+  *{
+    font-family: $font-roboto;
+  }
   .box-info-done{
     font-weight: 500;
     font-size: 25px;
@@ -126,6 +129,8 @@
       text-align: center;
       color: #4F4F4F;
       margin-bottom: 20px;
+      border-top: 3px solid #828282;
+      padding-top: 30px;
     }
     p{
       margin-bottom: 20px;
@@ -188,6 +193,7 @@
         @include radius(5px);
         width: 90%;
         margin-top: 0;
+        padding-left: 15px;
       }
       .gform_footer{
         text-align: center;
@@ -224,3 +230,107 @@
 
 
 /*=============ANALYZE PAGE END==============*/
+
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .analyze-section {
+    .box-infomation-analyze {
+      h3{
+        font-size: 22px;
+        margin-bottom: 30px;
+      }
+      .description-analyze{
+        font-size: 18px;
+        line-height: 150%;
+      }
+      .discussion-box{
+        font-size: 16px;
+      }
+      .analyze-form {
+        .gform_wrapper {
+          .gform_footer {
+            input.button, input[type=submit]{
+              position: static;
+              height: 50px;
+              margin-top: 30px;
+              @include radius(5px);
+            }
+          }
+        }
+      }
+      .discussion-box{
+        margin-top: 30px;
+      }
+    }
+  }
+
+
+  /*page analyze css*/
+  .analyze-page{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .box-analyze-load{
+      .status{
+        border-top: 1px solid #828282;
+        padding-top: 30px;
+      }
+    }
+    .box-info-done{
+      font-size: 18px;
+      p{
+        margin-bottom: 10px;
+      }
+      .box-logo{
+        margin-bottom: 30px;
+      }
+      .keyword-analyze{
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .description{
+        font-size: 18px;
+        margin-bottom: 0;
+        margin-top: 30px;
+      }
+
+    }
+    .analyze-form {
+      .gform_wrapper {
+        ul.gform_fields {
+          li.gfield {
+            width: 100%;
+            max-width: 100%;
+            &:first-child{
+              margin-top: 0 !important;
+            }
+            &.gf_right_half{
+              max-width: 100%;
+              float: left;
+            }
+          }
+        }
+        .top_label {
+          li.gfield.gf_right_half {
+            div:not(.ginput_container_date) {
+              select.medium {
+                width: 100%;
+              }
+            }
+          }
+        }
+        input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
+          width: 100%;
+        }
+        li.gfield.gfield_error.gfield_contains_required {
+          div.gfield_description{
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

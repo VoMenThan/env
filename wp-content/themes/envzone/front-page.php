@@ -119,7 +119,7 @@
 
 
     <!-- /*============CTA ANALYZE HOME=================*/ -->
-    <section class="container-fluid analyze-section d-lg-block d-none">
+    <section class="container-fluid analyze-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-9 box-infomation-analyze">

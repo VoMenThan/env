@@ -2,6 +2,21 @@
   .title-head-blue{
     text-align: left;
   }
+  .box-solves-business{
+
+  }
+  .mb-200{
+    margin-bottom: 200px;
+  }
+  .box-development-team{
+    h3{
+      width: 30%;
+      margin-bottom: -130px;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+  }
   .item-custom-software{
     border: 3px solid $color-green-logo;
     @include radius(50%);
@@ -30,13 +45,57 @@
     text-align: center;
     margin-bottom: 30px;
   }
-
   .btn-blue-env{
     font-size: 20px;
     font-weight: bold;
   }
   .full-cycle-pt{
     padding-top: 70px;
+  }
+
+  .box-yourself-overload{
+    svg{
+      vertical-align: top;
+    }
+  }
+
+  .box-staffing-expensive{
+    margin-bottom: 50px;
+    .description-staffing{
+      width: 80%;
+      margin: auto;
+      text-align: center;
+    }
+  }
+  .video-play{
+    .embed-video{
+      margin-bottom: 30px;
+    }
+  }
+  .box-calculate{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    p{
+      text-align: center;
+    }
+    .btn-get-calculate{
+      color: $color-blue-logo !important;
+      margin: auto;
+      margin-top: 50px;
+      svg{
+        margin-left: 15px;
+        vertical-align: middle;
+      }
+      &:hover{
+        color: #fff !important;
+        svg{
+          path{
+            fill: #fff;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -48,6 +107,23 @@
   .full-cycle-development-page {
     h2{
       text-transform: capitalize;
+    }
+    .mb-200{
+      margin-bottom: 150px;
+    }
+    .box-development-team {
+      margin-bottom: 30px;
+      h3{
+        width: 80%;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 150%;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+      img{
+        margin: auto;
+      }
     }
     .item-custom-software{
       width: 220px;

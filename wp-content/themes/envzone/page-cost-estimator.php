@@ -23,9 +23,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <?php wp_head();
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-    $full_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    <?php
+        wp_head();
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $full_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     ?>
 
 
@@ -76,10 +77,10 @@
                                 <div class="col-sm-6">
                                     <select name="estimated-budget" class="form-control form-control-lg" required>
                                         <option value="">Please select estimated budget</option>
-                                        <option value="25k" <?php echo ($_GET['estimated-budget'] == '25k')? 'selected':'';?>>< 25k</option>
-                                        <option value="25_100k" <?php echo ($_GET['estimated-budget'] == '25_100k')? 'selected':'';?>>25k-100k</option>
-                                        <option value="100_250k" <?php echo ($_GET['estimated-budget'] == '100_250k')? 'selected':'';?>>100k-250k</option>
-                                        <option value="250k"> <?php echo ($_GET['estimated-budget'] == '250k')? 'selected':'';?>> 250k</option>
+                                        <option value="25k" <?php echo ($_GET['estimated-budget'] == '25k')? 'selected':'';?>>Below $25k</option>
+                                        <option value="25_100k" <?php echo ($_GET['estimated-budget'] == '25_100k')? 'selected':'';?>>$25k to $100k</option>
+                                        <option value="100_250k" <?php echo ($_GET['estimated-budget'] == '100_250k')? 'selected':'';?>>$100k to $250k</option>
+                                        <option value="250k"> <?php echo ($_GET['estimated-budget'] == '250k')? 'selected':'';?>Above $250k</option>
                                     </select>
                                 </div>
                             </div>

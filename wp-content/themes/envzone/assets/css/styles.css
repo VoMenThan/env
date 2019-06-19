@@ -1231,11 +1231,11 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   .connect-social .btn-blue-env {
     background: transparent;
     border: 1px solid #ffffff;
-    margin-bottom: 20p;
+    margin-bottom: 20px;
   }
 
   .slider-home {
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   .slider-home.owl-theme .owl-item img {
     width: auto;
@@ -3801,6 +3801,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   padding-top: 80px;
   padding-bottom: 80px;
 }
+.analyze-page * {
+  font-family: "Roboto", sans-serif;
+}
 .analyze-page .box-info-done {
   font-weight: 500;
   font-size: 25px;
@@ -3820,6 +3823,8 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   text-align: center;
   color: #4F4F4F;
   margin-bottom: 20px;
+  border-top: 3px solid #828282;
+  padding-top: 30px;
 }
 .analyze-page .box-info-done p {
   margin-bottom: 20px;
@@ -3872,6 +3877,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   border-radius: 5px;
   width: 90%;
   margin-top: 0;
+  padding-left: 15px;
 }
 .analyze-page .analyze-form .gform_wrapper .gform_footer {
   text-align: center;
@@ -3902,6 +3908,84 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 }
 
 /*=============ANALYZE PAGE END==============*/
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .analyze-section .box-infomation-analyze h3 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+  .analyze-section .box-infomation-analyze .description-analyze {
+    font-size: 18px;
+    line-height: 150%;
+  }
+  .analyze-section .box-infomation-analyze .discussion-box {
+    font-size: 16px;
+  }
+  .analyze-section .box-infomation-analyze .analyze-form .gform_wrapper .gform_footer input.button, .analyze-section .box-infomation-analyze .analyze-form .gform_wrapper .gform_footer input[type=submit] {
+    position: static;
+    height: 50px;
+    margin-top: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .analyze-section .box-infomation-analyze .discussion-box {
+    margin-top: 30px;
+  }
+
+  /*page analyze css*/
+  .analyze-page {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .analyze-page .box-analyze-load .status {
+    border-top: 1px solid #828282;
+    padding-top: 30px;
+  }
+  .analyze-page .box-info-done {
+    font-size: 18px;
+  }
+  .analyze-page .box-info-done p {
+    margin-bottom: 10px;
+  }
+  .analyze-page .box-info-done .box-logo {
+    margin-bottom: 30px;
+  }
+  .analyze-page .box-info-done .keyword-analyze {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .analyze-page .box-info-done .description {
+    font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  .analyze-page .analyze-form .gform_wrapper ul.gform_fields li.gfield {
+    width: 100%;
+    max-width: 100%;
+  }
+  .analyze-page .analyze-form .gform_wrapper ul.gform_fields li.gfield:first-child {
+    margin-top: 0 !important;
+  }
+  .analyze-page .analyze-form .gform_wrapper ul.gform_fields li.gfield.gf_right_half {
+    max-width: 100%;
+    float: left;
+  }
+  .analyze-page .analyze-form .gform_wrapper .top_label li.gfield.gf_right_half div:not(.ginput_container_date) select.medium {
+    width: 100%;
+  }
+  .analyze-page .analyze-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+    width: 100%;
+  }
+  .analyze-page .analyze-form .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description {
+    text-align: left;
+  }
+}
 .section-companies-homepage {
   padding-bottom: 200px;
   padding-top: 200px;
@@ -4111,6 +4195,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 .cost-estimator {
   padding-bottom: 30px;
   padding-top: 30px;
+  min-height: 100vh;
 }
 .cost-estimator * {
   font-family: "Roboto", sans-serif;
@@ -4292,6 +4377,65 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   width: 400px;
 }
 
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .cost-estimator h1 {
+    border-top: 1px solid #828282;
+  }
+  .cost-estimator .box-logo {
+    margin-bottom: 30px;
+    padding: 25px 0;
+    font-size: 24px;
+  }
+  .cost-estimator .form-group label {
+    text-align: center;
+    font-size: 18px;
+  }
+  .cost-estimator .box-estimated-developers {
+    height: 170px;
+  }
+  .cost-estimator .box-estimated-developers .info-estimated .title {
+    text-align: left;
+    padding-right: 50px;
+  }
+  .cost-estimator .form-estimated .btn-green-env {
+    width: 100%;
+  }
+  .cost-estimator .chart-estimated {
+    padding-top: 50px;
+    margin-bottom: 50px;
+  }
+  .cost-estimator .label-chart {
+    margin: auto;
+    margin-top: 30px;
+  }
+  .cost-estimator .potential-saving .circle-potential li {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .cost-estimator .potential-saving .box-optimize-envzone {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+  .cost-estimator .potential-saving .box-optimize-envzone .btn-blue-env {
+    width: 100%;
+  }
+}
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 375px and down (<375px)
+	================================================================== */
+@media screen and (max-width: 375px) {
+  .cost-estimator .potential-saving .box-share .link-copy .link {
+    width: 240px;
+  }
+  .cost-estimator .footer-analyze * {
+    font-size: 16px;
+  }
+}
 /* ======================FOOTER============== */
 footer {
   padding-top: 100px;
@@ -7714,6 +7858,16 @@ section.client-center-page .contact-us {
 .full-cycle-development-page .title-head-blue {
   text-align: left;
 }
+.full-cycle-development-page .mb-200 {
+  margin-bottom: 200px;
+}
+.full-cycle-development-page .box-development-team h3 {
+  width: 30%;
+  margin-bottom: -130px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 150%;
+}
 .full-cycle-development-page .item-custom-software {
   border: 3px solid #8DC63F;
   -webkit-border-radius: 50%;
@@ -7752,6 +7906,43 @@ section.client-center-page .contact-us {
 .full-cycle-development-page .full-cycle-pt {
   padding-top: 70px;
 }
+.full-cycle-development-page .box-yourself-overload svg {
+  vertical-align: top;
+}
+.full-cycle-development-page .box-staffing-expensive {
+  margin-bottom: 50px;
+}
+.full-cycle-development-page .box-staffing-expensive .description-staffing {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+.full-cycle-development-page .video-play .embed-video {
+  margin-bottom: 30px;
+}
+.full-cycle-development-page .box-calculate {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+.full-cycle-development-page .box-calculate p {
+  text-align: center;
+}
+.full-cycle-development-page .box-calculate .btn-get-calculate {
+  color: #0D3153 !important;
+  margin: auto;
+  margin-top: 50px;
+}
+.full-cycle-development-page .box-calculate .btn-get-calculate svg {
+  margin-left: 15px;
+  vertical-align: middle;
+}
+.full-cycle-development-page .box-calculate .btn-get-calculate:hover {
+  color: #fff !important;
+}
+.full-cycle-development-page .box-calculate .btn-get-calculate:hover svg path {
+  fill: #fff;
+}
 
 /* 	================================================================
 	MEDIUM DEVICE
@@ -7760,6 +7951,23 @@ section.client-center-page .contact-us {
 @media screen and (max-width: 768px) {
   .full-cycle-development-page h2 {
     text-transform: capitalize;
+  }
+  .full-cycle-development-page .mb-200 {
+    margin-bottom: 150px;
+  }
+  .full-cycle-development-page .box-development-team {
+    margin-bottom: 30px;
+  }
+  .full-cycle-development-page .box-development-team h3 {
+    width: 80%;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 150%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .full-cycle-development-page .box-development-team img {
+    margin: auto;
   }
   .full-cycle-development-page .item-custom-software {
     width: 220px;
