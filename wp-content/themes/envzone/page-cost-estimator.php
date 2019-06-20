@@ -309,7 +309,8 @@
                         ticks: {
                             beginAtZero:true,
                             callback: function(value, index, values) {
-                                return  '$' + (value/1000)+ 'K';
+                                var usdTotal = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(value/1000);
+                                return  '$' + usdTotal + 'K';
                             }
                         },
                     }]

@@ -706,6 +706,9 @@ get_header();
         </div>
 
     </section>
+
+    <?php require_once "inc/popup-discovery.php";?>
+
 </main>
 <script type="text/javascript">
     $(document).ready(function () {

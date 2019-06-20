@@ -459,6 +459,7 @@ get_header();
         </div>
     </section>
 
+    <?php require_once "inc/popup-discovery.php";?>
 </main>
 
 <script>

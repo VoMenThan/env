@@ -110,6 +110,7 @@ global $wp_query;
         </div>
         <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
+    <?php require_once "inc/popup-discovery.php";?>
 </main>
 
 

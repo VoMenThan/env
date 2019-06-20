@@ -317,11 +317,14 @@ get_header();
             </div>
             <!-- /*============END SUBCRIBE HOME=================*/ -->
         </section>
+
+        <?php require_once "inc/popup-discovery.php";?>
     </main>
 
     <script type="text/javascript">
         /*============ slide news =================*/
         $(document).ready(function() {
+
 
             $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
 

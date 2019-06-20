@@ -254,6 +254,8 @@ global $wp_query;
         </div>
         <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
+
+    <?php require_once "popup-discovery.php";?>
 </main>
 
 <script type="text/javascript">

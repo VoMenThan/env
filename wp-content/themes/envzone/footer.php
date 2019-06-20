@@ -298,15 +298,6 @@
     function eraseCookie(name) {
         document.cookie = name+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
     }
-
-    $('body').mouseleave(function(){
-        $(".book-advert .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
-        var cookie = getCookie('cookie-advert');
-        if (cookie !== 'true'){
-            $('#modal-advert').modal('show');
-            setCookie('cookie-advert', true, 1);
-        }
-    });
     /*============ set get erase Cookie end=================*/
 
 
@@ -405,44 +396,44 @@
 
     $(document).ready(function(){
 
+        $('body').mouseleave(function(){
+            var cookie = getCookie('cookie-advert');
+            if (cookie !== 'true'){
+                $('#modal-advert').modal('show');
+                setCookie('cookie-advert', true, 1);
+            }
+        });
+        $(".book-advert .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
+
         $('#close-survey-form').click(function () {
             $('#popup-satisfaction-servey').removeClass('show');
         });
 
-
-        $('.box-satisfaction-survey .box-rating label').click(function () {
-            $('#form-rate-survey').submit();
-        });
-
-        $('#form-rate-survey').on('submit', function (e) {
-            e.preventDefault();
-
-           $.ajax({
-               dataType :   'json',
-               type     :   'post',
-               data     :   $('#form-rate-survey').serializeObject(),
-               url      :   '../admin-ajax.php',
-               success  :   function (data) {
-                   alert('form success'+data);
-               }
-           });
-
-           return false;
-        });
-
-
-        /*var cookie = getCookie('cookie-survey');
-        if (cookie !== 'true'){
-            setTimeout(function () {
-                $('#popup-satisfaction-servey').addClass('show');
-                setCookie('cookie-survey', true, 0.1);
-            }, 1000);
-        }*/
-
-
         $('input[id="input_2_7"]').change(function(e){
             var fileName = e.target.files[0].name;
             $("#field_2_7 label").html(fileName);
+        });
+    });
+
+    jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
+        $('#form-rate-survey label').click(function(){
+            $.ajax({
+                type        : 'post',
+                datatype    : 'json',
+                url         : misha_loadmore_params.ajaxurl,
+                data        : {
+                    action : 'mtwp_add_rate',
+                    _ajax_nonce : misha_loadmore_params.nonce
+                },
+                success : function( response ){
+                    if( response === 'success' ) {
+                        console.log('Do something with response');
+                    } else {
+                        console.log('something went wrong');
+                    }
+                }
+
+            });
         });
     });
 

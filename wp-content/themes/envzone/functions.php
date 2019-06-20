@@ -172,6 +172,24 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 /* END LOAD MORE SEARCH*/
 
 
+/*AJAX SURVEY*/
+
+
+
+function mtwp_add_rate(){
+    check_ajax_referer('nonce_name');
+    $response['custom'] = "do some thing custom";
+    $response['success'] = true;
+
+    $response = json_encode($response);
+    echo $response;
+    die();
+}
+add_action('wp_ajax_mtwp_add_rate', 'mtwp_add_rate');
+add_action('wp_ajax_nopriv_mtwp_add_rate', 'mtwp_add_rate');
+/*AJAX SURVEY END*/
+
+
 /*END CREATE POST TYPE*/
 
 /*GET THUMBNAIL URL VIMEO*/

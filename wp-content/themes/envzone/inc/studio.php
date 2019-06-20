@@ -239,13 +239,14 @@ get_header();
         </div>
         <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
+
+    <?php require_once "popup-discovery.php";?>
 </main>
 
 <script type="text/javascript">
     (function ( $ ) {
         "use strict";
         $(document).ready(function (e) {
-
             $('.studio-page .highlight-news-right .info-news h2').matchHeight({
                 byRow: true,
                 property: 'height',

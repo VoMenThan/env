@@ -25,7 +25,7 @@
             <div class="container">
                 <article class="box-headline">
                     <h2 class="head-line-envzone">
-                        SEE THE POTENTIAL SAVINGS YOU COULD ACHIEVE
+                        SEE THE POTENTIAL <span>SAVINGS</span> YOU COULD ACHIEVE
                     </h2>
                     <p>
                         Calculate your company’s potential savings with EnvZone’s solution using this handy tool.

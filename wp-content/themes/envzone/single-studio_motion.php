@@ -463,6 +463,8 @@ get_header();
         </div>
 
     </div>
+
+    <?php require_once "inc/popup-discovery.php";?>
 </main>
 <script>
     (function ( $ ) {

@@ -986,6 +986,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   font-weight: bold;
   line-height: 150%;
 }
+.slider-home.owl-theme .box-headline .head-line-envzone span {
+  border-bottom: 2px solid #CAF094;
+}
 .slider-home.owl-theme .box-headline p {
   color: #ffffff;
   font-size: 20px;
@@ -3827,20 +3830,25 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   padding-top: 30px;
 }
 .analyze-page .box-info-done p {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: normal;
 }
 .analyze-page .box-info-done .keyword-analyze {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-style: italic;
-  font-size: 25px;
+  font-size: 18px;
   line-height: 150%;
   color: #45678A;
+  font-weight: normal;
 }
 .analyze-page .box-info-done .description {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: normal;
   line-height: 28px;
   color: #808080;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 .analyze-page .analyze-form .gform_wrapper ul.gform_fields li.gfield {
   width: 50%;
@@ -4667,19 +4675,22 @@ footer .copyright-footer {
 }
 footer .btn-back-to-top {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   background: #45678A;
-  padding-top: 4px;
+  padding-top: 8px;
   text-align: center;
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 99;
 }
+footer .btn-back-to-top:hover {
+  background: #20466B;
+}
 footer .btn-back-to-top .icon-arrow-down-green {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background: url("../images/icon-arrow-top-green.svg") no-repeat center;
   display: inline-block;
   background-size: 100%;
@@ -13317,6 +13328,73 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #8DC63F;
 }
 
+.box-popup-discovery .close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  cursor: pointer;
+}
+.box-popup-discovery * {
+  color: #fff;
+}
+.box-popup-discovery .modal-body {
+  background: transparent;
+  border: none;
+}
+.box-popup-discovery .modal-content {
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+.box-popup-discovery .modal-content svg {
+  margin-bottom: 15px;
+}
+.box-popup-discovery .modal-content h3 {
+  color: #F2F2F2;
+  font-weight: 500;
+  font-size: 36px;
+}
+.box-popup-discovery .modal-content .info-stable-business .description {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+.box-popup-discovery .modal-content .info-stable-business p {
+  color: #F2F2F2;
+  text-align: center;
+}
+.box-popup-discovery .box-interest .item-interest {
+  display: inline-block;
+  width: 30%;
+  background: #F2F2F2;
+  text-align: center;
+  padding: 25px 15px;
+  padding-bottom: 0;
+  -webkit-box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+  margin-right: 4%;
+}
+.box-popup-discovery .box-interest .item-interest:last-child {
+  margin-right: 0;
+}
+.box-popup-discovery .box-interest .item-interest:hover {
+  background: #fff;
+}
+.box-popup-discovery .box-interest .item-interest h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #0D3153;
+}
+.box-popup-discovery .box-interest .item-interest .note {
+  color: #4F4F4F;
+  padding: 10px 15px;
+  border-top: 2px solid #8DC63F;
+  display: inline-block;
+  margin-top: 10px;
+}
+
 /* 	================================================================
 	TABLET DEVICE
 	Large tablet 768px and top (<768px)
@@ -13324,6 +13402,19 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width: 768px) {
   .book-advert .modal-dialog {
     max-width: 600px;
+  }
+}
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 992px and top (<992px)
+	================================================================== */
+@media screen and (min-width: 992px) {
+  .box-popup-discovery .box-content {
+    width: 800px;
+    margin: auto;
+  }
+  .box-popup-discovery .modal-dialog {
+    max-width: 100%;
   }
 }
 /*========================POPUP ADVERT INDUSTRY END==============================*/
@@ -13610,6 +13701,16 @@ h1, h2, h3, h4, h5, h6 {
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) {
+  .box-popup-discovery .box-interest .item-interest {
+    display: block;
+    width: 240px;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .box-popup-discovery .box-interest .item-interest:last-child {
+    margin-right: auto;
+  }
+
   .box-subscribe .info-subscriber .tip {
     bottom: 170px;
   }
