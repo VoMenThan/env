@@ -55,6 +55,7 @@ function mt_env_register_js(){
 	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_myrating', $jsUrl.'myrating.js', array(), '1.0', true);
 }
 
 /*======================================================================================================
@@ -103,7 +104,9 @@ function misha_my_load_more_scripts() {
     // now the most interesting part
     // we have to pass parameters to myloadmore.js script but we can get the parameters values only in PHP
     // you can define variables directly in your HTML but I decided that the most proper way is wp_localize_script()
-    wp_localize_script( 'my_loadmore', 'misha_loadmore_params', array(
+    wp_localize_script(
+        'my_loadmore',
+        'misha_loadmore_params', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ), // WordPress AJAX
         'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
         'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
@@ -173,20 +176,13 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 
 
 /*AJAX SURVEY*/
+add_action('wp_ajax_contact_form', 'contact_form');
+add_action('wp_ajax_nopriv_contact_form', 'contact_form');
 
-
-
-function mtwp_add_rate(){
-    check_ajax_referer('nonce_name');
-    $response['custom'] = "do some thing custom";
-    $response['success'] = true;
-
-    $response = json_encode($response);
-    echo $response;
-    die();
+function contact_form()
+{
+    echo $_POST['rate'];
 }
-add_action('wp_ajax_mtwp_add_rate', 'mtwp_add_rate');
-add_action('wp_ajax_nopriv_mtwp_add_rate', 'mtwp_add_rate');
 /*AJAX SURVEY END*/
 
 

@@ -222,21 +222,22 @@
         </div>
         <div class="title-survey">User Satisfaction Survey</div>
 
-        <form id="form-rate-survey" name="form-rate-survey" action="" method="post">
+        <form id="form-rate-survey" action="" method="POST">
             <div class="box-rating resize clearfix">
                 <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" disabled />
-                    <label for="star5" title="5 stars">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" disabled />
-                    <label for="star4" title="4 star">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" disabled />
-                    <label for="star3" title="3 stars">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" disabled />
-                    <label for="star2" title="2 stars">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" disabled />
-                    <label for="star1" title="1 star">1 star</label>
+                    <input type="radio" id="rate-star5" name="rate" class="rate" value="5"/>
+                    <label for="rate-star5" title="5 stars">5 stars</label>
+                    <input type="radio" id="rate-star4" name="rate" class="rate" value="4"/>
+                    <label for="rate-star4" title="4 star">4 stars</label>
+                    <input type="radio" id="rate-star3" name="rate" class="rate" value="3"/>
+                    <label for="rate-star3" title="3 stars">3 stars</label>
+                    <input type="radio" id="rate-star2" name="rate" class="rate" value="2"/>
+                    <label for="rate-star2" title="2 stars">2 stars</label>
+                    <input type="radio" id="rate-star1" name="rate" class="rate" value="1"/>
+                    <label for="rate-star1" title="1 star">1 star</label>
                 </div>
             </div>
+            <input class="d-none" type="submit">
         </form>
         <div class="question">
             What do you like least/most about our website?
@@ -412,28 +413,6 @@
         $('input[id="input_2_7"]').change(function(e){
             var fileName = e.target.files[0].name;
             $("#field_2_7 label").html(fileName);
-        });
-    });
-
-    jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
-        $('#form-rate-survey label').click(function(){
-            $.ajax({
-                type        : 'post',
-                datatype    : 'json',
-                url         : misha_loadmore_params.ajaxurl,
-                data        : {
-                    action : 'mtwp_add_rate',
-                    _ajax_nonce : misha_loadmore_params.nonce
-                },
-                success : function( response ){
-                    if( response === 'success' ) {
-                        console.log('Do something with response');
-                    } else {
-                        console.log('something went wrong');
-                    }
-                }
-
-            });
         });
     });
 

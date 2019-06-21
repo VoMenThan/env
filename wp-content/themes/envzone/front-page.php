@@ -1099,8 +1099,8 @@
             nav: false,
             dots: true,
             lazyLoad:true,
-            autoplay: false,
-            autoplayTimeout: 10000,
+            autoplay: true,
+            autoplayTimeout: 8000,
             smartSpeed:450,
             navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
             responsive: {

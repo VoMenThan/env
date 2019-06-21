@@ -177,7 +177,7 @@
                     </div>
                     <div class="col-lg-5 offset-lg-1 d-flex align-items-center">
                         <ul class="label-chart">
-                            <li class="traditional-method"><span></span> Traditional Method</li>
+                            <li class="traditional-method"><span></span> Domestic Resources</li>
                             <li class="envzone-solution"><span></span>EnvZone Solution</li>
                         </ul>
                     </div>
@@ -311,7 +311,8 @@
                             callback: function(value, index, values) {
                                 var usdTotal = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(value/1000);
                                 return  '$' + usdTotal + 'K';
-                            }
+                            },
+                            fontSize : 16
                         },
                     }]
                 },
