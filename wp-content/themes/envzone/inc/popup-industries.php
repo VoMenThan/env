@@ -9,7 +9,7 @@
                     </svg>
                 </button>
                 <h3>
-                    THE RESOURCES LEADERS WISH THEY’D KNEW SOONER
+                    THE RESOURCES LEADERS WISH THEY WOULD KNEW SOONER
                 </h3>
                 <div class="info-ebook clearfix">
                     <img class="cover-ebook" src="<?php echo get_the_post_thumbnail_url(3745, medium);?>" alt="">

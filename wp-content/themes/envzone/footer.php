@@ -70,21 +70,6 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="box-info-footer">
-                    <h5 class="label-menu-footer">Industries</h5>
-                    <ul class="list-menu-footer">
-                        <li><a href="<?php echo get_home_url();?>/healthcare">Healthcare</a></li>
-                        <li><a href="<?php echo get_home_url();?>/ecommerce-and-retail">E-Commerce & Retail</a></li>
-                        <li><a href="<?php echo get_home_url();?>/financial-services">Financial Services</a></li>
-                        <li><a href="<?php echo get_home_url();?>/real-estate-property">Real Estate & Property</a></li>
-                        <li><a href="<?php echo get_home_url();?>/hospitality-and-travel">Hospitality & Travel</a></li>
-                        <li><a href="<?php echo get_home_url();?>/education">Education</a></li>
-                        <li><a href="<?php echo get_home_url();?>/logistics-and-supply-chain">Logistics & Supply Chain</a></li>
-                        <li><a href="<?php echo get_home_url();?>/ngos">NGOs</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="box-info-footer">
                     <h5 class="label-menu-footer">Services</h5>
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo get_home_url();?>/full-cycle-development">Full Cycle Development</a></li>
@@ -104,6 +89,18 @@
                         <li><a href="<?php echo get_home_url();?>/knowledge-center">Knowledge Center</a></li>
                         <li><a href="<?php echo get_home_url();?>/studio">EnvZone Studio</a></li>
                         <li><a href="<?php echo get_home_url();?>/resources">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">Quick Links</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="<?php echo home_url('write-for-us');?>">Write for Us</a></li>
+                        <li><a href="<?php echo home_url('get-media-coverage/');?>">Get Media Coverage</a></li>
+                        <li><a href="<?php echo home_url('send-us-a-tip');?>">Send Us a Tip</a></li>
+                        <li><a href="<?php echo home_url('style-guidelines');?>">Media Kit</a></li>
+                        <li><a href="<?php echo home_url('submit-a-press-release');?>">Submit Press Release</a></li>
                     </ul>
                 </div>
             </div>
@@ -420,7 +417,7 @@
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -442,7 +439,7 @@
             }
         }
     </script>
-</amp-analytics>-->
+</amp-analytics>
 
 </body>
 </html>

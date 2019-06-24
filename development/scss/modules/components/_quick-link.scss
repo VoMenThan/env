@@ -1,0 +1,79 @@
+.quick-links-page{
+    .box-content{
+        h1{
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        h2{
+            font-size: 28px;
+            color: #333333 !important;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        p{
+            font-size: 22px;
+            line-height: 140%;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #808080;
+        }
+        ul{
+            margin-left: 50px;
+            >li{
+                list-style-type: inherit;
+                margin-bottom: 15px;
+                color: #808080;
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
+    }
+    .form-write-for-us{
+        margin-top: 50px;
+        ::-webkit-file-upload-button {
+            visibility: hidden;
+            width: 0;
+        }
+        .gform_wrapper {
+            .right_label {
+                input.medium{
+                    line-height: 47.5px;
+                    &:after{
+                        content: "Attach file";
+                        position: absolute;
+                        right: 0;
+                        border: 1px solid #BDBDBD;
+                        padding: 0 15px;
+                        color: #4F4F4F;
+                        cursor: pointer;
+                    }
+                }
+            }
+            form ul.gform_fields.right_label {
+                li.field_description_below {
+                    .gsection_description{
+                        font-size: 20px;
+                        a{
+                            color: #375D81;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .gform_footer{
+                &:not(.top_label){
+                    width: 60%;
+                    margin-left: 40%;
+                }
+                input.button, input[type=submit]{
+                    width: 100% !important;
+                    padding: 5px;
+                }
+            }
+
+
+        }
+    }
+}

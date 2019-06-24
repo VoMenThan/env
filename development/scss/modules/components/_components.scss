@@ -596,10 +596,11 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .box-popup-discovery{
+    background: rgba(32, 70, 107, 0.9);
 	.close{
 		position: absolute;
-		top: 15px;
-		right: 15px;
+		top: 35px;
+		right: 35px;
 		z-index: 9999;
 		cursor: pointer;
 	}

@@ -13329,10 +13329,13 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #8DC63F;
 }
 
+.box-popup-discovery {
+  background: rgba(32, 70, 107, 0.9);
+}
 .box-popup-discovery .close {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 35px;
+  right: 35px;
   z-index: 9999;
   cursor: pointer;
 }
@@ -15310,6 +15313,69 @@ body #gform_wrapper_18 .top_label div.ginput_container {
     width: 100%;
   }
 }
+.quick-links-page .box-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+.quick-links-page .box-content h2 {
+  font-size: 28px;
+  color: #333333 !important;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.quick-links-page .box-content p {
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #808080;
+}
+.quick-links-page .box-content ul {
+  margin-left: 50px;
+}
+.quick-links-page .box-content ul > li {
+  list-style-type: inherit;
+  margin-bottom: 15px;
+  color: #808080;
+  font-size: 22px;
+  font-weight: 500;
+}
+.quick-links-page .form-write-for-us {
+  margin-top: 50px;
+}
+.quick-links-page .form-write-for-us ::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+}
+.quick-links-page .form-write-for-us .gform_wrapper .right_label input.medium {
+  line-height: 47.5px;
+}
+.quick-links-page .form-write-for-us .gform_wrapper .right_label input.medium:after {
+  content: "Attach file";
+  position: absolute;
+  right: 0;
+  border: 1px solid #BDBDBD;
+  padding: 0 15px;
+  color: #4F4F4F;
+  cursor: pointer;
+}
+.quick-links-page .form-write-for-us .gform_wrapper form ul.gform_fields.right_label li.field_description_below .gsection_description {
+  font-size: 20px;
+}
+.quick-links-page .form-write-for-us .gform_wrapper form ul.gform_fields.right_label li.field_description_below .gsection_description a {
+  color: #375D81;
+  text-decoration: none;
+}
+.quick-links-page .form-write-for-us .gform_wrapper .gform_footer:not(.top_label) {
+  width: 60%;
+  margin-left: 40%;
+}
+.quick-links-page .form-write-for-us .gform_wrapper .gform_footer input.button, .quick-links-page .form-write-for-us .gform_wrapper .gform_footer input[type=submit] {
+  width: 100% !important;
+  padding: 5px;
+}
+
 .landing-page-all-in-one * {
   font-family: "Roboto", sans-serif;
 }
@@ -15352,6 +15418,9 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .landing-page-all-in-one .form-ebook-section .box-form-get-ebook p {
   font-size: 18px;
   color: #4F4F4F;
+}
+.landing-page-all-in-one .gform_wrapper .gfield_required {
+  font-size: 20px;
 }
 .landing-page-all-in-one .ebook-section {
   background: #00465D;
