@@ -4,9 +4,8 @@ get_header();
 ?>
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-logistics.png">
-        <h1 class="text-center">LOGISTICS<br>
-            AND SUPPLY CHAIN</h1>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
         <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
@@ -15,8 +14,8 @@ get_header();
                 <div class="box-breadcrumb">
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Logistics and Supply Chain</li>
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>
@@ -29,32 +28,31 @@ get_header();
             <div class="row justify-content-md-center">
 
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
+                    <h2 class="title-head-blue text-center">
+                        <?php echo get_field('title_fully_aware', $post->ID);?>
+                    </h2>
                 </div>
 
-                <div class="col-lg-5">
-                    <div class="item-reason">
-                        <h3>
-                            Competitive market
-                        </h3>
-                        <p>
-                            The logistics and supply chain industry are more challenging and very intense.
-                        </p>
+                <?php
+                    $list_aware = get_field('list_fully_aware', $post->ID);
+                    foreach ($list_aware as $item):
+                ?>
+                    <div class="col-lg-5">
+                        <div class="item-reason">
+                            <h3>
+                                <?php echo $item['title'];?>
+                            </h3>
+                            <p>
+                                <?php echo $item['description'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
+                <?php endforeach;?>
 
-                <div class="col-lg-5">
-                    <div class="item-reason">
-                        <h3>
-                            Increasing demands
-                        </h3>
-                        <p>
-                            Retailers, manufacturers, and other industries heavily rely on logistics and supply chain to meet consumer demands.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-12 text-center btn-learn-more">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                    <a href="<?php echo get_field('url_learn_more', $post->ID);?>" class="btn btn-blue-env">
+                        <?php echo get_field('button_name_learn_more', $post->ID);?>
+                    </a>
                 </div>
             </div>
 
@@ -65,58 +63,29 @@ get_header();
                 <div class="row justify-content-md-center mt-5">
 
                     <div class="col-lg-9 mb-5">
-                        <h2 class="title-head-blue text-center">We build logistics and supply chain industry of
-                            the future with digital</h2>
+                        <h2 class="title-head-blue text-center">
+                            <?php echo get_field('title_build_logistics', $post->ID);?>
+                        </h2>
 
                         <p>
-                            The logistics and supply chain industry continually evolve. To keep up with the demands of the industry and reduce any inefficiencies you need Envzone.  We offer logistics and supply chain solution allow our clients to manage distribution channels, inventory data,  identify inefficiencies in supply and transportation channel and automate purchases.
+                            <?php echo get_field('description_build_logistics', $post->ID);?>
                         </p>
                     </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-custom-iot-solutions.png" alt="" class="icon-different">
-                            <h4>Custom IoT Solutions</h4>
+                    <?php $list_logistics = get_field('list_build_logistics', $post->ID);
+                    foreach ($list_logistics as $item):
+                        ?>
+                        <div class="col-lg-4">
+                            <div class="d-flex justify-content-center align-items-center item-different">
+                                <img src="<?php echo $item['icon'];?>" alt="" class="icon-different">
+                                <h4><?php echo $item['title'];?></h4>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-warehouse-management.png" alt="" class="icon-different">
-                            <h4>Warehouse management</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-logistics-software-solutions.png" alt="" class="icon-different">
-                            <h4>Logistics Software Solutions</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-contracting-automation.png" alt="" class="icon-different">
-                            <h4>Contracting automation</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-inventory-management.png" alt="" class="icon-different">
-                            <h4>Inventory management</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center align-items-center item-different">
-                            <img src="<?php echo ASSET_URL;?>images/icon-purchase-automation.png" alt="" class="icon-different">
-                            <h4>Purchase automation</h4>
-                        </div>
-                    </div>
+                    <?php endforeach;?>
 
                     <div class="col-12 text-center btn-learn-more">
-                        <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">MOVE WORK FOWARD</a>
+                        <a href="<?php echo get_field('url_move_work', $post->ID);?>" class="btn btn-blue-env">
+                            <?php echo get_field('button_name_move_work', $post->ID);?>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -131,66 +100,46 @@ get_header();
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        THE REASONS TO CHOOSE ENVZONE
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
-                    <div class="description-business description-business-np">
-                        It’s about forward-thinking, emerging technologies adoption and smart distributions. It’s because EnvZone is with you for the transformational journey ahead!
+                    <div class="description-business">
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">CONNECT ME TO A TEAM</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>

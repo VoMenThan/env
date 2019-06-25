@@ -7,11 +7,10 @@
                 <div class="col-lg-8">
                     <div class="box-content">
                         <h1>
-                            Send Us a Tip
+                            <?php echo get_the_title();?>
                         </h1>
-                        <p>
-                            Let us know how we can improve using the form below.
-                        </p>
+
+                        <?php echo get_the_content();?>
                     </div>
                     <div class="box-form-contact form-horizontal form-write-for-us">
                         <?php

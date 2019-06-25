@@ -99,8 +99,8 @@
                         <li><a href="<?php echo home_url('write-for-us');?>">Write for Us</a></li>
                         <li><a href="<?php echo home_url('get-media-coverage/');?>">Get Media Coverage</a></li>
                         <li><a href="<?php echo home_url('send-us-a-tip');?>">Send Us a Tip</a></li>
-                        <li><a href="<?php echo home_url('style-guidelines');?>">Media Kit</a></li>
-                        <li><a href="<?php echo home_url('submit-a-press-release');?>">Submit Press Release</a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://envzone.sharepoint.com/:b:/s/resources/Ea1i-8eshO5Bu5lyF4UPPlIBtq3e1Gokw6VUmweK07-IXQ?e=auyMTD">Media Kit</a></li>
+                        <li><a href="<?php echo home_url('submit-a-press-release');?>">Submit a Press Release</a></li>
                     </ul>
                 </div>
             </div>
@@ -417,7 +417,7 @@
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -439,7 +439,7 @@
             }
         }
     </script>
-</amp-analytics>
+</amp-analytics>-->
 
 </body>
 </html>

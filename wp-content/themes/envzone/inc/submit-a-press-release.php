@@ -7,25 +7,10 @@
                 <div class="col-lg-8">
                     <div class="box-content">
                         <h1>
-                            Submit a Press Release
+                            <?php echo get_the_title();?>
                         </h1>
-                        <p>
-                            Boost your industry profile and partner with a global business magazine to amplify your message
-                        </p>
-                        <p>
-                            Share your company press release and we’ll publish it–for free. Releases beneficial to the startup, small business, and tech entrepreneurship community at large (i.e., General news, launches, product news, events, expert positioning, etc.) will run as Breaking News.
-                        </p>
-                        <p>
-                            ENVZONE’s editorial staff reviews press releases before publishing to ensure that content is newsworthy, accurate and presented in an acceptable format. Your company press release must contain a clear, timely and newsworthy angle and be free of advertising hype, direct address, spam and spelling and grammatical errors.
-                        </p>
-                        <p>
-                            Not everything is news. Do not try to use your press release for advertising or to post a general interest article, “open letters” and the like that lack attribution and/or news value.
-                        </p>
-                        <p>
-                            Press release distribution can help increase brand awareness, drive site traffic, generate product or service interest, and reach ideal customers. Press release submissions do not pass along SEO “authority” (i.e., approved links within press releases are nofollow).
-                        </p>
-                        <p>Format Requirements:</p>
-                        <p>Take this <a href="">template</a></p>
+
+                        <?php echo get_the_content();?>
 
                     </div>
                     <div class="box-form-contact form-horizontal form-write-for-us">

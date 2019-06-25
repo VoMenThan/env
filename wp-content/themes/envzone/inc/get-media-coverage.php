@@ -7,23 +7,11 @@
                 <div class="col-lg-8">
                     <div class="box-content">
                         <h1>
-                            Get Media Coverage
+                            <?php echo get_the_title();?>
                         </h1>
-                        <h2>
-                            Profiles: Feature Interview
-                        </h2>
-                        <p>
-                            EnvZone Tech Startup Profiles
-                        </p>
-                        <p>
-                            Get high-profile and influential press coverage of your company. Build your brand and gain industry attention by submitting your online interview for a feature in EnvZone insight series. To gain familiarity with our entrepreneur profiles visit envzone.com.
-                        </p>
-                        <p>
-                            PR Agencies
-                        </p>
-                        <p>
-                            If you are completing this online interview on behalf of a client, EnvZone does not accept pitches, only complete drafts. Please no abstracts, press releases, or thinly veiled marketing messages with no valuable takeaways.
-                        </p>
+
+                        <?php echo get_the_content();?>
+
                     </div>
                     <div class="box-form-contact form-horizontal form-write-for-us">
                         <?php

@@ -1,7 +1,7 @@
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
-        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/banner-financial-services.png">
-        <h1>FINANCIAL SERVICES</h1>
+        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
+        <h1><?php echo get_the_title();?></h1>
         <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
@@ -10,8 +10,8 @@
                 <div class="box-breadcrumb">
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Financial Services</li>
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>
@@ -22,20 +22,17 @@
 
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <h2 class="title-head-blue text-center">We are fully aware of what you are struggling for</h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_fully_aware', $post->ID);?></h2>
                 </div>
                 <div class="col-lg-8 description-fully">
-                    <p>
-                        Fintech is shaping financial industry from the outside in by attracting investment from start-up, tech companies, e-commerce companies etc.
-                    </p>
-                    <p>
-                        The wild growth of fintech has a great impact on multiple industries and no sooner shall your business more or less be affected. It is now more important than ever that companies must keep up with the fast pace of the industry and the market as a whole.
-                    </p>
+                    <?php echo get_field('description_fully_aware', $post->ID);?>
                 </div>
             </div>
 
             <div class="col-12 text-center btn-learn-more">
-                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">LEARN MORE</a>
+                <a href="<?php echo get_field('url_learn_more', $post->ID);?>" class="btn btn-blue-env">
+                    <?php echo get_field('button_name_learn_more', $post->ID);?>
+                </a>
             </div>
 
 
@@ -46,57 +43,41 @@
             <div class="container">
                 <div class="row justify-content-md-center mb-5">
                     <div class="col-lg-8">
-                        <h1 class="title-head-blue text-center">What we offer</h1>
+                        <h2 class="title-head-blue text-center"><?php echo get_field('title_we_offer', $post->ID);?></h2>
                         <div class="description-offer">
-                            With Envzone's experienced pool of talent, you do not have to go through all the unnecessarily complicated workflows and let our team perform the magic of tailoring your on-point software of Digital Banking, Online Payment, Data Management, Personal Finance...
+                            <?php echo get_field('description_we_offer', $post->ID);?>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-md-center">
                     <div class="col-12">
                         <div class="row justify-content-md-center">
-                            <div class="ml-lg-5">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-uncover-new-method.png" alt="">
-                                    <p>
-                                        Uncover new method to boost productivity and enhance your customer journey's experience.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-effectively-manage.png" alt="">
-                                    <p>
-                                        Effectively manage customer data and deliver an intuitive engaging experience to your customers.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="ml-lg-5">
-                                <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-offer-convenient.png" alt="">
-                                    <p>
-                                        Offer convenient and well secure online banking solutions.
-                                    </p>
-                                </div>
-                            </div>
 
-                            <div class="">
+                            <?php
+                                $list_reasons = get_field('list_we_offer', $post->ID);
+                                foreach ($list_reasons as $item):
+                            ?>
+                            <div class="ml-lg-5">
                                 <div class="item-offer">
-                                    <img class="img-fluid m-auto d-block" src="<?php echo ASSET_URL;?>images/icon-support-your-customer.png" alt="">
+                                    <img class="img-fluid m-auto d-block" src="<?php echo $item['icon_item'];?>" alt="">
                                     <p>
-                                        Support your customer's financial goal by creating optimized applications and software.
+                                        <?php echo $item['description_item'];?>
                                     </p>
                                 </div>
                             </div>
+                            <?php endforeach;?>
+
                             <div class="col-12">
                                 <p class="p-note mb-lg-5">
-                                    By integrating customized software, your business shall be enabled to actively handle the ever-changing market of the financial industry
+                                    <?php echo get_field('description_bottom_we_offer', $post->ID);?>
                                 </p>
                             </div>
 
                             <div class="col-12 text-center">
-                                <h3 class="pb-5 mt-5 font-weight-bold">INTRIGUED TO DIVE IN?</h3>
-                                <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env mb-4">MAKE AN APPOINTMENT</a>
+                                <h3 class="pb-5 mt-5 font-weight-bold"><?php echo get_field('title_button', $post->ID);?></h3>
+                                <a href="<?php echo get_field('url_button_appointment', $post->ID);?>" class="btn btn-blue-env mb-4">
+                                    <?php echo get_field('button_name_appointment', $post->ID);?>
+                                </a>
                             </div>
 
                         </div>
@@ -113,66 +94,46 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-lg-center text-left">
                     <h2>
-                        THE REASONS TO CHOOSE ENVZONE
+                        <?php echo get_field('title_reasons', $post->ID)?>
                     </h2>
                     <div class="description-business">
-                        We pursue digital transformation along with simplification, automation and standardization to help you run your operations smoothly and steadily from front to back processes.
+                        <?php echo get_field('description_reasons', $post->ID)?>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            We have dedicated partners who make it their business to know your product and services 
 
-                        </p>
+                <?php
+                $list_reasons = get_field('list_reasons', $post->ID);
+                foreach ($list_reasons as $item):
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
+                        <div class="item-reason">
+                            <i class="fa fa-check-circle"></i>
+                            <p>
+                                <?php echo $item['reason'];?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Adjustment to your resources to provide your needs comes easily to us
+                <?php endforeach;?>
 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-
-                            We provide a trusted solution to manage overhead costs of handling your business
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                    <div class="item-reason">
-                        <i class="fa fa-check-circle"></i>
-                        <p>
-                            Our results are focused on your business goals and values.
-                        </p>
-                    </div>
-                </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Dedicated Teams</h4>
+                        <h4><?php echo get_field('teams_title', $post->ID)?></h4>
                         <p>
-                            EnvZone will provide you with the opportunity of working with offshore teams dedicated to serving you.
+                            <?php echo get_field('teams_description', $post->ID)?>
                         </p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
                     <div class="box-dedicated">
-                        <h4>Pool of Talent</h4>
+                        <h4><?php echo get_field('talent_title', $post->ID)?></h4>
                         <p>
-                            We have a pool of partners who have the capability of working with an array of industries and build a team that is tailored to your business needs and has all the tools to give you results.
+                            <?php echo get_field('talent_description', $post->ID)?>
                         </p>
                     </div>
                 </div>
                 <div class="col-12">
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-green-env">CONNECT ME TO A TEAM</a>
+                    <a href="<?php echo (get_field('button_direct', $post->ID) == '')? home_url('contact-us'): get_field('button_direct', $post->ID);?>" class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
                 </div>
             </div>
         </div>
