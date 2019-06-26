@@ -5854,6 +5854,9 @@ footer .btn-back-to-top .icon-arrow-down-green {
   text-align: center;
   height: 100%;
 }
+.process-framework-page .box-list-deliverables .item-discovery img {
+  margin-bottom: 15px;
+}
 .process-framework-page .box-list-deliverables .item-discovery h6 {
   color: #ffffff;
   font-weight: bold;
@@ -6068,9 +6071,6 @@ footer .btn-back-to-top .icon-arrow-down-green {
   .process-framework-page .box-list-deliverables .item-discovery h6 {
     font-size: 20px;
   }
-}
-.client-focused-solutions-page {
-  padding-bottom: 0 !important;
 }
 .client-focused-solutions-page .box-green {
   padding: 30px 50px 30px 30px;
@@ -13002,6 +13002,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-transform: translate(-555px, -50%);
   -ms-transform: translate(-555px, -50%);
   transform: translate(-555px, -50%);
+  max-width: 500px;
 }
 .banner-company.bg-blue > h2 {
   left: 50%;

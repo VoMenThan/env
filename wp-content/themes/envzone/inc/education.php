@@ -22,7 +22,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-12">
-                    <h2><?php echo get_field('title_fully_aware', $post->ID);?></h2>
+                    <h2 class="title-head-blue text-center"><?php echo get_field('title_fully_aware', $post->ID);?></h2>
                     <div class="description-industries">
                         <?php echo get_field('description_fully_aware', $post->ID);?>
                     </div>

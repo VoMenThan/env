@@ -6,7 +6,7 @@
                     <span class="you-here">You are here:</span>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo get_the_title();?></li>
                     </ol>
                 </div>
             </div>

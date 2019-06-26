@@ -1,61 +1,37 @@
 <main class="main-content">
     <section class="banner-top banner-careers bg-blue">
-        <h1>CAREERS</h1>
+        <h1><?php echo get_the_title();?></h1>
     </section>
     <section class="artical-page careers-page">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <img class="img-fluid img-careers" src="<?php echo ASSET_URL;?>images/img-banner-careers.png" alt="">
+                    <img class="img-fluid img-careers" src="<?php echo get_the_post_thumbnail_url($post->ID);?>" alt="">
                     <article class="box-careers">
-                        <p>
-                            ENVZONE specializes in software outsourcing consultancy for clients seeking the right talent. We screen for the right teams and help clients select the best providers of service. We also help reduce client burdens by offering onshore-offshore team collaboration. We base our services on different outsourcing models and rely on client requirements and budgets. Our clients are located in diverse industries, ranging from energy, retail to finance and healthcare.
-                        </p>
-                        <p>
-                            ENVZONE is always seeking talented individuals who are looking for challenging projects. ENVZONE is particularly interested in those individuals who can offer reliability, expertise, and versatility that will make them an asset to the company. Because reliability and transparency to clients is our priority, we would like to work with people with strong work ethics and the ability to perform in challenging situations. Working for us will enable you to better your skills and move a notch up on your career path. We also offer perks and a friendly work environment. If you have experience in software development and related fields, we want you to join our team.
-                        </p>
+                        <?php echo get_the_content($post->ID);?>
                     </article>
 
                     <div class="hr-career"></div>
 
                     <div class="article-benefits">
-                        <h4>Benefits and Perks</h4>
+                        <h4><?php echo get_field('title_benefits', $post->ID);?></h4>
 
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-6 item-benefit">
-                                <i class="icon-insurance"></i>
-                                <p>Insurance</p>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-6 item-benefit">
-                                <i class="icon-discounte-gym"></i>
-                                <p>Discounte Gym</p>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-6 item-benefit">
-                                <i class="icon-medical"></i>
-                                <p>Medical</p>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-6 item-benefit">
-                                <i class="icon-commuter-program"></i>
-                                <p>Commuter Program</p>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-6 item-benefit">
-                                <i class="icon-vacation-pto"></i>
-                                <p>Vacation/PTO</p>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-6 item-benefit">
-                                <i class="icon-stocked-kitchen"></i>
-                                <p>Stocked Kitchen</p>
-                            </div>
+                            <?php $list_benefits = get_field('list_benefits', $post->ID);
+                            foreach ($list_benefits as $item):
+                                ?>
+                                <div class="col-lg-4 col-md-6 col-6 item-benefit">
+                                    <img src="<?php echo $item['icon'];?>" alt="">
+                                    <p><?php echo $item['title'];?></p>
+                                </div>
+                            <?php endforeach;?>
                         </div>
                     </div>
                     <div class="hr-career"></div>
                     <div class="text-center">
-                        <a target="_blank" href="https://envzone.zohorecruit.com/careers" class="btn btn-green-env">SEE OPEN VACANCIES</a>
+                        <a target="_blank" href="<?php echo get_field('url_vacancies', $post->ID);?>" class="btn btn-green-env">
+                            <?php echo get_field('button_name_vacancies', $post->ID);?>
+                        </a>
                     </div>
 
 

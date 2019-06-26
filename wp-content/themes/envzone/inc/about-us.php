@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <a  <?php echo (get_field('button_direct', $post->ID) == '')? 'onclick="Calendly.showPopupWidget(\'https://calendly.com/envzone/discovery-session\');return false;"': 'href="'.get_field('button_direct', $post->ID).'"';?> class="btn btn-green-env"><?php echo get_field('button_name', $post->ID)?></a>
+                        <a  <?php echo (get_field('button_direct', $post->ID) == '')? 'onclick="Calendly.showPopupWidget(\'https://calendly.com/envzone/discovery-session\');return false;"': 'href="'.get_field('button_direct', $post->ID).'"';?> class="btn btn-white-env"><?php echo get_field('button_name', $post->ID)?></a>
                     </div>
                 </div>
             </div>
