@@ -82,6 +82,8 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+require_once 'new_config.php';
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

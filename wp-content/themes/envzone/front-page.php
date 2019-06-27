@@ -1,4 +1,9 @@
-<?php get_header();?>
+<?php get_header();
+echo '<pre>';
+global $wpdb;
+print_r( $wpdb->queries );
+echo '</pre>';
+?>
 
 <!--SLIDER HOME-->
 <div class="container-fluid p-0 position-relative box-slider">

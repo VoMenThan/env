@@ -6,20 +6,23 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
     $('#form-rate-survey').submit(function(e){
 
         var data = {
-            'action' : 'contact_form',
-            'rate' : $('.rate').val()
-        };
+                action : 'contact_form',
+                rate : 'than'
+            };
         $.ajax({
-            data: data,
-            type: 'post',
-            url: misha_loadmore_params.ajaxurl,
-            success: function(data) {
+            type : "post",
+            url : misha_loadmore_params.ajaxurl,
+            data : data,
+            beforeSend: function(){
 
-                alert(data); // This prints '0', I want this to print whatever name the user inputs in the form.
-
+            },
+            success: function(response) {
+                $('#display-post').html(response);
+            },
+            error: function(){
+                console.log( 'error');
             }
         });
-        return false;
     });
 
 });
