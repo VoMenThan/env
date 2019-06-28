@@ -1,9 +1,4 @@
-<?php get_header();
-echo '<pre>';
-global $wpdb;
-print_r( $wpdb->queries );
-echo '</pre>';
-?>
+<?php get_header();?>
 
 <!--SLIDER HOME-->
 <div class="container-fluid p-0 position-relative box-slider">
@@ -124,15 +119,17 @@ echo '</pre>';
 
 
     <!-- /*============CTA ANALYZE HOME=================*/ -->
+
+    <?php $quora =  get_field('quora', $post->ID);?>
     <section class="container-fluid analyze-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-9 box-infomation-analyze">
                     <h3>
-                        Your Built-In “QUORA” for Outsourcing Concerns
+                        <?php echo $quora['title'];?>
                     </h3>
                     <div class="description-analyze">
-                        Find a verified team to build your successful product or website? Enter your business or product background below.
+                        <?php echo $quora['description'];?>
                     </div>
                     <div class="analyze-form">
                         <?php
@@ -141,8 +138,8 @@ echo '</pre>';
                     </div>
 
                     <div class="discussion-box">
-                        or Post A Question for Our Experts
-                        <a href="<?php echo home_url('discussion-board');?>">
+                        <?php echo $quora['title_post_question'];?>
+                        <a href="<?php echo $quora['url_post_question'];?>">
                             <svg width="160" height="40" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="0.5" y="0.5" width="159" height="49" rx="2.5" stroke="#8DC63F"/>
                                 <g clip-path="url(#clip0)">
@@ -197,7 +194,7 @@ echo '</pre>';
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2 class="title-head-blue underline-head"><span>FEATURED INSIGHTS</span></h2>
-                    <a class="view-all" href="<?php echo get_home_url();?>/blog">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
 
             </div>
@@ -316,18 +313,14 @@ echo '</pre>';
     <!-- /*============END BLOG HOME=================*/ -->
 
     <!--SECTION SOLUTION-->
+    <?php $the_solution = get_field('the_solution', $post->ID);?>
     <div class="container">
         <section id="solution-figurative" class="solution-figurative">
             <h2 class="title-head-blue title-solution">
-                THE SOLUTION OF FIGURATIVE WAR FOR HI-SKILLED TECH TALENT IN DENVER
+                <?php echo $the_solution['title']?>
             </h2>
             <div class="box-description">
-                <p>
-                    Outsourcing software development has been an integral business strategy to get to the next level.
-                </p>
-                <p>
-                    Vietnam is one of the best locations that companies get accessed to young talent resources.
-                </p>
+                <?php echo $the_solution['description']?>
             </div>
 
             <div class="row">
@@ -336,38 +329,35 @@ echo '</pre>';
                         <img class="d-lg-block d-none" src="<?php echo ASSET_URL;?>images/img-map-vn.png" alt="">
                         <img class="d-lg-none d-block m-auto" src="<?php echo ASSET_URL;?>images/img-map-vn-mb.png" alt="">
 
-                        <div class="rank-1">was ranked <span class="pig-letter">2<sup>nd</sup></span> in the world’s most dynamic cities, a young country with a lot of entrepreneurship.</div>
-                        <div class="rank-2">has strong support from tech-minded community attracting some of the most skilled individuals</div>
-                        <div class="rank-3">is where tech corporations want to gain access to the workforce</div>
+                        <div class="rank-1"><?php echo $the_solution['reason_1']?></div>
+                        <div class="rank-2"><?php echo $the_solution['reason_2']?></div>
+                        <div class="rank-3"><?php echo $the_solution['reason_3']?></div>
                     </div>
                 </div>
 
                 <div class="col-lg-12 text-right">
 
                     <div class="title-major-factor">
-                        Top major factors that C-Level Executives of Denver’s companies are unable to dismiss the outsourcing model
+                        <?php echo $the_solution['subtitle']?>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-6 col-mbx-100 item-cost">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-retention-costs.png" alt="">
-                            <h5>Retention Costs</h5>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-6 col-mbx-100 item-cost">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-onboading-costs.png" alt="">
-                            <h5>Onboading Costs</h5>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-6 col-mbx-100 item-cost">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-recruiting-costs.png" alt="">
-                            <h5>Recruiting Costs</h5>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-6 col-mbx-100 item-cost">
-                            <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-benefit-costs.png" alt="">
-                            <h5>Benefit Costs</h5>
-                        </div>
+                        <?php
+                            $list_costs = $the_solution['list_costs'];
+                            if ($list_costs != null):
+                                foreach ($list_costs as $item):
+                            ?>
+                                    <div class="col-lg-3 col-md-6 col-6 col-mbx-100 item-cost">
+                                        <img class="img-fluid" src="<?php echo $item['icon']?>" alt="">
+                                        <h5><?php echo $item['cost']?></h5>
+                                    </div>
+                            <?php
+                                endforeach;
+                            endif;
+                        ?>
                     </div>
 
-                    <a href="<?php echo get_home_url();?>/process-framework" class="btn btn-blue-env">
-                        Learn more this unique solution
+                    <a href="<?php echo $the_solution['button_url']?>" class="btn btn-blue-env">
+                        <?php echo $the_solution['button_name']?>
                     </a>
                 </div>
             </div>
@@ -375,62 +365,50 @@ echo '</pre>';
     </div>
     <!--END SECTION SOLUTION-->
 
+    <?php $the_overhead = get_field('the_overhead', $post->ID);?>
     <div class="container-fluid bg-gray-process overhead-costs-page">
         <div class="container content-overhead-costs">
             <div class="row">
                 <div class="col-12">
                     <h2 class="title-head-blue title-overhead-costs">
-                        THE OVERHEAD COSTS THAT COMPANIES CAN AVOID
+                        <?php echo $the_overhead['title'];?>
                     </h2>
                 </div>
                 <div class="col-lg-6">
                     <div class="box-according">
                         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-according-31.png" alt="">
-                        <div class="note-chart">*According to Bureau of Labor Statistics</div>
-                        <div class="cost-1">Fully burdened cost </div>
-                        <div class="cost-2">The average benefit cost of an in-house employee</div>
+                        <div class="note-chart"><?php echo $the_overhead['note'];?></div>
+                        <div class="cost-1"><?php echo $the_overhead['cost_1'];?> </div>
+                        <div class="cost-2"><?php echo $the_overhead['cost_2'];?></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="box-list-costs-saving">
-                        <p>
-                            The  overhead cost savings by leveraging the outsourcing software development
-                        </p>
-                        <ul class="list-costs">
-                            <li>Employee taxes</li>
-                            <li>Paid time off</li>
-                            <li>Insurances</li>
-                            <li>Paid time off allowance (vacation, etc.)</li>
-                            <li>Retirement and savings contributions</li>
-                        </ul>
+                        <?php echo $the_overhead['description'];?>
                     </div>
 
                 </div>
                 <div class="col-12 text-center">
                     <div class="description-overhead">
-                        Don’t allow yourself or your management team to dismiss the option of outsourced software development
+                        <?php echo $the_overhead['subtitle'];?>
                     </div>
-                    <a href="<?php echo get_home_url();?>/contact-us" class="btn btn-blue-env">GET A VERIFIED TEAM</a>
+                    <a href="<?php echo $the_overhead['button_url'];?>" class="btn btn-blue-env"><?php echo $the_overhead['button_name'];?></a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- /*============REVIEW COMPANIES HOME=================*/ -->
+    <?php $recommendation_platform = get_field('recommendation_platform', $post->ID);?>
     <div class="container section-companies-homepage">
         <!-- /*============COMPANY HOME=================*/ -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="title-section-companies">A COMMUNITY-DRIVEN RECOMMENDATION PLATFORM</h2>
+                <h2 class="title-section-companies"><?php echo $recommendation_platform['title'];?></h2>
             </div>
             <div class="col-lg-7 d-lg-flex flex-column justify-content-center">
                 <div class="excerpt-companies">
-                    <p>
-                        A dedicated listening platform for your voice to be heard by top leaders
-                    </p>
-                    <p>
-                        It’s about YOUR benefits not OUR rating system. Let’s make the service expectation an enjoyable experience
-                    </p>
+                    <?php echo $recommendation_platform['description'];?>
                 </div>
 
             </div>
@@ -515,9 +493,11 @@ echo '</pre>';
 
             <div class="col-lg-12 content-connect">
                 <div class="subtitle-companies">
-                    Read Review. Write Review. Recommend Improvements.
+                    <?php echo $recommendation_platform['subtitle'];?>
                 </div>
-                <a href="<?php echo home_url('companies')?>" class="btn btn-green-env">SEARCH FOR A COMPANY</a>
+                <a href="<?php echo $recommendation_platform['button_url'];?>" class="btn btn-green-env">
+                    <?php echo $recommendation_platform['button_name'];?>
+                </a>
             </div>
         </div>
         <!-- /*============END COMPANY HOME=================*/ -->
@@ -525,13 +505,14 @@ echo '</pre>';
     <!-- /*============END REVIEW COMPANIES HOME=================*/ -->
 
     <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->
+    <?php $sec_process_framework = get_field('process_framework', $post->ID);?>
     <div class="container-fluid bg-gray-process">
         <div class="container">
             <div class="row content-framework tab-content" id="pills-tabContentProcess">
                 <div class="col-12 text-center box-head-framework">
-                    <h2 class="title-head-blue">THE COMPLETE PROCESS FRAMEWORK FOR AGILE SOFTWARE DEVELOPMENT</h2>
+                    <h2 class="title-head-blue"><?php echo $sec_process_framework['title'];?></h2>
                     <p class="description-process-framework">
-                        With a proven process framework, we can deliver solutions much faster and with less effort. ENVZONE defines the roles, teams, activities and artifacts to apply Lean and Agile principles at scale, and provides outstanding services to increase your business success.
+                        <?php echo $sec_process_framework['description'];?>
                     </p>
                 </div>
                 <div class="col-12 tab-process-framework-mb">
@@ -550,64 +531,23 @@ echo '</pre>';
 
                 <div class="col-lg-4 tab-pane fade show active" id="pills-discovery" role="tabpanel" aria-labelledby="pills-discovery-tab">
                     <article class="item-framework">
-                        <h3>
-                            1. Discovery
-                        </h3>
-                        <p>
-                            The purpose of discovery process is to gather information and to determine if EnvZone is meeting your criteria
-                        </p>
-                        <div class="title-include">
-                            Deliverables:
-                        </div>
-                        <ul class="include-process">
-                            <li class="include-process-item">Initial Meeting</li>
-                            <li class="include-process-item">Needs Assessment</li>
-                            <li class="include-process-item">Team Selection</li>
-                            <li class="include-process-item">Proposals</li>
-                        </ul>
+                        <?php echo $sec_process_framework['step_1'];?>
                     </article>
                 </div>
                 <div class="col-lg-4 tab-pane fade" id="pills-initial" role="tabpanel" aria-labelledby="pills-initial-tab">
                     <article class="item-framework">
-                        <h3>
-                            2. Initial Engagement
-                        </h3>
-                        <p>
-                            Initial engagement is the first real interaction between EnvZone and our customers.
-                        </p>
-                        <div class="title-include">
-                            Deliverables:
-                        </div>
-                        <ul class="include-process">
-                            <li class="include-process-item">Detailed Requirements</li>
-                            <li class="include-process-item">Wireframes & Clickable Prototype</li>
-                            <li class="include-process-item">Research</li>
-                            <li class="include-process-item">Detailed Quote & Project Timeline</li>
-                        </ul>
+                        <?php echo $sec_process_framework['step_2'];?>
                     </article>
                 </div>
                 <div class="col-lg-4 tab-pane fade" id="pills-development" role="tabpanel" aria-labelledby="pills-development-tab">
                     <article class="item-framework">
-                        <h3>
-                            3. Development process
-                        </h3>
-                        <p>
-                            The main purpose of development process is analyzing your requirements, and building quality and correctness of good software.
-                        </p>
-                        <div class="title-include">
-                            Deliverables:
-                        </div>
-                        <ul class="include-process">
-                            <li class="include-process-item">2-week Sprints</li>
-                            <li class="include-process-item">Quality Assurance</li>
-                            <li class="include-process-item">Deployment & Launch</li>
-                        </ul>
+                        <?php echo $sec_process_framework['step_3'];?>
                     </article>
                 </div>
 
                 <div class="col-lg-12 text-center pt-lg-5 pt-3">
-                    <a href="<?php echo get_home_url()."/process-framework";?>" class="btn btn-green-env">
-                        SEE THIS UNIQUE APPROACH TO GET MY PROJECT ACCELERATED
+                    <a href="<?php echo $sec_process_framework['button_url'];?>" class="btn btn-green-env">
+                        <?php echo $sec_process_framework['button_name'];?>
                     </a>
                 </div>
 
@@ -618,67 +558,48 @@ echo '</pre>';
     <!-- /*============END PROCESS FRAMEWORK HOME=================*/ -->
 
     <!-- /*============DID YOU KNOW=================*/ -->
+    <?php $the_reason = get_field('the_reason', $post->ID);?>
     <div class="container-fluid d-lg-block d-md-block d-none">
         <div class="container">
             <div class="row content-reasons">
                 <div class="col-12 text-center box-head-reasons">
-                    <h2 class="title-head-blue"><img src="<?php echo ASSET_URL;?>images/icon-light-bulb.png" alt="">DID YOU KNOW?</h2>
+                    <h2 class="title-head-blue"><img src="<?php echo ASSET_URL;?>images/icon-light-bulb.png" alt=""><?php echo $the_reason['title'];?></h2>
                     <div class="description-head-reasons">
-                        3 reasons that over 40% of small or mid-sized businesses outsource the non-competency work to their partners
+                        <?php echo $the_reason['subtitle'];?>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
                     <div class="box-list-reasons">
+                        <?php
+                            if ($the_reason['list_reasons'] != null):
+                                foreach ($the_reason['list_reasons'] as $item):
+                        ?>
                         <div class="item-reason clearfix">
                             <div class="box-icon">
-                                <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-boosting-competitive.png" alt="">
+                                <img class="img-fluid" src="<?php echo $item['icon'];?>" alt="">
                             </div>
                             <div class="box-reasons">
                                 <h3>
-                                    Boosting competitive advantage
+                                    <?php echo $item['title'];?>
                                 </h3>
                                 <p>
-                                    To compete, SMEs must play in the same field as large corporations. That means you have to possess your owơn IT and software development teams
+                                    <?php echo $item['description'];?>
                                 </p>
                             </div>
                         </div>
-
-                        <div class="item-reason clearfix">
-                            <div class="box-icon">
-                                <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-gaining-fair.png" alt="">
-                            </div>
-                            <div class="box-reasons">
-                                <h3>
-                                    Gaining fair play
-                                </h3>
-                                <p>
-                                    Outsourcing provides highly-recognized and experienced teams that won’t break the bank
-
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="item-reason clearfix">
-                            <div class="box-icon">
-                                <img class="img-fluid" src="<?php echo ASSET_URL;?>images/icon-pocket-friendly.png" alt="">
-                            </div>
-                            <div class="box-reasons">
-                                <h3>
-                                    Pocket-friendly
-                                </h3>
-                                <p>
-                                    Outsourcing provides affordable IT and software development services
-                                </p>
-                            </div>
-                        </div>
+                        <?php endforeach;
+                            endif;
+                        ?>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="box-clients">
                         <div class="info-optimize d-flex align-items-center">
-                            A desired solution for your organization that works without the costly risk tag.
+                            <?php echo $the_reason['title_desired'];?>
                         </div>
-                        <a href="<?php echo get_home_url()."/contact-us";?>" class="btn btn-green-env">GET HELP NOW</a>
+                        <a href="<?php echo $the_reason['button_url'];?>" class="btn btn-green-env">
+                            <?php echo $the_reason['button_name'];?>
+                        </a>
                     </div>
                 </div>
 
@@ -688,29 +609,27 @@ echo '</pre>';
     <!-- /*============END DID YOU KNOW=================*/ -->
 
     <!-- /*============SUBCRIBE HOME=================*/ -->
+    <?php $booking_and_quote = get_field('booking_and_quote', $post->ID);?>
     <div class="container-fluild section-parallax bg-building">
         <div class="bg-blue-home">
             <div class="container content-contact-quote-book">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 ">
                         <article>
-                        <h4>BOOKING</h4>
-                        <p>Meet a representative to assist with your project</p>
-                        <!--<a class="btn btn-green-env btn-transparent" href="#">
-                            CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
-                        </a>-->
+                        <h4><?php echo $booking_and_quote['title_booking'];?></h4>
+                        <p><?php echo $booking_and_quote['description_booking'];?></p>
 
                         <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-white-env">
-                            CHECK AVAIBILITY <i class="icon-arrow-bottom"></i>
+                            <?php echo $booking_and_quote['button_name_booking'];?> <i class="icon-arrow-bottom"></i>
                         </a>
                         <!-- Calendly link widget end -->
                         </article>
 
                     </div>
                     <div class="col-lg-4 d-lg-block d-none">
-                        <h4>GET A QUOTE</h4>
-                        <p>Get pricing on your custom project</p>
-                        <a class="btn btn-green-env" data-toggle="collapse" href="#getQuote" role="button" aria-expanded="false" aria-controls="collapseExample">REQUEST PRICING</a>
+                        <h4><?php echo $booking_and_quote['title_quote'];?></h4>
+                        <p><?php echo $booking_and_quote['description_quote'];?></p>
+                        <a class="btn btn-green-env" data-toggle="collapse" href="#getQuote" role="button" aria-expanded="false" aria-controls="collapseExample"><?php echo $booking_and_quote['button_name_quote'];?></a>
                         <div class="collapse form-toggle" id="getQuote">
                             <?php
                             echo do_shortcode('[gravityform id=4 title=false description=false ajax=false]');
@@ -720,9 +639,9 @@ echo '</pre>';
 
                     <div class="col-lg-4 d-lg-block d-none">
                         <article class="float-right">
-                        <h4>CONTACT US</h4>
-                        <p>Have a quick question? Let’s talk</p>
-                        <a class="btn btn-green-env" data-toggle="collapse" href="#sendMail" role="button" aria-expanded="false" aria-controls="collapseExample">SEND EMAIL</a>
+                        <h4><?php echo $booking_and_quote['title_contact'];?></h4>
+                        <p><?php echo $booking_and_quote['description_contact'];?></p>
+                        <a class="btn btn-green-env" data-toggle="collapse" href="#sendMail" role="button" aria-expanded="false" aria-controls="collapseExample"><?php echo $booking_and_quote['button_name_contact'];?></a>
                         <div class="collapse form-toggle" id="sendMail">
                             <?php
                             echo do_shortcode('[gravityform id=4 title=false description=false ajax=false]');
@@ -829,18 +748,17 @@ echo '</pre>';
                 </div>
 
                 <div class="owl-carousel owl-theme slider-partners">
+                    <?php $partners = get_field('partners', $post->ID);
+                        if ($partners != null):
+                        foreach ($partners as $item):
+                    ?>
                     <div class="item">
-                        <img src="<?php echo ASSET_URL;?>images/logo-google.png" alt="">
+                        <img src="<?php echo $item['logo'];?>" alt="">
                     </div>
-                    <div class="item">
-                        <img src="<?php echo ASSET_URL;?>images/logo-salesforce.png" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="<?php echo ASSET_URL;?>images/logo-amazon.png" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="<?php echo ASSET_URL;?>images/logo-same.png" alt="">
-                    </div>
+                    <?php endforeach;
+                        endif;
+                    ?>
+
                 </div>
             </div>
         </div>

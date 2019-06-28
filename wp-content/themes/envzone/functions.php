@@ -17,7 +17,7 @@ new Env_Theme_Widget_Main();
  * 3. KHAI BAO HE THONG WIDGET CUA THEME
  * ======================================================================================================*/
 
-add_action('widgets_init', 'mt_env_widgets_init');
+//add_action('widgets_init', 'mt_env_widgets_init');
 
 function mt_env_widgets_init(){
     register_sidebar(
@@ -38,8 +38,22 @@ if(is_active_sidebar('unique-sidebar-id'))
 dynamic_sidebar('unique-sidebar-id');
 */
 
-
-
+/*======================================================================================================
+ * 3. KHAI BAO HE THONG WIDGET
+ * ======================================================================================================*/
+add_action('widgets_init', 'mt_theme_widgets_init');
+function mt_theme_widgets_init(){
+    $args = array(
+        'name'          => __( 'Sidebar name', 'theme_text_domain' ),
+        'id'            => 'unique-sidebar-id',    // ID should be LOWERCASE  ! ! !
+        'description'   => '',
+        'class'         => '',
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>' );
+    register_sidebar($args);
+}
 
 /*======================================================================================================
  * 2. NAP NHUNG TAP TIN JS VAO THEME
@@ -56,6 +70,7 @@ function mt_env_register_js(){
 	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_myrating', $jsUrl.'myrating.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_styles', $jsUrl.'styles.js', array(), '1.0', true);
 }
 
 /*======================================================================================================
@@ -73,6 +88,37 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
     wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '3.0');
 }
+
+
+/*ADD GOOGLE SCRIPT FOOTER*/
+//add_action('wp_footer', 'mt_theme_script_code_google');
+function mt_theme_script_code_google(){
+
+    echo '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag(\'js\', new Date());
+
+    gtag(\'config\', \'UA-88982528-1\');
+</script>
+
+
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "vars" : {
+            "gtag_id": "<UA-88982528-1>",
+                "config" : {
+                "<UA-88982528-1>": { "groups": "default" }
+                }
+            }
+        }
+    </script>
+</amp-analytics>';
+}
+/*ADD GOOGLE SCRIPT FOOTER END*/
 
 //add_filter('show_admin_bar', '__return_false');
 
@@ -117,7 +163,6 @@ function misha_my_load_more_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'misha_my_load_more_scripts' );
-
 
 
 function misha_loadmore_ajax_handler(){
