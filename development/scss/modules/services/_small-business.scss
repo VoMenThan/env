@@ -1,0 +1,42 @@
+.banner-small-business.bg-blue{
+    img{
+        bottom: 100px;
+    }
+    .box-info-small-business{
+        margin-top: 100px;
+        max-width: 800px;
+        h1{
+            position: static;
+            @include translate(0, 0);
+            color: #fff;
+            text-transform: inherit;
+            margin-bottom: 30px;
+        }
+        p{
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 150%;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .btn-green-env{
+            color: $color-blue-logo !important;
+            &:hover{
+                color: #fff !important;
+            }
+        }
+    }
+}
+
+.small-business-page{
+    .box-header{
+        width: 80%;
+        margin: auto;
+        h2{
+            font-size: 36px;
+        }
+        p{
+
+        }
+    }
+}
