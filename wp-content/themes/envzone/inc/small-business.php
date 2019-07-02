@@ -1,18 +1,18 @@
 <main class="main-content">
-<!--    <div class="container-fluid bg-blue-home">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-12 text-center">-->
-<!--                    <a href="" class="current-category active">-->
-<!--                        Small Business-->
-<!--                    </a>-->
-<!--                    <a href="" class="current-category">-->
-<!--                        Pricing-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="container-fluid nav-small-business">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a href="" class="current-category active">
+                        Small Business
+                    </a>
+                    <a href="" class="current-category">
+                        Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="banner-top bg-blue  banner-industries banner-small-business">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
         <div class="container">
@@ -40,7 +40,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 item-build text-center">
                     <img src="<?php echo ASSET_URL;?>images/icon-like-green.png" alt="">
                     <h3>Easy to set up and manage</h3>
                     <ul>
@@ -50,7 +50,7 @@
                         <li>High-quality service and 24/7 support.</li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 item-build text-center">
                     <img src="<?php echo ASSET_URL;?>images/icon-investment-green.png" alt="">
                     <h3>Savings you can count on</h3>
                     <ul>
@@ -59,7 +59,7 @@
                         <li>One manager for all your online operation.</li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 item-build text-center">
                     <img src="<?php echo ASSET_URL;?>images/icon-grows-green.png" alt="">
                     <h3>Grows with you</h3>
                     <ul>
@@ -69,7 +69,7 @@
                         <li>Functionality to fit every business size.</li>
                     </ul>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center box-button">
                     <a href="#" class="btn btn-blue-env">SEE PLAN DETAILS</a>
                 </div>
             </div>
@@ -77,11 +77,9 @@
 
         <div class="container-fluid bg-gray-process">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>PEACE OF MIND, 365 DAYS A YEAR</h2>
-                    </div>
+                <div class="row box-peace-of-mind">
                     <div class="col-lg-8">
+                        <h2>PEACE OF MIND, 365 DAYS A YEAR</h2>
                         <p>
                             Keeping your business visible online doesn’t have to be time consuming, stressful figure of how stuff works.
                         </p>
@@ -96,29 +94,29 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container section-how-it-works">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8 text-center box-how-it-work">
                     <h2>How it works</h2>
                     <p>A solution built with team work mindset that drive results for your business. Not individual freelancer mindset.</p>
                 </div>
-                <div class="col-lg-12">
-                    <img src="<?php echo ASSET_URL;?>images/img-how-it-work.png" alt="">
+                <div class="col-lg-12 text-center">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-how-it-work.png" alt="">
                 </div>
 
             </div>
         </div>
 
         <div class="container-fluid bg-gray-process">
-            <div class="container">
-                <div class="row">
+            <div class="container section-your-business">
+                <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <h2>
                             WHY THIS IS THE PLAN FOR
                             YOUR BUSINESS?
                         </h2>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <ul>
                             <li>
                                 As you can see in the above team roles, a variety of skills are required which you are unlikely to have immediately to hand in order to compete in this competitive digital world.
@@ -131,7 +129,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 box-button text-center">
                         <a href="" class="btn btn-blue-env">VIEW ALL PLANS</a>
                     </div>
                 </div>

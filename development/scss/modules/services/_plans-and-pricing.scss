@@ -1,0 +1,103 @@
+.pricing-page{
+    *{
+        font-family: $font-roboto;
+    }
+    .box-header{
+        margin-bottom: 50px;
+        h2{
+            font-size: 48px;
+            font-weight: bold;
+        }
+        p{
+            font-size: 26px;
+            line-height: 150%;
+        }
+    }
+    .box-nav-tab{
+        margin-bottom: 100px;
+        .nav-link{
+            width: 200px;
+            text-align: center;
+            background: #F2F2F2;
+            padding: 10px;
+            color: #808080;
+            &.active{
+                background: #375D81;
+                color: #FFF;
+            }
+            &.bd-radius-left{
+                @include radius(5px 0 0 5px);
+            }
+            &.bd-radius-right{
+                @include radius(0 5px 5px 0);
+            }
+        }
+    }
+    .box-plan-pricing{
+        .plan{
+            margin-top: 30px;
+            margin-bottom: 400px;
+        }
+    }
+    .item-pricing{
+        border: 1px solid #BDBDBD;
+        @include radius(5px);
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        padding-bottom: 40px;
+        h2{
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 35px;
+            border-bottom: 1px solid #BDBDBD;
+            padding-bottom: 20px;
+        }
+        img{
+            margin-bottom: 45px;
+        }
+        p{
+            font-size: 18px;
+            color: #808080;
+            margin-bottom: 30px;
+        }
+        .pricing{
+            font-size: 36px;
+            color: $color-blue-logo;
+            font-weight: bold;
+        }
+        .per-site-month{
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+        .sale-off{
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .btn-green-env{
+            max-width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            color: $color-blue-logo !important;
+            &:hover{
+                color: #fff !important;
+            }
+        }
+        &.most-popular{
+            background: #EDF6DF;
+            @include box-shadow(0px, 4px, 4px, rgba(0, 0, 0, 0.5));
+            .label-most-popular{
+                background: #20466B;
+                color: $color-green-logo;
+                position: absolute;
+                top: -30px;
+                z-index: -1;
+                padding: 5px;
+                width: 100%;
+                left: 0;
+                @include radius(5px 5px 0 0);
+                @include box-shadow(0px, 4px, 4px, rgba(0, 0, 0, 0.5));
+            }
+        }
+    }
+}

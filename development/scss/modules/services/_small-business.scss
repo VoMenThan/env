@@ -1,3 +1,19 @@
+.nav-small-business{
+    background: #021A32;
+    a{
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 20px;
+        display: inline-block;
+        &.active{
+            color: $color-green-logo;
+        }
+        &:first-child{
+            padding-left: 0;
+        }
+    }
+}
 .banner-small-business.bg-blue{
     img{
         bottom: 100px;
@@ -29,14 +45,109 @@
 }
 
 .small-business-page{
+    padding-bottom: 0 !important;
     .box-header{
         width: 80%;
         margin: auto;
+        margin-bottom: 60px;
         h2{
             font-size: 36px;
+            font-weight: bold;
         }
         p{
+            font-size: 26px;
+            font-weight: 500;
+        }
+    }
+    .item-build{
+        img{
+            margin-bottom: 30px;
+        }
+        h3{
+            font-size: 26px;
+            font-weight: 600;
+            color: #808080;
+            margin-bottom: 30px;
+        }
+        ul>li{
+            font-size: 22px;
+            color: #808080;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            text-align: left;
+            position: relative;
+            &:before{
+                content: '';
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                @include radius(50%);
+                background: #BDBDBD;
+                text-align: left;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+        }
+    }
+    .box-button{
+        margin-bottom: 50px;
+        margin-top: 100px;
+    }
+    .box-peace-of-mind{
+        margin-top: 50px;
+        margin-bottom: 150px;
+        h2{
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        p{
+            font-size: 26px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+    }
+    .section-how-it-works{
+        padding-top: 100px;
+        padding-bottom: 150px;
+    }
+    .box-how-it-work{
+        margin-bottom: 50px;
+        h2{
+            font-size: 36px;
+            font-weight: bold;
+        }
+        p{
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 150%;
+        }
+    }
 
+    .section-your-business{
+        margin-top: 50px;
+        margin-bottom: 100px;
+        h2{
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+        ul>li {
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 50px;
+            &:before{
+                content: '';
+                @include setBackgroundIcon(35px, '../images/icon-checked-green.svg');
+                text-align: left;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
         }
     }
 }

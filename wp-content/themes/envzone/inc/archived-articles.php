@@ -122,13 +122,16 @@ if (count($get_date) >= 1){
                                     <a class="<?php echo $get_month == 03 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-03'?>">Mar</a>
                                 </li>
                                 <li class="month">
-                                    <a class="<?php echo $get_month == 04 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-04'?>">April</a>
+                                    <a class="<?php echo $get_month == 04 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-04'?>">Apr</a>
                                 </li>
                                 <li class="month">
                                     <a class="<?php echo $get_month == 05 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-05'?>">May</a>
                                 </li>
                                 <li class="month">
                                     <a class="<?php echo $get_month == 06 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-06'?>">Jun</a>
+                                </li>
+                                <li class="month">
+                                    <a class="<?php echo $get_month == 07 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-07'?>">Jul</a>
                                 </li>
                             </ul>
                         </div>
