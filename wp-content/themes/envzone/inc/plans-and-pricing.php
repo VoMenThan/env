@@ -3,10 +3,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="" class="current-category">
+                    <a href="<?php echo home_url('small-business')?>">
                         Small Business
                     </a>
-                    <a href="" class="current-category active">
+                    <a href="javascript:function() { return false; }" class="active">
                         Pricing
                     </a>
                 </div>
@@ -24,7 +24,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 p-0">
                     <!-- Nav tabs -->
                     <ul class="nav box-nav-tab justify-content-center">
                         <li class="nav-item">
@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <table class="table">
+                    <table class="table table-option-business">
                         <thead>
                             <tr>
                                 <th scope="col">Compare Plans</th>
@@ -183,228 +183,439 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr class="blue">
+                                <th>Core Services</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    A dedicated online presence manager
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    Unlimited on-call strategic consulting
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    Unlimited improvement advice
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    Initial performance audit
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    Support ticket per month
+                                    <span class="info"></span>
+
+                                </td>
+                                <td>8</td>
+                                <td>6</td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    Custom design & development hour (does not rollover)
+                                    <span class="info"></span>
+
+                                </td>
+                                <td>6</td>
+                                <td>4</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    20% off hourly rate services
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr class="blue">
+                                <td>
+                                    Intergrated digital marketing recommendation
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+
                             <tr>
-                                <td>Core Services</td>
+                                <th>Monitoring and Reporting</th>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>A dedicated online presence manager</td>
+                                <td>
+                                    Industry performance benchmark
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Monthly SEO performace tracking
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Best practice SEO setup
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Site health checks
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Monthly analytic report
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    Digital Asset Management
+                                </th>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Unlimited improvement advice</td>
+                                <td>
+                                    Dedicated business cloud account for asset storage-5TB
+                                    <span class="info"></span>
+
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Dedicated SharePoint account for  asset management
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    Hosting & Security Controls
+                                </th>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Initial performance audit</td>
+                                <td>
+                                    Secure hosting with latest speed technonolgy*
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Security updates
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Weekly manual database backups
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    SSL setup and renewal
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Theme and plugin updates
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Core platform updates
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Data migrations
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Version control with Github
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    The All-In-One Online Presence Support Portal
+                                </th>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>Support ticket per month</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Ticket response
+                                    <span class="info"></span>
+                                </td>
+                                <td>Priority</td>
+                                <td>Expedite</td>
+                                <td>Basic  </td>
                             </tr>
                             <tr>
-                                <td>Custom design & development hour (does not rollover)</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Ticket submission portal
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
                             </tr>
                             <tr>
-                                <td>20% off hourly rate services</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Online documentation
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
                             </tr>
                             <tr>
-                                <td>Intergrated digital marketing recommendation</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Coworker collaboration
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
                             </tr>
                             <tr>
-                                <td>Monitoring and Reporting</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Secure payment gateway
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
                             </tr>
                             <tr>
-                                <td>Industry performance benchmark</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Secure message
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+
                             </tr>
                             <tr>
-                                <td>Monthly SEO performace tracking</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    File exchange
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
                             </tr>
                             <tr>
-                                <td>Best practice SEO setup</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    Live help chat
+                                    <span class="info"></span>
+                                </td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
+                                <td><span class="circle"></span></td>
                             </tr>
-                            <tr>
-                                <td>Site health checks</td>
+                            <tr class="button">
                                 <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><a href="" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                <td><a href="" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                <td><a href="" class="btn btn-green-env">Subscribe for Site Manager</a></td>
                             </tr>
-                            <tr>
-                                <td>Monthly analytic report</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Monthly analytic report</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Digital Asset Management</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Dedicated business cloud account for asset storage-5TB</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Dedicated SharePoint account for  asset management</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Hosting & Security Controls</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Secure hosting with latest speed technonolgy*</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Security updates</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Weekly manual database backups</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>SSL setup and renewal</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Theme and plugin updates</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Core platform updates</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Data migrations</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Version control with Github</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>The All-In-One Online Presence Support Portal</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Ticket response</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Ticket submission portal</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Online documentation</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Coworker collaboration</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Secure payment gateway</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Secure message</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>File exchange</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Live help chat</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+
                         </tbody>
                     </table>
-                    a.btn.btn-green-env
-                    <p>
-                        For large organizations, enterprises, tech startups, please contact us here with custom outsourcing solutions
-                    </p>
+
+                    <div class="text-center description-business">
+                        For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('contact-us')?>">here</a> with custom outsourcing solutions
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-gray-process section-faq">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2>Frequently asked questions</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <div id="accordion" class="box-question">
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionOne" aria-expanded="false" aria-controls="questionOne">
+                                        How does the billing work?
+                                    </h3>
+                                </div>
+                                <div id="questionOne" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        We sell monthly subscriptions. EnvZone bills annual contracts immediately/on the day of signing and monthly contracts on the anniversary of the signing date. That time is yours to use now or save for later. Each plan comes with a bank of pre-paid support ticket and custom hour work. This resource will be subtracted from your account until you approve EnvZone to work on your site. As members of our staff work on your request, we subtract time away from this balance by 15-min increment. You may upgrade, downgrade, or cancel your subscription at any time. And if you're not happy at all in your first 30 days, please let us know and we'll refund your money.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionTwo" aria-expanded="false" aria-controls="questionTwo">
+                                        What happens after I sign up? How do I get support?
+                                    </h3>
+                                </div>
+                                <div id="questionTwo" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        When you sign up your credit card is charged for the first month's support time you purchased and you receive access to your Envzone Account Dashboard. You can immediately submit your support requests via a form on your Account Dashboard, email us directly support@envzone.com, or call us at 720-606-2900. If you email or use the form, a member of the team will typically reply with an hour during business hours.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionThree" aria-expanded="false" aria-controls="questionThree">
+                                        How do I cancel? What is your refund policy?
+                                    </h3>
+                                </div>
+                                <div id="questionThree" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        Email info@envzone.com or call 720-606-2900 at any time to cancel. For refunds, if you are not completely satisfied with the service you receive in your first 30 days as a customer, please let us know and we will refund your complete purchase. Past 30 days, we do not refund previously purchased hours. That time remain yours to use as long as you have an active subscription.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionFour" aria-expanded="false" aria-controls="questionFour">
+                                        Which plan is right for me?
+                                    </h3>
+                                </div>
+                                <div id="questionFour" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        It depends with the level of support you need. We offer flexible pricing to accommodate most situations. Do you have one or two changes a month, plus regular upkeep? 1 hour is likely a good fit. Running a store or have weekly updates? 3-5 hours is typical. Ready to make significant changes? Give us a call and we'll help scope it out. We also have
+                                        <a href="https://maintaingo.com/wordpress-support-services-catalog/" rel="nofollow" target="_blank">a list of 130+ common tasks</a> we do along with time estimates for each.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionFive" aria-expanded="false" aria-controls="questionFive">
+                                        Do you work with agencies, or handle more than one website per customer?
+                                    </h3>
+                                </div>
+                                <div id="questionFive" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        Yes and yes! Contact us to learn more about how we can accommodate multiple approved requesters, separate client budgets, and useful tools we provide to give your clients a full-service experience.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionSix" aria-expanded="false" aria-controls="questionSix">
+                                        What happens if something breaks during a change?
+                                    </h3>
+                                </div>
+                                <div id="questionSix" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        We immediately roll-back to the backup we created right before the change, then diagnose what went wrong. To avoid this issue, we test most changes on a staging copy of your site hidden from the public prior to doing them on your live website.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -412,3 +623,10 @@
 
     <?php require_once "popup-services.php";?>
 </main>
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/assets/js/popper.min.js"></script>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    })
+</script>

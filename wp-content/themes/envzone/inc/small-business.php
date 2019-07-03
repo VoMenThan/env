@@ -3,10 +3,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="" class="current-category active">
+                    <a href="javascript:function() { return false; }" class="active">
                         Small Business
                     </a>
-                    <a href="" class="current-category">
+                    <a href="<?php echo home_url('plans-and-pricing')?>">
                         Pricing
                     </a>
                 </div>
@@ -23,7 +23,7 @@
                         <p>
                             Get a dedicated online presence manager with support in all aspects to drive results.
                         </p>
-                        <div class="btn btn-green-env">SEE PRICING</div>
+                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env">SEE PRICING</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-12 text-center box-button">
-                    <a href="#" class="btn btn-blue-env">SEE PLAN DETAILS</a>
+                    <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">SEE PLAN DETAILS</a>
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
                         </ul>
                     </div>
                     <div class="col-lg-12 box-button text-center">
-                        <a href="" class="btn btn-blue-env">VIEW ALL PLANS</a>
+                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">VIEW ALL PLANS</a>
                     </div>
                 </div>
             </div>

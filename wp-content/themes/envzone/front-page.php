@@ -9,14 +9,14 @@
             <div class="container">
                 <article class="box-headline">
                     <h1 class="head-line-envzone">
-                        DENVER SOFTWARE OUTSOURCING AUTHORITY
+                        GET AN ONLINE PRESENCE MANAGER ON-CALL FOR YOUR SMALL BUSINESS.
                     </h1>
                     <p>
-                        A premium outsourcing solution for minimum management and maximum output.
+                        Just from <span class="blue">$159</span> per month.
                     </p>
-                    <p>Learn how we could help tech companies achieve their business goals.
+                    <p>Have your own online management team available on-call and get online presence done for a fraction of what it would normally cost.
                     </p>
-                    <a href="<?php echo home_url("knowledge/guidance-to-keep-your-tech-company-ahead-of-the-competition");?>" class="btn btn-green-env btn-get-started">TAKE ME TO THE SECRET SAUCE</a>
+                    <a href="<?php echo home_url("small-business");?>" class="btn btn-green-env btn-get-started">SEE PLAN DETAILS</a>
                 </article>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="container">
                 <article class="box-headline">
                     <h2 class="head-line-envzone">
-                        SEE THE POTENTIAL <span>SAVINGS</span> YOU COULD ACHIEVE
+                        ENTERPRISE: SEE THE POTENTIAL <span>SAVINGS</span> YOU COULD ACHIEVE
                     </h2>
                     <p>
                         Calculate your company’s potential savings with EnvZone’s solution using this handy tool.
@@ -312,58 +312,24 @@
 
     <!-- /*============END BLOG HOME=================*/ -->
 
-    <!--SECTION SOLUTION-->
-    <?php $the_solution = get_field('the_solution', $post->ID);?>
-    <div class="container">
-        <section id="solution-figurative" class="solution-figurative">
-            <h2 class="title-head-blue title-solution">
-                <?php echo $the_solution['title']?>
-            </h2>
-            <div class="box-description">
-                <?php echo $the_solution['description']?>
+    <!--SECTION YOUR ORGANIZATION-->
+
+    <div class="container section-organization">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title-head-blue title-organization">
+                    WHAT BEST DESCRIBES YOUR ORGANIZATION?
+                </h2>
             </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="box-vn-rank">
-                        <img class="d-lg-block d-none" src="<?php echo ASSET_URL;?>images/img-map-vn.png" alt="">
-                        <img class="d-lg-none d-block m-auto" src="<?php echo ASSET_URL;?>images/img-map-vn-mb.png" alt="">
-
-                        <div class="rank-1"><?php echo $the_solution['reason_1']?></div>
-                        <div class="rank-2"><?php echo $the_solution['reason_2']?></div>
-                        <div class="rank-3"><?php echo $the_solution['reason_3']?></div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 text-right">
-
-                    <div class="title-major-factor">
-                        <?php echo $the_solution['subtitle']?>
-                    </div>
-                    <div class="row">
-                        <?php
-                            $list_costs = $the_solution['list_costs'];
-                            if ($list_costs != null):
-                                foreach ($list_costs as $item):
-                            ?>
-                                    <div class="col-lg-3 col-md-6 col-6 col-mbx-100 item-cost">
-                                        <img class="img-fluid" src="<?php echo $item['icon']?>" alt="">
-                                        <h5><?php echo $item['cost']?></h5>
-                                    </div>
-                            <?php
-                                endforeach;
-                            endif;
-                        ?>
-                    </div>
-
-                    <a href="<?php echo $the_solution['button_url']?>" class="btn btn-blue-env">
-                        <?php echo $the_solution['button_name']?>
-                    </a>
+            <div class="col-lg-6">
+                <div class="box-business">
+                    .item-small-business
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-    <!--END SECTION SOLUTION-->
+
+    <!--END SECTION YOUR ORGANIZATION-->
 
     <?php $the_overhead = get_field('the_overhead', $post->ID);?>
     <div class="container-fluid bg-gray-process overhead-costs-page">

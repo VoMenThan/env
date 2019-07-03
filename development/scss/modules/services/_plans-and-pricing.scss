@@ -1,4 +1,5 @@
 .pricing-page{
+    padding-bottom: 0 !important;
     *{
         font-family: $font-roboto;
     }
@@ -32,6 +33,9 @@
                 @include radius(0 5px 5px 0);
             }
         }
+    }
+    .tab-pane{
+        margin-bottom: 100px;
     }
     .box-plan-pricing{
         .plan{
@@ -97,6 +101,131 @@
                 left: 0;
                 @include radius(5px 5px 0 0);
                 @include box-shadow(0px, 4px, 4px, rgba(0, 0, 0, 0.5));
+            }
+        }
+    }
+
+    .table-option-business{
+        margin-bottom: 100px;
+        thead{
+            th{
+                font-size: 22px;
+                font-weight: 500;
+                text-align: center;
+                color: #828282;
+                width: 270px;
+                border-bottom: 1px solid #BDBDBD;
+                border-top: 1px solid #BDBDBD;
+                &:first-child{
+                    width: auto;
+                    text-align: left;
+                    font-size: 20px;
+                    font-weight: normal;
+                }
+                &:nth-child(3){
+                    background: #EDF6DF;
+                }
+            }
+        }
+        tbody{
+            td{
+                font-size: 18px;
+                text-align: center;
+                border-color: #E0E0E0;
+                vertical-align: middle;
+                &:first-child{
+                    text-align: left;
+                    position: relative;
+                    padding-right: 40px;
+                    font-weight: normal;
+                }
+                &:nth-child(3){
+                    background: #EDF6DF;
+                }
+            }
+            th{
+                font-weight: bold;
+            }
+            .blue{
+                th{
+                    color: #20466B;
+                }
+                td{
+                    &:first-child{
+                        color: #20466B;
+                    }
+                }
+            }
+            .circle{
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                @include radius(50%);
+                background: #8DC63F;
+            }
+            .info{
+                @include setBackgroundIcon(20px, '../images/icon-info-green.svg');
+                position: absolute;
+                right: 0;
+                top: calc(50% - 10px);
+            }
+            .btn-green-env{
+                max-width: 100%;
+                padding: 5px 15px;
+                color: $color-blue-logo !important;
+                font-size: 16px;
+                margin-top: 30px;
+                font-weight: 500;
+                &:hover{
+                    color: #fff !important;
+                }
+            }
+            .button{
+                td{
+                    &:nth-child(3){
+                        background: #fff;
+                    }
+                }
+
+            }
+        }
+    }
+    .description-business{
+        font-size: 22px;
+        margin: auto;
+        width: 80%;
+        margin-bottom: 50px;
+    }
+    .section-faq{
+        padding-top: 120px;
+        padding-bottom: 50px;
+        .box-question{
+            .item-question{
+                h3{
+                    font-size: 20px;
+                    color: #808080;
+                    line-height: 150%;
+                    font-weight: 400;
+                    padding: 20px 0;
+                    border-bottom: 1px solid #BDBDBD;
+                    cursor: pointer;
+                    background: url("../images/icon-plus-button-blue.svg") no-repeat;
+                    background-position: 98%;
+                    &[aria-expanded="true"]{
+                        background: url("../images/icon-less-button-blue.svg") no-repeat;
+                        background-position: 98%;
+                    }
+                }
+                .box-answer{
+                    background: #fff;
+                    line-height: 150%;
+                    padding: 15px;
+                }
+                &:first-child{
+                    h3{
+                        border-top: 1px solid #BDBDBD;
+                    }
+                }
             }
         }
     }
