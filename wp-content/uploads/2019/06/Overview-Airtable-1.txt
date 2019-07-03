@@ -1,0 +1,10 @@
+Airtable was founded on the belief that software shouldn't dictate how everyone work — you should be the one in control. Therefore, their mission is to democratize software creation by enabling anyone to build the software tools that meet their needs. 
+
+Their native mobile and desktop apps make it easy to edit, comment, and collaborate in real time — changes are instantly synced across everyone's devices. Airtable fields can handle any content you throw at them. Add attachments, long text notes, checkboxes, links to records in other tables — even barcodes. Powerful filtering, sorting, and grouping give you the freedom to arrange your work just the way you like. Choose the right views for your content, and save them for easy access any time. Deeper integrations with other applications and APIs are available as part of Airtable's Blocks platform.
+
+Airtable also brings the flexibility of low-code application platforms into the CWM world with its modern collaboration functionality and ease of use. In working with the 30,000 companies that use Airtable, we've seen this same pattern emerge across many different companies and use cases, including:
+
+1. Fabric sourcing and collaboration workflows between designers and textile sourcers at a Fortune 500 fashion company.
+2. Global product launch campaigns at a Fortune 100 retailer
+3. Partnership launch management for a Fortune 500 technology company
+4. Planning of new commercial space furnishments at a multibillion dollar real estate company

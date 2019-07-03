@@ -1,0 +1,21 @@
+GigSmart is an on-demand mobile application that connects Workers and Requesters for a position fill-in.
+Workers can connect with businesses, charities, and individuals in need of their skills immediately or up to 30 days in advance for a short period of time (less than 12 hours).
+Requesters can request workers with specific skills immediately or up to 30 days in advance for a short period of time (less than 12 hours)
+
+How do you use Gigsmart?
+1. Download the GIGSMART Get Gigs application from the App Store (iOS) or Google Play Store (Android)
+2. Create an account using an email address and phone number
+3. Add your skills
+4. Fill out your profile
+5. Make yourself available to receive gig offers and once requested:
+ Accept the gig
+ Travel to the gig site
+ Start working
+ At the end of the gig, get paid and rate the Requester
+ Repeat
+6. Apply to gigs that match your skills and availability, and once hired:
+ Mark your calendar for the gig date and time
+ Travel to the gig site
+ Start working
+ At the end of the gig, get paid and rate the Requester
+ Repeat

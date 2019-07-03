@@ -1,0 +1,11 @@
+Trineo is a Salesforce and Heroku services firm specialising in cloud application development, enterprise APIs, identity, integrated CRM, and agile methods. They develop business solutions using cloud platforms to digitally transform organizations so they can progressively evolve, innovate, and stay ahead of nimble competitors. They finish what we begin.
+
+A global firm with offices in the US, Australia, and New Zealand, Trineo has over 8 years of Salesforce and Heroku expertise, and has been a Heroku partner since the inception of the program.
+
+Their philosophy are:
+
+Rapid Delivery--Striving to deliver at the highest standard with a smart approach that does away with bureaucratic process.
+
+Continuous Improvement--Practicing continual self and solicited critique to improve upon our craft and learn new techniques to deliver the very best we can.
+
+Quality--Delivering high quality work rapidly, in bite sized chunks. Our frequent automated testing ensures we deliver solutions that match our customer’s expectations.

@@ -1,0 +1,5 @@
+At Nexleaf, their mission is to preserve human life and protect the planet by designing sensor technologies, generating data analytics, and advocating for data-driven solutions to global challenges.
+
+Health and climate change interventions all around the world are plagued by a lack of data. Is the equipment we’re deploying functioning properly? Is it achieving the impact it’s meant to accomplish? Are the initiatives undertaken by the global development community really working?
+
+They have seen how access to meaningful real-time data enables responsive interventions, which include mechanisms for monitoring & evaluation, self-correction, and accountability, and result in verifiable impact. They know that robust, resilient, cost-effective technology can bridge the gap where other infrastructure is lacking. And they believe that the best solutions come when we engage with people on the ground and create technology that meets their needs and integrates into their lives.

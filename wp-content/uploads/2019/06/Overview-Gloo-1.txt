@@ -1,0 +1,6 @@
+Gloo offers its users with predictive analytics and technology that empower organizations to optimize their service for their people and communities through personal growth. Their advanced data solutions platform enables their customers to more effectively engage with people, and manage individual personal growth journey toward physical, mental.
+What makes Gloo unique
+ Function-level routing allows integration of legacy applications, microservices and serverless
+ Gloo incorporates vetted open-source projects to provide broad functionality
+ Full automated discovery lets users move fast
+ Gloo integrates intimately with the user’s environment
