@@ -1,0 +1,47 @@
+.section-organization{
+    padding-bottom: 150px;
+    padding-top: 150px;
+    .title-organization{
+        margin-bottom: 90px;
+        text-align: center;
+    }
+    .box-business{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 30px;
+        .item-small-business{
+            background: #FFFFFF;
+            border: 1px solid #BDBDBD;
+            box-sizing: border-box;
+            @include box-shadow(6px, 6px, 4px, rgba(0, 0, 0, 0.5));
+            border-radius: 5px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+            img{
+                margin-bottom: 50px;
+            }
+        }
+    }
+    .box-startups{
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        .item-enterprises{
+            background: #FFFFFF;
+            border: 1px solid #BDBDBD;
+            box-sizing: border-box;
+            @include box-shadow(6px, 6px, 4px, rgba(0, 0, 0, 0.5));
+            border-radius: 5px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+            img{
+                margin-bottom: 50px;
+            }
+        }
+    }
+    .btn-blue-env{
+        padding: 5px 10px;
+    }
+}

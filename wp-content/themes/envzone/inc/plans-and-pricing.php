@@ -58,7 +58,7 @@
                                             <div class="pricing">$319</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $399 (billed yearly)</div>
-                                            <a href="" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                             <div class="pricing">$239</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $299 (billed yearly)</div>
-                                            <a href="" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
                                         </div>
 
                                     </div>
@@ -99,9 +99,367 @@
                                             <div class="pricing">$159</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $199 (billed yearly)</div>
-                                            <a href="" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
                                         </div>
 
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 box-table-option">
+                                    <table class="table table-option-business">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Compare Plans</th>
+                                            <th scope="col">High-Growth</th>
+                                            <th scope="col">Main-Street</th>
+                                            <th scope="col">Growing Business</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="blue">
+                                            <th>Core Services</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                A dedicated online presence manager
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Unlimited on-call strategic consulting
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Unlimited improvement advice
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Initial performance audit
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Support ticket per month
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td>8</td>
+                                            <td>6</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Custom design & development hour (does not rollover)
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td>6</td>
+                                            <td>4</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                20% off hourly rate services
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Intergrated digital marketing recommendation
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Monitoring and Reporting</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Industry performance benchmark
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Monthly SEO performace tracking
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Best practice SEO setup
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Site health checks
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Monthly analytic report
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                Digital Asset Management
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Dedicated business cloud account for asset storage-5TB
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Dedicated SharePoint account for  asset management
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                Hosting & Security Controls
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure hosting with latest speed technonolgy*
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Security updates
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Weekly manual database backups
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                SSL setup and renewal
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Theme and plugin updates
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Core platform updates
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Data migrations
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Version control with Github
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                The All-In-One Online Presence Support Portal
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Ticket response
+                                                <span class="info"></span>
+                                            </td>
+                                            <td>Priority</td>
+                                            <td>Expedite</td>
+                                            <td>Basic  </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Ticket submission portal
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Online documentation
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Coworker collaboration
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure payment gateway
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure message
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                File exchange
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Live help chat
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="button">
+                                            <td></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="text-center description-business">
+                                        For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('contact-us')?>">here</a> with custom outsourcing solutions
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +484,7 @@
                                         <div class="box-pricing">
                                             <div class="pricing">$399</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +504,7 @@
                                         <div class="box-pricing">
                                             <div class="pricing">$299</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -164,370 +522,370 @@
                                         <div class="box-pricing">
                                             <div class="pricing">$199</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 box-table-option">
+                                    <table class="table table-option-business">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Compare Plans</th>
+                                            <th scope="col">High-Growth</th>
+                                            <th scope="col">Main-Street</th>
+                                            <th scope="col">Growing Business</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="blue">
+                                            <th>Core Services</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                A dedicated online presence manager
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Unlimited on-call strategic consulting
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Unlimited improvement advice
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Initial performance audit
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Support ticket per month
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td>8</td>
+                                            <td>6</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Custom design & development hour (does not rollover)
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td>6</td>
+                                            <td>4</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                20% off hourly rate services
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="blue">
+                                            <td>
+                                                Intergrated digital marketing recommendation
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Monitoring and Reporting</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Industry performance benchmark
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Monthly SEO performace tracking
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Best practice SEO setup
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Site health checks
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Monthly analytic report
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                Digital Asset Management
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Dedicated business cloud account for asset storage-5TB
+                                                <span class="info"></span>
+
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Dedicated SharePoint account for  asset management
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>
+                                                Hosting & Security Controls
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure hosting with latest speed technonolgy*
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Security updates
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Weekly manual database backups
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                SSL setup and renewal
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Theme and plugin updates
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Core platform updates
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Data migrations
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Version control with Github
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                The All-In-One Online Presence Support Portal
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Ticket response
+                                                <span class="info"></span>
+                                            </td>
+                                            <td>Priority</td>
+                                            <td>Expedite</td>
+                                            <td>Basic  </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Ticket submission portal
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Online documentation
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Coworker collaboration
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure payment gateway
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure message
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                File exchange
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Live help chat
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr class="button">
+                                            <td></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="text-center description-business">
+                                        For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('contact-us')?>">here</a> with custom outsourcing solutions
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <table class="table table-option-business">
-                        <thead>
-                            <tr>
-                                <th scope="col">Compare Plans</th>
-                                <th scope="col">High-Growth</th>
-                                <th scope="col">Main-Street</th>
-                                <th scope="col">Growing Business</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="blue">
-                                <th>Core Services</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    A dedicated online presence manager
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    Unlimited on-call strategic consulting
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    Unlimited improvement advice
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    Initial performance audit
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    Support ticket per month
-                                    <span class="info"></span>
-
-                                </td>
-                                <td>8</td>
-                                <td>6</td>
-                                <td>4</td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    Custom design & development hour (does not rollover)
-                                    <span class="info"></span>
-
-                                </td>
-                                <td>6</td>
-                                <td>4</td>
-                                <td>2</td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    20% off hourly rate services
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr class="blue">
-                                <td>
-                                    Intergrated digital marketing recommendation
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-
-                            <tr>
-                                <th>Monitoring and Reporting</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Industry performance benchmark
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Monthly SEO performace tracking
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Best practice SEO setup
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Site health checks
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Monthly analytic report
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-
-                            <tr>
-                                <th>
-                                    Digital Asset Management
-                                </th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Dedicated business cloud account for asset storage-5TB
-                                    <span class="info"></span>
-
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Dedicated SharePoint account for  asset management
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-
-                            <tr>
-                                <th>
-                                    Hosting & Security Controls
-                                </th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Secure hosting with latest speed technonolgy*
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Security updates
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Weekly manual database backups
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    SSL setup and renewal
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Theme and plugin updates
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Core platform updates
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Data migrations
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Version control with Github
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    The All-In-One Online Presence Support Portal
-                                </th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Ticket response
-                                    <span class="info"></span>
-                                </td>
-                                <td>Priority</td>
-                                <td>Expedite</td>
-                                <td>Basic  </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Ticket submission portal
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Online documentation
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Coworker collaboration
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Secure payment gateway
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Secure message
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    File exchange
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Live help chat
-                                    <span class="info"></span>
-                                </td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                                <td><span class="circle"></span></td>
-                            </tr>
-                            <tr class="button">
-                                <td></td>
-                                <td><a href="" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                                <td><a href="" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                                <td><a href="" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <div class="text-center description-business">
-                        For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('contact-us')?>">here</a> with custom outsourcing solutions
                     </div>
                 </div>
             </div>

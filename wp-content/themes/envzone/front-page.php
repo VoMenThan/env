@@ -67,7 +67,7 @@
     <!--END INFORMED-->
 
     <!--BUTTON DOWN-->
-    <a href="#solution-figurative" class="btn-scroll-bottom">
+    <a href="#blog-figurative" class="btn-scroll-bottom">
         <i class="icon-arrow-down-green"></i>
     </a>
     <!--BUTTON DOWN-->
@@ -189,7 +189,7 @@
     );
     $news_main = get_posts( $args );
     ?>
-    <div class="container background-gray-mobile section-blog">
+    <div id="blog-figurative" class="container background-gray-mobile section-blog">
         <div class="content-blog define-headline">
             <div class="row">
                 <div class="col-12 box-head-blog">
@@ -323,7 +323,24 @@
             </div>
             <div class="col-lg-6">
                 <div class="box-business">
-                    .item-small-business
+                    <div class="item-small-business">
+                        <img src="<?php echo ASSET_URL;?>images/icon-small-business-plans-green.png" alt="">
+                        <h3>Small Business Plans</h3>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="<?php echo home_url('small-business');?>" class="btn btn-blue-env">LEARN MORE</a>
+                        <a href="<?php echo home_url('plans-and-pricing');?>" class="btn btn-blue-env">SEE PRICING</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="box-startups">
+                    <div class="item-enterprises">
+                        <img src="<?php echo ASSET_URL;?>images/icon-enterprises-startups-green.png" alt="">
+                        <h3>Enterprises & Startups</h3>
+                    </div>
+                    <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">GET A VERIFIED TEAM</a>
                 </div>
             </div>
         </div>

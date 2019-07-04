@@ -7,10 +7,10 @@
                 <div class="col-lg-8">
                     <div class="box-content">
                         <h1>
-                            <?php echo get_the_title();?>
+                            <?php echo get_the_title($post->ID);?>
                         </h1>
 
-                        <?php echo get_the_content();?>
+                        <?php echo get_the_content($post->ID);?>
 
                     <div class="box-form-contact form-horizontal form-write-for-us">
                         <?php

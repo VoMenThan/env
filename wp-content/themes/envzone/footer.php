@@ -77,6 +77,7 @@
                         <li><a href="<?php echo get_home_url();?>/testing">Testing</a></li>
                         <li><a href="<?php echo get_home_url();?>/devops">DevOps</a></li>
                         <li><a href="<?php echo get_home_url();?>/customer-support">Customer Support</a></li>
+                        <li><a href="<?php echo get_home_url();?>/small-business">Small Business Plans</a><span>New</span></li>
                     </ul>
                 </div>
             </div>
@@ -89,6 +90,8 @@
                         <li><a href="<?php echo get_home_url();?>/knowledge-center">Knowledge Center</a></li>
                         <li><a href="<?php echo get_home_url();?>/studio">EnvZone Studio</a></li>
                         <li><a href="<?php echo get_home_url();?>/resources">Resources</a></li>
+                        <li><a href="<?php echo get_home_url();?>/discussion-board">Forum</a></li>
+                        <li><a href="<?php echo get_home_url();?>/companies">Review Platform</a></li>
                     </ul>
                 </div>
             </div>
