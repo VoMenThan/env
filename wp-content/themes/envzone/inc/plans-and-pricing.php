@@ -58,7 +58,7 @@
                                             <div class="pricing">$319</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $399 (billed yearly)</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                             <div class="pricing">$239</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $299 (billed yearly)</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
 
                                     </div>
@@ -99,7 +99,7 @@
                                             <div class="pricing">$159</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $199 (billed yearly)</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
 
                                     </div>
@@ -451,9 +451,9 @@
                                         </tr>
                                         <tr class="button">
                                             <td></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -484,7 +484,7 @@
                                         <div class="box-pricing">
                                             <div class="pricing">$399</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -504,7 +504,7 @@
                                         <div class="box-pricing">
                                             <div class="pricing">$299</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -522,7 +522,7 @@
                                         <div class="box-pricing">
                                             <div class="pricing">$199</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a>
+                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -873,9 +873,9 @@
                                         </tr>
                                         <tr class="button">
                                             <td></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -943,7 +943,7 @@
                                 <div id="questionFour" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
                                         It depends with the level of support you need. We offer flexible pricing to accommodate most situations. Do you have one or two changes a month, plus regular upkeep? 1 hour is likely a good fit. Running a store or have weekly updates? 3-5 hours is typical. Ready to make significant changes? Give us a call and we'll help scope it out. We also have
-                                        <a href="https://maintaingo.com/wordpress-support-services-catalog/" rel="nofollow" target="_blank">a list of 130+ common tasks</a> we do along with time estimates for each.
+                                        a list of 130+ common tasks we do along with time estimates for each.
                                     </div>
                                 </div>
                             </div>

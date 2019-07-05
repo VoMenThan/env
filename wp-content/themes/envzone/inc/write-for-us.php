@@ -12,10 +12,11 @@
 
                         <?php echo get_the_content($post->ID);?>
 
-                    <div class="box-form-contact form-horizontal form-write-for-us">
-                        <?php
-                            echo do_shortcode('[gravityform id=20 title=false description=false ajax=false]');
-                        ?>
+                        <div class="box-form-contact form-horizontal form-write-for-us">
+                            <?php
+                                echo do_shortcode('[gravityform id=20 title=false description=false ajax=false]');
+                            ?>
+                        </div>
                     </div>
 
                 </div>

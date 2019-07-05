@@ -81,7 +81,8 @@
         .btn-green-env{
             max-width: 100%;
             font-size: 16px;
-            padding: 10px;
+            padding: 7px 10px;
+            font-weight: 500;
             color: $color-blue-logo !important;
             &:hover{
                 color: #fff !important;
@@ -116,9 +117,10 @@
                 font-weight: 500;
                 text-align: center;
                 color: #828282;
-                width: 270px;
+                width: 300px;
                 border-bottom: 1px solid #BDBDBD;
                 border-top: 1px solid #BDBDBD;
+                padding: 10px 0;
                 &:first-child{
                     width: auto;
                     text-align: left;
@@ -127,6 +129,7 @@
                 }
                 &:nth-child(3){
                     background: #EDF6DF;
+                    width: 270px;
                 }
             }
         }
@@ -136,6 +139,8 @@
                 text-align: center;
                 border-color: #E0E0E0;
                 vertical-align: middle;
+                padding: 10px 0;
+                height: 70px;
                 &:first-child{
                     text-align: left;
                     position: relative;
@@ -148,6 +153,9 @@
             }
             th{
                 font-weight: bold;
+                vertical-align: middle;
+                height: 70px;
+                padding: 10px 0;
             }
             .blue{
                 th{
@@ -174,7 +182,7 @@
             }
             .btn-green-env{
                 max-width: 100%;
-                padding: 5px 15px;
+                padding: 7px 10px;
                 color: $color-blue-logo !important;
                 font-size: 16px;
                 margin-top: 30px;

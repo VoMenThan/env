@@ -79,7 +79,7 @@
             <div class="container">
                 <div class="row box-peace-of-mind">
                     <div class="col-lg-8">
-                        <h2>PEACE OF MIND, 365 DAYS A YEAR</h2>
+                        <h2>Peace of mind, 365 days a year</h2>
                         <p>
                             Keeping your business visible online doesn’t have to be time consuming, stressful figure of how stuff works.
                         </p>
@@ -100,10 +100,43 @@
                     <h2>How it works</h2>
                     <p>A solution built with team work mindset that drive results for your business. Not individual freelancer mindset.</p>
                 </div>
-                <div class="col-lg-12 text-center">
+            </div>
+            <div class="row">
+                <div class="col-lg-4 d-flex">
+                    <div class="item-how-it-work">
+                        <h3>1. Sign up</h3>
+                        <p>
+                            Once you’ve signed up for an account for your business, a dedicated site manager will guide you through data migration of your website from our secure portal.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <div class="item-how-it-work">
+                        <h3>2. Get support</h3>
+                        <p>
+                            You can start request support from your online presence builder team. Plus, getting insights from your website performance audit report.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <div class="item-how-it-work">
+                        <h3>3. Track and grow </h3>
+                        <p>
+                            As a member of EnvZone small business community, you will recieve monthly analytic report and recommendations for improvement of your online brand.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 box-support-experience">
+                    <h2>You deserve a better support experience</h2>
+                    <p>
+                        We help established businesses of all sizes expand, grow, and thrive online. So whatever your next goal is, just tell us how we can help.
+                    </p>
+                </div>
+                <div class="col-lg-12 text-center flow-how-it-work">
                     <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-how-it-work.png" alt="">
                 </div>
-
             </div>
         </div>
 
@@ -112,8 +145,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <h2>
-                            WHY THIS IS THE PLAN FOR
-                            YOUR BUSINESS?
+                            Why this is the plan for your business
                         </h2>
                     </div>
                     <div class="col-lg-10">
@@ -122,10 +154,10 @@
                                 As you can see in the above team roles, a variety of skills are required which you are unlikely to have immediately to hand in order to compete in this competitive digital world.
                             </li>
                             <li>
-                                With this solution, you’ll never worry about your website issues ever again. You’ll have a dedicated team who’s got your back—today, tomorrow, and every day.
+                                Your business probably has a lacking support from in-house resource to manage online presence. Digital world is the foundation of communication and you can’t afford to let your business get lost. Maintaining the right-skill inhouse resources to run your business online is not sustainable for your business setting.
                             </li>
                             <li>
-                                Your business probably has a lacking support from in-house resource to manage online presence. Digital world is the foundation of communication and you can’t afford to let your business get lost. Maintaining the right-skill inhouse resources to run your business online is not sustainable for your business setting.
+                                With this solution, you’ll never worry about your website issues ever again. You’ll have a dedicated team who’s got your back—today, tomorrow, and every day.
                             </li>
                         </ul>
                     </div>

@@ -206,7 +206,7 @@
 
                             <div class="col-lg-7 img-special ">
                                 <a href="<?php echo get_the_permalink($news_main[0]->ID);?>">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" align="job-openings">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" class="job-openings">
                                 </a>
                             </div>
                             <div class="col-lg-5 d-flex info-special flex-column align-items-start">
@@ -316,16 +316,19 @@
 
     <div class="container section-organization">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 box-head-organization">
                 <h2 class="title-head-blue title-organization">
-                    WHAT BEST DESCRIBES YOUR ORGANIZATION?
+                    We’re here to help you thrive and grow
                 </h2>
+                <p>
+                    What best describes your organization
+                </p>
             </div>
             <div class="col-lg-6">
-                <div class="box-business">
-                    <div class="item-small-business">
+                <div class="box-item-organization box-business">
+                    <div class="item-organization item-small-business">
                         <img src="<?php echo ASSET_URL;?>images/icon-small-business-plans-green.png" alt="">
-                        <h3>Small Business Plans</h3>
+                        <h3>Small Business</h3>
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="<?php echo home_url('small-business');?>" class="btn btn-blue-env">LEARN MORE</a>
@@ -335,8 +338,8 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="box-startups">
-                    <div class="item-enterprises">
+                <div class="box-item-organization box-startups">
+                    <div class="item-organization item-enterprises">
                         <img src="<?php echo ASSET_URL;?>images/icon-enterprises-startups-green.png" alt="">
                         <h3>Enterprises & Startups</h3>
                     </div>

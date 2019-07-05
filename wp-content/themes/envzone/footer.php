@@ -77,7 +77,7 @@
                         <li><a href="<?php echo get_home_url();?>/testing">Testing</a></li>
                         <li><a href="<?php echo get_home_url();?>/devops">DevOps</a></li>
                         <li><a href="<?php echo get_home_url();?>/customer-support">Customer Support</a></li>
-                        <li><a href="<?php echo get_home_url();?>/small-business">Small Business Plans</a><span>New</span></li>
+                        <li><a href="<?php echo get_home_url();?>/small-business">Small Business Plans</a><span>Hot</span></li>
                     </ul>
                 </div>
             </div>
