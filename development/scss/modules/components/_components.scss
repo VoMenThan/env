@@ -668,6 +668,62 @@ h1, h2, h3, h4, h5, h6{
 		}
 	}
 }
+.box-spin-to-win{
+	.modal-body{
+		.title-spin-to-win{
+			font-size: 36px;
+		}
+		.lottery-img{
+			position: absolute;
+			left: -180px;
+			top: calc(50% - 125px);
+		}
+	}
+	.form-spin-to-win{
+		margin-bottom: 50px;
+		.gform_wrapper {
+			input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
+				padding: 15px;
+				width: 80%;
+				font-size: 18px;
+				border: none;
+			}
+			.gform_body{
+				text-align: center;
+			}
+			.gform_footer{
+				text-align: center;
+				input.button, input[type=submit]{
+					width: 80%;
+					margin: 0;
+					background: #8DC63F;
+					border-radius: 3px;
+					padding: 15px;
+					font-weight: bold;
+					color: #fff;
+				}
+			}
+			&.gform_validation_error{
+				.gform_body ul {
+					li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half){
+						max-width: 100% !important;
+					}
+				}
+			}
+			ul.gform_fields {
+				li.gfield{
+					padding-right: 0;
+				}
+			}
+			li.gfield.gfield_error.gfield_contains_required {
+				div.gfield_description{
+					text-align: left;
+					padding-left: 9%;
+				}
+			}
+		}
+	}
+}
 
 
 

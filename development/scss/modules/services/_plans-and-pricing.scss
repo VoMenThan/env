@@ -41,6 +41,11 @@
         .plan{
             margin-top: 30px;
             margin-bottom: 400px;
+            font-size: 20px;
+        }
+
+        .pricing{
+            font-size: 20px;
         }
     }
     .item-pricing{
@@ -238,6 +243,78 @@
                     }
                 }
             }
+        }
+    }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    .pricing-page {
+        .box-header {
+            h2{
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+        .box-nav-tab{
+            margin-bottom: 30px;
+        }
+        .item-pricing{
+            margin-bottom: 50px;
+        }
+        .col-md-8{
+            &:nth-child(2){
+                .item-pricing {
+                    margin-bottom: 80px;
+                }
+            }
+        }
+        .box-table-option, .description-business{
+            display: none;
+        }
+        .section-faq {
+            h2{
+                font-size: 24px;
+                margin-bottom: 40px;
+            }
+            .box-question {
+                .item-question {
+                    h3{
+                        padding-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+    .pricing-page {
+        .box-nav-tab {
+            margin-bottom: 15px;
+            .nav-item{
+                width: calc(50% - 15px);
+                .nav-link{
+                    width: 100%;
+                    padding: 10px 7px;
+                }
+            }
+        }
+        .tab-pane{
+            margin-bottom: 0;
+        }
+        .section-faq{
+            margin-top: 50px;
         }
     }
 }

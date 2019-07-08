@@ -710,7 +710,13 @@ get_header();
 
     </section>
 
-    <?php require_once "inc/popup-discovery.php";?>
+    <?php
+        if (get_the_category($post->ID)[0]->slug == 'small-business'){
+            require_once "inc/popup-small-business.php";
+        }else{
+            require_once "inc/popup-discovery.php";
+        }
+    ?>
 
 </main>
 <script type="text/javascript">

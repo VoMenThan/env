@@ -88,7 +88,8 @@
                         </p>
                     </div>
                     <div class="col-lg-4">
-                        <img src="<?php echo ASSET_URL;?>images/icon-peace-of-mind.png" alt="">
+                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-peace-of-mind.png" alt="">
+                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-peace-of-mind-mb.png" alt="">
                     </div>
                 </div>
             </div>
@@ -135,7 +136,8 @@
                     </p>
                 </div>
                 <div class="col-lg-12 text-center flow-how-it-work">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-how-it-work.png" alt="">
+                    <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/img-how-it-work.png" alt="">
+                    <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/img-how-it-work-mb.png" alt="">
                 </div>
             </div>
         </div>
@@ -169,5 +171,5 @@
         </div>
     </section>
 
-    <?php require_once "popup-services.php";?>
+    <?php require_once "popup-spin-to-win.php";?>
 </main>

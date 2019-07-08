@@ -15,8 +15,8 @@
     </div>
     <section class="artical-page service-page pricing-page">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-8">
                     <div class="box-header text-center">
                         <h2>Plans & pricing for your small business</h2>
                         <p>
@@ -38,12 +38,12 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="menu1" class="container tab-pane active"><br>
-                            <div class="row">
-                                <div class="col-lg-3 box-plan-pricing">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 box-plan-pricing d-lg-block d-none">
                                     <div class="plan">Plans</div>
                                     <div class="pricing">Pricing</div>
                                 </div>
-                                <div class="col-lg-3 d-flex">
+                                <div class="col-lg-3 col-md-8 col-12 d-flex">
                                     <div class="item-pricing d-flex flex-column justify-content-between">
                                         <div class="box-info">
                                             <h2>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 d-flex">
+                                <div class="col-lg-3 d-flex col-md-8 col-12">
                                     <div class="item-pricing most-popular d-flex flex-column justify-content-between">
                                         <div class="box-info">
                                             <div class="label-most-popular">Most Popular</div>
@@ -84,7 +84,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-3 d-flex">
+                                <div class="col-lg-3 d-flex col-md-8 col-12">
                                     <div class="item-pricing d-flex flex-column justify-content-between">
                                         <div class="box-info">
                                             <h2>
@@ -465,12 +465,12 @@
                             </div>
                         </div>
                         <div id="menu2" class="container tab-pane fade"><br>
-                            <div class="row">
-                                <div class="col-lg-3 box-plan-pricing">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 box-plan-pricing d-lg-block d-none">
                                     <div class="plan">Plans</div>
                                     <div class="pricing">Pricing</div>
                                 </div>
-                                <div class="col-lg-3 d-flex">
+                                <div class="col-lg-3 col-md-8 d-flex">
                                     <div class="item-pricing d-flex flex-column justify-content-between">
                                         <div class="box-info">
                                             <h2>
@@ -488,7 +488,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 d-flex">
+                                <div class="col-lg-3 col-md-8 d-flex">
                                     <div class="item-pricing most-popular d-flex flex-column justify-content-between">
                                         <div class="box-info">
                                             <div class="label-most-popular">Most Popular</div>
@@ -508,7 +508,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 d-flex">
+                                <div class="col-lg-3 col-md-8 d-flex">
                                     <div class="item-pricing d-flex flex-column justify-content-between">
                                         <div class="box-info">
                                             <h2>
@@ -527,7 +527,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-12 box-table-option">
+                                <div class="col-lg-12 col-md-8 box-table-option d-lg-block d-none">
                                     <table class="table table-option-business">
                                         <thead>
                                         <tr>
@@ -880,7 +880,7 @@
                                         </tbody>
                                     </table>
 
-                                    <div class="text-center description-business">
+                                    <div class="text-center description-business d-lg-block d-none">
                                         For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('contact-us')?>">here</a> with custom outsourcing solutions
                                     </div>
                                 </div>
@@ -892,11 +892,11 @@
         </div>
         <div class="container-fluid bg-gray-process section-faq">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-8">
                         <h2>Frequently asked questions</h2>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 col-md-8">
                         <div id="accordion" class="box-question">
                             <div class="item-question">
                                 <div class="question">

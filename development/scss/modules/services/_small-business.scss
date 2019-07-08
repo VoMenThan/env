@@ -189,3 +189,116 @@
         }
     }
 }
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    .banner-small-business.bg-blue {
+        img{
+            position: static;
+            display: block;
+            margin: auto;
+            padding-top: 30px;
+        }
+        .box-info-small-business{
+            margin-top: 50px;
+            margin-bottom: 50px;
+            h1{
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+            p{
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            .btn-green-env{
+                padding: 5px;
+            }
+        }
+    }
+    .small-business-page {
+        .box-header {
+            width: 100%;
+            h2{
+                font-size: 24px;
+                padding-bottom: 30px;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+        .item-build {
+            margin-bottom: 50px;
+            h3{
+                font-size: 18px;
+                text-align: left;
+            }
+            ul{
+                >li{
+                    font-size: 18px;
+                }
+            }
+        }
+       .box-button{
+           margin-top: 0;
+       }
+        .box-peace-of-mind {
+            margin-top: 20px;
+            margin-bottom: 50px;
+            h2{
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+        .section-how-it-works{
+            padding-top: 20px;
+            padding-bottom: 50px;
+            h2{
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            p{
+                font-size: 18px;
+            }
+            .box-how-it-work{
+                margin-bottom: 50px;
+            }
+            .item-how-it-work{
+                margin-bottom: 50px;
+            }
+        }
+        .section-your-business {
+            margin-top: 30px;
+            margin-bottom: 50px;
+            h2{
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            ul > li{
+                font-size: 20px;
+                padding-left: 35px;
+                &:before{
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+            .box-button{
+                margin-bottom: 0;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+
+}

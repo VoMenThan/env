@@ -8517,6 +8517,109 @@ section.testing-page .item-qa {
   top: 10px;
 }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .banner-small-business.bg-blue img {
+    position: static;
+    display: block;
+    margin: auto;
+    padding-top: 30px;
+  }
+  .banner-small-business.bg-blue .box-info-small-business {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .banner-small-business.bg-blue .box-info-small-business h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .banner-small-business.bg-blue .box-info-small-business p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .banner-small-business.bg-blue .box-info-small-business .btn-green-env {
+    padding: 5px;
+  }
+
+  .small-business-page .box-header {
+    width: 100%;
+  }
+  .small-business-page .box-header h2 {
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+  .small-business-page .box-header p {
+    font-size: 18px;
+  }
+  .small-business-page .item-build {
+    margin-bottom: 50px;
+  }
+  .small-business-page .item-build h3 {
+    font-size: 18px;
+    text-align: left;
+  }
+  .small-business-page .item-build ul > li {
+    font-size: 18px;
+  }
+  .small-business-page .box-button {
+    margin-top: 0;
+  }
+  .small-business-page .box-peace-of-mind {
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  .small-business-page .box-peace-of-mind h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .small-business-page .box-peace-of-mind p {
+    font-size: 18px;
+  }
+  .small-business-page .section-how-it-works {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  .small-business-page .section-how-it-works h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .small-business-page .section-how-it-works p {
+    font-size: 18px;
+  }
+  .small-business-page .section-how-it-works .box-how-it-work {
+    margin-bottom: 50px;
+  }
+  .small-business-page .section-how-it-works .item-how-it-work {
+    margin-bottom: 50px;
+  }
+  .small-business-page .section-your-business {
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  .small-business-page .section-your-business h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .small-business-page .section-your-business ul > li {
+    font-size: 20px;
+    padding-left: 35px;
+  }
+  .small-business-page .section-your-business ul > li:before {
+    width: 25px;
+    height: 25px;
+  }
+  .small-business-page .section-your-business .box-button {
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+}
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
 .pricing-page {
   padding-bottom: 0 !important;
 }
@@ -8568,6 +8671,10 @@ section.testing-page .item-qa {
 .pricing-page .box-plan-pricing .plan {
   margin-top: 30px;
   margin-bottom: 400px;
+  font-size: 20px;
+}
+.pricing-page .box-plan-pricing .pricing {
+  font-size: 20px;
 }
 .pricing-page .item-pricing {
   border: 1px solid #BDBDBD;
@@ -8767,6 +8874,60 @@ section.testing-page .item-qa {
   border-top: 1px solid #BDBDBD;
 }
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .pricing-page .box-header h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .pricing-page .box-header p {
+    font-size: 18px;
+  }
+  .pricing-page .box-nav-tab {
+    margin-bottom: 30px;
+  }
+  .pricing-page .item-pricing {
+    margin-bottom: 50px;
+  }
+  .pricing-page .col-md-8:nth-child(2) .item-pricing {
+    margin-bottom: 80px;
+  }
+  .pricing-page .box-table-option, .pricing-page .description-business {
+    display: none;
+  }
+  .pricing-page .section-faq h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  .pricing-page .section-faq .box-question .item-question h3 {
+    padding-right: 30px;
+  }
+}
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .pricing-page .box-nav-tab {
+    margin-bottom: 15px;
+  }
+  .pricing-page .box-nav-tab .nav-item {
+    width: calc(50% - 15px);
+  }
+  .pricing-page .box-nav-tab .nav-item .nav-link {
+    width: 100%;
+    padding: 10px 7px;
+  }
+  .pricing-page .tab-pane {
+    margin-bottom: 0;
+  }
+  .pricing-page .section-faq {
+    margin-top: 50px;
+  }
+}
 .blog-comment #disqus_thread {
   margin-bottom: 30px;
 }
@@ -13755,6 +13916,49 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 2px solid #8DC63F;
   display: inline-block;
   margin-top: 10px;
+}
+
+.box-spin-to-win .modal-body .title-spin-to-win {
+  font-size: 36px;
+}
+.box-spin-to-win .modal-body .lottery-img {
+  position: absolute;
+  left: -180px;
+  top: calc(50% - 125px);
+}
+.box-spin-to-win .form-spin-to-win {
+  margin-bottom: 50px;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+  padding: 15px;
+  width: 80%;
+  font-size: 18px;
+  border: none;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper .gform_body {
+  text-align: center;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper .gform_footer {
+  text-align: center;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper .gform_footer input.button, .box-spin-to-win .form-spin-to-win .gform_wrapper .gform_footer input[type=submit] {
+  width: 80%;
+  margin: 0;
+  background: #8DC63F;
+  border-radius: 3px;
+  padding: 15px;
+  font-weight: bold;
+  color: #fff;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+  max-width: 100% !important;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper ul.gform_fields li.gfield {
+  padding-right: 0;
+}
+.box-spin-to-win .form-spin-to-win .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description {
+  text-align: left;
+  padding-left: 9%;
 }
 
 /* 	================================================================
