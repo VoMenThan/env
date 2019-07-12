@@ -442,6 +442,8 @@ if ($total_vote_star == 0){
         <!-- /*============END SUBCRIBE HOME=================*/ -->
 
     </section>
+
+    <?php require_once "inc/popup-discovery.php";?>
 </main>
 
 <script type="text/javascript">

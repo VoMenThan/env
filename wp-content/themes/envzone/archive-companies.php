@@ -204,6 +204,8 @@ get_header();
         </div>
 
     </section>
+
+    <?php require_once "inc/popup-discovery.php";?>
 </main>
 <script>
     $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');

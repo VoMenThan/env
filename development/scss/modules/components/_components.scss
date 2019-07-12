@@ -255,13 +255,13 @@ h1, h2, h3, h4, h5, h6{
 	&.bg-blue>h1{
 		left: 50%;
 		top: 50%;
-		@include translate(-555px, -50%);
+		@include translate(-585px, -50%);
 		max-width: 500px;
 	}
 	&.bg-blue>h2{
 		left: 50%;
 		top: 50%;
-		@include translate(-555px, -50%);
+		@include translate(-585px, -50%);
 	}
 }
 
@@ -626,7 +626,8 @@ h1, h2, h3, h4, h5, h6{
 		}
 		.info-stable-business{
 			.description{
-				width: 70%;
+				width: 100%;
+				max-width: 770px;
 				margin: auto;
 				margin-bottom: 50px;
 			}

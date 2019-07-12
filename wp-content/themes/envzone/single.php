@@ -308,6 +308,7 @@ get_header();
 
                 <div class="col-lg-4 sidebar-advert no-print">
 
+                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
                     <div class="box-analaze-blog d-lg-block d-none">
                         <div class="title-sub">
                             Find a Verified Team to Build Your Software
@@ -329,7 +330,25 @@ get_header();
                             ?>
                         </div>
                     </div>
+                    <?php else:?>
+                    <div class="box-analaze-blog d-lg-block d-none">
+                            <div class="title-sub">
+                                Get a Dedicated Online Presence Manager
+                            </div>
 
+                            <p>
+                                Hey, I’am <?php echo get_the_author_meta('display_name', $post->post_author);?>. I love small business. My job is  to help small business owners overcome the challenges in this digital era.
+                            </p>
+                            <p>My only question is, will you let me?</p>
+                            <div class="analyze-form">
+                                <?php
+                                echo do_shortcode('[gravityform id=26 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    <?php endif;?>
+
+                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
                     <div class="box-free-ebook d-lg-block d-none">
                         <div class="title-free-book">
                             Free eBooks
@@ -382,7 +401,9 @@ get_header();
                         </div>
                         <?php endforeach;?>
                     </div>
+                    <?php endif;?>
 
+                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
                     <div class="box-subscriber-blog d-lg-block d-none">
                         <div class="box-border">
                             <div class="title-sub">
@@ -395,6 +416,7 @@ get_header();
                             </div>
                         </div>
                     </div>
+                    <?php endif;?>
 
                     <div class="box-related-article no-print d-lg-block d-none">
                         <div class="title-article">
@@ -454,17 +476,48 @@ get_header();
 
                     </div>
 
-                    <div class="box-advert">
-                        <p>
-                            <span class="fz-big-green">80%</span> of outsourcing relationships fail due to responsiveness & communication factors
-                        </p>
-                        <div class="sub-title">
-                            Do Not Let Your Projects Go South!
+                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                        <div class="box-subscriber-blog d-lg-block d-none">
+                            <div class="box-border">
+                                <div class="title-sub">
+                                    Join Over 1,000 of Other Small Business Owners in United States Who Receive Insights and Updates to Improve Your Online Presence.
+                                </div>
+                                <div id="subscribe-small-business" class="form-subscribe">
+                                    <?php
+                                    echo do_shortcode('[gravityform id=27 title=false description=false ajax=false]');
+                                    ?>
+                                </div>
+                            </div>
                         </div>
-                        <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
-                            SEE OUR UNIQUE APPROACH FOR SUCCESS
-                        </a>
-                    </div>
+                    <?php endif;?>
+
+                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                        <div class="box-advert">
+                            <p>
+                                <span class="fz-big-green">90%</span>
+                                of small businesses fail to build online presence due to the lack of diverse support from in-house resources.
+                            </p>
+                            <div class="sub-title">
+                                Do Not Get Struggled!
+                            </div>
+                            <a href="<?php echo home_url("plans-and-pricing");?>" class="btn btn-green-env">
+                                GET A DEDICATED SITE MANAGER
+                            </a>
+                        </div>
+                    <?php else:?>
+                        <div class="box-advert">
+                            <p>
+                                <span class="fz-big-green">80%</span>
+                                of outsourcing relationships fail due to responsiveness & communication factors
+                            </p>
+                            <div class="sub-title">
+                                Do Not Let Your Projects Go South!
+                            </div>
+                            <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
+                                SEE OUR UNIQUE APPROACH FOR SUCCESS
+                            </a>
+                        </div>
+                    <?php endif;?>
 
                     <div class="list-archived-events">
                         <div class="title">ARCHIVES</div>
@@ -501,15 +554,28 @@ get_header();
                 <div class="container content-subcribe">
                     <div class="row">
                         <div class="col-12 box-head-subcribe text-center">
-                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                            <p>
-                                Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
-                            </p>
-                            <div class="form-subscribe">
-                                <?php
-                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                ?>
-                            </div>
+                            <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                                <h2>SUBSCRIBE FOR THREE TIPS</h2>
+                                <p>
+                                    Three tips or links to improve small business presence every week. <br>
+                                    P.S.: This is your “University” to solve small business challenges.
+                                </p>
+                                <div class="form-subscribe">
+                                    <?php
+                                        echo do_shortcode('[gravityform id=27 title=false description=false ajax=false]');
+                                    ?>
+                                </div>
+                            <?php else:?>
+                                <h2>SUBSCRIBE FOR THREE THINGS</h2>
+                                <p>
+                                    Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
+                                </p>
+                                <div class="form-subscribe">
+                                    <?php
+                                    echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                    ?>
+                                </div>
+                            <?php endif;?>
                         </div>
                     </div>
 
@@ -730,6 +796,8 @@ get_header();
         });
 
         $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+
+        $(".box-subscriber-blog #subscribe-small-business .gform_button").val('SUBSCRIBE NOW');
 
         $(".box-analaze-blog .analyze-form #gform_submit_button_12").val('ANALYZE FOR CHANCE OF SUCCESS');
 

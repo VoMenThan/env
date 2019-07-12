@@ -2,7 +2,6 @@
     <section class="banner-top banner-company bg-blue">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
         <h1><?php echo get_the_title();?></h1>
-        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">
@@ -33,26 +32,32 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="row box-development-process">
-                <div class="col-12">
-                    <h2 class="title-head-blue title-top"><?php echo get_field('title_our_development_process', $post->ID);?></h2>
-                </div>
-                <div class="col-lg-4 order-lg-0 order-1 pb-3">
-                    <p>
-                        <?php echo get_field('description_our_development', $post->ID);?>
-                    </p>
-                </div>
-                <div class="col-lg-8 order-lg-1 order-0 pb-3">
-                    <img src="<?php echo get_field('image_our_development', $post->ID);?>" alt="" class="img-fluid">
-                </div>
-                <div class="col-lg-12 order-2">
-                    <a href="<?php echo get_field('url_button_implement', $post->ID);?>" class="btn btn-blue-env">
-                        <?php echo get_field('button_name_implement', $post->ID);?>
-                    </a>
+        <div class="container-fluid bg-gray-process">
+            <div class="container">
+                <div class="row box-development-process">
+                    <div class="col-12">
+                        <h2 class="title-head-blue title-top"><?php echo get_field('title_our_development_process', $post->ID);?></h2>
+                    </div>
+                    <div class="col-lg-4 order-lg-0 order-1 pb-3">
+                        <p>
+                            <?php echo get_field('description_our_development', $post->ID);?>
+                        </p>
+                    </div>
+                    <div class="col-lg-8 order-lg-1 order-0 pb-3">
+                        <img src="<?php echo get_field('image_our_development', $post->ID);?>" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-12 order-2">
+                        <a href="<?php echo get_field('url_button_implement', $post->ID);?>" class="btn btn-blue-env">
+                            <?php echo get_field('button_name_implement', $post->ID);?>
+                        </a>
+                    </div>
                 </div>
             </div>
+        </div>
 
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2 class="title-head-blue title-top">
@@ -150,7 +155,7 @@
                     <?php $list_development_process = get_field('list_development_process', $post->ID);
                     foreach ($list_development_process as $item):
                         ?>
-                        <div class="col-lg-3 col-md-6 col-sm-6 mb-lg-0 mb-4">
+                        <div class="col-lg-4 col-md-6 col-sm-6 mb-lg-0 mb-4">
                             <article class="item-discovery">
                                 <img src="<?php echo $item['icon'];?>" alt="">
                                 <h6><?php echo $item['title'];?></h6>

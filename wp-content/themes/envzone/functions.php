@@ -69,7 +69,7 @@ function mt_env_register_js(){
 	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
-	//wp_enqueue_script('mt_env_myrating', $jsUrl.'myrating.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_myrating', $jsUrl.'myrating.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_styles', $jsUrl.'styles.js', array(), '1.0', true);
 }
 
@@ -221,13 +221,15 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 
 
 /*AJAX SURVEY*/
-add_action('wp_ajax_contact_form', 'contact_form');
-add_action('wp_ajax_nopriv_contact_form', 'contact_form');
+add_action('wp_ajax_mt_contact_form', array('CVF_Posts', 'mt_contact_form'));
+add_action('wp_ajax_nopriv_mt_contact_form', array('CVF_Posts', 'mt_contact_form'));
 
-function contact_form()
-{
-    echo $_POST['rate'];
-    die();
+class CVF_Posts {
+    public static function mt_contact_form() {
+        update_field( 'rating_star', $_POST['star'], 22 );
+        echo $_POST['star'];
+        exit();
+    }
 }
 /*AJAX SURVEY END*/
 

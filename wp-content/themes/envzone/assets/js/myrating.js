@@ -4,25 +4,15 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
     });
 
     $('#form-rate-survey').submit(function(e){
-
         var data = {
-                action : 'contact_form',
-                rate : 'than'
+                'action': 'mt_contact_form',
+                'star': $("[name='rating_star']:checked").val()
             };
-        $.ajax({
-            type : "post",
-            url : misha_loadmore_params.ajaxurl,
-            data : data,
-            beforeSend: function(){
 
-            },
-            success: function(response) {
-                $('#display-post').html(response);
-            },
-            error: function(){
-                console.log( 'error');
-            }
+        $.post(misha_loadmore_params.ajaxurl, data, function(response) {
+            alert(response);
         });
+        return false;
     });
 
 });

@@ -1,0 +1,90 @@
+.help-page{
+    padding-top: 0 !important;
+}
+.section-help{
+    *{
+        font-family: $font-roboto;
+    }
+    .content-help{
+        h1, h2, h3, h4, h5{
+            color: #333333;
+            font-weight: 500;
+            line-height: 150%;
+        }
+        h1{
+            font-size: 42px;
+            margin-bottom: 30px;
+
+        }
+        h2{
+            font-size: 32px;
+            padding-top: 40px;
+            padding-bottom: 15px;
+        }
+        h3{
+            font-size: 24px;
+            font-weight: normal;
+            padding-top: 30px;
+            padding-bottom: 15px;
+        }
+        h4, h5, h6{
+            font-size: 22px;
+            font-weight: normal;
+            padding-top: 20px;
+            padding-bottom: 15px;
+        }
+        p{
+            font-size: 18px;
+        }
+        .link-post{
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+    }
+    .box-comment{
+        margin-top: 100px;
+    }
+
+    .box-section-article{
+        .title-article{
+            font-size: 18px;
+            color: #4F4F4F;
+            padding: 15px 0;
+            border-top: 1px solid #BDBDBD;
+        }
+        .list-section{
+            border-bottom: 1px solid #BDBDBD;
+            .item-article{
+                >span{
+                    padding: 15px 0;
+                    border-top: 1px solid #BDBDBD;
+                    display: block;
+                }
+            }
+            .sublist-section{
+                .item-article{
+                    >span{
+                        padding: 15px 0;
+                        border-top: 1px solid #BDBDBD;
+                        display: block;
+                        padding-left: 30px;
+                        padding-right: 15px;
+                    }
+                }
+            }
+        }
+        .box-technical-support{
+            margin-top: 150px;
+            .title-technical{
+                font-size: 18px;
+                color: #4F4F4F;
+                padding: 15px 0;
+                border-top: 3px solid #1A1A1A;
+            }
+            .contact-support{
+                margin-top: 30px;
+                display: inline-block;
+            }
+        }
+    }
+}

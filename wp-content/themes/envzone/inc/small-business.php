@@ -40,34 +40,57 @@
                         </p>
                     </div>
                 </div>
+            </div>
+            <div id="accordion" class="row">
                 <div class="col-lg-4 item-build text-center">
-                    <img src="<?php echo ASSET_URL;?>images/icon-like-green.png" alt="">
-                    <h3>Easy to set up and manage</h3>
-                    <ul>
-                        <li>No setup fees</li>
-                        <li>Remain focused on your business operation and intended results without getting stuck in the “how” or “who”</li>
-                        <li>Get a business cloud account and all-in-one collaboration portal</li>
-                        <li>High-quality service and 24/7 support.</li>
-                    </ul>
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo ASSET_URL;?>images/icon-like-green.png" alt="">
+                        <h3>Easy to set up and manage</h3>
+                        <span class="icon-arrow-bottom-gray" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></span>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="content-expanded">
+                            <ul>
+                                <li>No setup fees</li>
+                                <li>Remain focused on your business operation and intended results without getting stuck in the “how” or “who”</li>
+                                <li>Get a business cloud account and all-in-one collaboration portal</li>
+                                <li>High-quality service and 24/7 support.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4 item-build text-center">
-                    <img src="<?php echo ASSET_URL;?>images/icon-investment-green.png" alt="">
-                    <h3>Savings you can count on</h3>
-                    <ul>
-                        <li>Save 50% or more compared to hiring local resources</li>
-                        <li>Hassel-free dealing of lengthy contract negotiations with normal agency solutions</li>
-                        <li>One manager for all your online operation.</li>
-                    </ul>
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo ASSET_URL;?>images/icon-investment-green.png" alt="">
+                        <h3>Savings you can count on</h3>
+                        <span class="icon-arrow-bottom-gray" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></span>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="content-expanded">
+                            <ul>
+                                <li>Save 50% or more compared to hiring local resources</li>
+                                <li>Hassel-free dealing of lengthy contract negotiations with normal agency solutions</li>
+                                <li>One manager for all your online operation.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4 item-build text-center">
-                    <img src="<?php echo ASSET_URL;?>images/icon-grows-green.png" alt="">
-                    <h3>Grows with you</h3>
-                    <ul>
-                        <li>Completely customize your requirements and goals to align with your business setting,</li>
-                        <li>Periodically performance benchmark and improve as you grow.</li>
-                        <li>Add features as you expand.</li>
-                        <li>Functionality to fit every business size.</li>
-                    </ul>
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo ASSET_URL;?>images/icon-grows-green.png" alt="">
+                        <h3>Grows with you</h3>
+                        <span class="icon-arrow-bottom-gray" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></span>
+                    </div>
+                    <div id="collapseThree" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="content-expanded">
+                            <ul>
+                                <li>Completely customize your requirements and goals to align with your business setting,</li>
+                                <li>Periodically performance benchmark and improve as you grow.</li>
+                                <li>Add features as you expand.</li>
+                                <li>Functionality to fit every business size.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-12 text-center box-button">
                     <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">SEE PLAN DETAILS</a>
@@ -172,4 +195,23 @@
     </section>
 
     <?php require_once "popup-spin-to-win.php";?>
+
+    <script>
+        $(document).ready(function(){
+            var width = $(window).width();
+            if (width <= 768) {
+                $('#collapseOne, #collapseTwo, #collapseThree').collapse('hide');
+            }else {
+                $('#collapseOne, #collapseTwo, #collapseThree').collapse('show');
+            }
+        });
+        $(window).on('resize', function(){
+            var win = $(this); //this = window
+            if (win.width() <= 768) {
+                $('#collapseOne,#collapseTwo, #collapseThree').collapse('hide');
+            }else {
+                $('#collapseOne,#collapseTwo, #collapseThree').collapse('show');
+            }
+        });
+    </script>
 </main>

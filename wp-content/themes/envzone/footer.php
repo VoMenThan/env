@@ -214,7 +214,7 @@
         </div>
     </div>
 
-    <div id="popup-satisfaction-servey" class="box-satisfaction-survey section-companies-homepage d-none">
+    <div id="popup-satisfaction-servey" class="box-satisfaction-survey section-companies-homepage">
         <div id="display-post"></div>
         <div id="close-survey-form" class="btn-close-form">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -226,15 +226,15 @@
         <form id="form-rate-survey" action="" method="POST">
             <div class="box-rating resize clearfix">
                 <div class="rate">
-                    <input type="radio" id="rate-star5" name="rate" class="rate" value="5"/>
+                    <input type="radio" id="rate-star5" name="rating_star" class="rate rating_star" value="5"/>
                     <label for="rate-star5" title="5 stars">5 stars</label>
-                    <input type="radio" id="rate-star4" name="rate" class="rate" value="4"/>
+                    <input type="radio" id="rate-star4" name="rating_star" class="rate rating_star" value="4"/>
                     <label for="rate-star4" title="4 star">4 stars</label>
-                    <input type="radio" id="rate-star3" name="rate" class="rate" value="3"/>
+                    <input type="radio" id="rate-star3" name="rating_star" class="rate rating_star" value="3"/>
                     <label for="rate-star3" title="3 stars">3 stars</label>
-                    <input type="radio" id="rate-star2" name="rate" class="rate" value="2"/>
+                    <input type="radio" id="rate-star2" name="rating_star" class="rate rating_star" value="2"/>
                     <label for="rate-star2" title="2 stars">2 stars</label>
-                    <input type="radio" id="rate-star1" name="rate" class="rate" value="1"/>
+                    <input type="radio" id="rate-star1" name="rating_star" class="rate rating_star" value="1"/>
                     <label for="rate-star1" title="1 star">1 star</label>
                 </div>
             </div>

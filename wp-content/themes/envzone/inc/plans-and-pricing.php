@@ -128,9 +128,42 @@
                                                 <span class="info"></span>
 
                                             </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
+                                            <td>
+                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0)">
+                                                        <path d="M39.9649 15.4496C39.8804 15.1904 39.6563 15.0014 39.3864 14.962L26.4342 13.0797L20.6419 1.34325C20.5216 1.09838 20.2724 0.943726 20.0004 0.943726C19.7283 0.943726 19.4784 1.09838 19.3588 1.34325L13.5658 13.0804L0.613596 14.9627C0.343669 15.0021 0.120282 15.1904 0.0350794 15.4503C-0.048691 15.7088 0.0207597 15.9938 0.216224 16.1835L9.5892 25.3195L7.37609 38.2201C7.33026 38.4886 7.44053 38.76 7.66033 38.9203C7.88157 39.0822 8.17441 39.1029 8.41427 38.9748L20.0004 32.8846L31.585 38.9748C31.6895 39.0299 31.8048 39.0571 31.9187 39.0571C32.0669 39.0571 32.2144 39.0113 32.3397 38.9203C32.5602 38.76 32.6704 38.4886 32.6239 38.2201L30.4115 25.3202L39.7845 16.1835C39.9792 15.9923 40.0494 15.7081 39.9649 15.4496Z" fill="#0D3153"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0">
+                                                            <rect width="40" height="40" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </td>
+                                            <td>
+                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0)">
+                                                        <path d="M39.9649 15.4496C39.8804 15.1904 39.6563 15.0014 39.3864 14.962L26.4342 13.0797L20.6419 1.34325C20.5216 1.09838 20.2724 0.943726 20.0004 0.943726C19.7283 0.943726 19.4784 1.09838 19.3588 1.34325L13.5658 13.0804L0.613596 14.9627C0.343669 15.0021 0.120282 15.1904 0.0350794 15.4503C-0.048691 15.7088 0.0207597 15.9938 0.216224 16.1835L9.5892 25.3195L7.37609 38.2201C7.33026 38.4886 7.44053 38.76 7.66033 38.9203C7.88157 39.0822 8.17441 39.1029 8.41427 38.9748L20.0004 32.8846L31.585 38.9748C31.6895 39.0299 31.8048 39.0571 31.9187 39.0571C32.0669 39.0571 32.2144 39.0113 32.3397 38.9203C32.5602 38.76 32.6704 38.4886 32.6239 38.2201L30.4115 25.3202L39.7845 16.1835C39.9792 15.9923 40.0494 15.7081 39.9649 15.4496Z" fill="#0D3153"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0">
+                                                            <rect width="40" height="40" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </td>
+                                            <td>
+                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0)">
+                                                        <path d="M39.9649 15.4496C39.8804 15.1904 39.6563 15.0014 39.3864 14.962L26.4342 13.0797L20.6419 1.34325C20.5216 1.09838 20.2724 0.943726 20.0004 0.943726C19.7283 0.943726 19.4784 1.09838 19.3588 1.34325L13.5658 13.0804L0.613596 14.9627C0.343669 15.0021 0.120282 15.1904 0.0350794 15.4503C-0.048691 15.7088 0.0207597 15.9938 0.216224 16.1835L9.5892 25.3195L7.37609 38.2201C7.33026 38.4886 7.44053 38.76 7.66033 38.9203C7.88157 39.0822 8.17441 39.1029 8.41427 38.9748L20.0004 32.8846L31.585 38.9748C31.6895 39.0299 31.8048 39.0571 31.9187 39.0571C32.0669 39.0571 32.2144 39.0113 32.3397 38.9203C32.5602 38.76 32.6704 38.4886 32.6239 38.2201L30.4115 25.3202L39.7845 16.1835C39.9792 15.9923 40.0494 15.7081 39.9649 15.4496Z" fill="#0D3153"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0">
+                                                            <rect width="40" height="40" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </td>
                                         </tr>
                                         <tr class="blue">
                                             <td>
@@ -550,9 +583,42 @@
                                                 <span class="info"></span>
 
                                             </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
+                                            <td>
+                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0)">
+                                                        <path d="M39.9649 15.4496C39.8804 15.1904 39.6563 15.0014 39.3864 14.962L26.4342 13.0797L20.6419 1.34325C20.5216 1.09838 20.2724 0.943726 20.0004 0.943726C19.7283 0.943726 19.4784 1.09838 19.3588 1.34325L13.5658 13.0804L0.613596 14.9627C0.343669 15.0021 0.120282 15.1904 0.0350794 15.4503C-0.048691 15.7088 0.0207597 15.9938 0.216224 16.1835L9.5892 25.3195L7.37609 38.2201C7.33026 38.4886 7.44053 38.76 7.66033 38.9203C7.88157 39.0822 8.17441 39.1029 8.41427 38.9748L20.0004 32.8846L31.585 38.9748C31.6895 39.0299 31.8048 39.0571 31.9187 39.0571C32.0669 39.0571 32.2144 39.0113 32.3397 38.9203C32.5602 38.76 32.6704 38.4886 32.6239 38.2201L30.4115 25.3202L39.7845 16.1835C39.9792 15.9923 40.0494 15.7081 39.9649 15.4496Z" fill="#0D3153"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0">
+                                                            <rect width="40" height="40" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </td>
+                                            <td>
+                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0)">
+                                                        <path d="M39.9649 15.4496C39.8804 15.1904 39.6563 15.0014 39.3864 14.962L26.4342 13.0797L20.6419 1.34325C20.5216 1.09838 20.2724 0.943726 20.0004 0.943726C19.7283 0.943726 19.4784 1.09838 19.3588 1.34325L13.5658 13.0804L0.613596 14.9627C0.343669 15.0021 0.120282 15.1904 0.0350794 15.4503C-0.048691 15.7088 0.0207597 15.9938 0.216224 16.1835L9.5892 25.3195L7.37609 38.2201C7.33026 38.4886 7.44053 38.76 7.66033 38.9203C7.88157 39.0822 8.17441 39.1029 8.41427 38.9748L20.0004 32.8846L31.585 38.9748C31.6895 39.0299 31.8048 39.0571 31.9187 39.0571C32.0669 39.0571 32.2144 39.0113 32.3397 38.9203C32.5602 38.76 32.6704 38.4886 32.6239 38.2201L30.4115 25.3202L39.7845 16.1835C39.9792 15.9923 40.0494 15.7081 39.9649 15.4496Z" fill="#0D3153"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0">
+                                                            <rect width="40" height="40" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </td>
+                                            <td>
+                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0)">
+                                                        <path d="M39.9649 15.4496C39.8804 15.1904 39.6563 15.0014 39.3864 14.962L26.4342 13.0797L20.6419 1.34325C20.5216 1.09838 20.2724 0.943726 20.0004 0.943726C19.7283 0.943726 19.4784 1.09838 19.3588 1.34325L13.5658 13.0804L0.613596 14.9627C0.343669 15.0021 0.120282 15.1904 0.0350794 15.4503C-0.048691 15.7088 0.0207597 15.9938 0.216224 16.1835L9.5892 25.3195L7.37609 38.2201C7.33026 38.4886 7.44053 38.76 7.66033 38.9203C7.88157 39.0822 8.17441 39.1029 8.41427 38.9748L20.0004 32.8846L31.585 38.9748C31.6895 39.0299 31.8048 39.0571 31.9187 39.0571C32.0669 39.0571 32.2144 39.0113 32.3397 38.9203C32.5602 38.76 32.6704 38.4886 32.6239 38.2201L30.4115 25.3202L39.7845 16.1835C39.9792 15.9923 40.0494 15.7081 39.9649 15.4496Z" fill="#0D3153"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0">
+                                                            <rect width="40" height="40" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </td>
                                         </tr>
                                         <tr class="blue">
                                             <td>
@@ -913,10 +979,22 @@
                             <div class="item-question">
                                 <div class="question">
                                     <h3 class="mb-0" data-toggle="collapse" data-target="#questionTwo" aria-expanded="false" aria-controls="questionTwo">
-                                        What happens after I sign up? How do I get support?
+                                        What payment method can I use from the account dashboard?
                                     </h3>
                                 </div>
                                 <div id="questionTwo" class="collapse" data-parent="#accordion">
+                                    <div class="box-answer">
+                                        When you receive an activation email from our portal for your business, you will be able to pay for subscription with a variety of payment methods including: Paypal, Venmo, Visa, Mastercard, Discover, American Express, Apple Pay, Google Pay, ACH.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-question">
+                                <div class="question">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionThree" aria-expanded="false" aria-controls="questionThree">
+                                        What happens after I sign up? How do I get support?
+                                    </h3>
+                                </div>
+                                <div id="questionThree" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
                                         When you sign up your credit card is charged for the first month's support time you purchased and you receive access to your Envzone Account Dashboard. You can immediately submit your support requests via a form on your Account Dashboard, email us directly support@envzone.com, or call us at 720-606-2900. If you email or use the form, a member of the team will typically reply with an hour during business hours.
                                     </div>
@@ -924,11 +1002,11 @@
                             </div>
                             <div class="item-question">
                                 <div class="question">
-                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionThree" aria-expanded="false" aria-controls="questionThree">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionFour" aria-expanded="false" aria-controls="questionFour">
                                         How do I cancel? What is your refund policy?
                                     </h3>
                                 </div>
-                                <div id="questionThree" class="collapse" data-parent="#accordion">
+                                <div id="questionFour" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
                                         Email info@envzone.com or call 720-606-2900 at any time to cancel. For refunds, if you are not completely satisfied with the service you receive in your first 30 days as a customer, please let us know and we will refund your complete purchase. Past 30 days, we do not refund previously purchased hours. That time remain yours to use as long as you have an active subscription.
                                     </div>
@@ -936,24 +1014,23 @@
                             </div>
                             <div class="item-question">
                                 <div class="question">
-                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionFour" aria-expanded="false" aria-controls="questionFour">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionFive" aria-expanded="false" aria-controls="questionFive">
                                         Which plan is right for me?
                                     </h3>
                                 </div>
-                                <div id="questionFour" class="collapse" data-parent="#accordion">
+                                <div id="questionFive" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
-                                        It depends with the level of support you need. We offer flexible pricing to accommodate most situations. Do you have one or two changes a month, plus regular upkeep? 1 hour is likely a good fit. Running a store or have weekly updates? 3-5 hours is typical. Ready to make significant changes? Give us a call and we'll help scope it out. We also have
-                                        a list of 130+ common tasks we do along with time estimates for each.
+                                        It depends with the level of support you need. We offer flexible pricing to accommodate most situations. Do you have one or two changes a month, plus regular upkeep? Growing-business is likely a good fit. Running a store or have weekly updates? Main-street plan is typical. Ready to make significant changes? Give us a call and we'll help scope it out. We also have a list of 130+ common tasks we do along with time estimates for each.
                                     </div>
                                 </div>
                             </div>
                             <div class="item-question">
                                 <div class="question">
-                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionFive" aria-expanded="false" aria-controls="questionFive">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionSix" aria-expanded="false" aria-controls="questionSix">
                                         Do you work with agencies, or handle more than one website per customer?
                                     </h3>
                                 </div>
-                                <div id="questionFive" class="collapse" data-parent="#accordion">
+                                <div id="questionSix" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
                                         Yes and yes! Contact us to learn more about how we can accommodate multiple approved requesters, separate client budgets, and useful tools we provide to give your clients a full-service experience.
                                     </div>
@@ -961,11 +1038,11 @@
                             </div>
                             <div class="item-question">
                                 <div class="question">
-                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionSix" aria-expanded="false" aria-controls="questionSix">
+                                    <h3 class="mb-0" data-toggle="collapse" data-target="#questionSeven" aria-expanded="false" aria-controls="questionSeven">
                                         What happens if something breaks during a change?
                                     </h3>
                                 </div>
-                                <div id="questionSix" class="collapse" data-parent="#accordion">
+                                <div id="questionSeven" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
                                         We immediately roll-back to the backup we created right before the change, then diagnose what went wrong. To avoid this issue, we test most changes on a staging copy of your site hidden from the public prior to doing them on your live website.
                                     </div>
@@ -979,7 +1056,7 @@
         </div>
     </section>
 
-    <?php require_once "popup-services.php";?>
+    <?php require_once "popup-spin-to-win.php";?>
 </main>
 
 <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/assets/js/popper.min.js"></script>
