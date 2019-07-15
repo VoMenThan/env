@@ -36,43 +36,59 @@
         p{
             font-size: 18px;
         }
+        ul{
+            margin-bottom: 10px;
+            margin-left: 35px;
+            li{
+                list-style-type: inherit;
+                margin-bottom: 5px;
+            }
+        }
         .link-post{
-            padding-bottom: 15px;
+            margin-bottom: 15px;
             display: inline-block;
+            color: $color-blue-lv4;
+            cursor: pointer;
         }
     }
     .box-comment{
         margin-top: 100px;
     }
-
     .box-section-article{
         .title-article{
             font-size: 18px;
             color: #4F4F4F;
             padding: 15px 0;
             border-top: 1px solid #BDBDBD;
+            border-bottom: 1px solid #BDBDBD;
         }
         .list-section{
-            border-bottom: 1px solid #BDBDBD;
-            .item-article{
-                >span{
-                    padding: 15px 0;
-                    border-top: 1px solid #BDBDBD;
-                    display: block;
+            >li{
+                display: block;
+                border-bottom: 1px solid #BDBDBD;
+                a{
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    display: inline-block;
                 }
             }
             .sublist-section{
-                .item-article{
-                    >span{
-                        padding: 15px 0;
-                        border-top: 1px solid #BDBDBD;
-                        display: block;
-                        padding-left: 30px;
-                        padding-right: 15px;
+                >li{
+                    padding: 15px 0;
+                    border-top: 1px solid #BDBDBD;
+                    display: block;
+                    padding-left: 30px;
+                    padding-right: 15px;
+                    a{
+                        margin: 0;
                     }
                 }
             }
+            .active{
+                font-weight: bold;
+            }
         }
+
         .box-technical-support{
             margin-top: 150px;
             .title-technical{

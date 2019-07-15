@@ -1020,7 +1020,8 @@
                                 </div>
                                 <div id="questionFive" class="collapse" data-parent="#accordion">
                                     <div class="box-answer">
-                                        It depends with the level of support you need. We offer flexible pricing to accommodate most situations. Do you have one or two changes a month, plus regular upkeep? Growing-business is likely a good fit. Running a store or have weekly updates? Main-street plan is typical. Ready to make significant changes? Give us a call and we'll help scope it out. We also have a list of 130+ common tasks we do along with time estimates for each.
+                                        It depends with the level of support you need. We offer flexible pricing to accommodate most situations. Do you have one or two changes a month, plus regular upkeep? Growing-business is likely a good fit. Running a store or have weekly updates? Main-street plan is typical. Ready to make significant changes? Give us a call and we'll help scope it out. We also have
+                                        <a href="https://www.envzone.com/help/support-tasks-catalog/">a list of 130+ common tasks</a> we do along with time estimates for each.
                                     </div>
                                 </div>
                             </div>

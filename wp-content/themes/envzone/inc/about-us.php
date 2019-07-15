@@ -156,7 +156,7 @@
                             Now, it’s time to find your team.
                         </h2>
                         <div class="get-started-form">
-                            <?php echo do_shortcode('[gravityform id="19" title="false" description="false"]'); ?>
+                            <?php echo do_shortcode('[gravityform id="12" title="false" description="false"]'); ?>
                         </div>
                     </div>
                 </div>

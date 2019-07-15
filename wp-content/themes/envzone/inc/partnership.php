@@ -17,60 +17,79 @@
         </div>
     </div>
     <section class="artical-page partnership-page">
-        <div class="container">
 
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-12 box-header">
-                    <h2 class="title-head-blue text-center title-top"><?php echo get_field('title_provide_partnership', $post->ID);?></h2>
+        <div class="container section-corporate-partners">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="title-head-blue">
+                        Corporate partners
+                    </h2>
                     <p>
-                        <?php echo get_field('description_provide_partnership', $post->ID);?>
+                        As a corporate partner, you will have access to the benefits from our channel partner program including resources from our pool of IT and software development expert partners. EnvZone works closely with a number of software development providers, across various industries, hence giving them the option to expand their service capabilities.
                     </p>
                 </div>
-
-                <div class="col-lg-12 info-partnership clearfix d-sm-block d-flex flex-nowrap flex-column">
-                    <div class="box-info order-2 order-sm-1">
-                        <?php echo get_field('content_partnership_channel', $post->ID);?>
-                    </div>
-                    <div class="box-title order-sm-2 order-1 d-flex justify-content-center align-items-center">
-                        <h2>
-                            <?php echo get_field('title_partnership_channel', $post->ID);?>
-                        </h2>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 col-12 box-header text-lg-center">
-                    <h2 class="title-head-blue title-top mt-5"><?php echo get_field('title_this_program', $post->ID);?></h2>
-                </div>
-
-                <div class="col-12 box-two-col clearfix">
-                    <div class="box-green">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                        <h4>
-                            <?php echo get_field('title_support_you', $post->ID);?>
-                        </h4>
-                        <p>
-                            <?php echo get_field('description_support_you', $post->ID);?>
-                        </p>
-                    </div>
-                    <div class="box-blue">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                        <h4>
-                            <?php echo get_field('title_always_open', $post->ID);?>
-                        </h4>
-                        <p>
-                            <?php echo get_field('description_always_open', $post->ID);?>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 text-center py-5">
-                    <p class="description-sign-me-up"><?php echo get_field('title_button_sign_me_up', $post->ID);?></p>
-                    <a href="<?php echo get_field('url_sign_me_up', $post->ID);?>" class="btn btn-green-env">
-                        <?php echo get_field('button_name_sign_me_up', $post->ID);?>
-                    </a>
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid" src="<?php echo ASSET_URL?>images/img-network-green.png" alt="">
                 </div>
             </div>
         </div>
+
+        <div class="container-fluid section-what-you-get">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                        <img class="img-fluid" src="<?php echo ASSET_URL?>images/img-diagram-green.png" alt="">
+                    </div>
+                    <div class="col-lg-8">
+                        <h2 class="title-head-blue">
+                            What you get
+                        </h2>
+                        <ul>
+                            <li>
+                                Ability to expand your business capability
+                            </li>
+                            <li>
+                                Collaborate with you and your customers on your behalf
+                            </li>
+                            <li>
+                                Ability to extend your services to solve bigger customer needs
+                            </li>
+                            <li>
+                                Access to EnvZone developer and integration resources with competitive pricing
+                            </li>
+                            <li>
+                                Access to a dedicated business and partner support team
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container section-become-partners">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="title-head-blue">
+                        Become a coporate partner
+                    </h2>
+                    <p>
+                        If you’re a sofware services company, you’ll love partnering with EnvZone. Once you complete the steps to become a partner, you’ll get access to the program’s many benefits. Including a dedicated account manager, support resources, and free advisor tools. Let’s get started!
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center box-form-process">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-progress-bar-subscription.png" alt="">
+                    <div class="box-form-have-title">
+                        <div class="title">Tell us about yourself.</div>
+                        <div class="get-started-form">
+                            <?php echo do_shortcode('[gravityform id="28" title="false" description="false" ajax="true"]'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="box-why-business">
