@@ -8460,6 +8460,21 @@ section.testing-page .item-qa {
 
 .small-business-page {
   padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+.small-business-page .section-top-customer {
+  background: #F2F2F2;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-bottom: 140px;
+}
+.small-business-page .section-top-customer h3 {
+  font-size: 18px;
+  color: #808080;
+  margin-bottom: 30px;
+}
+.small-business-page .section-top-customer img {
+  padding-bottom: 30px;
 }
 .small-business-page .box-header {
   width: 80%;
@@ -8635,6 +8650,13 @@ section.testing-page .item-qa {
     margin-bottom: 20px;
   }
 
+  .small-business-page .section-top-customer {
+    margin-bottom: 100px;
+  }
+  .small-business-page .section-top-customer img {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .small-business-page .box-header {
     width: 100%;
   }
@@ -10403,7 +10425,7 @@ section.testing-page .item-qa {
   padding: 15px;
   background: #E0E0E0;
 }
-.blog-author-page .information-author img {
+.blog-author-page .information-author img.avatar-author {
   width: 30%;
   float: left;
   margin-right: 15px;
@@ -10441,13 +10463,18 @@ section.testing-page .item-qa {
 .blog-author-page .information-author .box-info .description {
   color: #4F4F4F;
 }
-.blog-author-page .information-author .box-info .follow-author {
+.blog-author-page .information-author .box-info .certification-author {
   font-weight: bold;
-  text-align: right;
+  font-size: 20px;
+  line-height: 23px;
+  color: #191919;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
-.blog-author-page .information-author .box-info .follow-author a {
-  color: #0D3153;
-  cursor: pointer;
+.blog-author-page .information-author .box-info .list-certification .item-certification {
+  width: 14.2%;
+  text-align: center;
+  margin-bottom: 30px;
 }
 .blog-author-page .title-post-by-author {
   font-weight: bold;
@@ -10496,12 +10523,12 @@ section.testing-page .item-qa {
   margin-top: 30px;
 }
 .blog-author-page .box-head-other-author .other-author {
-  font-size: 2.215rem;
+  font-size: 32px;
   font-weight: bold;
-  color: #0D3153;
+  color: #4F4F4F;
 }
 .blog-author-page .item-author {
-  padding: 10px 0;
+  padding: 20px 0;
 }
 .blog-author-page .item-author img {
   width: 30%;
@@ -10515,8 +10542,11 @@ section.testing-page .item-qa {
 .blog-author-page .item-author .author-name {
   padding-left: calc(30% + 15px);
   padding-top: 30px;
-  font-size: 1.5rem;
-  color: #0D3153;
+}
+.blog-author-page .item-author .author-name a {
+  font-size: 26px;
+  color: #000000;
+  font-weight: 600;
 }
 .blog-author-page .list-trend-author .info-news h2 {
   font-size: 1.2rem;
@@ -10544,6 +10574,13 @@ section.testing-page .item-qa {
   max-width: 100% !important;
   text-align: left;
 }
+.blog-author-page .item-busy-collarating {
+  background: #F2F2F2;
+  padding: 30px;
+}
+.blog-author-page .item-busy-collarating svg {
+  margin-bottom: 20px;
+}
 
 /* 	================================================================
 	TABLET DEVICE
@@ -10556,6 +10593,12 @@ section.testing-page .item-qa {
     color: #4F4F4F;
     font-weight: bold;
   }
+  .blog-author-page .information-author {
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
   .blog-author-page .information-author .box-info .author-name {
     font-size: 24px;
     font-weight: bold;
@@ -10566,6 +10609,9 @@ section.testing-page .item-qa {
   }
   .blog-author-page .information-author .box-info .position {
     font-size: 16px;
+  }
+  .blog-author-page .information-author .box-info .list-certification .item-certification {
+    width: 20%;
   }
   .blog-author-page .title-post-by-author {
     font-size: 22px;
@@ -10579,6 +10625,24 @@ section.testing-page .item-qa {
   }
   .blog-author-page .title-post-by-author:after {
     display: none;
+  }
+}
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .blog-author-page .information-author .box-info .list-certification .item-certification {
+    width: 25%;
+  }
+}
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: 320px) {
+  .blog-author-page .information-author .box-info .list-certification .item-certification {
+    width: 33%;
   }
 }
 .blog-events-page {

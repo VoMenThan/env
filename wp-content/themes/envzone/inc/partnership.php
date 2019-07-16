@@ -79,7 +79,7 @@
             </div>
             <div class="row justify-content-center box-form-process">
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-progress-bar-subscription.png" alt="">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-progress-bar-subscription-partnership.png" alt="">
                     <div class="box-form-have-title">
                         <div class="title">Tell us about yourself.</div>
                         <div class="get-started-form">

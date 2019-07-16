@@ -30,6 +30,27 @@
         </div>
     </section>
     <section class="artical-page service-page small-business-page">
+        <div class="container-fluid section-top-customer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Trusted by hundreds of small businesses</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="top-customers justify-content-around d-flex flex-wrap">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-mcelhanney.png" alt="McElhanney">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-garver-alt.png" alt="Garver">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-cha-web2019.png" alt="Cha">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-burns-mcdonnel.png" alt="Burn MCDonNell">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-bohannan-huston.png" alt="Bohannan Huston">
+                        <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-harris-associates.png" alt="Harris Associates">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

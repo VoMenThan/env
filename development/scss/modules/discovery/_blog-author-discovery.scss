@@ -8,7 +8,7 @@
     margin-bottom: 30px;
     padding: 15px;
     background: #E0E0E0;
-    img{
+    img.avatar-author{
       width: 30%;
       float: left;
       margin-right: 15px;
@@ -43,13 +43,19 @@
       .description{
         color: #4F4F4F;
       }
-      .follow-author{
+      .certification-author{
         font-weight: bold;
-        text-align: right;
-        a{
-          color: $color-blue-logo;
-          cursor: pointer;
-
+        font-size: 20px;
+        line-height: 23px;
+        color: #191919;
+        margin-bottom: 20px;
+        margin-top: 40px;
+      }
+      .list-certification{
+        .item-certification{
+          width: 14.2%;
+          text-align: center;
+          margin-bottom: 30px;
         }
       }
     }
@@ -103,14 +109,14 @@
   .box-head-other-author{
     margin-top: 30px;
   	.other-author{
-  		font-size: 2.215rem;
+      font-size: 32px;
       font-weight: bold;
-  		color: $color-blue-lv3;
+      color: #4F4F4F;
   	}
   }
 
   .item-author{
-    padding: 10px 0;
+    padding: 20px 0;
     img{
       width: 30%;
       float: left;
@@ -119,8 +125,11 @@
     .author-name{
       padding-left: calc(30% + 15px);
       padding-top: 30px;
-      font-size: 1.5rem;
-      color: $color-blue-lv3;
+      a{
+        font-size: 26px;
+        color: #000000;
+        font-weight: 600;
+      }
     }
   }
 
@@ -168,6 +177,13 @@
     }
   }
 
+  .item-busy-collarating{
+    background: #F2F2F2;
+    padding: 30px;
+    svg{
+      margin-bottom: 20px;
+    }
+  }
 }
 
 /* 	================================================================
@@ -183,6 +199,8 @@
       font-weight: bold;
     }
     .information-author {
+      background: #FFFFFF;
+      @include shadow-out(0px, 4px, 4px, rgba(0, 0, 0, 0.25));
       .box-info {
         .author-name{
           font-size: 24px;
@@ -194,6 +212,11 @@
         }
         .position{
           font-size: 16px;
+        }
+        .list-certification {
+          .item-certification {
+            width: 20%;
+          }
         }
       }
     }
@@ -208,6 +231,42 @@
       margin-top: 0;
       &:after{
         display: none;
+      }
+    }
+  }
+}
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .blog-author-page {
+    .information-author {
+      .box-info {
+        .list-certification {
+          .item-certification {
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 320px and down (<320px)
+	================================================================== */
+@media screen and (max-width: 320px) {
+  .blog-author-page {
+    .information-author {
+      .box-info {
+        .list-certification {
+          .item-certification {
+            width: 33%;
+          }
+        }
       }
     }
   }
