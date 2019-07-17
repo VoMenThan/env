@@ -37,7 +37,7 @@
                     <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-represent-us.png" alt="">
                 </div>
                 <div class="col-lg-5">
-                    <div class="get-started-form d-lg-block d-none">
+                    <div class="get-started-form">
                         <div class="title-form">Talk to the team.</div>
                         <?php
                             echo do_shortcode('[gravityform id="19" title="false" description="false"]');
@@ -51,13 +51,15 @@
         <div class="container-fluid section-think-boundlessly">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 box-head-about-us">
+                    <div class="col-lg-4 col-6 box-head-about-us">
                         <h2>
                             THINK Boundlessly WORK Purposely LIVE Passionately
                         </h2>
                     </div>
-                    <div class="col-lg-8 text-center box-things-you-love">
+                    <div class="col-lg-8 col-6 text-center box-things-you-love">
                         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-target-green.png" alt="">
+                    </div>
+                    <div class="col-lg-8 offset-lg-4 text-center">
                         <p>
                             Do the THINGS you love and matter. Our teams are there and yours to support.
                         </p>
@@ -88,7 +90,7 @@
             </div>
 
             <div class="row box-vision">
-                <div class="col-lg-6">
+                <div class="col-lg-6 order-lg-0 order-1">
                     <div class="item-vision">
                         <h2>OUR MISSION</h2>
                         <p>
@@ -103,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 justify-content-center align-items-center d-flex">
+                <div class="col-lg-6 order-lg-1 order-0 justify-content-center align-items-center d-flex">
                     <img class="img-fluid" src="<?php echo ASSET_URL?>images/img-our-mission-green.png" alt="">
                 </div>
 
@@ -192,25 +194,25 @@
         <div class="container-fluid section-careers-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-sm-6 col-12">
                         <a href="<?php echo home_url('contact-us');?>" class="item-contact-us">
                             <div class="note-tag">Get In Touch</div>
                             <h3>Contact Us</h3>
                         </a>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-sm-6 col-12">
                         <a href="<?php echo home_url('careers');?>" class="item-contact-us">
                             <div class="note-tag">Our Culture</div>
                             <h3>Careers</h3>
                         </a>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-sm-6 col-12">
                         <a href="<?php echo home_url('partnership');?>" class="item-contact-us">
                             <div class="note-tag">Work with Us</div>
                             <h3>Join our Partnership</h3>
                         </a>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-sm-6 col-12">
                         <a href="<?php echo home_url('get-media-coverage');?>" class="item-contact-us">
                             <div class="note-tag">Share Your  Insights</div>
                             <h3>Join Featured Interviews</h3>

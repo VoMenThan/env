@@ -186,6 +186,22 @@
   }
 }
 
+.tooltip-inner {
+  background-color: $color-blue-lv4 !important;
+}
+.tooltip.bs-tooltip-right .arrow:before {
+  border-top-color: $color-blue-lv4 !important;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+  border-top-color: $color-blue-lv4 !important;
+}
+.tooltip.bs-tooltip-bottom .arrow:before {
+  border-top-color: $color-blue-lv4 !important;
+}
+.tooltip.bs-tooltip-top .arrow:before {
+  border-top-color: $color-blue-lv4 !important;
+}
+
 /* 	================================================================
 	TABLET DEVICE
 	Large tablet 768px and down (<768px)

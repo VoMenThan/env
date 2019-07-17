@@ -125,7 +125,50 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
   .partnership-page {
-
+    p{
+      font-size: 18px;
+    }
+    ul{
+      li{
+        font-size: 18px;
+      }
+    }
+    .section-corporate-partners{
+      padding-top: 50px;
+      padding-bottom: 50px;
+      img.mb-center{
+        margin: auto;
+        margin-bottom: 50px;
+      }
+    }
+    .section-what-you-get{
+      padding-bottom: 50px;
+      padding-top: 50px;
+      img.mb-center{
+        margin: auto;
+        margin-bottom: 50px;
+      }
+    }
+    .section-become-partners {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      .title-head-blue{
+        margin-bottom: 0;
+      }
+      .box-form-process{
+        margin-top: 50px;
+      }
+      .box-form-have-title {
+        .get-started-form{
+          padding: 10px;
+          .gform_wrapper {
+            input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]){
+              padding: 10px 15px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

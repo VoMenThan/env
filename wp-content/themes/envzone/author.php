@@ -69,7 +69,7 @@ get_header();?>
                                         foreach ($list_certification as $item):
                                 ?>
                                 <li class="item-certification nav-item">
-                                    <img class="img-fluid" src="<?php echo $item['image_certification'];?>" alt="">
+                                    <img class="img-fluid" src="<?php echo $item['image_certification']['url'];?>" alt="" data-toggle="tooltip" data-placement="top" title="<?php echo $item['image_certification']['title'];?>">
                                 </li>
                                 <?php
                                         endforeach;
@@ -143,7 +143,7 @@ get_header();?>
                             </defs>
                         </svg>
                         <p>
-                            Than Vo is busy collaborating with other team members. Stay tuned for surprises!
+                            <?php echo $authorName;?> is busy collaborating with other team members. Stay tuned for surprises!
                         </p>
                     </article>
                     <?php }
@@ -180,7 +180,6 @@ get_header();?>
                         foreach ($users as $user):
                             $id = $user->ID;
                             if ($user->ID==$author_id) continue;
-                            if ($id == 7 || $id == 8 || $id == 9 || $id == 1) continue;
                         ?>
                         <div class="item-author clearfix">
                             <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['thumbnail'];?>" alt="" class="img-fluid">
@@ -228,5 +227,8 @@ get_header();?>
 </main>
 <script>
     $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 <?php get_footer()?>

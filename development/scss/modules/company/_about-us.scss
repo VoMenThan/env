@@ -454,7 +454,99 @@
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.about-us-page {
+		.box-head-about-us {
+			h2{
+				font-size: 24px;
+				padding-bottom: 40px;
+			}
+			p{
+				font-size: 18px;
+			}
+		}
+		.section-represent{
+			padding-top: 40px;
+			padding-bottom: 40px;
+			img{
+				margin-top: 100px;
+			}
+		}
+		.section-find-your-team{
+			padding-top: 80px;
+			padding-bottom: 80px;
+			.get-started-form{
+				padding-top: 40px;
+				padding-bottom: 100px;
+			}
+		}
 
+		.section-think-boundlessly{
+			padding-top: 80px;
+			padding-bottom: 100px;
+		}
+		.section-mission-vision{
+			padding-top: 100px;
+			padding-bottom: 100px;
+			.box-vision{
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
+			.item-vision{
+				margin-top: 80px;
+				padding: 35px 25px;
+			}
+		}
+		.section-headquarters{
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+		.section-video-knowledge{
+			padding-top: 160px;
+			padding-bottom: 100px;
+		}
+		.section-find-your-team {
+			h2{
+				font-size: 24px;
+			}
+		}
+		.section-more-about-envzone {
+			.item-about-envzone{
+				margin-bottom: 50px;
+			}
+			h2{
+				font-size: 24px;
+				margin-bottom: 50px;
+			}
+		}
+		.section-careers-footer{
+			padding-top: 100px;
+			padding-bottom: 100px;
+			.item-contact-us {
+				margin-bottom: 100px;
+				height: calc(100% - 100px);
+				.note-tag{
+					font-size: 18px;
+				}
+				h3{
+					font-size: 24px;
+				}
+			}
+		}
+		.get-started-form {
+			.gform_wrapper {
+				ul.gform_fields {
+					li.gfield{
+						float: none;
+						margin-bottom: 30px !important;
+						@include radius(5px);
+					}
+				}
+				input.button,
+				input[type=submit]{
+					position: static;
+					@include radius(5px);
+				}
+			}
+		}
 	}
 
 
@@ -523,7 +615,14 @@
 	================================================================== */
 @media screen and (max-width: $device-size-mobile) {
 	.about-us-page {
-
+		.section-careers-footer {
+			.box-item-contact-us{
+				margin-bottom: 0;
+			}
+			.item-contact-us{
+				margin-bottom: 100px;
+			}
+		}
 	}
 	.box-why-business {
 		padding: 50px 0;

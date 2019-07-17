@@ -24,12 +24,13 @@
                     <h2 class="title-head-blue">
                         Corporate partners
                     </h2>
+                    <img class="img-fluid d-lg-none d-block mb-center" src="<?php echo ASSET_URL?>images/img-network-green.png" alt="">
                     <p>
                         As a corporate partner, you will have access to the benefits from our channel partner program including resources from our pool of IT and software development expert partners. EnvZone works closely with a number of software development providers, across various industries, hence giving them the option to expand their service capabilities.
                     </p>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <img class="img-fluid" src="<?php echo ASSET_URL?>images/img-network-green.png" alt="">
+                    <img class="img-fluid d-none d-lg-block" src="<?php echo ASSET_URL?>images/img-network-green.png" alt="">
                 </div>
             </div>
         </div>
@@ -38,12 +39,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                        <img class="img-fluid" src="<?php echo ASSET_URL?>images/img-diagram-green.png" alt="">
+                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL?>images/img-diagram-green.png" alt="">
                     </div>
                     <div class="col-lg-8">
                         <h2 class="title-head-blue">
                             What you get
                         </h2>
+                        <img class="img-fluid d-lg-none d-block mb-center" src="<?php echo ASSET_URL?>images/img-diagram-green.png" alt="">
                         <ul>
                             <li>
                                 Ability to expand your business capability

@@ -5302,6 +5302,95 @@ footer .btn-back-to-top .icon-arrow-down-green {
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) {
+  .about-us-page .box-head-about-us h2 {
+    font-size: 24px;
+    padding-bottom: 40px;
+  }
+  .about-us-page .box-head-about-us p {
+    font-size: 18px;
+  }
+  .about-us-page .section-represent {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .about-us-page .section-represent img {
+    margin-top: 100px;
+  }
+  .about-us-page .section-find-your-team {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .about-us-page .section-find-your-team .get-started-form {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+  .about-us-page .section-think-boundlessly {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+  .about-us-page .section-mission-vision {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .about-us-page .section-mission-vision .box-vision {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .about-us-page .section-mission-vision .item-vision {
+    margin-top: 80px;
+    padding: 35px 25px;
+  }
+  .about-us-page .section-headquarters {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .about-us-page .section-video-knowledge {
+    padding-top: 160px;
+    padding-bottom: 100px;
+  }
+  .about-us-page .section-find-your-team h2 {
+    font-size: 24px;
+  }
+  .about-us-page .section-more-about-envzone .item-about-envzone {
+    margin-bottom: 50px;
+  }
+  .about-us-page .section-more-about-envzone h2 {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+  .about-us-page .section-careers-footer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .about-us-page .section-careers-footer .item-contact-us {
+    margin-bottom: 100px;
+    height: calc(100% - 100px);
+  }
+  .about-us-page .section-careers-footer .item-contact-us .note-tag {
+    font-size: 18px;
+  }
+  .about-us-page .section-careers-footer .item-contact-us h3 {
+    font-size: 24px;
+  }
+  .about-us-page .get-started-form .gform_wrapper ul.gform_fields li.gfield {
+    float: none;
+    margin-bottom: 30px !important;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .about-us-page .get-started-form .gform_wrapper input.button,
+.about-us-page .get-started-form .gform_wrapper input[type=submit] {
+    position: static;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+
   .box-why-business h2 {
     font-size: 28px;
     text-align: center;
@@ -5349,6 +5438,13 @@ footer .btn-back-to-top .icon-arrow-down-green {
 	Large mobile 425px and down (<425px)
 	================================================================== */
 @media screen and (max-width: 425px) {
+  .about-us-page .section-careers-footer .box-item-contact-us {
+    margin-bottom: 0;
+  }
+  .about-us-page .section-careers-footer .item-contact-us {
+    margin-bottom: 100px;
+  }
+
   .box-why-business {
     padding: 50px 0;
     background: #0D3153;
@@ -6449,6 +6545,46 @@ footer .btn-back-to-top .icon-arrow-down-green {
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
+@media screen and (max-width: 768px) {
+  .partnership-page p {
+    font-size: 18px;
+  }
+  .partnership-page ul li {
+    font-size: 18px;
+  }
+  .partnership-page .section-corporate-partners {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .partnership-page .section-corporate-partners img.mb-center {
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  .partnership-page .section-what-you-get {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  .partnership-page .section-what-you-get img.mb-center {
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  .partnership-page .section-become-partners {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .partnership-page .section-become-partners .title-head-blue {
+    margin-bottom: 0;
+  }
+  .partnership-page .section-become-partners .box-form-process {
+    margin-top: 50px;
+  }
+  .partnership-page .section-become-partners .box-form-have-title .get-started-form {
+    padding: 10px;
+  }
+  .partnership-page .section-become-partners .box-form-have-title .get-started-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+    padding: 10px 15px;
+  }
+}
 /* 	================================================================
 	SMALL DEVICE
 	Large tablet 576px and up (>576px and <768px)
@@ -10580,6 +10716,26 @@ section.testing-page .item-qa {
 }
 .blog-author-page .item-busy-collarating svg {
   margin-bottom: 20px;
+}
+
+.tooltip-inner {
+  background-color: #45678A !important;
+}
+
+.tooltip.bs-tooltip-right .arrow:before {
+  border-top-color: #45678A !important;
+}
+
+.tooltip.bs-tooltip-left .arrow:before {
+  border-top-color: #45678A !important;
+}
+
+.tooltip.bs-tooltip-bottom .arrow:before {
+  border-top-color: #45678A !important;
+}
+
+.tooltip.bs-tooltip-top .arrow:before {
+  border-top-color: #45678A !important;
 }
 
 /* 	================================================================

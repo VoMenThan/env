@@ -65,7 +65,8 @@ function mt_env_register_js(){
 	wp_deregister_script('jquery');
     wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '1.0', true);
     wp_enqueue_script('jquery');
-	wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
+    wp_enqueue_script('mt_env_popper', $jsUrl.'popper.min.js', array(), '1.0', true);
+    wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_owl_carousel', $jsUrl.'owl.carousel.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_matchheight', $jsUrl.'jquery.matchHeight-min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
@@ -92,7 +93,7 @@ function mt_env_register_style(){
 
 /*ADD GOOGLE SCRIPT FOOTER*/
 //add_action('wp_footer', 'mt_theme_script_code_google');
-function mt_theme_script_code_google(){
+/*function mt_theme_script_code_google(){
 
     echo '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
@@ -117,7 +118,7 @@ function mt_theme_script_code_google(){
         }
     </script>
 </amp-analytics>';
-}
+}*/
 /*ADD GOOGLE SCRIPT FOOTER END*/
 
 //add_filter('show_admin_bar', '__return_false');
