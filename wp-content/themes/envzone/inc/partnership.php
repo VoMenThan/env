@@ -22,15 +22,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h2 class="title-head-blue">
-                        Corporate partners
+                        <?php echo get_field('title_corporate_partners', $post->ID);?>
                     </h2>
-                    <img class="img-fluid d-lg-none d-block mb-center" src="<?php echo ASSET_URL?>images/img-network-green.png" alt="">
-                    <p>
-                        As a corporate partner, you will have access to the benefits from our channel partner program including resources from our pool of IT and software development expert partners. EnvZone works closely with a number of software development providers, across various industries, hence giving them the option to expand their service capabilities.
-                    </p>
+                    <img class="img-fluid d-lg-none d-block mb-center" src="<?php echo get_field('image_corporate_partners', $post->ID);?>" alt="">
+                    <?php echo get_field('description_corporate_partners', $post->ID);?>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <img class="img-fluid d-none d-lg-block" src="<?php echo ASSET_URL?>images/img-network-green.png" alt="">
+                    <img class="img-fluid d-none d-lg-block" src="<?php echo get_field('image_corporate_partners', $post->ID);?>" alt="">
                 </div>
             </div>
         </div>
@@ -39,30 +37,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL?>images/img-diagram-green.png" alt="">
+                        <img class="img-fluid d-lg-block d-none" src="<?php echo get_field('image_what_you_get', $post->ID);?>" alt="">
                     </div>
                     <div class="col-lg-8">
                         <h2 class="title-head-blue">
-                            What you get
+                            <?php echo get_field('title_what_you_get', $post->ID);?>
                         </h2>
-                        <img class="img-fluid d-lg-none d-block mb-center" src="<?php echo ASSET_URL?>images/img-diagram-green.png" alt="">
-                        <ul>
-                            <li>
-                                Ability to expand your business capability
-                            </li>
-                            <li>
-                                Collaborate with you and your customers on your behalf
-                            </li>
-                            <li>
-                                Ability to extend your services to solve bigger customer needs
-                            </li>
-                            <li>
-                                Access to EnvZone developer and integration resources with competitive pricing
-                            </li>
-                            <li>
-                                Access to a dedicated business and partner support team
-                            </li>
-                        </ul>
+                        <img class="img-fluid d-lg-none d-block mb-center" src="<?php echo get_field('image_what_you_get', $post->ID);?>" alt="">
+                        <?php echo get_field('description_what_you_get', $post->ID);?>
                     </div>
                 </div>
             </div>
@@ -72,10 +54,10 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h2 class="title-head-blue">
-                        Become a coporate partner
+                        <?php echo get_field('title_become_a_corporate_partner', $post->ID);?>
                     </h2>
                     <p>
-                        If you’re a sofware services company, you’ll love partnering with EnvZone. Once you complete the steps to become a partner, you’ll get access to the program’s many benefits. Including a dedicated account manager, support resources, and free advisor tools. Let’s get started!
+                        <?php echo get_field('description_become_a_corporate_partner', $post->ID);?>
                     </p>
                 </div>
             </div>
@@ -91,59 +73,6 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="box-why-business">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 text-lg-center text-left">
-                        <h2>
-                            <?php echo get_field('title_reasons', $post->ID)?>
-                        </h2>
-                        <div class="description-business">
-                            <?php echo get_field('description_reasons', $post->ID)?>
-                        </div>
-                    </div>
-
-                    <?php
-                    $list_reasons = get_field('list_reasons', $post->ID);
-                    foreach ($list_reasons as $item):
-                        ?>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-lg-0 mb-3">
-                            <div class="item-reason">
-                                <i class="fa fa-check-circle"></i>
-                                <p>
-                                    <?php echo $item['reason'];?>
-                                </p>
-                            </div>
-                        </div>
-                    <?php endforeach;?>
-
-                    <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
-                        <div class="box-dedicated">
-                            <h4><?php echo get_field('teams_title', $post->ID)?></h4>
-                            <p>
-                                <?php echo get_field('teams_description', $post->ID)?>
-                            </p>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-5 col-md-6 mb-lg-0 mb-3">
-                        <div class="box-dedicated">
-                            <h4><?php echo get_field('talent_title', $post->ID)?></h4>
-                            <p>
-                                <?php echo get_field('talent_description', $post->ID)?>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <a  <?php echo (get_field('button_direct', $post->ID) == '')? 'onclick="Calendly.showPopupWidget(\'https://calendly.com/envzone/discovery-session\');return false;"': 'href="'.get_field('button_direct', $post->ID).'"';?> class="btn btn-white-env"><?php echo get_field('button_name', $post->ID)?></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php require_once "subscribe.php";?>
 
         <?php require_once "popup-company.php";?>
     </section>

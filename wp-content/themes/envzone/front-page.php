@@ -313,26 +313,30 @@
     <!-- /*============END BLOG HOME=================*/ -->
 
     <!--SECTION YOUR ORGANIZATION-->
-
+    <?php $thrive_and_grow = get_field('thrive_and_grow', $post->ID);?>
     <div class="container section-organization">
         <div class="row">
             <div class="col-lg-12 box-head-organization">
                 <h2 class="title-head-blue title-organization">
-                    We’re here to help you thrive and grow
+                    <?php echo $thrive_and_grow['title'];?>
                 </h2>
                 <p>
-                    What best describes your organization
+                    <?php echo $thrive_and_grow['description'];?>
                 </p>
             </div>
             <div class="col-lg-6">
                 <div class="box-item-organization box-business">
                     <div class="item-organization item-small-business">
-                        <img src="<?php echo ASSET_URL;?>images/icon-small-business-plans-green.png" alt="">
-                        <h3>Small Business</h3>
+                        <img src="<?php echo $thrive_and_grow['icon_small_business'];?>" alt="">
+                        <h3><?php echo $thrive_and_grow['title_small_business'];?></h3>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <a href="<?php echo home_url('small-business');?>" class="btn btn-blue-env">LEARN MORE</a>
-                        <a href="<?php echo home_url('plans-and-pricing');?>" class="btn btn-blue-env">SEE PRICING</a>
+                        <a href="<?php echo $thrive_and_grow['url_learn_more'];?>" class="btn btn-blue-env">
+                            <?php echo $thrive_and_grow['button_name_learn_more'];?>
+                        </a>
+                        <a href="<?php echo $thrive_and_grow['url_see_pricing'];?>" class="btn btn-blue-env">
+                            <?php echo $thrive_and_grow['button_name_see_pricing'];?>
+                        </a>
                     </div>
 
                 </div>
@@ -340,10 +344,12 @@
             <div class="col-lg-6">
                 <div class="box-item-organization box-startups">
                     <div class="item-organization item-enterprises">
-                        <img src="<?php echo ASSET_URL;?>images/icon-enterprises-startups-green.png" alt="">
-                        <h3>Enterprises & Startups</h3>
+                        <img src="<?php echo $thrive_and_grow['icon_emterprise'];?>" alt="">
+                        <h3><?php echo $thrive_and_grow['title_enterprises'];?></h3>
                     </div>
-                    <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">GET A VERIFIED TEAM</a>
+                    <a href="<?php echo $thrive_and_grow['url_verified_team'];?>" class="btn btn-blue-env">
+                        <?php echo $thrive_and_grow['button_name_verified_team'];?>
+                    </a>
                 </div>
             </div>
         </div>
