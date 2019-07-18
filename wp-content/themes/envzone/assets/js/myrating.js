@@ -1,18 +1,21 @@
-jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" error
-    $('#form-rate-survey label').click(function () {
-        $('#form-rate-survey').submit();
-    });
+$(document).ready(function(){
+    $("#form-overall-rating label").click(function(e){
+        var labelDisable = $(this).hasClass('nohover');
 
-    $('#form-rate-survey').submit(function(e){
-        var data = {
-                'action': 'mt_contact_form',
-                'star': $("[name='rating_star']:checked").val()
+        if (labelDisable === false) {
+            var labelID;
+            labelID = $(this).attr('for');
+            var radioValue = $('#' + labelID).attr("checked", "checked").val();
+            var data = {
+                'action': 'mt_help_rating_form',
+                'rating_star': radioValue
             };
-
-        $.post(misha_loadmore_params.ajaxurl, data, function(response) {
-            alert(response);
-        });
-        return false;
+            $.post(misha_loadmore_params.ajaxurl, data, function (response) {
+                $('#form-overall-rating input, #form-overall-rating label').addClass('nohover');
+                $('#form-overall-rating input').prop("disabled", true);
+                $('.box-average-star').html(response);
+            });
+        }
     });
 
 });

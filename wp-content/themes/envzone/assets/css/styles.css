@@ -16392,6 +16392,85 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .help-page {
   padding-top: 0 !important;
 }
+.help-page .box-rating {
+  display: inline-block;
+  height: 35px;
+  margin: 10px 0;
+}
+.help-page .box-rating .rate {
+  float: left;
+  height: 35px;
+  padding: 0;
+}
+.help-page .box-rating .rate:not(:checked) > input {
+  display: none;
+}
+.help-page .box-rating .rate:not(:checked) > label {
+  float: right;
+  width: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #ccc;
+  margin-right: 10px;
+}
+.help-page .box-rating .rate:not(:checked) > label:before {
+  content: "";
+  display: inline-block;
+  background: url("../images/icon-rating-star.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 35px;
+  height: 35px;
+}
+.help-page .box-rating .rate > input:checked ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.help-page .box-rating .rate:not(:checked) > label:not(.nohover):hover:before,
+.help-page .box-rating .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.help-page .box-rating .rate > input:checked + label:not(.nohover):hover:before,
+.help-page .box-rating .rate > input:checked + label:not(.nohover):hover ~ label:before,
+.help-page .box-rating .rate > input:checked ~ label:not(.nohover):hover:before,
+.help-page .box-rating .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+.help-page .box-rating .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.help-page .box-rating .rate label.nohover:hover {
+  cursor: auto !important;
+}
+.help-page .box-overall-rating {
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: 3px solid #1A1A1A;
+}
+.help-page .box-overall-rating .title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 150%;
+  text-align: center;
+  color: #808080;
+  margin-bottom: 15px;
+}
+.help-page .box-overall-rating .box-average-star {
+  font-size: 14px;
+  line-height: 150%;
+  align-items: center;
+  color: #808080;
+}
+.help-page .box-overall-rating .question {
+  font-size: 18px;
+  line-height: 150%;
+  color: #808080;
+  margin-top: 50px;
+}
+.help-page .description-rating {
+  font-size: 14px;
+}
 
 .section-help * {
   font-family: "Roboto", sans-serif;

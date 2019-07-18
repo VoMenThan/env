@@ -1,5 +1,90 @@
 .help-page{
     padding-top: 0 !important;
+    .box-rating{
+        display: inline-block;
+        height: 35px;
+        margin: 10px 0;
+
+        .rate {
+            float: left;
+            height: 35px;
+            padding: 0;
+
+        }
+        .rate:not(:checked) > input {
+            display: none;
+        }
+        .rate:not(:checked) > label {
+            float:right;
+            width:35px;
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            color:#ccc;
+            margin-right: 10px;
+        }
+        .rate:not(:checked) > label:before {
+            content: '';
+            display: inline-block;
+            background: url("../images/icon-rating-star.svg") no-repeat;
+            background-size: 100% 100%;
+            width: 35px;
+            height: 35px;
+        }
+        .rate > input:checked ~ label:before {
+            background: url("../images/icon-rated-star.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .rate:not(:checked) > label:not(.nohover):hover:before,
+        .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
+            background: url("../images/icon-rated-star.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .rate > input:checked + label:not(.nohover):hover:before,
+        .rate > input:checked + label:not(.nohover):hover ~ label:before,
+        .rate > input:checked ~ label:not(.nohover):hover:before,
+        .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+        .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
+            background: url("../images/icon-rated-star.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .rate{
+            label.nohover:hover{
+                cursor: auto !important;
+            }
+        }
+    }
+    .box-overall-rating{
+        text-align: center;
+        padding-top: 40px;
+        margin-top: 40px;
+        border-top: 3px solid #1A1A1A;
+        .title{
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 150%;
+            text-align: center;
+            color: #808080;
+            margin-bottom: 15px;
+        }
+        .box-average-star{
+            font-size: 14px;
+            line-height: 150%;
+            align-items: center;
+            color: #808080;
+        }
+        .question{
+            font-size: 18px;
+            line-height: 150%;
+            color: #808080;
+            margin-top: 50px;
+        }
+    }
+    .description-rating{
+        font-size: 14px;
+    }
+
 }
 .section-help{
     *{

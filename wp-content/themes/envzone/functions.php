@@ -93,7 +93,7 @@ function mt_env_register_style(){
 
 /*ADD GOOGLE SCRIPT FOOTER*/
 //add_action('wp_footer', 'mt_theme_script_code_google');
-/*function mt_theme_script_code_google(){
+function mt_theme_script_code_google(){
 
     echo '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>
 <script>
@@ -118,7 +118,7 @@ function mt_env_register_style(){
         }
     </script>
 </amp-analytics>';
-}*/
+}
 /*ADD GOOGLE SCRIPT FOOTER END*/
 
 //add_filter('show_admin_bar', '__return_false');
@@ -222,13 +222,38 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 
 
 /*AJAX SURVEY*/
-add_action('wp_ajax_mt_contact_form', array('CVF_Posts', 'mt_contact_form'));
-add_action('wp_ajax_nopriv_mt_contact_form', array('CVF_Posts', 'mt_contact_form'));
+add_action('wp_ajax_mt_help_rating_form', array('CVF_Posts', 'mt_help_rating_form'));
+add_action('wp_ajax_nopriv_mt_help_rating_form', array('CVF_Posts', 'mt_help_rating_form'));
 
 class CVF_Posts {
-    public static function mt_contact_form() {
-        update_field( 'rating_star', $_POST['star'], 22 );
-        echo $_POST['star'];
+    public static function mt_help_rating_form() {
+        $post_id = 7720;
+        $star = get_field('rating_star', $post_id);
+        $counting_star = get_field('counting_star', $post_id);
+        $counting_star++;
+        switch ($_POST['rating_star']):
+            case 1:
+                $star['1_star']++;
+                break;
+            case 2:
+                $star['2_stars']++;
+                break;
+            case 3:
+                $star['3_stars']++;
+                break;
+            case 4:
+                $star['4_stars']++;
+                break;
+            case 5:
+                $star['5_stars']++;
+                break;
+            default:
+                break;
+        endswitch;
+        update_field( 'rating_star', $star, $post_id );
+        update_field( 'counting_star', $counting_star, $post_id );
+        $average_rating = round(($star['1_star']*1 + $star['2_stars']*2 + $star['3_stars']*3 + $star['4_stars']*4 + $star['5_stars']*5)/$counting_star, 1);
+        echo '(Average rating '.$average_rating.'. Vote count: '.$counting_star.')';
         exit();
     }
 }
