@@ -1,3 +1,7 @@
+<?php
+/* Template Name: LEGALS - Comment policy*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top bg-blue">
         <h2><?php echo $post->post_title;?></h2>
@@ -41,3 +45,4 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 </main>
+<?php get_footer();?>

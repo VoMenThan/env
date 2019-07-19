@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SER - Small business*/
+get_header();
+?>
 <main class="main-content">
     <div class="container-fluid nav-small-business">
         <div class="container">
@@ -236,3 +240,4 @@
         });
     </script>
 </main>
+<?php get_footer();?>

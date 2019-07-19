@@ -49,7 +49,7 @@
         line-height: 23px;
         color: #191919;
         margin-bottom: 20px;
-        margin-top: 40px;
+        margin-top: 70px;
       }
       .list-certification{
         .item-certification{
@@ -148,12 +148,17 @@
   }
 
   .popup-hack-me{
-
+    background: #fff;
+    border: 1px solid #BDBDBD;
     #gform_wrapper_3 {
      li.hidden_label {
        input{
-         padding-top: 17px;
-         padding-bottom: 17px;
+         padding-top: 10px;
+         padding-bottom: 11px;
+         border: 1px solid #BDBDBD;
+         @include radius(3px);
+         font-size: 18px;
+         color: #191919;
        }
      }
       ul.gform_fields {
@@ -164,8 +169,9 @@
       .gform_footer {
         margin-top: 0;
         input{
-          padding-top: 21px;
-          padding-bottom: 21px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-size: 20px;
         }
       }
       li.gfield.gfield_error.gfield_contains_required {

@@ -1,3 +1,7 @@
+<?php
+/* Template Name: EXT - Employee portal*/
+get_header();
+?>
 <main class="main-content">
     <div class="nav-top-bar">
         <div class="container">
@@ -120,3 +124,4 @@
 
     </section>
 </main>
+<?php get_footer();?>

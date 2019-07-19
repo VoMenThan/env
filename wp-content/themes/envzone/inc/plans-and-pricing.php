@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SER - Plans and pricing*/
+get_header();
+?>
 <main class="main-content">
     <div class="container-fluid nav-small-business">
         <div class="container">
@@ -1066,3 +1070,4 @@
         $('[data-toggle="popover"]').popover();
     })
 </script>
+<?php get_footer();?>

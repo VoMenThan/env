@@ -1,5 +1,5 @@
 <!-- FOOTER -->
-<footer>
+<footer class="position-relative">
     <div class="container position-relative">
         <div class="row mb-lg-5 py-3">
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
@@ -104,14 +104,11 @@
                         <li><a href="<?php echo home_url('send-us-a-tip');?>">Send Us a Tip</a></li>
                         <li><a target="_blank" rel="nofollow" href="https://envzone.sharepoint.com/:b:/s/resources/Ea1i-8eshO5Bu5lyF4UPPlIBtq3e1Gokw6VUmweK07-IXQ?e=auyMTD">Media Kit</a></li>
                         <li><a href="<?php echo home_url('submit-a-press-release');?>">Submit a Press Release</a></li>
+                        <li><a href="<?php echo home_url('affiliate-program');?>">Become an Affiliate</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <a href="#header-top" class="btn-back-to-top">
-            <i class="icon-arrow-down-green"></i>
-        </a>
     </div>
 
     <div class="container-fluid social-mobile">
@@ -188,23 +185,23 @@
                 </div>
                 <div class="col-lg-8 pt-3">
                     <div class="box-policy text-center d-none-768">
-                        <a href="<?php echo get_home_url();?>/accessibility">Accessibility</a>
-                        <a href="<?php echo get_home_url();?>/terms-of-use">Terms of Use</a>
-                        <a href="<?php echo get_home_url();?>/privacy-policy">Privacy Policy</a>
-                        <a href="<?php echo get_home_url();?>/help">Help</a>
-                        <a href="<?php echo get_home_url();?>/sitemap">Site Map</a>
+                        <a href="<?php echo home_url('accessibility');?>">Accessibility</a>
+                        <a href="<?php echo home_url('terms-of-use')?>">Terms of Use</a>
+                        <a href="<?php echo home_url('privacy-policy')?>">Privacy Policy</a>
+                        <a href="<?php echo home_url('help')?>">Help</a>
+                        <a href="<?php echo home_url('sitemap')?>">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
                         <a href="<?php echo home_url('employee-portal');?>">Employee Portal</a>
-                        <a href="<?php echo get_home_url();?>/affiliate-program">Affiliate Program</a>
+                        <a href="<?php echo home_url('affiliate-program');?>">Affiliate Login</a>
                         <a href="<?php echo home_url('vendor-portal');?>">Vendor Portal</a>
                     </div>
 
                     <div class="box-term-policy-mb">
                         <p class="text-center"><a href="#">Full Site</a></p>
                         <p class="text-center box-term-policy">
-                            <a class="px-3" href="<?php echo get_home_url();?>/terms-of-use">Terms of Use</a>
-                            <a class="px-3" href="<?php echo get_home_url();?>/privacy-policy">Privacy Policy</a>
+                            <a class="px-3" href="<?php echo home_url('terms-of-use')?>">Terms of Use</a>
+                            <a class="px-3" href="<?php echo home_url('privacy-policy')?>">Privacy Policy</a>
                         </p>
                     </div>
 
@@ -250,11 +247,10 @@
             ?>
         </div>
     </div>
+    <a href="#header-top" class="btn-back-to-top">
+        <i class="icon-arrow-down-green"></i>
+    </a>
 </footer>
-
-
-
-
 <?php wp_footer();?>
 </body>
 </html>

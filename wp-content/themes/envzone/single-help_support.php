@@ -58,24 +58,26 @@ $full_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                                 <?php echo $post->post_content;?>
 
                                 <div class="box-overall-rating">
-                                    <div class="title">Overall Rating</div>
-                                    <form id="form-overall-rating" action="" method="POST">
-                                        <div class="box-rating resize clearfix">
-                                            <div class="rate">
-                                                <input type="radio" id="rate-star5" name="rating_star" class="rate rating_star" value="5"/>
-                                                <label for="rate-star5" title="5 stars">5 stars</label>
-                                                <input type="radio" id="rate-star4" name="rating_star" class="rate rating_star" value="4"/>
-                                                <label for="rate-star4" title="4 star">4 stars</label>
-                                                <input type="radio" id="rate-star3" name="rating_star" class="rate rating_star" value="3"/>
-                                                <label for="rate-star3" title="3 stars">3 stars</label>
-                                                <input type="radio" id="rate-star2" name="rating_star" class="rate rating_star" value="2"/>
-                                                <label for="rate-star2" title="2 stars">2 stars</label>
-                                                <input type="radio" id="rate-star1" name="rating_star" class="rate rating_star" value="1"/>
-                                                <label for="rate-star1" title="1 star">1 star</label>
+                                    <div class="box-border">
+                                        <div class="title">Overall Rating</div>
+                                        <form id="form-overall-rating" action="" method="POST">
+                                            <div class="box-rating resize clearfix">
+                                                <div class="rate">
+                                                    <input type="radio" id="rate-star5" name="rating_star" class="rate rating_star" value="5"/>
+                                                    <label for="rate-star5" title="5 stars">5 stars</label>
+                                                    <input type="radio" id="rate-star4" name="rating_star" class="rate rating_star" value="4"/>
+                                                    <label for="rate-star4" title="4 star">4 stars</label>
+                                                    <input type="radio" id="rate-star3" name="rating_star" class="rate rating_star" value="3"/>
+                                                    <label for="rate-star3" title="3 stars">3 stars</label>
+                                                    <input type="radio" id="rate-star2" name="rating_star" class="rate rating_star" value="2"/>
+                                                    <label for="rate-star2" title="2 stars">2 stars</label>
+                                                    <input type="radio" id="rate-star1" name="rating_star" class="rate rating_star" value="1"/>
+                                                    <label for="rate-star1" title="1 star">1 star</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
-                                    <div class="box-average-star"></div>
+                                        </form>
+                                        <div class="box-average-star"></div>
+                                    </div>
                                     <div class="question">
                                         Was this article helpful? Comment below if anything else we can do to improve our site?
                                     </div>

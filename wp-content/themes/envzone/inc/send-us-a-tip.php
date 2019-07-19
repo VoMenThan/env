@@ -1,3 +1,7 @@
+<?php
+/* Template Name: QUICK - Send us a tip*/
+get_header();
+?>
 <main class="main-content">
     <section class="artical-page contact-us-page quick-links-page">
         <div class="container">
@@ -41,3 +45,5 @@
     </section>
 
 </main>
+
+<?php get_footer();?>

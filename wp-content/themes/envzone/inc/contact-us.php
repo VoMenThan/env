@@ -1,3 +1,7 @@
+<?php
+/* Template Name: CPY - Contact Us*/
+get_header();
+?>
 <main class="main-content">
     <div class="container">
         <div class="row">
@@ -493,3 +497,5 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30dbRkg2p-cBX9ceyJlK2zg9Zm_h3Zj4&callback=initMap"
         async defer></script>
+
+<?php get_footer();?>

@@ -1,3 +1,7 @@
+<?php
+/* Template Name:  EXT - Buyer Guidelines*/
+get_header();
+?>
 <main class="main-content">
 
     <div class="nav-top-bar">
@@ -113,3 +117,4 @@
         <!-- /*============END SUBCRIBE HOME=================*/ -->
     </section>
 </main>
+<?php get_footer();?>

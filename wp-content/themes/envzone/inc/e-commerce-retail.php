@@ -1,6 +1,6 @@
 
 <?php
-/* Template Name: eCommerce and Retail*/
+/* Template Name: IND - eCommerce and Retail*/
 get_header();
 ?>
 <main class="main-content">

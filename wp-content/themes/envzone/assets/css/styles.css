@@ -4582,22 +4582,27 @@ footer .copyright-footer {
 }
 footer .btn-back-to-top {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   background: #45678A;
-  padding-top: 8px;
+  padding-top: 4px;
   text-align: center;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 25px;
+  right: 25px;
   z-index: 99;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 footer .btn-back-to-top:hover {
   background: #20466B;
 }
 footer .btn-back-to-top .icon-arrow-down-green {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background: url("../images/icon-arrow-top-green.svg") no-repeat center;
   display: inline-block;
   background-size: 100%;
@@ -10605,7 +10610,7 @@ section.testing-page .item-qa {
   line-height: 23px;
   color: #191919;
   margin-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 70px;
 }
 .blog-author-page .information-author .box-info .list-certification .item-certification {
   width: 14.2%;
@@ -10692,9 +10697,21 @@ section.testing-page .item-qa {
   font-size: 1.08rem;
   border-bottom: 10px;
 }
+.blog-author-page .popup-hack-me {
+  background: #fff;
+  border: 1px solid #BDBDBD;
+}
 .blog-author-page .popup-hack-me #gform_wrapper_3 li.hidden_label input {
-  padding-top: 17px;
-  padding-bottom: 17px;
+  padding-top: 10px;
+  padding-bottom: 11px;
+  border: 1px solid #BDBDBD;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 18px;
+  color: #191919;
 }
 .blog-author-page .popup-hack-me #gform_wrapper_3 ul.gform_fields li.gfield {
   max-width: 100% !important;
@@ -10703,8 +10720,9 @@ section.testing-page .item-qa {
   margin-top: 0;
 }
 .blog-author-page .popup-hack-me #gform_wrapper_3 .gform_footer input {
-  padding-top: 21px;
-  padding-bottom: 21px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
 }
 .blog-author-page .popup-hack-me #gform_wrapper_3 li.gfield.gfield_error.gfield_contains_required div.gfield_description {
   max-width: 100% !important;
@@ -16444,9 +16462,14 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 }
 .help-page .box-overall-rating {
   text-align: center;
-  padding-top: 40px;
-  margin-top: 40px;
+  padding-top: 30px;
+  margin-top: 30px;
   border-top: 3px solid #1A1A1A;
+}
+.help-page .box-overall-rating .box-border {
+  border: 1px solid #BDBDBD;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .help-page .box-overall-rating .title {
   font-weight: 500;
@@ -16466,7 +16489,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   font-size: 18px;
   line-height: 150%;
   color: #808080;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .help-page .description-rating {
   font-size: 14px;

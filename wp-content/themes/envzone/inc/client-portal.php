@@ -1,3 +1,7 @@
+<?php
+/* Template Name: EXT - Client portal*/
+get_header();
+?>
 <main class="main-content">
     <div class="nav-top-bar">
         <div class="container">
@@ -46,3 +50,4 @@
 
     </section>
 </main>
+<?php get_footer();?>

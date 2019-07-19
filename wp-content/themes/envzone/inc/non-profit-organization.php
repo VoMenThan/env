@@ -1,6 +1,6 @@
 
 <?php
-/* Template Name: NGOs*/
+/* Template Name: IND - NGOs*/
 get_header();
 ?>
 <main class="main-content">

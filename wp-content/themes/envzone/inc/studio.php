@@ -1,5 +1,5 @@
 <?php
-
+/* Template Name: DIS - Studio*/
 get_header();
 ?>
 

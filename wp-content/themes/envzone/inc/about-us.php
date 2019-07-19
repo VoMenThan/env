@@ -1,3 +1,7 @@
+<?php
+/* Template Name: CPY - About Us*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top banner-company bg-blue">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
@@ -182,3 +186,4 @@
         <?php require_once "popup-company.php";?>
     </section>
 </main>
+<?php get_footer();?>

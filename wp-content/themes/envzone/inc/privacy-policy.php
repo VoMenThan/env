@@ -1,3 +1,7 @@
+<?php
+/* Template Name: LEGALS - Privacy policy*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top bg-blue">
         <h2><?php echo $post->post_title;?></h2>
@@ -29,7 +33,7 @@
                         </p>
                         <div class="form-subscribe">
                             <?php
-                            echo do_shortcode('[gravityform id=10 title=false description=false ajax=false]');
+                                echo do_shortcode('[gravityform id=10 title=false description=false ajax=false]');
                             ?>
                         </div>
                     </div>
@@ -41,3 +45,4 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 </main>
+<?php get_footer();?>

@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SYS - Offline*/
+get_header();
+?>
 <main class="main-content">
     <section class="artical-page system-page page-offline">
         <div class="container">
@@ -37,3 +41,5 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 </main>
+
+<?php get_footer();?>

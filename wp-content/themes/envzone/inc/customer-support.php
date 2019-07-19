@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SER - Customer support*/
+get_header();
+?>
 <main class="main-content">
 
     <div class="nav-top-bar">
@@ -41,3 +45,4 @@
 
     </section>
 </main>
+<?php get_footer();?>

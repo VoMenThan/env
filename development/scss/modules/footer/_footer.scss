@@ -274,20 +274,21 @@ footer {
     }
     .btn-back-to-top{
         display: inline-block;
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
         background: #45678A;
-        padding-top: 8px;
+        padding-top: 4px;
         text-align: center;
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: 25px;
+        right: 25px;
         z-index: 99;
+        @include radius(50%);
         &:hover{
             background: #20466B;
         }
         .icon-arrow-down-green{
-            @include setBackgroundIcon(30px, '../images/icon-arrow-top-green.svg');
+            @include setBackgroundIcon(20px, '../images/icon-arrow-top-green.svg');
             vertical-align: middle;
         }
     }

@@ -1,4 +1,7 @@
-<?php get_header();?>
+<?php
+/* Template Name: EXT - Vendor contact*/
+get_header();
+?>
     <main class="main-content">
         <div class="container">
             <div class="row">

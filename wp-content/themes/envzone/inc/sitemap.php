@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SYS - Sitemap*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top banner-careers bg-blue banner-sitemap">
         <h1>SITEMAP</h1>
@@ -10,3 +14,4 @@
         </div>
     </section>
 </main>
+<?php get_footer();?>

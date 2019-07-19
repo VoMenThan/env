@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Logistics and Supply Chain*/
+/* Template Name: IND - Logistics and Supply Chain*/
 get_header();
 ?>
 <main class="main-content">

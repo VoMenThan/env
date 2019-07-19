@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SER - Devops*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top banner-industries bg-blue">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
@@ -168,3 +172,4 @@
 
     <?php require_once "popup-services.php";?>
 </main>
+<?php get_footer();?>

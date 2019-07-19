@@ -1,3 +1,7 @@
+<?php
+/* Template Name: CPY - Careers*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top banner-careers bg-blue">
         <h1><?php echo get_the_title();?></h1>
@@ -40,3 +44,4 @@
         </div>
     </section>
 </main>
+<?php get_footer();?>

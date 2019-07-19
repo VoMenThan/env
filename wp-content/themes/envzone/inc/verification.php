@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SYS - Verification*/
+get_header();
+?>
 <main class="main-content">
     <section class="artical-page system-page">
         <div class="container">
@@ -24,3 +28,4 @@
         </div>
     </section>
 </main>
+<?php get_footer();?>

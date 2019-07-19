@@ -1,3 +1,7 @@
+<?php
+/* Template Name: EXT - Guest contributor agreement*/
+get_header();
+?>
 <main class="main-content">
     <section class="artical-page contact-us-page quick-links-page">
         <div class="container">
@@ -20,3 +24,4 @@
         </div>
     </section>
 </main>
+<?php get_footer();?>

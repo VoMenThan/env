@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SYS - Acess request confirmation*/
+get_header();
+?>
 <main class="main-content">
     <section class="artical-page system-page download-confirmation unsubscibe-confirmation">
         <div class="container">
@@ -23,3 +27,4 @@
         </div>
     </section>
 </main>
+<?php get_footer();?>

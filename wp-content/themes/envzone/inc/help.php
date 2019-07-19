@@ -1,3 +1,7 @@
+<?php
+/* Template Name: EXT - Help*/
+get_header();
+?>
 <main class="main-content">
     <section class="banner-top bg-blue">
         <h1><?php echo $post->post_title;?></h1>
@@ -39,3 +43,4 @@
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
 </main>
+<?php get_footer();?>

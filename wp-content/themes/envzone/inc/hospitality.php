@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Hospitality and Travel */
+/* Template Name: IND - Hospitality and Travel */
 
 get_header();
 ?>

@@ -1,3 +1,7 @@
+<?php
+/* Template Name: SYS - Contact confirmation*/
+get_header();
+?>
 <main class="main-content">
     <section class="artical-page system-page">
         <div class="container">
@@ -48,3 +52,4 @@
 <script>
     $(".box-thank #gform_submit_button_3").val('SUBSCRIBE NOW');
 </script>
+<?php get_footer();?>

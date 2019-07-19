@@ -1,5 +1,7 @@
 <?php
+/* Template Name: DIS - Knowledge center*/
 global $wp_query;
+get_header();
 ?>
 
 <main class="main-content video-home-page">
@@ -275,3 +277,4 @@ global $wp_query;
 
     })(jQuery);
 </script>
+<?php get_footer();?>

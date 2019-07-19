@@ -1,4 +1,6 @@
 <?php
+/* Template Name: DIS - Resources*/
+get_header();
 global $wp_query;
 ?>
 
@@ -132,3 +134,4 @@ global $wp_query;
 
     })(jQuery);
 </script>
+<?php get_footer();?>

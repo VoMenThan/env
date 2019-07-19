@@ -1,20 +1,23 @@
-
-    <main class="main-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="box-breadcrumb">
-                        <span class="you-here">You are here:</span>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Envzone</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Certification Process</li>
-                        </ol>
-                    </div>
+<?php
+/* Template Name: EXT - Certification Process*/
+get_header();
+?>
+<main class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-breadcrumb">
+                    <span class="you-here">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Envzone</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Certification Process</li>
+                    </ol>
                 </div>
             </div>
         </div>
-        <section class="artical-page certification-process-page">
-            <div class="container">
+    </div>
+    <section class="artical-page certification-process-page">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <h1>
@@ -106,52 +109,54 @@
             </div>
 
 
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <div class="container-fluid bg-gray-process">
-            <div class="container box-features-sign-up">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>FEATURES</h2>
-                        <div class="description-features">
-                            Expand your horizon with a premium-class outsourcing mentor
-                        </div>
+    <div class="container-fluid bg-gray-process">
+        <div class="container box-features-sign-up">
+            <div class="row">
+                <div class="col-12">
+                    <h2>FEATURES</h2>
+                    <div class="description-features">
+                        Expand your horizon with a premium-class outsourcing mentor
                     </div>
-                    <div class="col-lg-5 d-flex align-items-center justify-content-center">
-                        <img src="<?php echo ASSET_URL;?>images/icon-features-vendor.png" alt="">
-                    </div>
-                    <div class="col-lg-7">
-                        <ul class="list-features">
-                            <li class="item-feature">
-                                No processing charges
-                            </li>
-                            <li class="item-feature">
-                                Enjoy fast process
-                            </li>
-                            <li class="item-feature">
-                                Secure company confidential data
-                            </li>
-                            <li class="item-feature">
-                                Receive emails, meeting invitations and opportunities
-                                for engagement and procurement
-                            </li>
-                            <li class="item-feature">
-                                Enjoy no-risk of financial aspects in
-                                Western markets
-                            </li>
-                            <li class="item-feature">
-                                Collaborate with a personal Partner Success Manager for
-                                coaching and questions
-                            </li>
+                </div>
+                <div class="col-lg-5 d-flex align-items-center justify-content-center">
+                    <img src="<?php echo ASSET_URL;?>images/icon-features-vendor.png" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <ul class="list-features">
+                        <li class="item-feature">
+                            No processing charges
+                        </li>
+                        <li class="item-feature">
+                            Enjoy fast process
+                        </li>
+                        <li class="item-feature">
+                            Secure company confidential data
+                        </li>
+                        <li class="item-feature">
+                            Receive emails, meeting invitations and opportunities
+                            for engagement and procurement
+                        </li>
+                        <li class="item-feature">
+                            Enjoy no-risk of financial aspects in
+                            Western markets
+                        </li>
+                        <li class="item-feature">
+                            Collaborate with a personal Partner Success Manager for
+                            coaching and questions
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
 
-                    <div class="col-lg-12 text-center mb-lg-5 mt-lg-3 my-3">
-                        <a href="<?php echo home_url('vendor-contact');?>" class="btn-blue-env">SIGN UP NOW</a>
-                    </div>
+                <div class="col-lg-12 text-center mb-lg-5 mt-lg-3 my-3">
+                    <a href="<?php echo home_url('vendor-contact');?>" class="btn-blue-env">SIGN UP NOW</a>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
+
+<?php get_footer();?>

@@ -1,4 +1,9 @@
 <?php
+/* Template Name: DIS - Archived Articles*/
+get_header();
+?>
+
+<?php
 $date_now = date('Y-m-d');
 
 $get_date = $_GET['date'];
@@ -168,3 +173,5 @@ if (count($get_date) >= 1){
     <script>
         $(".box-subscriber-blog .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
     </script>
+
+<?php get_footer();?>

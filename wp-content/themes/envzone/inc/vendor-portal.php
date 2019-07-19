@@ -1,3 +1,7 @@
+<?php
+/* Template Name: EXT - Vendor portal*/
+get_header();
+?>
 <main class="main-content">
 
     <div class="nav-top-bar">
@@ -47,3 +51,4 @@
 
     </section>
 </main>
+<?php get_footer();?>
