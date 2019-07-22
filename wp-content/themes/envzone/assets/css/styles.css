@@ -10564,7 +10564,7 @@ section.testing-page .item-qa {
 .blog-author-page .information-author {
   margin-bottom: 30px;
   padding: 15px;
-  background: #E0E0E0;
+  background: #F2F2F2;
 }
 .blog-author-page .information-author img.avatar-author {
   width: 30%;
@@ -10717,7 +10717,7 @@ section.testing-page .item-qa {
   max-width: 100% !important;
 }
 .blog-author-page .popup-hack-me #gform_wrapper_3 .gform_footer {
-  margin-top: 0;
+  margin-top: 30px;
 }
 .blog-author-page .popup-hack-me #gform_wrapper_3 .gform_footer input {
   padding-top: 10px;
@@ -16405,6 +16405,188 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .quick-links-page .form-write-for-us .gform_wrapper .gform_footer input.button, .quick-links-page .form-write-for-us .gform_wrapper .gform_footer input[type=submit] {
   width: 100% !important;
   padding: 5px;
+}
+
+.banner-affiliate-program .box-info-small-business .btn {
+  min-width: 200px;
+}
+.banner-affiliate-program .box-info-small-business .btn-white-env {
+  margin-left: 50px;
+}
+
+.affiliate-program-page h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 150%;
+  color: #0D3153;
+  margin-bottom: 30px;
+}
+.affiliate-program-page p, .affiliate-program-page ul > li {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 150%;
+  color: #808080;
+}
+.affiliate-program-page h3 {
+  color: #808080;
+}
+.affiliate-program-page .item-shadow {
+  border: 1px solid #BDBDBD;
+  -webkit-box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  padding: 30px 20px;
+}
+.affiliate-program-page .item-shadow h3 {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 150%;
+  position: relative;
+}
+.affiliate-program-page .item-shadow h3:after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  border: 2px solid #8DC63F;
+}
+.affiliate-program-page .item-shadow p {
+  font-size: 22px;
+}
+.affiliate-program-page .section-how-it-works {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+.affiliate-program-page .section-how-it-works .box-head {
+  margin-bottom: 80px;
+}
+.affiliate-program-page .section-how-it-works .box-head h2, .affiliate-program-page .section-how-it-works .box-head p {
+  text-align: center;
+}
+.affiliate-program-page .section-how-it-works .item-it-work {
+  text-align: center;
+}
+.affiliate-program-page .section-how-it-works .item-it-work h3 {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+.affiliate-program-page .section-how-it-works .item-it-work h3:after {
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 0;
+}
+.affiliate-program-page .section-how-it-works .item-it-work img {
+  margin-bottom: 30px;
+}
+.affiliate-program-page .section-it-for-you {
+  background-color: #F2F2F2;
+  padding-top: 140px;
+  padding-bottom: 60px;
+}
+.affiliate-program-page .section-it-for-you .item-it-for-you {
+  margin-bottom: 80px;
+  height: calc(100% - 80px);
+}
+.affiliate-program-page .section-it-for-you .item-it-for-you h3 {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.affiliate-program-page .section-it-for-you .item-it-for-you h3:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.affiliate-program-page .section-sass-professional {
+  padding-top: 300px;
+  padding-bottom: 200px;
+}
+.affiliate-program-page .section-easy-started {
+  padding-top: 150px;
+  padding-bottom: 180px;
+  background: #F8FFF2;
+}
+.affiliate-program-page .section-resources-designed {
+  padding-top: 150px;
+  padding-bottom: 180px;
+}
+.affiliate-program-page .section-resources-designed ul li {
+  position: relative;
+  padding-left: 30px;
+  padding-bottom: 5px;
+}
+.affiliate-program-page .section-resources-designed ul li:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon-checked-green.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.affiliate-program-page .section-every-sale {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: #20466B;
+  text-align: center;
+}
+.affiliate-program-page .section-every-sale h2 {
+  color: #fff;
+  position: relative;
+  padding-bottom: 15px;
+}
+.affiliate-program-page .section-every-sale h2:after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  border: 2px solid #8DC63F;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 0;
+}
+.affiliate-program-page .section-every-sale p {
+  color: #fff;
+}
+.affiliate-program-page .section-every-sale .btn-green-env {
+  color: #0D3153;
+  margin-top: 30px;
+}
+.affiliate-program-page .section-join-affiliate-program {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+.affiliate-program-page .section-join-affiliate-program h2 {
+  margin-bottom: 80px;
+  font-weight: bold;
+  font-size: 36px;
+  color: #0D3153;
+}
+.affiliate-program-page .section-join-affiliate-program .box-content-join h3 {
+  font-weight: 600;
+  font-size: 26px;
+  color: #808080;
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+.affiliate-program-page .section-join-affiliate-program .box-content-join p {
+  font-size: 22px;
+}
+.affiliate-program-page .section-join-affiliate-program .box-already-affiliate {
+  padding-top: 160px;
+}
+.affiliate-program-page .section-join-affiliate-program .box-already-affiliate h3 {
+  margin-bottom: 35px;
+  font-weight: bold;
+  font-size: 36px;
+  color: #0D3153;
+}
+.affiliate-program-page .section-join-affiliate-program .box-already-affiliate p {
+  font-size: 22px;
+}
+.affiliate-program-page .section-join-affiliate-program .box-already-affiliate .btn-blue-env {
+  margin-bottom: 60px;
 }
 
 .help-page {

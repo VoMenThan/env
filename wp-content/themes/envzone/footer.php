@@ -188,12 +188,11 @@
                         <a href="<?php echo home_url('accessibility');?>">Accessibility</a>
                         <a href="<?php echo home_url('terms-of-use')?>">Terms of Use</a>
                         <a href="<?php echo home_url('privacy-policy')?>">Privacy Policy</a>
-                        <a href="<?php echo home_url('help')?>">Help</a>
                         <a href="<?php echo home_url('sitemap')?>">Site Map</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
                         <a href="<?php echo home_url('employee-portal');?>">Employee Portal</a>
-                        <a href="<?php echo home_url('affiliate-program');?>">Affiliate Login</a>
+                        <a href="<?php echo home_url('affiliate-login');?>">Affiliate Login</a>
                         <a href="<?php echo home_url('vendor-portal');?>">Vendor Portal</a>
                     </div>
 
