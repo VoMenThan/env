@@ -75,11 +75,14 @@ class EnvzoneMTAdmin
     public function addUserRole(){
 
         $group = get_role('author');
+        $group_sub = get_role('subscriber');
 
         $caps = $group->capabilities;
+        $caps_sub = $group_sub->capabilities;
 
         add_role('guest_author_env', 'Guest Author', $caps);
         add_role('former_staff_env', 'Former Staff', $caps);
+        add_role('affiliate_env', 'Affiliate', $caps_sub);
 
         /*Remove capabilities role guest author*/
         $group_env = get_role('guest_author_env');

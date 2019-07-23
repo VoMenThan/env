@@ -175,7 +175,11 @@ get_header();?>
 
                         <?php
                         global $wp_query;
-                        $users = get_users();
+                        $param = array(
+                            'role__in'         => array('administrator', 'editor', 'former_staff_env')
+                        );
+
+                        $users = get_users($param);
 
                         foreach ($users as $user):
                             $id = $user->ID;

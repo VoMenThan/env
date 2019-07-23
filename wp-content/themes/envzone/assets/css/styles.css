@@ -8766,6 +8766,214 @@ section.testing-page .item-qa {
   top: 10px;
 }
 
+.coverage-location-page .section-map {
+  margin-bottom: 60px;
+}
+.coverage-location-page .section-map * {
+  font-family: "Roboto", sans-serif;
+}
+.coverage-location-page .section-map .box-search-city {
+  background: #FFFFFF;
+  padding: 15px 30px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px;
+}
+.coverage-location-page .section-map .box-search-city h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 152.62%;
+  color: #4F4F4F;
+}
+.coverage-location-page .section-map .box-search-city label[for=location-city] {
+  border: 1px solid #BDBDBD;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  color: #828282;
+  background: #F2F2F2;
+  margin-right: 30px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.coverage-location-page .section-map .box-search-city #location-city {
+  vertical-align: middle;
+  font-size: 18px;
+  padding: 10px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #BDBDBD;
+  margin-right: 30px;
+}
+.coverage-location-page .section-map .box-search-city ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-style: italic !important;
+}
+.coverage-location-page .section-map .box-search-city ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-style: italic !important;
+}
+.coverage-location-page .section-map .box-search-city :-ms-input-placeholder {
+  /* IE 10+ */
+  font-style: italic !important;
+}
+.coverage-location-page .section-map .box-search-city :-moz-placeholder {
+  /* Firefox 18- */
+  font-style: italic !important;
+}
+.coverage-location-page .section-map .box-search-city .btn-green-env {
+  font-weight: bold;
+}
+.coverage-location-page .section-map .box-select-plan {
+  background: #F2F2F2;
+  padding: 20px 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+.coverage-location-page .section-map .box-select-plan svg {
+  margin-bottom: 15px;
+}
+.coverage-location-page .section-map .box-select-plan h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #4F4F4F;
+  padding-bottom: 15px;
+}
+.coverage-location-page .section-map .box-select-plan p {
+  font-weight: 500;
+  padding-bottom: 20px;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #808080;
+}
+.coverage-location-page .section-map .box-select-plan .btn-plan {
+  color: #0D3153 !important;
+}
+.coverage-location-page .section-map .box-item-sibar {
+  border: 1px solid #BDBDBD;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 15px;
+  position: relative;
+  padding-top: 75px;
+}
+.coverage-location-page .section-map .box-item-sibar .time {
+  font-size: 12px;
+  line-height: 140.88%;
+  color: #BDBDBD;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.coverage-location-page .section-map .box-item-sibar .big-number {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 150%;
+  color: #4F4F4F;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.coverage-location-page .section-map .box-item-sibar .title {
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  color: #0D3153;
+  margin-bottom: 15px;
+}
+.coverage-location-page .section-map .box-item-sibar p {
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+  color: #808080;
+}
+.coverage-location-page .section-check-out-city {
+  padding: 60px 0;
+}
+.coverage-location-page .section-check-out-city .box-head {
+  margin-bottom: 30px;
+}
+.coverage-location-page .section-check-out-city .box-head h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 150%;
+  color: #0D3153;
+  margin-bottom: 15px;
+}
+.coverage-location-page .section-check-out-city .box-head p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #808080;
+}
+.coverage-location-page .section-check-out-city .list-cities .city-name {
+  color: #808080;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+  border: 1px solid #BDBDBD;
+  width: 160px;
+  padding: 15px 0;
+  display: inline-block;
+  margin-right: 30px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+.coverage-location-page .section-recommended-plans {
+  padding-top: 70px;
+  padding-bottom: 130px;
+}
+.coverage-location-page .section-recommended-plans h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 150%;
+  color: #0D3153;
+}
+.coverage-location-page .section-recommended-plans .item-recommended {
+  background: #375D81;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.coverage-location-page .section-recommended-plans .item-recommended h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  color: #fff !important;
+}
+.coverage-location-page .section-recommended-plans .item-recommended .btn-blue-env {
+  color: #fff;
+}
+.coverage-location-page .section-recommended-plans .item-recommended svg {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.coverage-location-page .section-trending .border-header {
+  position: relative;
+}
+.coverage-location-page .section-trending .border-header .view-all {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
@@ -16407,6 +16615,10 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   padding: 5px;
 }
 
+.banner-affiliate-program .box-info-small-business {
+  margin-bottom: 30px;
+  margin-top: 30px !important;
+}
 .banner-affiliate-program .box-info-small-business .btn {
   min-width: 200px;
 }
@@ -16716,6 +16928,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .section-help .content-help ul li {
   list-style-type: inherit;
   margin-bottom: 5px;
+  font-size: 18px;
 }
 .section-help .content-help .link-post {
   margin-bottom: 15px;

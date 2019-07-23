@@ -9,11 +9,13 @@ get_header();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="box-info-small-business">
-                        <h1>Your business activities are about to get a lot easier</h1>
+                        <h1>
+                            Inspire Entrepreneurs and Earn a Commission with the EnvZone Affiliate Program
+                        </h1>
                         <p>
-                            Get a dedicated online presence manager with support in all aspects to drive results.
+                            Help other small business owners overcome the challenges of building online presence with the exceptional support of dedicated online presence manager.
                         </p>
-                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env" style="min-width: 200px;">SEE PRICING</a>
+                        <a href="<?php echo home_url('affiliate-register-page')?>" class="btn btn-green-env" style="min-width: 200px;">APPLY NOW</a>
                         <a href="<?php echo home_url('affiliate-login')?>" class="btn btn-white-env" style="min-width: 200px; margin-left: 50px;">LOGIN</a>
                     </div>
                 </div>
@@ -73,41 +75,41 @@ get_header();
                     </div>
                     <div class="col-lg-4">
                         <div class="item-it-for-you item-shadow">
-                            <h3>Free to Join</h3>
+                            <h3>Reliable Tracking</h3>
                             <p>
-                                Signing up takes only a few minutes and is completely FREE. You'll receive a unique tracking code for use on your website right away.
+                                Our custom tracking is hard coded into our platform. We use advanced, customized technology to ensure you always get credit for every single referral.
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="item-it-for-you item-shadow">
-                            <h3>Free to Join</h3>
+                            <h3>Dedicated Team</h3>
                             <p>
-                                Signing up takes only a few minutes and is completely FREE. You'll receive a unique tracking code for use on your website right away.
+                                Our custom tracking is hard coded into our platform. We use advanced, customized technology to ensure you always get credit for every single referral.
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="item-it-for-you item-shadow">
-                            <h3>Free to Join</h3>
+                            <h3>Unlimited Earnings</h3>
                             <p>
-                                Signing up takes only a few minutes and is completely FREE. You'll receive a unique tracking code for use on your website right away.
+                                There's no cap on the amount of commissions you can earn. Refer as many people as you'd like; we won't ever hold you back.
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="item-it-for-you item-shadow">
-                            <h3>Free to Join</h3>
+                            <h3>Customized Campaigns</h3>
                             <p>
-                                Signing up takes only a few minutes and is completely FREE. You'll receive a unique tracking code for use on your website right away.
+                                Use your tracking links to segment referred traffic and monitor how different activity performs. Compare campaigns by clicks, conversions, and more.
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="item-it-for-you item-shadow">
-                            <h3>Free to Join</h3>
+                            <h3>Promotional Resources</h3>
                             <p>
-                                Signing up takes only a few minutes and is completely FREE. You'll receive a unique tracking code for use on your website right away.
+                                Enjoy a wide selection of tried and tested creative assets. Simply select the banners or ads that most effectively complement your website's look and feel.
                             </p>
                         </div>
                     </div>
@@ -188,7 +190,7 @@ get_header();
                             Get your links live and collect $45 for every sale you make.
                             Your earning potential is unlimited!
                         </p>
-                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env">APPLY NOW</a>
+                        <a href="<?php echo home_url('affiliate-register-page')?>" class="btn btn-green-env">APPLY NOW</a>
                     </div>
                 </div>
             </div>
