@@ -7,6 +7,9 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <a href="<?php echo home_url('coverage-locations')?>">
+                        Coverage Locations
+                    </a>
                     <a href="javascript:function() { return false; }" class="active">
                         Small Business
                     </a>
