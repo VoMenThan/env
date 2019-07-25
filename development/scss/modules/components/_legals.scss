@@ -7,34 +7,47 @@
   .description{
     font-family: $font-pt;
     font-size: 1.625rem;
-    color: $color-gray-blog;
+    color: #808080;
   }
   .content-legals{
+    h1{
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 55px;
+      color: #0D3153;
+      padding-bottom: 30px;
+    }
+    h2{
+      font-size: 32px;
+      padding-top: 25px;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
     h3{
-      font-size: 2.25rem;
+      font-size: 30px;
       padding-top: 25px;
       font-weight: bold;
       padding-bottom: 15px;
     }
     p{
-      font-family: $font-pt;
-      font-size: 1.625rem;
-      color: $color-gray-blog;
-      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 140.88%;
+      color: #808080;
+      padding-bottom: 15px;
     }
     ul{
       padding-left: 30px;
+      padding-bottom: 15px;
     }
     ul>li{
-      font-family: $font-pt;
-      font-size: 1.625rem;
-      color: $color-gray-blog;
-      margin-bottom: 20px;
+      font-size: 22px;
+      margin-bottom: 10px;
       list-style-type: disc;
+      color: #808080;
     }
     cite{
-      font-family: $font-pt;
-      color: $color-gray-audit;
+      color: #808080;
       font-style: italic;
       font-size: 1rem;
     }
@@ -43,9 +56,8 @@
       top: -15px;
     }
     address{
-      font-family: $font-pt;
       font-size: 1.625rem;
-      color: $color-gray-blog;
+      color: #808080;
       margin-bottom: 20px;
     }
 

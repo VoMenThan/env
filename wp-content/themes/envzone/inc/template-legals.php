@@ -1,5 +1,5 @@
 <?php
-/* Template Name: LEGALS - Privacy policy*/
+/* Template Name: LEGALS Template*/
 get_header();
 ?>
 <main class="main-content">

@@ -100,7 +100,7 @@
                     <h5 class="label-menu-footer">Quick Links</h5>
                     <ul class="list-menu-footer">
                         <li><a href="<?php echo home_url('write-for-us');?>">Write for Us</a></li>
-                        <li><a href="<?php echo home_url('get-media-coverage/');?>">Get Media Coverage</a></li>
+                        <li><a href="<?php echo home_url('get-media-coverage');?>">Get Media Coverage</a></li>
                         <li><a href="<?php echo home_url('send-us-a-tip');?>">Send Us a Tip</a></li>
                         <li><a target="_blank" rel="nofollow" href="https://envzone.sharepoint.com/:b:/s/resources/Ea1i-8eshO5Bu5lyF4UPPlIBtq3e1Gokw6VUmweK07-IXQ?e=auyMTD">Media Kit</a></li>
                         <li><a href="<?php echo home_url('submit-a-press-release');?>">Submit a Press Release</a></li>
@@ -185,10 +185,11 @@
                 </div>
                 <div class="col-lg-8 pt-3">
                     <div class="box-policy text-center d-none-768">
-                        <a href="<?php echo home_url('accessibility');?>">Accessibility</a>
+                        <a href="<?php echo home_url('use-of-trademark-guidelines');?>">Trademark</a>
                         <a href="<?php echo home_url('terms-of-use')?>">Terms of Use</a>
                         <a href="<?php echo home_url('privacy-policy')?>">Privacy Policy</a>
                         <a href="<?php echo home_url('sitemap')?>">Site Map</a>
+                        <a href="<?php echo home_url('#')?>">Branding</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
                         <a href="<?php echo home_url('employee-portal');?>">Employee Portal</a>

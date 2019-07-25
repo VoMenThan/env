@@ -42,39 +42,14 @@ get_header();
                 <div class="col-lg-12">
                     <div class="box-search-city">
                         <h2>Online presence manager as a service</h2>
-                        <form action="">
                             <label for="location-city">My business is located in</label>
                             <input id="location-city" type="text" placeholder="Enter your city here">
-                            <a href="javascript:function() { return false; }" class="btn btn-green-env">CHECK AVAILABILITY</a>
-                        </form>
+                            <div id="myCheck" class="btn btn-green-env">CHECK AVAILABILITY</div>
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div id="type-selector" class="pac-controls d-none">
-                        <input type="radio" name="type" id="changetype-all" checked="checked">
-                        <label for="changetype-all">All</label>
-
-                        <input type="radio" name="type" id="changetype-establishment">
-                        <label for="changetype-establishment">Establishments</label>
-
-                        <input type="radio" name="type" id="changetype-address">
-                        <label for="changetype-address">Addresses</label>
-
-                        <input type="radio" name="type" id="changetype-geocode">
-                        <label for="changetype-geocode">Geocodes</label>
-                    </div>
-                    <div id="strict-bounds-selector" class="pac-controls d-none">
-                        <input type="checkbox" id="use-strict-bounds" value="">
-                        <label for="use-strict-bounds">Strict Bounds</label>
-                    </div>
 
                     <div id="map" style="width: 100%; min-height: 700px;"></div>
-
-                    <div id="infowindow-content">
-                        <img src="" width="16" height="16" id="place-icon">
-                        <span id="place-name"  class="title"></span><br>
-                        <span id="place-address"></span>
-                    </div>
 
                     <div class="box-select-plan">
                         <div class="have-plan">
@@ -278,6 +253,7 @@ get_header();
 
     <script type="text/javascript">
         $(document).ready(function () {
+
             $('.blog-page .highlight-news-right .info-news h2').matchHeight({
                 byRow: true,
                 property: 'height',
@@ -669,8 +645,6 @@ get_header();
 
             var card = document.getElementById('pac-card');
             var input = document.getElementById('location-city');
-            var types = document.getElementById('type-selector');
-            var strictBounds = document.getElementById('strict-bounds-selector');
 
             map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
 
@@ -681,9 +655,6 @@ get_header();
             // bounds option in the request.
             autocomplete.bindTo('bounds', map);
 
-            // Set the data fields to return when the user selects a place.
-            autocomplete.setFields(
-                ['address_components', 'geometry', 'icon', 'name']);
 
             var infowindow = new google.maps.InfoWindow();
 
@@ -700,41 +671,43 @@ get_header();
                 if (!place.geometry) {
                     // User entered the name of a Place that was not suggested and
                     // pressed the Enter key, or the Place Details request failed.
-                    window.alert("No details available for input: '" + place.name + "'");
+                    if (place.name === 'denver') {
+                        var center = new google.maps.LatLng(39.7466738, -104.9915498);
+                        map.panTo(center);
+                        map.setZoom(10);
+
+                        var latlng = new google.maps.LatLng(39.728882, -104.994508);
+                        marker.setPosition(latlng);
+                        marker.setVisible(true);
+                    }
                     return;
                 }
+
 
                 // If the place has a geometry, then present it on a map.
                 if (place.geometry.viewport) {
                     map.fitBounds(place.geometry.viewport);
                 } else {
                     map.setCenter(place.geometry.location);
-                    map.setZoom(17);  // Why 17? Because it looks good.
+                    map.setZoom(10);  // Why 17? Because it looks good.
                 }
                 marker.setPosition(place.geometry.location);
                 marker.setVisible(true);
-
             });
 
-            // Sets a listener on a radio button to change the filter type on Places
-            // Autocomplete.
-            function setupClickListener(id, types) {
-                var radioButton = document.getElementById(id);
-                radioButton.addEventListener('click', function() {
-                    autocomplete.setTypes(types);
-                });
-            }
+            $("#myCheck").click(function(){
+                var local = document.getElementById("location-city").value;
 
-            setupClickListener('changetype-all', []);
-            setupClickListener('changetype-address', ['address']);
-            setupClickListener('changetype-establishment', ['establishment']);
-            setupClickListener('changetype-geocode', ['geocode']);
+                if (local === 'denver') {
+                    var center = new google.maps.LatLng(39.7466738, -104.9915498);
+                    map.panTo(center);
+                    map.setZoom(10);
 
-            document.getElementById('use-strict-bounds')
-                .addEventListener('click', function() {
-                    console.log('Checkbox clicked! New state=' + this.checked);
-                    autocomplete.setOptions({strictBounds: this.checked});
-                });
+                    var latlng = new google.maps.LatLng(39.728882, -104.994508);
+                    marker.setPosition(latlng);
+                    marker.setVisible(true);
+                }
+            });
         }
 
     </script>

@@ -4545,8 +4545,8 @@ footer .section-donate .box-policy {
 }
 footer .section-donate .box-policy a {
   border-right: 0.3px solid #4F4F4F;
-  padding-right: 42px;
-  margin-left: 42px;
+  padding-right: 40px;
+  margin-left: 40px;
   font-size: 15px;
   margin-bottom: 15px;
   display: inline-block;
@@ -13245,32 +13245,45 @@ section.testing-page .item-qa {
 .legals-page .description {
   font-family: "PT Serif", serif;
   font-size: 1.625rem;
-  color: #333333;
+  color: #808080;
+}
+.legals-page .content-legals h1 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 55px;
+  color: #0D3153;
+  padding-bottom: 30px;
+}
+.legals-page .content-legals h2 {
+  font-size: 32px;
+  padding-top: 25px;
+  font-weight: bold;
+  padding-bottom: 15px;
 }
 .legals-page .content-legals h3 {
-  font-size: 2.25rem;
+  font-size: 30px;
   padding-top: 25px;
   font-weight: bold;
   padding-bottom: 15px;
 }
 .legals-page .content-legals p {
-  font-family: "PT Serif", serif;
-  font-size: 1.625rem;
-  color: #333333;
-  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140.88%;
+  color: #808080;
+  padding-bottom: 15px;
 }
 .legals-page .content-legals ul {
   padding-left: 30px;
+  padding-bottom: 15px;
 }
 .legals-page .content-legals ul > li {
-  font-family: "PT Serif", serif;
-  font-size: 1.625rem;
-  color: #333333;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 10px;
   list-style-type: disc;
+  color: #808080;
 }
 .legals-page .content-legals cite {
-  font-family: "PT Serif", serif;
   color: #808080;
   font-style: italic;
   font-size: 1rem;
@@ -13280,9 +13293,8 @@ section.testing-page .item-qa {
   top: -15px;
 }
 .legals-page .content-legals address {
-  font-family: "PT Serif", serif;
   font-size: 1.625rem;
-  color: #333333;
+  color: #808080;
   margin-bottom: 20px;
 }
 .legals-page .content-affiliate article {
