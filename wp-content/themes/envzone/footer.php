@@ -44,7 +44,7 @@
             </div>
             <div class="col-xl-8 col-lg-7 start-project">
                 <div class="label-form-project text-center">
-                    START A PROJECT
+                    GET IN TOUCH
                 </div>
                 <div class="form-start-project">
                     <?php
@@ -65,6 +65,7 @@
                         <li><a href="<?php echo get_home_url();?>/partnership">Partnership</a></li>
                         <li><a href="<?php echo get_home_url();?>/contact-us">Contact us</a></li>
                         <li><a href="<?php echo get_home_url();?>/careers">Careers</a></li>
+                        <li><a href="<?php echo get_home_url();?>/author">Team</a></li>
                     </ul>
                 </div>
             </div>
@@ -189,7 +190,7 @@
                         <a href="<?php echo home_url('terms-of-use')?>">Terms of Use</a>
                         <a href="<?php echo home_url('privacy-policy')?>">Privacy Policy</a>
                         <a href="<?php echo home_url('sitemap')?>">Site Map</a>
-                        <a href="<?php echo home_url('#')?>">Branding</a>
+                        <a href="<?php echo home_url('brand-assets')?>">Branding</a>
                     </div>
                     <div class="box-policy text-center d-none-768">
                         <a href="<?php echo home_url('employee-portal');?>">Employee Portal</a>

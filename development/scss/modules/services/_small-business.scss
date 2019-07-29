@@ -282,13 +282,24 @@
                 color: $color-blue-logo !important;
             }
         }
+        .box-on-map{
+            width: 270px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include translate(325px, -50%);
+        }
         .box-item-sibar{
             border: 1px solid #BDBDBD;
             @include radius(5px);
             margin-bottom: 30px;
             padding: 15px;
             position: relative;
-            padding-top: 75px;
+            padding-top: 40px;
+            background: #fff;
+            &:last-child{
+                margin-bottom: 0;
+            }
             .time{
                 font-size: 12px;
                 line-height: 140.88%;
@@ -302,7 +313,7 @@
                 font-size: 48px;
                 line-height: 150%;
                 color: #4F4F4F;
-                margin-bottom: 30px;
+                margin-bottom: 10px;
                 text-align: center;
             }
             .title{

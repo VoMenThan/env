@@ -184,7 +184,6 @@
                                                             </a>
                                                         </article>
                                                     </div>
-
                                                 </div>
                                             </div>
 

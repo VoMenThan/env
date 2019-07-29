@@ -1,0 +1,67 @@
+.filter-team-page{
+    .box-filter{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        color: #fff;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    .custom-select{
+        width: 250px;
+        margin-left: 20px;
+    }
+}
+.team-page{
+    .information-author{
+        background: #F2F2F2;
+        border: 1px solid #BDBDBD;
+        text-align: center;
+        padding: 30px 10px;
+        margin-bottom: 40px;
+        height: calc(100% - 40px);
+        *{
+            font-family: $font-roboto;
+        }
+        img{
+            width: 225px;
+            height: 225px;
+            @include radius(50%);
+            margin-bottom: 25px;
+        }
+        .box-info{
+            .author-name{
+                font-weight: bold;
+                font-size: 28px;
+                line-height: 33px;
+                text-align: center;
+                color: #0D3153;
+                padding-bottom: 10px;
+                position: relative;
+                &:after{
+                    content: '';
+                    display: inline-block;
+                    width: 120px;
+                    border-bottom: 1px solid #8DC63F;
+                    position: absolute;
+                    left: calc(50% - 60px);
+                    bottom: 0;
+                }
+            }
+            .position-company{
+                font-size: 20px;
+                line-height: 150%;
+                text-align: center;
+                color: #828282;
+                padding: 10px;
+            }
+            .more-info{
+                font-size: 16px;
+                line-height: 150%;
+                text-align: center;
+                text-decoration-line: underline;
+                color: #4F4F4F;
+            }
+        }
+    }
+}

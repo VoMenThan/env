@@ -209,7 +209,8 @@
   }
   .box-search{
     background: $color-blue-logo;
-    padding: 30px;
+    padding-bottom: 60px;
+    padding-top: 120px;
     .title-search{
       font-size: 2rem;
       margin-bottom: 10px;
@@ -220,11 +221,12 @@
       .input-search{
         width: 100%;
         padding: 10px 20px;
-        padding-left: 0;
-        background: transparent;
         border: 0;
         border-bottom: 1px solid $color-gray-border;
-        color: $color-white;
+        @include radius(5px);
+        color: #000;
+        padding-left: 15px;
+        background: #fff;
       }
       .btn-search{
         position: absolute;
@@ -233,12 +235,42 @@
       }
       .icon-search{
           @include setBackgroundIcon(20px, "../images/icon-search-active.png");
+          margin-right: 15px;
       }
     }
   }
 
   &.page-search{
     padding: 0 !important;
+    *{
+      font-family: $font-roboto;
+    }
+    .title-filter{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 150%;
+      color: #808080;
+      margin-bottom: 30px;
+    }
+    .page-title{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 150%;
+      color: #808080;
+      margin-bottom: 30px;
+    }
+    .list-filter{
+      .item-filter{
+        a{
+          font-size: 18px;
+          line-height: 150%;
+          color: #808080;
+          &.active{
+            color: #375D81;
+          }
+        }
+      }
+    }
     .box-search{
       margin-right: -15px;
       margin-left: -15px;
@@ -248,15 +280,27 @@
       padding: 15px;
       margin-bottom: 30px;
       border: 1px solid $color-gray-border;
+      @include radius(5px);
       h2{
-        margin-bottom: 10px;
-        font-family: $font-pt;
-        color: $color-black;
-        font-weight: bold;
+        a{
+          font-weight: 500;
+          font-size: 26px;
+          line-height: 150%;
+          color: #333333;
+          margin-bottom: 10px;
+          display: inline-block;
+        }
       }
-      a{
-        color: $color-blue-logo;
-        margin-bottom: 10px;
+      .link{
+        margin-bottom: 20px;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 150%;
+      }
+      .excerpt{
+        font-size: 18px;
+        line-height: 150%;
+        color: #808080;
       }
     }
   }
