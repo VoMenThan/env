@@ -3,17 +3,13 @@
 		margin-bottom: 100px;
 		.title-head-blue{
 			text-transform: inherit;
-			padding-bottom: 80px;
+			padding-bottom: 30px;
 		}
 		.process-step-working{
 			margin-bottom: 50px;
 		}
 		p{
 			font-size: 26px;
-		}
-		a{
-			text-decoration: underline;
-			color: #808080;
 		}
 		.box-litter{
 			p{
@@ -22,7 +18,10 @@
 			a{
 				font-size: 20px;
 				display: inline-block;
-			}
+				 text-decoration: underline;
+				 color: #808080;
+			 }
+
 		}
 		.btn-green-env{
 			font-size: 25px;
@@ -91,6 +90,8 @@
 
 	.btn-green-env.btn-100{
 		width: 100%;
+		color: $color-blue-logo !important;
+		font-weight: 600;
 	}
 	.icon-direction{
 		@include setBackgroundIcon(25px, "../images/icon-direction.svg");

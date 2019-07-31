@@ -65,7 +65,7 @@
                         <li><a href="<?php echo get_home_url();?>/partnership">Partnership</a></li>
                         <li><a href="<?php echo get_home_url();?>/contact-us">Contact us</a></li>
                         <li><a href="<?php echo get_home_url();?>/careers">Careers</a></li>
-                        <li><a href="<?php echo get_home_url();?>/author">Team</a></li>
+                        <li><a href="<?php echo home_url('team');?>">Team</a></li>
                     </ul>
                 </div>
             </div>

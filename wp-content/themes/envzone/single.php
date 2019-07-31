@@ -580,7 +580,6 @@ get_header();
         </div>
         <!-- /*============END SUBCRIBE HOME=================*/ -->
 
-
         <div class="container">
             <div class="row section-trending no-print">
                 <div class="col-12 border-header">

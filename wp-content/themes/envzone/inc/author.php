@@ -4,8 +4,42 @@
 get_header();
 
 global $wp_query;
+
+$sort = $_GET['sort'];
+if($sort == 'leadership'){
+    $meta_query = array(
+        'relation' => 'OR',
+        array(
+            'key'     => 'position',
+            'value'   => 'Founder',
+            'compare' => 'LIKE'
+        )
+    );
+}else if($sort == 'development'){
+    $meta_query = array(
+        'relation' => 'OR',
+        array(
+            'key'     => 'position',
+            'value'   => 'Project',
+            'compare' => 'LIKE'
+        )
+    );
+}else if($sort == 'development'){
+    $meta_query = array(
+        'relation' => 'OR',
+        array(
+            'key'     => 'position',
+            'value'   => 'Project',
+            'compare' => 'LIKE'
+        )
+    );
+}else{
+    $meta_query = '';
+}
 $param = array(
-    'role__in'         => array('administrator', 'editor', 'former_staff_env')
+    'role__in'         => array('administrator', 'editor', 'former_staff_env'),
+    'meta_key' => 'position',
+    'meta_query' => $meta_query
 );
 $users = get_users($param);
 
@@ -17,14 +51,15 @@ $users = get_users($param);
             <div class="row">
                 <div class="col-lg-12 box-filter">
                     SORT BY:
-                    <select class="custom-select">
-                        <option selected>Everyone</option>
-                        <option value="everyone">Everyone</option>
-                        <option value="leadership">Leadership</option>
-                        <option value="client">Client service</option>
-                        <option value="development">Development</option>
-                        <option value="strategist">Strategist</option>
-                    </select>
+                    <form action="" method="get">
+                        <select name="sort" class="custom-select" onchange="this.form.submit()">
+                            <option <?php echo $sort=='everyone'?'selected':'';?> value="everyone">Everyone</option>
+                            <option <?php echo $sort=='leadership'?'selected':'';?> value="leadership">Leadership</option>
+                            <option <?php echo $sort=='client'?'selected':'';?> value="client">Client service</option>
+                            <option <?php echo $sort=='development'?'selected':'';?> value="development">Development</option>
+                            <option <?php echo $sort=='strategist'?'selected':'';?> value="strategist">Strategist</option>
+                        </select>
+                    </form>
                 </div>
             </div>
         </div>
@@ -37,7 +72,7 @@ $users = get_users($param);
                 ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="information-author">
-                        <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar-author">
+                        <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['medium'];?>" alt="" class="img-fluid avatar-author">
                         <div class="box-info">
                             <h2 class="author-name"><?php echo $user->display_name;?></h2>
                             <div class="position-company"><?php echo get_field('position', 'user_'. $user->ID );?></div>

@@ -1,4 +1,7 @@
 .filter-team-page{
+    form{
+        display: inline-block;
+    }
     .box-filter{
         font-weight: 500;
         font-size: 18px;
@@ -7,9 +10,20 @@
         padding-bottom: 20px;
         padding-top: 20px;
     }
+    form{
+        background: #fff;
+        margin-left: 20px;
+        @include radius(5px);
+    }
     .custom-select{
         width: 250px;
-        margin-left: 20px;
+        line-height: 100%;
+        border: none;
+        background: url('../images/icon-arrow-bottom-gray.svg') no-repeat;
+        background-position: calc(100% - 15px);
+        &:focus{
+            outline: none;
+        }
     }
 }
 .team-page{

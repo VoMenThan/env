@@ -69,6 +69,7 @@ function toggle_obj(btn_click, box_toggle) {
             $(".btn-toggle-search").toggleClass("d-none");
 
         }
+        $('.input-search').focus();
 
     });
 }
@@ -155,3 +156,5 @@ $(document).ready(function(){
         $("#field_2_7 label").html(fileName);
     });
 });
+
+$('#hamburger-menu').modal('show');
