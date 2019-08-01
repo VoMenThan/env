@@ -655,7 +655,7 @@
 
 
     <!-- Modal Hamburger menu -->
-    <div class="modal fade content-hamburger-menu" id="hamburger-menu" role="dialog">
+    <div class="modal fade content-hamburger-menu" id="hamburger-menu" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="box-hamburger clearfix">

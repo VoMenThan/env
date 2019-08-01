@@ -157,4 +157,4 @@ $(document).ready(function(){
     });
 });
 
-$('#hamburger-menu').modal('show');
+$('#hamburger-menu').modal('hide');
