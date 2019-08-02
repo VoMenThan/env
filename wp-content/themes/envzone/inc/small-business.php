@@ -26,11 +26,17 @@ get_header();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="box-info-small-business">
-                        <h1>Your business activities are about to get a lot easier</h1>
+                        <h1>GET AN ONLINE PRESENCE MANAGER ON-CALL FOR YOUR SMALL BUSINESS.</h1>
                         <p>
-                            Get a dedicated online presence manager with support in all aspects to drive results.
+                            Just from <span class="green">$159</span> per month.
                         </p>
+                        <p>
+                            Have your own online management team available on-call and get online presence done for a fraction of what it would normally cost.
+                        </p>
+                        <div class="box-button">
                         <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env">SEE PRICING</a>
+                        <a href="<?php echo home_url('')?>" class="btn btn-white-env">LOGIN</a>
+                        </div>
                     </div>
                 </div>
             </div>

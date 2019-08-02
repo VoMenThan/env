@@ -20,6 +20,7 @@
     }
     .box-info-small-business{
         margin-top: 100px;
+        margin-bottom: 30px;
         max-width: 800px;
         h1{
             position: static;
@@ -27,23 +28,39 @@
             color: #fff;
             text-transform: inherit;
             margin-bottom: 30px;
+            font-size: 30px;
+            line-height: 150%;
         }
         p{
-            font-size: 26px;
+            font-size: 20px;
             font-weight: 500;
             line-height: 150%;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             color: #fff;
+            span.green{
+                background: #AEE366;
+                color: #0D3153;
+                padding: 5px;
+            }
         }
         .btn-green-env{
             color: $color-blue-logo !important;
             font-weight: bold;
+            width: 200px;
             &:hover{
                 color: #fff !important;
             }
         }
+        .btn-white-env{
+            width: 200px;
+            margin-left: 50px;
+        }
+        .box-button{
+            padding-top: 15px;
+        }
     }
 }
+
 .small-business-page{
     padding-bottom: 0 !important;
     padding-top: 0 !important;

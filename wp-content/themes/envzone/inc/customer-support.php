@@ -8,9 +8,6 @@ get_header();
         <div class="container">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo get_home_url();?>/buyer-guidelines">Buyer Guidelines</a>
-                </li>
-                <li class="nav-item">
                     <span class="nav-link active">Support</span>
                 </li>
             </ul>
@@ -32,7 +29,16 @@ get_header();
 
 
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 contact-us-page">
+                    <div class="box-contact-topic mb-5">
+                        <div class="label-header">
+                            CONTACT US BY TOPIC
+                        </div>
+                        <article>
+                            <h4>Support Inquiries:</h4>
+                            <a href="mailto:support@envzone.com">support@envzone.com</a>
+                        </article>
+                    </div>
                     <a target="_blank" rel="nofollow" href="https://envzone.supportbee.com/portal/sign_in" class="item-customer-support">
                         <img src="<?php echo ASSET_URL;?>images/icon-technical-support.png" alt="">
                         <h2>SUBMIT A TICKET</h2>

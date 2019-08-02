@@ -178,16 +178,13 @@
                         <?php endforeach;?>
                     </div>
                 </div>
-                <div class="col-lg-12 mt-lg-5 mt-3">
-                    <a href="<?php echo home_url('blog');?>" class="btn btn-blue-env w-100 d-lg-none d-block">VIEW ALL ARTICLES</a>
-                </div>
             </div>
         </div>
     </div>
     <!-- /*============END BLOG HOME=================*/ -->
 
     <!-- /*============Small Business=================*/ -->
-    <div class="container-fluild bg-greenish-home section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-small-business" class="container-fluild section-small-business bg-greenish-home blog-detail-page blog-page">
         <div class="container">
             <div class="row section-head-blog content-blog">
                 <div class="col-12 box-head-blog">
@@ -200,6 +197,7 @@
                             'posts_per_page' => 6,
                             'offset'=> 0,
                             'post_type' => 'post',
+                            'category_name' => 'small-business',
                             'orderby' => 'post_modified',
                             'order' =>'desc'
                         );
@@ -242,24 +240,24 @@
                     </div>
                 </div>
 
-                <div class="col-lg-12">
-                    <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <div class="col-lg-12 box-view-all text-right">
+                    <a class="view-all" href="<?php echo home_url('category/small-business');?>">ALL SMALL BUSINESS <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
 
-                <div class="col-lg-8">
+                <div class="col-lg-8 box-product">
                     <h3>Explore products for SMBs</h3>
                     <div class="list-products">
                         <div class="item-product">
-                            <a href="">High Growth</a>
+                            <a href="<?php echo home_url('plans-and-pricing');?>">High Growth</a>
                         </div>
                         <div class="item-product">
-                            <a href="">Main-Street</a>
+                            <a href="<?php echo home_url('plans-and-pricing');?>">Main-Street</a>
                         </div>
                         <div class="item-product">
-                            <a href="">Growing Business</a>
+                            <a href="<?php echo home_url('plans-and-pricing');?>">Growing Business</a>
                         </div>
                         <div class="item-product">
-                            <a href="">Learn more product details</a>
+                            <a href="<?php echo home_url('plans-and-pricing');?>">Learn more product details</a>
                         </div>
                     </div>
                 </div>
@@ -269,9 +267,9 @@
                             <div class="title-sub">
                                 Join Over 1,000 of Other Small Business Owners in United States Who Receive Insights and Updates to Improve Your Online Presence.
                             </div>
-                            <div class="form-subscribe">
+                            <div id="subscribe-small-business" class="form-subscribe">
                                 <?php
-                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
+                                echo do_shortcode('[gravityform id=27 title=false description=false ajax=false]');
                                 ?>
                             </div>
                         </div>
@@ -286,49 +284,43 @@
     <!-- /*============Meet the featured contributors=================*/ -->
     <div class="container section-featured-contributors">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 box-header">
                 <h2>Meet the featured contributors</h2>
             </div>
+            <?php
+            $param = array(
+                'role__in'         => array('editor', 'former_staff_env')
+            );
+            $users = get_users($param);
+            foreach ($users as $k =>  $user):
+                if ($k == 3) break;
+            ?>
             <div class="col-lg-4">
-                <div class="item-author">
-                    <img src="http://localhost/envzone/wp-content/uploads/2019/05/Anna-Gravatar-150x150.jpg" alt="" class="img-fluid avatar-author">
-                    <h3>Alina Vo</h3>
-                    <div class="position">Influencer Marketing Opeartions</div>
-                    <a href="">About </a>
+                <div class="item-author clearfix">
+                    <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['medium'];?>" alt="" class="img-fluid avatar-author">
+                    <h3><?php echo $user->display_name;?></h3>
+                    <div class="position"><?php echo get_field('position', 'user_'. $user->ID );?></div>
+                    <a href="<?php echo home_url('author/').$user->nickname;?>">About </a>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="item-author">
-                    <img src="http://localhost/envzone/wp-content/uploads/2019/05/Anna-Gravatar-150x150.jpg" alt="" class="img-fluid avatar-author">
-                    <h3>Alina Vo</h3>
-                    <div class="position">Influencer Marketing Opeartions</div>
-                    <a href="">About </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="item-author">
-                    <img src="http://localhost/envzone/wp-content/uploads/2019/05/Anna-Gravatar-150x150.jpg" alt="" class="img-fluid avatar-author">
-                    <h3>Alina Vo</h3>
-                    <div class="position">Influencer Marketing Opeartions</div>
-                    <a href="">About </a>
-                </div>
-            </div>
+            <?php endforeach;?>
         </div>
     </div>
     <!-- /*============END Meet the featured contributors=================*/ -->
 
     <!-- /*============OUTSOURCING INSIGHTS HOME=================*/ -->
-    <div class="container section-outsourcing-insights artical-page blog-page blog-detail-page">
+    <div id="section-outsourcing-insights" class="container section-outsourcing-insights artical-page blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
-                <h3 class="title-head-blue have-border">RECENT ARTICLES</h3>
-                <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <h3 class="title-head-blue have-border">OUTSOURCING INSIGHTS</h3>
+                <a class="view-all" href="<?php echo home_url('category/outsourcing-insights');?>">ALL OUTSOURCING INSIGHTS <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-lg-8 pd-lr-0">
                 <?php
                 $args_recent = array(
                     'posts_per_page' => 4,
                     'post_type' => 'post',
+                    'category_name' => 'outsourcing-insights',
                     'orderby' => 'id',
                     'order' =>'desc'
                 );
@@ -534,11 +526,11 @@
     <!-- /*============END REVIEW COMPANIES HOME=================*/ -->
 
     <!-- /*============Healthcare=================*/ -->
-    <div class="container section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-healthcare" class="container section-healthcare artical-page blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
-                <h3 class="title-head-blue have-border">RECENT ARTICLES</h3>
-                <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <h3 class="title-head-blue have-border">Healthcare</h3>
+                <a class="view-all" href="<?php echo home_url('category/healthcare');?>">All Healthcare <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -549,6 +541,7 @@
                         'posts_per_page' => 3,
                         'offset'=> 0,
                         'post_type' => 'post',
+                        'category_name' => 'healthcare',
                         'orderby' => 'post_modified',
                         'order' =>'desc'
                     );
@@ -595,12 +588,12 @@
     <!-- /*============END Healthcare=================*/ -->
 
     <!-- /*============Ecommerce & Retail=================*/ -->
-    <div class="container-fluild bg-gray-home">
-        <div class="container section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-ecommerce-and-retail"  class="container-fluild bg-gray-home" >
+        <div class="container section-ecommerce-and-retail artical-page blog-page blog-detail-page">
             <div class="row define-headline">
                 <div class="col-12 box-head-blog">
                     <h3 class="title-head-blue have-border">Ecommerce & Retail</h3>
-                    <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all" href="<?php echo home_url('category/ecommerce-and-retail');?>">All Ecommerce & Retail <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row content-blog">
@@ -611,6 +604,7 @@
                             'posts_per_page' => 3,
                             'offset'=> 0,
                             'post_type' => 'post',
+                            'category_name' => 'ecommerce-and-retail',
                             'orderby' => 'post_modified',
                             'order' =>'desc'
                         );
@@ -657,12 +651,29 @@
     </div>
     <!-- /*============END Ecommerce & Retail=================*/ -->
 
+    <!-- /*============FORM executive insights=================*/ -->
+    <div class="container section-get-executive-insights">
+        <div class="row">
+            <div class="col-lg-12 box-executive">
+                <div class="title-executive">
+                    Get executive insights to take your organanization to the next level with our resources
+                </div>
+                <div class="subscribe-form text-right">
+                    <?php
+                    echo do_shortcode('[gravityform id="3" title="false" description="false"]');
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /*============END FORM executive insights=================*/ -->
+
     <!-- /*============Real Estate & Property=================*/ -->
-    <div class="container section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-real-estate" class="container section-real-estate artical-page blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Real Estate & Property</h3>
-                <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all" href="<?php echo home_url('category/real-estate-and-property');?>">All Real Estate & Property <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -673,6 +684,7 @@
                         'posts_per_page' => 3,
                         'offset'=> 0,
                         'post_type' => 'post',
+                        'category_name' => 'real-estate-and-property',
                         'orderby' => 'post_modified',
                         'order' =>'desc'
                     );
@@ -767,11 +779,11 @@
     <!-- /*============END EVENTS HOME=================*/ -->
 
     <!-- /*============Hospitality and Travel=================*/ -->
-    <div class="container section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-hospitality-travel" class="container section-hospitality-travel artical-page blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Hospitality and Travel</h3>
-                <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all" href="<?php echo home_url('category/hospitality-and-travel');?>">All Hospitality and Travel <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -782,6 +794,7 @@
                         'posts_per_page' => 3,
                         'offset'=> 0,
                         'post_type' => 'post',
+                        'category_name' => 'hospitality-and-travel',
                         'orderby' => 'post_modified',
                         'order' =>'desc'
                     );
@@ -827,12 +840,52 @@
     </div>
     <!-- /*============END Hospitality and Travel=================*/ -->
 
+    <!-- /*============Resources=================*/ -->
+    <div class="container-fluild section-resources-home bg-greenish-home blog-detail-page blog-page resources-ebook-page">
+        <div class="container">
+            <div class="row define-headline">
+                <div class="col-12 box-head-blog">
+                    <h3 class="title-head-blue have-border">Resources</h3>
+                    <a class="view-all" href="<?php echo home_url('category/hospitality-and-travel');?>">All Resources <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <?php
+                $args = array(
+                    'posts_per_page' => 3,
+                    'offset'=> 0,
+                    'post_type' => 'resources',
+                    'orderby' => 'ID',
+                    'order' =>'desc'
+                );
+                $ebook_resources = get_posts( $args );
+
+                foreach($ebook_resources as $item):
+                ?>
+                <div class="col-lg-4">
+                    <article class="box-ebook">
+                        <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                        <h2>
+                            <?php echo $item->post_title;?>
+                        </h2>
+                        <a href="<?php echo get_permalink($item->ID);?>" class="btn-download-ebook btn btn-blue-env">DOWNLOAD</a>
+                        <div class="box-category">
+                            <a href="<?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->slug;?>"><?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?></a>
+                        </div>
+                    </article>
+                </div>
+                <?php endforeach;?>
+            </div>
+        </div>
+    </div>
+    <!-- /*============END Resources=================*/ -->
+
     <!-- /*============Financial Services=================*/ -->
-    <div class="container section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-financial-services" class="container section-financial-services artical-page blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Financial Services</h3>
-                <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all" href="<?php echo home_url('category/financial-services');?>">All Financial Services <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -843,6 +896,7 @@
                         'posts_per_page' => 3,
                         'offset'=> 0,
                         'post_type' => 'post',
+                        'category_name' => 'financial-services',
                         'orderby' => 'post_modified',
                         'order' =>'desc'
                     );
@@ -943,11 +997,11 @@
     <!-- /*============END STUDIO HOME=================*/ -->
 
     <!-- /*============Logistics and Supply Chain=================*/ -->
-    <div class="container section-small-business artical-page blog-page blog-detail-page">
+    <div id="section-logistics-and-supply-chain" class="container section-logistics-and-supply-chain artical-page blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Logistics and Supply Chain</h3>
-                <a class="view-all" href="<?php echo home_url('blog');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all" href="<?php echo home_url('category/logistics-and-supply-chain');?>">All Logistics and Supply Chain <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -1002,48 +1056,6 @@
         </div>
     </div>
     <!-- /*============END Logistics and Supply Chain=================*/ -->
-
-    <!-- Modal -->
-    <div class="modal fade book-advert box-subscribe" id="modal-advert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 1.5L13.5 0L7.5 6L1.5 0L0 1.5L6 7.5L0 13.5L1.5 15L7.5 9L13.5 15L15 13.5L9 7.5L15 1.5Z" fill="#0D3153"/>
-                        </svg>
-                    </button>
-                    <div class="title-subscriber">
-                        SUBSCRIBE TO:
-                    </div>
-                    <h3>
-                        EXECUTIVE INSIGHTS
-                    </h3>
-                    <div class="info-subscriber clearfix">
-                        <div class="description">
-                            Join over 5,000 of your peers who recieve the most valuable industry updates business leaders, CEOs, CTOs, COOs, need to know, operation, development hacking and tactics to get a head of the competition.
-                        </div>
-                        <div class="form-subscribe">
-                            <?php
-                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                            ?>
-                        </div>
-
-                        <div class="tip">
-                            ENVZONE will use the information you provide to send you insights, development hacking tips. You may unsubscribe from these communications at any time. For more information, check out our Privacy Policy.
-                        </div>
-
-                    </div>
-
-                    <div class="text-center">
-                        <div class="note">No thanks, I don’t want insights to reduce costs of business.</div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
 </main>
 <script>
 
@@ -1064,77 +1076,8 @@
 
     $(document).ready(function() {
 
-        $('.slider-home').owlCarousel({
-            animateOut: 'slideOutRight',
-            animateIn: 'slideInLeft',
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            lazyLoad:true,
-            autoplay: true,
-            autoplayTimeout: 8000,
-            smartSpeed:450,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                    dots: false
-                },
-                768: {
-                    items: 1,
-                    dots: false
-                },
-                1024: {
-                    items: 1
-                }
-            }
-        });
-
-        $('.slider-partners').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 2
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-
-        $('.box-industries').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
+        $(".box-subscriber-blog #subscribe-small-business .gform_button").val('SUBSCRIBE NOW');
+        $(".section-get-executive-insights .gform_button").val('SUBSCRIBE');
 
         $('.list-video').owlCarousel({
             loop: true,

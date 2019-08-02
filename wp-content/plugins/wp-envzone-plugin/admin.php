@@ -77,6 +77,14 @@ class EnvzoneMTAdmin
         $group = get_role('author');
         $group_sub = get_role('subscriber');
 
+        /*echo '<pre>';
+        print_r(get_role('administrator'));
+        print_r(get_role('editor'));
+        echo '</pre>';
+        exit();*/
+
+
+
         $caps = $group->capabilities;
         $caps_sub = $group_sub->capabilities;
 
@@ -116,7 +124,7 @@ class EnvzoneMTAdmin
         /*Add capabilities role editor*/
         $group_editor_env = get_role('editor');
 
-        $group_editor_env->add_cap('rank_math_onpage_advanced');
+        $group_editor_env->remove_cap('rank_math_onpage_advanced');
         $group_editor_env->add_cap('rank_math_edit_htaccess');
         $group_editor_env->add_cap('rank_math_titles');
         $group_editor_env->add_cap('rank_math_site_analysis');
@@ -129,10 +137,7 @@ class EnvzoneMTAdmin
         $group_editor_env->remove_cap('rank_math_titles');
         $group_editor_env->add_cap('rank_math_general');
 
+        $group_editor_env->add_cap('manage_options');
+
     }
-
-
-
-
-
 }

@@ -15,8 +15,9 @@
 }
 .customer-support-page{
   .box-customer-support{
-    border: 1px solid $color-gray-border;
-    padding: 30px 15px;
+    h1{
+      text-transform: inherit;
+    }
     article{
       font-size: 22px;
     }
@@ -54,7 +55,6 @@
     }
   }
 }
-
 /* =================== RESPONSIVE ======================= */
 
 
