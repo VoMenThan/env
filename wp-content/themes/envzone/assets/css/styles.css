@@ -9514,6 +9514,15 @@ section.testing-page .item-qa {
     font-size: 18px;
     margin-bottom: 20px;
   }
+  .banner-small-business.bg-blue .box-info-small-business .btn {
+    width: 100%;
+  }
+  .banner-small-business.bg-blue .box-info-small-business .btn-green-env {
+    margin-bottom: 30px;
+  }
+  .banner-small-business.bg-blue .box-info-small-business .btn-white-env {
+    margin-left: 0;
+  }
 
   .small-business-page .section-top-customer {
     margin-bottom: 100px;
@@ -9632,6 +9641,14 @@ section.testing-page .item-qa {
   .small-business-page .section-your-business .box-button {
     margin-bottom: 0;
     margin-top: 20px;
+  }
+
+  .coverage-location-page .section-check-out-city .list-cities .city-name {
+    width: calc(50% - 18px);
+    margin-right: 30px;
+  }
+  .coverage-location-page .section-check-out-city .list-cities .city-name:nth-child(2n+2) {
+    margin-right: 0;
   }
 }
 /* 	================================================================
@@ -17190,14 +17207,20 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   padding: 5px;
 }
 
-.banner-affiliate-program .box-info-small-business {
+.banner-affiliate-program.bg-blue .box-info-small-business {
   margin-bottom: 30px;
   margin-top: 30px !important;
 }
-.banner-affiliate-program .box-info-small-business .btn {
+.banner-affiliate-program.bg-blue .box-info-small-business h1 {
+  font-size: 48px;
+}
+.banner-affiliate-program.bg-blue .box-info-small-business p {
+  font-size: 22px;
+}
+.banner-affiliate-program.bg-blue .box-info-small-business .btn {
   min-width: 200px;
 }
-.banner-affiliate-program .box-info-small-business .btn-white-env {
+.banner-affiliate-program.bg-blue .box-info-small-business .btn-white-env {
   margin-left: 50px;
 }
 
@@ -17376,6 +17399,99 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   margin-bottom: 60px;
 }
 
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .banner-affiliate-program.bg-blue .box-info-small-business h1 {
+    font-size: 24px;
+  }
+  .banner-affiliate-program.bg-blue .box-info-small-business p {
+    font-size: 18px;
+  }
+  .banner-affiliate-program.bg-blue .box-info-small-business .btn {
+    width: 100%;
+  }
+  .banner-affiliate-program.bg-blue .box-info-small-business .btn-green-env {
+    margin-bottom: 30px;
+  }
+  .banner-affiliate-program.bg-blue .box-info-small-business .btn-white-env {
+    margin-left: 0;
+  }
+
+  .affiliate-program-page h2 {
+    font-size: 24px;
+  }
+  .affiliate-program-page p {
+    font-size: 18px;
+  }
+  .affiliate-program-page .item-shadow {
+    margin-bottom: 50px;
+    height: auto;
+  }
+  .affiliate-program-page .section-how-it-works {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .affiliate-program-page .section-how-it-works .box-head {
+    margin-bottom: 50px;
+  }
+  .affiliate-program-page .section-it-for-you .item-it-for-you {
+    margin-bottom: 50px;
+    height: auto;
+  }
+  .affiliate-program-page .section-sass-professional {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  .affiliate-program-page .section-sass-professional img {
+    margin-top: 50px;
+  }
+  .affiliate-program-page .section-easy-started {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .affiliate-program-page .section-easy-started img {
+    width: 150px;
+    margin-top: 40px;
+  }
+  .affiliate-program-page .section-resources-designed {
+    padding-bottom: 150px;
+  }
+  .affiliate-program-page .section-resources-designed .img-mb {
+    width: 150px;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  .affiliate-program-page .section-resources-designed ul li {
+    font-size: 18px;
+  }
+  .affiliate-program-page .section-resources-designed ul li:before {
+    width: 15px;
+    height: 15px;
+    left: 5px;
+    top: 5px;
+  }
+  .affiliate-program-page .section-join-affiliate-program {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  .affiliate-program-page .section-join-affiliate-program h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .affiliate-program-page .section-join-affiliate-program .box-content-join h3, .affiliate-program-page .section-join-affiliate-program .box-already-affiliate h3 {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+  .affiliate-program-page .section-join-affiliate-program .box-content-join p, .affiliate-program-page .section-join-affiliate-program .box-already-affiliate p {
+    font-size: 18px;
+  }
+  .affiliate-program-page .section-join-affiliate-program .box-already-affiliate {
+    margin-top: 100px;
+  }
+}
 .help-page {
   padding-top: 0 !important;
 }

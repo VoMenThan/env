@@ -78,14 +78,22 @@
     }
 }
 .banner-affiliate-program{
-    .box-info-small-business{
-        margin-bottom: 30px;
-        margin-top: 30px !important;
-        .btn{
-            min-width: 200px;
-        }
-        .btn-white-env{
-            margin-left: 50px;
+    &.bg-blue{
+        .box-info-small-business{
+            margin-bottom: 30px;
+            margin-top: 30px !important;
+            h1{
+                font-size: 48px;
+            }
+            p{
+                font-size: 22px;
+            }
+            .btn{
+                min-width: 200px;
+            }
+            .btn-white-env{
+                margin-left: 50px;
+            }
         }
     }
 }
@@ -259,6 +267,112 @@
             }
             .btn-blue-env{
                 margin-bottom: 60px;
+            }
+        }
+    }
+}
+/* 	================================================================
+	TABLET DEVICE
+	Large tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+    .banner-affiliate-program{
+        &.bg-blue{
+            .box-info-small-business{
+                h1{
+                    font-size: 24px;
+                }
+                p{
+                    font-size: 18px;
+                }
+                .btn{
+                    width: 100%;
+                }
+                .btn-green-env{
+                    margin-bottom: 30px;
+                }
+                .btn-white-env{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .affiliate-program-page {
+        h2{
+            font-size: 24px;
+        }
+        p{
+            font-size: 18px;
+        }
+        .item-shadow{
+            margin-bottom: 50px;
+            height: auto;
+        }
+        .section-how-it-works{
+            padding-top: 80px;
+            padding-bottom: 80px;
+            .box-head{
+                margin-bottom: 50px;
+            }
+        }
+        .section-it-for-you {
+            .item-it-for-you{
+                margin-bottom: 50px;
+                height: auto;
+            }
+        }
+        .section-sass-professional{
+            padding-top: 150px;
+            padding-bottom: 150px;
+            img{
+                margin-top: 50px;
+            }
+        }
+        .section-easy-started{
+            padding-top: 100px;
+            padding-bottom: 100px;
+            img{
+                width: 150px;
+                margin-top: 40px;
+            }
+        }
+        .section-resources-designed{
+            padding-bottom: 150px;
+            .img-mb{
+                width: 150px;
+                margin: auto;
+                margin-bottom: 50px;
+            }
+            ul {
+                li{
+                    font-size: 18px;
+                    &:before{
+                        width: 15px;
+                        height: 15px;
+                        left: 5px;
+                        top: 5px;
+                    }
+                }
+            }
+        }
+        .section-join-affiliate-program{
+            padding-top: 150px;
+            padding-bottom: 150px;
+            h2{
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            .box-content-join, .box-already-affiliate{
+                h3{
+                    font-size: 18px;
+                    margin-top: 30px;
+                }
+                p{
+                    font-size: 18px;
+                }
+            }
+            .box-already-affiliate{
+                margin-top: 100px;
             }
         }
     }

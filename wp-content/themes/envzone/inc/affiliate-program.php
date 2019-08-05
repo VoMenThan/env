@@ -15,8 +15,8 @@ get_header();
                         <p>
                             Help other small business owners overcome the challenges of building online presence with the exceptional support of dedicated online presence manager.
                         </p>
-                        <a href="<?php echo home_url('affiliate-register-page')?>" class="btn btn-green-env" style="min-width: 200px;">APPLY NOW</a>
-                        <a href="<?php echo home_url('affiliate-login')?>" class="btn btn-white-env" style="min-width: 200px; margin-left: 50px;">LOGIN</a>
+                        <a href="<?php echo home_url('affiliate-register-page')?>" class="btn btn-green-env">APPLY NOW</a>
+                        <a href="<?php echo home_url('affiliate-login')?>" class="btn btn-white-env">LOGIN</a>
                     </div>
                 </div>
             </div>
@@ -136,10 +136,10 @@ get_header();
         <div class="container-fluid section-easy-started">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <div class="col-lg-6 order-lg-0 order-1 d-flex justify-content-center align-items-center">
                         <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-easy-to-get-started.png" alt="">
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 order-lg-1 order-0">
                         <h2>
                             It’s Easy to Get Started
                         </h2>
@@ -157,6 +157,7 @@ get_header();
                     <h2>
                         Resources Designed to Boost Earnings
                     </h2>
+                    <img class="img-fluid d-lg-none d-block img-mb" src="<?php echo ASSET_URL;?>images/img-resources-designed.png" alt="">
                     <ul>
                         <li>
                             Article Ideas
@@ -176,7 +177,7 @@ get_header();
                     </ul>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-resources-designed.png" alt="">
+                    <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/img-resources-designed.png" alt="">
                 </div>
             </div>
         </div>
