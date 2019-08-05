@@ -129,34 +129,26 @@
 
 
 /* =================== RESPONSIVE ======================= */
-
-/* 	================================================================
-	Large desktop 1200px and down (1200px)
-	================================================================== */
-@media screen and (max-width: $device-size-extra-large) {
-	.content-envent {
-		.box-item-event {
-			.box-info{
-				padding-left: 31%;
-			}
-		}
-	}
-}
-/* 	================================================================
-	MEDIUM DEVICE
-	Large tablet 992px and down (<992px)
-	================================================================== */
-@media screen and (max-width: $device-size-large) {
-
-}
-
 /* 	================================================================
 	MEDIUM DEVICE
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
 	.content-envent {
-		display: none;
+		margin-bottom: 0;
+		.box-head-blog {
+			padding-left: 0;
+			padding-right: 0;
+			.underline-head{
+				border: none;
+				padding-left: 15px;
+				span{
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
 	}
 }
 

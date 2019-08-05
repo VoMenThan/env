@@ -17,7 +17,7 @@ get_header();
 
                         <div class="box-form-contact form-horizontal">
                             <?php
-                            echo do_shortcode('[gravityform id=5 title=false description=false ajax=false]');
+                            echo do_shortcode('[gravityform id=30 title=false description=false ajax=false]');
                             ?>
                         </div>
 

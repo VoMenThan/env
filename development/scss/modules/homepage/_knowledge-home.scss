@@ -68,6 +68,22 @@
 	}
 }
 
+.enterprises-page{
+	.section-knowledge {
+		padding: 200px 0 !important;
+	}
+	.content-knowledge {
+		.video-play {
+			h3{
+				color: #0D3153;
+				font-size: 26px;
+				text-transform: inherit;
+				line-height: 150%;
+			}
+		}
+	}
+}
+
 /* =================== RESPONSIVE ======================= */
 
 /* 	================================================================
@@ -83,8 +99,26 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
-	.section-knowledge{
-		display: none;
+	.content-knowledge {
+		display: none !important;
+		.box-head-blog {
+			h2{
+				font-size: 24px;
+			}
+		}
+	}
+	.enterprises-page{
+		.section-knowledge {
+			padding: 150px 0 !important;
+		}
+		.content-knowledge {
+			display: block !important;
+			.video-play {
+				h3{
+					font-size: 22px;
+				}
+			}
+		}
 	}
 }
 

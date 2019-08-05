@@ -47,7 +47,7 @@ get_header();
                             </article>
                         </a>
 
-                        <a href="">
+                        <a href="<?php echo home_url('client-portal');?>">
                             <article class="item-vendor">
                                 <img src="<?php echo ASSET_URL;?>images/icon-already-verified.svg" alt="">
                                 <h3>enterprise portal</h3>

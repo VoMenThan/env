@@ -49,3 +49,26 @@
         }
     }
 }
+
+/* =================== RESPONSIVE ======================= */
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    .section-featured-contributors {
+        padding-top: 110px;
+        padding-bottom: 85px;
+        .box-header {
+            h2{
+                margin-bottom: 40px;
+                font-size: 24px;
+            }
+        }
+        .item-author{
+            margin-bottom: 40px;
+        }
+    }
+}

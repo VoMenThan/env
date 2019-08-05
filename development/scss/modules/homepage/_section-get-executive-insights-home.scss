@@ -104,3 +104,30 @@
         }
     }
 }
+
+/* 	================================================================
+	MOBILE DEVICE
+	Large mobile 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+    .section-get-executive-insights {
+        .box-executive{
+            padding: 30px 10px;
+        }
+        .title-executive{
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+        .subscribe-form {
+            #gform_wrapper_3 {
+                input.button, input[type=submit]{
+                    width: 100%;
+                    position: static;
+                    margin-top: 30px;
+                    @include radius(5px);
+                }
+            }
+        }
+    }
+}

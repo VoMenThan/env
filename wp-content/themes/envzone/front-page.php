@@ -75,11 +75,11 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-12 col-px-0">
+                <div class="col-lg-12 col-px-0 blog-feature-home">
                     <div class="item-special">
                         <div class="row">
 
-                            <div class="col-lg-7 img-special ">
+                            <div class="col-lg-7 img-special">
                                 <a href="<?php echo get_the_permalink($news_main[0]->ID);?>">
                                     <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" class="job-openings">
                                 </a>
@@ -124,8 +124,8 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-12 box-item-scroll">
-                    <div class="owl-carousel owl-theme d-lg-flex d-flex flex-row slider-news">
+                <div class="col-lg-12 box-item-scroll blog-feature-home">
+                    <div class="owl-carousel owl-theme d-lg-flex d-flex flex-column slider-news">
                         <?php
                         $args = array(
                             'posts_per_page' => 6,
@@ -154,8 +154,8 @@
 
                             ?>
                             <div class="box-item-special item">
-                                <div class="item-blog">
-                                    <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                <div class="item-blog clearfix">
+                                    <a class="img-feature-blog" href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -177,6 +177,9 @@
                             </div>
                         <?php endforeach;?>
                     </div>
+                </div>
+                <div class="col-lg-12 d-lg-none d-block">
+                    <a href="<?php echo home_url('blog');?>" class="btn btn-blue-env">VIEW ALL ARTICLES</a>
                 </div>
             </div>
         </div>
@@ -261,8 +264,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 sidebar-advert">
-                    <div class="box-subscriber-blog d-lg-block d-none">
+                <div class="col-lg-4">
+                    <div class="box-subscriber-blog">
                         <div class="box-border">
                             <div class="title-sub">
                                 Join Over 1,000 of Other Small Business Owners in United States Who Receive Insights and Updates to Improve Your Online Presence.
@@ -309,11 +312,11 @@
     <!-- /*============END Meet the featured contributors=================*/ -->
 
     <!-- /*============OUTSOURCING INSIGHTS HOME=================*/ -->
-    <div id="section-outsourcing-insights" class="container section-outsourcing-insights artical-page blog-page blog-detail-page">
+    <div id="section-outsourcing-insights" class="container section-outsourcing-insights blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">OUTSOURCING INSIGHTS</h3>
-                <a class="view-all" href="<?php echo home_url('category/outsourcing-insights');?>">ALL OUTSOURCING INSIGHTS <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/outsourcing-insights');?>">ALL OUTSOURCING INSIGHTS <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-lg-8 pd-lr-0">
                 <?php
@@ -362,7 +365,7 @@
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>KNOWLEDGE CENTER</h2>
-                    <a class="view-all" href="<?php echo get_home_url();?>/knowledge-center">View all videos <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all d-lg-block d-none" href="<?php echo get_home_url();?>/knowledge-center">View all videos <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -376,7 +379,8 @@
                         </h3>
                     </a>
                 </div>
-                <div class="col-lg-4 d-lg-block d-none">
+
+                <div class="col-lg-4">
                     <article class="list-item">
                         <div class="label-headline">LEARNING RESOURCES</div>
                         <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
@@ -420,16 +424,24 @@
     <!-- /*============END KNOWLEDGE HOME=================*/ -->
 
     <!-- /*============REVIEW COMPANIES HOME=================*/ -->
-    <?php $recommendation_platform = get_field('recommendation_platform', $post->ID);?>
+
+    <?php $community_driven =  get_field('community_driven');
+    echo '<pre>';
+    print_r($community_driven);
+    echo '</pre>';
+
+    ?>
+
     <div class="container section-companies-homepage">
         <!-- /*============COMPANY HOME=================*/ -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="title-section-companies"><?php echo $recommendation_platform['title'];?></h2>
+                <h2 class="title-section-companies">A COMMUNITY-DRIVEN RECOMMENDATION PLATFORM  </h2>
             </div>
             <div class="col-lg-7 d-lg-flex flex-column justify-content-center">
                 <div class="excerpt-companies">
-                    <?php echo $recommendation_platform['description'];?>
+                    <p>A dedicated listening platform for your voice to be heard by top leaders</p>
+                    <p>It’s about YOUR benefits not OUR rating system. Let’s make the service expectation an enjoyable experience</p>
                 </div>
 
             </div>
@@ -514,10 +526,10 @@
 
             <div class="col-lg-12 content-connect">
                 <div class="subtitle-companies">
-                    <?php echo $recommendation_platform['subtitle'];?>
+                    Read Review. Write Review. Recommend Improvements.
                 </div>
-                <a href="<?php echo $recommendation_platform['button_url'];?>" class="btn btn-green-env">
-                    <?php echo $recommendation_platform['button_name'];?>
+                <a href="<?php echo home_url('companies');?>" class="btn btn-green-env">
+                    SEARCH FOR A COMPANY
                 </a>
             </div>
         </div>
@@ -526,11 +538,11 @@
     <!-- /*============END REVIEW COMPANIES HOME=================*/ -->
 
     <!-- /*============Healthcare=================*/ -->
-    <div id="section-healthcare" class="container section-healthcare artical-page blog-page blog-detail-page">
+    <div id="section-healthcare" class="container section-healthcare blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Healthcare</h3>
-                <a class="view-all" href="<?php echo home_url('category/healthcare');?>">All Healthcare <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/healthcare');?>">All Healthcare <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -589,11 +601,11 @@
 
     <!-- /*============Ecommerce & Retail=================*/ -->
     <div id="section-ecommerce-and-retail"  class="container-fluild bg-gray-home" >
-        <div class="container section-ecommerce-and-retail artical-page blog-page blog-detail-page">
+        <div class="container section-ecommerce-and-retail blog-page blog-detail-page">
             <div class="row define-headline">
                 <div class="col-12 box-head-blog">
                     <h3 class="title-head-blue have-border">Ecommerce & Retail</h3>
-                    <a class="view-all" href="<?php echo home_url('category/ecommerce-and-retail');?>">All Ecommerce & Retail <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/ecommerce-and-retail');?>">All Ecommerce & Retail <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row content-blog">
@@ -654,14 +666,16 @@
     <!-- /*============FORM executive insights=================*/ -->
     <div class="container section-get-executive-insights">
         <div class="row">
-            <div class="col-lg-12 box-executive">
-                <div class="title-executive">
-                    Get executive insights to take your organanization to the next level with our resources
-                </div>
-                <div class="subscribe-form text-right">
-                    <?php
-                    echo do_shortcode('[gravityform id="3" title="false" description="false"]');
-                    ?>
+            <div class="col-lg-12">
+                <div class="box-executive">
+                    <div class="title-executive">
+                        Get executive insights to take your organanization to the next level with our resources
+                    </div>
+                    <div class="subscribe-form text-right">
+                        <?php
+                        echo do_shortcode('[gravityform id="3" title="false" description="false"]');
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -669,11 +683,11 @@
     <!-- /*============END FORM executive insights=================*/ -->
 
     <!-- /*============Real Estate & Property=================*/ -->
-    <div id="section-real-estate" class="container section-real-estate artical-page blog-page blog-detail-page">
+    <div id="section-real-estate" class="container section-real-estate blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Real Estate & Property</h3>
-                <a class="view-all" href="<?php echo home_url('category/real-estate-and-property');?>">All Real Estate & Property <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/real-estate-and-property');?>">All Real Estate & Property <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -750,22 +764,24 @@
     );
     $event_all = get_posts( $args_event );
     ?>
-    <div class="container content-envent define-headline">
+    <div class="container content-envent blog-page blog-events-page define-headline">
         <div class="row">
             <div class="col-lg-8 box-head-blog">
                 <h2 class="title-head-blue underline-head"><span>EVENTS</span></h2>
-                <a class="view-all" href="<?php echo get_home_url();?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo get_home_url();?>/events">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 <?php foreach ($event_all as $item):?>
                     <div class="box-item-event clearfix">
-                        <div class="box-date"><?php echo get_field('date',$item->ID);?></div>
+                        <div class="box-date">
+                            <?php echo get_field('date',$item->ID);?>
+                        </div>
                         <div class="box-info">
                             <a href="<?php echo get_permalink($item->ID);?>"><h2><?php echo $item->post_title;?></h2></a>
                             <div class="location-1"><?php echo get_field('location', $item->ID);?></div>
-                            <div class="location"><i class="icon-location"></i><?php echo get_field('address', $item->ID);?></div>
+                            <div class="location-2"><i class="icon-location"></i><?php echo get_field('address', $item->ID);?></div>
                         </div>
                     </div>
                 <?php endforeach;?>
-
+                <a href="<?php echo home_url('events');?>" class="btn btn-blue-env d-lg-none d-block">VIEW ALL EVENTS</a>
             </div>
             <div class="col-lg-4 box-head-blog d-lg-block d-none">
                 <h2 class="title-head-blue text-inherit tweet-env">
@@ -779,11 +795,11 @@
     <!-- /*============END EVENTS HOME=================*/ -->
 
     <!-- /*============Hospitality and Travel=================*/ -->
-    <div id="section-hospitality-travel" class="container section-hospitality-travel artical-page blog-page blog-detail-page">
+    <div id="section-hospitality-travel" class="container section-hospitality-travel blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Hospitality and Travel</h3>
-                <a class="view-all" href="<?php echo home_url('category/hospitality-and-travel');?>">All Hospitality and Travel <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/hospitality-and-travel');?>">All Hospitality and Travel <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -846,7 +862,7 @@
             <div class="row define-headline">
                 <div class="col-12 box-head-blog">
                     <h3 class="title-head-blue have-border">Resources</h3>
-                    <a class="view-all" href="<?php echo home_url('category/hospitality-and-travel');?>">All Resources <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all d-lg-block d-none" href="<?php echo home_url('resources');?>">All Resources <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -875,17 +891,20 @@
                     </article>
                 </div>
                 <?php endforeach;?>
+                <div class="col-lg-12">
+                    <a href="<?php echo home_url('resources');?>" class="btn btn-blue-env d-lg-none d-block">VIEW ALL RESOURCES</a>
+                </div>
             </div>
         </div>
     </div>
     <!-- /*============END Resources=================*/ -->
 
     <!-- /*============Financial Services=================*/ -->
-    <div id="section-financial-services" class="container section-financial-services artical-page blog-page blog-detail-page">
+    <div id="section-financial-services" class="container section-financial-services blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Financial Services</h3>
-                <a class="view-all" href="<?php echo home_url('category/financial-services');?>">All Financial Services <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/financial-services');?>">All Financial Services <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">
@@ -958,7 +977,7 @@
             <div class="row">
                 <div class="col-12 box-head-blog">
                     <h2>ENVZONE <b>STUDIO</b></h2>
-                    <a class="view-all" href="<?php echo home_url('studio');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="view-all d-lg-block d-none" href="<?php echo home_url('studio');?>">View all <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -997,11 +1016,11 @@
     <!-- /*============END STUDIO HOME=================*/ -->
 
     <!-- /*============Logistics and Supply Chain=================*/ -->
-    <div id="section-logistics-and-supply-chain" class="container section-logistics-and-supply-chain artical-page blog-page blog-detail-page">
+    <div id="section-logistics-and-supply-chain" class="container section-logistics-and-supply-chain blog-page blog-detail-page">
         <div class="row define-headline">
             <div class="col-12 box-head-blog">
                 <h3 class="title-head-blue have-border">Logistics and Supply Chain</h3>
-                <a class="view-all" href="<?php echo home_url('category/logistics-and-supply-chain');?>">All Logistics and Supply Chain <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/logistics-and-supply-chain');?>">All Logistics and Supply Chain <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="row content-blog">

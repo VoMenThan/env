@@ -70,3 +70,17 @@
         }
     }
 }
+
+/* =================== RESPONSIVE ======================= */
+
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    #section-outsourcing-insights {
+        padding-top: 75px !important;
+        padding-bottom: 90px !important;
+    }
+}
