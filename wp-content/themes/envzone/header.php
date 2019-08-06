@@ -33,20 +33,6 @@
 </head>
 <body>
 
-<!--<div id="pageloader">
-    <div class="pageloader">
-        <div class="thecube">
-            <div class="cube c1"></div>
-            <div class="cube c2"></div>
-            <div class="cube c4"></div>
-            <div class="cube c3"></div>
-        </div>
-        <div class="textedit">
-            <span class="site-name"><img src="<?php /*echo ASSET_URL;*/?>images/envzone-logo.png" alt="Logo Envzone"></span>
-        </div>
-    </div>
-</div>-->
-
 <header id="header-top">
     <nav id="sticky-menu" class="position-relative">
         <div class="container">
@@ -59,6 +45,7 @@
                     </a>
                     <div class="d-sm-none btn-hide-submenu">
                         <div class="icon-left-arrow-blue"></div>
+                        <div class="hide-subsub"></div>
                     </div>
                     <div class="title-category d-sm-none">COMPANY</div>
 
@@ -84,15 +71,22 @@
                                 <i class="icon-close-green"></i>
                             </div>
                         </li>
-                        <li class="nav-item d-lg-inline-block d-none client-portal">
-                            <a class="nav-link" href="<?php echo home_url('client-portal');?>">
-                                <span>Client Portal</span>
-                            </a>
+                        <li class="nav-item d-lg-inline-block d-xl-inline-block d-none">
+                            <?php if (!isset($_GET['s'])):?>
+                                <a href="#" class="nav-link btn-search-pc">
+                                    <i class="icon-search"></i>
+                                </a>
+                            <?php else:?>
+                                <a href="#" onclick="window.history.go(-2)" class="nav-link btn-search-pc active">
+                                    <i class="icon-search"></i>
+                                </a>
+                            <?php endif;?>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-3 text-left box-logo-home d-xl-block d-lg-block d-none">
+                    <div class="d-lg-inline-block d-none menu-bar-hamburger"></div>
                     <a href="<?php echo get_home_url();?>" class="logo-envzone">
                         <img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
                     </a>
@@ -198,212 +192,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link item-menu" href="#">INDUSTRIES
-                                    <span href="#" class="icon-arrow-right"></span>
-                                </a>
-
-                                <!-- BOX SUBMENU -->
-                                <div class="sub-menu text-left">
-                                    <div class="container">
-                                        <div class="row box-sub-menu">
-                                            <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-md-block d-none-768 d-none">
-                                                <div class="bg-blue-lv4">
-                                                    <h3 class="text-center mb-3">
-                                                        INDUSTRIES
-                                                    </h3>
-                                                    <div class="sub-title-form">
-                                                        When we say we know your industry, we mean business.
-                                                    </div>
-                                                    <?php
-                                                    echo do_shortcode('[gravityform id="1" title="false" description="false"]');
-                                                    ?>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-7 order-lg-1 order-0">
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/real-estate-property">
-                                                                Real Estate & Property
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/hospitality-and-travel">
-                                                                Hospitality and Travel
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/education">
-                                                                Education
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/ecommerce-and-retail">
-                                                                ECommerce & Retail
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/financial-services">
-                                                                Financial  Services
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/ngos">
-                                                                Non-Profit Organization
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/healthcare">
-                                                                Healthcare
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/logistics-and-supply-chain">
-                                                                Logistics and Supply Chain
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 d-md-none d-block-768 box-check-avaibility">
-                                                <div class="description-check">
-                                                    Schedule My Appointment for Assistance
-                                                </div>
-                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
-                                                    CHECK AVAIBILITY <i class="icon-arrow-down"></i>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link item-menu" href="#">SERVICES
-                                    <span href="#" class="icon-arrow-right"></span>
-                                </a>
-                                <!-- BOX SUBMENU -->
-                                <div class="sub-menu text-left">
-                                    <div class="container">
-                                        <div class="row box-sub-menu">
-                                            <div class="col-xl-5 col-lg-5 order-lg-0 order-1 d-md-block d-none-768 d-none">
-                                                <div class="bg-blue-lv4">
-                                                    <h3 class="text-center mb-3">
-                                                        SERVICES
-                                                    </h3>
-                                                    <div class="sub-title-form">
-                                                        Realize the full potential of your decision
-                                                    </div>
-                                                    <?php
-                                                    echo do_shortcode('[gravityform id="1" title="false" description="false"]');
-                                                    ?>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-7 order-lg-1 order-0">
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/full-cycle-development">
-                                                                Full Cycle Development
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/it-outsourcing">
-                                                                IT Outsourcing
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/testing">
-                                                                Testing
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/devops">
-                                                                DevOps
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/customer-support">
-                                                                Customer Support
-                                                                <span class="icon-arrow-right"></span>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
-                                                        <article>
-                                                            <a class="title-submenu" href="<?php echo get_home_url();?>/small-business">
-                                                                Small Business Owners
-                                                                <span class="icon-arrow-right"></span>
-                                                                <svg class="d-lg-block d-none" width="135" height="20" viewBox="0 0 135 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <rect x="35" width="100" height="20" rx="3" fill="#AEE366"/>
-                                                                    <path d="M50.0137 10.5635C48.888 10.2399 48.0677 9.84342 47.5527 9.37402C47.0423 8.90007 46.7871 8.31673 46.7871 7.62402C46.7871 6.84017 47.0993 6.19303 47.7236 5.68262C48.3525 5.16764 49.1683 4.91016 50.1709 4.91016C50.8545 4.91016 51.4629 5.04232 51.9961 5.30664C52.5339 5.57096 52.9486 5.93555 53.2402 6.40039C53.5365 6.86523 53.6846 7.37337 53.6846 7.9248H52.3652C52.3652 7.32324 52.1738 6.85156 51.791 6.50977C51.4082 6.16341 50.8682 5.99023 50.1709 5.99023C49.5238 5.99023 49.0179 6.13379 48.6533 6.4209C48.2933 6.70345 48.1133 7.09766 48.1133 7.60352C48.1133 8.00911 48.2842 8.35319 48.626 8.63574C48.9723 8.91374 49.5579 9.16895 50.3828 9.40137C51.2122 9.63379 51.8594 9.89128 52.3242 10.1738C52.7936 10.4518 53.14 10.7777 53.3633 11.1514C53.5911 11.5251 53.7051 11.9648 53.7051 12.4707C53.7051 13.2773 53.3906 13.9245 52.7617 14.4121C52.1328 14.8952 51.292 15.1367 50.2393 15.1367C49.5557 15.1367 48.9176 15.0068 48.3252 14.7471C47.7327 14.4827 47.2747 14.1227 46.9512 13.667C46.6322 13.2113 46.4727 12.694 46.4727 12.1152H47.792C47.792 12.7168 48.013 13.193 48.4551 13.5439C48.9017 13.8903 49.4964 14.0635 50.2393 14.0635C50.932 14.0635 51.4629 13.9222 51.832 13.6396C52.2012 13.3571 52.3857 12.972 52.3857 12.4844C52.3857 11.9967 52.2148 11.6208 51.873 11.3564C51.5312 11.0876 50.9115 10.8232 50.0137 10.5635ZM59.7617 14.2686C59.2695 14.8473 58.5472 15.1367 57.5947 15.1367C56.8063 15.1367 56.2048 14.9089 55.79 14.4531C55.3799 13.9928 55.1725 13.3138 55.168 12.416V7.60352H56.4326V12.3818C56.4326 13.5029 56.8883 14.0635 57.7998 14.0635C58.766 14.0635 59.4085 13.7035 59.7275 12.9834V7.60352H60.9922V15H59.7891L59.7617 14.2686ZM69.1816 11.3838C69.1816 12.514 68.9219 13.4232 68.4023 14.1113C67.8828 14.7949 67.1855 15.1367 66.3105 15.1367C65.3763 15.1367 64.654 14.8063 64.1436 14.1455L64.082 15H62.9199V4.5H64.1846V8.41699C64.695 7.78353 65.3991 7.4668 66.2969 7.4668C67.1947 7.4668 67.8988 7.80632 68.4092 8.48535C68.9242 9.16439 69.1816 10.0941 69.1816 11.2744V11.3838ZM67.917 11.2402C67.917 10.3789 67.7507 9.71354 67.418 9.24414C67.0853 8.77474 66.6068 8.54004 65.9824 8.54004C65.1484 8.54004 64.5492 8.92741 64.1846 9.70215V12.9014C64.5719 13.6761 65.1758 14.0635 65.9961 14.0635C66.6022 14.0635 67.0739 13.8288 67.4111 13.3594C67.7484 12.89 67.917 12.1836 67.917 11.2402ZM75.0879 13.0381C75.0879 12.6963 74.958 12.432 74.6982 12.2451C74.443 12.0537 73.9941 11.8896 73.3516 11.7529C72.7135 11.6162 72.2054 11.4521 71.8271 11.2607C71.4535 11.0693 71.1755 10.8415 70.9932 10.5771C70.8154 10.3128 70.7266 9.99837 70.7266 9.63379C70.7266 9.02767 70.9818 8.51497 71.4922 8.0957C72.0072 7.67643 72.6634 7.4668 73.4609 7.4668C74.2995 7.4668 74.9785 7.68327 75.498 8.11621C76.0221 8.54915 76.2842 9.10286 76.2842 9.77734H75.0127C75.0127 9.43099 74.8646 9.13249 74.5684 8.88184C74.2767 8.63118 73.9076 8.50586 73.4609 8.50586C73.0007 8.50586 72.6406 8.60612 72.3809 8.80664C72.1211 9.00716 71.9912 9.26921 71.9912 9.59277C71.9912 9.89811 72.112 10.1283 72.3535 10.2832C72.5951 10.4382 73.0303 10.5863 73.6592 10.7275C74.2926 10.8688 74.8053 11.0374 75.1973 11.2334C75.5892 11.4294 75.8786 11.6663 76.0654 11.9443C76.2568 12.2178 76.3525 12.5527 76.3525 12.9492C76.3525 13.61 76.0882 14.141 75.5596 14.542C75.0309 14.9385 74.3451 15.1367 73.502 15.1367C72.9095 15.1367 72.3854 15.0319 71.9297 14.8223C71.474 14.6126 71.1162 14.321 70.8564 13.9473C70.6012 13.569 70.4736 13.1611 70.4736 12.7236H71.7383C71.7611 13.1475 71.9297 13.4847 72.2441 13.7354C72.5632 13.9814 72.9824 14.1045 73.502 14.1045C73.9805 14.1045 74.3633 14.0088 74.6504 13.8174C74.9421 13.6214 75.0879 13.3617 75.0879 13.0381ZM80.9668 14.1045C81.418 14.1045 81.8122 13.9678 82.1494 13.6943C82.4867 13.4209 82.6735 13.0791 82.71 12.6689H83.9062C83.8835 13.0928 83.7376 13.4961 83.4688 13.8789C83.1999 14.2617 82.8398 14.5671 82.3887 14.7949C81.9421 15.0228 81.4681 15.1367 80.9668 15.1367C79.9596 15.1367 79.1576 14.8018 78.5605 14.1318C77.9681 13.4574 77.6719 12.5368 77.6719 11.3701V11.1582C77.6719 10.4382 77.804 9.79785 78.0684 9.2373C78.3327 8.67676 78.7109 8.24154 79.2031 7.93164C79.6999 7.62174 80.2855 7.4668 80.96 7.4668C81.7894 7.4668 82.4775 7.71517 83.0244 8.21191C83.5758 8.70866 83.8698 9.35352 83.9062 10.1465H82.71C82.6735 9.66797 82.4912 9.27604 82.1631 8.9707C81.8395 8.66081 81.4385 8.50586 80.96 8.50586C80.3174 8.50586 79.8184 8.73828 79.4629 9.20312C79.112 9.66341 78.9365 10.3311 78.9365 11.2061V11.4453C78.9365 12.2975 79.112 12.9538 79.4629 13.4141C79.8138 13.8743 80.3151 14.1045 80.9668 14.1045ZM88.9033 8.73828C88.7119 8.70638 88.5046 8.69043 88.2812 8.69043C87.4518 8.69043 86.889 9.04362 86.5928 9.75V15H85.3281V7.60352H86.5586L86.5791 8.45801C86.9938 7.7972 87.5817 7.4668 88.3428 7.4668C88.5889 7.4668 88.7757 7.4987 88.9033 7.5625V8.73828ZM91.4463 15H90.1816V7.60352H91.4463V15ZM90.0791 5.6416C90.0791 5.43652 90.1406 5.26335 90.2637 5.12207C90.3913 4.98079 90.5781 4.91016 90.8242 4.91016C91.0703 4.91016 91.2572 4.98079 91.3848 5.12207C91.5124 5.26335 91.5762 5.43652 91.5762 5.6416C91.5762 5.84668 91.5124 6.01758 91.3848 6.1543C91.2572 6.29102 91.0703 6.35938 90.8242 6.35938C90.5781 6.35938 90.3913 6.29102 90.2637 6.1543C90.1406 6.01758 90.0791 5.84668 90.0791 5.6416ZM99.7246 11.3838C99.7246 12.5094 99.4671 13.4163 98.9521 14.1045C98.4372 14.7926 97.7399 15.1367 96.8604 15.1367C95.9626 15.1367 95.2562 14.8519 94.7412 14.2822V17.8438H93.4766V7.60352H94.6318L94.6934 8.42383C95.2083 7.78581 95.9238 7.4668 96.8398 7.4668C97.7285 7.4668 98.4303 7.80176 98.9453 8.47168C99.4648 9.1416 99.7246 10.0736 99.7246 11.2676V11.3838ZM98.46 11.2402C98.46 10.4062 98.2822 9.74772 97.9268 9.26465C97.5713 8.78158 97.0837 8.54004 96.4639 8.54004C95.6982 8.54004 95.124 8.87956 94.7412 9.55859V13.0928C95.1195 13.7673 95.6982 14.1045 96.4775 14.1045C97.0837 14.1045 97.5645 13.8652 97.9199 13.3867C98.2799 12.9036 98.46 12.1882 98.46 11.2402ZM103.054 5.8125V7.60352H104.435V8.58105H103.054V13.168C103.054 13.4642 103.115 13.6875 103.238 13.8379C103.361 13.9837 103.571 14.0566 103.867 14.0566C104.013 14.0566 104.214 14.0293 104.469 13.9746V15C104.136 15.0911 103.812 15.1367 103.498 15.1367C102.933 15.1367 102.507 14.9658 102.22 14.624C101.933 14.2822 101.789 13.7969 101.789 13.168V8.58105H100.442V7.60352H101.789V5.8125H103.054ZM107.292 15H106.027V7.60352H107.292V15ZM105.925 5.6416C105.925 5.43652 105.986 5.26335 106.109 5.12207C106.237 4.98079 106.424 4.91016 106.67 4.91016C106.916 4.91016 107.103 4.98079 107.23 5.12207C107.358 5.26335 107.422 5.43652 107.422 5.6416C107.422 5.84668 107.358 6.01758 107.23 6.1543C107.103 6.29102 106.916 6.35938 106.67 6.35938C106.424 6.35938 106.237 6.29102 106.109 6.1543C105.986 6.01758 105.925 5.84668 105.925 5.6416ZM108.987 11.2334C108.987 10.5088 109.129 9.8571 109.411 9.27832C109.698 8.69954 110.095 8.25293 110.601 7.93848C111.111 7.62402 111.692 7.4668 112.344 7.4668C113.351 7.4668 114.164 7.81543 114.784 8.5127C115.409 9.20996 115.721 10.1374 115.721 11.2949V11.3838C115.721 12.1038 115.582 12.751 115.304 13.3252C115.03 13.8949 114.636 14.3392 114.121 14.6582C113.611 14.9772 113.023 15.1367 112.357 15.1367C111.355 15.1367 110.541 14.7881 109.917 14.0908C109.297 13.3936 108.987 12.4707 108.987 11.3223V11.2334ZM110.259 11.3838C110.259 12.2041 110.448 12.8626 110.826 13.3594C111.209 13.8561 111.719 14.1045 112.357 14.1045C113 14.1045 113.51 13.8538 113.889 13.3525C114.267 12.8467 114.456 12.1403 114.456 11.2334C114.456 10.4222 114.262 9.76595 113.875 9.26465C113.492 8.75879 112.982 8.50586 112.344 8.50586C111.719 8.50586 111.216 8.75423 110.833 9.25098C110.45 9.74772 110.259 10.4587 110.259 11.3838ZM118.503 7.60352L118.544 8.5332C119.109 7.82227 119.847 7.4668 120.759 7.4668C122.322 7.4668 123.11 8.34863 123.124 10.1123V15H121.859V10.1055C121.855 9.57227 121.732 9.17806 121.49 8.92285C121.253 8.66764 120.882 8.54004 120.376 8.54004C119.966 8.54004 119.606 8.64941 119.296 8.86816C118.986 9.08691 118.744 9.37402 118.571 9.72949V15H117.307V7.60352H118.503Z" fill="#0D3153"/>
-                                                                    <path d="M9.99998 0C4.4774 0 0 4.47721 0 9.99998C0 15.5227 4.4774 20 9.99998 20C15.5232 20 20 15.5227 20 9.99998C20 4.47721 15.523 0 9.99998 0ZM8.16557 15.1368L3.76237 10.7338L5.22998 9.26615L8.16557 12.2016L14.77 5.59696L16.2376 7.06457L8.16557 15.1368Z" fill="#AEE366"/>
-                                                                </svg>
-                                                                <svg class="d-lg-none d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M9.99998 0C4.4774 0 0 4.47721 0 9.99998C0 15.5227 4.4774 20 9.99998 20C15.5232 20 20 15.5227 20 9.99998C20 4.47721 15.523 0 9.99998 0ZM8.16557 15.1368L3.76237 10.7338L5.22998 9.26615L8.16557 12.2016L14.77 5.59696L16.2376 7.06457L8.16557 15.1368Z" fill="#AEE366"/>
-                                                                </svg>
-                                                            </a>
-                                                        </article>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 d-md-none d-block-768 box-check-avaibility">
-                                                <div class="description-check">
-                                                    Schedule My Appoitment with a Representative
-                                                </div>
-                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
-                                                    CHECK AVAIBILITY <i class="icon-arrow-down"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link item-menu" href="#">DISCOVERY
@@ -536,7 +324,214 @@
                                 </div>
 
                             </li>
-                            <li class="nav-item d-lg-block d-none">
+                            <li class="nav-item d-lg-none d-block">
+                                <a class="nav-link item-menu" href="#">SMALL BUSINESS
+                                    <span href="#" class="icon-arrow-right"></span>
+                                </a>
+                                <!-- BOX SUBMENU -->
+                                <div class="sub-menu sub-menu-discovery text-left">
+                                    <div class="container">
+                                        <div class="row box-sub-menu">
+
+                                            <div class="col-lg-7 order-lg-1 order-0 ">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('small-business');?>">
+                                                                Product
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('plans-and-pricing');?>">
+                                                                Pricing
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('coverage-locations');?>">
+                                                                Coverage Locations
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item d-lg-none d-block">
+                                <a class="nav-link item-menu" href="#">ENTERPRISES & TECH STARTUPS
+                                    <span href="#" class="icon-arrow-right"></span>
+                                </a>
+                                <!-- BOX SUBMENU -->
+                                <div class="sub-menu sub-menu-discovery text-left">
+                                    <div class="container">
+                                        <div class="row box-sub-menu">
+
+                                            <div class="col-lg-7 order-lg-1 order-0 ">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('full-cycle-development');?>">
+                                                                Full Cycle Development
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('it-outsourcing');?>">
+                                                                IT Outsourcing
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('testing');?>">
+                                                                Testing
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('devops');?>">
+                                                                DevOps
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('process-framework');?>">
+                                                                Process Framework
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                        <article>
+                                                            <a class="title-submenu" href="<?php echo home_url('client-focused-solutions');?>">
+                                                                Client-Focused Solutions
+                                                                <span class="icon-arrow-right"></span>
+                                                            </a>
+                                                        </article>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-12 element-sub">
+
+                                                        <a class="title-submenu" href="#">
+                                                            Industries
+                                                            <span class="icon-arrow-right"></span>
+                                                        </a>
+
+                                                        <div class="subsub-menu">
+                                                            <div class="row box-subsub-menu">
+                                                                <div class="col-12">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('healthcare');?>">
+                                                                                    Healthcare
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('logistics-and-supply-chain');?>">
+                                                                                    Logistics and Supply Chain
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('financial-services');?>">
+                                                                                    Financial Services
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('ecommerce-and-retail');?>">
+                                                                                    Ecommerce and Retail
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('real-estate-property');?>">
+                                                                                    Real Estate and Property
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('education');?>">
+                                                                                    Education
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('hospitality-and-travel');?>">
+                                                                                    Hospitality and Travel
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-sm-6 col-12 element-sub">
+                                                                            <article>
+                                                                                <a class="title-submenu" href="<?php echo home_url('ngos');?>">
+                                                                                    Non-Profit Organization
+                                                                                    <span class="icon-arrow-right"></span>
+                                                                                </a>
+                                                                            </article>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 d-md-none d-block-768 box-check-avaibility">
+                                                                    <div class="description-check">
+                                                                        Schedule My Appointment for Assistance
+                                                                    </div>
+                                                                    <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
+                                                                        CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 d-md-none d-block-768 box-check-avaibility">
+                                                <div class="description-check">
+                                                    Schedule a Briefing Appointment with a Representative to Learn More.
+                                                </div>
+                                                <a href="#" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;" class="btn btn-blue-env">
+                                                    CHECK AVAIBILITY <i class="icon-arrow-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item d-lg-inline-block d-none">
                                 <a class="nav-link item-menu" href="#"><i class="icon-plus-green"></i>VENDORS
                                     <span href="#" class="icon-arrow-right"></span>
                                 </a>
@@ -605,18 +600,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            </li>
-                            <li class="nav-item d-lg-inline-block d-xl-inline-block d-none">
-                                <?php if (!isset($_GET['s'])):?>
-                                <a href="#" class="nav-link btn-search-pc">
-                                    <i class="icon-search"></i>
-                                </a>
-                                <?php else:?>
-                                <a href="#" onclick="window.history.go(-2)" class="nav-link active">
-                                    <i class="icon-search"></i>
-                                </a>
-                                <?php endif;?>
                             </li>
                         </ul>
 
@@ -638,15 +621,17 @@
 
         <!-- BOX SEARCH -->
         <div id="detailBoxSearch">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 col-md-12 col-12 box-search">
-                        <form action="<?php echo home_url("/");?>" method="get" id="search-form" class="search-form" role="search">
-                            <input id="input-search" type="text" name="s" class="input-search" placeholder="Input your queries" autofocus>
-                            <a onclick="document.getElementById('search-form').submit()" class="btn-search" href="#">
-                                <i class="icon-search"></i>
-                            </a>
-                        </form>
+            <div class="container-fluid bg-blue-search">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7 col-md-12 col-12 box-search">
+                            <form action="<?php echo home_url("/");?>" method="get" id="search-form" class="search-form" role="search">
+                                <input id="input-search" type="text" name="s" class="input-search" placeholder="Input your queries" autofocus>
+                                <a onclick="document.getElementById('search-form').submit()" class="btn-search" href="#">
+                                    <i class="icon-search"></i>
+                                </a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -655,7 +640,7 @@
 
 
     <!-- Modal Hamburger menu -->
-    <div class="modal fade content-hamburger-menu" id="hamburger-menu" role="dialog" aria-hidden="true">
+    <div class="modal content-hamburger-menu" id="hamburger-menu" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="box-hamburger clearfix">
@@ -689,7 +674,7 @@
                                     <path d="M13.7944 9.58975V3.38574C13.7941 2.39436 12.9905 1.5909 11.9992 1.59057H10.5272V0.904811C10.5272 0.706445 10.3665 0.545776 10.1681 0.545776C9.96986 0.545776 9.80908 0.706445 9.80908 0.904811V1.59057H4.92621V0.904811C4.92621 0.706445 4.76554 0.545776 4.56717 0.545776C4.36892 0.545776 4.20814 0.706445 4.20814 0.904811V1.59057H2.73609C1.74482 1.5909 0.941367 2.39436 0.940918 3.38574V13.112C0.941367 14.1033 1.74482 14.9067 2.73609 14.9072H9.38194C10.0727 16.6765 11.9254 17.7036 13.792 17.3522C15.6587 17.0009 17.0111 15.3706 17.0114 13.471C17.0149 11.543 15.6254 9.93454 13.7944 9.58975ZM2.7398 2.30864H4.21184V2.99439C4.21184 3.19265 4.37251 3.35343 4.57087 3.35343C4.76913 3.35343 4.92991 3.19265 4.92991 2.99439V2.30864H9.81278V2.99439C9.81278 3.19265 9.97345 3.35343 10.1718 3.35343C10.3701 3.35343 10.5309 3.19265 10.5309 2.99439V2.30864H12.0029C12.597 2.31032 13.0782 2.79154 13.08 3.38574V4.25461H1.66269V3.38574C1.66314 2.79098 2.14514 2.30909 2.7398 2.30864ZM2.7398 14.1891C2.14559 14.1874 1.66437 13.7061 1.66269 13.112V4.96909H13.0763V9.52165H13.0655C11.8929 9.52345 10.7816 10.0453 10.0315 10.9467C9.28119 11.848 8.96972 13.0357 9.18077 14.1891H2.7398ZM13.0655 16.7023C11.281 16.7023 9.83421 15.2557 9.83421 13.471C9.83421 11.6864 11.281 10.2397 13.0655 10.2397C14.8502 10.2397 16.2968 11.6864 16.2968 13.471C16.2941 15.2545 14.849 16.6997 13.0655 16.7023Z" fill="#FBF8FD"/>
                                     <path d="M14.728 12.1821L12.5954 14.2178L11.4931 13.112C11.3534 12.9722 11.1268 12.9722 10.987 13.112C10.847 13.2518 10.847 13.4784 10.987 13.6182L12.3404 14.9718C12.4077 15.0395 12.4997 15.0771 12.5954 15.0759C12.6881 15.0767 12.7772 15.0405 12.843 14.9752L15.227 12.6954C15.2957 12.6297 15.3354 12.5396 15.3375 12.4446C15.3395 12.3496 15.3037 12.2577 15.2378 12.1892C15.098 12.049 14.8717 12.0457 14.728 12.1821Z" fill="#FBF8FD"/>
                                 </svg>
-                                <a href="">
+                                <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/discovery-session');return false;">
                                     Schedule an Appointment
                                 </a>
                             </li>
@@ -703,7 +688,7 @@
                                     <path d="M21.2891 18.8477H20.8008V14.1602C20.8008 13.8905 20.5821 13.6719 20.3125 13.6719H14.4531C14.1835 13.6719 13.9648 13.8905 13.9648 14.1602V18.8477H13.4766C13.2069 18.8477 12.9883 19.0663 12.9883 19.3359C12.9883 19.6056 13.2069 19.8242 13.4766 19.8242H21.2891C21.5587 19.8242 21.7773 19.6056 21.7773 19.3359C21.7773 19.0663 21.5587 18.8477 21.2891 18.8477ZM19.8242 18.8477H14.9414V14.6484H19.8242V18.8477Z" fill="white"/>
                                     <path d="M18.3594 20.8008H14.4531C14.1835 20.8008 13.9648 21.0194 13.9648 21.2891C13.9648 21.5587 14.1835 21.7773 14.4531 21.7773H18.3594C18.629 21.7773 18.8477 21.5587 18.8477 21.2891C18.8477 21.0194 18.629 20.8008 18.3594 20.8008Z" fill="white"/>
                                 </svg>
-                                <a href="">
+                                <a href="<?php echo home_url('small-business');?>" class="have-submenu" data-hamburger="small-business-hamburger">
                                     Small Business
                                     <span class="icon-arrow-right"></span>
                                 </a>
@@ -740,7 +725,7 @@
                                     <path d="M5.41671 9.58325H4.58337V16.2499H5.41671V9.58325Z" fill="white"/>
                                     <path d="M15.0005 1.66663C15.0003 1.66663 15.0001 1.66663 15 1.66663H9.99998C9.76998 1.66647 9.58347 1.85282 9.58331 2.08282C9.58331 2.08298 9.58331 2.08314 9.58331 2.08329V5.41663C9.58316 5.64663 9.76951 5.83314 9.99951 5.83329C9.99967 5.83329 9.99982 5.83329 9.99998 5.83329H15C15.23 5.83345 15.4165 5.64709 15.4166 5.41709C15.4166 5.41694 15.4166 5.41678 15.4166 5.41663V2.08329C15.4168 1.85329 15.2305 1.66678 15.0005 1.66663ZM14.5833 4.99996H10.4166V2.49996H14.5833V4.99996Z" fill="white"/>
                                 </svg>
-                                <a href="">
+                                <a href="<?php echo home_url('enterprises');?>" class="have-submenu" data-hamburger="enterprises-hamburger">
                                     Enterprise & Tech Startup
                                     <span class="icon-arrow-right"></span>
                                 </a>
@@ -749,15 +734,15 @@
 
                         <ul class="list-contact-us">
                             <li class="item-contact">
-                                <a href="">Contact Us</a>
+                                <a href="<?php echo home_url('contact-us');?>">Contact Us</a>
                             </li>
                             <li class="item-contact">
-                                <a href="">Support</a>
+                                <a href="<?php echo home_url('customer-support');?>">Support</a>
                             </li>
                         </ul>
                         <ul class="list-contact-us">
                             <li class="item-contact">
-                                <a href="">
+                                <a href="" class="have-submenu" data-hamburger="portal-hamburger">
                                     My Portal
                                     <span class="icon-arrow-right"></span>
                                 </a>
@@ -765,55 +750,89 @@
                         </ul>
                     </div>
                     <div class="main-menu-hamburger">
-                        <div class="box-content">
+                        <div class="box-content d-none small-business-hamburger">
                             <div class="title-menu">Solutions</div>
                             <div class="list-service-name clearfix">
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('plans-and-pricing');?>">
+                                        Pricing
+                                    </a>
+                                </article>
+                                <article>
+                                    <a class="title-submenu" href="<?php echo home_url('small-business');?>">
+                                        Product
+                                    </a>
+                                </article>
+                                <article>
+                                    <a class="title-submenu" href="<?php echo home_url('coverage-locations');?>">
+                                        Coverage Locations
+                                    </a>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="box-content d-none enterprises-hamburger">
+                            <div class="title-menu">Solutions</div>
+                            <div class="list-service-name clearfix">
+                                <article>
+                                    <a class="title-submenu" href="<?php echo home_url('full-cycle-development');?>">
                                         Full Cycle Development
                                     </a>
                                 </article>
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('it-outsourcing');?>">
                                         IT Outsourcing
                                     </a>
                                 </article>
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('testing');?>">
                                         Testing
                                     </a>
                                 </article>
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('devops');?>">
                                         DevOps
                                     </a>
                                 </article>
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('process-framework');?>">
                                         Process Framework
                                     </a>
                                 </article>
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('client-focused-solutions');?>">
                                         Client-Focused Solutions
                                     </a>
                                 </article>
                                 <article>
-                                    <a class="title-submenu" href="">
+                                    <a class="title-submenu" href="<?php echo home_url('get-a-team');?>">
                                         Get a Verified Team Now
                                     </a>
                                 </article>
                             </div>
                             <div class="title-menu">Industries</div>
                             <div class="list-industries clearfix">
-                                <a href="" class="industry-name">Healthcare</a>
-                                <a href="" class="industry-name">Financial Services</a>
-                                <a href="" class="industry-name">Logistics & Supply Chain</a>
-                                <a href="" class="industry-name">Hospitality & Travel</a>
-                                <a href="" class="industry-name">Ecommerce & Retail</a>
-                                <a href="" class="industry-name">Real Estate & Property</a>
-                                <a href="" class="industry-name">NGOs</a>
-                                <a href="" class="industry-name">Education</a>
+                                <a href="<?php echo home_url('healthcare');?>" class="industry-name">Healthcare</a>
+                                <a href="<?php echo home_url('financial-services');?>" class="industry-name">Financial Services</a>
+                                <a href="<?php echo home_url('logistics-and-supply-chain');?>" class="industry-name">Logistics & Supply Chain</a>
+                                <a href="<?php echo home_url('hospitality-and-travel');?>" class="industry-name">Hospitality & Travel</a>
+                                <a href="<?php echo home_url('ecommerce-and-retail');?>" class="industry-name">Ecommerce & Retail</a>
+                                <a href="<?php echo home_url('real-estate-property');?>" class="industry-name">Real Estate & Property</a>
+                                <a href="<?php echo home_url('ngos');?>" class="industry-name">NGOs</a>
+                                <a href="<?php echo home_url('education');?>" class="industry-name">Education</a>
+                            </div>
+                        </div>
+                        <div class="box-content d-none portal-hamburger">
+                            <div class="list-service-name clearfix">
+                                <article>
+                                    <a class="title-submenu" href="<?php echo home_url('small-business-portal');?>">
+                                        Small Business
+                                    </a>
+                                </article>
+                                <article>
+                                    <a class="title-submenu" href="<?php echo home_url('client-portal');?>">
+                                        Enterprises & Startups
+                                    </a>
+                                </article>
                             </div>
                         </div>
                     </div>

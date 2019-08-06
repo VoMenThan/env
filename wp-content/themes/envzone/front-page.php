@@ -1,5 +1,5 @@
 <?php get_header();?>
-<main class="main-content home-page -two">
+<main class="main-content home-page">
 
     <!--SECTION YOUR ORGANIZATION-->
     <?php $thrive_and_grow = get_field('thrive_and_grow', $post->ID);?>

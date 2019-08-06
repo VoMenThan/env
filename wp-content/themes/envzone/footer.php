@@ -48,54 +48,13 @@
                 </div>
                 <div class="form-start-project">
                     <?php
-                    echo do_shortcode('[gravityform id=2 title=false description=false ajax=false]');
+                    echo do_shortcode('[gravityform id=2 title=false description=false ajax=true]');
                     ?>
                 </div>
 
             </div>
         </div>
         <div class="row pb-5 menu-footer">
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="box-info-footer">
-                    <h5 class="label-menu-footer">Company</h5>
-                    <ul class="list-menu-footer">
-                        <li><a href="<?php echo get_home_url();?>/about-us">About us</a></li>
-                        <li><a href="<?php echo get_home_url();?>/process-framework">Process Framework</a></li>
-                        <li><a href="<?php echo get_home_url();?>/client-focused-solutions">Client-Focused Solutions</a></li>
-                        <li><a href="<?php echo get_home_url();?>/partnership">Partnership</a></li>
-                        <li><a href="<?php echo get_home_url();?>/contact-us">Contact us</a></li>
-                        <li><a href="<?php echo get_home_url();?>/careers">Careers</a></li>
-                        <li><a href="<?php echo home_url('team');?>">Team</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="box-info-footer">
-                    <h5 class="label-menu-footer">Services</h5>
-                    <ul class="list-menu-footer">
-                        <li><a href="<?php echo get_home_url();?>/full-cycle-development">Full Cycle Development</a></li>
-                        <li><a href="<?php echo get_home_url();?>/it-outsourcing">IT Outsourcing</a></li>
-                        <li><a href="<?php echo get_home_url();?>/testing">Testing</a></li>
-                        <li><a href="<?php echo get_home_url();?>/devops">DevOps</a></li>
-                        <li><a href="<?php echo get_home_url();?>/customer-support">Customer Support</a></li>
-                        <li><a href="<?php echo get_home_url();?>/small-business">Small Business Plans</a><span>Hot</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="box-info-footer">
-                    <h5 class="label-menu-footer">Discovery</h5>
-                    <ul class="list-menu-footer">
-                        <li><a href="<?php echo get_home_url();?>/blog">Blog</a></li>
-                        <li><a href="<?php echo get_home_url();?>/events">Events</a></li>
-                        <li><a href="<?php echo get_home_url();?>/knowledge-center">Knowledge Center</a></li>
-                        <li><a href="<?php echo get_home_url();?>/studio">EnvZone Studio</a></li>
-                        <li><a href="<?php echo get_home_url();?>/resources">Resources</a></li>
-                        <li><a href="<?php echo get_home_url();?>/discussion-board">Forum</a></li>
-                        <li><a href="<?php echo get_home_url();?>/companies">Review Platform</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="box-info-footer">
                     <h5 class="label-menu-footer">Quick Links</h5>
@@ -106,6 +65,43 @@
                         <li><a target="_blank" rel="nofollow" href="https://envzone.sharepoint.com/:b:/s/resources/Ea1i-8eshO5Bu5lyF4UPPlIBtq3e1Gokw6VUmweK07-IXQ?e=auyMTD">Media Kit</a></li>
                         <li><a href="<?php echo home_url('submit-a-press-release');?>">Submit a Press Release</a></li>
                         <li><a href="<?php echo home_url('affiliate-program');?>">Become an Affiliate</a></li>
+                        <li><a href="<?php echo home_url('customer-support');?>">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">Company</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="<?php echo home_url('about-us');?>">About us</a></li>
+                        <li><a href="<?php echo home_url('partnership');?>">Partnership</a></li>
+                        <li><a href="<?php echo home_url('contact-us');?>">Contact us</a></li>
+                        <li><a href="<?php echo home_url('team');?>">Team</a></li>
+                        <li><a href="<?php echo home_url('careers');?>">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">For Enterprises & Startups</h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="<?php echo home_url('enterprises');?>">Overview</a></li>
+                        <li><a href="<?php echo home_url('full-cycle-development');?>">Full Cycle Development</a></li>
+                        <li><a href="<?php echo home_url('process-framework');?>">Process Framework</a></li>
+                        <li><a href="<?php echo home_url('it-outsourcing');?>">IT Outsourcing</a></li>
+                        <li><a href="<?php echo home_url('testing');?>">Testing</a></li>
+                        <li><a href="<?php echo home_url('devops');?>">Devops</a></li>
+                        <li><a href="<?php echo home_url('client-focused-solutions');?>">Client-Focused Solutions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="box-info-footer">
+                    <h5 class="label-menu-footer">For Small Business <span>Hot</span></h5>
+                    <ul class="list-menu-footer">
+                        <li><a href="<?php echo home_url('small-business');?>">SaaS Professional Service</a></li>
+                        <li><a href="<?php echo home_url('coverage-locations');?>">Coverage Locations</a></li>
+                        <li><a href="<?php echo home_url('plans-and-pricing');?>">Pricing</a></li>
                     </ul>
                 </div>
             </div>

@@ -70,6 +70,7 @@ function toggle_obj(btn_click, box_toggle) {
 
         }
         $('.input-search').focus();
+        $('body').toggleClass('overflow-hidden');
 
     });
 }
@@ -80,6 +81,14 @@ function get_attr(){
         $(".logo-envzone-mobile").addClass("d-hidden");
         $("nav .title-category").addClass("active").text(val);
         $("nav .btn-hide-submenu").addClass("active");
+    });
+}
+
+function get_attr_sub(){
+    $(".title-submenu").click(function () {
+        var val = $(this).text();
+        $("nav .title-category").addClass("active").text(val);
+        $("nav .btn-hide-submenu .hide-subsub").addClass("active");
     });
 }
 
@@ -106,6 +115,16 @@ function select_next_element(){
 
 }
 
+function select_next_element_sub(){
+    $(".title-submenu").click(function () {
+        $(this).next().addClass("show-submenu");
+    });
+    $(".hide-subsub").click(function () {
+        $(".subsub-menu").removeClass("show-submenu");
+        $("nav .btn-hide-submenu .hide-subsub").removeClass("active");
+    });
+}
+
 function changeTextBtnHead() {
     $(".sub-menu-company #gform_submit_button_1").val('SEND MY GREETINGS');
     $(".sub-menu-discovery #gform_submit_button_3").val('KEEP ME UPDATED');
@@ -118,6 +137,9 @@ $(function () {
     get_attr();
     select_next_element();
     changeTextBtnHead();
+
+    get_attr_sub();
+    select_next_element_sub();
 });
 
 $(function () {
@@ -155,6 +177,19 @@ $(document).ready(function(){
         var fileName = e.target.files[0].name;
         $("#field_2_7 label").html(fileName);
     });
-});
 
-$('#hamburger-menu').modal('hide');
+    $('.menu-bar-hamburger').click(function () {
+        $('#hamburger-menu').modal('show');
+    });
+    $('#hamburger-menu .have-submenu').hover(function () {
+        $('#hamburger-menu .have-submenu').removeClass('active');
+        $('.main-menu-hamburger .box-content').addClass('d-none');
+        $(this).addClass('active');
+        var hamburger = $(this).data('hamburger');
+        $('.'+hamburger).removeClass('d-none');
+
+    });
+    $('.nav-small-business a.active').click(function () {
+        $('.nav-small-business a').toggleClass('d-inline-block');
+    });
+});

@@ -7,14 +7,14 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="<?php echo home_url('coverage-locations')?>">
-                        Coverage Locations
+                    <a href="#" class="active">
+                        Pricing
                     </a>
                     <a href="<?php echo home_url('small-business')?>">
                         Small Business
                     </a>
-                    <a href="javascript:function() { return false; }" class="active">
-                        Pricing
+                    <a href="<?php echo home_url('coverage-locations')?>">
+                        Coverage Locations
                     </a>
                 </div>
             </div>

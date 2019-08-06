@@ -119,11 +119,19 @@ footer {
             padding: 10px 0;
             border-bottom: 1px solid #E0E0E0;
             margin-bottom: 10px;
-            width: 65%;
-            font-weight: bold;
+            width: 85%;
+            font-weight: 600;
             letter-spacing: 1px;
             color: #E0E0E0;
-            font-size: 25px;
+            font-size: 16px;
+            span{
+                background: #AEE366;
+                padding: 1px 5px;
+                color: #0D3153;
+                border-radius: 5px;
+                margin-left: 10px;
+                font-weight: normal;
+            }
         }
         .label-socials{
             color: #E0E0E0;
@@ -164,8 +172,6 @@ footer {
             }
         }
     }
-
-
     .bg-blue-lv1 {
         background: $color-blue-lv1;
     }

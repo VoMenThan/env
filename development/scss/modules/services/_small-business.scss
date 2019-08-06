@@ -433,6 +433,23 @@
 	Tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: $device-size-medium) {
+    .nav-small-business{
+        a{
+            width: 100%;
+            text-align: center;
+            background: url("../images/icon-arrow-bottom-green.png") no-repeat;
+            background-position: right;
+            &:hover{
+                ~a{
+                    display: block;
+                }
+            }
+            ~a{
+                display: none;
+                background: none;
+            }
+        }
+    }
     .banner-small-business.bg-blue {
         img{
             position: static;
@@ -582,6 +599,34 @@
         }
     }
     .coverage-location-page {
+        .section-map {
+            .box-search-city {
+                margin-bottom: 0;
+                box-shadow: none;
+                h2{
+                    font-size: 18px;
+                }
+                label[for=location-city]{
+                    display: none;
+                }
+                #location-city{
+                    width: 100%;
+                    margin-bottom: 15px;
+                    margin-top: 10px;
+                }
+            }
+            .box-select-plan {
+                h3{
+                    font-size: 18px;
+                }
+                p{
+                    font-size: 18px;
+                }
+            }
+            .box-on-map{
+                display: none;
+            }
+        }
         .section-check-out-city {
             .list-cities {
                 .city-name{
@@ -592,9 +637,23 @@
                     }
                 }
             }
+            .box-head {
+                h2{
+                    font-size: 24px;
+                }
+            }
         }
-        .section-recommended-plans{
 
+        .section-recommended-plans{
+            h2{
+                font-size: 24px;
+            }
+            .item-recommended{
+                margin-bottom: 30px;
+                .btn-blue-env{
+                    width: auto;
+                }
+            }
         }
     }
 }
