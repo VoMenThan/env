@@ -228,8 +228,6 @@ get_header();
         </div>
     </section>
 
-    <?php require_once "popup-spin-to-win.php";?>
-
     <script>
         $(document).ready(function(){
             var width = $(window).width();

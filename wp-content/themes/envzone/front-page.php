@@ -373,14 +373,34 @@
                     <div class="embed-video">
                         <?php echo get_field('embed', $video_main[0]->ID);?>
                     </div>
-                    <a href="<?php echo get_permalink($video_main[0]->ID);?>">
-                        <h3>
-                            <?php echo $video_main[0]->post_title;?>
-                        </h3>
-                    </a>
+                    <div class="box-info-video">
+                        <a href="<?php echo home_url('category/').get_the_category($video_main[0]->ID)[0]->slug;?>" class="category d-lg-none d-block">
+                            <?php echo get_the_category($video_main[0]->ID)[0]->cat_name;?>
+                        </a>
+                        <a href="<?php echo get_permalink($video_main[0]->ID);?>">
+                            <h3>
+                                <?php echo $video_main[0]->post_title;?>
+                            </h3>
+                        </a>
+                        <div class="info-author d-lg-none d-block">
+                            <?php
+                            if (get_field('avatar', 'user_'.$video_main[0]->post_author)== ''){
+                                $avatar = ASSET_URL.'images/avatar-default.png';
+                            }
+                            else{
+                                $avatar = get_field('avatar', 'user_'.$video_main[0]->post_author);
+                            }
+                            ?>
+                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                            <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $video_main[0]->post_author);?>" class="author-by">
+                                By <b><?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?></b>
+                            </a>
+                            <div class="date-by">on <?php echo get_the_date( 'F d, Y', $video_main[0]->ID );?></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 list-video-home">
                     <article class="list-item">
                         <div class="label-headline">LEARNING RESOURCES</div>
                         <div class="box-list-scroll mCustomScrollbar content-scroll" data-mcs-theme="dark">
@@ -410,8 +430,16 @@
                             <div class="item-detail clearfix">
                                 <a href="<?php echo get_permalink($item->ID);?>">
                                     <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>" alt="">
-                                    <h5><?php echo $item->post_title;?></h5>
                                 </a>
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category d-lg-none d-block">
+                                        <?php echo get_the_category($item->ID)[0]->cat_name;?>
+                                    </a>
+                                <a href="<?php echo get_permalink($item->ID);?>">
+                                    <h5><?php echo wp_trim_words($item->post_title, 7);?></h5>
+                                </a>
+                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M25.0003 0C11.214 0 0 11.2146 0 25.0003C0 38.7866 11.214 50 25.0003 50C38.786 50 50 38.7866 50 25.0003C50 11.2146 38.786 0 25.0003 0ZM25.0003 45.4552C13.7208 45.4552 4.54535 36.2797 4.54535 25.0003C4.54535 13.7254 13.7208 4.54592 25.0003 4.54592C36.2792 4.54592 45.4552 13.7254 45.4552 25.0003C45.4552 36.2797 36.2792 45.4552 25.0003 45.4552ZM21.5903 31.8197L31.8175 25.0003L21.5903 18.1803V31.8197Z" fill="#8DC63F"/>
+                                    </svg>
                             </div>
                             <?php endforeach;?>
 

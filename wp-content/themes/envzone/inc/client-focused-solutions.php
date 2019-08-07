@@ -144,6 +144,6 @@ get_header();
 
     <?php require_once "subscribe.php";?>
 
-    <?php require_once "popup-company.php";?>
+    <?php require_once "popup-services.php";?>
 </main>
 <?php get_footer();?>

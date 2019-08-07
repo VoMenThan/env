@@ -153,11 +153,6 @@ get_header();
                                         ?>
                                     <div class="box-info-author-footer float-left float-lg-none">
                                         <img src="<?php echo $avatar['sizes']['thumbnail'];?>" class="img-fluid avatar-icon mb-3" alt="">
-                                        <a class="linkedin d-lg-none d-block" target="_blank" href="<?php echo get_the_author_meta( 'linkedin' );?>">
-                                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M42.6758 0H7.32422C3.28598 0 0 3.28598 0 7.32422V42.6758C0 46.714 3.28598 50 7.32422 50H42.6758C46.714 50 50 46.714 50 42.6758V7.32422C50 3.28598 46.714 0 42.6758 0ZM17.6758 39.6484H11.8164V19.1406H17.6758V39.6484ZM17.6758 16.2109H11.8164V10.3516H17.6758V16.2109ZM38.1836 39.6484H32.3242V27.9297C32.3242 26.3145 31.0097 25 29.3945 25C27.7794 25 26.4648 26.3145 26.4648 27.9297V39.6484H20.6055V19.1406H26.4648V20.245C27.9999 19.7678 28.997 19.1406 30.8594 19.1406C34.8331 19.1448 38.1836 22.7097 38.1836 26.9226V39.6484Z" fill="#8DC63F"/>
-                                            </svg>
-                                        </a>
                                     </div>
                                     <div class="box-info">
                                         <a href="<?php echo home_url('author/').get_the_author_meta('nickname', $post->post_author);?>" class="author-name"><?php echo get_the_author_meta('display_name');?></a>

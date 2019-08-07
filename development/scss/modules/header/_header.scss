@@ -575,7 +575,6 @@ nav {
                     }
                 }
                 .title-submenu{
-                    font-weight: 600;
                     font-size: 20px;
                     padding: 15px;
                     text-align: center;
@@ -584,6 +583,16 @@ nav {
                     border-top: 3px solid #8DC63F;
                     margin-right: 30px;
                     display: block;
+                    position: relative;
+                    font-weight: normal;
+                    svg{
+                        position: absolute;
+                        top: 5px;
+                        right: 15px;
+                    }
+                    &:hover{
+                        background: #45678A;
+                    }
                 }
                 .list-industries{
                     width: 80%;
@@ -594,9 +603,15 @@ nav {
                         margin-bottom: 10px;
                         width: 50%;
                         float: left;
+                        &:hover{
+                            color: #8DC63F;
+                        }
                     }
                 }
                 &.portal-hamburger, &.small-business-hamburger{
+                    .title-submenu{
+                        padding: 30px 15px;
+                    }
                     article{
                         &:last-child{
                             width: 50%;
@@ -607,7 +622,6 @@ nav {
         }
     }
 }
-
 /* =================== BOX HAMBURGER MENU END ======================= */
 nav{
     .menu-bar-hamburger{

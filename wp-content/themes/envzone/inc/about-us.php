@@ -182,8 +182,6 @@ get_header();
                 </div>
             </div>
         </div>
-
-        <?php require_once "popup-company.php";?>
     </section>
 </main>
 <?php get_footer();?>
