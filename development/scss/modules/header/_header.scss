@@ -541,6 +541,7 @@ nav {
                     }
                     svg{
                         margin-right: 10px;
+                        vertical-align: middle;
                     }
                     .icon-arrow-right{
                         @include setBackgroundIcon(20px, '../images/icon-right-arrow-white.svg');

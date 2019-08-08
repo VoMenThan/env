@@ -618,6 +618,7 @@ nav #detailBoxSearch .icon-search {
 }
 .content-hamburger-menu .box-hamburger .sidebar-menu .list-contact-us .item-contact svg {
   margin-right: 10px;
+  vertical-align: middle;
 }
 .content-hamburger-menu .box-hamburger .sidebar-menu .list-contact-us .item-contact .icon-arrow-right {
   width: 20px;

@@ -41,6 +41,9 @@ get_header();
         padding-top: 20px;
         top: 0;
     }
+    nav .menu-bar-hamburger{
+        display: none !important;
+    }
     .box-affiliate-content{
         min-height: calc(100vh - 180px);
         padding-top: 100px;

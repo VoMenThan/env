@@ -19,15 +19,6 @@ get_header();
                         <p>
                             Please fill out the fields below so we can learn some information about you.
                         </p>
-                        <div class="box-litter">
-                            <p>
-                                You have a project but not quite ready to contact us?
-                                <a href="<?php echo home_url('buyer-guidelines');?>">
-                                    Is ENVZONE a fit for you?
-                                </a>
-                            </p>
-                        </div>
-
                     </div>
 
                     <div class="box-form-contact form-horizontal">
