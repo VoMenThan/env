@@ -5,13 +5,6 @@ define( 'ENV_THEME_URL', get_stylesheet_directory_uri().'/' );
 define( 'ASSET_URL', get_template_directory_uri().'/assets/' );
 
 define( 'ENV_THEM_INC_DIR', ENV_THEME_DIR . 'inc/' );
-define( 'ENV_THEM_WIDGET_DIR', ENV_THEM_INC_DIR . 'widgets/' );
-
-/*======================================================================================================
- * 4. KHOI CHAY WIDGETS MAIN
- * ======================================================================================================*/
-require_once ENV_THEM_WIDGET_DIR. 'main.php';
-new Env_Theme_Widget_Main();
 
 /*======================================================================================================
  * 3. KHAI BAO HE THONG WIDGET CUA THEME

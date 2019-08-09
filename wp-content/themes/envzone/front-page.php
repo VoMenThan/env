@@ -1059,6 +1059,7 @@
                         'posts_per_page' => 3,
                         'offset'=> 0,
                         'post_type' => 'post',
+                        'category_name' => 'logistics-and-supply-chain',
                         'orderby' => 'post_modified',
                         'order' =>'desc'
                     );
@@ -1111,6 +1112,12 @@
         $(document).ready(function (e) {
 
             $('.content-blog .box-item-special .item-blog h4').matchHeight({
+                byRow: true,
+                property: 'height',
+                target: null,
+                remove: false
+            });
+            $('.resources-ebook-page .box-ebook h2').matchHeight({
                 byRow: true,
                 property: 'height',
                 target: null,

@@ -4980,6 +4980,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   margin-bottom: 50px;
 }
 
+.section-resources-home {
+  background: #F8FFF2;
+}
 .section-resources-home .title-head-blue.have-border {
   margin-bottom: 50px;
 }
@@ -5027,6 +5030,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   color: #828282;
   width: 800px;
   max-width: 100%;
+}
+.section-get-executive-insights .subscribe-form {
+  margin-right: 60px;
 }
 .section-get-executive-insights .subscribe-form #gform_wrapper_3 {
   width: 480px;
@@ -5098,7 +5104,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: auto;
+  width: 180px;
 }
 .section-get-executive-insights .subscribe-form #gform_wrapper_3.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
   max-width: 100% !important;
@@ -9674,6 +9680,7 @@ section.testing-page .item-qa {
   -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 50px;
+  border: 1px solid #BDBDBD;
 }
 .coverage-location-page .section-map .box-search-city h2 {
   font-weight: 600;
@@ -14977,6 +14984,23 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
+/*============BUTTON GRAY TRANSPARENT=================*/
+.btn-gray-trans-env {
+  color: #828282;
+  border: 1px solid #BDBDBD;
+  padding: 10px 30px;
+  font-size: 1.125rem;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.btn-gray-trans-env:hover {
+  color: #8DC63F;
+  cursor: pointer;
+}
+
 /*============BUTTON GRAY=================*/
 .btn-white-env {
   color: #ffffff !important;
@@ -18572,6 +18596,119 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 
   .footer-landing-page-blue *, .footer-landing-page-blue p {
     font-size: 14px;
+  }
+}
+.subscription-member-template-page * {
+  font-family: "Roboto", sans-serif;
+}
+.subscription-member-template-page .content-subscription-template h2, .subscription-member-template-page .content-subscription-template h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #828282;
+  margin-bottom: 30px;
+}
+.subscription-member-template-page .content-subscription-template .mp_wrapper .mp-form-row label {
+  display: none !important;
+}
+.subscription-member-template-page .content-subscription-template .mp_wrapper input {
+  border: 1px solid #BDBDBD;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+.subscription-member-template-page .content-subscription-template .mp_wrapper input[type=submit] {
+  background: #8DC63F;
+  border-radius: 3px;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  color: #0D3153;
+  outline: none;
+  border-color: transparent;
+  border-image: initial;
+  cursor: pointer;
+}
+.subscription-member-template-page .content-subscription-template .mp_wrapper input[type=submit]:hover {
+  color: #fff;
+}
+.subscription-member-template-page .content-subscription-template .mepr-login-actions {
+  text-align: center;
+}
+.subscription-member-template-page .content-subscription-template .mepr-login-actions a {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #828282;
+}
+
+.subscription-member-page .process-bar-subscription {
+  position: absolute;
+  top: -165px;
+  left: calc(50% - 200px);
+}
+.subscription-member-page article.thank-you {
+  border: 1px solid #C4C4C4;
+  margin-bottom: 30px;
+}
+.subscription-member-page article.thank-you h3 {
+  color: #808080 !important;
+  font-size: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid #C4C4C4;
+  margin-top: 0;
+  margin-bottom: 35px;
+  text-align: center;
+}
+.subscription-member-page article.thank-you .notification {
+  margin-bottom: 20px;
+}
+.subscription-member-page article.thank-you .notification h1 {
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 15px;
+  font-size: 24px;
+  line-height: 150%;
+  font-weight: bold;
+}
+.subscription-member-page article.thank-you .notification img {
+  margin-bottom: 25px;
+}
+.subscription-member-page article.thank-you .box-thank {
+  padding: 15px;
+}
+.subscription-member-page article.thank-you .box-thank p {
+  font-size: 16px;
+  color: #828282;
+}
+.subscription-member-page .btn {
+  width: calc(50% - 20px);
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .subscription-member-page .process-bar-subscription {
+    position: static;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+}
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: 425px) {
+  .subscription-member-page .btn {
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 

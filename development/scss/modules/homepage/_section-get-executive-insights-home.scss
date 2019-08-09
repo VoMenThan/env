@@ -15,6 +15,7 @@
         max-width: 100%;
     }
     .subscribe-form{
+        margin-right: 60px;
         #gform_wrapper_3{
             width: 480px;
             max-width: 100%;
@@ -71,7 +72,6 @@
                 margin: 0;
                 padding: 0;
             }
-
             input.button,
             input[type=submit]{
                 background: #8DC63F;
@@ -86,7 +86,7 @@
                 position: absolute;
                 right: 0;
                 bottom: 0;
-                width: auto;
+                width: 180px;
             }
             &.gform_validation_error {
                 .gform_body {

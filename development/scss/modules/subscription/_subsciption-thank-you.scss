@@ -1,0 +1,126 @@
+.subscription-member-template-page{
+    *{
+        font-family: $font-roboto;
+    }
+    .content-subscription-template{
+        h2, h3{
+            font-family: $font-roboto;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.62%;
+            text-align: center;
+            color: #828282;
+            margin-bottom: 30px;
+        }
+        .mp_wrapper {
+            .mp-form-row {
+                label{
+                    display: none !important;
+                }
+            }
+            input{
+                border: 1px solid #BDBDBD;
+                @include radius(3px);
+                margin-bottom: 5px;
+            }
+            input[type=submit]{
+                background: #8DC63F;
+                border-radius: 3px;
+                width: 100%;
+                padding: 10px;
+                font-weight: bold;
+                color: #0D3153;
+                outline: none;
+                border-color: transparent;
+                border-image: initial;
+                cursor: pointer;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+        .mepr-login-actions{
+            text-align: center;
+            a{
+                font-style: italic;
+                font-size: 16px;
+                line-height: 152.62%;
+                text-align: center;
+                color: #828282;
+            }
+        }
+    }
+}
+.subscription-member-page{
+    .process-bar-subscription{
+        position: absolute;
+        top: -165px;
+        left: calc(50% - 200px);
+    }
+
+    article.thank-you{
+        border: 1px solid #C4C4C4;
+        margin-bottom: 30px;
+        h3{
+            color: #808080 !important;
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid #C4C4C4;
+            margin-top: 0;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        .notification{
+            margin-bottom: 20px;
+            h1{
+                font-family: "Raleway", sans-serif;
+                margin-bottom: 15px;
+                font-size: 24px;
+                line-height: 150%;
+                font-weight: bold;
+            }
+            img{
+                margin-bottom: 25px;
+            }
+        }
+
+        .box-thank{
+            padding: 15px;
+            p{
+                font-size: 16px;
+                color: #828282;
+            }
+        }
+    }
+    .btn{
+        width: calc(50% - 20px);
+    }
+}
+
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: $device-size-medium) {
+    .subscription-member-page {
+        .process-bar-subscription {
+            position: static;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+
+/* 	================================================================
+	LARGE MOBILE DEVICE
+	Large mobile 425px and down (<425px)
+	================================================================== */
+@media screen and (max-width: $device-size-mobile) {
+    .subscription-member-page {
+        .btn{
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+}
