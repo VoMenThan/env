@@ -201,7 +201,7 @@
                             'offset'=> 0,
                             'post_type' => 'post',
                             'category_name' => 'small-business',
-                            'orderby' => 'post_modified',
+                            'orderby' => 'id',
                             'order' =>'desc'
                         );
                         $news_special = get_posts( $args );
@@ -582,7 +582,7 @@
                         'offset'=> 0,
                         'post_type' => 'post',
                         'category_name' => 'healthcare',
-                        'orderby' => 'post_modified',
+                        'orderby' => 'ID',
                         'order' =>'desc'
                     );
                     $news_special = get_posts( $args );
@@ -645,7 +645,7 @@
                             'offset'=> 0,
                             'post_type' => 'post',
                             'category_name' => 'ecommerce-and-retail',
-                            'orderby' => 'post_modified',
+                            'orderby' => 'ID',
                             'order' =>'desc'
                         );
                         $news_special = get_posts( $args );
@@ -727,7 +727,7 @@
                         'offset'=> 0,
                         'post_type' => 'post',
                         'category_name' => 'real-estate-and-property',
-                        'orderby' => 'post_modified',
+                        'orderby' => 'ID',
                         'order' =>'desc'
                     );
                     $news_special = get_posts( $args );
@@ -839,7 +839,7 @@
                         'offset'=> 0,
                         'post_type' => 'post',
                         'category_name' => 'hospitality-and-travel',
-                        'orderby' => 'post_modified',
+                        'orderby' => 'ID',
                         'order' =>'desc'
                     );
                     $news_special = get_posts( $args );
@@ -941,10 +941,9 @@
                     <?php
                     $args = array(
                         'posts_per_page' => 3,
-                        'offset'=> 0,
                         'post_type' => 'post',
                         'category_name' => 'financial-services',
-                        'orderby' => 'post_modified',
+                        'orderby' => 'id',
                         'order' =>'desc'
                     );
                     $news_special = get_posts( $args );
@@ -1060,7 +1059,7 @@
                         'offset'=> 0,
                         'post_type' => 'post',
                         'category_name' => 'logistics-and-supply-chain',
-                        'orderby' => 'post_modified',
+                        'orderby' => 'id',
                         'order' =>'desc'
                     );
                     $news_special = get_posts( $args );

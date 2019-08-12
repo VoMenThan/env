@@ -45,6 +45,12 @@
 
 .section-resources-home{
     background: #F8FFF2;
+    &.resources-ebook-page {
+        article.box-ebook{
+            background: #fff;
+            padding-top: 15px;
+        }
+    }
     .title-head-blue{
         &.have-border{
             margin-bottom: 50px;
