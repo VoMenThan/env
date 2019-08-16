@@ -1,0 +1,35 @@
+{
+  "name": "memberpress",
+  "version": "1.4.6",
+  "description": "The membership plugin that makes it easy to accept payments for access to your content and digital products.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caseproof/memberpress.git"
+  },
+  "keywords": [],
+  "author": "Caseproof, LLC",
+  "license": "GPLv2",
+  "devDependencies": {
+    "@svgr/webpack": "^4.3.0",
+    "@wordpress/scripts": "^3.2.1",
+    "classnames": "^2.2.6",
+    "css-loader": "^2.1.1",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/caseproof/memberpress/issues"
+  },
+  "homepage": "https://github.com/caseproof/memberpress#readme"
+}
