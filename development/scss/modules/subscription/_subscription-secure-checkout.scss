@@ -1,0 +1,114 @@
+.register-checkout-page{
+    .mepr_price, .have-coupon-link, #mepr-payment-methods-wrapper{
+        display: none;
+    }
+    .content-subscription-template {
+        .mp_wrapper {
+            .mp-form-row {
+                label{
+                    display: block !important;
+                }
+            }
+        }
+    }
+}
+.form-secure-checkout{
+    *{
+        font-family: $font-roboto;
+    }
+    .box-payments-discounts{
+        border: 1px solid #BDBDBD;
+        .title-payments-discounts{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.62%;
+            color: #828282;
+            padding: 20px;
+            border-bottom: 1px solid #BDBDBD;
+        }
+        .box-info{
+            padding: 20px;
+        }
+    }
+    .box-your-information{
+        border: 1px solid #BDBDBD;
+        .title-your-information{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.62%;
+            color: #828282;
+            padding: 20px;
+            border-bottom: 1px solid #BDBDBD;
+        }
+        .box-info{
+            padding: 20px;
+        }
+        .mp-form-row{
+            margin-bottom: 30px;
+        }
+    }
+
+    .box-subscription-summary{
+        background: #F2F2F2;
+        border: 1px solid #BDBDBD;
+        margin-bottom: 30px;
+        .title-form{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.62%;
+            color: #828282;
+            padding: 20px;
+            border-bottom: 1px solid #BDBDBD;
+        }
+        .subtitle-summary{
+            font-size: 18px;
+            line-height: 152.62%;
+            color: #828282;
+        }
+        .box-info{
+            padding: 20px;
+        }
+        .dropdown{
+            margin-bottom: 30px;
+            .dropdown-toggle{
+                background: #FFFFFF;
+                border: 1px solid #BDBDBD;
+                box-sizing: border-box;
+                border-radius: 3px;
+                width: 100%;
+                text-align: left;
+                padding: 10px 15px;
+                &:after{
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                }
+            }
+            .dropdown-menu{
+                width: 100%;
+            }
+            .dropdown-item{
+                padding: 5px 15px;
+            }
+        }
+        .box-total{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.62%;
+            color: #828282;
+            border-top: 1px solid #BDBDBD;
+            padding: 10px 0;
+        }
+    }
+    input[type*='submit']{
+        background: #8DC63F;
+        border-radius: 3px;
+        width: 100%;
+        padding: 12px 15px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        color: #0D3153;
+    }
+}

@@ -18716,5 +18716,311 @@ body #gform_wrapper_18 .top_label div.ginput_container {
     margin-bottom: 30px;
   }
 }
+.register-checkout-page .mepr_price, .register-checkout-page .have-coupon-link, .register-checkout-page #mepr-payment-methods-wrapper {
+  display: none;
+}
+.register-checkout-page .content-subscription-template .mp_wrapper .mp-form-row label {
+  display: block !important;
+}
+
+.form-secure-checkout * {
+  font-family: "Roboto", sans-serif;
+}
+.form-secure-checkout .box-payments-discounts {
+  border: 1px solid #BDBDBD;
+}
+.form-secure-checkout .box-payments-discounts .title-payments-discounts {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  padding: 20px;
+  border-bottom: 1px solid #BDBDBD;
+}
+.form-secure-checkout .box-payments-discounts .box-info {
+  padding: 20px;
+}
+.form-secure-checkout .box-your-information {
+  border: 1px solid #BDBDBD;
+}
+.form-secure-checkout .box-your-information .title-your-information {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  padding: 20px;
+  border-bottom: 1px solid #BDBDBD;
+}
+.form-secure-checkout .box-your-information .box-info {
+  padding: 20px;
+}
+.form-secure-checkout .box-your-information .mp-form-row {
+  margin-bottom: 30px;
+}
+.form-secure-checkout .box-subscription-summary {
+  background: #F2F2F2;
+  border: 1px solid #BDBDBD;
+  margin-bottom: 30px;
+}
+.form-secure-checkout .box-subscription-summary .title-form {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  padding: 20px;
+  border-bottom: 1px solid #BDBDBD;
+}
+.form-secure-checkout .box-subscription-summary .subtitle-summary {
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+}
+.form-secure-checkout .box-subscription-summary .box-info {
+  padding: 20px;
+}
+.form-secure-checkout .box-subscription-summary .dropdown {
+  margin-bottom: 30px;
+}
+.form-secure-checkout .box-subscription-summary .dropdown .dropdown-toggle {
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+}
+.form-secure-checkout .box-subscription-summary .dropdown .dropdown-toggle:after {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+}
+.form-secure-checkout .box-subscription-summary .dropdown .dropdown-menu {
+  width: 100%;
+}
+.form-secure-checkout .box-subscription-summary .dropdown .dropdown-item {
+  padding: 5px 15px;
+}
+.form-secure-checkout .box-subscription-summary .box-total {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  border-top: 1px solid #BDBDBD;
+  padding: 10px 0;
+}
+.form-secure-checkout input[type*=submit] {
+  background: #8DC63F;
+  border-radius: 3px;
+  width: 100%;
+  padding: 12px 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #0D3153;
+}
+
+.header-subscription .box-logo-home {
+  height: 72px;
+}
+.header-subscription .box-logo-home .logo-envzone {
+  position: static;
+  margin-left: 115px;
+  margin-top: 20px;
+}
+.header-subscription .box-logo-home .logo-envzone img {
+  height: 32px;
+}
+
+.subscription-account-page {
+  background: #F7F9FA;
+  padding-top: 30px;
+  height: calc(100vh - 72px);
+}
+.subscription-account-page * {
+  font-family: "Roboto", sans-serif;
+}
+.subscription-account-page .h-100 {
+  height: 100%;
+}
+.subscription-account-page .site-sidebar {
+  background: #F2F2F2;
+  height: 100%;
+  width: 90px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  -webkit-box-shadow: 0px 8px 16px rgba(8, 35, 48, 0.1);
+  -moz-box-shadow: 0px 8px 16px rgba(8, 35, 48, 0.1);
+  box-shadow: 0px 8px 16px rgba(8, 35, 48, 0.1);
+}
+.subscription-account-page .site-sidebar .side-user {
+  text-align: center;
+  padding: 15px 0;
+  margin-bottom: 50px;
+}
+.subscription-account-page .site-sidebar .side-user .avatar {
+  width: 50px;
+  display: inline-block;
+}
+.subscription-account-page .site-sidebar .side-user img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  width: 100%;
+}
+.subscription-account-page .site-sidebar .sidebar-nav {
+  background: transparent;
+  text-align: center;
+}
+.subscription-account-page .site-sidebar .side-user-logout {
+  text-align: center;
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+}
+.subscription-account-page .sidebar-nav {
+  flex: 0 0 auto;
+}
+.subscription-account-page .sidebar-nav .side-menu {
+  flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.subscription-account-page .side-menu .item {
+  margin-bottom: 15px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.subscription-account-page .side-menu .item.active i, .subscription-account-page .side-menu .item.current-page i {
+  background: #0D3153;
+}
+.subscription-account-page .side-menu .item.active svg path, .subscription-account-page .side-menu .item.current-page svg path {
+  fill: #fff;
+}
+.subscription-account-page .side-menu .item .ripple {
+  display: inline-block;
+  text-align: center;
+}
+.subscription-account-page .side-menu .item .ripple:hover {
+  cursor: pointer;
+}
+.subscription-account-page .side-menu .item .ripple:hover i {
+  background: #0D3153;
+}
+.subscription-account-page .side-menu .item .ripple:hover svg path {
+  fill: #fff;
+}
+.subscription-account-page .side-menu .item .ripple.logout i {
+  background: transparent;
+}
+.subscription-account-page .side-menu .item .ripple.logout:hover {
+  cursor: pointer;
+}
+.subscription-account-page .side-menu .item .ripple.logout:hover svg path {
+  fill: #0D3153;
+}
+.subscription-account-page .side-menu .item i {
+  padding: 10px;
+  border-radius: 4px;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.subscription-account-page .side-menu .item svg {
+  vertical-align: middle;
+}
+.subscription-account-page .side-menu .item span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5E6366;
+}
+.subscription-account-page .list-features {
+  margin-left: 75px;
+}
+.subscription-account-page .list-features .feature-menu .item {
+  padding: 20px;
+}
+.subscription-account-page .list-features .feature-menu .item.active, .subscription-account-page .list-features .feature-menu .item:hover {
+  background: rgba(94, 99, 102, 0.16);
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+}
+.subscription-account-page .list-features .item .feature i {
+  display: inline-block;
+  float: left;
+  margin-right: 12px;
+  margin-top: 13px;
+}
+.subscription-account-page .list-features .item .feature span.menu-name {
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  color: #3E4345;
+}
+.subscription-account-page .list-features .item .feature span.sub-name {
+  display: block;
+  font-size: 16px;
+  line-height: 150%;
+  color: #5E6366;
+}
+.subscription-account-page .box-info-user {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.subscription-account-page .box-info-user .avatar {
+  width: 100px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.subscription-account-page .box-info-user .avatar img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  width: 100%;
+}
+.subscription-account-page .box-info-user .name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 15px;
+}
+.subscription-account-page .box-info-user .plan {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #5E6366;
+  margin-bottom: 15px;
+}
+.subscription-account-page .box-info-user .plan span {
+  color: #537D19;
+}
+.subscription-account-page .box-info-user .btn-upgrade {
+  font-size: 16px;
+  line-height: 150%;
+  color: #367BF5;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(54, 123, 245, 0.24), 0px 4px 8px rgba(54, 123, 245, 0.16);
+  border-radius: 4px;
+}
 
 /*# sourceMappingURL=styles.css.map */
