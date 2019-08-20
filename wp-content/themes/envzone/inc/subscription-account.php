@@ -159,7 +159,7 @@ get_header('subscription');
                     <a class="avatar" href="javascript:void(0);">
                         <img src="<?php echo $avatar;?>">
                     </a>
-                    <div class="name"><?php echo $user_meta['first_name'][0].' '.$user_meta['last_name'][0];?></div>
+                    <div class="name"><?php echo do_shortcode('[mepr-account-info field="full_name"]');?></div>
                     <div class="plan">Plan: <span>Growing</span></div>
                     <a href="#" class="btn btn-upgrade">Upgrade your plan</a>
                 </div>
@@ -268,5 +268,11 @@ get_header('subscription');
         </style>
     <?php endif;?>
 
+    <script>
+        $(document).ready(function() {
+            $("#user_login").attr("placeholder", "Email");
+            $("#user_pass").attr("placeholder", "Password");
+        });
+    </script>
 </main>
 <?php get_footer('subscription');?>

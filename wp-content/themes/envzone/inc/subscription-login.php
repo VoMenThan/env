@@ -81,9 +81,11 @@ get_header();
     }
 </style>
 <script>
-
-    $(document).ready(function(){
-        $('h2').innerText('Resquest a password reset')
+    $(document).ready(function() {
+        $("#user_login").attr("placeholder", "Email");
+        $("#user_pass").attr("placeholder", "Password");
+        $("#mepr_user_or_email").attr("placeholder", "Email");
+        $('h2').innerText('Resquest a password reset');
     });
 </script>
 <?php get_footer();?>

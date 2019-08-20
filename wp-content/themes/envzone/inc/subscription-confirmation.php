@@ -34,8 +34,8 @@ get_header();
                         </div>
                     </article>
                     <div class="box-btn d-md-flex justify-content-md-between">
-                        <div class="btn btn-gray-trans-env">SMBs Portal</div>
-                        <div class="btn btn-green-env">Login</div>
+                        <a href="<?php echo home_url('small-business-portal');?>" class="btn btn-gray-trans-env">SMBs Portal</a>
+                        <a href="<?php echo home_url('subscription-account');?>" class="btn btn-green-env">Account</a>
                     </div>
 
                 </div>

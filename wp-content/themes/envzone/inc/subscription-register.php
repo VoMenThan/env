@@ -20,10 +20,23 @@ if ($term != ''){
 }
 if ($plan == 'growing-business'){
     $plan_name = 'Growing Business';
+    $price_plan =  199;
 }elseif ($plan == 'main-street'){
     $plan_name = 'Main Street';
+    $price_plan =  299;
 }else{
     $plan_name = 'High Growth';
+    $price_plan =  399;
+}
+
+if ($term != ''){
+    if ($plan == 'growing-business'){
+        $price_plan =  '1,908';
+    }elseif ($plan == 'main-street'){
+        $price_plan =  '2,868';
+    }else{
+        $price_plan =  '3,828';
+    }
 }
 ?>
 <main class="main-content">
@@ -36,6 +49,7 @@ if ($plan == 'growing-business'){
                     <p style="text-align: center; margin-top: 15px;"><em>Have an account? <a href="<?php echo home_url('subscription-login');?>">login</a></em></p>
                     <?php endif;?>
                 </div>
+                <?php if (!isset($_GET['action'])):?>
                 <div class="col-lg-4 form-secure-checkout">
                     <div class="box-subscription-summary">
                         <div class="title-form">Subscription Summary</div>
@@ -65,11 +79,13 @@ if ($plan == 'growing-business'){
 
                             <div class="box-total d-flex justify-content-between">
                                 <span class="total">Total Amount</span>
-                                <span class="total"></span>
+                                <span class="total">$<?php echo $price_plan;?></span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php endif;?>
+
             </div>
         </div>
         <div class="footer-affiliate">
@@ -139,7 +155,12 @@ if ($plan == 'growing-business'){
 <script>
 
     $(document).ready(function(){
-        $('h2').innerText('Resquest a password reset')
+        $("#user_first_name").attr("placeholder", "First name");
+        $("#user_last_name").attr("placeholder", "Last name");
+        $("#user_email").attr("placeholder", "Email");
+        $("#mepr_user_password").attr("placeholder", "Password");
+        $("#mepr_user_password_confirm").attr("placeholder", "Password Confirmation");
+        $('h2').innerText('Resquest a password reset');
     });
 </script>
 <?php get_footer();?>

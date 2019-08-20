@@ -18719,9 +18719,6 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .register-checkout-page .mepr_price, .register-checkout-page .have-coupon-link, .register-checkout-page #mepr-payment-methods-wrapper {
   display: none;
 }
-.register-checkout-page .content-subscription-template .mp_wrapper .mp-form-row label {
-  display: block !important;
-}
 
 .form-secure-checkout * {
   font-family: "Roboto", sans-serif;
@@ -18836,7 +18833,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .subscription-account-page {
   background: #F7F9FA;
   padding-top: 30px;
-  height: calc(100vh - 72px);
+  min-height: calc(100vh - 72px);
 }
 .subscription-account-page * {
   font-family: "Roboto", sans-serif;
@@ -19021,6 +19018,105 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   background: #FFFFFF;
   box-shadow: 0px 2px 4px rgba(54, 123, 245, 0.24), 0px 4px 8px rgba(54, 123, 245, 0.16);
   border-radius: 4px;
+}
+
+.account-setting-tab h1 {
+  margin-bottom: 50px;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 150%;
+  color: rgba(0, 0, 0, 0.87);
+}
+.account-setting-tab .box-card {
+  background: #FFFFFF;
+  border: 1px solid #E3E5E6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 50px;
+}
+.account-setting-tab .card-header {
+  background: #fff;
+  border-bottom: 0;
+  padding: 0 40px;
+}
+.account-setting-tab .card-header h5 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.87);
+  border-bottom: 1px solid #E3E5E6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.account-setting-tab .card-header h5:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: url("../images/icon-down-black-account.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-left: -20px;
+}
+.account-setting-tab .card-body {
+  padding: 40px;
+  padding-top: 0;
+}
+.account-setting-tab .card-body .group-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.44px;
+  color: #005A78;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.account-setting-tab .card-body .mp-form-row {
+  width: 50% !important;
+  padding-right: 15px;
+  float: left;
+  margin-bottom: 30px;
+}
+.account-setting-tab .card-body .mp-form-row.mepr_last_name, .account-setting-tab .card-body .mp-form-row.pr-fix, .account-setting-tab .card-body .mp-form-row.mepr_mepr_company {
+  padding-left: 15px;
+  padding-right: 0;
+}
+.account-setting-tab .card-body input {
+  background: #F1F3F4;
+  border-radius: 4px;
+  border: none;
+  padding: 15px;
+}
+.account-setting-tab .card-body button[type=submit] {
+  float: right;
+  border-radius: 99px;
+  background: rgba(47, 168, 79, 0.16);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 10px 20px;
+  border: none;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.account-setting-tab .card-body button[type=submit]:before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  background: url("../images/icon-check-true-account.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  vertical-align: middle;
+}
+.account-setting-tab .card-body label {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: #5E6366;
 }
 
 /*# sourceMappingURL=styles.css.map */
