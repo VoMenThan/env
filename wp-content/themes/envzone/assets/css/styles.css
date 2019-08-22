@@ -9588,6 +9588,27 @@ section.testing-page .item-qa {
   margin-bottom: 15px;
   font-weight: 500;
 }
+.small-business-page .box-originally-hard {
+  margin-bottom: 200px;
+  margin-top: 300px;
+}
+.small-business-page .box-originally-hard h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 150%;
+  color: #0D3153;
+  margin-bottom: 80px;
+  width: 80%;
+}
+.small-business-page .box-originally-hard .item-originally-hard {
+  background: #F2F2F2;
+  padding: 20px;
+}
+.small-business-page .box-originally-hard .item-originally-hard p {
+  font-size: 22px;
+  line-height: 150%;
+  color: #808080;
+}
 .small-business-page .section-how-it-works {
   padding-top: 100px;
   padding-bottom: 150px;
@@ -10026,6 +10047,20 @@ section.testing-page .item-qa {
   }
   .small-business-page .box-peace-of-mind p {
     font-size: 18px;
+  }
+  .small-business-page .box-originally-hard {
+    margin-top: 200px;
+    margin-bottom: 130px;
+  }
+  .small-business-page .box-originally-hard h2 {
+    width: 100%;
+    font-size: 24px;
+  }
+  .small-business-page .box-originally-hard .item-originally-hard {
+    margin-bottom: 30px;
+  }
+  .small-business-page .box-originally-hard .item-originally-hard p {
+    font-size: 22px;
   }
   .small-business-page .section-how-it-works {
     padding-top: 20px;
@@ -10934,6 +10969,11 @@ section.testing-page .item-qa {
   margin-bottom: 0;
   line-height: 18px;
 }
+.blog-detail-page .layout-none-sidebar figure.w-100 {
+  width: 900px !important;
+  max-width: 900px;
+  margin-left: -65px;
+}
 .blog-detail-page .box-share .list-social {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -11632,6 +11672,11 @@ section.testing-page .item-qa {
 	Large tablet 768px and down (<768px)
 	================================================================== */
 @media screen and (max-width: 768px) {
+  .blog-detail-page .layout-none-sidebar figure.w-100 {
+    width: 100% !important;
+    max-width: 100%;
+    margin-left: 0;
+  }
   .blog-detail-page .section-trending .border-header .view-all {
     display: none;
   }
@@ -18716,7 +18761,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
     margin-bottom: 30px;
   }
 }
-.register-checkout-page .mepr_price, .register-checkout-page .have-coupon-link, .register-checkout-page #mepr-payment-methods-wrapper {
+.register-checkout-page .mepr_price, .register-checkout-page .have-coupon-link {
   display: none;
 }
 

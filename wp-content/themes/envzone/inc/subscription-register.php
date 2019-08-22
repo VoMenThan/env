@@ -1,92 +1,11 @@
 <?php
 /* Template Name: Subscription register*/
 get_header();
-
-
-
-$plan = uri_segment(1);
-$term = uri_segment(2);
-
-if ($term != ''){
-    $term = 'year';
-    $term_name = 'Yearly (20% Off)';
-    $term_more = 'Monthly';
-    $full_url = home_url('register/').$plan;
-}else{
-    $term = '';
-    $full_url = home_url('register/').$plan.'/yearly';
-    $term_name = 'Monthly';
-    $term_more = 'Yearly (20% Off)';
-}
-if ($plan == 'growing-business'){
-    $plan_name = 'Growing Business';
-    $price_plan =  199;
-}elseif ($plan == 'main-street'){
-    $plan_name = 'Main Street';
-    $price_plan =  299;
-}else{
-    $plan_name = 'High Growth';
-    $price_plan =  399;
-}
-
-if ($term != ''){
-    if ($plan == 'growing-business'){
-        $price_plan =  '1,908';
-    }elseif ($plan == 'main-street'){
-        $price_plan =  '2,868';
-    }else{
-        $price_plan =  '3,828';
-    }
-}
 ?>
 <main class="main-content">
     <section class="subscription-member-template-page register-checkout-page">
         <div class="container box-affiliate-content">
-            <div class="row box-container justify-content-center">
-                <div class="col-lg-4 content-subscription-template">
-                    <?php the_content();?>
-                    <?php if (!is_user_logged_in()):?>
-                    <p style="text-align: center; margin-top: 15px;"><em>Have an account? <a href="<?php echo home_url('subscription-login');?>">login</a></em></p>
-                    <?php endif;?>
-                </div>
-                <?php if (!isset($_GET['action'])):?>
-                <div class="col-lg-4 form-secure-checkout">
-                    <div class="box-subscription-summary">
-                        <div class="title-form">Subscription Summary</div>
-
-                        <div class="box-info">
-                            <div class="subtitle-summary">Plan</div>
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuPlan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <?php echo $plan_name;?>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuPlan">
-                                    <a class="dropdown-item" href="<?php echo home_url('register/growing-business/');?>">Growing Business</a>
-                                    <a class="dropdown-item" href="<?php echo home_url('register/main-street/');?>">Main Street</a>
-                                    <a class="dropdown-item" href="<?php echo home_url('register/high-growth/');?>">High Growth</a>
-                                </div>
-                            </div>
-
-                            <div class="subtitle-summary">Term</div>
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuTerm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <?php echo $term_name;?>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuTerm">
-                                    <a class="dropdown-item" href="<?php echo $full_url;?>"><?php echo $term_more;?></a>
-                                </div>
-                            </div>
-
-                            <div class="box-total d-flex justify-content-between">
-                                <span class="total">Total Amount</span>
-                                <span class="total">$<?php echo $price_plan;?></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php endif;?>
-
-            </div>
+            <?php the_content();?>
         </div>
         <div class="footer-affiliate">
             <div class="container">

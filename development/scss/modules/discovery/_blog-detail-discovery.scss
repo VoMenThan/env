@@ -36,6 +36,13 @@
 		margin-bottom: 0;
 		line-height: 18px;
 	}
+    .layout-none-sidebar{
+        figure.w-100{
+            width: 900px !important;
+            max-width: 900px;
+            margin-left: -65px;
+        }
+    }
 	.box-share{
 		.list-social{
 			padding-top: 10px;
@@ -792,6 +799,13 @@
 	================================================================== */
 @media screen and (max-width: 768px) {
 	.blog-detail-page {
+        .layout-none-sidebar{
+            figure.w-100{
+                width: 100% !important;
+                max-width: 100%;
+                margin-left: 0;
+            }
+        }
 		.section-trending {
 			.border-header {
 				.view-all{

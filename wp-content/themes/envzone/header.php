@@ -34,6 +34,8 @@
 <body>
 
 <header id="header-top">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
     <nav id="sticky-menu" class="position-relative">
         <div class="container">
             <div class="row">
@@ -59,7 +61,7 @@
                             </div>
                         </li>
                         <li class="nav-item d-md-inline-block d-none-768 d-none btn-schedule">
-                            <a class="nav-link" href="<?php echo home_url('contact-us')?>">
+                            <a class="nav-link" href="" onclick="Calendly.showPopupWidget('https://calendly.com/envzone/general-inquiries');return false;">
                                 <i class="icon-schedule-appointment" aria-hidden="true"></i> <span>Schedule Appointment</span>
                             </a>
                         </li>
@@ -101,9 +103,6 @@
                                     Call Now 720-606-2900
                                 </a>
                             </li>
-
-                            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
                             <li class="nav-item">
                                 <a class="nav-link item-menu" href="#">COMPANY
                                     <span class="icon-arrow-right"></span>

@@ -269,33 +269,6 @@ get_header();
                     <?php endif;?>
                 </div>
 
-                <!-- /*============SUBCRIBE HOME=================*/ -->
-                <div class="col-12 d-lg-none d-none">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-parallax no-print">
-                                <div class="bg-green-home">
-                                    <div class="content-subcribe">
-                                        <div class="box-head-subcribe text-center">
-                                            <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                                            <p>
-                                                Three links or tips of interest curated about offshore outsourcing every
-                                                week by the experts at ENVZONE Consulting.
-                                            </p>
-                                            <div class="form-subscribe">
-                                                <?php
-                                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /*============END SUBCRIBE HOME=================*/ -->
-
                 <div class="col-lg-4 sidebar-advert no-print">
 
                     <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
@@ -423,15 +396,7 @@ get_header();
                                 'post_type' => 'post',
                                 'orderby' => 'id',
                                 'order' =>'desc',
-                                'post__not_in' => array($post->ID),
-                                'meta_query' => array(
-                                    'relation' => 'OR',
-                                    array(
-                                        'key' => 'post_show',
-                                        'value' => 'lastest-from-experts',
-                                        'compare' => 'LIKE',
-                                    )
-                                )
+                                'post__not_in' => array($post->ID)
                             );
                             $news_relate = get_posts( $args );
                             ?>

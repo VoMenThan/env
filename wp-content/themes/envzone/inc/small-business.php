@@ -130,6 +130,44 @@ get_header();
                     <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">SEE PLAN DETAILS</a>
                 </div>
             </div>
+
+
+            <div class="row box-originally-hard">
+                <div class="col-lg-12">
+                    <h2>We offer your small business setting something that is originally hard to find: </h2>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <div class="item-originally-hard">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M56 40C56 44.2435 54.3143 48.3131 51.3137 51.3137C48.3131 54.3143 44.2435 56 40 56C35.7565 56 31.6869 54.3143 28.6863 51.3137C25.6857 48.3131 24 44.2435 24 40C24 35.7565 25.6857 31.6869 28.6863 28.6863C31.6869 25.6857 35.7565 24 40 24C41.52 24 43 24.22 44.4 24.62L47.54 21.48C45.22 20.52 42.68 20 40 20C37.3736 20 34.7728 20.5173 32.3463 21.5224C29.9198 22.5275 27.715 24.0007 25.8579 25.8579C22.1071 29.6086 20 34.6957 20 40C20 45.3043 22.1071 50.3914 25.8579 54.1421C27.715 55.9993 29.9198 57.4725 32.3463 58.4776C34.7728 59.4827 37.3736 60 40 60C45.3043 60 50.3914 57.8929 54.1421 54.1421C57.8929 50.3914 60 45.3043 60 40H56ZM31.82 36.16L29 39L38 48L58 28L55.18 25.16L38 42.34L31.82 36.16Z" fill="#AEE366"/>
+                        </svg>
+                        <p>
+                            Get all the benefits & advantages of having a team without the costs and responsibilities that come with it
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <div class="item-originally-hard">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M56 40C56 44.2435 54.3143 48.3131 51.3137 51.3137C48.3131 54.3143 44.2435 56 40 56C35.7565 56 31.6869 54.3143 28.6863 51.3137C25.6857 48.3131 24 44.2435 24 40C24 35.7565 25.6857 31.6869 28.6863 28.6863C31.6869 25.6857 35.7565 24 40 24C41.52 24 43 24.22 44.4 24.62L47.54 21.48C45.22 20.52 42.68 20 40 20C37.3736 20 34.7728 20.5173 32.3463 21.5224C29.9198 22.5275 27.715 24.0007 25.8579 25.8579C22.1071 29.6086 20 34.6957 20 40C20 45.3043 22.1071 50.3914 25.8579 54.1421C27.715 55.9993 29.9198 57.4725 32.3463 58.4776C34.7728 59.4827 37.3736 60 40 60C45.3043 60 50.3914 57.8929 54.1421 54.1421C57.8929 50.3914 60 45.3043 60 40H56ZM31.82 36.16L29 39L38 48L58 28L55.18 25.16L38 42.34L31.82 36.16Z" fill="#AEE366"/>
+                        </svg>
+                        <p>
+                            Get flexible, affordable building options of online presence that can be reconfigured accordingly to your needs
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <div class="item-originally-hard">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M56 40C56 44.2435 54.3143 48.3131 51.3137 51.3137C48.3131 54.3143 44.2435 56 40 56C35.7565 56 31.6869 54.3143 28.6863 51.3137C25.6857 48.3131 24 44.2435 24 40C24 35.7565 25.6857 31.6869 28.6863 28.6863C31.6869 25.6857 35.7565 24 40 24C41.52 24 43 24.22 44.4 24.62L47.54 21.48C45.22 20.52 42.68 20 40 20C37.3736 20 34.7728 20.5173 32.3463 21.5224C29.9198 22.5275 27.715 24.0007 25.8579 25.8579C22.1071 29.6086 20 34.6957 20 40C20 45.3043 22.1071 50.3914 25.8579 54.1421C27.715 55.9993 29.9198 57.4725 32.3463 58.4776C34.7728 59.4827 37.3736 60 40 60C45.3043 60 50.3914 57.8929 54.1421 54.1421C57.8929 50.3914 60 45.3043 60 40H56ZM31.82 36.16L29 39L38 48L58 28L55.18 25.16L38 42.34L31.82 36.16Z" fill="#AEE366"/>
+                        </svg>
+                        <p>
+                            Get an online presence management partner/consultant that can take on a lot of the challenges at costs that are lower what the business would otherwise pay
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <div class="container-fluid bg-gray-process">
