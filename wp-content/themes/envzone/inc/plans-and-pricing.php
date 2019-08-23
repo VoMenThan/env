@@ -65,7 +65,7 @@ get_header();
                                             <div class="pricing">$319</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $399 (billed yearly)</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
+                                            <a href="<?php echo home_url('initial-signup/?plan=high-growth&term=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@ get_header();
                                             <div class="pricing">$239</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $299 (billed yearly)</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
+                                            <a href="<?php echo home_url('initial-signup/?plan=main-street&term=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
 
                                     </div>
@@ -106,7 +106,7 @@ get_header();
                                             <div class="pricing">$159</div>
                                             <div class="per-site-month">per site/month</div>
                                             <div class="sale-off">20% off $199 (billed yearly)</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
+                                            <a href="<?php echo home_url('initial-signup/?plan=growing-business&term=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
 
                                     </div>
@@ -491,9 +491,9 @@ get_header();
                                         </tr>
                                         <tr class="button">
                                             <td></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('initial-signup/?plan=high-growth&term=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('initial-signup/?plan=main-street&term=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('initial-signup/?plan=growing-business&term=yearly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -524,7 +524,7 @@ get_header();
                                         <div class="box-pricing">
                                             <div class="pricing">$399</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
+                                            <a href="<?php echo home_url('initial-signup/?plan=high-growth&term=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -544,7 +544,7 @@ get_header();
                                         <div class="box-pricing">
                                             <div class="pricing">$299</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
+                                            <a href="<?php echo home_url('initial-signup/?plan=main-street&term=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -562,7 +562,7 @@ get_header();
                                         <div class="box-pricing">
                                             <div class="pricing">$199</div>
                                             <div class="per-site-month">per site/month</div>
-                                            <a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
+                                            <a href="<?php echo home_url('initial-signup/?plan=growing-business&term=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a>
                                         </div>
                                     </div>
                                 </div>
@@ -946,9 +946,9 @@ get_header();
                                         </tr>
                                         <tr class="button">
                                             <td></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=high-growth&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=main-street&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
-                                            <td><a href="<?php echo home_url('subscription-signup/?plans=growing-business&pricing=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('initial-signup/?plan=high-growth&term=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('initial-signup/?plan=main-street&term=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
+                                            <td><a href="<?php echo home_url('initial-signup/?plan=growing-business&term=monthly')?>" class="btn btn-green-env">Subscribe for A Site Manager</a></td>
                                         </tr>
                                         </tbody>
                                     </table>

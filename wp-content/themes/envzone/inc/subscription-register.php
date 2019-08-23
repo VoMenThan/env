@@ -4,7 +4,16 @@ get_header();
 ?>
 <main class="main-content">
     <section class="subscription-member-template-page register-checkout-page">
-        <div class="container box-affiliate-content">
+        <div class="container box-register-subscription">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="process-bar-subscription img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-process-bar-subscription-checkout.png" alt="">
+                    <img class="process-bar-subscription img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-process-bar-subscription-checkout-mb.png" alt="">
+                    <h1>
+                        Secure Checkout
+                    </h1>
+                </div>
+            </div>
             <?php the_content();?>
         </div>
         <div class="footer-affiliate">
@@ -74,11 +83,7 @@ get_header();
 <script>
 
     $(document).ready(function(){
-        $("#user_first_name").attr("placeholder", "First name");
-        $("#user_last_name").attr("placeholder", "Last name");
-        $("#user_email").attr("placeholder", "Email");
-        $("#mepr_user_password").attr("placeholder", "Password");
-        $("#mepr_user_password_confirm").attr("placeholder", "Password Confirmation");
+        $(".stripe-card-name").attr("placeholder", "Name on the card*");
         $('h2').innerText('Resquest a password reset');
     });
 </script>

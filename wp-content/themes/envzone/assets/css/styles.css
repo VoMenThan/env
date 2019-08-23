@@ -18660,10 +18660,10 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   color: #828282;
   margin-bottom: 30px;
 }
-.subscription-member-template-page .content-subscription-template .mp_wrapper .mp-form-row label {
+.subscription-member-template-page .content-subscription-template .mp-form-row label {
   display: none !important;
 }
-.subscription-member-template-page .content-subscription-template .mp_wrapper input {
+.subscription-member-template-page .content-subscription-template input {
   border: 1px solid #BDBDBD;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -18672,7 +18672,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   border-radius: 3px;
   margin-bottom: 5px;
 }
-.subscription-member-template-page .content-subscription-template .mp_wrapper input[type=submit] {
+.subscription-member-template-page .content-subscription-template input[type=submit] {
   background: #8DC63F;
   border-radius: 3px;
   width: 100%;
@@ -18684,8 +18684,21 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   border-image: initial;
   cursor: pointer;
 }
-.subscription-member-template-page .content-subscription-template .mp_wrapper input[type=submit]:hover {
+.subscription-member-template-page .content-subscription-template input[type=submit]:hover {
   color: #fff;
+}
+.subscription-member-template-page .content-subscription-template .mepr-payment-method .stripe-card-name {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.subscription-member-template-page .content-subscription-template .mepr-payment-method .stripe_element_input {
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
 .subscription-member-template-page .content-subscription-template .mepr-login-actions {
   text-align: center;
@@ -18737,7 +18750,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   color: #828282;
 }
 .subscription-member-page .btn {
-  width: calc(50% - 20px);
+  width: 100%;
 }
 
 /* 	================================================================
@@ -18761,8 +18774,80 @@ body #gform_wrapper_18 .top_label div.ginput_container {
     margin-bottom: 30px;
   }
 }
-.register-checkout-page .mepr_price, .register-checkout-page .have-coupon-link {
+.register-checkout-page .box-register-subscription {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.register-checkout-page .box-register-subscription h1 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  color: #4F4F4F;
+}
+.register-checkout-page .box-register-subscription .process-bar-subscription {
+  position: absolute;
+  top: -100px;
+  left: calc(50% - 200px);
+}
+.register-checkout-page .mepr_price {
   display: none;
+}
+.register-checkout-page .mp_wrapper .mepr-payment-methods-radios > label {
+  display: block !important;
+  font-weight: normal !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 18px;
+}
+.register-checkout-page .mp_wrapper .mepr-payment-methods-icons .mepr-payment-method-icon {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 80%;
+}
+.register-checkout-page .mp_wrapper .mepr-payment-methods-icons .mepr-payment-method-icon img {
+  width: 100%;
+  height: auto !important;
+}
+.register-checkout-page .mp_wrapper .mepr-payment-methods-icons .mepr-payment-method-icon:last-child {
+  width: 20%;
+}
+.register-checkout-page .box-payment-method .mp-form-row .mp-form-label {
+  display: none;
+}
+
+.box-initial-signup h1 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #828282;
+}
+.box-initial-signup .form-initial-signup input {
+  width: 100% !important;
+  border: 1px solid #BDBDBD;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 12px 15px !important;
+  margin-top: 0;
+  font-size: 16px !important;
+}
+.box-initial-signup .form-initial-signup ul.gform_fields li.gfield {
+  padding-right: 0;
+}
+.box-initial-signup .form-initial-signup .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+  max-width: 100% !important;
+}
+.box-initial-signup .form-initial-signup .gform_wrapper .gform_footer input.button, .box-initial-signup .form-initial-signup .gform_wrapper .gform_footer input[type=submit] {
+  background: #8DC63F;
+  color: #0D3153;
+  font-weight: bold;
+  border: none;
+}
+.box-initial-signup .form-initial-signup .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container {
+  margin-top: 30px;
 }
 
 .form-secure-checkout * {
@@ -18851,6 +18936,24 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   border-top: 1px solid #BDBDBD;
   padding: 10px 0;
 }
+.form-secure-checkout .box-subscription-summary .box-total.due-today {
+  font-size: 16px;
+  font-style: italic;
+  border-top: none;
+  font-weight: normal;
+  padding: 0;
+}
+.form-secure-checkout .secure-payments {
+  text-align: center;
+  margin-top: 30px;
+}
+.form-secure-checkout .term-policy-condition {
+  font-size: 14px;
+}
+.form-secure-checkout .box-no-risk-money {
+  font-size: 14px;
+  margin-top: 30px;
+}
 .form-secure-checkout input[type*=submit] {
   background: #8DC63F;
   border-radius: 3px;
@@ -18862,7 +18965,55 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   line-height: 19px;
   color: #0D3153;
 }
+.form-secure-checkout .payment-header {
+  padding: 20px;
+  border-top: 1px solid #BDBDBD;
+}
+.form-secure-checkout .payment-header.bd-none {
+  border-top: none;
+}
+.form-secure-checkout .payment-header h3 {
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  position: relative;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.form-secure-checkout .payment-header h3[aria-expanded=true] .icon-bottom-gray {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.form-secure-checkout .payment-header .icon-bottom-gray {
+  width: 20px;
+  height: 20px;
+  background: url("../images/icon-arrow-bottom-gray.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
 
+/* 	================================================================
+	MEDIUM DEVICE
+	Tablet 768px and down (<768px)
+	================================================================== */
+@media screen and (max-width: 768px) {
+  .register-checkout-page .form-secure-checkout {
+    margin-bottom: 30px;
+  }
+  .register-checkout-page .box-register-subscription .process-bar-subscription {
+    position: static;
+    margin-bottom: 20px;
+  }
+}
 .header-subscription .box-logo-home {
   height: 72px;
 }

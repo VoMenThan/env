@@ -1,39 +1,28 @@
 <?php
-/* Template Name: Subscription Thank You*/
+/* Template Name: Subscription Initial Signup*/
 get_header();
+
+$term = $_GET['term'];
+$plan = $_GET['plan'];
+
+if ($term != 'yearly'){
+    $term = '';
+}
+if ($plan != 'growing-business' and $plan != 'main-street' and $plan != 'high-growth'){
+    $plan = 'growing-business';
+}
 ?>
 <main class="main-content">
     <section class="subscription-member-page">
-        <div class="container box-affiliate-content">
+        <div class="container box-initial-signup box-affiliate-content">
             <div class="row box-container justify-content-center">
                 <div class="col-lg-4">
-                    <img class="process-bar-subscription img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-process-bar-subscription.png" alt="">
-                    <img class="process-bar-subscription img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-process-bar-subscription-mb.png" alt="">
-                    <article class="thank-you">
-                        <h3>
-                            Confirmation
-                        </h3>
-
-                        <div class="box-thank meantime">
-                            <div class="notification">
-                                <img class="alignnone size-full wp-image-3030" src="https://www.envzone.com/wp-content/uploads/2019/04/icon-verified.png" alt="">
-                                <h1>Thank You!</h1>
-                            </div>
-                            <div class="box-info">
-                                <p>
-                                    You have purchased subscription plan successfully!
-                                </p>
-                                <p>
-                                    A notification email has been sent to your inbox.
-                                </p>
-
-                            </div>
-                        </div>
-                    </article>
-                    <div class="box-btn d-md-flex justify-content-md-between">
-                        <a href="<?php echo home_url('subscription-account');?>" class="btn btn-green-env">Get access now</a>
+                    <h1>Registration</h1>
+                    <div class="form-initial-signup">
+                        <?php
+                            echo do_shortcode('[gravityform id=31 title=false description=false ajax=false]');
+                        ?>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -148,4 +137,18 @@ get_header();
         border-right: 0;
     }
 </style>
+
+<script>
+    (function ( $ ) {
+        "use strict";
+        $(document).ready(function (e) {
+            var plan = <?php echo json_encode($plan);?>;
+            var term = <?php echo json_encode($term);?>;
+            $("#gform_31 #input_31_2").val(plan);
+            $("#gform_31 #input_31_3").val(term);
+
+        });
+
+    })(jQuery);
+</script>
 <?php get_footer();?>

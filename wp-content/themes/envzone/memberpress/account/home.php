@@ -2,6 +2,16 @@
     die('You are not allowed to call this page directly.');
 } ?>
 
+
+<?php
+    $user = get_current_user_id();
+    $avatar = get_field('avatar', 'user_'. $user )['sizes']['medium'];
+    if ($avatar == ''){
+        $avatar = 'https://www.envzone.com/wp-content/uploads/2019/04/Commenter-Profile-Icon.png';
+    }
+    $user_meta = get_user_meta($user);
+?>
+<div class="col-lg-7">
 <div class="account-setting-tab">
     <h1>Account settings</h1>
 
@@ -123,5 +133,17 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+</div>
+<div class="col-lg-2 d-flex align-items-end justify-content-center">
+    <div class="box-info-user">
+        <a class="avatar" href="javascript:void(0);">
+            <img src="<?php echo $avatar;?>">
+        </a>
+        <div class="name"><?php echo do_shortcode('[mepr-account-info field="full_name"]');?></div>
+        <div class="plan">Plan: <span>Growing</span></div>
+        <a href="#" class="btn btn-upgrade">Upgrade your plan</a>
     </div>
 </div>

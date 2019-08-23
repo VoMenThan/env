@@ -210,7 +210,7 @@ get_header();
                     <div class="item-how-it-work">
                         <h3>2. Get support</h3>
                         <p>
-                            You can start request support from your online presence builder team. Plus, getting insights from your website performance audit report.
+                            Get support from your team and start improving your website. Plus, getting insights from your website performance audit report.
                         </p>
                     </div>
                 </div>

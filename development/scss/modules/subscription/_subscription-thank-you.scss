@@ -12,31 +12,41 @@
             color: #828282;
             margin-bottom: 30px;
         }
-        .mp_wrapper {
-            .mp-form-row {
-                label{
-                    display: none !important;
-                }
+
+        .mp-form-row {
+            label{
+                display: none !important;
             }
-            input{
-                border: 1px solid #BDBDBD;
+        }
+        input{
+            border: 1px solid #BDBDBD;
+            @include radius(3px);
+            margin-bottom: 5px;
+        }
+        input[type=submit]{
+            background: #8DC63F;
+            border-radius: 3px;
+            width: 100%;
+            padding: 10px;
+            font-weight: bold;
+            color: #0D3153;
+            outline: none;
+            border-color: transparent;
+            border-image: initial;
+            cursor: pointer;
+            &:hover{
+                color: #fff;
+            }
+        }
+        .mepr-payment-method{
+            .stripe-card-name{
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+            .stripe_element_input{
+                padding-top: 7px !important;
+                padding-bottom: 7px !important;
                 @include radius(3px);
-                margin-bottom: 5px;
-            }
-            input[type=submit]{
-                background: #8DC63F;
-                border-radius: 3px;
-                width: 100%;
-                padding: 10px;
-                font-weight: bold;
-                color: #0D3153;
-                outline: none;
-                border-color: transparent;
-                border-image: initial;
-                cursor: pointer;
-                &:hover{
-                    color: #fff;
-                }
             }
         }
         .mepr-login-actions{
@@ -93,7 +103,7 @@
         }
     }
     .btn{
-        width: calc(50% - 20px);
+        width: 100%;
     }
 }
 
