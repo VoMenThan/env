@@ -364,5 +364,407 @@ function post_to_third_party( $entry ) {
 
 }
 
+function mepr_add_tabs_content($action) {
+    if($action == 'booking') {
+        if (!empty($subscriptions)) {
+            ?>
+            <div class="col-lg-7 order-2">
+                <div class="account-setting-tab">
+                    <h1>Booking</h1>
+                    <div class="box-card">
+                        <div class="card-header" id="headingBooking">
+                            <h5 class="mb-0" data-toggle="collapse" data-target="#collapseBooking"
+                                aria-expanded="true"
+                                aria-controls="collapseBooking">
+                                <?php _ex('Appointment Scheduling', 'ui', 'memberpress'); ?>
+                            </h5>
+                        </div>
+
+                        <div id="collapseBookingConsultation" class="collapse show"
+                             aria-labelledby="featureBookingConsultation">
+                            <div class="card-body">
+                                <div class="group-name">
+                                    <?php _ex('Choose an appointment type following that you need support for your asset', 'ui', 'memberpress'); ?>
+                                </div>
+                                <div class="mp_wrapper">
+                                    <div class="item-appointment-scheduling">
+                                        <div class="category-appointment">advance</div>
+                                        <a href=""
+                                           onclick="Calendly.showPopupWidget('https://calendly.com/envzone/onsite-client-portal-integration');return false;">
+                                            <h3 class="title-appointment">
+                                                Onsite Client Portal Integration
+                                            </h3>
+                                            <i class="icon-ontime">
+                                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 0L14.8 1.79L10.79 5.79L12.21 7.21L16.21 3.21L18 5V0H13ZM7 7C3.14 7 0 10.13 0 14C0 15.8565 0.737498 17.637 2.05025 18.9497C3.36301 20.2625 5.14348 21 7 21C10.86 21 14 17.87 14 14C14 12.1435 13.2625 10.363 11.9497 9.05025C10.637 7.7375 8.85652 7 7 7ZM7 9.15C9.67 9.15 11.85 11.32 11.85 14C11.85 14.6369 11.7246 15.2676 11.4808 15.856C11.2371 16.4444 10.8798 16.9791 10.4295 17.4295C9.9791 17.8798 9.44444 18.2371 8.85601 18.4808C8.26758 18.7246 7.63691 18.85 7 18.85C4.32 18.85 2.15 16.68 2.15 14C2.15 12.7137 2.66098 11.4801 3.57053 10.5705C4.48008 9.66098 5.7137 9.15 7 9.15ZM6 11V14.69L9.19 16.53L9.94 15.23L7.5 13.82V11"
+                                                          fill="#78909C"/>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="item-appointment-scheduling">
+                                        <div class="category-appointment">standard</div>
+                                        <a href=""
+                                           onclick="Calendly.showPopupWidget('https://calendly.com/envzone/onsite-ats-integration');return false;">
+                                            <h3 class="title-appointment">
+                                                Onsite ATS Integration
+                                            </h3>
+                                            <i class="icon-ontime">
+                                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 0L14.8 1.79L10.79 5.79L12.21 7.21L16.21 3.21L18 5V0H13ZM7 7C3.14 7 0 10.13 0 14C0 15.8565 0.737498 17.637 2.05025 18.9497C3.36301 20.2625 5.14348 21 7 21C10.86 21 14 17.87 14 14C14 12.1435 13.2625 10.363 11.9497 9.05025C10.637 7.7375 8.85652 7 7 7ZM7 9.15C9.67 9.15 11.85 11.32 11.85 14C11.85 14.6369 11.7246 15.2676 11.4808 15.856C11.2371 16.4444 10.8798 16.9791 10.4295 17.4295C9.9791 17.8798 9.44444 18.2371 8.85601 18.4808C8.26758 18.7246 7.63691 18.85 7 18.85C4.32 18.85 2.15 16.68 2.15 14C2.15 12.7137 2.66098 11.4801 3.57053 10.5705C4.48008 9.66098 5.7137 9.15 7 9.15ZM6 11V14.69L9.19 16.53L9.94 15.23L7.5 13.82V11"
+                                                          fill="#78909C"/>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="item-appointment-scheduling">
+                                        <div class="category-appointment">standard</div>
+                                        <a href=""
+                                           onclick="Calendly.showPopupWidget('https://calendly.com/envzone/email-funnel-integration');return false;">
+                                            <h3 class="title-appointment">
+                                                Email Funnel Integration
+                                            </h3>
+                                            <i class="icon-ontime">
+                                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 0L14.8 1.79L10.79 5.79L12.21 7.21L16.21 3.21L18 5V0H13ZM7 7C3.14 7 0 10.13 0 14C0 15.8565 0.737498 17.637 2.05025 18.9497C3.36301 20.2625 5.14348 21 7 21C10.86 21 14 17.87 14 14C14 12.1435 13.2625 10.363 11.9497 9.05025C10.637 7.7375 8.85652 7 7 7ZM7 9.15C9.67 9.15 11.85 11.32 11.85 14C11.85 14.6369 11.7246 15.2676 11.4808 15.856C11.2371 16.4444 10.8798 16.9791 10.4295 17.4295C9.9791 17.8798 9.44444 18.2371 8.85601 18.4808C8.26758 18.7246 7.63691 18.85 7 18.85C4.32 18.85 2.15 16.68 2.15 14C2.15 12.7137 2.66098 11.4801 3.57053 10.5705C4.48008 9.66098 5.7137 9.15 7 9.15ZM6 11V14.69L9.19 16.53L9.94 15.23L7.5 13.82V11"
+                                                          fill="#78909C"/>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="item-appointment-scheduling">
+                                        <div class="category-appointment">standard</div>
+                                        <a href=""
+                                           onclick="Calendly.showPopupWidget('https://calendly.com/envzone/landing-page-integration');return false;">
+                                            <h3 class="title-appointment">
+                                                Landing Page Integration
+                                            </h3>
+                                            <i class="icon-ontime">
+                                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 0L14.8 1.79L10.79 5.79L12.21 7.21L16.21 3.21L18 5V0H13ZM7 7C3.14 7 0 10.13 0 14C0 15.8565 0.737498 17.637 2.05025 18.9497C3.36301 20.2625 5.14348 21 7 21C10.86 21 14 17.87 14 14C14 12.1435 13.2625 10.363 11.9497 9.05025C10.637 7.7375 8.85652 7 7 7ZM7 9.15C9.67 9.15 11.85 11.32 11.85 14C11.85 14.6369 11.7246 15.2676 11.4808 15.856C11.2371 16.4444 10.8798 16.9791 10.4295 17.4295C9.9791 17.8798 9.44444 18.2371 8.85601 18.4808C8.26758 18.7246 7.63691 18.85 7 18.85C4.32 18.85 2.15 16.68 2.15 14C2.15 12.7137 2.66098 11.4801 3.57053 10.5705C4.48008 9.66098 5.7137 9.15 7 9.15ZM6 11V14.69L9.19 16.53L9.94 15.23L7.5 13.82V11"
+                                                          fill="#78909C"/>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="item-appointment-scheduling">
+                                        <div class="category-appointment">standard</div>
+                                        <a href=""
+                                           onclick="Calendly.showPopupWidget('https://calendly.com/envzone/online-marketing-integration');return false;">
+                                            <h3 class="title-appointment">
+                                                Online Marketing Integration
+                                            </h3>
+                                            <i class="icon-ontime">
+                                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 0L14.8 1.79L10.79 5.79L12.21 7.21L16.21 3.21L18 5V0H13ZM7 7C3.14 7 0 10.13 0 14C0 15.8565 0.737498 17.637 2.05025 18.9497C3.36301 20.2625 5.14348 21 7 21C10.86 21 14 17.87 14 14C14 12.1435 13.2625 10.363 11.9497 9.05025C10.637 7.7375 8.85652 7 7 7ZM7 9.15C9.67 9.15 11.85 11.32 11.85 14C11.85 14.6369 11.7246 15.2676 11.4808 15.856C11.2371 16.4444 10.8798 16.9791 10.4295 17.4295C9.9791 17.8798 9.44444 18.2371 8.85601 18.4808C8.26758 18.7246 7.63691 18.85 7 18.85C4.32 18.85 2.15 16.68 2.15 14C2.15 12.7137 2.66098 11.4801 3.57053 10.5705C4.48008 9.66098 5.7137 9.15 7 9.15ZM6 11V14.69L9.19 16.53L9.94 15.23L7.5 13.82V11"
+                                                          fill="#78909C"/>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="item-appointment-scheduling">
+                                        <div class="category-appointment">standard</div>
+                                        <a href=""
+                                           onclick="Calendly.showPopupWidget('https://calendly.com/envzone/web-redesign-or-improvement');return false;">
+                                            <h3 class="title-appointment">
+                                                Web Redesign or Improvement
+                                            </h3>
+                                            <i class="icon-ontime">
+                                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 0L14.8 1.79L10.79 5.79L12.21 7.21L16.21 3.21L18 5V0H13ZM7 7C3.14 7 0 10.13 0 14C0 15.8565 0.737498 17.637 2.05025 18.9497C3.36301 20.2625 5.14348 21 7 21C10.86 21 14 17.87 14 14C14 12.1435 13.2625 10.363 11.9497 9.05025C10.637 7.7375 8.85652 7 7 7ZM7 9.15C9.67 9.15 11.85 11.32 11.85 14C11.85 14.6369 11.7246 15.2676 11.4808 15.856C11.2371 16.4444 10.8798 16.9791 10.4295 17.4295C9.9791 17.8798 9.44444 18.2371 8.85601 18.4808C8.26758 18.7246 7.63691 18.85 7 18.85C4.32 18.85 2.15 16.68 2.15 14C2.15 12.7137 2.66098 11.4801 3.57053 10.5705C4.48008 9.66098 5.7137 9.15 7 9.15ZM6 11V14.69L9.19 16.53L9.94 15.23L7.5 13.82V11"
+                                                          fill="#78909C"/>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }else{
+            ?>
+            <div class="col-lg-7 order-2">
+                <div class="mp-wrapper mp-no-subs">
+                    <div class="account-setting-tab">
+                        <div class="box-card">
+                            <div class="card-header" id="headingProfile">
+                                <h5 class="mb-0" data-toggle="collapse" data-target="#collapseProfile" aria-expanded="true"
+                                    aria-controls="collapseProfile">
+                                    Feature Locked
+                                </h5>
+                            </div>
+
+                            <div id="collapseProfile" class="collapse show" aria-labelledby="headingProfile">
+                                <div class="card-body">
+                                    <div class="group-name">
+                                        <?php _ex('Please purchase a plan to have this feature unlock.', 'ui', 'memberpress'); ?>
+                                    </div>
+                                    <div class="mp_wrapper text-center">
+                                        <svg width="80" height="200" viewBox="0 0 80 80" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M63.7038 29.797V21.4815C63.7038 9.63704 53.0697 0 40.0001 0C26.9304 0 16.2964 9.63704 16.2964 21.4815V29.797C11.2578 30.6652 7.40747 35.0563 7.40747 40.3407V69.2918C7.40747 75.1955 12.2119 80 18.1171 80H61.883C67.7882 80 72.5926 75.1956 72.5926 69.2904V40.3393C72.5926 35.0563 68.7423 30.6652 63.7038 29.797ZM19.2593 21.4815C19.2593 11.2696 28.563 2.96296 40.0001 2.96296C51.4371 2.96296 60.7408 11.2696 60.7408 21.4815V29.6296H19.2593V21.4815ZM69.6297 69.2904C69.6297 73.5615 66.1541 77.037 61.883 77.037H18.1171C13.846 77.037 10.3704 73.5615 10.3704 69.2904V40.3393C10.3704 36.0681 13.846 32.5926 18.1171 32.5926H61.883C66.1541 32.5926 69.6297 36.0681 69.6297 40.3393V69.2904Z"
+                                                  fill="#BDBDBD"/>
+                                            <path d="M40 41.4815C36.7319 41.4815 34.0741 44.1393 34.0741 47.4074V56.2963C34.0741 59.5644 36.7319 62.2222 40 62.2222C43.2682 62.2222 45.9259 59.5644 45.9259 56.2963V47.4074C45.9259 44.1393 43.2682 41.4815 40 41.4815ZM42.963 56.2963C42.963 57.9304 41.6341 59.2593 40 59.2593C38.3659 59.2593 37.0371 57.9304 37.0371 56.2963V47.4074C37.0371 45.7733 38.3659 44.4444 40 44.4444C41.6341 44.4444 42.963 45.7733 42.963 47.4074V56.2963Z"
+                                                  fill="#BDBDBD"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }elseif ($action == 'work-order'){
+        if (!empty($subscriptions)) {
+        ?>
+        <div class="col-lg-7 order-2">
+            <div class="account-setting-tab">
+                <h1>
+                    <?php _ex('Work Order', 'ui', 'memberpress');?>
+                </h1>
+                <div class="box-card">
+                    <div class="card-header" id="featureDigitalAsset">
+                        <h5 class="mb-0" data-toggle="collapse" data-target="#collapseDigitalAsset" aria-expanded="true" aria-controls="collapseDigitalAsset">
+                            <?php _ex('Submit Ticket', 'ui', 'memberpress');?>
+                        </h5>
+                    </div>
+
+                    <div id="collapseDigitalAsset" class="collapse show" aria-labelledby="featureDigitalAsset">
+                        <div class="card-body">
+                            <div class="group-name">
+                                <?php _ex('Need help on your website, digital asset, etc.! Request help from team here.', 'ui', 'memberpress');?>
+                            </div>
+                            <div class="mp_wrapper">
+                                <div class="clearfix">
+                                    <div class="item-shadow-account item-ticket-portal">
+                                        <h3 class="title-shadow">
+                                            Ticket Portal
+                                        </h3>
+                                        <a href="https://envzone.supportbee.com/portal/sign_in" target="_blank" class="link-shadow">Request now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <?php
+        }else{
+            ?>
+            <div class="col-lg-7 order-2">
+                <div class="mp-wrapper mp-no-subs">
+                    <div class="account-setting-tab">
+                        <div class="box-card">
+                            <div class="card-header" id="headingProfile">
+                                <h5 class="mb-0" data-toggle="collapse" data-target="#collapseProfile" aria-expanded="true"
+                                    aria-controls="collapseProfile">
+                                    Feature Locked
+                                </h5>
+                            </div>
+
+                            <div id="collapseProfile" class="collapse show" aria-labelledby="headingProfile">
+                                <div class="card-body">
+                                    <div class="group-name">
+                                        <?php _ex('Please purchase a plan to have this feature unlock.', 'ui', 'memberpress'); ?>
+                                    </div>
+                                    <div class="mp_wrapper text-center">
+                                        <svg width="80" height="200" viewBox="0 0 80 80" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M63.7038 29.797V21.4815C63.7038 9.63704 53.0697 0 40.0001 0C26.9304 0 16.2964 9.63704 16.2964 21.4815V29.797C11.2578 30.6652 7.40747 35.0563 7.40747 40.3407V69.2918C7.40747 75.1955 12.2119 80 18.1171 80H61.883C67.7882 80 72.5926 75.1956 72.5926 69.2904V40.3393C72.5926 35.0563 68.7423 30.6652 63.7038 29.797ZM19.2593 21.4815C19.2593 11.2696 28.563 2.96296 40.0001 2.96296C51.4371 2.96296 60.7408 11.2696 60.7408 21.4815V29.6296H19.2593V21.4815ZM69.6297 69.2904C69.6297 73.5615 66.1541 77.037 61.883 77.037H18.1171C13.846 77.037 10.3704 73.5615 10.3704 69.2904V40.3393C10.3704 36.0681 13.846 32.5926 18.1171 32.5926H61.883C66.1541 32.5926 69.6297 36.0681 69.6297 40.3393V69.2904Z"
+                                                  fill="#BDBDBD"/>
+                                            <path d="M40 41.4815C36.7319 41.4815 34.0741 44.1393 34.0741 47.4074V56.2963C34.0741 59.5644 36.7319 62.2222 40 62.2222C43.2682 62.2222 45.9259 59.5644 45.9259 56.2963V47.4074C45.9259 44.1393 43.2682 41.4815 40 41.4815ZM42.963 56.2963C42.963 57.9304 41.6341 59.2593 40 59.2593C38.3659 59.2593 37.0371 57.9304 37.0371 56.2963V47.4074C37.0371 45.7733 38.3659 44.4444 40 44.4444C41.6341 44.4444 42.963 45.7733 42.963 47.4074V56.2963Z"
+                                                  fill="#BDBDBD"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }elseif ($action == 'digital-asset'){
+        if (!empty($subscriptions)) {
+        ?>
+        <div class="col-lg-7 order-2">
+            <div class="account-setting-tab">
+                <h1>
+                    <?php _ex('Digital Asset', 'ui', 'memberpress');?>
+                </h1>
+                <div class="box-card">
+                    <div class="card-header" id="featureDigitalAsset">
+                        <h5 class="mb-0" data-toggle="collapse" data-target="#collapseDigitalAsset" aria-expanded="true" aria-controls="collapseDigitalAsset">
+                            <?php _ex('Website', 'ui', 'memberpress');?>
+                        </h5>
+                    </div>
+
+                    <div id="collapseDigitalAsset" class="collapse show" aria-labelledby="featureDigitalAsset">
+                        <div class="card-body">
+                            <div class="group-name">
+                                <?php _ex('Original Information and administration', 'ui', 'memberpress');?>
+                            </div>
+                            <div class="mp_wrapper">
+
+                                <form class="mepr-account-form mepr-form clearfix" id="mepr-digital-asset" action="" method="post" novalidate>
+
+                                    <div class="mp-form-row mepr_asset_website_address">
+                                        <div class="mp-form-label">
+                                            <label for="asset_website_address"><?php _ex('Website address*', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Website address', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="text" id="asset_website_address" name="asset_website_address" class="mepr-form-input" required/>
+                                    </div>
+
+                                    <div class="mp-form-row mepr_asset_hosting_address pr-fix">
+                                        <div class="mp-form-label">
+                                            <label for="asset_hosting_address"><?php _ex('Hosting address', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Hosting address', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="text" id="asset_hosting_address" name="asset_hosting_address" class="mepr-form-input"/>
+                                    </div>
+
+                                    <div class="mp-form-row mepr_asset_cpanel_address">
+                                        <div class="mp-form-label">
+                                            <label for="asset_cpanel_address"><?php _ex('Cpanel address', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Cpanel address', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="text" id="asset_cpanel_address" name="asset_cpanel_address" class="mepr-form-input"/>
+                                    </div>
+
+                                    <div class="mp-form-row mepr_asset_ftp_address pr-fix">
+                                        <div class="mp-form-label">
+                                            <label for="asset_ftp_address"><?php _ex('FTP address', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid FTP address', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="text" id="asset_ftp_address" name="asset_ftp_address" class="mepr-form-input"/>
+                                    </div>
+
+                                    <div class="mepr_spacer clearfix">&nbsp;</div>
+
+                                    <button type="submit" name="mepr-digital-asset" class="mepr-submit mepr-share-button">
+                                        <?php _ex('Save', 'ui', 'memberpress'); ?>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-card">
+                    <div class="card-header" id="featureDelegateAccessInformation">
+                        <h5 class="mb-0" data-toggle="collapse" data-target="#collapseDelegateAccessInformation" aria-expanded="true" aria-controls="collapseDelegateAccessInformation">
+                            <?php _ex('Delegate Access Information', 'ui', 'memberpress');?>
+                        </h5>
+                    </div>
+
+                    <div id="collapseDelegateAccessInformation" class="collapse show" aria-labelledby="featureDelegateAccessInformation">
+                        <div class="card-body">
+                            <div class="mp_wrapper">
+                                <form class="mepr-account-form mepr-form clearfix" id="mepr-delegate-access" action="" method="post" novalidate>
+
+                                    <div class="group-name">
+                                        <?php _ex('Hosting', 'ui', 'memberpress');?>
+                                    </div>
+
+                                    <div class="mp-form-row mepr_asset_hosting_login">
+                                        <div class="mp-form-label">
+                                            <label for="asset_hosting_login"><?php _ex('Login ID', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Login ID', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="text" id="asset_hosting_login" name="asset_hosting_login" class="mepr-form-input" required/>
+                                    </div>
+
+                                    <div class="mp-form-row mepr_asset_hosting_password pr-fix">
+                                        <div class="mp-form-label">
+                                            <label for="asset_hosting_password"><?php _ex('Password', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Password', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="password" id="asset_hosting_password" name="asset_hosting_password" class="mepr-form-input"/>
+                                    </div>
+
+                                    <div class="group-name">
+                                        <?php _ex('Cpanel', 'ui', 'memberpress');?>
+                                    </div>
+                                    <div class="mp-form-row mepr_asset_cpanel_login">
+                                        <div class="mp-form-label">
+                                            <label for="asset_cpanel_login"><?php _ex('Login ID', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Login ID', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="text" id="asset_cpanel_login" name="asset_cpanel_login" class="mepr-form-input"/>
+                                    </div>
+
+                                    <div class="mp-form-row mepr_asset_cpanel_password pr-fix">
+                                        <div class="mp-form-label">
+                                            <label for="asset_cpanel_password"><?php _ex('Password', 'ui', 'memberpress'); ?></label>
+                                            <span class="cc-error"><?php _ex('Invalid Password', 'ui', 'memberpress'); ?></span>
+                                        </div>
+                                        <input type="password" id="asset_cpanel_password" name="asset_cpanel_password" class="mepr-form-input"/>
+                                    </div>
+
+                                    <div class="mepr_spacer clearfix">&nbsp;</div>
+
+                                    <button type="submit" name="mepr-delegate-access" class="mepr-submit mepr-share-button">
+                                        <?php _ex('Save', 'ui', 'memberpress'); ?>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <?php
+        }else{
+            ?>
+            <div class="col-lg-7 order-2">
+                <div class="mp-wrapper mp-no-subs">
+                    <div class="account-setting-tab">
+                        <div class="box-card">
+                            <div class="card-header" id="headingProfile">
+                                <h5 class="mb-0" data-toggle="collapse" data-target="#collapseProfile" aria-expanded="true"
+                                    aria-controls="collapseProfile">
+                                    Feature Locked
+                                </h5>
+                            </div>
+
+                            <div id="collapseProfile" class="collapse show" aria-labelledby="headingProfile">
+                                <div class="card-body">
+                                    <div class="group-name">
+                                        <?php _ex('Please purchase a plan to have this feature unlock.', 'ui', 'memberpress'); ?>
+                                    </div>
+                                    <div class="mp_wrapper text-center">
+                                        <svg width="80" height="200" viewBox="0 0 80 80" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M63.7038 29.797V21.4815C63.7038 9.63704 53.0697 0 40.0001 0C26.9304 0 16.2964 9.63704 16.2964 21.4815V29.797C11.2578 30.6652 7.40747 35.0563 7.40747 40.3407V69.2918C7.40747 75.1955 12.2119 80 18.1171 80H61.883C67.7882 80 72.5926 75.1956 72.5926 69.2904V40.3393C72.5926 35.0563 68.7423 30.6652 63.7038 29.797ZM19.2593 21.4815C19.2593 11.2696 28.563 2.96296 40.0001 2.96296C51.4371 2.96296 60.7408 11.2696 60.7408 21.4815V29.6296H19.2593V21.4815ZM69.6297 69.2904C69.6297 73.5615 66.1541 77.037 61.883 77.037H18.1171C13.846 77.037 10.3704 73.5615 10.3704 69.2904V40.3393C10.3704 36.0681 13.846 32.5926 18.1171 32.5926H61.883C66.1541 32.5926 69.6297 36.0681 69.6297 40.3393V69.2904Z"
+                                                  fill="#BDBDBD"/>
+                                            <path d="M40 41.4815C36.7319 41.4815 34.0741 44.1393 34.0741 47.4074V56.2963C34.0741 59.5644 36.7319 62.2222 40 62.2222C43.2682 62.2222 45.9259 59.5644 45.9259 56.2963V47.4074C45.9259 44.1393 43.2682 41.4815 40 41.4815ZM42.963 56.2963C42.963 57.9304 41.6341 59.2593 40 59.2593C38.3659 59.2593 37.0371 57.9304 37.0371 56.2963V47.4074C37.0371 45.7733 38.3659 44.4444 40 44.4444C41.6341 44.4444 42.963 45.7733 42.963 47.4074V56.2963Z"
+                                                  fill="#BDBDBD"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+}
+add_action('mepr_account_nav_content', 'mepr_add_tabs_content');
+
 
 ?>

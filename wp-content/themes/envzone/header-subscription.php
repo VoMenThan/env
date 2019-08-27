@@ -33,7 +33,9 @@
 </head>
 <body>
 
-<header id="header-top" class="header-subscription">
+<header id="header-top" class="header-subscription no-print">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
     <nav id="sticky-menu" class="position-relative">
         <div class="container-fluid">
             <div class="row">

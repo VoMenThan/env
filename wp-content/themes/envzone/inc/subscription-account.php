@@ -5,10 +5,30 @@ get_header('subscription');
 <main class="main-content subscription-account-page">
     <?php
         if (is_user_logged_in()):
-        ?>
+            $user = get_current_user_id();
+            $avatar = get_field('avatar', 'user_' . $user)['sizes']['medium'];
+            if ($avatar == '') {
+                $avatar = 'https://www.envzone.com/wp-content/uploads/2019/04/Commenter-Profile-Icon.png';
+            }
+            $user_meta = get_user_meta($user);
+
+            $info_subscription = do_shortcode('[mepr-list-subscriptions]');
+            $info_subscription = strip_tags($info_subscription);
+            $info_subscription = preg_split('/\:/', $info_subscription);
+
+            $info_plan = preg_split("/[\s]+/", $info_subscription[0]);
+
+            $number_letter = count($info_plan);
+
+            foreach ($info_plan as $k => $val){
+                $k++;
+                if ($k == $number_letter) break;
+                $letter_plan .= ' '.$val;
+            }
+            ?>
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <div class="col-lg-3">
+            <div class="col-lg-3 order-1 no-print">
                 <aside class="site-sidebar clearfix">
                     <div class="side-user">
                         <a class="avatar" href="javascript:void(0);">
@@ -177,13 +197,22 @@ get_header('subscription');
                     </ul>
                 </aside>
             </div>
-
             <?php the_content();?>
+            <div class="col-lg-2 order-3 d-flex align-items-end justify-content-center no-print">
+                <div class="box-info-user">
+                    <a class="avatar" href="javascript:void(0);">
+                        <img src="<?php echo $avatar;?>">
+                    </a>
+                    <div class="name"><?php echo do_shortcode('[mepr-account-info field="full_name"]');?></div>
+                    <div class="plan">Plan: <span><?php echo $letter_plan;?></span></div>
+                    <a href="#" class="btn btn-upgrade">Upgrade your plan</a>
+                </div>
+            </div>
         </div>
     </div>
     <?php else:?>
 
-    <section class="subscription-member-template-page">
+    <section class="subscription-member-template-page no-print">
         <div class="container box-affiliate-content">
             <div class="row box-container justify-content-center">
                 <div class="col-lg-4 content-subscription-template">

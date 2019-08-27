@@ -1,18 +1,16 @@
 <?php if (!defined('ABSPATH')) {
     die('You are not allowed to call this page directly.');
 } ?>
-
-
 <?php
     $user = get_current_user_id();
-    $avatar = get_field('avatar', 'user_'. $user )['sizes']['medium'];
-    if ($avatar == ''){
+    $avatar = get_field('avatar', 'user_' . $user)['sizes']['medium'];
+    if ($avatar == '') {
         $avatar = 'https://www.envzone.com/wp-content/uploads/2019/04/Commenter-Profile-Icon.png';
     }
     $user_meta = get_user_meta($user);
 ?>
-<div class="col-lg-7">
-<div class="account-setting-tab">
+<div class="col-lg-7 order-2">
+    <div class="account-setting-tab">
     <h1>Account settings</h1>
 
     <?php if (!empty($mepr_current_user->user_message)): ?>
@@ -31,10 +29,22 @@
 
         <div id="collapseProfile" class="collapse show" aria-labelledby="headingProfile">
             <div class="card-body">
+                <div class="group-name">Profile picture</div>
+                <form class="mepr-account-form mepr-form clearfix" id="mepr_account_form" action="" method="post" enctype="multipart/form-data" novalidate>
+                <div class="box-profile-picture clearfix">
+                    <img class="img-fluid img-avatar-profile" src="<?php echo $avatar;?>" alt="">
+                    <div class="title-upload">Upload your avatar.</div>
+                    <div class="title-file-picture">
+                        Photo should be at least 300px x 300px
+                    </div>
+                    <label for="picture-profile">
+                        <span class="button-choose">Upload a photo</span>
+                    </label>
+                    <input id="picture-profile" name="picture-profile" type="file" accept="image/jpg, image/png">
+                </div>
+
                 <div class="group-name">Additional information</div>
                 <div class="mp_wrapper">
-
-                    <form class="mepr-account-form mepr-form clearfix" id="mepr_account_form" action="" method="post" novalidate>
                         <input type="hidden" name="mepr-process-account" value="Y"/>
                         <?php wp_nonce_field('update_account', 'mepr_account_nonce'); ?>
 
@@ -81,13 +91,14 @@
                         <button type="submit" name="mepr-account-form" class="mepr-submit mepr-share-button"><?php _ex('Save changes', 'ui', 'memberpress'); ?></button>
                         <img src="<?php echo admin_url('images/loading.gif'); ?>" style="display: none;" class="mepr-loading-gif"/>
                         <?php MeprView::render('/shared/has_errors', get_defined_vars()); ?>
-                    </form>
+
 
                     <?php if (!defined('ABSPATH')) {
                         die('You are not allowed to call this page directly.');
                     } ?>
                     <?php MeprHooks::do_action('mepr_account_home', $mepr_current_user); ?>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -135,15 +146,25 @@
         </div>
     </div>
 </div>
+</div>
 
-</div>
-<div class="col-lg-2 d-flex align-items-end justify-content-center">
-    <div class="box-info-user">
-        <a class="avatar" href="javascript:void(0);">
-            <img src="<?php echo $avatar;?>">
-        </a>
-        <div class="name"><?php echo do_shortcode('[mepr-account-info field="full_name"]');?></div>
-        <div class="plan">Plan: <span>Growing</span></div>
-        <a href="#" class="btn btn-upgrade">Upgrade your plan</a>
-    </div>
-</div>
+<script>
+    $(document).ready(function(){
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.box-profile-picture img.img-avatar-profile').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $('input[id="picture-profile"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $(".box-profile-picture .title-file-picture").html(fileName);
+            readURL(this);
+        });
+    });
+</script>
