@@ -44,8 +44,8 @@ if ($term != '') {
 <div class="mp_wrapper">
     <form id="mepr-signup-form" class="mepr-signup-form mepr-form" method="post"
           action="<?php echo $_SERVER['REQUEST_URI'] . '#mepr_jump'; ?>" novalidate>
-        <div class="row box-container">
-            <div class="col-lg-4 order-1 form-secure-checkout content-subscription-template">
+        <div class="row box-container justify-content-center">
+            <div class="col-lg-4 order-1 form-secure-checkout content-subscription-template box-infomation-checkout">
 
                 <div class="box-your-information">
                     <div class="title-your-information">Your Information</div>
@@ -154,10 +154,18 @@ if ($term != '') {
                                 <?php MeprHooks::do_action('mepr-checkout-after-password-fields', $product->ID); ?>
                             <?php endif; ?>
                         <?php endif; ?>
+
+                        <div class="mp-form-submit">
+                            <input type="submit" class="mepr-submit"
+                                   value="<?php echo stripslashes($product->signup_button_text); ?>"/>
+                            <img src="<?php echo admin_url('images/loading.gif'); ?>" style="display: none;"
+                                 class="mepr-loading-gif"/>
+                            <?php MeprView::render('/shared/has_errors', get_defined_vars()); ?>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 order-0 form-secure-checkout content-subscription-template">
+            <div class="col-lg-4 order-0 form-secure-checkout content-subscription-template box-infomation-payment">
                 <div class="box-your-information">
                     <div class="title-your-information">Payments & Discounts</div>
 
@@ -261,7 +269,7 @@ if ($term != '') {
                     14 days, we’ll happily refund 100% of your money. No questions asked.
                 </div>
             </div>
-            <div class="col-lg-4 order-2 form-secure-checkout">
+            <div class="col-lg-4 order-2 form-secure-checkout box-infomation-subscription-sumary">
                 <div class="box-subscription-summary">
                     <div class="title-form">Subscription Summary</div>
 

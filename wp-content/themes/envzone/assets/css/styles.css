@@ -17487,6 +17487,36 @@ body #gform_wrapper_18 .top_label div.ginput_container {
     padding: 10px;
   }
 }
+.filter-resources.filter-companies-page {
+  position: relative;
+}
+.filter-resources.filter-companies-page .list-sort-industries {
+  width: 250px;
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  left: 100px;
+  border-radius: 5px;
+}
+.filter-resources.filter-companies-page .list-sort-industries .wrap {
+  padding: 0;
+}
+.filter-resources.filter-companies-page .item-resource {
+  width: 100%;
+  display: block;
+  padding: 8px 15px;
+}
+.filter-resources.filter-companies-page .item-resource a {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  color: #BDBDBD;
+  display: block;
+}
+.filter-resources.filter-companies-page .item-resource a:hover {
+  font-weight: bold;
+}
+
 .resource-page {
   background: #E0E0E0;
 }
@@ -17539,7 +17569,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 }
 
 .resources-ebook-page {
-  padding-top: 80px !important;
+  padding-top: 30px !important;
   padding-bottom: 80px !important;
 }
 .resources-ebook-page .have-border {
@@ -17572,6 +17602,7 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   -webkit-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+  padding-top: 30px;
   margin-bottom: 60px;
 }
 .resources-ebook-page article.box-ebook:hover {
@@ -17610,6 +17641,245 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .resources-ebook-page .box-subscriber-blog {
   margin-top: -33px;
 }
+.resources-ebook-page .box-login-memberpress {
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.resources-ebook-page .box-login-memberpress .title-login {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.resources-ebook-page .box-login-memberpress .mepr-login-actions {
+  font-size: 16px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #828282;
+  font-style: italic;
+}
+.resources-ebook-page .box-login-memberpress .mp-form-row.mepr_username {
+  margin-bottom: 20px;
+}
+.resources-ebook-page .box-login-memberpress .mp-form-row input {
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.resources-ebook-page .box-login-memberpress .btn-green-env {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in .avatar-profile {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50% !important;
+  margin-bottom: 15px;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in .author-name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  color: #828282;
+  padding-bottom: 10px;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in .link-my-account {
+  font-size: 16px;
+  line-height: 129.14%;
+  color: #375D81;
+  padding-bottom: 50px;
+  display: inline-block;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in .acount {
+  text-align: center;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in .link-logout {
+  font-size: 16px;
+  line-height: 129.14%;
+  color: #828282;
+}
+.resources-ebook-page .box-login-memberpress .mepr-already-logged-in a:hover {
+  font-weight: bold;
+}
+.resources-ebook-page .btn-back-to-list {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #4F4F4F;
+}
+.resources-ebook-page .btn-back-to-list svg {
+  vertical-align: top;
+}
+.resources-ebook-page .box-info-ebook {
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+}
+.resources-ebook-page .box-info-ebook h1 {
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 152.62%;
+  color: #4F4F4F;
+  border-bottom: 1px solid #BDBDBD;
+  padding: 15px;
+}
+.resources-ebook-page .box-info-ebook .cover-ebook {
+  width: 30%;
+  margin: auto;
+  padding: 100px 0;
+}
+.resources-ebook-page .box-info-ebook .cover-ebook img {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.resources-ebook-page .box-info-ebook .excerpt-ebook {
+  font-size: 18px;
+  line-height: 150%;
+  color: #808080;
+  border-top: 1px solid #BDBDBD;
+  padding: 30px 15px;
+}
+.resources-ebook-page .box-info-ebook .box-download {
+  background: #E0E0E0;
+  padding: 20px 15px;
+}
+.resources-ebook-page .box-info-ebook .box-download .btn-blue-env {
+  width: 100%;
+  font-size: 16px;
+  line-height: 129.14%;
+  color: #FFFFFF;
+}
+.resources-ebook-page .box-info-ebook .box-download .btn-blue-env svg {
+  vertical-align: bottom;
+}
+.resources-ebook-page .box-info-ebook .box-download .gform_wrapper {
+  margin: 0;
+}
+.resources-ebook-page .box-info-ebook .box-download .gform_wrapper .gform_body {
+  display: none;
+}
+.resources-ebook-page .box-info-ebook .box-download .gform_wrapper .gform_footer {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 0;
+  padding: 0;
+}
+.resources-ebook-page .box-info-ebook .box-download .gform_wrapper .gform_footer input.button, .resources-ebook-page .box-info-ebook .box-download .gform_wrapper .gform_footer input[type=submit] {
+  width: 100%;
+  font-size: 16px;
+  line-height: 129.14%;
+  color: #FFFFFF;
+  background: #0D3153;
+  padding: 15px;
+  border-radius: 5px;
+}
+.resources-ebook-page .box-info-ebook .box-download .gform_confirmation_wrapper {
+  text-align: center;
+}
+.resources-ebook-page .box-rating {
+  display: inline-block;
+  height: 35px;
+  margin: 10px 0;
+}
+.resources-ebook-page .box-rating .rate {
+  float: left;
+  height: 35px;
+  padding: 0;
+}
+.resources-ebook-page .box-rating .rate:not(:checked) > input {
+  display: none;
+}
+.resources-ebook-page .box-rating .rate:not(:checked) > label {
+  float: right;
+  width: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #ccc;
+  margin-right: 10px;
+}
+.resources-ebook-page .box-rating .rate:not(:checked) > label:before {
+  content: "";
+  display: inline-block;
+  background: url("../images/icon-rating-star.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 35px;
+  height: 35px;
+}
+.resources-ebook-page .box-rating .rate > input:checked ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.resources-ebook-page .box-rating .rate:not(:checked) > label:not(.nohover):hover:before,
+.resources-ebook-page .box-rating .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.resources-ebook-page .box-rating .rate > input:checked + label:not(.nohover):hover:before,
+.resources-ebook-page .box-rating .rate > input:checked + label:not(.nohover):hover ~ label:before,
+.resources-ebook-page .box-rating .rate > input:checked ~ label:not(.nohover):hover:before,
+.resources-ebook-page .box-rating .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+.resources-ebook-page .box-rating .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
+  background: url("../images/icon-rated-star.svg") no-repeat;
+  background-size: 100% 100%;
+}
+.resources-ebook-page .box-rating .rate label.nohover:hover {
+  cursor: auto !important;
+}
+.resources-ebook-page .box-overall-rating {
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 50px;
+}
+.resources-ebook-page .box-overall-rating .box-border {
+  border: 1px solid #BDBDBD;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.resources-ebook-page .box-overall-rating .title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 150%;
+  text-align: center;
+  color: #808080;
+  margin-bottom: 15px;
+}
+.resources-ebook-page .box-overall-rating .box-average-star {
+  font-size: 14px;
+  line-height: 150%;
+  align-items: center;
+  color: #808080;
+}
+.resources-ebook-page .box-overall-rating .question {
+  font-size: 18px;
+  line-height: 150%;
+  color: #808080;
+  margin-top: 30px;
+}
+.resources-ebook-page .description-rating {
+  font-size: 14px;
+}
 
 /* 	================================================================
 	TABLET DEVICE
@@ -17642,6 +17912,10 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   }
   .resources-ebook-page article.box-ebook .btn-download-ebook {
     width: auto;
+  }
+
+  .filter-resources.filter-companies-page {
+    margin-bottom: 0;
   }
 
   .resource-page .box-cover {
@@ -18097,9 +18371,6 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   line-height: 150%;
   color: #808080;
   margin-top: 30px;
-}
-.help-page .description-rating {
-  font-size: 14px;
 }
 
 .section-help * {

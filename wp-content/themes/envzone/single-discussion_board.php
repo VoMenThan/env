@@ -17,9 +17,9 @@ get_header();
                     <div class="box-breadcrumb no-print">
                         <span class="you-here">You are here:</span>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo get_home_url();?>/discussion-board">Discussion Board</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $post->post_title;?></li>
+                            <li class="breadcrumb-item"><a href="<?php echo home_url();?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo home_url('discussion-board');?>">Discussion Board</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo wp_trim_words($post->post_title, 10);?></li>
                         </ol>
                     </div>
                 </div>

@@ -5,44 +5,54 @@ global $wp_query;
 ?>
 
 <main class="main-content">
-    <div class="nav-top-bar">
+    <div class="filter-companies-page filter-resources">
         <div class="container">
-            <ul class="nav justify-content-center breadcrumb-ebook">
-                <li class="nav-item">
-                    <span class="nav-link active">All Resources</span>
-                </li>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box-sort-industries">
+                        <div class="title" data-toggle="collapse" data-target="#collapseFilterIndustries" aria-expanded="false" aria-controls="collapseExample">
+                            SORT BY:
+                            <span class="default-title">All</span>
+                            <div class="collapse list-sort-industries" id="collapseFilterIndustries">
+                                <div class="wrap">
+                                    <div class="item-resource">
+                                        <a href="<?php echo home_url('resources-category/ebooks');?>">
+                                            eBook
+                                        </a>
+                                    </div>
+                                    <div class="item-resource">
+                                        <a href="<?php echo home_url('resources-category/tools');?>">
+                                            Tools
+                                        </a>
+                                    </div>
+                                    <div class="item-resource">
+                                        <a href="<?php echo home_url('resources-category/software');?>">
+                                            Software
+                                        </a>
+                                    </div>
+                                    <div class="item-resource">
+                                        <a href="<?php echo home_url('resources-category/guide');?>">
+                                            Guide
+                                        </a>
+                                    </div>
 
-
-                <?php
-                $terms = get_terms(array(
-                    'taxonomy' => 'resources_cat',
-                    'hide_empty' => false,
-                    'orderby' => 'id',
-                    'order' => 'asc',
-                    'parent' => 0
-                ));
-                foreach ($terms as $item):
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo home_url('resources-category/').$item->slug;?>"><?php echo $item->name;?></a>
-                    </li>
-                <?php endforeach;?>
-
-            </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arrow-right"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <section class="artical-page blog-detail-page resources-ebook-page">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
-                    <h3 class="title-head-blue have-border">ALL COLLECTIONS</h3>
-                </div>
-
-                <div class="col-lg-8">
+                <div class="col-lg-8 order-lg-0 order-1">
                     <div class="row">
                         <?php
                         $args = array(
-                            'posts_per_page' => 6,
+                            'posts_per_page' => -1,
                             'offset'=> 0,
                             'post_type' => 'resources',
                             'orderby' => 'ID',
@@ -55,12 +65,15 @@ global $wp_query;
                             <div class="col-md-6">
                                 <article class="box-ebook">
                                     <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
-                                    <h2>
-                                        <?php echo $item->post_title;?>
-                                    </h2>
-                                    <a href="<?php echo get_permalink($item->ID);?>" class="btn-download-ebook btn btn-blue-env">DOWNLOAD</a>
+                                    <a href="<?php echo get_permalink($item->ID);?>" class="mb-3 d-block">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
                                     <div class="box-category">
-                                        <a href="<?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->slug;?>"><?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?></a>
+                                        <a href="<?php echo home_url('resources-category/').wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?>">
+                                            <?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?>
+                                        </a>
                                     </div>
                                 </article>
                             </div>
@@ -68,18 +81,9 @@ global $wp_query;
                     </div>
                 </div>
 
-                <div class="col-lg-4 d-none d-lg-block">
-                    <div class="box-subscriber-blog">
-                        <div class="box-border">
-                            <div class="title-sub">
-                                Join Over 5,000 of Your Industry Peers in Colorado Who Receive Software Outsourcing Insights and Updates.
-                            </div>
-                            <div class="form-subscribe">
-                                <?php
-                                echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                                ?>
-                            </div>
-                        </div>
+                <div class="col-lg-4 order-lg-1 order-0">
+                    <div class="box-login-memberpress">
+                        <?php echo do_shortcode('[mepr-login-form use_redirect="false"]');?>
                     </div>
                 </div>
             </div>

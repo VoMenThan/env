@@ -218,7 +218,7 @@
                     
                     <div class="col-lg-12 text-center box-optimize-envzone">
                         <div class="title-button">READY TO OPTIMIZE WITH ENVZONE SOLUTION!</div>
-                        <a href="<?php echo home_url('contact-us')?>" class="btn btn-blue-env">Yes, I want to implement now.</a>
+                        <a href="<?php echo home_url('get-a-team')?>" class="btn btn-blue-env">Yes, I want to implement now.</a>
                     </div>
                 </div>
                 <?php endif;?>

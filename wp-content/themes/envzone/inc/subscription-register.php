@@ -1,11 +1,12 @@
 <?php
 /* Template Name: Subscription register*/
 get_header();
+$plan = uri_segment(1);
 ?>
 <main class="main-content">
     <section class="subscription-member-template-page register-checkout-page">
         <div class="container box-register-subscription">
-            <div class="row">
+            <div class="row title-secure-checkout">
                 <div class="col-lg-12">
                     <img class="process-bar-subscription img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-process-bar-subscription-checkout.png" alt="">
                     <img class="process-bar-subscription img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-process-bar-subscription-checkout-mb.png" alt="">
@@ -35,6 +36,26 @@ get_header();
     </section>
 </main>
 <style>
+    .box-infomation-checkout .mp-form-submit{
+        display: none;
+    }
+    .box-register-subscription{
+        min-height: calc(100vh - 180px);
+    }
+    <?php if ($plan == 'starter'):?>
+    .box-register-subscription .title-secure-checkout{
+        display: none;
+    }
+    .box-infomation-checkout .mp-form-submit{
+        display: block;
+    }
+    .box-infomation-payment{
+        display: none;
+    }
+    .box-infomation-subscription-sumary{
+        display: none;
+    }
+    <?php endif;?>
     header nav .box-logo-home{
         display: block !important;
     }

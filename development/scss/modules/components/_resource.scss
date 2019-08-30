@@ -1,3 +1,35 @@
+.filter-resources{
+    &.filter-companies-page{
+        position: relative;
+        .list-sort-industries{
+            width: 250px;
+            position: absolute;
+            z-index: 9999;
+            background: #fff;
+            left: 100px;
+            border-radius: 5px;
+            .wrap{
+                padding: 0;
+            }
+        }
+        .item-resource{
+            width: 100%;
+            display: block;
+            padding: 8px 15px;
+            a{
+                font-family: $font-roboto;
+                font-size: 17px;
+                line-height: 20px;
+                color: #BDBDBD;
+                display: block;
+                &:hover{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
 .resource-page{
     background: #E0E0E0;
     .box-get-ebook{
@@ -54,9 +86,8 @@
     }
 }
 .resources-ebook-page{
-    padding-top: 80px !important;
+    padding-top: 30px !important;
     padding-bottom: 80px !important;
-
     .have-border{
         border-bottom: 3px solid #8DC63F;
         padding-bottom: 0;
@@ -80,6 +111,7 @@
         top: 0;
         @include transitionInOut(.2s);
         @include box-shadow(0px, 4px, 5px, rgba(0, 0, 0, 0.25));
+        padding-top: 30px;
         &:hover{
             top: -5px;
         }
@@ -116,6 +148,250 @@
 
     .box-subscriber-blog{
         margin-top: -33px;
+    }
+    .box-login-memberpress{
+        background: #FFFFFF;
+        border: 1px solid #BDBDBD;
+        padding: 20px;
+        margin-bottom: 30px;
+
+        .title-login{
+            font-family: $font-roboto;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.62%;
+            color: #828282;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+        .mepr-login-actions{
+            font-size: 16px;
+            line-height: 152.62%;
+            text-align: center;
+            color: #828282;
+            font-style: italic;
+        }
+        .mp-form-row{
+            &.mepr_username{
+                margin-bottom: 20px;
+            }
+            input{
+                border: 1px solid #BDBDBD;
+                box-sizing: border-box;
+                @include radius(3px);
+            }
+        }
+        .btn-green-env{
+            @include radius(3px);
+        }
+        .mepr-already-logged-in{
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 10px;
+            .avatar-profile{
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                border-radius: 50% !important;
+                margin-bottom: 15px;
+            }
+            .author-name{
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 152.62%;
+                color: #828282;
+                padding-bottom: 10px;
+            }
+            .link-my-account{
+                font-size: 16px;
+                line-height: 129.14%;
+                color: #375D81;
+                padding-bottom: 50px;
+                display: inline-block;
+            }
+            .acount{
+                text-align: center;
+            }
+            .link-logout{
+                font-size: 16px;
+                line-height: 129.14%;
+                color: #828282;
+            }
+            a{
+                &:hover{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .btn-back-to-list{
+        display: inline-block;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+        color: #4F4F4F;
+        svg{
+            vertical-align: top;
+        }
+    }
+
+    .box-info-ebook{
+        background: #FFFFFF;
+        border: 1px solid #BDBDBD;
+        box-sizing: border-box;
+        box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+        h1{
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 152.62%;
+            color: #4F4F4F;
+            border-bottom: 1px solid #BDBDBD;
+            padding: 15px;
+        }
+        .cover-ebook{
+            width: 30%;
+            margin: auto;
+            padding: 100px 0;
+            img{
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+            }
+        }
+        .excerpt-ebook{
+            font-size: 18px;
+            line-height: 150%;
+            color: #808080;
+            border-top: 1px solid #BDBDBD;
+            padding: 30px 15px;
+        }
+        .box-download{
+            background: #E0E0E0;
+            padding: 20px 15px;
+            .btn-blue-env{
+                width: 100%;
+                font-size: 16px;
+                line-height: 129.14%;
+                color: #FFFFFF;
+                svg{
+                    vertical-align: bottom;
+                }
+            }
+            .gform_wrapper {
+                margin: 0;
+                .gform_body{
+                    display: none;
+                }
+                .gform_footer {
+                    width: 100%;
+                    margin-left: 0;
+                    margin-top: 0;
+                    padding: 0;
+                    input.button, input[type=submit]{
+                        width: 100%;
+                        font-size: 16px;
+                        line-height: 129.14%;
+                        color: #FFFFFF;
+                        background: #0D3153;
+                        padding: 15px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .gform_confirmation_wrapper{
+                text-align: center;
+            }
+        }
+    }
+
+    .box-rating{
+        display: inline-block;
+        height: 35px;
+        margin: 10px 0;
+
+        .rate {
+            float: left;
+            height: 35px;
+            padding: 0;
+
+        }
+        .rate:not(:checked) > input {
+            display: none;
+        }
+        .rate:not(:checked) > label {
+            float:right;
+            width:35px;
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            color:#ccc;
+            margin-right: 10px;
+        }
+        .rate:not(:checked) > label:before {
+            content: '';
+            display: inline-block;
+            background: url("../images/icon-rating-star.svg") no-repeat;
+            background-size: 100% 100%;
+            width: 35px;
+            height: 35px;
+        }
+        .rate > input:checked ~ label:before {
+            background: url("../images/icon-rated-star.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .rate:not(:checked) > label:not(.nohover):hover:before,
+        .rate:not(:checked) > label:not(.nohover):hover ~ label:before {
+            background: url("../images/icon-rated-star.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .rate > input:checked + label:not(.nohover):hover:before,
+        .rate > input:checked + label:not(.nohover):hover ~ label:before,
+        .rate > input:checked ~ label:not(.nohover):hover:before,
+        .rate > input:checked ~ label:not(.nohover):hover ~ label:before,
+        .rate > label:not(.nohover):hover ~ input:checked ~ label:before {
+            background: url("../images/icon-rated-star.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .rate{
+            label.nohover:hover{
+                cursor: auto !important;
+            }
+        }
+    }
+    .box-overall-rating{
+        text-align: center;
+        padding-top: 30px;
+        margin-bottom: 50px;
+        .box-border{
+            border: 1px solid #BDBDBD;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .title{
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 150%;
+            text-align: center;
+            color: #808080;
+            margin-bottom: 15px;
+        }
+        .box-average-star{
+            font-size: 14px;
+            line-height: 150%;
+            align-items: center;
+            color: #808080;
+        }
+        .question{
+            font-size: 18px;
+            line-height: 150%;
+            color: #808080;
+            margin-top: 30px;
+        }
+    }
+    .description-rating{
+        font-size: 14px;
     }
 }
 
@@ -156,7 +432,11 @@
         }
     }
 
-
+    .filter-resources{
+        &.filter-companies-page{
+            margin-bottom: 0;
+        }
+    }
     .resource-page {
         .box-cover {
             text-align: center;
