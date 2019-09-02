@@ -18,7 +18,7 @@ get_header();
         <div class="container">
             <div class="row box-list-employee justify-content-center">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <a target="_blank" rel="nofollow" href="">
+                    <a rel="nofollow" href="<?php echo home_url('subscription-account')?>">
                         <article class="item-employee">
                             <img src="<?php echo ASSET_URL;?>images/icon-account-green.png" alt="">
                             <h3>Account</h3>

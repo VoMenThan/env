@@ -41,6 +41,10 @@ class EnvzoneMTAdmin
         add_submenu_page('edit.php?post_type=companies','Promotion Mode', 'Promotion Mode', 'manage_options',
             $menuSlugMagnet, array($this,'settingPageCompanies'));
 
+        $menuSlugGuest = 'edit.php?post_type=guest';
+        add_submenu_page('users.php','Guest User', 'Guest User', 'manage_options',
+            $menuSlugGuest, NULL);
+
     }
 
 
@@ -66,7 +70,6 @@ class EnvzoneMTAdmin
     public function settingPageCompanies(){
         require ENVZONE_MT_VIEWS_DIR . '/setting-page-companies.php';
     }
-
     //=======================================================
     //2. Them mot role cho user
     //=======================================================

@@ -85,7 +85,7 @@ get_header();
                         <div class="item-it-for-you item-shadow">
                             <h3>Dedicated Team</h3>
                             <p>
-                                Our custom tracking is hard coded into our platform. We use advanced, customized technology to ensure you always get credit for every single referral.
+                                Our affiliate managers are committed to helping you succeed. They're always on hand with support, insight, and personalized advice.
                             </p>
                         </div>
                     </div>

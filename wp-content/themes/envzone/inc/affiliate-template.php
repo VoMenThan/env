@@ -1,6 +1,6 @@
 <?php
 /* Template Name: Affiliate Page*/
-get_header();
+get_header('affiliate');
 ?>
 <main class="main-content">
     <section class="affiliate-program-page">

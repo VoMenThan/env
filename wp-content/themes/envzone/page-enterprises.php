@@ -90,7 +90,7 @@
             </li>
         </ul>
         <div class="title-link">See our verified teams’ expertise</div>
-        <a class="btn btn-blue-env text-center" style="margin-top: 100px;" href="<?php echo home_url("get-a-team");?>">GET A VERIFIED TEAM</a>
+        <a class="btn btn-blue-env text-center" style="margin-top: 20px;" href="<?php echo home_url("get-a-team");?>">GET A VERIFIED TEAM</a>
     </div>
 </div>
 <!--END SLIDER HOME-->

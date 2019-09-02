@@ -7,6 +7,8 @@
  */
 
 get_header();
+
+$guest_author = get_field('guest_user', $post->ID);
 ?>
 
 <main class="main-content">

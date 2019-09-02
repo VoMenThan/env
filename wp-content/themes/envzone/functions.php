@@ -365,8 +365,13 @@ function post_to_third_party( $entry ) {
 }
 
 function mepr_add_tabs_content($action) {
+    $status_subscription = do_shortcode('[mepr-list-subscriptions]');
+    $info_subscription = $status_subscription;
+    $info_subscription = strip_tags($info_subscription);
+    $info_subscription = preg_split('/\:/', $info_subscription);
+
     if($action == 'booking') {
-        if (!empty($subscriptions)) {
+        if ($status_subscription != 'You have no subscriptions' and $info_subscription[1] != 'Never') {
             ?>
             <div class="col-lg-7 order-2">
                 <div class="account-setting-tab">
@@ -526,7 +531,7 @@ function mepr_add_tabs_content($action) {
             <?php
         }
     }elseif ($action == 'work-order'){
-        if (!empty($subscriptions)) {
+        if ($status_subscription != 'You have no subscriptions' and $info_subscription[1] != ' Never ') {
         ?>
         <div class="col-lg-7 order-2">
             <div class="account-setting-tab">
@@ -597,7 +602,7 @@ function mepr_add_tabs_content($action) {
             <?php
         }
     }elseif ($action == 'digital-asset'){
-        if (!empty($subscriptions)) {
+        if ($status_subscription != 'You have no subscriptions' and $info_subscription[1] != ' Never ') {
         ?>
         <div class="col-lg-7 order-2">
             <div class="account-setting-tab">

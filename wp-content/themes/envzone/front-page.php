@@ -909,12 +909,15 @@
                 <div class="col-lg-4">
                     <article class="box-ebook">
                         <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
-                        <h2>
-                            <?php echo $item->post_title;?>
-                        </h2>
-                        <a href="<?php echo get_permalink($item->ID);?>" class="btn-download-ebook btn btn-blue-env">DOWNLOAD</a>
+                        <a href="<?php echo get_permalink($item->ID);?>" class="mb-3 d-block">
+                            <h2>
+                                <?php echo $item->post_title;?>
+                            </h2>
+                        </a>
                         <div class="box-category">
-                            <a href="<?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->slug;?>"><?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?></a>
+                            <a href="<?php echo home_url('resources-category/').wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?>">
+                                <?php echo wp_get_post_terms( $item->ID, 'resources_cat')[0]->name?>
+                            </a>
                         </div>
                     </article>
                 </div>

@@ -154,7 +154,9 @@
         border: 1px solid #BDBDBD;
         padding: 20px;
         margin-bottom: 30px;
-
+        *{
+            font-family: $font-roboto;
+        }
         .title-login{
             font-family: $font-roboto;
             font-weight: 500;
@@ -181,9 +183,26 @@
                 box-sizing: border-box;
                 @include radius(3px);
             }
+            ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                font-style: italic !important;
+            }
+            ::-moz-placeholder { /* Firefox 19+ */
+                font-style: italic !important;
+            }
+            :-ms-input-placeholder { /* IE 10+ */
+                font-style: italic !important;
+            }
+            :-moz-placeholder { /* Firefox 18- */
+                font-style: italic !important;
+            }
         }
         .btn-green-env{
             @include radius(3px);
+            color: $color-blue-logo !important;
+            font-weight: bold;
+            &:hover{
+                color: #fff !important;
+            }
         }
         .mepr-already-logged-in{
             text-align: center;
@@ -243,6 +262,9 @@
         box-sizing: border-box;
         box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
         margin-bottom: 30px;
+        *{
+            font-family: $font-roboto;
+        }
         h1{
             font-weight: bold;
             font-size: 26px;
@@ -251,6 +273,40 @@
             border-bottom: 1px solid #BDBDBD;
             padding: 15px;
         }
+        h2{
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 152.62%;
+            color: #4F4F4F;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        h3{
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 152.62%;
+            color: #4F4F4F;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+        p{
+            font-size: 18px;
+            line-height: 150%;
+            color: #808080;
+        }
+        ul{
+            margin-bottom: 20px;
+            margin-left: 30px;
+            margin-top: 20px;
+            li{
+                list-style-type: inherit;
+                font-size: 18px;
+                line-height: 150%;
+                color: #808080;
+                margin-bottom: 10px;
+            }
+        }
+
         .cover-ebook{
             width: 30%;
             margin: auto;

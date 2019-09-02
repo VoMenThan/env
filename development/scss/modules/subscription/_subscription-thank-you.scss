@@ -2,7 +2,35 @@
     *{
         font-family: $font-roboto;
     }
+
     .content-subscription-template{
+        .mepr-unauthorized-message{
+            p{
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 152.62%;
+                text-align: center;
+                color: #828282;
+            }
+        }
+        .mepr-login-actions{
+            .link-register{
+                font-style: italic;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 152.62%;
+                text-align: center;
+                color: #828282;
+                margin-bottom: 10px;
+            }
+            a{
+                font-style: italic;
+                font-size: 16px;
+                line-height: 152.62%;
+                text-align: center;
+                color: #375D81;
+            }
+        }
         h2, h3{
             font-family: $font-roboto;
             font-weight: 500;
@@ -54,6 +82,15 @@
             a{
                 font-style: italic;
                 font-size: 16px;
+                line-height: 152.62%;
+                text-align: center;
+            }
+        }
+        .mepr-unauthorized-message{
+            margin-bottom: 30px;
+            p{
+                font-weight: 500;
+                font-size: 18px;
                 line-height: 152.62%;
                 text-align: center;
                 color: #828282;

@@ -9917,6 +9917,9 @@ section.testing-page .item-qa {
   position: absolute;
   right: 15px;
   top: 20px;
+  font-size: 20px;
+  line-height: 150%;
+  color: #000000;
 }
 
 /* 	================================================================
@@ -10250,6 +10253,7 @@ section.testing-page .item-qa {
   padding: 7px 10px;
   font-weight: 500;
   color: #0D3153 !important;
+  width: 100%;
 }
 .pricing-page .item-pricing .btn-green-env:hover {
   color: #fff !important;
@@ -10362,6 +10366,7 @@ section.testing-page .item-qa {
   font-size: 16px;
   margin-top: 30px;
   font-weight: 500;
+  width: 90%;
 }
 .pricing-page .table-option-business tbody .btn-green-env:hover {
   color: #fff !important;
@@ -17647,6 +17652,9 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   padding: 20px;
   margin-bottom: 30px;
 }
+.resources-ebook-page .box-login-memberpress * {
+  font-family: "Roboto", sans-serif;
+}
 .resources-ebook-page .box-login-memberpress .title-login {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -17676,12 +17684,33 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
+.resources-ebook-page .box-login-memberpress .mp-form-row ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-style: italic !important;
+}
+.resources-ebook-page .box-login-memberpress .mp-form-row ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-style: italic !important;
+}
+.resources-ebook-page .box-login-memberpress .mp-form-row :-ms-input-placeholder {
+  /* IE 10+ */
+  font-style: italic !important;
+}
+.resources-ebook-page .box-login-memberpress .mp-form-row :-moz-placeholder {
+  /* Firefox 18- */
+  font-style: italic !important;
+}
 .resources-ebook-page .box-login-memberpress .btn-green-env {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+  color: #0D3153 !important;
+  font-weight: bold;
+}
+.resources-ebook-page .box-login-memberpress .btn-green-env:hover {
+  color: #fff !important;
 }
 .resources-ebook-page .box-login-memberpress .mepr-already-logged-in {
   text-align: center;
@@ -17737,6 +17766,9 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 30px;
 }
+.resources-ebook-page .box-info-ebook * {
+  font-family: "Roboto", sans-serif;
+}
 .resources-ebook-page .box-info-ebook h1 {
   font-weight: bold;
   font-size: 26px;
@@ -17744,6 +17776,39 @@ body #gform_wrapper_18 .top_label div.ginput_container {
   color: #4F4F4F;
   border-bottom: 1px solid #BDBDBD;
   padding: 15px;
+}
+.resources-ebook-page .box-info-ebook h2 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 152.62%;
+  color: #4F4F4F;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.resources-ebook-page .box-info-ebook h3 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 152.62%;
+  color: #4F4F4F;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.resources-ebook-page .box-info-ebook p {
+  font-size: 18px;
+  line-height: 150%;
+  color: #808080;
+}
+.resources-ebook-page .box-info-ebook ul {
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.resources-ebook-page .box-info-ebook ul li {
+  list-style-type: inherit;
+  font-size: 18px;
+  line-height: 150%;
+  color: #808080;
+  margin-bottom: 10px;
 }
 .resources-ebook-page .box-info-ebook .cover-ebook {
   width: 30%;
@@ -18922,6 +18987,29 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .subscription-member-template-page * {
   font-family: "Roboto", sans-serif;
 }
+.subscription-member-template-page .content-subscription-template .mepr-unauthorized-message p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #828282;
+}
+.subscription-member-template-page .content-subscription-template .mepr-login-actions .link-register {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #828282;
+  margin-bottom: 10px;
+}
+.subscription-member-template-page .content-subscription-template .mepr-login-actions a {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 152.62%;
+  text-align: center;
+  color: #375D81;
+}
 .subscription-member-template-page .content-subscription-template h2, .subscription-member-template-page .content-subscription-template h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -18977,6 +19065,15 @@ body #gform_wrapper_18 .top_label div.ginput_container {
 .subscription-member-template-page .content-subscription-template .mepr-login-actions a {
   font-style: italic;
   font-size: 16px;
+  line-height: 152.62%;
+  text-align: center;
+}
+.subscription-member-template-page .content-subscription-template .mepr-unauthorized-message {
+  margin-bottom: 30px;
+}
+.subscription-member-template-page .content-subscription-template .mepr-unauthorized-message p {
+  font-weight: 500;
+  font-size: 18px;
   line-height: 152.62%;
   text-align: center;
   color: #828282;

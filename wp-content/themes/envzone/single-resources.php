@@ -46,15 +46,7 @@ $email = do_shortcode('[mepr-account-info field="user_email"]');
                             <img src="<?php echo get_the_post_thumbnail_url();?>" alt="" class="img-fluid image-cover-detail">
                         </div>
                         <div class="excerpt-ebook">
-                            <p>
-                                Item Details:
-                            </p>
-                            <p>
-                                Austin Loveless is a Galvanize Web Development Immersive graduate and a certified AWS Solutions Architect working as a Software Engineer at Entercom in Denver. To prepare for the AWS Certification he incorporated AWS services in every project he built during his time at Galvanize. Prior to Galvanize, Austin was in the Navy and attended college where he fell in love with software. Now he works hands on with Node and AWS. In his spare time he likes to work on building a competitive CodeWars app for mobile devices, allowing users to do coding challenges through a mobile app.
-                            </p>
-                            <p>
-                                Austin Loveless is a Galvanize Web Development Immersive graduate and a certified AWS Solutions Architect working as a Software Engineer at Entercom in Denver. To prepare for the AWS Certification he incorporated AWS
-                            </p>
+                            <?php the_content();?>
                         </div>
                         <div class="box-download">
                             <?php

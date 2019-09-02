@@ -121,7 +121,7 @@ if ($term != '') {
                             <?php endif; ?>
                             <div class="mp-form-row mepr_email">
                                 <input type="email"
-                                       placeholder="<?php _ex('pre-filled email*', 'ui', 'memberpress'); ?>"
+                                       placeholder="<?php _ex('Email*', 'ui', 'memberpress'); ?>"
                                        name="user_email" id="user_email" class="mepr-form-input"
                                        value="<?php echo (isset($user_email)) ? esc_attr(stripslashes($user_email)) : $email_regsiter; ?>"
                                        required/>

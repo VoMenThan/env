@@ -34,8 +34,8 @@ get_header();
                             Have your own online management team available on-call and get online presence done for a fraction of what it would normally cost.
                         </p>
                         <div class="box-button">
-                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env">SEE PRICING</a>
-                        <a href="<?php echo home_url('')?>" class="btn btn-white-env">LOGIN</a>
+                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env">GET STARTED</a>
+                        <a href="<?php echo home_url('subscription-login')?>" class="btn btn-white-env">LOGIN</a>
                         </div>
                     </div>
                 </div>

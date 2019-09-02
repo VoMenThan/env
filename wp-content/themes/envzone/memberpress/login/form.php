@@ -30,30 +30,29 @@
     <?php endif; ?>
 
   <?php else: ?>
+      <?php
+      $link_login = uri_segment(0);
+      if ($link_login != 'subscription-login' and $link_login != 'subscription-account'):?>
+      <div class="title-login">Login to get access</div>
+      <?php endif;?>
     <?php echo $message; ?>
-      <div class="title-login">Login to unlock resources</div>
     <!-- mp-login-form-start --> <?php //DON'T GET RID OF THIS HTML COMMENT PLEASE IT'S USEFUL FOR SOME REGEX WE'RE DOING ?>
     <form name="mepr_loginform" id="mepr_loginform" class="mepr-form" action="<?php echo $login_url; ?>" method="post">
       <?php /* nonce not necessary on this form seeing as the user isn't logged in yet */ ?>
       <div class="mp-form-row mepr_username">
         <div class="mp-form-label">
-          <?php $uname_or_email_str = MeprHooks::apply_filters('mepr-login-uname-or-email-str', _x('Username or E-mail', 'ui', 'memberpress')); ?>
+          <?php $uname_or_email_str = MeprHooks::apply_filters('mepr-login-uname-or-email-str', _x('E-mail', 'ui', 'memberpress')); ?>
           <?php $uname_str = MeprHooks::apply_filters('mepr-login-uname-str', _x('Username', 'ui', 'memberpress')); ?>
-
-          <?php /* <span class="cc-error"><?php _ex('Username Required', 'ui', 'memberpress'); ?></span> */ ?>
         </div>
         <input type="text" placeholder="<?php echo ($mepr_options->username_is_email)?$uname_or_email_str:$uname_str; ?>" name="log" id="user_login" value="<?php echo (isset($_REQUEST['log'])?esc_html($_REQUEST['log']):''); ?>" />
       </div>
       <div class="mp-form-row mepr_password">
-        <div class="mp-form-label">
-          <?php /* <span class="cc-error"><?php _ex('Password Required', 'ui', 'memberpress'); ?></span> */ ?>
-        </div>
         <input type="password" placeholder="<?php _ex('Password', 'ui', 'memberpress'); ?>" name="pwd" id="user_pass" value="" />
       </div>
       <?php MeprHooks::do_action('mepr-login-form-before-submit'); ?>
-      <div>
-        <label><input name="rememberme" type="checkbox" id="rememberme" value="forever"<?php checked(isset($_REQUEST['rememberme'])); ?> /> <?php _ex('Remember Me', 'ui', 'memberpress'); ?></label>
-      </div>
+        <div>
+            <label><input name="rememberme" type="checkbox" id="rememberme" value="forever"<?php checked(isset($_REQUEST['rememberme'])); ?> /> <?php _ex('Remember Me', 'ui', 'memberpress'); ?></label>
+        </div>
       <div class="mp-spacer">&nbsp;</div>
       <div class="submit">
         <input type="submit" name="wp-submit" id="wp-submit" class="button-primary mepr-share-button btn-green-env w-100" value="<?php _ex('Log In', 'ui', 'memberpress'); ?>" />
@@ -64,9 +63,9 @@
     </form>
     <div class="mp-spacer">&nbsp;</div>
     <div class="mepr-login-actions">
-        <p>
-            <a href="">Sign up</a> for a free account
-        </p>
+        <div class="link-register">
+            <a href="<?php echo home_url('register/starter');?>">Sign up</a> for a free account
+        </div>
       <a href="<?php echo $forgot_password_url; ?>"><?php _ex('Forgot Password', 'ui', 'memberpress'); ?></a>
     </div>
     <!-- mp-login-form-end --> <?php //DON'T GET RID OF THIS HTML COMMENT PLEASE IT'S USEFUL FOR SOME REGEX WE'RE DOING ?>
