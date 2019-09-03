@@ -49,6 +49,7 @@ if ($term != '') {
 
                 <div class="box-your-information">
                     <div class="title-your-information">Your Information</div>
+                    <div class="title-your-information title-starter d-none text-center">Registration</div>
                     <div class="box-info">
                         <input type="hidden" id="mepr_process_signup_form" name="mepr_process_signup_form"
                                value="<?php echo isset($_GET['mepr_process_signup_form']) ? $_GET['mepr_process_signup_form'] : 1 ?>"/>

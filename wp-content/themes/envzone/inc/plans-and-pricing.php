@@ -954,7 +954,7 @@ get_header();
                                     </table>
 
                                     <div class="text-center description-business d-lg-block d-none">
-                                        For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('contact-us')?>">here</a> with custom outsourcing solutions
+                                        For large organizations, enterprises, tech startups, please contact us <a href="<?php echo home_url('get-a-team')?>">here</a> with custom outsourcing solutions
                                     </div>
                                 </div>
                             </div>

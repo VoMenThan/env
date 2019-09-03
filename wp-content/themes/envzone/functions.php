@@ -609,6 +609,34 @@ function mepr_add_tabs_content($action) {
                 <h1>
                     <?php _ex('Digital Asset', 'ui', 'memberpress');?>
                 </h1>
+                <?php
+                global $wp_query;
+                $curauth = $wp_query->get_queried_object();
+
+                $author_id = $curauth->ID;
+
+                if (isset($_REQUEST['asset_website_address']) or isset($_REQUEST['asset_hosting_address']) or isset($_REQUEST['asset_cpanel_address']) or isset($_REQUEST['asset_ftp_address'])){
+                    $website_address = $_POST['asset_website_address'];
+                    $hosting_address = $_POST['asset_hosting_address'];
+                    $cpanel_address = $_POST['asset_cpanel_address'];
+                    $ftp_address = $_POST['asset_ftp_address'];
+
+                    update_field( 'website',
+                        array(  'website_address' => $website_address,
+                            'hosting_address' => $hosting_address,
+                            'cpanel_address' => $cpanel_address,
+                            'ftp_address' => $ftp_address),
+                        'user_'.$author_id );
+                    $website_sucess = 'Updated!';
+                }
+
+                $field_website = get_field('website', 'user_'.$author_id);?>
+                <?php
+                if (isset($_REQUEST['asset_website_address'])):?>
+                    <div class="alert alert-success">
+                    <?php echo $website_sucess;?>
+                    </div>
+                <?php endif;?>
                 <div class="box-card">
                     <div class="card-header" id="featureDigitalAsset">
                         <h5 class="mb-0" data-toggle="collapse" data-target="#collapseDigitalAsset" aria-expanded="true" aria-controls="collapseDigitalAsset">
@@ -622,7 +650,6 @@ function mepr_add_tabs_content($action) {
                                 <?php _ex('Original Information and administration', 'ui', 'memberpress');?>
                             </div>
                             <div class="mp_wrapper">
-
                                 <form class="mepr-account-form mepr-form clearfix" id="mepr-digital-asset" action="" method="post" novalidate>
 
                                     <div class="mp-form-row mepr_asset_website_address">
@@ -630,15 +657,14 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_website_address"><?php _ex('Website address*', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Website address', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="text" id="asset_website_address" name="asset_website_address" class="mepr-form-input" required/>
+                                        <input type="text" value="<?php echo isset($_POST['asset_website_address'])?$_POST['asset_website_address']:$field_website['website_address'];?>" id="asset_website_address" name="asset_website_address" class="mepr-form-input" required/>
                                     </div>
-
                                     <div class="mp-form-row mepr_asset_hosting_address pr-fix">
                                         <div class="mp-form-label">
                                             <label for="asset_hosting_address"><?php _ex('Hosting address', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Hosting address', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="text" id="asset_hosting_address" name="asset_hosting_address" class="mepr-form-input"/>
+                                        <input type="text" value="<?php echo isset($_POST['asset_hosting_address'])?$_POST['asset_hosting_address']:$field_website['hosting_address'];?>" id="asset_hosting_address" name="asset_hosting_address" class="mepr-form-input"/>
                                     </div>
 
                                     <div class="mp-form-row mepr_asset_cpanel_address">
@@ -646,7 +672,7 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_cpanel_address"><?php _ex('Cpanel address', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Cpanel address', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="text" id="asset_cpanel_address" name="asset_cpanel_address" class="mepr-form-input"/>
+                                        <input type="text" value="<?php echo isset($_POST['asset_cpanel_address'])?$_POST['asset_cpanel_address']:$field_website['cpanel_address'];?>" id="asset_cpanel_address" name="asset_cpanel_address" class="mepr-form-input"/>
                                     </div>
 
                                     <div class="mp-form-row mepr_asset_ftp_address pr-fix">
@@ -654,7 +680,7 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_ftp_address"><?php _ex('FTP address', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid FTP address', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="text" id="asset_ftp_address" name="asset_ftp_address" class="mepr-form-input"/>
+                                        <input type="text" value="<?php echo isset($_POST['asset_ftp_address'])?$_POST['asset_ftp_address']:$field_website['ftp_address'];?>" id="asset_ftp_address" name="asset_ftp_address" class="mepr-form-input"/>
                                     </div>
 
                                     <div class="mepr_spacer clearfix">&nbsp;</div>
@@ -667,6 +693,33 @@ function mepr_add_tabs_content($action) {
                         </div>
                     </div>
                 </div>
+
+
+                <?php
+                if (isset($_REQUEST['asset_hosting_login']) or isset($_REQUEST['asset_hosting_password']) or isset($_REQUEST['asset_cpanel_login']) or isset($_REQUEST['asset_cpanel_password'])){
+                    $hosting_id = $_POST['asset_hosting_login'];
+                    $hosting_password = $_POST['asset_hosting_password'];
+                    $cpanel_id = $_POST['asset_cpanel_login'];
+                    $cpanel_password = $_POST['asset_cpanel_password'];
+
+                    update_field( 'delegate_access_information',
+                        array(  'hosting_id' => $hosting_id,
+                            'hosting_password' => $hosting_password,
+                            'cpanel_id' => $cpanel_id,
+                            'cpanel_password' => $cpanel_password),
+                        'user_'.$author_id );
+
+                    $delegate_access_information_sucess = 'Updated!';
+                }
+                $field_delegate_access_information = get_field('delegate_access_information', 'user_'.$author_id);
+
+                ?>
+                    <?php
+                    if (isset($_REQUEST['asset_hosting_login'])):?>
+                        <div class="alert alert-success">
+                            <?php echo $delegate_access_information_sucess;?>
+                        </div>
+                    <?php endif;?>
 
                 <div class="box-card">
                     <div class="card-header" id="featureDelegateAccessInformation">
@@ -689,7 +742,7 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_hosting_login"><?php _ex('Login ID', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Login ID', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="text" id="asset_hosting_login" name="asset_hosting_login" class="mepr-form-input" required/>
+                                        <input type="text" value="<?php echo isset($_POST['asset_hosting_login'])?$_POST['asset_hosting_login']:$field_delegate_access_information['hosting_id'];?>" id="asset_hosting_login" name="asset_hosting_login" class="mepr-form-input" required/>
                                     </div>
 
                                     <div class="mp-form-row mepr_asset_hosting_password pr-fix">
@@ -697,7 +750,7 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_hosting_password"><?php _ex('Password', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Password', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="password" id="asset_hosting_password" name="asset_hosting_password" class="mepr-form-input"/>
+                                        <input type="password" value="<?php echo isset($_POST['asset_hosting_password'])?$_POST['asset_hosting_password']:$field_delegate_access_information['hosting_password'];?>" id="asset_hosting_password" name="asset_hosting_password" class="mepr-form-input"/>
                                     </div>
 
                                     <div class="group-name">
@@ -708,7 +761,7 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_cpanel_login"><?php _ex('Login ID', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Login ID', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="text" id="asset_cpanel_login" name="asset_cpanel_login" class="mepr-form-input"/>
+                                        <input type="text" value="<?php echo isset($_POST['asset_cpanel_login'])?$_POST['asset_cpanel_login']:$field_delegate_access_information['cpanel_id'];?>" id="asset_cpanel_login" name="asset_cpanel_login" class="mepr-form-input"/>
                                     </div>
 
                                     <div class="mp-form-row mepr_asset_cpanel_password pr-fix">
@@ -716,7 +769,7 @@ function mepr_add_tabs_content($action) {
                                             <label for="asset_cpanel_password"><?php _ex('Password', 'ui', 'memberpress'); ?></label>
                                             <span class="cc-error"><?php _ex('Invalid Password', 'ui', 'memberpress'); ?></span>
                                         </div>
-                                        <input type="password" id="asset_cpanel_password" name="asset_cpanel_password" class="mepr-form-input"/>
+                                        <input type="password" value="<?php echo isset($_POST['asset_cpanel_password'])?$_POST['asset_cpanel_password']:$field_delegate_access_information['cpanel_password'];?>" id="asset_cpanel_password" name="asset_cpanel_password" class="mepr-form-input"/>
                                     </div>
 
                                     <div class="mepr_spacer clearfix">&nbsp;</div>

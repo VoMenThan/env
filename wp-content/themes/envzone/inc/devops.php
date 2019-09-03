@@ -172,5 +172,4 @@ get_header();
 
     <?php require_once "popup-services.php";?>
 </main>
-    <script src="//code.tidio.co/ljas59smx8hit2eissvid4hjv10sit8t.js"></script>
 <?php get_footer();?>

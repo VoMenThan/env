@@ -270,7 +270,7 @@ h1, h2, h3, h4, h5, h6{
 		left: 50%;
 		top: 50%;
 		@include translate(-585px, -50%);
-		max-width: 500px;
+		max-width: 600px;
 	}
 	&.bg-blue>h2{
 		left: 50%;
@@ -779,7 +779,7 @@ h1, h2, h3, h4, h5, h6{
 		@include translate(calc(-585px), -50%);
 		width: 480px;
 		position: absolute;
-		bottom: 30px;
+		bottom: 10px;
 		left: 50%;
 		.title-form{
 			font-weight: 600;

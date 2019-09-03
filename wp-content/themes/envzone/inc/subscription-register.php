@@ -55,6 +55,23 @@ $plan = uri_segment(1);
     .box-infomation-subscription-sumary{
         display: none;
     }
+    .form-secure-checkout .box-your-information .mepr_last_name{
+        display: none;
+    }
+    .form-secure-checkout .box-your-information .mepr_first_name{
+        display: none;
+    }
+    .form-secure-checkout .box-your-information .title-your-information{
+        display: none;
+        border-bottom: none;
+    }
+    .form-secure-checkout .box-your-information .title-starter{
+        display: block !important;
+    }
+    .form-secure-checkout .box-your-information{
+        border: none;
+    }
+
     <?php endif;?>
     header nav .box-logo-home{
         display: block !important;

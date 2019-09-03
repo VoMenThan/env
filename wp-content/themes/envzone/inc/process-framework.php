@@ -6,6 +6,7 @@ get_header();
     <section class="banner-top banner-company bg-blue">
         <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url();?>">
         <h1><?php echo get_the_title();?></h1>
+        <?php require_once "form-banner.php";?>
     </section>
     <div class="container">
         <div class="row">
@@ -234,5 +235,4 @@ get_header();
         <?php require_once "popup-services.php";?>
     </section>
 </main>
-    <script src="//code.tidio.co/ljas59smx8hit2eissvid4hjv10sit8t.js"></script>
 <?php get_footer();?>
