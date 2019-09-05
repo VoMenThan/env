@@ -909,6 +909,13 @@ h1, h2, h3, h4, h5, h6{
 		margin: 0;
 		margin-bottom: 5px;
 	}
+	.box-average-star{
+		font-size: 14px;
+		line-height: 150%;
+		color: #808080 !important;
+		font-weight: normal;
+		font-family: $font-roboto;
+	}
 	.question{
 		color: #4F4F4F;
 		font-size: 16px;
@@ -921,7 +928,6 @@ h1, h2, h3, h4, h5, h6{
 			font-size: 18px;
 			color: #4F4F4F;
 		}
-
 	}
 	.gform_wrapper {
 		margin-bottom: 0;
@@ -936,6 +942,15 @@ h1, h2, h3, h4, h5, h6{
 		ul.gform_fields {
 			li.gfield{
 				padding-right: 0;
+			}
+		}
+		label.gfield_label{
+			color: #4F4F4F !important;
+			font-size: 16px;
+			font-family: $font-roboto;
+			font-weight: normal;
+			span{
+				display: none;
 			}
 		}
 		.gform_footer{

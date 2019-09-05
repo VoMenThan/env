@@ -420,6 +420,33 @@ if (!empty($subscriptions)) {
             </div>
         </div>
 
+        <?php
+            $s = $subscriptions[0];
+
+            if (trim($s->sub_type) == 'transaction') {
+                $is_sub = false;
+                $txn = $sub = new MeprTransaction($s->id);
+                $pm = $txn->payment_method();
+                $prd = $txn->product();
+                $group = $prd->group();
+                $default = _x('Never', 'ui', 'memberpress');
+            } else {
+                $is_sub = true;
+                $sub = new MeprSubscription($s->id);
+                $txn = $sub->latest_txn();
+                $pm = $sub->payment_method();
+                $prd = $sub->product();
+                $group = $prd->group();
+
+                if ($txn == false || !($txn instanceof MeprTransaction) || $txn->id <= 0) {
+                    $default = _x('Unknown', 'ui', 'memberpress');
+                } else if (trim($txn->expires_at) == MeprUtils::db_lifetime() or empty($txn->expires_at)) {
+                    $default = _x('Never', 'ui', 'memberpress');
+                } else {
+                    $default = _x('Unknown', 'ui', 'memberpress');
+                }
+            }
+        ?>
         <div class="mp_wrapper d-none box-print-account">
             <div class="row">
                 <div class="col-6">
@@ -435,34 +462,34 @@ if (!empty($subscriptions)) {
                 <div class="col-6">
                     <h3>Bill To</h3>
                     <ul>
-                        <li>{$company}</li>
-                        <li>{$user_full_name}</li>
-                        <li>{$user_email}</li>
+                        <li><?php echo do_shortcode('[mepr-account-info field="mepr_company"]')?></li>
+                        <li><?php echo do_shortcode('[mepr-account-info field="full_name"]')?></li>
+                        <li><?php echo do_shortcode('[mepr-account-info field="user_email"]')?></li>
                     </ul>
                 </div>
                 <div class="col-6">
                     <h3>Payment Info</h3>
                     <ul>
                         <li>
-                            Account ID: {$user_email}
+                            Account ID: <?php echo $subscriptions[0]->user_id;?>
                         </li>
                         <li>
-                            Invoice #: {$invoice_num}
+                            Invoice #: <?php echo $subscriptions[0]->subscr_id;?>
                         </li>
                         <li>
-                            Invoice Date: {$trans_date}
+                            Invoice Date: <?php echo $subscriptions[0]->created_at;?>
                         </li>
                         <li>
-                            Payment Due By: {$trans_expires_at}
+                            Payment Due By: <?php echo $subscriptions[0]->expires_at;?>
                         </li>
                     </ul>
 
                     <ul>
                         <li>
-                            Tranasction #: {$trans_num}
+                            Tranasction #: <?php echo $subscriptions[0]->subscr_id;?>
                         </li>
                         <li>
-                            Payment Method: {$trans_gateway)
+                            Payment Method: <?php echo $pm->label;?>
                         </li>
                     </ul>
                 </div>
@@ -474,33 +501,88 @@ if (!empty($subscriptions)) {
                     </h3>
                     <ul class="d-flex justify-content-between">
                         <li>
-                            {$product_name}  - Growing Business
+                            <!-- MEMBERSHIP ACCESS URL -->
+                            <?php if (isset($prd->access_url) && !empty($prd->access_url)): ?>
+                                <div class="mepr-account-product"><a
+                                            href="<?php echo stripslashes($prd->access_url); ?>"><?php echo MeprHooks::apply_filters('mepr-account-subscr-product-name', $prd->post_title, $txn); ?></a>
+                                </div>
+                            <?php else: ?>
+                                <div class="mepr-account-product"><?php echo MeprHooks::apply_filters('mepr-account-subscr-product-name', $prd->post_title, $txn); ?></div>
+                            <?php endif; ?>
                         </li>
-                        <li>$159.00</li>
+                        <li>
+                            <?php if ($prd->register_price_action != 'hidden'): ?>
+                                <?php
+                                if ($txn != false && $txn instanceof MeprTransaction && $txn->is_sub_account()) {
+                                    MeprHooks::do_action('mepr_account_subscriptions_sub_account_terms', $txn);
+                                } else {
+                                    if ($prd->register_price_action == 'custom' && !empty($prd->register_price)) {
+                                        //Add coupon in if one was used eh
+                                        $coupon_str = '';
+                                        if ($is_sub) {
+                                            $subscr = new MeprSubscription($s->id);
+
+                                            if ($subscr->coupon_id && ($coupon = new MeprCoupon($subscr->coupon_id)) && isset($coupon->ID) && $coupon->ID) {
+                                                $coupon_str = ' ' . _x('with coupon', 'ui', 'memberpress') . ' ' . $coupon->post_title;
+                                            }
+                                        }
+
+                                        echo stripslashes($prd->register_price) . $coupon_str;
+                                    } else if ($txn != false && $txn instanceof MeprTransaction) {
+                                        echo MeprTransactionsHelper::format_currency($txn);
+                                    }
+                                }
+                                ?>
+                            <?php endif; ?>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-4 offset-8 d-flex justify-content-end">
                     <table>
                         <tr>
                             <td>Sales Tax:</td>
-                            <td>$0 {$tax_amount}</td>
+                            <td>$0</td>
                         </tr>
                         <tr>
                             <td>Total:</td>
-                            <td>{$payment_amount}</td>
+                            <td>
+                                <?php if ($prd->register_price_action != 'hidden'): ?>
+                                    <?php
+                                    if ($txn != false && $txn instanceof MeprTransaction && $txn->is_sub_account()) {
+                                        MeprHooks::do_action('mepr_account_subscriptions_sub_account_terms', $txn);
+                                    } else {
+                                        if ($prd->register_price_action == 'custom' && !empty($prd->register_price)) {
+                                            //Add coupon in if one was used eh
+                                            $coupon_str = '';
+                                            if ($is_sub) {
+                                                $subscr = new MeprSubscription($s->id);
+
+                                                if ($subscr->coupon_id && ($coupon = new MeprCoupon($subscr->coupon_id)) && isset($coupon->ID) && $coupon->ID) {
+                                                    $coupon_str = ' ' . _x('with coupon', 'ui', 'memberpress') . ' ' . $coupon->post_title;
+                                                }
+                                            }
+
+                                            echo stripslashes($prd->register_price) . $coupon_str;
+                                        } else if ($txn != false && $txn instanceof MeprTransaction) {
+                                            echo MeprTransactionsHelper::format_currency($txn);
+                                        }
+                                    }
+                                    ?>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                         <tr>
                             <td>Status:</td>
-                            <td>Paid or Unpaid</td>
+                            <td>Paid</td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-12 box-space"></div>
                 <div class="col-6">
                     <ul>
-                        <li>{business name}</li>
-                        <li>{business_address1}</li>
-                        <li>{$business_city}, {$business_state}</li>
+                        <li><?php echo do_shortcode('[mepr-account-info field="mepr_company"]')?></li>
+                        <li><?php echo do_shortcode('[mepr-account-info field="mepr_company_address"]')?></li>
+                        <li><?php echo do_shortcode('[mepr-account-info field="mepr_city"]')?>, <?php echo do_shortcode('[mepr-account-info field="mepr_state"]')?></li>
                     </ul>
                 </div>
                 <div class="col-6">

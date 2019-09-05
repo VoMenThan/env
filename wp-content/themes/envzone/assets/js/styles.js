@@ -167,10 +167,22 @@ $(document).ready(function(){
             setCookie('cookie-advert', true, 1);
         }
     });
+
+    function makeSurvey(){
+        var cookie = getCookie('cookie-survey');
+        if (cookie !== 'true'){
+            $('#popup-satisfaction-survey').addClass('show');
+            setCookie('cookie-survey', true, 240);
+        }
+    };
+
+    setInterval(makeSurvey, 180000);
+
+
     $(".book-advert .form-subscribe #gform_submit_button_3").val('SUBSCRIBE NOW');
 
     $('#close-survey-form').click(function () {
-        $('#popup-satisfaction-servey').removeClass('show');
+        $('#popup-satisfaction-survey').removeClass('show');
     });
 
     $('input[id="input_2_7"]').change(function(e){

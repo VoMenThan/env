@@ -8,58 +8,58 @@
 
 get_header();
 
-
-
-$result = new stdClass();
-$star = get_field('rating_star');
-$poll = get_field('list_vote');
+$result = 0;
+$post_id = $post->ID;
+$poll = get_field('list_vote', $post_id);
+$total_poll = get_field('total_poll', $post_id);
 $error_msg = '';
-if (count($_POST) >= 1){
+if (isset($_POST['submit-poll'])) {
 
-    if (count($_POST) >= 2){
-        if (isset($_POST['rating_star'])){
-
-            $post_id = $post->post_ID;
-            switch ($_POST['rating_star']):
-                case 1:
-                    $star['1_star'] += 1;
-                    break;
-                case 2:
-                    $star['2_stars'] += 1;
-                    break;
-                case 3:
-                    $star['3_stars'] += 1;
-                    break;
-                case 4:
-                    $star['4_stars'] += 1;
-                    break;
-                case 5:
-                    $star['5_stars'] += 1;
-                    break;
-                default:
-                    break;
-            endswitch;
-            update_field( 'rating_star', $star, $post_id );
-
-            $number_poll =  count($poll);
-            for ($i = 0; $i < $number_poll; $i++):
-                if ($_POST['poll'.$i] == 'on'){
-                    $poll[$i]['count_vote'] += 1;
-                }
-            endfor;
-            update_field( 'list_vote', $poll, $post_id );
-
-            $result->st = 1;
-
+    if (count($_POST) >= 2) {
+        $number_poll = count($poll);
+        for ($i = 0; $i < $number_poll; $i++) {
+            if ($_POST['poll' . $i] == 'on') {
+                $poll[$i]['count_vote'] += 1;
+            }
         }
-        else{
-            $error_msg = 'Please rate us!';
-        }
+        $total_poll++;
+        update_field('list_vote', $poll, $post_id);
+        update_field('total_poll', $total_poll, $post_id);
+        $result = 1;
     }else{
-        $error_msg = 'Please rate us and choose the poll!';
+        $error_msg = 'Please choose a poll!';
     }
 }
 
+
+
+$star = get_field('rating_star', $post_id);
+
+if (isset($_POST['rating_star'])){
+
+    $post_id = $post->post_ID;
+    switch ($_POST['rating_star']):
+        case 1:
+            $star['1_star'] ++;
+            break;
+        case 2:
+            $star['2_stars'] ++;
+            break;
+        case 3:
+            $star['3_stars'] ++;
+            break;
+        case 4:
+            $star['4_stars'] ++;
+            break;
+        case 5:
+            $star['5_stars'] ++;
+            break;
+        default:
+            break;
+    endswitch;
+    update_field( 'rating_star', $star, $post_id );
+
+}
 
 $total_vote_star = $star['1_star'] + $star['2_stars'] + $star['3_stars'] + $star['4_stars'] + $star['5_stars'];
 if ($total_vote_star == 0){
@@ -187,7 +187,7 @@ if ($total_vote_star == 0){
                             <div class="description-voice">
                                 This poll is updated periodically every quarter based on the input data for best best recommendation practices.
                             </div>
-                            <form action="" id="formVoice" name="form-voice" method="post">
+                            <form action="" id="formRatingCompany" name="form-rating" method="post">
                                 <div class="section-rating">
                                     <div class="title-rating">Overall Rating</div>
                                     <div class="box-rating clearfix">
@@ -204,9 +204,11 @@ if ($total_vote_star == 0){
                                             <label for="rating_star_1" title="1 star">1 star</label>
                                         </div>
                                     </div>
-                                    <p>(Average rating <?php echo $average_rating;?>. Vote count: <?php echo $total_vote_star;?>)</p>
+                                    <p class="box-average-star"></p>
                                 </div>
-                                <?php if ($poll!=''):?>
+                            </form>
+                            <form action="" id="formVoice" name="form-voice" method="post">
+
                                 <div class="section-poll">
                                     <div class="title-poll">Poll</div>
                                     <div class="subtitle-poll">
@@ -216,8 +218,8 @@ if ($total_vote_star == 0){
                                     <?php
                                         foreach ($poll as $k => $item):
                                             $percent = 0;
-                                            if ($total_vote_star != 0){
-                                                $percent = ceil(($item['count_vote']/$total_vote_star)*100);
+                                            if ($total_poll != 0){
+                                                $percent = ceil(($item['count_vote']/$total_poll)*100);
                                             }
 
                                     ?>
@@ -231,20 +233,20 @@ if ($total_vote_star == 0){
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" style="width: <?php echo $percent;?>%" aria-valuenow="<?php echo $percent;?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <span>(<?php echo $percent;?>%, <?php echo $total_vote_star;?> votes)</span>
+                                        <span>(<?php echo $percent;?>%, <?php echo $total_poll;?> votes)</span>
                                     </div>
                                     <?php endforeach;?>
                                     <div class="recommend-poll">
                                         or share your recommendations in the comments below
                                     </div>
                                 </div>
-                                <?php endif;?>
+
 
                                 <div class="box-error my-lg-3 my-1 text-danger">
                                     <?php echo $error_msg;?>
                                 </div>
                                 <div class="text-center  mt-lg-5 mt-3">
-                                    <button type="submit" class="btn btn-green-env">VOTE</button>
+                                    <button type="submit" class="btn btn-green-env" name="submit-poll">VOTE</button>
                                 </div>
 
                             </form>
@@ -630,10 +632,32 @@ if ($total_vote_star == 0){
 
 <script type="text/javascript">
     $(document).ready(function () {
-        <?php if ($result->st == 1):?>
+
+
+        $("#formRatingCompany label").click(function(){
+            var labelDisable = $(this).hasClass('nohover');
+
+            if (labelDisable === false) {
+                var labelID;
+                labelID = $(this).attr('for');
+                var radioValue = $('#' + labelID).attr("checked", "checked").val();
+                var data = {
+                    'action': 'mt_help_rating_form_company',
+                    'post_id': <?php echo $post_id;?>,
+                    'rating_star': radioValue
+                };
+                $.post(misha_loadmore_params.ajaxurl, data, function (response) {
+                    $('#formRatingCompany input, #formRatingCompany label').addClass('nohover');
+                    $('#formRatingCompany input').prop("disabled", true);
+                    $('#formRatingCompany .box-average-star').html(response);
+                });
+            }
+        });
+
+        <?php if ($result == 1):?>
         $('#modalVoteStar').modal('show');
         <?php endif;
-        $result->st = 0;
+        $result = 0;
         ?>
         /*slider product detail*/
         $(".carousel-photo-detail").owlCarousel({

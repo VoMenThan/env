@@ -208,7 +208,7 @@
         </div>
     </div>
 
-    <div id="popup-satisfaction-servey" class="box-satisfaction-survey section-companies-homepage d-none">
+    <div id="popup-satisfaction-survey" class="box-satisfaction-survey section-companies-homepage">
         <div id="display-post"></div>
         <div id="close-survey-form" class="btn-close-form">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +217,7 @@
         </div>
         <div class="title-survey">User Satisfaction Survey</div>
 
-        <form id="form-rate-survey" action="" method="POST">
+        <form id="formRateSurveyWebsite" action="" method="POST">
             <div class="box-rating resize clearfix">
                 <div class="rate">
                     <input type="radio" id="rate-star5" name="rating_star" class="rate rating_star" value="5"/>
@@ -232,12 +232,9 @@
                     <label for="rate-star1" title="1 star">1 star</label>
                 </div>
             </div>
+            <p class="box-average-star"></p>
             <input class="d-none" type="submit">
         </form>
-        <div class="question">
-            What do you like least/most about our website?
-        </div>
-
         <div class="form-survey">
             <?php
                 echo do_shortcode('[gravityform id=13 title=false description=false ajax=true]');
