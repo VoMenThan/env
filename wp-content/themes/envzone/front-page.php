@@ -1107,6 +1107,11 @@
     </div>
     <!-- /*============END Logistics and Supply Chain=================*/ -->
 </main>
+<?php
+add_action( 'wp_footer', 'javascript_front_page' );
+
+function javascript_front_page(){
+?>
 <script>
 
     (function ( $ ) {
@@ -1128,83 +1133,6 @@
         });
 
     })(jQuery);
-    /*============ slide news =================*/
-
-    $(document).ready(function() {
-
-        $(".box-subscriber-blog #subscribe-small-business .gform_button").val('SUBSCRIBE NOW');
-        $(".section-get-executive-insights .gform_button").val('SUBSCRIBE');
-
-        $('.list-video').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: true,
-            autoplay: false,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 3
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-
-
-        if ( $(window).width() > 768 ) {
-            startCarousel();
-
-        } else {
-            $('.slider-news').addClass('off');
-        }
-    });
-
-    /*============ custom scroll =================*/
-
-
-    $(window).resize(function() {
-        if ( $(window).width() > 768 ) {
-            startCarousel();
-        } else {
-            stopCarousel();
-        }
-    });
-
-    function startCarousel() {
-        $('.slider-news').owlCarousel({
-            loop: false,
-            margin: 30,
-            nav: true,
-            dots: false,
-            autoplay: false,
-            autoplayTimeout: 2000,
-            navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                425: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1024: {
-                    items: 3
-                }
-            }
-        });
-    }
-
-    function stopCarousel() {
-        var owl = $('.slider-news');
-        owl.trigger('destroy.owl.carousel');
-        owl.addClass('off');
-    }
 </script>
+<?php }?>
 <?php get_footer();?>

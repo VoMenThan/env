@@ -205,3 +205,62 @@ $(document).ready(function(){
         $('.nav-small-business a').toggleClass('d-inline-block');
     });
 });
+
+
+/*============ slide news =================*/
+$(document).ready(function() {
+
+    $(".box-subscriber-blog #subscribe-small-business .gform_button").val('SUBSCRIBE NOW');
+    $(".section-get-executive-insights .gform_button").val('SUBSCRIBE');
+
+
+    if ( $(window).width() > 768 ) {
+        startCarousel();
+
+    } else {
+        $('.slider-news').addClass('off');
+    }
+});
+
+/*============ custom scroll =================*/
+
+
+$(window).resize(function() {
+    if ( $(window).width() > 768 ) {
+        startCarousel();
+    } else {
+        stopCarousel();
+    }
+});
+
+function startCarousel() {
+    $('.slider-news').owlCarousel({
+        loop: false,
+        margin: 30,
+        nav: true,
+        dots: false,
+        autoplay: false,
+        autoplayTimeout: 2000,
+        navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+        responsive: {
+            0: {
+                items: 1
+            },
+            425: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1024: {
+                items: 3
+            }
+        }
+    });
+}
+
+function stopCarousel() {
+    var owl = $('.slider-news');
+    owl.trigger('destroy.owl.carousel');
+    owl.addClass('off');
+}

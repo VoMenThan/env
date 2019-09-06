@@ -77,7 +77,7 @@ get_header();
                                         Select a featured city on map to see other small businesses performance
                                     </p>
                                     <div class="big-number">
-                                        6.5
+                                        <span><img width="50" height="50" src="<?php echo ASSET_URL;?>images/icon-processing-gif.gif" alt=""></span>
                                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M28.6172 28.8281H27.3321V10.1681C27.3321 9.2996 26.6254 8.59302 25.7569 8.59302H22.8844C22.0159 8.59302 21.3093 9.29966 21.3093 10.1681V28.8281H18.0461V18.6226C18.0461 17.754 17.3395 17.0475 16.471 17.0475H13.5985C12.73 17.0475 12.0234 17.7541 12.0234 18.6226V28.8281H8.76018V23.5427C8.76018 22.6742 8.05354 21.9676 7.18506 21.9676H4.3125C3.44397 21.9676 2.73739 22.6743 2.73739 23.5427V28.8281H1.38293C1.05932 28.8281 0.796997 29.0905 0.796997 29.4141C0.796997 29.7377 1.05932 30 1.38293 30H28.6172C28.9408 30 29.2031 29.7377 29.2031 29.4141C29.2031 29.0905 28.9408 28.8281 28.6172 28.8281ZM7.58819 28.8281H3.9092V23.5427C3.9092 23.3204 4.09008 23.1395 4.31245 23.1395H7.18495C7.40731 23.1395 7.58819 23.3204 7.58819 23.5427V28.8281ZM16.8742 28.8281H13.1952V18.6226C13.1952 18.4002 13.3761 18.2193 13.5984 18.2193H16.4709C16.6932 18.2193 16.8742 18.4002 16.8742 18.6226V28.8281ZM26.1602 28.8281H22.4812V10.1681C22.4812 9.94577 22.6621 9.76489 22.8844 9.76489H25.7569C25.9793 9.76489 26.1602 9.94577 26.1602 10.1681V28.8281Z" fill="#8DC63F"/>
                                             <path d="M27.3306 0.616172C27.3388 0.45627 27.2826 0.293672 27.1605 0.171562C27.0384 0.0494531 26.8758 -0.00685547 26.7159 0.00140625C26.7064 0.000996094 26.6971 0 26.6875 0H23.1426C22.819 0 22.5566 0.262324 22.5566 0.585938C22.5566 0.909551 22.819 1.17188 23.1426 1.17188H25.3315L19.5391 6.96434L17.3547 4.77996C17.2448 4.6701 17.0958 4.60834 16.9404 4.60834C16.785 4.60834 16.6359 4.6701 16.5261 4.77996L5.99271 15.3134C5.7639 15.5422 5.7639 15.9132 5.99271 16.142C6.10715 16.2564 6.25709 16.3136 6.40703 16.3136C6.55697 16.3136 6.70697 16.2564 6.82135 16.1419L16.9404 6.02285L19.1247 8.20723C19.3536 8.43604 19.7246 8.43604 19.9534 8.20723L26.1602 2.00057V3.98162C26.1602 4.30523 26.4225 4.56756 26.7461 4.56756C27.0697 4.56756 27.332 4.30523 27.332 3.98162V0.644531C27.332 0.63498 27.331 0.625664 27.3306 0.616172Z" fill="#8DC63F"/>
@@ -320,6 +320,8 @@ get_header();
         }
 
         function initMap() {
+            var marker;
+            var infowindow;
             var map = new google.maps.Map(document.getElementById('map'), {
                 center:  {lat: 41.711236, lng: -87.767736},
                 zoom: 5,
@@ -400,20 +402,29 @@ get_header();
 
             var env_coverage = [
                 <?php $list_coordinates = get_field('featured_coordinates', $post->ID);
-                    foreach ($list_coordinates as $item):
-                        foreach ($item['list_coordinate'] as $coordinate):
+                    foreach ($list_coordinates as $key => $item):
+                        foreach ($item['list_coordinate'] as $k => $coordinate):
                 ?>
-                [<?php echo $coordinate['latitude'].','.$coordinate['longitude'];?>],
+                [<?php echo $coordinate['latitude'].','.$coordinate['longitude'].','.$coordinate['seo_impact'];?>],
                 <?php endforeach; endforeach;?>
             ];
 
+
+
+            infowindow = new google.maps.InfoWindow();
+
             for (var i = 0; i < env_coverage.length; i++) {
-                var location = env_coverage[i];
-                var marker = new google.maps.Marker({
-                    position: {lat: location[0], lng: location[1]},
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(env_coverage[i][0], env_coverage[i][1]),
                     icon: 'https://www.envzone.com/wp-content/uploads/2019/07/icon-envzone-service-coverage.png',
                     map: map
                 });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        $('.check-seo-impact .big-number span').html(env_coverage[i][2]);
+                    }
+                })(marker, i));
             }
 
             var card = document.getElementById('pac-card');
