@@ -264,3 +264,31 @@ function stopCarousel() {
     owl.trigger('destroy.owl.carousel');
     owl.addClass('off');
 }
+$(document).ready(function() {
+    $('.slider-home').owlCarousel({
+        animateOut: 'slideOutRight',
+        animateIn: 'slideInLeft',
+        loop: false,
+        margin: 0,
+        nav: false,
+        dots: false,
+        lazyLoad:true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        smartSpeed:450,
+        navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+                dots: false
+            },
+            768: {
+                items: 1,
+                dots: false
+            },
+            1024: {
+                items: 1
+            }
+        }
+    });
+});

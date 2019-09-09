@@ -177,7 +177,7 @@
                     <a href="https://www.dandb.com/verified/business/113367122/" target="_blank">
                         <img style="height: 65px" class="img-verified img-fluid" src="<?php echo ASSET_URL;?>images/img-verified.png" alt="Verify Business">
                     </a>
-                    <script language="JavaScript" type="text/javascript"> SiteSeal("https://seal.networksolutions.com/images/confirmrecgreen.gif", "NETSS", "none");</script>
+                        <a href="#" onclick="window.open(&quot;http://seals.networksolutions.com/siteseal_seek/siteseal?v_shortname=NETSS&amp;v_querytype=W&amp;v_search=localhost&amp;x=5&amp;y=5&quot;,&quot;NETSS&quot;,&quot;width=450,height=500,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,copyhistory=no,resizable=no&quot;);return false;"><img src="https://seal.networksolutions.com/images/confirmrecgreen.gif" style="border:none;" oncontextmenu="alert('This SiteSeal is protected');return false;"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 pt-3">

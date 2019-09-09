@@ -65,6 +65,8 @@ function mt_env_register_js(){
 	wp_enqueue_script('mt_env_jquery_mCustomScrollbar_concat_min', $jsUrl.'jquery.mCustomScrollbar.concat.min.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_myrating', $jsUrl.'myrating.js', array(), '1.0', true);
 	wp_enqueue_script('mt_env_styles', $jsUrl.'styles.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_calendly', 'https://assets.calendly.com/assets/external/widget.js', array(), '1.0', true);
+	wp_enqueue_script('mt_env_seal_networksolutions', 'https://seal.networksolutions.com/siteseal/javascript/siteseal.js', array(), '1.0', false);
 }
 
 /*======================================================================================================
@@ -81,11 +83,12 @@ function mt_env_register_style(){
     wp_enqueue_style('mt_env_mCustomScrollbar_min', $cssUrl.'mCustomScrollbar.min.css', array(), '1.0');
     wp_enqueue_style('mt_env_animate', $cssUrl.'animate.css', array(), '1.0');
     wp_enqueue_style('mt_env_styles', $cssUrl.'styles.css', array(), '3.0');
+    wp_enqueue_style('mt_env_calendly', 'https://assets.calendly.com/assets/external/widget.css', array(), '3.0');
 }
 
 
 /*ADD GOOGLE SCRIPT FOOTER*/
-//add_action('wp_footer', 'mt_theme_script_code_google');
+add_action('wp_footer', 'mt_theme_script_code_google');
 function mt_theme_script_code_google(){
 
     echo '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>

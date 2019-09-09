@@ -28,14 +28,10 @@
     <![endif]-->
 
     <?php wp_head();?>
-
-    <script language="JavaScript" src="https://seal.networksolutions.com/siteseal/javascript/siteseal.js" type="text/javascript"></script>
 </head>
 <body>
 
 <header id="header-top">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
     <nav id="sticky-menu" class="position-relative">
         <div class="container">
             <div class="row">
