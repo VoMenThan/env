@@ -250,7 +250,10 @@
             margin-bottom: 30px;
             padding-top: 15px;
             border-top: 1px solid #BDBDBD;
-
+            width: 100%;
+            margin-left: -50px;
+            padding-left: 50px;
+            padding-right: 50px;
         }
         #templateBody .category-title{
             font-style: normal;
@@ -435,6 +438,67 @@
                 /*@editable*/line-height:150% !important;
             }
 
+        }
+        @media only screen and (max-width: 480px){
+            .templateContainer{
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        @media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @custom header
+            */
+            #templatePreheader .header-email{
+                text-align: left;
+                padding: 15px 0;
+                padding-left: 15px !important;
+            }
+            #templatePreheader .header-name{
+                text-align: left;
+                padding-left: 15px !important;
+                padding-bottom: 15px !important;
+            }
+            #templatePreheader .columnContainer td{
+                display: block;
+            }
+
+        }
+        @media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @custom body
+            */
+            #templateBody {
+                padding-right: 15px !important;
+                padding-left: 15px !important;
+            }
+            #templateBody .section-title{
+                width: 100%;
+                margin-left: -15px !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+            #templateBody .cover-ebook{
+                float: none !important;
+            }
+        }
+        @media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @custom socials
+            */
+            #templateFooter #footerContentLv2 {
+                padding: 20px 15px !important;
+                display: block;
+                width: auto !important;
+            }
+            #templateFooter .footer-schedule-appointment{
+                width: 100%;
+                display: block;
+                padding-bottom: 15px !important;
+            }
         }
     </style>
 </head>

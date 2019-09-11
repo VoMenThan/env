@@ -3,7 +3,84 @@
 		margin-bottom: 30px;
 	}
 }
+
 .blog-page{
+	.box-map-skyrocket{
+		margin-bottom: 130px;
+		padding-top: 0;
+		padding-left: 15px;
+		padding-right: 15px;
+		.box-input-search{
+			position: absolute;
+			background: rgba(0,70,93, .8);
+			padding: 50px 50px;
+			top: 30%;
+			text-align: center;
+			left: calc(50% - 450px);
+			width: 100%;
+			max-width: 900px;
+			border-radius: 5px;
+			h2{
+				font-weight: bold;
+				font-size: 28px;
+				line-height: 152.62%;
+				text-align: center;
+				color: #F2F2F2;
+				padding-bottom: 20px;
+			}
+			p{
+				font-weight: 500;
+				font-size: 22px;
+				line-height: 140.88%;
+				text-align: center;
+				color: #fff;
+				padding-bottom: 20px;
+			}
+			.input-search{
+				width: 100%;
+				padding: 8px 15px;
+				border: none;
+				border-radius: 5px;
+			}
+			.btn-search{
+				position: absolute;
+				right: 15px;
+				top: 10px;
+				.icon-search{
+					@include setBackgroundIcon(20px, '../images/icon-search-active.png');
+				}
+			}
+		}
+	}
+	.list-highlight-categories{
+		padding-top: 15px;
+		h4{
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 150%;
+			color: #808080;
+			padding-bottom: 20px;
+		}
+		.list-category{
+			width: 100%;
+			.item-category{
+				float: left;
+				display: inline-block;
+				padding: 5px;
+				border-bottom: 2px solid #8DC63F;
+				margin-right: 20px;
+				margin-bottom: 15px;
+				a{
+					display: inline-block;
+					font-weight: 600;
+					font-size: 16px;
+					line-height: 19px;
+					color: #0D3153;
+
+				}
+			}
+		}
+	}
 
 	.box-breadcrumb.mt-50{
 		margin-top: 50px;
@@ -313,6 +390,51 @@
 			}
 		}
 	}
+
+	.lead-contact-form-page{
+		.container{
+			border-top: 1px solid #BDBDBD;
+		}
+		.box-head{
+			margin-bottom: 30px;
+			padding-top: 50px;
+		}
+		h2{
+			font-weight: bold;
+			font-size: 36px;
+			line-height: 152.62%;
+			text-align: center;
+			color: #828282;
+			padding-bottom: 30px;
+		}
+		p{
+			font-weight: 500;
+			font-size: 26px;
+			line-height: 150%;
+			text-align: center;
+			color: #888888;
+		}
+		.item-employee{
+			padding-bottom: 30px;
+			&:hover{
+				h3{
+					color: #FFFFFF;
+				}
+			}
+			img{
+				padding-bottom: 70px;
+				border-bottom: 2px solid #8DC63F;
+			}
+			h3{
+				font-weight: 600;
+				font-size: 26px;
+				line-height: 150%;
+				text-align: center;
+				padding-bottom: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 /* 	================================================================
@@ -336,6 +458,20 @@
 		.reset-row-wrap{
 			@include flex-wrap(inherit);
 		}
+		.lead-contact-form-page {
+			.container{
+				border: none;
+			}
+			h2{
+				font-size: 24px;
+			}
+			p{
+				font-size: 20px;
+			}
+		}
+	}
+	.section-blog-home{
+		margin-bottom: 80px;
 	}
 }
 

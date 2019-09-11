@@ -172,7 +172,7 @@ $(document).ready(function(){
         var cookie = getCookie('cookie-survey');
         if (cookie !== 'true'){
             $('#popup-satisfaction-survey').addClass('show');
-            setCookie('cookie-survey', true, 240);
+            setCookie('cookie-survey', true, 120);
         }
     };
 
@@ -204,11 +204,36 @@ $(document).ready(function(){
     $('.nav-small-business a.active').click(function () {
         $('.nav-small-business a').toggleClass('d-inline-block');
     });
-});
 
 
-/*============ slide news =================*/
-$(document).ready(function() {
+    /*Resources page*/
+    $(".resources-ebook-page .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+
+    $('.box-ebook h2').matchHeight({
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    });
+    /*Resources page*/
+
+
+    /*matchHeight news special in list footer*/
+    $('.content-blog .box-item-special .item-blog').matchHeight({
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    });
+
+    $('.blog-page .highlight-news-right .info-news h2').matchHeight({
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    });
+    /*matchHeight news special in list footer*/
+
 
     $(".box-subscriber-blog #subscribe-small-business .gform_button").val('SUBSCRIBE NOW');
     $(".section-get-executive-insights .gform_button").val('SUBSCRIBE');
@@ -220,9 +245,46 @@ $(document).ready(function() {
     } else {
         $('.slider-news').addClass('off');
     }
+
+
+    /*slider enterprise home page*/
+    $('.slider-home').owlCarousel({
+        animateOut: 'slideOutRight',
+        animateIn: 'slideInLeft',
+        loop: false,
+        margin: 0,
+        nav: false,
+        dots: false,
+        lazyLoad:true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        smartSpeed:450,
+        navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+                dots: false
+            },
+            768: {
+                items: 1,
+                dots: false
+            },
+            1024: {
+                items: 1
+            }
+        }
+    });
+
+    /*author page detail*/
+    $(".blog-author-page .form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    /*author page detail*/
 });
 
-/*============ custom scroll =================*/
+
+
 
 
 $(window).resize(function() {
@@ -264,31 +326,3 @@ function stopCarousel() {
     owl.trigger('destroy.owl.carousel');
     owl.addClass('off');
 }
-$(document).ready(function() {
-    $('.slider-home').owlCarousel({
-        animateOut: 'slideOutRight',
-        animateIn: 'slideInLeft',
-        loop: false,
-        margin: 0,
-        nav: false,
-        dots: false,
-        lazyLoad:true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        smartSpeed:450,
-        navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
-        responsive: {
-            0: {
-                items: 1,
-                dots: false
-            },
-            768: {
-                items: 1,
-                dots: false
-            },
-            1024: {
-                items: 1
-            }
-        }
-    });
-});

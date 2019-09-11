@@ -90,21 +90,4 @@ global $wp_query;
         </div>
     </section>
 </main>
-<script>
-    (function ( $ ) {
-        "use strict";
-        $(document).ready(function (e) {
-
-            $(".form-subscribe #gform_submit_button_3").val('KEEP ME UPDATED');
-
-            $('.box-ebook h2').matchHeight({
-                byRow: true,
-                property: 'height',
-                target: null,
-                remove: false
-            });
-        });
-
-    })(jQuery);
-</script>
 <?php get_footer();?>

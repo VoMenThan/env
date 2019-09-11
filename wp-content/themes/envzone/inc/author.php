@@ -37,7 +37,7 @@ if($sort == 'leadership'){
     $meta_query = '';
 }
 $param = array(
-    'role__in'         => array('administrator', 'editor', 'former_staff_env'),
+    'role__in'         => array('administrator', 'editor', 'former-staff'),
     'meta_key' => 'position',
     'meta_query' => $meta_query
 );

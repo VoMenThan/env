@@ -701,7 +701,7 @@
                     </div>
                     <div class="subscribe-form text-right">
                         <?php
-                        echo do_shortcode('[gravityform id="3" title="false" description="false"]');
+                        echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
                         ?>
                     </div>
                 </div>
