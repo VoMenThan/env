@@ -56,7 +56,7 @@ add_action('wp_enqueue_scripts', 'mt_env_register_js');
 function mt_env_register_js(){
     $jsUrl = get_template_directory_uri().'/assets/js/';
 	wp_deregister_script('jquery');
-    wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '1.0', true);
+    wp_register_script('jquery', $jsUrl.'jquery.min.js', array(), '1.0', false);
     wp_enqueue_script('jquery');
     wp_enqueue_script('mt_env_popper', $jsUrl.'popper.min.js', array(), '1.0', true);
     wp_enqueue_script('mt_env_bootstrap', $jsUrl.'bootstrap.min.js', array(), '1.0', true);
@@ -88,7 +88,7 @@ function mt_env_register_style(){
 
 
 /*ADD GOOGLE SCRIPT FOOTER*/
-add_action('wp_footer', 'mt_theme_script_code_google');
+//add_action('wp_footer', 'mt_theme_script_code_google');
 function mt_theme_script_code_google(){
 
     echo '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88982528-1"></script>

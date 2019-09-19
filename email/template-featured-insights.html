@@ -117,7 +117,7 @@
             padding-bottom: 18px;
         }
 
-        #templateHeader, #templateBody {
+        #templateHeader {
             padding-right: 50px;
             padding-left: 50px;
         }
@@ -220,12 +220,13 @@
             display:block;
         }
 
-        #templateBody .title-gray{
+        #templateBody .section-feature h3{
             font-weight: bold;
             font-size: 20px;
             line-height: 140%;/* identical to box height, or 28px */
             color: #4F4F4F;
             margin-bottom: 15px;
+            text-align: left
         }
 
         #templateBody p{
@@ -241,7 +242,14 @@
             float: left;
 
         }
-        #templateBody .section-title{
+        #templateBody .section-feature{
+            border-top: 1px solid #BDBDBD;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 15px;
+            padding-bottom: 20px;
+        }
+        #templateBody .section-feature h1{
             font-style: normal;
             font-weight: bold;
             font-size: 24px;
@@ -249,13 +257,9 @@
             color: #333333;
             margin-bottom: 30px;
             padding-top: 15px;
-            border-top: 1px solid #BDBDBD;
             width: 100%;
-            margin-left: -50px;
-            padding-left: 50px;
-            padding-right: 50px;
         }
-        #templateBody .category-title{
+        #templateBody .section-feature h2{
             font-style: normal;
             font-weight: bold;
             font-size: 18px;
@@ -385,8 +389,8 @@
             @section Heading 1
             */
             h1{
-                /*@editable*/font-size:22px !important;
-                /*@editable*/line-height:175% !important;
+                /*@editable*/font-size:20px !important;
+                /*@editable*/line-height:150% !important;
             }
 
         }	@media only screen and (max-width: 480px){
@@ -470,9 +474,17 @@
             @tab Mobile Styles
             @custom body
             */
-            #templateBody {
+            #templateBody .section-feature h1 {
+                font-size: 20px;
+                line-height: 150.88%;
+                margin-bottom: 15px;
+                padding-top: 15px;
+            }
+            #templateBody .section-feature{
                 padding-right: 15px !important;
                 padding-left: 15px !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
             }
             #templateBody .section-title{
                 width: 100%;
@@ -557,89 +569,65 @@
                                     <tr>
                                         <td valign="top" align="left" id="templateBody">
                                             <!-- BEGIN MODULE: BODY CONTENT // -->
-                                            <div mc:edit="body_content">
-                                                <div class="section-title">FEATURED</div>
+                                            <div class="body-content">
 
-                                                <div class="category-title">CATERGORY</div>
-                                                <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
-                                                <p>
-                                                    This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
-                                                </p>
-
-                                                <div class="category-title">CATERGORY</div>
-                                                <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
-                                                <p>
-                                                    This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
-                                                </p>
-
-                                                <div class="category-title">CATERGORY</div>
-                                                <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
-                                                <p>
-                                                    This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
-                                                </p>
-
-
-                                                <div class="section-title">FREE DOWNLOAD</div>
-
-                                                <img class="cover-ebook" src="https://gallery.mailchimp.com/94ffd0eaf89970561c2c295c1/images/f054107f-aa4f-4b1b-8b0a-e1db469db9c1.png" alt="">
-
-                                                <div style="margin-bottom: 30px;">
-                                                    <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
+                                                <div class="section-feature" mc:edit="body_feature_1" >
+                                                    <h1>FEATURED</h1>
+                                                    <h2>CATERGORY</h2>
+                                                    <h3>Your Title Here</h3>
                                                     <p>
                                                         This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
                                                     </p>
-                                                    <p align="center">
-                                                        <a href="" class="btn-get-now">Get it Now</a>
-                                                    </p>
+                                                </div>
+
+                                                <div class="section-feature" mc:edit="body_feature_2">
+                                                    <h1>FREE DOWNLOAD</h1>
+
+                                                    <img class="cover-ebook" src="https://gallery.mailchimp.com/94ffd0eaf89970561c2c295c1/images/f054107f-aa4f-4b1b-8b0a-e1db469db9c1.png" alt="">
+
+                                                    <div style="margin-bottom: 30px;">
+                                                        <h3>Your Title Here</h3>
+                                                        <p>
+                                                            This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
+                                                        </p>
+                                                        <p align="center">
+                                                            <a href="" class="btn-get-now">Get it Now</a>
+                                                        </p>
+                                                    </div>
                                                 </div>
 
 
+                                                <div class="section-feature" mc:edit="body_feature_3">
+                                                    <h1>RECOMMENDATION FROM ADVISORS</h1>
 
+                                                    <h2>CATERGORY</h2>
+                                                    <h3>Your Title Here</h3>
+                                                    <p>
+                                                        This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
+                                                    </p>
+                                                </div>
 
-                                                <div class="section-title">RECOMMENDATION FROM ADVISORS</div>
+                                                <div class="section-feature" mc:edit="body_feature_4">
+                                                    <h1>RECOMMENDATION FROM ADVISORS</h1>
 
-                                                <div class="category-title">CATERGORY</div>
-                                                <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
-                                                <p>
-                                                    This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
-                                                </p>
+                                                    <p style="font-style: italic;">
+                                                        Something that you want to promote. Something you want to give away....Discount...Link....Something that you want to promote. Something you want to give away....Discount...Link....
+                                                    </p>
+                                                    <hr>
+                                                    <h2>UPCOMING HIGHLIGHT EVENTS</h2>
 
-                                                <div class="category-title">CATERGORY</div>
-                                                <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
-                                                <p>
-                                                    This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
-                                                </p>
+                                                    <p>
+                                                        <b>May 20-21</b>: Event title here...... Event description here...what is this event about...
+                                                    </p>
 
-                                                <div class="category-title">CATERGORY</div>
-                                                <h1 class="title-gray" style="text-align: left">Your Title Here</h1>
-                                                <p>
-                                                    This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...This is excerpt section...
-                                                </p>
+                                                    <p>
+                                                        <b>May 20-21</b>: Event title here...... Event description here...what is this event about...
+                                                    </p>
 
-
-
-
-                                                <div class="section-title" style="margin-bottom: 10px">RECOMMENDATION FROM ADVISORS</div>
-
-                                                <p style="font-style: italic;">
-                                                    Something that you want to promote. Something you want to give away....Discount...Link....Something that you want to promote. Something you want to give away....Discount...Link....
-                                                </p>
-
-
-                                                <hr>
-                                                <div class="category-title">UPCOMING HIGHLIGHT EVENTS</div>
-
-                                                <p>
-                                                    <b>May 20-21</b>: Event title here...... Event description here...what is this event about...
-                                                </p>
-
-                                                <p>
-                                                    <b>May 20-21</b>: Event title here...... Event description here...what is this event about...
-                                                </p>
-
-                                                <p>
-                                                    <b>May 20-21</b>: Event title here...... Event description here...what is this event about...
-                                                </p>
+                                                    <p>
+                                                        <b>May 20-21</b>: Event title here...... Event description here...what is this event about...
+                                                    </p>
+                                                </div>
 
 
 
