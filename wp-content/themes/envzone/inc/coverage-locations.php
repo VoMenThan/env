@@ -102,7 +102,7 @@ get_header();
                                             <path d="M42.6776 7.32227C37.9558 2.60049 31.6777 0 25 0C18.3222 0 12.044 2.60049 7.32227 7.32227C2.60039 12.0441 0 18.3223 0 25C0 31.6777 2.60039 37.9558 7.32227 42.6776C12.0441 47.3995 18.3222 50 25 50C31.6777 50 37.9558 47.3995 42.6776 42.6776C47.3995 37.9558 50 31.6777 50 25C50 18.3223 47.3995 12.0442 42.6776 7.32227ZM25 47.0703C12.8304 47.0703 2.92969 37.1696 2.92969 25C2.92969 12.8304 12.8304 2.92969 25 2.92969C37.1696 2.92969 47.0703 12.8304 47.0703 25C47.0703 37.1696 37.1696 47.0703 25 47.0703Z" fill="#8DC63F"/>
                                             <path d="M36.9438 16.9785C36.3718 16.4066 35.4443 16.4066 34.8723 16.9786L21.9369 29.914L15.1276 23.1047C14.5556 22.5328 13.6281 22.5328 13.056 23.1047C12.484 23.6767 12.484 24.6042 13.056 25.1763L20.9011 33.0213C21.1871 33.3074 21.562 33.4503 21.9368 33.4503C22.3116 33.4503 22.6866 33.3073 22.9725 33.0213L36.9438 19.05C37.5159 18.4781 37.5159 17.5505 36.9438 16.9785Z" fill="#8DC63F"/>
                                         </svg>
-                                        <h3>Your business is located in our service coverage.</h3>
+                                        <h3><span id="tag-city-name" style="text-transform: capitalize;">Your business</span> is located in our service coverage.</h3>
                                         <p>
                                             Let’s get an online presence manager for your small business
                                         </p>
@@ -613,6 +613,7 @@ get_header();
                 var center = new google.maps.LatLng(lat, lng);
                 map.panTo(center);
                 map.setZoom(12);
+                $('#tag-city-name').html(city);
             }
 
             autocomplete.addListener('place_changed', function() {

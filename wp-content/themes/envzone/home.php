@@ -971,7 +971,6 @@ $taxonomies = get_terms( array(
             </section>
 
         </section>
-        <?php require_once "inc/popup-discovery.php";?>
     </main>
 
     <script type="text/javascript">

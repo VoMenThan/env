@@ -214,7 +214,7 @@ get_header();
                                         </tr>
                                         <tr class="blue">
                                             <td>
-                                                Custom design & development hour (does not rollover)
+                                                Time allocation for custom work (does not rollover)
                                                 <span class="info"></span>
 
                                             </td>
@@ -302,7 +302,7 @@ get_header();
 
                                         <tr>
                                             <th>
-                                                Digital Asset Management
+                                                Main Account Dashboard
                                             </th>
                                             <td></td>
                                             <td></td>
@@ -310,7 +310,7 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td>
-                                                Dedicated business cloud account for asset storage-5TB
+                                                Support ticket request portal
                                                 <span class="info"></span>
 
                                             </td>
@@ -320,7 +320,43 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td>
-                                                Dedicated SharePoint account for  asset management
+                                                Ticket queue
+                                                <span class="info"></span>
+                                            </td>
+                                            <td>Priority</td>
+                                            <td>Expedite</td>
+                                            <td>Basic</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Advisor booking
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure billing management
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Member resources access
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Custom service add-ons access
                                                 <span class="info"></span>
                                             </td>
                                             <td><span class="circle"></span></td>
@@ -328,6 +364,68 @@ get_header();
                                             <td><span class="circle"></span></td>
                                         </tr>
 
+                                        <tr>
+                                            <th>
+                                                Advance Business Management Portal
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Task management
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Coworker collaboration
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure message
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                File exchange
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Live help chat
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Dedicated cloud storage for website asset
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
                                         <tr>
                                             <th>
                                                 Hosting & Security Controls
@@ -338,7 +436,7 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td>
-                                                Secure hosting with latest speed technonolgy*
+                                                Secure hosting with latest speed technonolgy
                                                 <span class="info"></span>
                                             </td>
                                             <td><span class="circle"></span></td>
@@ -380,6 +478,7 @@ get_header();
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td>
@@ -389,6 +488,7 @@ get_header();
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td>
@@ -402,87 +502,6 @@ get_header();
                                         <tr>
                                             <td>
                                                 Version control with Github
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                The All-In-One Online Presence Support Portal
-                                            </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Ticket response
-                                                <span class="info"></span>
-                                            </td>
-                                            <td>Priority</td>
-                                            <td>Expedite</td>
-                                            <td>Basic  </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Ticket submission portal
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Online documentation
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Coworker collaboration
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Secure payment gateway
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Secure message
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                File exchange
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Live help chat
                                                 <span class="info"></span>
                                             </td>
                                             <td><span class="circle"></span></td>
@@ -669,7 +688,7 @@ get_header();
                                         </tr>
                                         <tr class="blue">
                                             <td>
-                                                Custom design & development hour (does not rollover)
+                                                Time allocation for custom work (does not rollover)
                                                 <span class="info"></span>
 
                                             </td>
@@ -757,7 +776,7 @@ get_header();
 
                                         <tr>
                                             <th>
-                                                Digital Asset Management
+                                                Main Account Dashboard
                                             </th>
                                             <td></td>
                                             <td></td>
@@ -765,7 +784,7 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td>
-                                                Dedicated business cloud account for asset storage-5TB
+                                                Support ticket request portal
                                                 <span class="info"></span>
 
                                             </td>
@@ -775,7 +794,43 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td>
-                                                Dedicated SharePoint account for  asset management
+                                                Ticket queue
+                                                <span class="info"></span>
+                                            </td>
+                                            <td>Priority</td>
+                                            <td>Expedite</td>
+                                            <td>Basic</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Advisor booking
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure billing management
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Member resources access
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Custom service add-ons access
                                                 <span class="info"></span>
                                             </td>
                                             <td><span class="circle"></span></td>
@@ -783,6 +838,68 @@ get_header();
                                             <td><span class="circle"></span></td>
                                         </tr>
 
+                                        <tr>
+                                            <th>
+                                                Advance Business Management Portal
+                                            </th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Task management
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Coworker collaboration
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Secure message
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                File exchange
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Live help chat
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Dedicated cloud storage for website asset
+                                                <span class="info"></span>
+                                            </td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                            <td><span class="circle"></span></td>
+                                        </tr>
                                         <tr>
                                             <th>
                                                 Hosting & Security Controls
@@ -793,7 +910,7 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td>
-                                                Secure hosting with latest speed technonolgy*
+                                                Secure hosting with latest speed technonolgy
                                                 <span class="info"></span>
                                             </td>
                                             <td><span class="circle"></span></td>
@@ -835,6 +952,7 @@ get_header();
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td>
@@ -844,6 +962,7 @@ get_header();
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
                                             <td><span class="circle"></span></td>
+
                                         </tr>
                                         <tr>
                                             <td>
@@ -857,87 +976,6 @@ get_header();
                                         <tr>
                                             <td>
                                                 Version control with Github
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                The All-In-One Online Presence Support Portal
-                                            </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Ticket response
-                                                <span class="info"></span>
-                                            </td>
-                                            <td>Priority</td>
-                                            <td>Expedite</td>
-                                            <td>Basic  </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Ticket submission portal
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Online documentation
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Coworker collaboration
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Secure payment gateway
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Secure message
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                File exchange
-                                                <span class="info"></span>
-                                            </td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                            <td><span class="circle"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Live help chat
                                                 <span class="info"></span>
                                             </td>
                                             <td><span class="circle"></span></td>

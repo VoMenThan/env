@@ -36,11 +36,20 @@
 		margin-bottom: 0;
 		line-height: 18px;
 	}
+	table{
+		width: 100%;
+		font-size: 20px;
+		margin-bottom: 20px;
+		td{
+			padding: 5px 10px;
+			color: #333333;
+		}
+	}
     .layout-none-sidebar{
         figure.w-100{
-            width: 900px !important;
-            max-width: 900px;
-            margin-left: -65px;
+			width: 1050px!important;
+			max-width: 1050px;
+			margin-left: -130px;
         }
     }
 	.box-share{
@@ -349,10 +358,12 @@
 	.box-related-article{
 		border: 1px solid $color-gray-border;
 		margin-bottom: 50px;
+		padding-left: 15px;
+		padding-right: 15px;
 		.title-article{
 			font-size: 1.5rem;
 			width: 100%;
-			padding: 15px;
+			padding: 15px 0;
 			color: $color-blue-lv3;
 			font-weight: bold;
 			position: relative;
@@ -372,7 +383,7 @@
 			}
 		}
 		.item-special-relate{
-			padding: 15px;
+			padding: 15px 0;
 			img{
 				margin-bottom: 10px;
 			}
@@ -392,8 +403,10 @@
 			}
 		}
 		.item-relate{
-			padding: 15px;
+			padding: 15px 0;
 			position: relative;
+			border-top: 1px solid #E0E0E0;
+
 			&:last-child{
 				border-bottom: none;
 			}

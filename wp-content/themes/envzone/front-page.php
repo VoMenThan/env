@@ -16,7 +16,7 @@
             <div class="col-lg-6">
                 <div class="box-item-organization box-business">
                     <div class="item-organization item-small-business">
-                        <img src="<?php echo $thrive_and_grow['icon_small_business'];?>" alt="">
+                        <img class="lazy" src="<?php echo $thrive_and_grow['icon_small_business'];?>" alt="Small Business">
                         <h3><?php echo $thrive_and_grow['title_small_business'];?></h3>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -33,7 +33,7 @@
             <div class="col-lg-6">
                 <div class="box-item-organization box-startups">
                     <div class="item-organization item-enterprises">
-                        <img src="<?php echo $thrive_and_grow['icon_emterprise'];?>" alt="">
+                        <img class="lazy" src="<?php echo $thrive_and_grow['icon_emterprise'];?>" alt="Enterprises & Startups">
                         <h3><?php echo $thrive_and_grow['title_enterprises'];?></h3>
                     </div>
                     <a href="<?php echo $thrive_and_grow['url_verified_team'];?>" class="btn btn-blue-env">
@@ -81,7 +81,7 @@
 
                             <div class="col-lg-7 img-special">
                                 <a href="<?php echo get_the_permalink($news_main[0]->ID);?>">
-                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" class="job-openings">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($news_main[0]->ID);?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($news_main[0]->ID), '_wp_attachment_image_alt', true);?>">
                                 </a>
                             </div>
                             <div class="col-lg-5 d-flex info-special flex-column align-items-start">
@@ -110,7 +110,7 @@
                                     }
 
                                     ?>
-                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                    <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                     <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $news_main[0]->post_author);?>" class="author-by">By <?php echo get_the_author_meta('display_name', $news_main[0]->post_author);?></a>
                                     <div class="date-by">on <?php echo get_the_date( 'F d, Y', $news_main[0]->ID );?></div>
                                 </div>
@@ -155,7 +155,9 @@
                             ?>
                             <div class="box-item-special item">
                                 <div class="item-blog clearfix">
-                                    <a class="img-feature-blog" href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                    <a class="img-feature-blog" href="<?php echo get_the_permalink($item->ID);?>">
+                                        <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                    </a>
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -164,7 +166,7 @@
                                             </a>
                                         </div>
                                         <div class="info-author">
-                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                             <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                                 By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                             </a>
@@ -218,7 +220,9 @@
                             ?>
                             <div class="col-lg-4 box-item-special item">
                                 <div class="item-blog">
-                                    <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                    <a href="<?php echo get_the_permalink($item->ID);?>">
+                                        <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                    </a>
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -227,7 +231,7 @@
                                             </a>
                                         </div>
                                         <div class="info-author">
-                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                             <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                                 By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                             </a>
@@ -300,7 +304,7 @@
             ?>
             <div class="col-lg-4">
                 <div class="item-author clearfix">
-                    <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['medium'];?>" alt="" class="img-fluid avatar-author">
+                    <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['medium'];?>" alt="<?php echo get_post_meta( get_post_thumbnail_id('user+'.$user->ID), '_wp_attachment_image_alt', true);?>" class="img-fluid lazy avatar-author">
                     <h3><?php echo $user->display_name;?></h3>
                     <div class="position"><?php echo get_field('position', 'user_'. $user->ID );?></div>
                     <a href="<?php echo home_url('author/').$user->nickname;?>">About </a>
@@ -391,7 +395,7 @@
                                 $avatar = get_field('avatar', 'user_'.$video_main[0]->post_author);
                             }
                             ?>
-                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                             <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $video_main[0]->post_author);?>" class="author-by">
                                 By <b><?php echo get_the_author_meta('display_name', $video_main[0]->post_author);?></b>
                             </a>
@@ -429,7 +433,7 @@
                                 ?>
                             <div class="item-detail clearfix">
                                 <a href="<?php echo get_permalink($item->ID);?>">
-                                    <img class="img-fluid" src="<?php echo grab_vimeo_thumbnail($vimeo);?>" alt="">
+                                    <img class="img-fluid lazy" src="<?php echo grab_vimeo_thumbnail($vimeo);?>" alt="">
                                 </a>
                                     <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category d-lg-none d-block">
                                         <?php echo get_the_category($item->ID)[0]->cat_name;?>
@@ -453,12 +457,7 @@
 
     <!-- /*============REVIEW COMPANIES HOME=================*/ -->
 
-    <?php $community_driven =  get_field('community_driven');
-    echo '<pre>';
-    print_r($community_driven);
-    echo '</pre>';
-
-    ?>
+    <?php $community_driven =  get_field('community_driven');?>
 
     <div class="container section-companies-homepage">
         <!-- /*============COMPANY HOME=================*/ -->
@@ -505,7 +504,7 @@
                     <div class="box-item-company clearfix">
                         <div class="box-logo">
                             <a href="<?php echo home_url('companies/').$item->post_name;?>">
-                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                                <img class="img-fluid lazy" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
                             </a>
                         </div>
                         <div class="box-info">
@@ -599,7 +598,9 @@
                         ?>
                         <div class="col-lg-4 box-item-special item">
                             <div class="item-blog">
-                                <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                <a href="<?php echo get_the_permalink($item->ID);?>">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                </a>
                                 <div class="info">
                                     <div class="info-news">
                                         <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -608,7 +609,7 @@
                                         </a>
                                     </div>
                                     <div class="info-author">
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                         <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                             By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                         </a>
@@ -662,7 +663,9 @@
                             ?>
                             <div class="col-lg-4 box-item-special item">
                                 <div class="item-blog">
-                                    <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                    <a href="<?php echo get_the_permalink($item->ID);?>">
+                                        <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>" >
+                                    </a>
                                     <div class="info">
                                         <div class="info-news">
                                             <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -671,7 +674,7 @@
                                             </a>
                                         </div>
                                         <div class="info-author">
-                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                            <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                             <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                                 By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                             </a>
@@ -744,7 +747,9 @@
                         ?>
                         <div class="col-lg-4 box-item-special item">
                             <div class="item-blog">
-                                <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                <a href="<?php echo get_the_permalink($item->ID);?>">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                </a>
                                 <div class="info">
                                     <div class="info-news">
                                         <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -753,7 +758,7 @@
                                         </a>
                                     </div>
                                     <div class="info-author">
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                         <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                             By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                         </a>
@@ -816,7 +821,6 @@
                     Tweets <span class="by">by</span> <a target="_blank" href="https://twitter.com/envzone">@EnvZone</a>
                 </h2>
                 <a class="twitter-timeline" data-chrome="noheader nofooter noborders"  data-lang="en" data-height="calc(100% - 88px)" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/envzone?ref_src=twsrc%5Etfw">Tweets by envzone</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
@@ -856,7 +860,9 @@
                         ?>
                         <div class="col-lg-4 box-item-special item">
                             <div class="item-blog">
-                                <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                <a href="<?php echo get_the_permalink($item->ID);?>">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                </a>
                                 <div class="info">
                                     <div class="info-news">
                                         <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -865,7 +871,7 @@
                                         </a>
                                     </div>
                                     <div class="info-author">
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                         <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                             By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                         </a>
@@ -908,7 +914,7 @@
                 ?>
                 <div class="col-lg-4">
                     <article class="box-ebook">
-                        <img class="img-fluid cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="">
+                        <img class="img-fluid lazy cover-ebook" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
                         <a href="<?php echo get_permalink($item->ID);?>" class="mb-3 d-block">
                             <h2>
                                 <?php echo $item->post_title;?>
@@ -963,7 +969,9 @@
                         ?>
                         <div class="col-lg-4 box-item-special item">
                             <div class="item-blog">
-                                <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                <a href="<?php echo get_the_permalink($item->ID);?>">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                </a>
                                 <div class="info">
                                     <div class="info-news">
                                         <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -972,7 +980,7 @@
                                         </a>
                                     </div>
                                     <div class="info-author">
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                         <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                             By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                         </a>
@@ -1014,7 +1022,7 @@
                 <div class="col-lg-6">
                     <div class="item-studio">
                         <a href="<?php echo get_permalink($photo_studio[0]->ID); ?>">
-                        <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($photo_studio[0]->ID); ?>" align="">
+                        <img class="img-fluid lazy" src="<?php echo get_the_post_thumbnail_url($photo_studio[0]->ID, 'large'); ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($photo_studio[0]->ID), '_wp_attachment_image_alt', true);?>">
                         <h5 class="large-item"><?php echo $photo_studio[0]->post_title; ?></h5>
                             <i class="icon-photo-play"></i>
                         </a>
@@ -1029,7 +1037,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mbx-100">
                             <div class="item-studio">
                                 <a href="<?php echo get_permalink($item->ID);?>">
-                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" align="">
+                                <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
                                 <h5><?php echo $item->post_title;?></h5>
                                     <i class="icon-photo-play small"></i>
                                 </a>
@@ -1079,7 +1087,9 @@
                         ?>
                         <div class="col-lg-4 box-item-special item">
                             <div class="item-blog">
-                                <a href="<?php echo get_the_permalink($item->ID);?>"><img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>" alt="" align="job-openings"></a>
+                                <a href="<?php echo get_the_permalink($item->ID);?>">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                </a>
                                 <div class="info">
                                     <div class="info-news">
                                         <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category"><?php echo get_the_category($item->ID)[0]->cat_name;?></a>
@@ -1088,7 +1098,7 @@
                                         </a>
                                     </div>
                                     <div class="info-author">
-                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid lazy avatar">
                                         <a href="<?php echo home_url("author/").get_the_author_meta('nickname', $item->post_author);?>" class="author-by">
                                             By <b><?php echo get_the_author_meta('display_name', $item->post_author);?></b>
                                         </a>
@@ -1112,8 +1122,8 @@ add_action( 'wp_footer', 'javascript_front_page' );
 
 function javascript_front_page(){
 ?>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
-
     (function ( $ ) {
         "use strict";
         $(document).ready(function (e) {

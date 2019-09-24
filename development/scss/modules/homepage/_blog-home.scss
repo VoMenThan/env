@@ -199,6 +199,9 @@
 			.item-blog{
 				border-bottom: 0;
 				position: relative;
+				&:hover{
+					box-shadow: none;
+				}
 				.link-post{
 					&:before{
 						content: '';
@@ -220,10 +223,12 @@
 					padding: 0;
 					margin: 0;
 					position: absolute;
-					top: 80%;
+					top: 60%;
 					left: 15px;
 					color: #fff;
 					z-index: 99;
+					font-size: 32px;
+					line-height: 150%;
 					&:hover{
 						color: #fff !important;
 						font-weight: bold;

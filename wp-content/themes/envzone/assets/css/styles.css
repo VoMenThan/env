@@ -2954,6 +2954,9 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   border-bottom: 0;
   position: relative;
 }
+.content-blog .box-item-special.item-blue-pc .item-blog:hover {
+  box-shadow: none;
+}
 .content-blog .box-item-special.item-blue-pc .item-blog .link-post:before {
   content: "";
   display: block;
@@ -2971,10 +2974,12 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 80%;
+  top: 60%;
   left: 15px;
   color: #fff;
   z-index: 99;
+  font-size: 32px;
+  line-height: 150%;
 }
 .content-blog .box-item-special.item-blue-pc .item-blog .title-white:hover {
   color: #fff !important;
@@ -9561,11 +9566,66 @@ section.testing-page .item-qa {
   padding-bottom: 0 !important;
   padding-top: 0 !important;
 }
+.small-business-page .box-list-digital-world {
+  padding-bottom: 260px;
+}
+.small-business-page .section-digital-world {
+  padding-top: 230px;
+}
+.small-business-page .section-digital-world h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 150%;
+  color: #0D3153;
+}
+.small-business-page .section-digital-world p {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 150%;
+  color: #808080;
+}
+.small-business-page .section-support-experience {
+  padding-top: 260px;
+  padding-bottom: 260px;
+}
+.small-business-page .section-support-experience .box-support-experience h2 {
+  padding-bottom: 100px;
+  font-weight: bold;
+}
+.small-business-page .bg-green-solution {
+  background: #F8FFF2;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.small-business-page .section-the-success-business {
+  padding-top: 260px;
+  padding-bottom: 260px;
+}
+.small-business-page .section-the-success-business h2 {
+  font-size: 36px;
+  line-height: 150%;
+  font-weight: bold;
+  color: #0D3153;
+}
+.small-business-page .section-current-action-matters {
+  padding-top: 170px;
+}
+.small-business-page .section-current-action-matters .box-your-current-action {
+  padding-bottom: 50px;
+}
+.small-business-page .section-current-action-matters .box-your-current-action h2 {
+  padding-bottom: 50px;
+}
+.small-business-page .section-current-action-matters .box-your-current-action p {
+  font-weight: 500;
+}
+.small-business-page .section-current-action-matters h2 {
+  font-weight: bold;
+}
 .small-business-page .section-top-customer {
   background: #F2F2F2;
   padding-top: 20px;
   padding-bottom: 30px;
-  margin-bottom: 140px;
 }
 .small-business-page .section-top-customer h3 {
   font-size: 18px;
@@ -9578,7 +9638,7 @@ section.testing-page .item-qa {
 .small-business-page .box-header {
   width: 80%;
   margin: auto;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
 }
 .small-business-page .box-header h2 {
   font-size: 36px;
@@ -9653,7 +9713,17 @@ section.testing-page .item-qa {
   width: 80%;
 }
 .small-business-page .box-originally-hard .item-originally-hard {
-  background: #F2F2F2;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
   padding: 20px;
 }
 .small-business-page .box-originally-hard .item-originally-hard p {
@@ -9715,8 +9785,8 @@ section.testing-page .item-qa {
   margin-bottom: 50px;
 }
 .small-business-page .section-your-business {
-  margin-top: 50px;
-  margin-bottom: 100px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .small-business-page .section-your-business h2 {
   font-size: 36px;
@@ -9734,8 +9804,8 @@ section.testing-page .item-qa {
 }
 .small-business-page .section-your-business ul > li:before {
   content: "";
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   background: url("../images/icon-checked-green.svg") no-repeat center;
   display: inline-block;
   background-size: 100%;
@@ -9743,6 +9813,20 @@ section.testing-page .item-qa {
   position: absolute;
   left: 0;
   top: 10px;
+}
+.small-business-page .section-your-business ul > li.close-x:before {
+  width: 25px;
+  height: 25px;
+  background: url("../images/icon-x-green.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
+}
+.small-business-page .section-your-business ul > li.confused-emoji:before {
+  width: 25px;
+  height: 25px;
+  background: url("../images/icon-confused-emoji-green.svg") no-repeat center;
+  display: inline-block;
+  background-size: 100%;
 }
 
 .coverage-location-page .section-map {
@@ -10022,12 +10106,38 @@ section.testing-page .item-qa {
     margin-left: 0;
   }
 
-  .small-business-page .section-top-customer {
-    margin-bottom: 100px;
+  .small-business-page .section-digital-world {
+    padding-top: 70px;
+  }
+  .small-business-page .section-digital-world h2 {
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+  .small-business-page .section-digital-world img {
+    margin-bottom: 50px;
+  }
+  .small-business-page .section-digital-world p {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .small-business-page .box-list-digital-world {
+    padding-bottom: 70px;
   }
   .small-business-page .section-top-customer img {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .small-business-page .section-support-experience {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+  .small-business-page .section-the-success-business {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .small-business-page .section-the-success-business h2 {
+    font-size: 24px;
+    padding-bottom: 50px;
   }
   .small-business-page .box-header {
     width: 100%;
@@ -10039,55 +10149,26 @@ section.testing-page .item-qa {
   .small-business-page .box-header p {
     font-size: 18px;
   }
+  .small-business-page .item-build {
+    margin-bottom: 100px;
+  }
   .small-business-page .item-build h3 {
     font-size: 18px;
     text-align: left;
   }
   .small-business-page .item-build ul > li {
     font-size: 18px;
+    font-weight: normal;
   }
   .small-business-page .item-build .block-expanded {
-    position: relative;
-    border-top: 1px solid #BDBDBD;
-    border-bottom: 1px solid #BDBDBD;
     padding: 20px 0;
-    margin-top: -1px;
   }
   .small-business-page .item-build .block-expanded img {
-    float: left;
-    width: 30px;
-    margin-bottom: 0;
-    margin-right: 15px;
-  }
-  .small-business-page .item-build .block-expanded h3 {
-    float: left;
-    margin-bottom: 0;
-    line-height: 30px;
-  }
-  .small-business-page .item-build .block-expanded .icon-arrow-bottom-gray {
-    width: 25px;
-    height: 25px;
-    background: url("../images/icon-arrow-bottom-gray.svg") no-repeat center;
-    display: inline-block;
-    background-size: 100%;
-    vertical-align: middle;
-    position: absolute;
-    right: 0;
-    z-index: 9999;
-  }
-  .small-business-page .item-build .block-expanded .icon-arrow-bottom-gray[aria-expanded=true] {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  .small-business-page .item-build .content-expanded {
-    margin-top: 15px;
+    width: 70px;
     margin-bottom: 15px;
   }
-  .small-business-page #accordion .box-button {
-    margin-top: 50px;
+  .small-business-page .item-build .block-expanded h3 {
+    text-align: center;
   }
   .small-business-page .box-button {
     margin-top: 0;
@@ -10104,8 +10185,8 @@ section.testing-page .item-qa {
     font-size: 18px;
   }
   .small-business-page .box-originally-hard {
-    margin-top: 200px;
-    margin-bottom: 130px;
+    margin-top: 150px;
+    margin-bottom: 150px;
   }
   .small-business-page .box-originally-hard h2 {
     width: 100%;
@@ -10115,7 +10196,7 @@ section.testing-page .item-qa {
     margin-bottom: 30px;
   }
   .small-business-page .box-originally-hard .item-originally-hard p {
-    font-size: 22px;
+    font-size: 18px;
   }
   .small-business-page .section-how-it-works {
     padding-top: 20px;
@@ -10135,24 +10216,38 @@ section.testing-page .item-qa {
     margin-bottom: 50px;
   }
   .small-business-page .section-your-business {
-    margin-top: 30px;
-    margin-bottom: 50px;
+    padding-top: 50px !important;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .small-business-page .section-your-business h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   .small-business-page .section-your-business ul > li {
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 35px;
+    font-weight: normal;
   }
   .small-business-page .section-your-business ul > li:before {
-    width: 25px;
-    height: 25px;
+    width: 20px !important;
+    height: 20px !important;
+    top: 5px;
+  }
+  .small-business-page .section-your-business ul > li.confused-emoji {
+    font-weight: 400;
+    font-size: 18px;
   }
   .small-business-page .section-your-business .box-button {
     margin-bottom: 0;
     margin-top: 20px;
+  }
+  .small-business-page .section-current-action-matters {
+    padding-bottom: 170px;
+  }
+  .small-business-page .section-current-action-matters h2 {
+    padding-bottom: 50px;
   }
 
   .coverage-location-page .section-map .box-search-city {
@@ -11158,10 +11253,19 @@ section.testing-page .item-qa {
   margin-bottom: 0;
   line-height: 18px;
 }
+.blog-detail-page table {
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.blog-detail-page table td {
+  padding: 5px 10px;
+  color: #333333;
+}
 .blog-detail-page .layout-none-sidebar figure.w-100 {
-  width: 900px !important;
-  max-width: 900px;
-  margin-left: -65px;
+  width: 1050px !important;
+  max-width: 1050px;
+  margin-left: -130px;
 }
 .blog-detail-page .box-share .list-social {
   padding-top: 10px;
@@ -11456,11 +11560,13 @@ section.testing-page .item-qa {
 .blog-detail-page .box-related-article {
   border: 1px solid #C4C4C4;
   margin-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .blog-detail-page .box-related-article .title-article {
   font-size: 1.5rem;
   width: 100%;
-  padding: 15px;
+  padding: 15px 0;
   color: #0D3153;
   font-weight: bold;
   position: relative;
@@ -11480,7 +11586,7 @@ section.testing-page .item-qa {
   z-index: 99;
 }
 .blog-detail-page .box-related-article .item-special-relate {
-  padding: 15px;
+  padding: 15px 0;
 }
 .blog-detail-page .box-related-article .item-special-relate img {
   margin-bottom: 10px;
@@ -11500,8 +11606,9 @@ section.testing-page .item-qa {
   font-family: "Roboto", sans-serif;
 }
 .blog-detail-page .box-related-article .item-relate {
-  padding: 15px;
+  padding: 15px 0;
   position: relative;
+  border-top: 1px solid #E0E0E0;
 }
 .blog-detail-page .box-related-article .item-relate:last-child {
   border-bottom: none;

@@ -42,6 +42,7 @@ get_header();
             </div>
         </div>
     </section>
+
     <section class="artical-page service-page small-business-page">
         <div class="container-fluid section-top-customer">
             <div class="container">
@@ -64,74 +65,87 @@ get_header();
                 </div>
             </div>
         </div>
+
+        <div class="container box-list-digital-world">
+            <div class="row section-digital-world">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <h2>Digital world is the fundamental way of communication for your small business</h2>
+                    <p>
+                        An online presence manager who gets the stage ready for your performance in front of the audience.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-digital-world-is-the-fundamental.jpg" alt="">
+                </div>
+            </div>
+            <div class="row section-digital-world">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-an-online-presence-job.jpg" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h2>An online presence’s job is to communicate with internet users</h2>
+                    <p>
+                        Build a stage where the audience from any position can observe well your performance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row section-digital-world">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <h2>Get a manager to take care of your online presence without breaking the bank</h2>
+                    <p>
+                        Have a dedicated staff called your own to make sure your business is in good shape.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-get-a-manager-to-take-care-of.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="row section-digital-world">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-the-only-actual-manager-that-cares.png" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h2>The only actual manager that cares about your website’s performance</h2>
+                    <p>
+                        Build a website that drive results, and operate properly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row section-digital-world">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <h2>Work smarter</h2>
+                    <p>
+                        Do not work alone and get burnout to grow your business. Team work makes your entrepreneur life better while maintaining happy interpersonal relationships.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-work-smarter.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-gray-process">
+            <div class="container section-your-business">
+                <div class="row box-peace-of-mind">
+                    <div class="col-lg-8">
+                        <h2>It is really frustrated to figure things out and build a website that is not sure if it drives results.</h2>
+                        <ul>
+                            <li class="confused-emoji">
+                                We understand how it feels to stay up late, digging internet for resources to build your online presence that works for your business.
+                            </li>
+                            <li class="confused-emoji">
+                                Nobody should have to experience the frustration of finding the ways to make online presence visible to the audience.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="box-header text-center">
-                        <h2>Built for small business</h2>
-                        <p>
-                            All the big business benefits without the high cost and complexity.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div id="accordion" class="row">
-                <div class="col-lg-4 item-build text-center">
-                    <div class="block-expanded clearfix">
-                        <img src="<?php echo ASSET_URL;?>images/icon-like-green.png" alt="">
-                        <h3>Easy to set up and manage</h3>
-                        <span class="icon-arrow-bottom-gray" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></span>
-                    </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="content-expanded">
-                            <ul>
-                                <li>No setup fees</li>
-                                <li>Remain focused on your business operation and intended results without getting stuck in the “how” or “who”</li>
-                                <li>Get a business cloud account and all-in-one collaboration portal</li>
-                                <li>High-quality service and 24/7 support.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 item-build text-center">
-                    <div class="block-expanded clearfix">
-                        <img src="<?php echo ASSET_URL;?>images/icon-investment-green.png" alt="">
-                        <h3>Savings you can count on</h3>
-                        <span class="icon-arrow-bottom-gray" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></span>
-                    </div>
-                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="content-expanded">
-                            <ul>
-                                <li>Save 50% or more compared to hiring local resources</li>
-                                <li>Hassel-free dealing of lengthy contract negotiations with normal agency solutions</li>
-                                <li>One manager for all your online operation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 item-build text-center">
-                    <div class="block-expanded clearfix">
-                        <img src="<?php echo ASSET_URL;?>images/icon-grows-green.png" alt="">
-                        <h3>Grows with you</h3>
-                        <span class="icon-arrow-bottom-gray" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"></span>
-                    </div>
-                    <div id="collapseThree" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="content-expanded">
-                            <ul>
-                                <li>Completely customize your requirements and goals to align with your business setting,</li>
-                                <li>Periodically performance benchmark and improve as you grow.</li>
-                                <li>Add features as you expand.</li>
-                                <li>Functionality to fit every business size.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-center box-button">
-                    <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">SEE PLAN DETAILS</a>
-                </div>
-            </div>
-
-
             <div class="row box-originally-hard">
                 <div class="col-lg-12">
                     <h2>We offer your small business setting something that is originally hard to find: </h2>
@@ -168,67 +182,63 @@ get_header();
                 </div>
 
             </div>
-        </div>
-
-        <div class="container-fluid bg-gray-process">
-            <div class="container">
-                <div class="row box-peace-of-mind">
-                    <div class="col-lg-8">
-                        <h2>Peace of mind, 365 days a year</h2>
-                        <p>
-                            Keeping your business visible online doesn’t have to be time consuming, stressful figure of how stuff works.
-                        </p>
-                        <p>
-                            Every time a need of change or simply improvement with your website comes up, there’s no need to scramble. With EnvZone, you’ll have a trusted manager ready to help whenever you need it. That’s real peace of mind.
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/icon-peace-of-mind.png" alt="">
-                        <img class="img-fluid d-lg-none d-block" src="<?php echo ASSET_URL;?>images/icon-peace-of-mind-mb.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container section-how-it-works">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center box-how-it-work">
-                    <h2>How it works</h2>
-                    <p>A solution built with team work mindset that drive results for your business. Not individual freelancer mindset.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 d-flex">
-                    <div class="item-how-it-work">
-                        <h3>1. Sign up</h3>
+                <div class="col-lg-8">
+                    <div class="box-header text-center">
+                        <h2>Easy onboarding plan</h2>
                         <p>
-                            Once you’ve signed up for an account for your business, a dedicated site manager will guide you through data migration of your website from our secure portal.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex">
-                    <div class="item-how-it-work">
-                        <h3>2. Get support</h3>
-                        <p>
-                            Get support from your team and start improving your website. Plus, getting insights from your website performance audit report.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex">
-                    <div class="item-how-it-work">
-                        <h3>3. Track and grow </h3>
-                        <p>
-                            As a member of EnvZone small business community, you will recieve monthly analytic report and recommendations for improvement of your online brand.
+                            A solution built with team work mindset that drive results for your business.
                         </p>
                     </div>
                 </div>
             </div>
             <div class="row">
+                <div class="col-lg-4 item-build text-center">
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo ASSET_URL;?>images/icon-create-account-green.png" alt="">
+                        <h3>#1. Create account</h3>
+                    </div>
+                    <div class="content-expanded">
+                        <ul>
+                            <li>Pick a plan and sign up</li>
+                            <li>Perform secure website moving</li>
+                            <li>Gather asset and upload</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 item-build text-center">
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo ASSET_URL;?>images/icon-envision-green.png" alt="">
+                        <h3>#2. Envision</h3>
+                    </div>
+                    <div class="content-expanded">
+                        <ul>
+                            <li>Get website audit & advised</li>
+                            <li>Get support & assistance</li>
+                            <li>Get development roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 item-build text-center">
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo ASSET_URL;?>images/icon-grows-green.png" alt="">
+                        <h3>#3. Grow up</h3>
+                    </div>
+                    <div class="content-expanded">
+                        <ul>
+                            <li>Implementation & development</li>
+                            <li>Content update and distribution</li>
+                            <li>Promote, tracking and follow up</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-right box-button">
+                    <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">SIGN UP NOW</a>
+                </div>
+            </div>
+            <div class="row section-support-experience">
                 <div class="col-lg-8 box-support-experience">
-                    <h2>You deserve a better support experience</h2>
-                    <p>
-                        We help established businesses of all sizes expand, grow, and thrive online. So whatever your next goal is, just tell us how we can help.
-                    </p>
+                    <h2>Success takes team work</h2>
                 </div>
                 <div class="col-lg-12 text-center flow-how-it-work">
                     <img class="img-fluid d-lg-block d-none" src="<?php echo ASSET_URL;?>images/img-how-it-work.png" alt="">
@@ -237,53 +247,137 @@ get_header();
             </div>
         </div>
 
-        <div class="container-fluid bg-gray-process">
+        <div class="container-fluid bg-green-solution">
             <div class="container section-your-business">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <h2>
-                            Why this is the plan for your business
+                            A solution that helps you avoid
                         </h2>
                     </div>
                     <div class="col-lg-10">
                         <ul>
-                            <li>
-                                As you can see in the above team roles, a variety of skills are required which you are unlikely to have immediately to hand in order to compete in this competitive digital world.
+                            <li class="close-x">
+                                Invisible to great amount of potential customers
                             </li>
-                            <li>
-                                Your business probably has a lacking support from in-house resource to manage online presence. Digital world is the foundation of communication and you can’t afford to let your business get lost. Maintaining the right-skill inhouse resources to run your business online is not sustainable for your business setting.
+                            <li class="close-x">
+                                Unhappy interpersonal relationships caused by negative business performance
                             </li>
-                            <li>
-                                With this solution, you’ll never worry about your website issues ever again. You’ll have a dedicated team who’s got your back—today, tomorrow, and every day.
+                            <li class="close-x">
+                                Slowly dying and burning out due to the lack of right resources to delegate
+                            </li>
+                            <li class="close-x">
+                                Negative customer satisfaction due to non-competency focus
+                            </li>
+                            <li class="close-x">
+                                A lack of one-on-one interaction with a manager that cares for your business
                             </li>
                         </ul>
-                    </div>
-                    <div class="col-lg-12 box-button text-center">
-                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">VIEW ALL PLANS</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <script>
-        $(document).ready(function(){
-            var width = $(window).width();
-            if (width <= 768) {
-                $('#collapseOne, #collapseTwo, #collapseThree').collapse('hide');
-            }else {
-                $('#collapseOne, #collapseTwo, #collapseThree').collapse('show');
-            }
-        });
-        $(window).on('resize', function(){
-            var win = $(this); //this = window
-            if (win.width() <= 768) {
-                $('#collapseOne,#collapseTwo, #collapseThree').collapse('hide');
-            }else {
-                $('#collapseOne,#collapseTwo, #collapseThree').collapse('show');
-            }
-        });
-    </script>
+        <div class="container section-the-success-business">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2>The success that you can achieve is more than just the business</h2>
+                </div>
+            </div>
+            <div class="row section-digital-world section-your-business pt-0">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <ul>
+                        <li>
+                            Audience actively finds your business
+                        </li>
+                        <li>
+                            Customer see your name as the solution to their problem
+                        </li>
+                        <li>
+                            Well-being, happy relationship, belief of hard work pays off
+                        </li>
+                        <li>
+                            Determined, clear direction to prioritize tasks that makes impact to the business
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-the-success-that-you-can-archieve-is-more.jpg" alt="">
+                </div>
+            </div>
+            <div class="row section-digital-world">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo ASSET_URL;?>images/img-premium-access-to-entrepreneurs-network.jpg" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h2>Premium access to entrepreneurs network</h2>
+                    <p>
+                        Get invited to limited access to entrepreneur club with members from across the country where you can get insights, growth advices from like-minded members, and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-gray-process">
+            <div class="container section-your-business">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2>
+                            EnvZone gives you all the tools and resources you need to succeed
+                        </h2>
+                        <ul>
+                            <li>
+                                Get more peaceful life since you have a team there who's got your back and keep your business communicate with desired online audience.
+                            </li>
+                            <li>
+                                Your business will be complete with the right human resources and tools to keep you up in the current competitive environment.
+                            </li>
+                            <li>
+                                No more unproductive task after hours, go home and enjoy family dinner time.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container section-current-action-matters">
+            <div class="row box-your-current-action">
+                <div class="col-lg-12">
+                    <h2 class="text-center">Your current action matters</h2>
+                </div>
+                <div class="col-lg-8">
+                    <p>
+                        No matter how you started, every effort is all count to a bigger picture. Someone like you have taken action for a good cause, create more jobs and could change people’s lives.
+                    </p>
+                </div>
+            </div>
+            <div class="row section-digital-world section-your-business pt-0">
+                <div class="col-lg-6">
+                    <ul>
+                        <li>
+                            Determined and clear direction
+                        </li>
+                        <li>
+                            Action oriented, fearless
+                        </li>
+                        <li>
+                            Nothing is impossible
+                        </li>
+                        <li>
+                            Smart management
+                        </li>
+                        <li>
+                            Make impact to other peoples lives
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 text-center box-button">
+                    <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">SIGN UP NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="//code.tidio.co/ljas59smx8hit2eissvid4hjv10sit8t.js"></script>
 </main>
 <?php get_footer();?>

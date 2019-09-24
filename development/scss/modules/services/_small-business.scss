@@ -14,49 +14,51 @@
         }
     }
 }
-.banner-small-business.bg-blue{
-    img{
-        bottom: 100px;
-    }
-    .box-info-small-business{
-        margin-top: 100px;
-        margin-bottom: 30px;
-        max-width: 800px;
-        h1{
-            position: static;
-            @include translate(0, 0);
-            color: #fff;
-            text-transform: inherit;
+.banner-small-business{
+    &.bg-blue{
+        img{
+            bottom: 100px;
+        }
+        .box-info-small-business{
+            margin-top: 100px;
             margin-bottom: 30px;
-            font-size: 30px;
-            line-height: 150%;
-        }
-        p{
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 150%;
-            margin-bottom: 15px;
-            color: #fff;
-            span.green{
-                background: #AEE366;
-                color: #0D3153;
-                padding: 5px;
+            max-width: 800px;
+            h1{
+                position: static;
+                @include translate(0, 0);
+                color: #fff;
+                text-transform: inherit;
+                margin-bottom: 30px;
+                font-size: 30px;
+                line-height: 150%;
             }
-        }
-        .btn-green-env{
-            color: $color-blue-logo !important;
-            font-weight: bold;
-            width: 200px;
-            &:hover{
-                color: #fff !important;
+            p{
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 150%;
+                margin-bottom: 15px;
+                color: #fff;
+                span.green{
+                    background: #AEE366;
+                    color: #0D3153;
+                    padding: 5px;
+                }
             }
-        }
-        .btn-white-env{
-            width: 200px;
-            margin-left: 50px;
-        }
-        .box-button{
-            padding-top: 15px;
+            .btn-green-env{
+                color: $color-blue-logo !important;
+                font-weight: bold;
+                width: 200px;
+                &:hover{
+                    color: #fff !important;
+                }
+            }
+            .btn-white-env{
+                width: 200px;
+                margin-left: 50px;
+            }
+            .box-button{
+                padding-top: 15px;
+            }
         }
     }
 }
@@ -64,11 +66,69 @@
 .small-business-page{
     padding-bottom: 0 !important;
     padding-top: 0 !important;
+
+    .box-list-digital-world{
+        padding-bottom: 260px;
+    }
+    .section-digital-world{
+        padding-top: 230px;
+        h2{
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 150%;
+            color: #0D3153;
+        }
+        p{
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 150%;
+            color: #808080;
+        }
+    }
+    .section-support-experience{
+        padding-top: 260px;
+        padding-bottom: 260px;
+        .box-support-experience{
+            h2{
+                padding-bottom: 100px;
+                font-weight: bold;
+            }
+        }
+    }
+    .bg-green-solution{
+        background: #F8FFF2;
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+    .section-the-success-business{
+        padding-top: 260px;
+        padding-bottom: 260px;
+        h2{
+            font-size: 36px;
+            line-height: 150%;
+            font-weight: bold;
+            color: #0D3153;
+        }
+    }
+    .section-current-action-matters{
+        padding-top: 170px;
+        .box-your-current-action{
+            padding-bottom: 50px;
+            h2{
+                padding-bottom: 50px;
+            }
+            p{
+                font-weight: 500;
+            }
+        }
+        h2{
+            font-weight: bold;
+        }
+    }
     .section-top-customer{
         background: #F2F2F2;
         padding-top: 20px;
         padding-bottom: 30px;
-        margin-bottom: 140px;
         h3{
             font-size: 18px;
             color: #808080;
@@ -81,7 +141,7 @@
     .box-header{
         width: 80%;
         margin: auto;
-        margin-bottom: 60px;
+        margin-bottom: 100px;
         h2{
             font-size: 36px;
             font-weight: bold;
@@ -153,7 +213,11 @@
             width: 80%;
         }
         .item-originally-hard{
-            background: #F2F2F2;
+            background: #FFFFFF;
+            border: 1px solid #BDBDBD;
+            box-sizing: border-box;
+            @include shadow-out(0px, 6px, 4px, rgba(0, 0, 0, 0.5));
+            @include radius(5px);
             padding: 20px;
             p{
                 font-size: 22px;
@@ -215,8 +279,8 @@
     }
 
     .section-your-business{
-        margin-top: 50px;
-        margin-bottom: 100px;
+        padding-top: 100px;
+        padding-bottom: 100px;
         h2{
             font-size: 36px;
             font-weight: bold;
@@ -232,11 +296,21 @@
             padding-left: 50px;
             &:before{
                 content: '';
-                @include setBackgroundIcon(35px, '../images/icon-checked-green.svg');
+                @include setBackgroundIcon(25px, '../images/icon-checked-green.svg');
                 text-align: left;
                 position: absolute;
                 left: 0;
                 top: 10px;
+            }
+            &.close-x{
+                &:before{
+                    @include setBackgroundIcon(25px, '../images/icon-x-green.svg');
+                }
+            }
+            &.confused-emoji{
+                &:before{
+                    @include setBackgroundIcon(25px, '../images/icon-confused-emoji-green.svg');
+                }
             }
         }
     }
@@ -509,11 +583,40 @@
         }
     }
     .small-business-page {
+        .section-digital-world{
+            padding-top: 70px;
+            h2{
+                font-size: 24px;
+                padding-bottom: 20px;
+            }
+            img{
+                margin-bottom: 50px;
+            }
+            p{
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+        .box-list-digital-world{
+            padding-bottom: 70px;
+        }
+
         .section-top-customer{
-            margin-bottom: 100px;
             img{
                 padding-left: 15px;
                 padding-right: 15px;
+            }
+        }
+        .section-support-experience{
+            padding-top: 160px;
+            padding-bottom: 160px;
+        }
+        .section-the-success-business{
+            padding-top: 100px;
+            padding-bottom: 100px;
+            h2{
+                font-size: 24px;
+                padding-bottom: 50px;
             }
         }
         .box-header {
@@ -527,6 +630,7 @@
             }
         }
         .item-build {
+            margin-bottom: 100px;
             h3{
                 font-size: 18px;
                 text-align: left;
@@ -534,44 +638,18 @@
             ul{
                 >li{
                     font-size: 18px;
+                    font-weight: normal;
                 }
             }
             .block-expanded{
-                position: relative;
-                border-top: 1px solid #BDBDBD;
-                border-bottom: 1px solid #BDBDBD;
                 padding: 20px 0;
-                margin-top: -1px;
                 img{
-                    float: left;
-                    width: 30px;
-                    margin-bottom: 0;
-                    margin-right: 15px;
+                    width: 70px;
+                    margin-bottom: 15px;
                 }
                 h3{
-                    float: left;
-                    margin-bottom: 0;
-                    line-height: 30px;
+                    text-align: center;
                 }
-                .icon-arrow-bottom-gray{
-                    @include setBackgroundIcon(25px, '../images/icon-arrow-bottom-gray.svg');
-                    vertical-align: middle;
-                    position: absolute;
-                    right: 0;
-                    z-index: 9999;
-                    &[aria-expanded="true"]{
-                        @include rotate(180deg);
-                    }
-                }
-            }
-            .content-expanded{
-                margin-top: 15px;
-                margin-bottom: 15px;
-            }
-        }
-        #accordion{
-            .box-button{
-                margin-top: 50px;
             }
         }
        .box-button{
@@ -589,8 +667,8 @@
             }
         }
         .box-originally-hard {
-            margin-top: 200px;
-            margin-bottom: 130px;
+            margin-top: 150px;
+            margin-bottom: 150px;
             h2{
                 width: 100%;
                 font-size: 24px;
@@ -598,7 +676,7 @@
             .item-originally-hard{
                 margin-bottom: 30px;
                 p{
-                    font-size: 22px;
+                    font-size: 18px;
                 }
             }
         }
@@ -620,23 +698,37 @@
             }
         }
         .section-your-business {
-            margin-top: 30px;
-            margin-bottom: 50px;
+            padding-top: 50px !important;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
             h2{
                 font-size: 24px;
-                margin-bottom: 20px;
+                margin-bottom: 50px;
             }
             ul > li{
-                font-size: 20px;
+                font-size: 18px;
                 padding-left: 35px;
+                font-weight: normal;
                 &:before{
-                    width: 25px;
-                    height: 25px;
+                    width: 20px !important;
+                    height: 20px !important;
+                    top: 5px;
+                }
+                &.confused-emoji{
+                    font-weight: 400;
+                    font-size: 18px;
                 }
             }
             .box-button{
                 margin-bottom: 0;
                 margin-top: 20px;
+            }
+        }
+        .section-current-action-matters{
+            padding-bottom: 170px;
+            h2{
+                padding-bottom: 50px;
             }
         }
     }
@@ -685,7 +777,6 @@
                 }
             }
         }
-
         .section-recommended-plans{
             h2{
                 font-size: 24px;
