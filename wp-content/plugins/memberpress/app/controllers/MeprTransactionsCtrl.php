@@ -7,6 +7,7 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
     add_action('wp_ajax_mepr_delete_transaction', array($this, 'delete_transaction'));
     add_action('wp_ajax_mepr_refund_transaction', array($this, 'refund_transaction'));
     add_action('wp_ajax_mepr_resend_txn_email',   array($this, 'resend_txn_email'));
+    add_action('wp_ajax_mepr_sub_download_pdf',   array($this, 'sub_download_pdf'));
     add_action('wp_ajax_mepr_default_expiration', array($this, 'default_expiration'));
     add_action('admin_enqueue_scripts',           array($this, 'enqueue_scripts'));
     add_action('wp_ajax_mepr_transactions',       array($this, 'csv'));
@@ -519,6 +520,29 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
     catch( Exception $e ) {
       die(__('There was an issue sending the email', 'memberpress'));
     }
+  }
+
+  public function sub_download_pdf() {
+      $mepr_options = MeprOptions::fetch();
+
+      if(!MeprUtils::is_mepr_admin()) {
+          die(__('You do not have access.', 'memberpress'));
+      }
+
+      if(!isset($_POST['id']) || empty($_POST['id']) || !is_numeric($_POST['id'])) {
+          die(__('Could not download PDF. Please try again later.', 'memberpress'));
+      }
+
+
+      $txn = new MeprTransaction($_POST['id']);
+      $params = MeprTransactionsHelper::get_email_params($txn);
+      $usr = $txn->user();
+      try {
+          echo 'PDF FIlE';
+      }
+      catch( Exception $e ) {
+          die(__('There was an issue download pdf', 'memberpress'));
+      }
   }
 
   public function default_expiration() {

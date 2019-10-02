@@ -99,7 +99,7 @@ if ($total_vote_star == 0){
                         <div class="box-info">
                             <h1><?php echo get_the_title();?></h1>
                             <div class="box-industries">
-                                <span>Industry:</span>
+                                <span>Industry: </span>
                                 <ul class="list-industries list-inline">
 
                                     <?php
@@ -536,6 +536,62 @@ if ($total_vote_star == 0){
         </div>
 
         <div class="container">
+            <div class="row section-trending no-print d-lg-flex d-none">
+                <div class="col-12 border-header">
+                    <h3 class="title-head-blue have-border">SMALL BUSINESS</h3>
+                    <a href="<?php echo home_url('category/small-business')?>" class="view-all">VIEW ALL</a>
+                </div>
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-theme d-flex slider-news">
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 10,
+                            'offset'=> 0,
+                            'post_type' => 'post',
+                            'category_name' => 'small-business',
+                            'orderby' => 'id',
+                            'order' =>'desc'
+                        );
+                        $news_expert = get_posts( $args );
+
+                        foreach ($news_expert as $item):
+                            ?>
+                            <article class="highlight-news-right img-center item">
+                                <a class="thumbnail-news" href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
+                                    <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url($item->ID);?>">
+                                </a>
+                                <div class="info-news">
+                                    <a href="<?php echo home_url('category/').get_the_category($item->ID)[0]->slug;?>" class="category">
+                                        <?php echo get_the_category($item->ID)[0]->cat_name;?>
+                                    </a>
+                                    <a href="<?php echo get_permalink($item->ID);?>">
+                                        <h2>
+                                            <?php echo $item->post_title;?>
+                                        </h2>
+                                    </a>
+                                    <div class="audit">
+                                        <?php
+                                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                                            $avatar = ASSET_URL.'images/avatar-default.png';
+                                        }
+                                        else{
+                                            $avatar = get_field('avatar', 'user_'.$item->post_author);
+                                        }
+                                        ?>
+                                        <img src="<?php echo $avatar['sizes']['thumbnail'];?>" alt="" class="img-fluid avatar">
+                                        <span>By</span>
+                                        <a class="author" href="<?php echo home_url('author/').get_the_author_meta('nickname', $item->post_author);?>">
+                                            <?php echo get_the_author_meta('display_name', $item->post_author);?>
+                                        </a>
+                                        <div class="date-public">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+
             <div class="row section-trending no-print d-lg-block d-none">
                 <div class="col-12 border-header">
                     <h3 class="title-head-blue have-border">LEARN MORE ABOUT C-LEVEL ADVICES</h3>

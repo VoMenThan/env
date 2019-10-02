@@ -497,6 +497,9 @@ $guest_author = get_field('guest_user', $post->ID);
                             <li class="month">
                                 <a href="<?php echo home_url('archived-articles').'?date=2019-07'?>">Jul</a>
                             </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-articles').'?date=2019-08'?>">Aug</a>
+                            </li>
                         </ul>
                     </div>
 

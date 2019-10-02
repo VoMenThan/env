@@ -176,7 +176,7 @@ get_header();?>
                         <?php
                         global $wp_query;
                         $param = array(
-                            'role__in'         => array('administrator', 'editor', 'former_staff_env')
+                            'role__in'         => array('administrator', 'editor','author', 'former-staff')
                         );
 
                         $users = get_users($param);

@@ -5,9 +5,22 @@ class EnvzoneMTAdmin
 
     public function __construct()
     {
-        //echo '<br>' . __METHOD__;
         add_action('admin_menu', array($this, 'settingMenuPost'));
+        add_action('admin_menu', array($this, 'settingMenuEmail'));
 
+    }
+
+    //=======================================================
+    //2. Them mot Menu vao Dashboard cua WP menus
+    //=======================================================
+    public function settingMenuEmail(){
+        $menuSlugMagnet = 'envzone-mt-setting-email';
+        add_submenu_page('edit.php?post_type=mail_notification','Send email', 'Send email', 'manage_options',
+            $menuSlugMagnet, array($this,'settingPageEmail'));
+    }
+
+    public function settingPageEmail(){
+        require ENVZONE_MT_VIEWS_DIR . '/setting-page-email.php';
     }
 
 
@@ -35,9 +48,9 @@ class EnvzoneMTAdmin
         add_submenu_page('edit.php?post_type=resources','Promotion Mode', 'Promotion Mode', 'manage_options',
             $menuSlugMagnet, array($this,'settingPageMagnet'));
 
-        $menuSlugMagnet = 'envzone-mt-setting-companies';
+        $menuSlugCompanies = 'envzone-mt-setting-companies';
         add_submenu_page('edit.php?post_type=companies','Promotion Mode', 'Promotion Mode', 'manage_options',
-            $menuSlugMagnet, array($this,'settingPageCompanies'));
+            $menuSlugCompanies, array($this,'settingPageCompanies'));
 
     }
 

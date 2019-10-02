@@ -138,6 +138,9 @@ if (count($get_date) >= 1){
                                 <li class="month">
                                     <a class="<?php echo $get_month == 07 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-07'?>">Jul</a>
                                 </li>
+                                <li class="month">
+                                    <a class="<?php echo $get_month == 8 ? 'active' : '';?>" href="<?php echo home_url('archived-articles').'?date=2019-08'?>">Aug</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

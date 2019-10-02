@@ -39,10 +39,11 @@ get_header();
         <div class="blog-page">
             <div class="section-map">
                 <div class="container">
+                    <?php $online_presence = get_field('online_presence');?>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="box-search-city">
-                                <h2>Online presence manager as a service</h2>
+                                <h2><?php echo $online_presence['title'];?></h2>
                                     <label for="location-city">My business is located in</label>
                                     <input id="location-city" type="text" placeholder="Enter your city here">
                                     <div id="myCheck" class="btn btn-green-env">CHECK AVAILABILITY</div>
@@ -96,22 +97,19 @@ get_header();
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-9">
+                                <?php echo $message_for_city = get_field('message_for_city');?>
                                 <div class="box-select-plan have-service d-none">
                                     <div class="have-plan">
                                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M42.6776 7.32227C37.9558 2.60049 31.6777 0 25 0C18.3222 0 12.044 2.60049 7.32227 7.32227C2.60039 12.0441 0 18.3223 0 25C0 31.6777 2.60039 37.9558 7.32227 42.6776C12.0441 47.3995 18.3222 50 25 50C31.6777 50 37.9558 47.3995 42.6776 42.6776C47.3995 37.9558 50 31.6777 50 25C50 18.3223 47.3995 12.0442 42.6776 7.32227ZM25 47.0703C12.8304 47.0703 2.92969 37.1696 2.92969 25C2.92969 12.8304 12.8304 2.92969 25 2.92969C37.1696 2.92969 47.0703 12.8304 47.0703 25C47.0703 37.1696 37.1696 47.0703 25 47.0703Z" fill="#8DC63F"/>
                                             <path d="M36.9438 16.9785C36.3718 16.4066 35.4443 16.4066 34.8723 16.9786L21.9369 29.914L15.1276 23.1047C14.5556 22.5328 13.6281 22.5328 13.056 23.1047C12.484 23.6767 12.484 24.6042 13.056 25.1763L20.9011 33.0213C21.1871 33.3074 21.562 33.4503 21.9368 33.4503C22.3116 33.4503 22.6866 33.3073 22.9725 33.0213L36.9438 19.05C37.5159 18.4781 37.5159 17.5505 36.9438 16.9785Z" fill="#8DC63F"/>
                                         </svg>
-                                        <h3><span id="tag-city-name" style="text-transform: capitalize;">Your business</span> is located in our service coverage.</h3>
-                                        <p>
-                                            Let’s get an online presence manager for your small business
-                                        </p>
-                                        <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-green-env btn-plan">SELECT A PLAN</a>
+                                        <?php echo $message_for_city['support'];?>
                                     </div>
                                 </div>
                                 <div class="box-select-plan no-service d-none">
                                     <div class="have-plan">
-                                        <h3>No service coverage found. You must type a city searching by country is not currently supported.</h3>
+                                        <?php echo $message_for_city['no_support'];?>
                                     </div>
                                 </div>
                             </div>
@@ -120,11 +118,12 @@ get_header();
                 </div>
             </div>
             <div class="container">
+                <?php $top_cities = get_field('top_cities');?>
                 <div class="row section-check-out-city">
                     <div class="col-lg-12 box-head">
-                        <h2>Check out top cities for SMBs</h2>
+                        <h2><?php echo $top_cities['title'];?></h2>
                         <p>
-                            A selection of citites to do business for high growth opportunities
+                            <?php echo $top_cities['description'];?>
                         </p>
                     </div>
                     <div class="col-lg-12">
@@ -138,15 +137,17 @@ get_header();
                     </div>
                 </div>
 
+                <?php $recommended_plans = get_field('recommended_plans');?>
                 <div class="row section-recommended-plans">
                     <div class="col-lg-12">
-                        <h2 class="title-head-blue">Featured insights for small businesses</h2>
+                        <h2 class="title-head-blue"><?php echo $recommended_plans['title'];?></h2>
                     </div>
+                    <?php foreach ($recommended_plans['item'] as $item):?>
                     <div class="col-lg-4">
                         <div class="item-recommended">
-                            <h3>High-Growth</h3>
-                            <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">
-                                See Plan
+                            <h3><?php echo $item['name'];?></h3>
+                            <a href="<?php echo $item['link_button'];?>" class="btn btn-blue-env">
+                                <?php echo $item['button_name'];?>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0)">
                                         <path d="M19.8779 9.70539L13.6279 3.45539C13.4652 3.29262 13.2015 3.29262 13.0387 3.45539C12.876 3.61817 12.876 3.88184 13.0387 4.04457L18.5775 9.58332H0.41668C0.186367 9.58332 0 9.76969 0 10C0 10.2303 0.186367 10.4167 0.41668 10.4167H18.5775L13.0387 15.9554C12.876 16.1182 12.876 16.3818 13.0387 16.5446C13.1201 16.6259 13.2268 16.6666 13.3334 16.6666C13.44 16.6666 13.5466 16.6259 13.628 16.5446L19.878 10.2946C20.0407 10.1318 20.0407 9.86817 19.8779 9.70539Z" fill="white"/>
@@ -160,42 +161,7 @@ get_header();
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="item-recommended">
-                            <h3>Main-Street</h3>
-                            <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">
-                                See Plan
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0)">
-                                        <path d="M19.8779 9.70539L13.6279 3.45539C13.4652 3.29262 13.2015 3.29262 13.0387 3.45539C12.876 3.61817 12.876 3.88184 13.0387 4.04457L18.5775 9.58332H0.41668C0.186367 9.58332 0 9.76969 0 10C0 10.2303 0.186367 10.4167 0.41668 10.4167H18.5775L13.0387 15.9554C12.876 16.1182 12.876 16.3818 13.0387 16.5446C13.1201 16.6259 13.2268 16.6666 13.3334 16.6666C13.44 16.6666 13.5466 16.6259 13.628 16.5446L19.878 10.2946C20.0407 10.1318 20.0407 9.86817 19.8779 9.70539Z" fill="white"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0">
-                                            <rect width="20" height="20" fill="white"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item-recommended">
-                            <h3>Growing Business</h3>
-                            <a href="<?php echo home_url('plans-and-pricing')?>" class="btn btn-blue-env">
-                                See Plan
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0)">
-                                        <path d="M19.8779 9.70539L13.6279 3.45539C13.4652 3.29262 13.2015 3.29262 13.0387 3.45539C12.876 3.61817 12.876 3.88184 13.0387 4.04457L18.5775 9.58332H0.41668C0.186367 9.58332 0 9.76969 0 10C0 10.2303 0.186367 10.4167 0.41668 10.4167H18.5775L13.0387 15.9554C12.876 16.1182 12.876 16.3818 13.0387 16.5446C13.1201 16.6259 13.2268 16.6666 13.3334 16.6666C13.44 16.6666 13.5466 16.6259 13.628 16.5446L19.878 10.2946C20.0407 10.1318 20.0407 9.86817 19.8779 9.70539Z" fill="white"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0">
-                                            <rect width="20" height="20" fill="white"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    <?php endforeach;?>
                 </div>
                 <div class="row section-trending">
                     <div class="col-12 border-header">

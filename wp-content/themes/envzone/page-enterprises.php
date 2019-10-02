@@ -8,7 +8,7 @@
 
     <div class="owl-carousel slider-home owl-theme">
         <div class="item">
-            <img src="<?php echo ASSET_URL;?>images/banner-home-3.png">
+            <img src="<?php echo get_the_post_thumbnail_url();?>">
             <div class="container">
                 <article class="box-headline">
                     <h1 class="head-line-envzone">
@@ -98,6 +98,245 @@
 <main class="main-content home-page enterprises-page">
 
 
+    <!--SECTION 5 STEP-->
+    <section class="artical-page service-page small-business-page">
+        <div class="container box-list-digital-world">
+            <?php $cto_ceo = get_field('cto_ceo');?>
+            <div class="row section-digital-world">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <h2><?php echo $cto_ceo['title'];?></h2>
+                    <p>
+                        <?php echo $cto_ceo['description'];?>
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo $cto_ceo['image']?>" alt="">
+                </div>
+            </div>
+
+            <?php $delegate_the_development = get_field('delegate_the_development');?>
+            <div class="row section-digital-world">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo $delegate_the_development['image'];?>" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h2><?php echo $delegate_the_development['title'];?></h2>
+                    <p>
+                        <?php echo $delegate_the_development['description'];?>
+                    </p>
+                </div>
+            </div>
+
+            <?php $an_outsourcing_advisor = get_field('an_outsourcing_advisor');?>
+            <div class="row section-digital-world">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <h2><?php echo $an_outsourcing_advisor['title'];?></h2>
+                    <p>
+                        <?php echo $an_outsourcing_advisor['description'];?>
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo $an_outsourcing_advisor['image']?>" alt="">
+                </div>
+            </div>
+
+            <?php $get_a_cost_effective = get_field('get_a_cost_effective');?>
+            <div class="row section-digital-world">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo $get_a_cost_effective['image'];?>" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h2><?php echo $get_a_cost_effective['title'];?></h2>
+                    <p>
+                        <?php echo $get_a_cost_effective['description'];?>
+                    </p>
+                </div>
+            </div>
+
+            <?php $make_your_organization = get_field('make_your_organization');?>
+            <div class="row section-digital-world">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <h2><?php echo $make_your_organization['title'];?></h2>
+                    <p>
+                        <?php echo $make_your_organization['description'];?>
+                    </p>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo $make_your_organization['image'];?>" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-gray-process">
+            <div class="container section-your-business">
+                <div class="row box-peace-of-mind">
+                    <div class="col-lg-8">
+                        <h2>It is obviously skeptical to delegate your product development to someone you don’t know</h2>
+                        <ul>
+                            <li class="confused-emoji">We understand how it feels to cluelessly search from the internet or fellow network with the hope of finding the right team that you can trust</li>
+                            <li class="confused-emoji">Nobody should have to risk one's professional career for an outsourcing decision that might destroy the organization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SECTION 5 STEP-->
+
+
+    <!--SECTION 3 REASONS-->
+    <?php
+    $video_feature = get_field('video_feature');
+    ?>
+    <div class="container-fluild section-knowledge">
+        <div class="container content-knowledge">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 video-play">
+                    <div class="embed-video">
+                        <?php echo get_field('embed', $video_feature->ID);?>
+                    </div>
+                    <a href="<?php echo get_permalink($video_feature->ID);?>">
+                        <h3 class="title-head-blue">
+                            <?php echo $video_feature->post_title;?>
+                        </h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END SECTION 3 REASONS-->
+
+    <!-- /*============LEAD MAGNET HOME=================*/ -->
+    <?php
+    $args = array(
+        'posts_per_page' => 1,
+        'offset'=> 0,
+        'post_type' => 'resources',
+        'orderby' => 'post_modified',
+        'order' =>'desc',
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => 'lead_magnet_mode',
+                'value' => 'feature',
+                'compare' => 'LIKE',
+            )
+        )
+
+    );
+    $ebook_resources = get_posts( $args );
+    ?>
+    <div class="container-fluid">
+        <div class="container lead-magnet-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>
+                        <?php echo get_field('irresistible_headline', $ebook_resources[0]->ID);?>
+                    </h2>
+                    <div class="box-infomation-ebook clearfix">
+                        <img class="img-fluid img-cover-ebook" src="<?php echo get_the_post_thumbnail_url($ebook_resources[0]->ID);?>" alt="">
+
+                        <div class="info-ebook">
+                            <?php echo $ebook_resources[0]->post_content;?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="title-download-free">
+                        <?php echo get_field('title_download',$ebook_resources[0]->ID)?>
+                    </div>
+                    <a href="<?php echo home_url('resources/').$ebook_resources[0]->post_name;?>" class="btn btn-blue-env">
+                        <?php echo get_field('title_button_download',$ebook_resources[0]->ID)?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /*============END LEAD MAGNET HOME=================*/ -->
+
+    <!-- /*============HASSEL FREE ONBOARDING PLAN=================*/ -->
+    <?php $hassel_free_ondoarding = get_field('hassel_free_ondoarding');?>
+    <section class="artical-page service-page small-business-page">
+        <div class="container" style="padding-top: 200px; padding-bottom: 200px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="box-header text-center">
+                        <h2><?php echo $hassel_free_ondoarding['title'];?></h2>
+                        <p><?php echo $hassel_free_ondoarding['description'];?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <?php foreach ($hassel_free_ondoarding['list_onboarding'] as $item):?>
+                <div class="col-lg-4 item-build text-center">
+                    <div class="block-expanded clearfix">
+                        <img src="<?php echo $item['image'];?>" alt="">
+                        <h3><?php echo $item['title'];?></h3>
+                    </div>
+                </div>
+                <?php endforeach;?>
+
+                <div class="col-lg-12 text-right box-button">
+                    <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">FIND MY TEAM NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /*============END HASSEL FREE ONBOARDING PLAN=================*/ -->
+
+    <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->
+    <?php $sec_process_framework = get_field('process_framework', $post->ID);?>
+    <div class="container-fluid bg-gray-process">
+        <div class="container">
+            <div class="row content-framework tab-content" id="pills-tabContentProcess">
+                <div class="col-12 text-center box-head-framework">
+                    <h2 class="title-head-blue"><?php echo $sec_process_framework['title'];?></h2>
+                    <p class="description-process-framework">
+                        <?php echo $sec_process_framework['description'];?>
+                    </p>
+                </div>
+                <div class="col-12 tab-process-framework-mb">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-discovery-tab" data-toggle="pill" href="#pills-discovery" role="tab" aria-controls="pills-discovery" aria-selected="true">1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-initial-tab" data-toggle="pill" href="#pills-initial" role="tab" aria-controls="pills-initial" aria-selected="false">2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-development-tab" data-toggle="pill" href="#pills-development" role="tab" aria-controls="pills-development" aria-selected="false">3</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 tab-pane fade show active" id="pills-discovery" role="tabpanel" aria-labelledby="pills-discovery-tab">
+                    <article class="item-framework">
+                        <?php echo $sec_process_framework['step_1'];?>
+                    </article>
+                </div>
+                <div class="col-lg-4 tab-pane fade" id="pills-initial" role="tabpanel" aria-labelledby="pills-initial-tab">
+                    <article class="item-framework">
+                        <?php echo $sec_process_framework['step_2'];?>
+                    </article>
+                </div>
+                <div class="col-lg-4 tab-pane fade" id="pills-development" role="tabpanel" aria-labelledby="pills-development-tab">
+                    <article class="item-framework">
+                        <?php echo $sec_process_framework['step_3'];?>
+                    </article>
+                </div>
+
+                <div class="col-lg-12 text-right pt-lg-5 pt-3">
+                    <a href="<?php echo $sec_process_framework['button_url'];?>" class="btn btn-green-env">
+                        <?php echo $sec_process_framework['button_name'];?>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- /*============END PROCESS FRAMEWORK HOME=================*/ -->
+
 
     <!-- /*============CTA ANALYZE HOME=================*/ -->
     <?php $quora =  get_field('quora', $post->ID);?>
@@ -147,43 +386,35 @@
     </section>
     <!-- /*============CTA ANALYZE HOME END=================*/ -->
 
-    <!--SECTION 3 REASONS-->
-    <?php
-    $args = array(
-        'posts_per_page' => 1,
-        'offset'=> 0,
-        'post_type' => 'knowledge_center',
-        'orderby' => 'post_modified',
-        'order' =>'desc',
-        'meta_query' => array(
-            'relation' => 'OR',
-            array(
-                'key' => 'video_show',
-                'value' => 'knowledge-center',
-                'compare' => 'LIKE',
-            )
-        )
-    );
-    $video_main = get_posts( $args );
-    ?>
-    <div class="container-fluild section-knowledge">
-        <div class="container content-knowledge">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 video-play">
-                    <div class="embed-video">
-                        <?php echo get_field('embed', $video_main[0]->ID);?>
+
+    <!-- /*============THE SOLUTION=================*/ -->
+    <section class="artical-page service-page small-business-page">
+        <div class="container-fluid bg-green-solution">
+            <div class="container section-your-business">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <h2>
+                            A solution that helps you avoid
+                        </h2>
                     </div>
-                    <a href="<?php echo get_permalink($video_main[0]->ID);?>">
-                        <h3 class="title-head-blue">
-                            <?php echo $video_main[0]->post_title;?>
-                        </h3>
-                    </a>
+                    <div class="col-lg-10">
+                        <ul>
+                            <li class="close-x">Missing market opportunity caused by development procrastination</li>
+                            <li class="close-x">Risky exposure of intellectual property</li>
+                            <li class="close-x">Unexpected low quality deliverables due to ineffective engineering management</li>
+                            <li class="close-x">Loose sight and poor responsive in communication across organization</li>
+                            <li class="close-x">Negative impact on professional career due to unsuccessful outsourcing decision</li>
+                            <li class="close-x">Unhappy interpersonal relationships caused by negative business performance</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--END SECTION 3 REASONS-->
+    </section>
+    <!-- /*============END THE SOLUTION=================*/ -->
 
+
+    <!-- /*============THE OVERHEAD=================*/ -->
     <?php $the_overhead = get_field('the_overhead', $post->ID);?>
     <div class="container-fluid bg-gray-process overhead-costs-page">
         <div class="container content-overhead-costs">
@@ -216,110 +447,84 @@
             </div>
         </div>
     </div>
+    <!-- /*============END THE OVERHEAD=================*/ -->
 
-    <!-- /*============DID YOU KNOW=================*/ -->
-    <?php $the_reason = get_field('the_reason', $post->ID);?>
-    <div class="container-fluid d-lg-block d-md-block d-none">
-        <div class="container">
-            <div class="row content-reasons">
-                <div class="col-12 text-center box-head-reasons">
-                    <h2 class="title-head-blue"><img src="<?php echo ASSET_URL;?>images/icon-light-bulb.png" alt=""><?php echo $the_reason['title'];?></h2>
-                    <div class="description-head-reasons">
-                        <?php echo $the_reason['subtitle'];?>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="box-list-reasons">
-                        <?php
-                        if ($the_reason['list_reasons'] != null):
-                            foreach ($the_reason['list_reasons'] as $item):
-                                ?>
-                                <div class="item-reason clearfix">
-                                    <div class="box-icon">
-                                        <img class="img-fluid" src="<?php echo $item['icon'];?>" alt="">
-                                    </div>
-                                    <div class="box-reasons">
-                                        <h3>
-                                            <?php echo $item['title'];?>
-                                        </h3>
-                                        <p>
-                                            <?php echo $item['description'];?>
-                                        </p>
-                                    </div>
-                                </div>
-                            <?php endforeach;
-                        endif;
-                        ?>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="box-clients">
-                        <div class="info-optimize d-flex align-items-center">
-                            <?php echo $the_reason['title_desired'];?>
-                        </div>
-                        <a href="<?php echo $the_reason['button_url'];?>" class="btn btn-green-env">
-                            <?php echo $the_reason['button_name'];?>
-                        </a>
-                    </div>
-                </div>
 
+    <!-- /*============THE SUCESS THAT=================*/ -->
+    <section class="artical-page service-page small-business-page">
+        <?php $the_success_that = get_field('the_success_that');?>
+        <div class="container section-the-success-business">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2><?php echo $the_success_that['title'];?></h2>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- /*============END DID YOU KNOW=================*/ -->
+            <div class="row section-digital-world section-your-business pt-0">
+                <div class="col-lg-6 order-lg-0 order-1">
+                    <?php echo $the_success_that['description'];?>
+                </div>
+                <div class="col-lg-6 text-lg-right order-lg-1 order-0">
+                    <img class="img-fluid" src="<?php echo $the_success_that['image'];?>" alt="">
+                </div>
+            </div>
 
-    <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->
-    <?php $sec_process_framework = get_field('process_framework', $post->ID);?>
-    <div class="container-fluid bg-gray-process">
-        <div class="container">
-            <div class="row content-framework tab-content" id="pills-tabContentProcess">
-                <div class="col-12 text-center box-head-framework">
-                    <h2 class="title-head-blue"><?php echo $sec_process_framework['title'];?></h2>
-                    <p class="description-process-framework">
-                        <?php echo $sec_process_framework['description'];?>
+            <?php $get_speed_up = get_field('get_speed_up');?>
+            <div class="row section-digital-world">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="<?php echo $get_speed_up['image'];?>" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h2><?php echo $get_speed_up['title'];?></h2>
+                    <p>
+                        <?php echo $get_speed_up['description'];?>
                     </p>
                 </div>
-                <div class="col-12 tab-process-framework-mb">
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-discovery-tab" data-toggle="pill" href="#pills-discovery" role="tab" aria-controls="pills-discovery" aria-selected="true">1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-initial-tab" data-toggle="pill" href="#pills-initial" role="tab" aria-controls="pills-initial" aria-selected="false">2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-development-tab" data-toggle="pill" href="#pills-development" role="tab" aria-controls="pills-development" aria-selected="false">3</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 tab-pane fade show active" id="pills-discovery" role="tabpanel" aria-labelledby="pills-discovery-tab">
-                    <article class="item-framework">
-                        <?php echo $sec_process_framework['step_1'];?>
-                    </article>
-                </div>
-                <div class="col-lg-4 tab-pane fade" id="pills-initial" role="tabpanel" aria-labelledby="pills-initial-tab">
-                    <article class="item-framework">
-                        <?php echo $sec_process_framework['step_2'];?>
-                    </article>
-                </div>
-                <div class="col-lg-4 tab-pane fade" id="pills-development" role="tabpanel" aria-labelledby="pills-development-tab">
-                    <article class="item-framework">
-                        <?php echo $sec_process_framework['step_3'];?>
-                    </article>
-                </div>
-
-                <div class="col-lg-12 text-center pt-lg-5 pt-3">
-                    <a href="<?php echo $sec_process_framework['button_url'];?>" class="btn btn-green-env">
-                        <?php echo $sec_process_framework['button_name'];?>
-                    </a>
-                </div>
-
-
             </div>
         </div>
-    </div>
-    <!-- /*============END PROCESS FRAMEWORK HOME=================*/ -->
+
+        <div class="container-fluid bg-gray-process">
+            <div class="container section-your-business">
+                <div class="row box-peace-of-mind">
+                    <div class="col-lg-8">
+                        <h2>All the resources for your organization to thrive</h2>
+                        <ul>
+                            <li>Risk-free and educated decision will strengthen your confidence in front of your boss and fellow colleagues.</li>
+                            <li>A decision that will change the ineffective operation of your organization, get the right human resources to delegate tasks to.</li>
+                            <li>No more unproductive tasks after hours, spend more time with the one in needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container section-current-action-matters">
+            <div class="row box-your-current-action">
+                <div class="col-lg-12">
+                    <h2 class="text-center">Your current action matters</h2>
+                </div>
+                <div class="col-lg-8">
+                    <p>
+                        Your decision will change the tide of your organization, enhance service quality and customer satisfaction.
+                    </p>
+                </div>
+            </div>
+            <div class="row section-digital-world section-your-business pt-0">
+                <div class="col-lg-6">
+                    <ul>
+                        <li>Determined and clear direction</li>
+                        <li>Action oriented, fearless</li>
+                        <li>Smart management</li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 text-center box-button">
+                    <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">FIND MY TEAM NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /*============END THE SUCESS THAT=================*/ -->
+
 
     <!-- /*============SUBCRIBE HOME=================*/ -->
     <?php $booking_and_quote = get_field('booking_and_quote', $post->ID);?>
@@ -369,86 +574,6 @@
 
     </div>
     <!-- /*============END SUBCRIBE HOME=================*/ -->
-
-    <!-- /*============LEAD MAGNET HOME=================*/ -->
-    <?php
-    $args = array(
-        'posts_per_page' => 1,
-        'offset'=> 0,
-        'post_type' => 'resources',
-        'orderby' => 'post_modified',
-        'order' =>'desc',
-        'meta_query' => array(
-            'relation' => 'OR',
-            array(
-                'key' => 'lead_magnet_mode',
-                'value' => 'feature',
-                'compare' => 'LIKE',
-            )
-        )
-
-    );
-    $ebook_resources = get_posts( $args );
-    ?>
-    <div class="container-fluid bg-gray-process">
-        <div class="container lead-magnet-section">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>
-                        <?php echo get_field('irresistible_headline', $ebook_resources[0]->ID);?>
-                    </h2>
-                    <div class="box-infomation-ebook clearfix">
-                        <img class="img-fluid img-cover-ebook" src="<?php echo get_the_post_thumbnail_url($ebook_resources[0]->ID);?>" alt="">
-
-                        <div class="info-ebook">
-                            <?php echo $ebook_resources[0]->post_content;?>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <div class="title-download-free">
-                        <?php echo get_field('title_download',$ebook_resources[0]->ID)?>
-                    </div>
-                    <a href="<?php echo home_url('resources/').$ebook_resources[0]->post_name;?>" class="btn btn-blue-env">
-                        <?php echo get_field('title_button_download',$ebook_resources[0]->ID)?>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /*============END LEAD MAGNET HOME=================*/ -->
-
-
-    <!-- /*============SUBCRIBE HOME=================*/ -->
-    <div class="container-fluild section-parallax">
-        <div class="bg-green-home">
-            <div class="container content-subcribe">
-                <div class="row">
-                    <div class="col-12 box-head-subcribe text-center">
-                        <h2>SUBSCRIBE FOR THREE THINGS</h2>
-                        <p>
-                            Three links or tips of interest curated about offshore outsourcing every week by the experts at ENVZONE Consulting.
-                        </p>
-                        <!--<form action="" method="get">
-                            <input type="text" class="input-search d-block" placeholder="Enter your email adress">
-                            <input type="submit" hidden>
-                            <a class="btn btn-blue-env btn-search" href="#">SIGN ME UP FOR THREE THINGS</a>
-                        </form>-->
-
-                        <div class="form-subscribe">
-                            <?php
-                            echo do_shortcode('[gravityform id=3 title=false description=false ajax=false]');
-                            ?>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    <!-- /*============END SUBCRIBE HOME=================*/ -->
-
 
 
     <!-- Modal -->

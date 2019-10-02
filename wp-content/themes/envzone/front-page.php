@@ -16,15 +16,15 @@
             <div class="col-lg-6">
                 <div class="box-item-organization box-business">
                     <div class="item-organization item-small-business">
-                        <img class="lazy" src="<?php echo $thrive_and_grow['icon_small_business'];?>" alt="Small Business">
-                        <h3><?php echo $thrive_and_grow['title_small_business'];?></h3>
+                        <img class="lazy" src="<?php echo $thrive_and_grow['image_smb'];?>" alt="Small Business">
+                        <h3><?php echo $thrive_and_grow['title_smb'];?></h3>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <a href="<?php echo $thrive_and_grow['url_learn_more'];?>" class="btn btn-blue-env">
-                            <?php echo $thrive_and_grow['button_name_learn_more'];?>
+                        <a href="<?php echo $thrive_and_grow['url_product'];?>" class="btn btn-blue-env">
+                            <?php echo $thrive_and_grow['button_product'];?>
                         </a>
-                        <a href="<?php echo $thrive_and_grow['url_see_pricing'];?>" class="btn btn-blue-env">
-                            <?php echo $thrive_and_grow['button_name_see_pricing'];?>
+                        <a href="<?php echo $thrive_and_grow['url_pricing'];?>" class="btn btn-blue-env">
+                            <?php echo $thrive_and_grow['button_pricing'];?>
                         </a>
                     </div>
 
@@ -33,11 +33,11 @@
             <div class="col-lg-6">
                 <div class="box-item-organization box-startups">
                     <div class="item-organization item-enterprises">
-                        <img class="lazy" src="<?php echo $thrive_and_grow['icon_emterprise'];?>" alt="Enterprises & Startups">
-                        <h3><?php echo $thrive_and_grow['title_enterprises'];?></h3>
+                        <img class="lazy" src="<?php echo $thrive_and_grow['image_enterprise'];?>" alt="Enterprises & Startups">
+                        <h3><?php echo $thrive_and_grow['title_enterprise'];?></h3>
                     </div>
-                    <a href="<?php echo $thrive_and_grow['url_verified_team'];?>" class="btn btn-blue-env">
-                        <?php echo $thrive_and_grow['button_name_verified_team'];?>
+                    <a href="<?php echo $thrive_and_grow['url_solution'];?>" class="btn btn-blue-env">
+                        <?php echo $thrive_and_grow['button_solution'];?>
                     </a>
                 </div>
             </div>

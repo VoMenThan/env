@@ -3,7 +3,7 @@
     <div class="container position-relative">
         <div class="row mb-lg-5 py-3">
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-12">
-                <img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-envzone-gray.png" alt="">
+                <a href="<?php echo home_url();?>"><img class="img-fluid" src="<?php echo ASSET_URL;?>images/logo-envzone-gray.png" alt="Logo EnvZone Gray"></a>
                 <p class="description-logo">
                     Understand your idea. <br>
                     Execute it with our resources.

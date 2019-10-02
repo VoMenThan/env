@@ -91,6 +91,31 @@ jQuery(document).ready(function() {
     return false;
   });
 
+  //Download PDF Subscription JS
+  jQuery('a.mepr_sub_download_pdf').click(function() {
+    var i = jQuery(this).attr('data-value');
+
+    jQuery('tr#record_' + i + ' .mepr_loader').show();
+
+    var data = {
+      action: 'mepr_sub_download_pdf',
+      id: i
+    };
+
+    jQuery.post(ajaxurl, data, function(response) {
+      jQuery('tr#record_' + i + ' .mepr_loader').hide();
+
+      var blob = new Blob(["Hello world!!!"], { type: 'application/pdf' })
+      var link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "subscription.pdf";
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    return false;
+  });
+
   // Refund TXN JS
   jQuery('a.mepr-refund-txn').click(function() {
     if(confirm(MeprTxn.refund_txn)) {
