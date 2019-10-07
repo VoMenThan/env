@@ -2,33 +2,57 @@
 /* Prohibit direct script loading */
 defined('ABSPATH') || die('No direct script access allowed!');
 wp_enqueue_script('wpmf-gallery');
-$class_default   = array();
+$class_default = array();
 $class_default[] = 'gallery wpmf_gallery_default gallery_default';
 $class_default[] = 'galleryid-' . $id;
 $class_default[] = 'gallery-columns-' . $columns;
 $class_default[] = 'gallery-size-' . $size_class;
 $class_default[] = 'gallery-link-' . $link;
+$class_default[] = 'wpmf-has-border-radius-' . $img_border_radius;
+$class_default[] = 'wpmf-gutterwidth-' . $gutterwidth;
 $output = '<div class="wpmf-gallerys">';
-$output          .= '<div id="' . $selector . '" class="' . implode(' ', $class_default) . '">';
-$i               = 0;
-$pos             = 1;
+$output .= '<div id="' . $selector . '" class="' . implode(' ', $class_default) . '">';
+$style = '<style>';
+if ($img_shadow !== '') {
+    $style .= '#' . $selector . ' .wpmf-gallery-item img:hover {box-shadow: ' . $img_shadow . ' !important; transition: all 200ms ease;}';
+}
+
+if ($border_style !== 'none') {
+    $style .= '#' . $selector . ' .wpmf-gallery-item img {border: ' . $border_color . ' '. $border_width .'px '. $border_style .'}';
+}
+
+$style .= '</style>';
+$output .= $style;
+$i = 0;
+$pos = 1;
 foreach ($gallery_items as $item_id => $attachment) {
     $image_meta = wp_get_attachment_metadata($item_id);
     if (empty($image_meta['height']) || empty($image_meta['width'])) {
         continue;
     }
-    $post_excerpt = esc_html($attachment->post_excerpt);
-    $link_target  = get_post_meta($attachment->ID, '_gallery_link_target', true);
-    if (!empty($link) && ('file' === $link || 'post' === $link)) {
-        $image_output = $this->getAttachmentLink($item_id, $size, false, $targetsize, $customlink, $link_target);
-    } elseif (!empty($link) && 'none' === $link) {
-        if (get_post_meta($item_id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true) !== '') {
-            $image_output = $this->getAttachmentLink($item_id, $size, false, $targetsize, $customlink, $link_target);
-        } else {
-            $image_output = wp_get_attachment_image($item_id, $size, false, array('data-type' => 'wpmfgalleryimg'));
-        }
+
+    if (strpos($attachment->post_excerpt, '<script>') !== false) {
+        $post_excerpt = esc_html($attachment->post_excerpt);
     } else {
-        $image_output = $this->getAttachmentLink($item_id, $size, true, 'large', false, $link_target);
+        $post_excerpt = $attachment->post_excerpt;
+    }
+
+    $link_target = get_post_meta($attachment->ID, '_gallery_link_target', true);
+    switch ($link) {
+        case 'file':
+            $image_output = $this->getAttachmentLink($item_id, $size, false, $targetsize, false, $link_target);
+            break;
+        case 'post':
+            $image_output = $this->getAttachmentLink($item_id, $size, true, $targetsize, false, $link_target);
+            break;
+        case 'none':
+            $image_output = wp_get_attachment_image($item_id, $size, false, array('data-type' => 'wpmfgalleryimg'));
+            break;
+        case 'custom':
+            $image_output = $this->getAttachmentLink($item_id, $size, false, $targetsize, true, $link_target);
+            break;
+        default:
+            $image_output = $this->getAttachmentLink($item_id, $size, false, $targetsize, false, $link_target);
     }
 
     $orientation = '';
@@ -36,8 +60,8 @@ foreach ($gallery_items as $item_id => $attachment) {
         $orientation = ($image_meta['height'] > $image_meta['width']) ? 'portrait' : 'landscape';
     }
 
-    $output       .= '<figure class="wpmf-gallery-item gallery-item">';
-    $output       .= '<div class="gallery-icon ' . $orientation . '">' . $image_output . '</div>';
+    $output .= '<figure class="wpmf-gallery-item gallery-item">';
+    $output .= '<div class="wpmf-gallery-icon ' . $orientation . '">' . $image_output . '</div>';
     $caption_text = trim($post_excerpt);
     if (!empty($caption_text)) {
         $output .= '<figcaption class="wp-caption-text gallery-caption">';
@@ -45,6 +69,6 @@ foreach ($gallery_items as $item_id => $attachment) {
         $output .= '</figcaption>';
     }
     $output .= '</figure>';
-    $pos ++;
+    $pos++;
 }
 $output .= '</div></div>';

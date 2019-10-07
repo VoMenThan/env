@@ -63,6 +63,10 @@ class WpmfPdfEmbed
 
         $url = wp_get_attachment_url($attrs['id']);
         $pdf = get_post($attrs['id']);
+        if (empty($pdf)) {
+            return '';
+        }
+
         if (!empty($attrs['embed'])) {
             $return = '<a class="wpmf-pdfemb-viewer" data-wpmf_pdf_embed="embed" href="'.esc_url($url).'">'.esc_html($pdf->post_title).'</a>';
         } else {

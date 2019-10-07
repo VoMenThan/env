@@ -20,7 +20,11 @@
                 $el.find('[data-setting="link"]').parent('label').remove();
                 $el.find('[data-setting="columns"]').parent('label').remove();
                 $el.find('[data-setting="_orderbyRandom"]').parent('label').remove();
-                $el.append(media.template('wpmf-gallery-settings'));
+                try {
+                    $el.append(media.template('wpmf-gallery-settings'));
+                } catch(err) {
+                    return this;
+                }
 
                 media.gallery.defaults.display = 'default';
                 media.gallery.defaults.targetsize = 'large';
@@ -39,15 +43,17 @@
                 this.update.apply(this, ['wpmf_order']);
 
                 if (typeof id_folder !== "undefined") {
-                    var oldfIds = $el.find('.wpmf_folder_id').val();
-                    var oldfIds_array = oldfIds.split(",").map(Number);
+                    if ($el.find('.wpmf_folder_id').length) {
+                        var oldfIds = $el.find('.wpmf_folder_id').val();
+                        var oldfIds_array = oldfIds.split(",").map(Number);
 
-                    if (oldfIds !== '') {
-                        if (oldfIds_array.indexOf(id_folder) < 0) {
-                            $el.find('.wpmf_folder_id').val(oldfIds + ',' + id_folder).change();
+                        if (oldfIds !== '') {
+                            if (oldfIds_array.indexOf(id_folder) < 0) {
+                                $el.find('.wpmf_folder_id').val(oldfIds + ',' + id_folder).change();
+                            }
+                        } else {
+                            $el.find('.wpmf_folder_id').val(id_folder).change();
                         }
-                    } else {
-                        $el.find('.wpmf_folder_id').val(id_folder).change();
                     }
                 }
 

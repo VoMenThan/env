@@ -35,12 +35,15 @@ class WpmfWatermark
     public function createWatermarkImage($metadata, $attachment_id)
     {
         $option_image_watermark = get_option('wpmf_option_image_watermark');
-        $post_upload            = get_post($attachment_id);
-        if (empty($option_image_watermark) || (isset($post_upload->post_mime_type)
-                                               && strpos($post_upload->post_mime_type, 'image') === false)
-        ) {
+        if (empty($option_image_watermark)) {
             return $metadata;
         }
+
+        $post_upload            = get_post($attachment_id);
+        if (isset($post_upload->post_mime_type) && strpos($post_upload->post_mime_type, 'image') === false) {
+            return $metadata;
+        }
+
         if (!empty($attachment_id)) {
             $current_attachment = get_post($attachment_id);
             $full_path          = get_attached_file($attachment_id);
@@ -78,7 +81,11 @@ class WpmfWatermark
             $uploads         = wp_upload_dir();
             $imageInfo       = 0;
             if (isset($watermark_apply['all_size']) && (int) $watermark_apply['all_size'] === 1) {
-                $sizes = array_merge(array('full'), get_intermediate_image_sizes());
+                $sizes = array('full');
+                foreach ($metadata['sizes'] as $si => $size_info) {
+                    $sizes[] = $si;
+                }
+
                 foreach ($sizes as $imageSize) {
                     $image_url = '';
                     if ($imageSize === 'full') {
@@ -557,10 +564,22 @@ class WpmfWatermark
                 case 'image/jpeg':
                 case 'image/pjpeg':
                     header('Content-Type: image/jpeg');
-                    imagejpeg($image, $image_path, 99);
+                    imagejpeg($image, $image_path, 100);
                     break;
                 case 'image/png':
                     header('Content-Type: image/png');
+                    $background = imagecolorallocate($image, 0, 0, 0);
+                    // removing the black from the placeholder
+                    imagecolortransparent($image, $background);
+
+                    // turning off alpha blending (to ensure alpha channel information
+                    // is preserved, rather than removed (blending with the rest of the
+                    // image in the form of black))
+                    imagealphablending($image, false);
+
+                    // turning on alpha channel information saving (to ensure the full range
+                    // of transparency is preserved)
+                    imagesavealpha($image, true);
                     imagepng($image, $image_path, 9);
                     break;
                 case 'image/gif':

@@ -105,12 +105,20 @@ jQuery(document).ready(function() {
     jQuery.post(ajaxurl, data, function(response) {
       jQuery('tr#record_' + i + ' .mepr_loader').hide();
 
-      var blob = new Blob(["Hello world!!!"], { type: 'application/pdf' })
-      var link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.download = "subscription.pdf";
-      link.click();
-      document.body.removeChild(link);
+      html2canvas(response).then(canvas => {
+        var dataURL = canvas.toDataURL();
+
+      var doc = new jsPDF('p', 'pt', 'a4', true);
+
+      doc.fromHTML(dataURL, 25, 25, {
+            'width': 700
+          },
+          function(){
+            doc.save('thisMotion.pdf');
+          });
+      });
+
+
     });
 
     return false;

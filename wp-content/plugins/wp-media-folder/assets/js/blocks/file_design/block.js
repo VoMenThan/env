@@ -57,7 +57,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                 var open = _ref.open;
                                 return React.createElement(IconButton, {
                                     className: "components-toolbar__control",
-                                    label: __('Edit File'),
+                                    label: __('Edit File', 'wpmf'),
                                     icon: "edit",
                                     onClick: open
                                 });
@@ -99,11 +99,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                 null,
                                 React.createElement(
                                     PanelBody,
-                                    { title: __('File Design Settings') },
+                                    { title: __('File Design Settings', 'wpmf') },
                                     React.createElement(SelectControl, {
-                                        label: __('Target'),
+                                        label: __('Target', 'wpmf'),
                                         value: target,
-                                        options: [{ label: __('Same Window'), value: '' }, { label: __('New Window'), value: '_blank' }],
+                                        options: [{ label: __('Same Window', 'wpmf'), value: '' }, { label: __('New Window', 'wpmf'), value: '_blank' }],
                                         onChange: function onChange(value) {
                                             return setAttributes({ target: value });
                                         }
@@ -135,14 +135,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                         React.createElement(
                                             "b",
                                             null,
-                                            __('Size: '),
+                                            __('Size: ', 'wpmf'),
                                             " "
                                         ),
                                         size,
                                         React.createElement(
                                             "b",
                                             null,
-                                            __(' Format: '),
+                                            __(' Format: ', 'wpmf'),
                                             " "
                                         )
                                     ),
@@ -166,7 +166,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                         className: "editor-media-placeholder__button wpmf-pdf-button",
                                         onClick: open
                                     },
-                                    __('Add File')
+                                    __('Add File', 'wpmf')
                                 );
                             }
                         })
@@ -194,7 +194,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     };
 
     registerBlockType('wpmf/filedesign', {
-        title: __('WP Media Folder File Design'),
+        title: __('WP Media Folder File Design', 'wpmf'),
         icon: 'media-archive',
         category: 'wp-media-folder',
         attributes: fileDesignAttrs,
@@ -249,14 +249,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                         React.createElement(
                             "b",
                             null,
-                            __('Size: '),
+                            __('Size: ', 'wpmf'),
                             " "
                         ),
                         size,
                         React.createElement(
                             "b",
                             null,
-                            __(' Format: '),
+                            __(' Format: ', 'wpmf'),
                             " "
                         )
                     ),
@@ -315,14 +315,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                             React.createElement(
                                 "b",
                                 null,
-                                __('Size: '),
+                                __('Size: ', 'wpmf'),
                                 " "
                             ),
                             size,
                             React.createElement(
                                 "b",
                                 null,
-                                __(' Format: '),
+                                __(' Format: ', 'wpmf'),
                                 " "
                             )
                         ),
@@ -332,4 +332,4 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             }
         }]
     });
-})(wp.i18n, wp.blocks, wp.element, wp.editor, wp.components);
+})(wp.i18n, wp.blocks, wp.element, wp.blockEditor, wp.components);

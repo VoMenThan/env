@@ -230,120 +230,6 @@ class WpmfMediaFolderOption
     }
 
     /**
-     * Sync FTP
-     *
-     * @param string  $dir         Path of root folder
-     * @param string  $folder_name Folder name
-     * @param integer $parent      Parent of folder
-     * @param string  $folder_ftp  Path of folder on server
-     *
-     * @return boolean
-     */
-    public function syncFTP($dir, $folder_name, $parent, $folder_ftp)
-    {
-        global $wpdb;
-
-        /**
-         * Filter the filetype allowed to be imported through ftp or folder import
-         *
-         * @param array  Filetypes allowed to be imported
-         *
-         * @return array
-         */
-        $this->type_import = apply_filters('wpmf_import_allowed_filetypes', $this->type_import);
-
-        $i = 0;
-        if ($folder_name === 'wpmfsyncroot') {
-            $termID = $parent;
-        } else {
-            require_once('ForceUTF8/Encoding.php');
-            $folder_name = WpmfEncoding::toUTF8($folder_name);
-            $term_id     = $wpdb->get_results($wpdb->prepare(
-                'SELECT t1.term_id FROM ' . $wpdb->terms . ' as t1, ' . $wpdb->term_taxonomy . ' as t2
- WHERE taxonomy=%s AND name=%s AND parent=%d AND t1.term_id=t2.term_id',
-                array(WPMF_TAXO, $folder_name, $parent)
-            ));
-            if (empty($term_id)) {
-                $inserted = wp_insert_term(
-                    $folder_name,
-                    WPMF_TAXO,
-                    array(
-                        'parent' => $parent,
-                        'slug'   => sanitize_title($folder_name) . WPMF_TAXO
-                    )
-                );
-
-                if (is_array($inserted)) {
-                    $termID = $inserted['term_id'];
-
-                    /**
-                     * Create a folder when syncing the files from FTP
-                     *
-                     * @param integer Created folder ID
-                     * @param string  Created folder name
-                     * @param integer Parent folder ID
-                     * @param array   Extra informations
-                     *
-                     * @ignore Hook already documented
-                     */
-                    do_action('wpmf_create_folder', $termID, $folder_name, $parent, array('trigger'=>'ftp_synchronization'));
-                } else {
-                    $termID = $inserted->error_data['term_exists'];
-                }
-            } else {
-                $termID = $term_id[0]->term_id;
-            }
-        }
-
-
-        // List files and directories inside $dir path
-        $files = scandir($dir);
-        $files = array_diff($files, array('..', '.'));
-        if (count($files) > 0) {
-            // loop list files and directories
-            foreach ($files as $file) {
-                if ($i >= 3) {
-                    return false;
-                    //wp_send_json(array('status' => 'limit')); // run again ajax
-                } else {
-                    if (is_dir($dir . '/' . $file)) { // is directory
-                        $this->syncFTP($dir . '/' . $file, str_replace('  ', ' ', $file), $termID, $folder_ftp);
-                    } else {
-                        // is file
-                        $upload_dir = wp_upload_dir();
-                        $info_file  = wp_check_filetype($dir . '/' . $file);
-                        if (!empty($info_file) && !empty($info_file['ext'])
-                            && in_array(strtolower($info_file['ext']), $this->type_import)
-                        ) {
-                            $form_file  = $dir . '/' . $file;
-                            $file_title = $file;
-                            $file       = sanitize_file_name($file);
-                            // check file exist , if not exist then insert file
-                            $pid = $this->checkExistPost('/' . $file, $termID);
-                            if (empty($pid)) {
-                                $check = $this->insertAttachmentMetadata(
-                                    $upload_dir['path'],
-                                    $upload_dir['url'],
-                                    $file_title,
-                                    $file,
-                                    $form_file,
-                                    $info_file['type'],
-                                    $info_file['ext'],
-                                    $termID
-                                );
-                                if ($check) {
-                                    $i ++;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-    /**
      * Scan folder to insert term and attachment
      *
      * @param string  $dir         Root folder to scan
@@ -410,37 +296,45 @@ class WpmfMediaFolderOption
                         // is file
                         $upload_dir = wp_upload_dir();
                         $info_file  = wp_check_filetype($dir . '/' . $file);
-                        if (!empty($info_file) && !empty($info_file['ext'])
-                            && in_array(strtolower($info_file['ext']), $this->type_import)
-                        ) {
-                            $form_file  = $dir . '/' . $file;
-                            $file_title = $file;
-                            $file       = sanitize_file_name($file);
-                            // check file exist , if not exist then insert file
-                            $pid = $this->checkExistPost('/' . $file, $termID);
-                            if (empty($pid)) {
-                                $attachmentId = $this->insertAttachmentMetadata(
-                                    $upload_dir['path'],
-                                    $upload_dir['url'],
-                                    $file_title,
-                                    $file,
-                                    $form_file,
-                                    $info_file['type'],
-                                    $info_file['ext'],
-                                    $termID
-                                );
-                                if ($attachmentId) {
-                                    $i ++;
-                                    /**
-                                     * Set attachment folder after attachment import from FTP
-                                     *
-                                     * @param integer Attachment ID
-                                     * @param integer Target folder
-                                     * @param array   Extra informations
-                                     *
-                                     * @ignore Hook already documented
-                                     */
-                                    do_action('wpmf_attachment_set_folder', $attachmentId, $termID, array('trigger'=>'ftp_import_attachment'));
+
+                        $file_url = str_replace(get_home_path(), site_url(), $dir) . $file;
+                        $attachment = $wpdb->get_row($wpdb->prepare('SELECT ID FROM '. $wpdb->posts .' WHERE guid = %s', $file_url));
+                        if (!empty($attachment)) {
+                            wp_set_object_terms((int) $attachment->ID, (int) $termID, WPMF_TAXO);
+                            $i++;
+                        } else {
+                            if (!empty($info_file) && !empty($info_file['ext'])
+                                && in_array(strtolower($info_file['ext']), $this->type_import)
+                            ) {
+                                $form_file  = $dir . '/' . $file;
+                                $file_title = $file;
+                                $file       = sanitize_file_name($file);
+                                // check file exist , if not exist then insert file
+                                $pid = $this->checkExistPost('/' . $file, $termID, $upload_dir);
+                                if (empty($pid)) {
+                                    $attachmentId = $this->insertAttachmentMetadata(
+                                        $upload_dir['path'],
+                                        $upload_dir['url'],
+                                        $file_title,
+                                        $file,
+                                        $form_file,
+                                        $info_file['type'],
+                                        $info_file['ext'],
+                                        $termID
+                                    );
+                                    if ($attachmentId) {
+                                        $i++;
+                                        /**
+                                         * Set attachment folder after attachment import from FTP
+                                         *
+                                         * @param integer Attachment ID
+                                         * @param integer Target folder
+                                         * @param array   Extra informations
+                                         *
+                                         * @ignore Hook already documented
+                                         */
+                                        do_action('wpmf_attachment_set_folder', $attachmentId, $termID, array('trigger'=>'ftp_import_attachment'));
+                                    }
                                 }
                             }
                         }
@@ -1006,6 +900,14 @@ class WpmfMediaFolderOption
                 'ajaxurl'    => admin_url('admin-ajax.php'),
             )
         );
+
+        wp_enqueue_script(
+            'wpmf-folder-snackbar',
+            plugins_url('/assets/js/snackbar.js', dirname(__FILE__)),
+            array('jquery'),
+            WPMF_VERSION
+        );
+
         wp_enqueue_script(
             'wpmfimport-gallery',
             plugins_url('/assets/js/import_nextgen_gallery.js', dirname(__FILE__)),
@@ -1059,7 +961,7 @@ class WpmfMediaFolderOption
             wp_enqueue_script(
                 'wpmf-script-option',
                 plugins_url('/assets/js/script-option.js', dirname(__FILE__)),
-                array('jquery', 'plupload'),
+                array('jquery', 'plupload', 'wpmf-folder-snackbar'),
                 WPMF_VERSION
             );
 
@@ -1133,7 +1035,7 @@ class WpmfMediaFolderOption
         ?>
         <script>
             (function ($) {
-                var wpmfajaxsyn = function (current, wpmf_limit_external) {
+                var wpmfajaxsyn = function (current, wpmf_limit_external, sync_token) {
                     $.ajax({
                         type: "POST",
                         url: ajaxurl,
@@ -1141,14 +1043,17 @@ class WpmfMediaFolderOption
                         data: {
                             action: "wpmf_syncmedia",
                             current: current,
+                            sync_token: sync_token,
                             wpmf_nonce: wpmf.vars.wpmf_nonce
                         },
                         success: function (response) {
-                            if (response.status === 'limit') {
-                                wpmfajaxsyn(current, wpmf_limit_external);
-                            } else {
-                                if (typeof wpmf_limit_external !== "undefined") {
-                                    wpmfajaxsyn_external(wpmf_limit_external[current[0]]);
+                            if (response.status) {
+                                if (response.continue) {
+                                    wpmfajaxsyn(current, wpmf_limit_external, sync_token);
+                                } else {
+                                    if (wpmf_limit_external) {
+                                        wpmfajaxsyn_external(wpmf_limit_external[current[0]]);
+                                    }
                                 }
                             }
                         }
@@ -1183,7 +1088,8 @@ class WpmfMediaFolderOption
 
                     } else if (data['wpmf_limit'] && !data['wpmf_limit_external']) {
                         $.each(data['wpmf_limit'], function (i, v) {
-                            wpmfajaxsyn(v);
+                            var sync_token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                            wpmfajaxsyn(v, false, sync_token);
                         });
                     } else if (!data['wpmf_limit'] && data['wpmf_limit_external']) {
                         $.each(data['wpmf_limit_external'], function (i, v) {
@@ -1192,7 +1098,8 @@ class WpmfMediaFolderOption
                     } else {
 
                         $.each(data['wpmf_limit'], function (i, v) {
-                            wpmfajaxsyn(v, data['wpmf_limit_external']);
+                            var sync_token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                            wpmfajaxsyn(v, data['wpmf_limit_external'], sync_token);
                         });
                     }
                 });
@@ -1225,25 +1132,176 @@ class WpmfMediaFolderOption
          */
         $wpmf_capability = apply_filters('wpmf_user_can', current_user_can('manage_options'), 'sync_media');
         if (!$wpmf_capability) {
-            wp_send_json(false);
+            wp_send_json(array('status' => true, 'continue' => false));
         }
+
+        if (!empty($_POST['sync_token'])) {
+            if (!get_option('wpmf_ftp_sync_time', false) && !get_option('wpmf_ftp_sync_token', false)) {
+                add_option('wpmf_ftp_sync_time', time());
+                add_option('wpmf_ftp_sync_token', $_POST['sync_token']);
+            } else {
+                if ($_POST['sync_token'] !== get_option('wpmf_ftp_sync_token')) {
+                    // stop run
+                    $timer = get_option('wpmf_time_sync', true);
+                    if (time() - (int) get_option('wpmf_ftp_sync_time') < 60 * (int) $timer) {
+                        wp_send_json(array('status' => false, 'continue' => false));
+                    } else {
+                        update_option('wpmf_ftp_sync_token', $_POST['sync_token']);
+                        update_option('wpmf_ftp_sync_time', time());
+                    }
+                }
+            }
+        }
+
         $lists = get_option('wpmf_list_sync_media');
         if (empty($lists)) {
-            wp_send_json(array('status' => false));
+            wp_send_json(array('status' => true, 'continue' => false));
         }
         $folderID = $_POST['current'][0];
+        if ((int) $folderID === 0) {
+            $root_id            = get_option('wpmf_folder_root_id');
+            $folderID = (int) $root_id;
+        }
         $v        = $_POST['current'][1];
         $root     = $v['folder_ftp'];
         if (!file_exists($root)) {
-            wp_send_json(array('status' => false));
+            wp_send_json(array('status' => true, 'continue' => false));
         }
+
         $term = get_term($folderID, WPMF_TAXO);
         if (!empty($term)) {
-            $status = $this->syncFTP($root, 'wpmfsyncroot', $folderID, $v['folder_ftp']);
-            if (!$status) {
-                wp_send_json(array('status' => 'limit')); // run again ajax
+            $index = $this->syncFTP($root, true, $folderID, $v['folder_ftp']);
+            if ($index >= 1) {
+                wp_send_json(array('status' => true, 'continue' => true));
+            } else {
+                wp_send_json(array('status' => true, 'continue' => false));
             }
         }
+    }
+
+    /**
+     * Sync FTP
+     *
+     * @param string  $dir         Path of root folder
+     * @param string  $is_root     Is root
+     * @param integer $parent      Parent of folder
+     * @param string  $folder_ftp  Path of folder on server
+     * @param string  $index       Index
+     * @param string  $folder_name Folder name
+     *
+     * @return integer
+     */
+    public function syncFTP($dir, $is_root, $parent, $folder_ftp, $index = 0, $folder_name = '')
+    {
+        global $wpdb;
+
+        /**
+         * Filter the filetype allowed to be imported through ftp or folder import
+         *
+         * @param array  Filetypes allowed to be imported
+         *
+         * @return array
+         */
+        $this->type_import = apply_filters('wpmf_import_allowed_filetypes', $this->type_import);
+
+        if ($is_root) {
+            $termID = $parent;
+        } else {
+            require_once('ForceUTF8/Encoding.php');
+            $folder_name = WpmfEncoding::toUTF8($folder_name);
+            $root_id            = get_option('wpmf_folder_root_id');
+            if ((int) $root_id === (int) $parent) {
+                $folder_parent = 0;
+            } else {
+                $folder_parent = (int) $parent;
+            }
+
+            $folder_exist     = $wpdb->get_results($wpdb->prepare(
+                'SELECT t1.term_id FROM ' . $wpdb->terms . ' as t1, ' . $wpdb->term_taxonomy . ' as t2
+ WHERE taxonomy=%s AND name=%s AND parent=%d AND t1.term_id=t2.term_id',
+                array(WPMF_TAXO, $folder_name, $folder_parent)
+            ));
+
+            if (empty($folder_exist)) {
+                $inserted = wp_insert_term(
+                    $folder_name,
+                    WPMF_TAXO,
+                    array(
+                        'parent' => $folder_parent,
+                        'slug'   => sanitize_title($folder_name) . WPMF_TAXO
+                    )
+                );
+
+                if (is_array($inserted)) {
+                    $termID = $inserted['term_id'];
+
+                    /**
+                     * Create a folder when syncing the files from FTP
+                     *
+                     * @param integer Created folder ID
+                     * @param string  Created folder name
+                     * @param integer Parent folder ID
+                     * @param array   Extra informations
+                     *
+                     * @ignore Hook already documented
+                     */
+                    do_action('wpmf_create_folder', $termID, $folder_name, $folder_parent, array('trigger'=>'ftp_synchronization'));
+                } else {
+                    $termID = $inserted->error_data['term_exists'];
+                }
+
+                $index++;
+            } else {
+                $termID = $folder_exist[0]->term_id;
+            }
+        }
+
+        // List files and directories inside $dir path
+        $files = scandir($dir);
+        $files = array_diff($files, array('..', '.'));
+        if (count($files) > 0) {
+            // loop list files and directories
+            foreach ($files as $file) {
+                if ($index >= 1) {
+                    return $index;
+                    //wp_send_json(array('status' => true, 'continue' => true));
+                } else {
+                    $filepath = $dir . '/' . $file;
+                    if (is_dir($filepath)) { // is directory
+                        $index = $this->syncFTP($filepath, false, $termID, $folder_ftp, $index, str_replace('  ', ' ', $file));
+                    } else {
+                        // is file
+                        $upload_dir = wp_upload_dir();
+                        $info_file  = wp_check_filetype($filepath);
+                        if (!empty($info_file) && !empty($info_file['ext'])
+                            && in_array(strtolower($info_file['ext']), $this->type_import)
+                        ) {
+                            $file_title = $file;
+                            $file       = sanitize_file_name($file);
+                            // check file exist , if not exist then insert file
+                            $file_exists = $this->checkExistPost('/' . $file, $termID, $upload_dir);
+                            if (empty($file_exists)) {
+                                $check = $this->insertAttachmentMetadata(
+                                    $upload_dir['path'],
+                                    $upload_dir['url'],
+                                    $file_title,
+                                    $file,
+                                    $filepath,
+                                    $info_file['type'],
+                                    $info_file['ext'],
+                                    $termID
+                                );
+                                if ($check) {
+                                    $index++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $index;
     }
 
     /**
@@ -1318,6 +1376,17 @@ class WpmfMediaFolderOption
                         'operator'         => 'NOT IN',
                         'include_children' => false
                     )
+                ),
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    array(
+                        'key'     => 'wpmf_drive_id',
+                        'compare' => 'NOT EXISTS'
+                    ),
+                    array(
+                        'key'     => 'wpmf_awsS3_info',
+                        'compare' => 'NOT EXISTS'
+                    )
                 )
             );
             $query = new WP_Query($args);
@@ -1349,6 +1418,9 @@ class WpmfMediaFolderOption
         ));
         if (count($subfolders) > 0) {
             foreach ($subfolders as $subfolder) {
+                if ($subfolder->name === 'WP Media Folder Root') {
+                    continue;
+                }
                 // create folder if not exist
                 if (!file_exists($folder_ftp . '/' . $subfolder->name)) {
                     mkdir($folder_ftp . '/' . $subfolder->name);
@@ -1441,78 +1513,48 @@ class WpmfMediaFolderOption
                 }
             }
         }
+
         return $response;
     }
 
     /**
      * Check post exist to sync . If not exist then do sync
      *
-     * @param string  $file   URL of file
-     * @param integer $termID Id of folder
+     * @param string  $file       URL of file
+     * @param integer $termID     Id of folder
+     * @param array   $upload_dir Upload directory
      *
      * @return null|string
      */
-    public function checkExistPost($file, $termID)
+    public function checkExistPost($file, $termID, $upload_dir)
     {
         global $wpdb;
         $infos = pathinfo($file);
-        $file  = $infos['filename'];
-        $ext   = $infos['extension'];
-
-        $check_filename = false;
-        $file_first = '';
-        $file_end = '';
-        foreach ($this->type_import as $type) {
-            if (strpos($file, '.' . $type)) {
-                $els = explode('.' . $type, $file);
-                $file_first = $els[0];
-                $file_end = $els[1];
-                $check_filename = true;
-                break;
-            }
+        $lower_file = $infos['dirname'] . $infos['filename'] . '.' . strtolower($infos['extension']);
+        if (file_exists($upload_dir['path'] . $file) || file_exists($upload_dir['path'] . $lower_file)) {
+            $file = $infos['filename'];
         }
-
+        $ext   = strtolower($infos['extension']);
         if (empty($termID)) {
-            if ($check_filename) {
-                $check_exist = $wpdb->get_var($wpdb->prepare(
-                    'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'posts as p'
-                    . ' INNER JOIN ' . $wpdb->term_relationships . ' as t2 ON p.ID = t2.object_id'
-                    . ' INNER JOIN ' . $wpdb->term_taxonomy . ' as t1 ON t2.term_taxonomy_id = t1.term_taxonomy_id'
-                    . ' WHERE guid LIKE %s AND guid LIKE %s AND guid LIKE %s AND post_type = "attachment"',
-                    array('%' . $file_first . '%', '%' . $file_end . '%', '%' . $ext)
-                ));
-            } else {
-                $check_exist = $wpdb->get_var($wpdb->prepare(
-                    'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'posts as p'
-                    . ' INNER JOIN ' . $wpdb->term_relationships . ' as t2 ON p.ID = t2.object_id'
-                    . ' INNER JOIN ' . $wpdb->term_taxonomy . ' as t1 ON t2.term_taxonomy_id = t1.term_taxonomy_id'
-                    . ' WHERE guid LIKE %s AND guid LIKE %s AND post_type = "attachment"',
-                    array('%' . $file . '%', '%' . $ext)
-                ));
-            }
+            $found = $wpdb->get_var($wpdb->prepare(
+                'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'posts as p'
+                . ' INNER JOIN ' . $wpdb->term_relationships . ' as t2 ON p.ID = t2.object_id'
+                . ' INNER JOIN ' . $wpdb->term_taxonomy . ' as t1 ON t2.term_taxonomy_id = t1.term_taxonomy_id'
+                . ' WHERE guid LIKE %s AND guid LIKE %s AND post_type = "attachment"',
+                array('%' . $file, '%' . $ext)
+            ));
         } else {
-            if ($check_filename) {
-                $check_exist = $wpdb->get_var($wpdb->prepare(
-                    'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'posts as p'
-                    . ' INNER JOIN ' . $wpdb->term_relationships . ' as t2 ON p.ID = t2.object_id'
-                    . ' INNER JOIN ' . $wpdb->term_taxonomy . ' as t1 ON t2.term_taxonomy_id = t1.term_taxonomy_id'
-                    . ' WHERE guid LIKE %s AND guid LIKE %s AND guid LIKE %s AND post_type = "attachment"'
-                    . ' AND t1.term_id=%d',
-                    array('%' . $file_first . '%', '%' . $file_end . '%', '%' . $ext, $termID)
-                ));
-            } else {
-                $check_exist = $wpdb->get_var($wpdb->prepare(
-                    'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'posts as p'
-                    . ' INNER JOIN ' . $wpdb->term_relationships . ' as t2 ON p.ID = t2.object_id'
-                    . ' INNER JOIN ' . $wpdb->term_taxonomy . ' as t1 ON t2.term_taxonomy_id = t1.term_taxonomy_id'
-                    . ' WHERE guid LIKE %s AND guid LIKE %s AND post_type = "attachment"'
-                    . ' AND t1.term_id=%d',
-                    array('%' . $file . '%', '%' . $ext, $termID)
-                ));
-            }
+            $found = $wpdb->get_var($wpdb->prepare(
+                'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'posts as p'
+                . ' INNER JOIN ' . $wpdb->term_relationships . ' as t2 ON p.ID = t2.object_id'
+                . ' INNER JOIN ' . $wpdb->term_taxonomy . ' as t1 ON t2.term_taxonomy_id = t1.term_taxonomy_id'
+                . ' WHERE guid LIKE %s AND guid LIKE %s AND post_type = "attachment"'
+                . ' AND t1.term_id=%d',
+                array('%' . $file . '%', '%' . $ext, $termID)
+            ));
         }
 
-        return $check_exist;
+        return $found;
     }
 
     /**
@@ -1538,7 +1580,8 @@ class WpmfMediaFolderOption
             'continue'                => __('Continue...', 'wpmf'),
             'regenerate_all_image_lb' => __('Regenerate all image thumbnails', 'wpmf'),
             'regenerate_watermark_lb' => __('Thumbnails Regeneration', 'wpmf'),
-            'sync_s3_lb'              => __('Synchronize with Amazon S3', 'wpmf')
+            'sync_s3_lb'              => __('Synchronize with Amazon S3', 'wpmf'),
+            'sync_all_clouds_notice'  => __('Please wait while WP Media Folder is syncing the cloud files', 'wpmf')
         );
         return array(
             'l18n' => $l18n,
@@ -1622,6 +1665,7 @@ class WpmfMediaFolderOption
     {
         $upload_dir   = wp_upload_dir();
         $options = array(
+            'delete_all_datas',
             'folder_design',
             'load_gif',
             'social_sharing',
@@ -1632,7 +1676,10 @@ class WpmfMediaFolderOption
             'social_sharing_link',
             'format_mediatitle',
             'all_media_in_user_root',
-            'caption_lightbox_gallery'
+            'caption_lightbox_gallery',
+            'sync_method',
+            'sync_periodicity',
+            'show_folder_id'
         );
         if (isset($_POST['btn_wpmf_save'])) {
             if (empty($_POST['wpmf_nonce'])
@@ -1648,6 +1695,10 @@ class WpmfMediaFolderOption
                 if (isset($_POST['gallery_shortcode'])) {
                     wpmfSetOption('gallery_shortcode', $_POST['gallery_shortcode']);
                 }
+            }
+
+            if (isset($_POST['wpmf_gallery_shortcode_cf'])) {
+                wpmfSetOption('gallery_shortcode_cf', $_POST['wpmf_gallery_shortcode_cf']);
             }
 
             if (isset($_POST['wpmf_glr_settings'])) {
@@ -1804,6 +1855,7 @@ class WpmfMediaFolderOption
 
             // update checkbox options
             $options_name = array(
+                'delete_all_datas',
                 'wpmf_option_mediafolder',
                 'wpmf_create_folder',
                 'wpmf_option_override',
@@ -1881,6 +1933,13 @@ class WpmfMediaFolderOption
                     }
                 }
             }
+
+            /**
+             * Save settings
+             *
+             * @ignore Hook already documented
+             */
+            do_action('wpmf_save_settings');
         }
 
         foreach ($options as $option) {
@@ -1953,100 +2012,132 @@ class WpmfMediaFolderOption
             if (file_exists(WP_PLUGIN_DIR . '/wp-media-folder-addon/class/wpmfHelper.php')) {
                 require_once(WP_PLUGIN_DIR . '/wp-media-folder-addon/class/wpmfHelper.php');
             }
-            // google drive
-            $googleDrive  = new WpmfAddonGoogleDrive();
+
+            // save settings for google drive
             $googleconfig = get_option('_wpmfAddon_cloud_config');
+            $googleDrive  = new WpmfAddonGoogleDrive();
+            if (!is_array($googleconfig) || (is_array($googleconfig) && empty($googleconfig))) {
+                $googleconfig = array(
+                    'googleClientId'     => '',
+                    'googleClientSecret' => ''
+                );
+            }
+
+            if (empty($googleconfig['link_type'])) {
+                $googleconfig['link_type'] = 'private';
+            }
+
             if (isset($_POST['googleClientId']) && isset($_POST['googleClientSecret'])) {
-                if (is_array($googleconfig) && !empty($googleconfig)) {
-                    $googleconfig['googleClientId']     = trim($_POST['googleClientId']);
-                    $googleconfig['googleClientSecret'] = trim($_POST['googleClientSecret']);
-                } else {
-                    $googleconfig = array(
-                        'googleClientId'     => $_POST['googleClientId'],
-                        'googleClientSecret' => $_POST['googleClientSecret']
-                    );
+                $googleconfig['googleClientId']     = trim($_POST['googleClientId']);
+                $googleconfig['googleClientSecret'] = trim($_POST['googleClientSecret']);
+
+                if (isset($_POST['google_link_type'])) {
+                    $googleconfig['link_type'] = $_POST['google_link_type'];
                 }
+
                 update_option('_wpmfAddon_cloud_config', $googleconfig);
+                $googleconfig = get_option('_wpmfAddon_cloud_config');
                 $googleDrive  = new WpmfAddonGoogleDrive();
+            }
+
+            // save settings for dropbox
+            $Dropbox                  = new WpmfAddonDropbox();
+            $dropboxconfig = get_option('_wpmfAddon_dropbox_config');
+            if (empty($dropboxconfig)) {
+                $dropboxconfig = array('dropboxKey' => '', 'dropboxSecret' => '');
+            }
+
+            $dropboxconfig = get_option('_wpmfAddon_dropbox_config');
+            if (!is_array($dropboxconfig) || (is_array($dropboxconfig) && empty($dropboxconfig))) {
+                $dropboxconfig = array(
+                    'dropboxKey'     => '',
+                    'dropboxSecret' => ''
+                );
+            }
+
+            if (empty($dropboxconfig['link_type'])) {
+                $dropboxconfig['link_type'] = 'private';
+            }
+
+            $dropbox_error = '';
+            if (isset($_POST['dropboxKey']) && isset($_POST['dropboxSecret'])) {
+                $dropboxconfig['dropboxKey']     = trim($_POST['dropboxKey']);
+                $dropboxconfig['dropboxSecret'] = trim($_POST['dropboxSecret']);
+                update_option('_wpmfAddon_dropbox_config', $dropboxconfig);
+                if (!empty($_POST['dropboxAuthor'])) {
+                    //convert code authorCOde to Token
+
+                    try {
+                        $list = $Dropbox->convertAuthorizationCode($_POST['dropboxAuthor']);
+                        if (!empty($list['accessToken'])) {
+                            if (!isset($dropboxconfig['dropboxToken'])) {
+                                $dropboxconfig['first_connected'] = 1;
+                            }
+                            //save accessToken to database
+                            $dropboxconfig['dropboxToken'] = $list['accessToken'];
+                        }
+
+                        if (isset($_POST['dropbox_link_type'])) {
+                            $dropboxconfig['link_type'] = $_POST['dropbox_link_type'];
+                        }
+
+                        update_option('_wpmfAddon_dropbox_config', $dropboxconfig);
+                        $dropboxconfig = get_option('_wpmfAddon_dropbox_config');
+                        $Dropbox                  = new WpmfAddonDropbox();
+                    } catch (Exception $e) {
+                        $dropbox_error = $e->getMessage();
+                    }
+                }
             }
 
             /**
              * Filter render google settings
              *
              * @param string HTML default
-             * @param object WPMF google drive class
+             * @param object WpmfAddonGoogleDrive class
+             * @param array  Google drive config
              *
              * @return string
              *
              * @internal
              */
-            $html_tabgoogle = apply_filters('wpmfaddon_ggsettings', '', $googleDrive);
-
-            // dropbox
-            $Dropbox       = new WpmfAddonDropbox();
-            $dropboxconfig = get_option('_wpmfAddon_dropbox_config');
-            if (isset($_POST['dropboxKey']) && isset($_POST['dropboxSecret'])) {
-                if (is_array($dropboxconfig) && !empty($dropboxconfig)) {
-                    if (!empty($_POST['dropboxAuthor'])) {
-                        //convert code authorCOde to Token
-                        $list = $Dropbox->convertAuthorizationCode($_POST['dropboxAuthor']);
-                    }
-                    if (!empty($list['accessToken'])) {
-                        //save accessToken to database
-                        $dropboxconfig['dropboxToken'] = $list['accessToken'];
-                    }
-                    $dropboxconfig['dropboxKey']    = trim($_POST['dropboxKey']);
-                    $dropboxconfig['dropboxSecret'] = trim($_POST['dropboxSecret']);
-                } else {
-                    $dropboxconfig = array(
-                        'dropboxKey'    => $_POST['dropboxKey'],
-                        'dropboxSecret' => $_POST['dropboxSecret']
-                    );
-                }
-                update_option('_wpmfAddon_dropbox_config', $dropboxconfig);
-                $Dropbox                  = new WpmfAddonDropbox();
-            }
+            $html_tabgoogle = apply_filters('wpmfaddon_ggsettings', '', $googleDrive, $googleconfig);
 
             /**
              * Filter render dropbox settings
              *
              * @param string HTML default
-             * @param object WPMF dropbox class
+             * @param object WpmfAddonDropbox class
+             * @param array  Dropbox config
+             * @param string Dropbox error message
              *
              * @return string
              *
              * @internal
              */
-            $html_tabdropbox = apply_filters('wpmfaddon_dbxsettings', '', $Dropbox);
-
-            // onedrive
-            $onedriveDrive  = new WpmfAddonOneDrive();
-            $onedriveconfig = get_option('_wpmfAddon_onedrive_config');
-            if (isset($_POST['OneDriveClientId']) && isset($_POST['OneDriveClientSecret'])) {
-                if (is_array($onedriveconfig) && !empty($onedriveconfig)) {
-                    $onedriveconfig['OneDriveClientId']     = trim($_POST['OneDriveClientId']);
-                    $onedriveconfig['OneDriveClientSecret'] = trim($_POST['OneDriveClientSecret']);
-                } else {
-                    $onedriveconfig = array(
-                        'OneDriveClientId'     => $_POST['OneDriveClientId'],
-                        'OneDriveClientSecret' => $_POST['OneDriveClientSecret']
-                    );
-                }
-                update_option('_wpmfAddon_onedrive_config', $onedriveconfig);
-                $onedriveDrive  = new WpmfAddonOneDrive();
-            }
+            $html_tabdropbox = apply_filters('wpmfaddon_dbxsettings', '', $Dropbox, $dropboxconfig, $dropbox_error);
 
             /**
              * Filter render onedrive settings
              *
              * @param string HTML default
-             * @param object WPMF onedrive class
              *
              * @return string
              *
              * @internal
              */
-            $html_tabonedrive = apply_filters('wpmfaddon_onedrivesettings', '', $onedriveDrive);
+            $html_onedrive_settings = apply_filters('wpmfaddon_onedrivesettings', '');
+
+            /**
+             * Filter render onedrive settings
+             *
+             * @param string HTML default
+             *
+             * @return string
+             *
+             * @internal
+             */
+            $html_onedrive_business_settings = apply_filters('wpmfaddon_onedrive_business_settings', '');
 
             /**
              * Filter render Amazon s3 settings
@@ -2058,6 +2149,17 @@ class WpmfMediaFolderOption
              * @internal
              */
             $html_tabaws3 = apply_filters('wpmfaddon_aws3settings', '');
+
+            /**
+             * Filter render synchronization settings
+             *
+             * @param string HTML default
+             *
+             * @return string
+             *
+             * @internal
+             */
+            $synchronization = apply_filters('wpmfaddon_synchronization_settings', '');
         }
 
         // get defaul gallery settings
@@ -2258,7 +2360,7 @@ class WpmfMediaFolderOption
                                             $ext = '.' . $info['extension'];
                                             $filename       = sanitize_file_name($image_child->filename);
                                             // check file exist , if not exist then insert file
-                                            $pid = $this->checkExistPost('/' . $filename, $termID);
+                                            $pid = $this->checkExistPost('/' . $filename, $termID, $upload_dir);
                                             if (empty($pid)) {
                                                 $upload = copy($url_image, $upload_dir['path'] . '/' . $filename);
                                                 // upload images
@@ -2676,25 +2778,36 @@ class WpmfMediaFolderOption
         $present     = (100 / $count_images) * $limit;
         $k           = 0;
         $urls        = array();
-        $attachments = $wpdb->get_results($wpdb->prepare(
-            'SELECT ID FROM ' . $wpdb->posts . ' WHERE  post_type = "attachment"
-             AND post_mime_type LIKE %s AND guid  NOT LIKE %s ORDER BY post_date DESC LIMIT %d OFFSET %d',
-            array(
-                'image%',
-                '%.svg',
-                $limit,
-                $offset
+        $query = new WP_Query(array(
+            'posts_per_page' => (int) $limit,
+            'offset' => (int) $offset,
+            'post_type' => 'attachment',
+            'post_status' => 'any',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post_mime_type' => array('image/jpeg', 'image/jpg', 'image/gif', 'image/png', 'image/bmp', 'image/tiff', 'image/x-icon'),
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key'     => 'wpmf_drive_id',
+                    'compare' => 'NOT EXISTS'
+                ),
+                array(
+                    'key'     => 'wpmf_awsS3_info',
+                    'compare' => 'NOT EXISTS'
+                )
             )
         ));
+        $attachments = $query->get_posts();
         if (empty($attachments)) {
             wp_send_json(array('status' => 'ok', 'paged' => 0, 'success' => $this->result_gennerate_thumb));
         }
 
         foreach ($attachments as $image) {
+            $fullsizepath = get_attached_file($image->ID);
             $wpmf_size_filetype = wpmfGetSizeFiletype($image->ID);
             $size               = $wpmf_size_filetype['size'];
             update_post_meta($image->ID, 'wpmf_size', $size);
-            $fullsizepath = get_attached_file($image->ID);
             if (false === $fullsizepath || !file_exists($fullsizepath)) {
                 $message                      = sprintf(
                     __('The originally uploaded image file cannot be found at %s', 'wpmf'),

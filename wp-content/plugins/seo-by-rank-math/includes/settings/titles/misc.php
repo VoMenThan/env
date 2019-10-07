@@ -6,13 +6,15 @@
  * @subpackage RankMath\Settings
  */
 
+use RankMath\Helper;
+
 $dep = [ [ 'disable_date_archives', 'off' ] ];
 
 $cmb->add_field([
 	'id'      => 'disable_date_archives',
 	'type'    => 'switch',
 	'name'    => esc_html__( 'Date Archives', 'rank-math' ),
-	'desc'    => esc_html__( 'Redirect date archives to homepage.', 'rank-math' ),
+	'desc'    => esc_html__( 'Enable or disable the date archive (_e.g: domain.com/2019/06/_). If this option is disabled, the date archives will be redirected to the homepage.', 'rank-math' ),
 	'options' => [
 		'off' => esc_html__( 'Enabled', 'rank-math' ),
 		'on'  => esc_html__( 'Disabled', 'rank-math' ),
@@ -39,6 +41,10 @@ $cmb->add_field([
 	'classes'         => 'rank-math-supports-variables rank-math-description',
 	'dep'             => $dep,
 	'sanitization_cb' => false,
+	'attributes'      => [
+		'class'             => 'cmb2-textarea-small wp-exclude-emoji',
+		'data-gramm_editor' => 'false',
+	],
 ]);
 
 $cmb->add_field([
@@ -62,11 +68,13 @@ $cmb->add_field([
 ]);
 
 $cmb->add_field([
-	'id'      => 'noindex_date',
-	'type'    => 'switch',
-	'name'    => esc_html__( 'Noindex Date Archives', 'rank-math' ),
-	'desc'    => esc_html__( 'Prevent date archives from getting indexed by search engines.', 'rank-math' ),
-	'default' => 'on',
+	'id'                => 'date_archive_robots',
+	'type'              => 'multicheck',
+	/* translators: post type name */
+	'name'              => esc_html__( 'Date Robots Meta', 'rank-math' ),
+	'desc'              => esc_html__( 'Custom values for robots meta tag on date page.', 'rank-math' ),
+	'options'           => Helper::choices_robots(),
+	'select_all_button' => false,
 ]);
 
 $cmb->add_field([

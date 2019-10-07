@@ -66,10 +66,6 @@ class WpMediaFolder extends WpmfHelper
             }
         }
 
-        if (!get_option('wpmf_use_taxonomy', false)) {
-            add_option('wpmf_use_taxonomy', 1, '', 'yes');
-        }
-
         add_action('restrict_manage_posts', array($this, 'addImageCategoryFilter'));
         add_action('pre_get_posts', array($this, 'preGetPosts1'));
         add_action('admin_enqueue_scripts', array($this, 'adminPageTableScript'));
@@ -81,8 +77,8 @@ class WpMediaFolder extends WpmfHelper
         add_filter('upload_mimes', array($this, 'svgsUploadMimes'));
         add_filter('wp_check_filetype_and_ext', array($this, 'svgsDisableRealMimeCheck'), 10, 4);
         add_filter('wp_prepare_attachment_for_js', array($this, 'svgsResponseForSvg'), 10, 3);
+        add_filter('wp_prepare_attachment_for_js', array($this, 'checkCloudMedia'), 10, 3);
         add_action('admin_footer', array($this, 'editorFooter'));
-        add_action('admin_print_styles', array($this, 'adminInlineStyle'));
         $format_mediatitle = wpmfGetOption('format_mediatitle');
         if ((int) $format_mediatitle === 1) {
             add_action('add_attachment', array($this, 'updateFileTitle'));
@@ -96,6 +92,27 @@ class WpMediaFolder extends WpmfHelper
         add_filter('wpmf_syncMediaExternal', array($this, 'syncMediaExternal'), 10, 2);
         add_action('delete_attachment', array($this, 'deleteAttachment'), 10);
         add_filter('block_categories', array($this, 'addBlockCategories'), 10, 2);
+    }
+
+    /**
+     * Check cloud media
+     *
+     * @param array          $response   Array of prepared attachment data.
+     * @param integer|object $attachment Attachment ID or object.
+     * @param array          $meta       Array of attachment meta data.
+     *
+     * @return mixed $response
+     */
+    public function checkCloudMedia($response, $attachment, $meta)
+    {
+        $drive_meta = get_post_meta($attachment->ID, 'wpmf_drive_id', true);
+        if (!empty($drive_meta)) {
+            $response['cloud_media'] = 1;
+        } else {
+            $response['cloud_media'] = 0;
+        }
+
+        return $response;
     }
 
     /**
@@ -170,6 +187,9 @@ class WpMediaFolder extends WpmfHelper
     public function deleteAttachment($pid)
     {
         $file_path = get_attached_file($pid);
+        if (!file_exists($file_path)) {
+            return;
+        }
         $origin_infos = pathinfo($file_path);
         $origin_name = $origin_infos['filename'] . 'imageswatermark.' . $origin_infos['extension'];
         $paths = array(
@@ -245,6 +265,7 @@ class WpMediaFolder extends WpmfHelper
                 return;
             }
 
+            update_option('_wpmf_activation_redirect', 1);
             wp_safe_redirect(admin_url('index.php?page=wpmf-setup'));
             exit;
         }
@@ -446,10 +467,10 @@ class WpMediaFolder extends WpmfHelper
      */
     public function mediaSetFilesToFolderWpml($attachment_id, $duplicated_attachment_id)
     {
-        $terms = get_the_terms($attachment_id, WPMF_TAXO);
+        $terms = wp_get_post_terms($attachment_id, WPMF_TAXO, array('fields' => 'ids'));
         if (!empty($terms)) {
-            foreach ($terms as $term) {
-                wp_set_object_terms($duplicated_attachment_id, $term->term_id, WPMF_TAXO, true);
+            foreach ($terms as $id_term) {
+                wp_set_object_terms($duplicated_attachment_id, $id_term, WPMF_TAXO, true);
                 $this->addSizeFiletype($duplicated_attachment_id);
 
                 /**
@@ -461,7 +482,7 @@ class WpMediaFolder extends WpmfHelper
                  *
                  * @ignore Hook already documented
                  */
-                do_action('wpmf_attachment_set_folder', $duplicated_attachment_id, $term->term_id, array('trigger' => 'upload'));
+                do_action('wpmf_attachment_set_folder', $duplicated_attachment_id, $id_term, array('trigger' => 'upload'));
             }
         }
     }
@@ -477,10 +498,10 @@ class WpMediaFolder extends WpmfHelper
      */
     public function pllTranslateMedia($attachment_id, $duplicated_attachment_id, $lang)
     {
-        $terms = get_the_terms($attachment_id, WPMF_TAXO);
+        $terms = wp_get_post_terms($attachment_id, WPMF_TAXO, array('fields' => 'ids'));
         if (!empty($terms)) {
-            foreach ($terms as $term) {
-                wp_set_object_terms($duplicated_attachment_id, $term->term_id, WPMF_TAXO, true);
+            foreach ($terms as $id_term) {
+                wp_set_object_terms($duplicated_attachment_id, $id_term, WPMF_TAXO, true);
                 $this->addSizeFiletype($duplicated_attachment_id);
 
                 /**
@@ -492,7 +513,7 @@ class WpMediaFolder extends WpmfHelper
                  *
                  * @ignore Hook already documented
                  */
-                do_action('wpmf_attachment_set_folder', $duplicated_attachment_id, $term->term_id, array('trigger' => 'upload'));
+                do_action('wpmf_attachment_set_folder', $duplicated_attachment_id, $id_term, array('trigger' => 'upload'));
             }
         }
     }
@@ -549,19 +570,6 @@ class WpMediaFolder extends WpmfHelper
         }
 
         return (object) array('width' => $width, 'height' => $height);
-    }
-
-    /**
-     * Add inline style and html
-     *
-     * @return void
-     */
-    public function adminInlineStyle()
-    {
-        global $pagenow, $current_screen;
-        if (is_admin() && ($pagenow === 'customize.php' || (isset($current_screen) && $current_screen->base === 'toplevel_page_wptm'))) {
-            $this->editorFooter();
-        }
     }
 
     /**
@@ -783,6 +791,15 @@ class WpMediaFolder extends WpmfHelper
             WPMF_VERSION
         );
 
+        if (is_plugin_active('wp-media-folder-addon/wp-media-folder-addon.php')) {
+            wp_enqueue_script(
+                'wpmf-import-cloud-tree',
+                plugins_url('/assets/js/import_cloud_tree.js', dirname(__FILE__)),
+                array('jquery'),
+                WPMF_VERSION
+            );
+        }
+
         $params = $this->localizeScript();
         wp_localize_script('wpmf-base', 'wpmf', $params);
         wp_enqueue_script('wplink');
@@ -956,11 +973,17 @@ class WpMediaFolder extends WpmfHelper
         }
         $hide_tree         = wpmfGetOption('hide_tree');
         $hide_remote_video = wpmfGetOption('hide_remote_video');
+        $show_folder_id = wpmfGetOption('show_folder_id');
         // get colors folder option
         $colors_option = wpmfGetOption('folder_color');
 
         // get default gallery config
         $gallery_configs = wpmfGetOption('gallery_settings');
+        // get cloud sync settings
+        $sync_method = wpmfGetOption('sync_method');
+        $sync_periodicity = wpmfGetOption('sync_periodicity');
+        $cloudNameSyncing = get_option('wpmf_cloud_name_syncing');
+
         $l18n            = $this->translation();
         $vars            = array(
             'site_url'              => site_url(),
@@ -1005,10 +1028,15 @@ class WpMediaFolder extends WpmfHelper
             'parent'                => $terms['parent'],
             'colors'                => $colors_option,
             'hide_tree'             => $hide_tree,
+            'show_folder_id'        => ((int) $show_folder_id === 1) ? true : false,
             'hide_remote_video'     => $hide_remote_video,
             'gallery_configs'       => $gallery_configs,
+            'sync_method'           => $sync_method,
+            'sync_periodicity'      => (int) $sync_periodicity,
+            'cloudNameSyncing'      => $cloudNameSyncing,
             'wpmf_addon_active'     => (is_plugin_active('wp-media-folder-addon/wp-media-folder-addon.php')) ? 1 : 0,
-            'wpmf_nonce'            => wp_create_nonce('wpmf_nonce')
+            'wpmf_nonce'            => wp_create_nonce('wpmf_nonce'),
+            'img_url' => WPMF_PLUGIN_URL . 'assets/images/'
         );
 
         return array('l18n' => $l18n, 'vars' => $vars);
@@ -1039,7 +1067,7 @@ class WpMediaFolder extends WpmfHelper
             'update_file_msg'       => __('Update failed. Please try with another name, thanks :)', 'wpmf'),
             'alert_delete'          => __('Are you sure to want to delete this folder?', 'wpmf'),
             'alert_delete_all'      => __('Are you sure to want to delete this folder? Note that this folder contain subfolders or files.', 'wpmf'),
-            'alert_delete1'         => __('this folder contains sub-folder or file, delete sub-folders or file before', 'wpmf'),
+            'alert_delete1'         => __('This folder contains media and/or subfolders, please delete them before or activate the setting that allows to remove a folder with its media', 'wpmf'),
             'display_own_media'     => __('Display only my own medias', 'wpmf'),
             'create_gallery_folder' => __('Create a gallery from folder', 'wpmf'),
             'home'                  => __('Home', 'wpmf'),
@@ -1064,6 +1092,7 @@ class WpMediaFolder extends WpmfHelper
             'wpmf_undo_editfolder'  => __('Folder name updated', 'wpmf'),
             'wpmf_file_replace'     => __('File replaced!', 'wpmf'),
             'wpmf_fileupload'       => __('File upload on the way...', 'wpmf'),
+            'syncing_with_cloud'    => __('Cloud syncing on the way...', 'wpmf'),
             'wpmf_undofilter'       => __('Filter applied', 'wpmf'),
             'wpmf_remove_filter'    => __('Media filters removed', 'wpmf'),
             'cancel'                => __('Cancel', 'wpmf'),
@@ -1074,6 +1103,9 @@ class WpMediaFolder extends WpmfHelper
             'remove'                => __('Remove', 'wpmf'),
             'get_url_file'          => __('Get URL', 'wpmf'),
             'edit_folder'           => __('Edit Folder', 'wpmf'),
+            'copy_folder_id'        => __('Copy folder ID: ', 'wpmf'),
+            'copy_folderID_msg'     => __('Folder ID copied to clipboard', 'wpmf'),
+            'success_copy_shortcode' => __('Gallery shortcode copied!', 'wpmf'),
             'change_color'          => __('Change color', 'wpmf'),
             'edit_file'             => __('Edit', 'wpmf'),
             'information'           => __('Information', 'wpmf'),
@@ -1087,6 +1119,7 @@ class WpMediaFolder extends WpmfHelper
             'wpmf_media_uploaded'   => __('New media uploaded', 'wpmf'),
             'wpmf_folder_adding'    => __('Adding folder...', 'wpmf'),
             'wpmf_folder_deleting'  => __('Removing folder...', 'wpmf'),
+            'folder_editing'        => __('Editing folder...', 'wpmf'),
             'wpmf_folder_moving'    => __('Moving folder...', 'wpmf'),
             'wpmf_file_moving'      => __('Moving file...', 'wpmf'),
             'video_uploaded'        => __('New video uploaded', 'wpmf'),
@@ -1162,6 +1195,15 @@ class WpMediaFolder extends WpmfHelper
             'copy_url'              => __('Media URL copied!', 'wpmf'),
             'reload_media'          => __('Refresh media library', 'wpmf'),
             'msg_upload_folder'     => __('You are uploading media to folder: ', 'wpmf'),
+            'addon_ajax_button'     => __('Use ajax link', 'wpmf'),
+            'sync_drive' => __('Run full synchronization', 'wpmf'),
+            'move_file_fail' => __('Sorry, Media & Folders can only be moved to the same cloud or media system (Google Drive to Google Drive, WordPress media to WordPress media...)', 'wpmf'),
+            'import_cloud' => __('Import to library', 'wpmf'),
+            'import' => __('Import', 'wpmf'),
+            'import_cloud_title' => __('Import this file to media library', 'wpmf'),
+            'importing_cloud_file'  => __('Cloud file(s) importing...', 'wpmf'),
+            'import_cloud_btn'     => __('Import to media library', 'wpmf'),
+            'hover_cloud_syncing' => esc_html__('Cloud syncing on the way', 'wpmf')
         );
 
         return $l18n;
@@ -1214,6 +1256,7 @@ class WpMediaFolder extends WpmfHelper
                 'pll_get_terms_not_translated' => 1
             )
         );
+
         $terms            = $this->parentSort($terms);
         $term_rootId      = 0;
 
@@ -1311,8 +1354,21 @@ class WpMediaFolder extends WpmfHelper
                 }
             }
         } else { // role == administrator or disable option 'Display only media by User/User'
+            $exclude = $this->getDriveFolderExcludes();
             foreach ($terms as $term) {
                 if ((int) $term->term_id === (int) $this->folderRootId) {
+                    continue;
+                }
+
+                $type = get_term_meta($term->term_id, 'wpmf_drive_type', true);
+                if (in_array($term->name, $exclude) && (int) $term->parent === 0) {
+                    continue;
+                }
+
+                if ((in_array('Dropbox', $exclude) && $type === 'dropbox')
+                    || (in_array('Google Drive', $exclude) && $type === 'google_drive')
+                    || (in_array('Onedrive', $exclude) && $type === 'onedrive')
+                    || (in_array('Onedrive Business', $exclude) && $type === 'onedrive_business')) {
                     continue;
                 }
 
@@ -1368,6 +1424,10 @@ class WpMediaFolder extends WpmfHelper
     {
         // get custom order folder
         $order   = $this->getOrderFolder($term->term_id);
+        $drive_type = get_term_meta($term->term_id, 'wpmf_drive_root_type', true);
+        if (empty($drive_type)) {
+            $drive_type = get_term_meta($term->term_id, 'wpmf_drive_type', true);
+        }
         $details = array(
             'id'            => $term->term_id,
             'label'         => $term->name,
@@ -1377,7 +1437,8 @@ class WpMediaFolder extends WpmfHelper
             'depth'         => $term->depth,
             'term_group'    => $term->term_group,
             'cover_image'   => isset($cover_images[$term->term_id]) ? $cover_images[$term->term_id] : '',
-            'order'         => $order
+            'order'         => $order,
+            'drive_type'    => !empty($drive_type) ? $drive_type : '',
         );
 
         if (isset($cf_count_files) && (int) $cf_count_files === 1) {
@@ -1415,13 +1476,44 @@ class WpMediaFolder extends WpmfHelper
                WHERE   posts.post_type = "attachment"');
 
         if ($total > 10000) {
-            wp_enqueue_script(
-                'wpmfimport-size',
-                plugins_url('/assets/js/import_size_filetype.js', dirname(__FILE__)),
-                array('jquery'),
-                WPMF_VERSION
-            );
+            ?>
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    /**
+                     * Import size and filetype
+                     * @param button
+                     */
+                    var wpmfimport_meta_size = function (button) {
+                        var $this = jQuery(button);
+                        var wpmf_current_page = $this.data("page");
+                        $this.find(".spinner").show().css({"visibility": "visible"});
+                        /* Ajax import */
+                        jQuery.ajax({
+                            type: 'POST',
+                            url: ajaxurl,
+                            data: {
+                                action: "wpmf_import_size_filetype",
+                                wpmf_current_page: wpmf_current_page,
+                                wpmf_nonce: wpmf.vars.wpmf_nonce
+                            },
+                            success: function (res) {
+                                if (!res.status) {
+                                    $this.data("page", parseInt(res.page) + 1);
+                                    $this.click();
+                                } else {
+                                    $this.closest("div#wpmf_error").hide();
+                                }
+                            }
+                        });
+                    };
 
+                    /* click import button */
+                    $('#wmpfImportsize').on('click', function () {
+                        wpmfimport_meta_size($(this));
+                    });
+                });
+            </script>
+            <?php
             echo '<div class="error" id="wpmf_error">'
                  . '<p>'
                  . esc_html__('Your website has a large image library (>10000 images).
@@ -1654,8 +1746,10 @@ class WpMediaFolder extends WpmfHelper
                     'selected'          => (int) $selected
                 );
             } else {
+                $excludes = $this->getDriveFolderExcludesWithIDs();
+                $excludes[] = $root_media_root->term_id;
                 $dropdown_options = array(
-                    'exclude'           => $root_media_root->term_id,
+                    'exclude'           => $excludes,
                     'show_option_none'  => __('Select a folder', 'wpmf'),
                     'option_none_value' => 0,
                     'hide_empty'        => false,
@@ -1694,9 +1788,9 @@ class WpMediaFolder extends WpmfHelper
         if (!isset($query->query_vars['post_type']) || $query->query_vars['post_type'] !== 'attachment') {
             return $query;
         }
-        global $pagenow;
+        global $pagenow, $current_screen;
         $option_search = get_option('wpmf_option_searchall');
-        if ($pagenow === 'upload.php') {
+        if ($pagenow === 'upload.php' && isset($current_screen) && $current_screen->base === 'upload') {
             $current_url = set_url_scheme('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
             $redirect    = false;
             if (isset($_GET['s']) && $_GET['s'] === '') {
@@ -1800,10 +1894,8 @@ class WpMediaFolder extends WpmfHelper
                 $id_author = get_current_user_id();
                 $query->set('author', $id_author);
             }
-
-            // query by date
-            $query = $this->queryDate($query);
         }
+
         return $query;
     }
 
@@ -1968,57 +2060,6 @@ class WpMediaFolder extends WpmfHelper
             }
         }
 
-        // query by date
-        $query = $this->queryDate($query);
-        return $query;
-    }
-
-    /**
-     * Query date
-     *
-     * @param object $query Query params
-     *
-     * @return object
-     */
-    public function queryDate($query)
-    {
-        global $pagenow;
-        if ($pagenow !== 'upload.php') {
-            if (empty($_REQUEST['query']['wpmf_nonce'])
-                || !wp_verify_nonce($_REQUEST['query']['wpmf_nonce'], 'wpmf_nonce')) {
-                return $query;
-            }
-        }
-        $y = '';
-        $m = '';
-        if (!empty($_COOKIE['#media-attachment-date-filters' . site_url()]) && !in_array($_COOKIE['#media-attachment-date-filters' . site_url()], array('undefined', 'null', 'all'))) {
-            $y = date('Y', strtotime($_COOKIE['#media-attachment-date-filters' . site_url()]));
-            $m = date('m', strtotime($_COOKIE['#media-attachment-date-filters' . site_url()]));
-        }
-
-        if ($pagenow === 'upload.php') {
-            if (!empty($_GET['m'])) {
-                $y = date('Y', strtotime($_GET['m']));
-                $m = date('m', strtotime($_GET['m']));
-            }
-        } else {
-            if (!empty($_REQUEST['query']['year'])) {
-                $y = $_REQUEST['query']['year'];
-            }
-
-            if (!empty($_REQUEST['query']['monthnum'])) {
-                $m = $_REQUEST['query']['monthnum'];
-            }
-        }
-
-        if (!empty($y) && $y !== 'undefined' && !empty($m) && $m !== 'undefined') {
-            $query->query_vars['date_query'] = array(
-                array(
-                    'year'  => $y,
-                    'month' => $m
-                )
-            );
-        }
         return $query;
     }
 
@@ -2033,35 +2074,20 @@ class WpMediaFolder extends WpmfHelper
     {
         global $wpdb;
         if (defined('ICL_SITEPRESS_VERSION') && ICL_SITEPRESS_VERSION) {
-            if (is_plugin_active('wpml-media-translation/plugin.php')) {
-                $my_current_lang = apply_filters('wpml_current_language', null);
-                $count           = $wpdb->get_var($wpdb->prepare(
-                    'SELECT COUNT(t1.object_id) FROM ' . $wpdb->prefix . 'term_relationships as t1
-             INNER JOIN ' . $wpdb->prefix . 'term_taxonomy as t2 ON t1.term_taxonomy_id = t2.term_taxonomy_id
-             INNER JOIN ' . $wpdb->prefix . 'terms as terms ON terms.term_id = t2.term_id
-              INNER JOIN ' . $wpdb->prefix . 'posts as t4 ON t1.object_id = t4.ID
-              INNER JOIN ' . $wpdb->prefix . 'icl_translations as t3 ON t1.object_id = t3.element_id 
-              WHERE terms.term_id = %d AND t2.taxonomy = %s AND t3.language_code = %s',
-                    array($term_id, WPMF_TAXO, $my_current_lang)
-                ));
-            } else {
-                $count = $wpdb->get_var($wpdb->prepare(
-                    'SELECT COUNT(t1.object_id) FROM ' . $wpdb->prefix . 'term_relationships as t1
-             INNER JOIN ' . $wpdb->prefix . 'term_taxonomy as t2 ON t1.term_taxonomy_id = t2.term_taxonomy_id
-             INNER JOIN ' . $wpdb->prefix . 'terms as terms ON terms.term_id = t2.term_id
-              INNER JOIN ' . $wpdb->prefix . 'posts as t4 ON t1.object_id = t4.ID
-              WHERE terms.term_id = %d AND t2.taxonomy = %s',
-                    array($term_id, WPMF_TAXO)
-                ));
-            }
+            global $sitepress;
+            $language = $sitepress->get_current_language();
+            $count = (int)$wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'icl_translations AS wpml 
+            INNER JOIN ' . $wpdb->term_relationships . ' AS term_rela ON term_rela.object_id = wpml.element_id 
+            WHERE wpml.element_type = "post_attachment" AND term_rela.term_taxonomy_id = %d 
+            AND wpml.language_code = %s', array($term_id, $language)));
         } elseif (is_plugin_active('polylang/polylang.php')) {
             global $polylang;
             $all_objects = get_objects_in_term($term_id, WPMF_TAXO);
             if ($polylang->curlang && $polylang->model->is_translated_post_type('attachment')) {
                 $my_current_lang = $polylang->curlang->slug;
-                $lang_term       = get_term_by('slug', $my_current_lang, 'language');
-                $lang_object     = get_objects_in_term($lang_term->term_id, 'language', array('post_type' => 'attachment'));
-                $count           = array_intersect($all_objects, $lang_object);
+                $lang_term = get_term_by('slug', $my_current_lang, 'language');
+                $lang_object = get_objects_in_term($lang_term->term_id, 'language', array('post_type' => 'attachment'));
+                $count = array_intersect($all_objects, $lang_object);
                 return count($count);
             } else {
                 return count($all_objects);
@@ -2071,7 +2097,7 @@ class WpMediaFolder extends WpmfHelper
             return $folder->count;
         }
 
-        return (int) $count;
+        return (int)$count;
     }
 
     /**
@@ -2170,13 +2196,8 @@ class WpMediaFolder extends WpmfHelper
         $wpmf_size_filetype = $this->getSizeFiletype($attachment_id);
         $size               = $wpmf_size_filetype['size'];
         $ext                = $wpmf_size_filetype['ext'];
-        if (!get_post_meta($attachment_id, 'wpmf_size')) {
-            add_post_meta($attachment_id, 'wpmf_size', $size);
-        }
-
-        if (!get_post_meta($attachment_id, 'wpmf_filetype')) {
-            add_post_meta($attachment_id, 'wpmf_filetype', $ext);
-        }
+        update_post_meta($attachment_id, 'wpmf_size', $size);
+        update_post_meta($attachment_id, 'wpmf_filetype', $ext);
     }
 
     /**
@@ -2215,7 +2236,7 @@ class WpMediaFolder extends WpmfHelper
         // insert new term
         $inserted = wp_insert_term($term, WPMF_TAXO, array('parent' => $termParent));
         if (is_wp_error($inserted)) {
-            wp_send_json(array('status' => false, 'error' => $inserted->get_error_message()));
+            wp_send_json(array('status' => false, 'msg' => $inserted->get_error_message()));
         } else {
             // update term_group for new term
             $updateted = wp_update_term($inserted['term_id'], WPMF_TAXO, array('term_group' => $id_author));
@@ -2269,12 +2290,17 @@ class WpMediaFolder extends WpmfHelper
          */
         $wpmf_capability = apply_filters('wpmf_user_can', current_user_can('upload_files'), 'edit_folder');
         if (!$wpmf_capability) {
-            wp_send_json(false);
+            wp_send_json(array('status' => false, 'msg' => esc_html__('You not have a permission to edit folder!', 'wpmf')));
         }
 
         $term_name = esc_attr($_POST['name']);
         if (!$term_name) {
-            wp_send_json(false);
+            wp_send_json(array('status' => false, 'msg' => esc_html__('Folder names can\'t be empty', 'wpmf')));
+        }
+
+        $type = get_term_meta((int) $_POST['id'], 'wpmf_drive_root_type', true);
+        if (!empty($type)) {
+            wp_send_json(array('status' => false, 'msg' => esc_html__('Can\'t edit cloud root folder!', 'wpmf')));
         }
 
         // Retrieve term informations
@@ -2292,12 +2318,12 @@ class WpMediaFolder extends WpmfHelper
 
         if (in_array($term_name, $siblings)) {
             // Another folder with the same name exists
-            wp_send_json(false);
+            wp_send_json(array('status' => false, 'msg' => esc_html__('A folder already exists here with the same name. Please try with another name, thanks :)', 'wpmf')));
         }
 
         $updated_term = wp_update_term((int) $_POST['id'], WPMF_TAXO, array('name' => $term_name));
         if ($updated_term instanceof WP_Error) {
-            wp_send_json($updated_term->get_error_messages());
+            wp_send_json(array('status' => false, 'msg' => $updated_term->get_error_messages()));
         } else {
             // Retrieve more information than wp_update_term function returns
             $term_details = get_term($updated_term['term_id'], WPMF_TAXO);
@@ -2309,7 +2335,7 @@ class WpMediaFolder extends WpmfHelper
              * @param string  Updated name
              */
             do_action('wpmf_update_folder_name', $_POST['id'], $term_name);
-            wp_send_json($term_details);
+            wp_send_json(array('status' => true, 'details' => $term_details));
         }
     }
 
@@ -2360,7 +2386,7 @@ class WpMediaFolder extends WpmfHelper
                     array($child, WPMF_TAXO)
                 ));
                 foreach ($childs_media as $media) {
-                    if ($i >= 20) {
+                    if ($i >= 5) {
                         wp_send_json(array(
                             'status' => false,
                             'msg'    => 'limit'
@@ -2372,30 +2398,33 @@ class WpMediaFolder extends WpmfHelper
                 }
 
                 // Retrieve the term before deleting it
-                $term = get_term($child, WPMF_TAXO);
-                wp_delete_term($child, WPMF_TAXO);
+                $type = get_term_meta((int) $child, 'wpmf_drive_root_type', true);
+                if (empty($type)) {
+                    $term = get_term($child, WPMF_TAXO);
+                    do_action('wpmf_before_delete_folder', $term);
+                    wp_delete_term($child, WPMF_TAXO);
+                    /**
+                     * Delete a folder
+                     *
+                     * @param WP_Term Folder, this term is not available anymore as it as been deleted
+                     */
+                    do_action('wpmf_delete_folder', $term);
 
-                /**
-                 * Delete a folder
-                 *
-                 * @param WP_Term Folder, this term is not available anymore as it as been deleted
-                 */
-                do_action('wpmf_delete_folder', $term);
+                    if (isset($wpmf_list_sync_media[$child])) {
+                        unset($wpmf_list_sync_media[$child]);
+                    }
+                    if (isset($wpmf_ao_lastRun[$child])) {
+                        unset($wpmf_ao_lastRun[$child]);
+                    }
+                    if (isset($colors_option[$child])) {
+                        unset($colors_option[$child]);
+                    }
 
-                if (isset($wpmf_list_sync_media[$child])) {
-                    unset($wpmf_list_sync_media[$child]);
+                    // update option 'wpmf_list_sync_media' , 'wpmf_ao_lastRun'
+                    update_option('wpmf_list_sync_media', $wpmf_list_sync_media);
+                    update_option('wpmf_ao_lastRun', $wpmf_ao_lastRun);
+                    wpmfSetOption('folder_color', $colors_option);
                 }
-                if (isset($wpmf_ao_lastRun[$child])) {
-                    unset($wpmf_ao_lastRun[$child]);
-                }
-                if (isset($colors_option[$child])) {
-                    unset($colors_option[$child]);
-                }
-
-                // update option 'wpmf_list_sync_media' , 'wpmf_ao_lastRun'
-                update_option('wpmf_list_sync_media', $wpmf_list_sync_media);
-                update_option('wpmf_ao_lastRun', $wpmf_ao_lastRun);
-                wpmfSetOption('folder_color', $colors_option);
             }
 
             // Retrieve the updated folders hierarchy
@@ -2628,30 +2657,36 @@ class WpMediaFolder extends WpmfHelper
             $current_category = (int) $_POST['current_category'];
         }
         foreach (array_unique($_POST['ids']) as $id) {
-            // compability with WPML plugin
-            $the_terms = get_the_terms($id, WPMF_TAXO);
-            $this->moveFileWpml($id, $current_category, $_POST['id_category']);
+            $cloud_file_type = wpmfGetCloudFileType($id);
+            $cloud_folder_type = wpmfGetCloudFolderType($_POST['id_category']);
 
-            wp_remove_object_terms((int) $id, $current_category, WPMF_TAXO);
-            if ((int) $_POST['id_category'] === 0
-                || wp_set_object_terms((int) $id, (int) $_POST['id_category'], WPMF_TAXO, true)) {
-                /**
-                 * Set attachment folder after moving an attachment to a folder in the media manager
-                 * This hook is also used when importing attachment to categories, after an attachment upload and
-                 * when assigning multiple folder to an attachment
-                 *
-                 * @param integer       Attachment ID
-                 * @param integer|array Target folder or array of target folders
-                 * @param array         Extra informations
-                 */
-                do_action('wpmf_attachment_set_folder', $id, (int) $_POST['id_category'], array('trigger' => 'move_attachment'));
+            if ($cloud_file_type === $cloud_folder_type) {
+                // compability with WPML plugin
+                $this->moveFileWpml($id, $current_category, $_POST['id_category']);
 
-                // reset order
-                update_post_meta(
-                    (int) $id,
-                    'wpmf_order',
-                    0
-                );
+                wp_remove_object_terms((int) $id, $current_category, WPMF_TAXO);
+                if ((int) $_POST['id_category'] === 0
+                    || wp_set_object_terms((int) $id, (int) $_POST['id_category'], WPMF_TAXO, true)) {
+                    /**
+                     * Set attachment folder after moving an attachment to a folder in the media manager
+                     * This hook is also used when importing attachment to categories, after an attachment upload and
+                     * when assigning multiple folder to an attachment
+                     *
+                     * @param integer       Attachment ID
+                     * @param integer|array Target folder or array of target folders
+                     * @param array         Extra informations
+                     */
+                    do_action('wpmf_attachment_set_folder', $id, (int) $_POST['id_category'], array('trigger' => 'move_attachment'));
+
+                    // reset order
+                    update_post_meta(
+                        (int) $id,
+                        'wpmf_order',
+                        0
+                    );
+                } else {
+                    $return = false;
+                }
             } else {
                 $return = false;
             }
@@ -2684,13 +2719,19 @@ class WpMediaFolder extends WpmfHelper
          */
         $wpmf_capability = apply_filters('wpmf_user_can', current_user_can('upload_files'), 'move_folder');
         if (!$wpmf_capability) {
-            wp_send_json(array('status' => false));
+            wp_send_json(array('status' => false, 'msg' => esc_html__('You not have permission!', 'wpmf')));
+        }
+
+        $cloud_folder_type = wpmfGetCloudFolderType($_POST['id']);
+        $cloud_folder_target_type = wpmfGetCloudFolderType($_POST['id_category']);
+        if ($cloud_folder_type !== $cloud_folder_target_type) {
+            wp_send_json(array('status' => false, 'msg' => esc_html__('Sorry, Media & Folders can only be moved to the same cloud or media system (Google Drive to Google Drive, WordPress media to WordPress media...)', 'wpmf')));
         }
 
         // Check that the folder we move into is not a child of the folder we're moving
         $wpmf_childs = $this->getFolderChild($_POST['id'], array());
         if (in_array((int) $_POST['id_category'], $wpmf_childs)) {
-            wp_send_json(array('status' => false, 'wrong' => 'wrong'));
+            wp_send_json(array('status' => false, 'msg' => esc_html__('A folder already exists here with the same name. Please try with another name, thanks :)', 'wpmf')));
         }
 
         /*
@@ -2707,12 +2748,12 @@ class WpMediaFolder extends WpmfHelper
             )
         );
         if (in_array($term->name, $siblings)) {
-            wp_send_json(array('status' => false));
+            wp_send_json(array('status' => false, 'msg' => 'Error, can\'t move'));
         }
 
         $r = wp_update_term((int) $_POST['id'], WPMF_TAXO, array('parent' => (int) $_POST['id_category']));
         if ($r instanceof WP_Error) {
-            wp_send_json(array('status' => false));
+            wp_send_json(array('status' => false, 'msg' => 'Error, can\'t move'));
         } else {
             /**
              * Move a folder from media library
@@ -2800,6 +2841,18 @@ class WpMediaFolder extends WpmfHelper
         $wpmf_create_folder = get_option('wpmf_create_folder');
         $current_role       = $this->getRoles(get_current_user_id());
         foreach ($categorys as $category) {
+            if ((int) $this->folderRootId === (int) $category->term_id) {
+                continue;
+            }
+            $drive_type = get_term_meta($category->term_id, 'wpmf_drive_root_type', true);
+            if (empty($drive_type)) {
+                $drive_type = get_term_meta($category->term_id, 'wpmf_drive_type', true);
+            }
+
+            if (!empty($drive_type)) {
+                continue;
+            }
+
             if (!$this->user_full_access) {
                 $child      = get_term_children((int) $category->term_id, WPMF_TAXO);
                 $countchild = count($child);
@@ -3108,7 +3161,12 @@ class WpMediaFolder extends WpmfHelper
             $user_media_folder_root = 0;
         }
 
+        $exclude = $this->getDriveFolderExcludes();
         foreach ($categories as $category) {
+            if (in_array($category->name, $exclude) && (int) $category->parent === 0) {
+                continue;
+            }
+
             if ((int) $category->term_id === (int) $user_media_folder_root) {
                 $checked  = true;
                 $pchecked = false;
@@ -3200,18 +3258,15 @@ class WpMediaFolder extends WpmfHelper
             wp_send_json(false);
         }
         global $wpdb;
-        $dir = '/';
-        if (!empty($_POST['dir'])) {
-            $dir = $_POST['dir'];
-            if ($dir[0] === '/') {
-                $dir = '.' . $dir . '/';
-            }
-        }
-        $dir  = str_replace('..', '', $dir);
         $dirs = array();
         $id   = 0;
         if (!empty($_POST['id'])) {
             $id = (int) $_POST['id'];
+        }
+
+        if (defined('ICL_SITEPRESS_VERSION') && ICL_SITEPRESS_VERSION) {
+            global $sitepress;
+            $sitepress->switch_lang('all', true);
         }
 
         // Retrieve the terms in a given taxonomy or list of taxonomies.
@@ -3246,6 +3301,15 @@ class WpMediaFolder extends WpmfHelper
         }
 
         foreach ($categories as $category) {
+            $drive_type = get_term_meta($category->term_id, 'wpmf_drive_root_type', true);
+            if (empty($drive_type)) {
+                $drive_type = get_term_meta($category->term_id, 'wpmf_drive_type', true);
+            }
+
+            if (!empty($drive_type)) {
+                continue;
+            }
+
             if (in_array($category->term_id, $term_of_file)) {
                 $checked  = true;
                 $pchecked = false;
@@ -3259,10 +3323,8 @@ class WpMediaFolder extends WpmfHelper
                 if ($wpmf_create_folder === 'user') {
                     if ((int) $category->term_group === (int) get_current_user_id()) {
                         $dirs[] = array(
-                            'type'        => 'dir',
-                            'dir'         => $dir,
-                            'file'        => $category->name,
                             'id'          => $category->term_id,
+                            'name'        => $category->name,
                             'parent_id'   => $category->parent,
                             'count_child' => $countchild,
                             'term_group'  => $category->term_group,
@@ -3274,10 +3336,8 @@ class WpMediaFolder extends WpmfHelper
                     $role = $this->getRoles($category->term_group);
                     if ($current_role === $role) {
                         $dirs[] = array(
-                            'type'        => 'dir',
-                            'dir'         => $dir,
-                            'file'        => $category->name,
                             'id'          => $category->term_id,
+                            'name'        => $category->name,
                             'parent_id'   => $category->parent,
                             'count_child' => $countchild,
                             'term_group'  => $category->term_group,
@@ -3290,10 +3350,8 @@ class WpMediaFolder extends WpmfHelper
                 $countchild = $wpdb->get_var($wpdb->prepare('SELECT COUNT(term_id) FROM ' . $wpdb->prefix . 'term_taxonomy 
                WHERE parent = %d', array((int) $category->term_id)));
                 $dirs[]     = array(
-                    'type'        => 'dir',
-                    'dir'         => $dir,
-                    'file'        => $category->name,
                     'id'          => $category->term_id,
+                    'name'        => $category->name,
                     'parent_id'   => $category->parent,
                     'count_child' => $countchild,
                     'term_group'  => $category->term_group,
@@ -3387,21 +3445,29 @@ class WpMediaFolder extends WpmfHelper
         if (isset($_POST['attachment_id']) && $_POST['attachment_id'] !== '') {
             $attachment_ids = explode(',', $_POST['attachment_id']);
             foreach ($attachment_ids as $attachment_id) {
+                $cloud_file_type = wpmfGetCloudFileType($attachment_id);
+                if ($cloud_file_type !== 'local') {
+                    continue;
+                }
                 // unset file to list folder checked
-                $the_terms = get_the_terms($attachment_id, WPMF_TAXO);
-                foreach ($the_terms as $the_term) {
+                $the_terms = wp_get_post_terms($attachment_id, WPMF_TAXO, array('fields' => 'ids'));
+                foreach ($the_terms as $id_term) {
                     // compability with WPML plugin
-                    $this->moveFileWpml($attachment_id, $the_term->term_id, 'no');
-                    wp_remove_object_terms((int) $attachment_id, (int) $the_term->term_id, WPMF_TAXO);
+                    $this->moveFileWpml($attachment_id, $id_term, 'no');
+                    wp_remove_object_terms((int) $attachment_id, (int) $id_term, WPMF_TAXO);
                 }
 
                 // set file to list folder checked
                 if (isset($_POST['wpmf_term_ids_check'])) {
                     $wpmf_term_ids_check = explode(',', $_POST['wpmf_term_ids_check']);
                     foreach ($wpmf_term_ids_check as $term_id) {
-                        // compability with WPML plugin
-                        $this->moveFileWpml($attachment_id, 'no', $term_id);
-                        wp_set_object_terms((int) $attachment_id, (int) $term_id, WPMF_TAXO, true);
+                        $cloud_file_type = wpmfGetCloudFileType($attachment_id);
+                        $cloud_folder_type = wpmfGetCloudFolderType($term_id);
+                        if ($cloud_file_type === $cloud_folder_type) {
+                            // compability with WPML plugin
+                            $this->moveFileWpml($attachment_id, 'no', $term_id);
+                            wp_set_object_terms((int) $attachment_id, (int) $term_id, WPMF_TAXO, true);
+                        }
                     }
                     /**
                      * Assign multiple folders to an attachment
@@ -3796,6 +3862,13 @@ class WpMediaFolder extends WpmfHelper
                    value="' . get_post_meta($post->ID, 'wpmf_remote_video_link', true) . '">'
             );
         }
+
+        $form_fields['wpmf_attachment_id'] = array(
+            'label' => '',
+            'input' => 'html',
+            'html'  => '<input type="hidden" class="wpmf_attachment_id"
+                   value="' . $post->ID . '">'
+        );
         return $form_fields;
     }
 
@@ -4143,5 +4216,137 @@ class WpMediaFolder extends WpmfHelper
         wp_send_json(
             array('status' => true, 'folders' => array_unique($exclude_folders))
         );
+    }
+
+    /**
+     * Get drive folder excludes
+     *
+     * @return array
+     */
+    public function getDriveFolderExcludes()
+    {
+        $exclude = array();
+        if (is_plugin_active('wp-media-folder-addon/wp-media-folder-addon.php')) {
+            $addon_active = true;
+        } else {
+            $addon_active = false;
+        }
+
+        if (!$addon_active) {
+            $exclude = array('Google Drive', 'Dropbox', 'Onedrive', 'Onedrive Business');
+        } else {
+            // hide Drive folder if not coonect
+            $odv_config = get_option('_wpmfAddon_onedrive_config');
+            $odvbs_config = get_option('_wpmfAddon_onedrive_business_config');
+            $dropbox_config = get_option('_wpmfAddon_dropbox_config');
+            $google_config = get_option('_wpmfAddon_cloud_config');
+
+            if (empty($odv_config['connected'])) {
+                $exclude[] = 'Onedrive';
+            }
+
+            if (empty($odvbs_config['connected'])) {
+                $exclude[] = 'Onedrive Business';
+            }
+
+            if (empty($google_config['connected'])) {
+                $exclude[] = 'Google Drive';
+            }
+
+            if (empty($dropbox_config['dropboxToken'])) {
+                $exclude[] = 'Dropbox';
+            }
+        }
+
+        return $exclude;
+    }
+
+    /**
+     * Get drive folder excludes with IDs
+     *
+     * @return array
+     */
+    public function getDriveFolderExcludesWithIDs()
+    {
+        $exclude = array();
+        if (is_plugin_active('wp-media-folder-addon/wp-media-folder-addon.php')) {
+            $addon_active = true;
+        } else {
+            $addon_active = false;
+        }
+
+        if (!$addon_active) {
+            $id = get_option('wpmf_odv_folder_id', true);
+            if (!empty($id)) {
+                $exclude[] = $id;
+                $childs   = get_term_children((int) $id, WPMF_TAXO);
+                $exclude = array_merge($exclude, $childs);
+            }
+
+            $id = get_option('wpmf_odv_business_folder_id', true);
+            if (!empty($id)) {
+                $exclude[] = $id;
+                $childs   = get_term_children((int) $id, WPMF_TAXO);
+                $exclude = array_merge($exclude, $childs);
+            }
+
+            $id = get_option('wpmf_google_folder_id', true);
+            if (!empty($id)) {
+                $exclude[] = $id;
+                $childs   = get_term_children((int) $id, WPMF_TAXO);
+                $exclude = array_merge($exclude, $childs);
+            }
+
+            $id = get_option('wpmf_dropbox_folder_id', true);
+            if (!empty($id)) {
+                $exclude[] = $id;
+                $childs   = get_term_children((int) $id, WPMF_TAXO);
+                $exclude = array_merge($exclude, $childs);
+            }
+        } else {
+            // hide Drive folder if not coonect
+            $odv_config = get_option('_wpmfAddon_onedrive_config');
+            $odvbs_config = get_option('_wpmfAddon_onedrive_business_config');
+            $dropbox_config = get_option('_wpmfAddon_dropbox_config');
+            $google_config = get_option('_wpmfAddon_cloud_config');
+
+            if (empty($odv_config['connected'])) {
+                $id = get_option('wpmf_odv_folder_id', true);
+                if (!empty($id)) {
+                    $exclude[] = $id;
+                    $childs   = get_term_children((int) $id, WPMF_TAXO);
+                    $exclude = array_merge($exclude, $childs);
+                }
+            }
+
+            if (empty($odvbs_config['connected'])) {
+                $id = get_option('wpmf_odv_business_folder_id', true);
+                if (!empty($id)) {
+                    $exclude[] = $id;
+                    $childs   = get_term_children((int) $id, WPMF_TAXO);
+                    $exclude = array_merge($exclude, $childs);
+                }
+            }
+
+            if (empty($google_config['connected'])) {
+                $id = get_option('wpmf_google_folder_id', true);
+                if (!empty($id)) {
+                    $exclude[] = $id;
+                    $childs   = get_term_children((int) $id, WPMF_TAXO);
+                    $exclude = array_merge($exclude, $childs);
+                }
+            }
+
+            if (empty($dropbox_config['dropboxToken'])) {
+                $id = get_option('wpmf_dropbox_folder_id', true);
+                if (!empty($id)) {
+                    $exclude[] = $id;
+                    $childs   = get_term_children((int) $id, WPMF_TAXO);
+                    $exclude = array_merge($exclude, $childs);
+                }
+            }
+        }
+
+        return $exclude;
     }
 }

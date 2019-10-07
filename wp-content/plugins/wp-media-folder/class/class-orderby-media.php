@@ -207,15 +207,14 @@ class WpmfOrderbyMedia
     public function getSizeFiletype($pid)
     {
         $wpmf_size_filetype = array();
-        $meta               = get_post_meta($pid, '_wp_attached_file');
-        $upload_dir         = wp_upload_dir();
         // get path file
-        $path_attachment = $upload_dir['basedir'] . '/' . $meta[0];
-        if (file_exists($path_attachment)) {
+        $filepath = get_attached_file($pid);
+        $info = pathinfo($filepath);
+        if (file_exists($filepath)) {
             // get size
-            $size = filesize($path_attachment);
+            $size = filesize($filepath);
             // get file type
-            $filetype = wp_check_filetype($path_attachment);
+            $filetype = wp_check_filetype($filepath);
             $ext      = $filetype['ext'];
         } else {
             $size = get_post_meta($pid, 'wpmf_size', true);
@@ -223,11 +222,15 @@ class WpmfOrderbyMedia
                 $size = 0;
             }
 
-            $ext  = '';
+            if (isset($info['extension'])) {
+                $ext = $info['extension'];
+            } else {
+                $ext = '';
+            }
         }
+
         $wpmf_size_filetype['size'] = $size;
         $wpmf_size_filetype['ext']  = $ext;
-
         return $wpmf_size_filetype;
     }
 

@@ -359,7 +359,6 @@ function wpex_mce_google_fonts_styles() {
 remove_image_size( 'medium_large' );*/
 
 
-/*CUSTOM LOGIN PAGE*/
 function custom_login_logo() {
     echo '<style type="text/css">';
     echo 'h1{background: #fff !important; border-bottom: 4px solid #8DC63F; border-top-left-radius: 5px; border-top-right-radius: 5px;}';
@@ -374,6 +373,7 @@ function custom_login_logo() {
 }
 add_action('login_head', 'custom_login_logo');
 /*CUSTOM LOGIN PAGE--------END*/
+/*CUSTOM LOGIN PAGE*/
 
 if (is_admin()){
     // Function to change "posts" to "news" in the admin side menu

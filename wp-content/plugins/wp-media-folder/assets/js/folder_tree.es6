@@ -2,7 +2,13 @@
  * Folder tree for WP Media Folder
  */
 let wpmfFoldersTreeModule;
+let cloud_sync_tree_icon;
 (function ($) {
+    cloud_sync_tree_icon = `<span title="${wpmf.l18n.hover_cloud_syncing}" class="wpmf-loading-sync"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-dual-ring" style="
+    height: 14px;
+    width: 14px;
+    vertical-align: sub;
+"><circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.stroke}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="12" stroke="#2196f3" stroke-dasharray="62.83185307179586 62.83185307179586" transform="rotate(53.6184 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg></span>`;
     wpmfFoldersTreeModule = {
         categories: [], // categories
         folders_states: [], // Contains open or closed status of folders
@@ -55,12 +61,12 @@ let wpmfFoldersTreeModule;
                 $('<div class="wpmf-folder-tree"></div>').insertBefore($current_frame.find('.attachments-browser ul.attachments'));
             } else {
                 // Add tree view to the left menu column
-                $('<div class="wpmf-folder-tree"></div>').insertAfter($current_frame.find('.media-menu a:last-child'));
+                const $menu = $current_frame.find('.media-frame-menu .media-menu');
+                $('<div class="wpmf-folder-tree"></div>').appendTo($menu);
             }
 
             // Render the tree view
             wpmfFoldersTreeModule.loadTreeView();
-            wpmfFoldersModule.openContextMenuFolder();
             // Subscribe to the change folder event in main wpmf module
             wpmfFoldersModule.on('changeFolder', function (folder_id) {
                 wpmfFoldersTreeModule.changeFolder(folder_id);
@@ -189,7 +195,7 @@ let wpmfFoldersTreeModule;
          */
         loadTreeView: function () {
             wpmfFoldersTreeModule.getTreeElement().html(wpmfFoldersTreeModule.getRendering());
-
+            wpmfFoldersModule.openContextMenuFolder();
             let append_element;
 
             if (wpmfFoldersModule.page_type === 'upload-list') {
@@ -199,7 +205,7 @@ let wpmfFoldersTreeModule;
             }
 
             // Initialize dragping folder on tree view
-            wpmfFoldersTreeModule.getTreeElement().find('ul a[data-id]').draggable({
+            wpmfFoldersTreeModule.getTreeElement().find('ul li a[data-id]').draggable({
                 revert: true,
                 helper: function (ui) {
                     return $(ui.currentTarget).clone();
@@ -225,7 +231,7 @@ let wpmfFoldersTreeModule;
             });
 
             // Initialize dropping folder on tree view
-            wpmfFoldersTreeModule.getTreeElement().find('ul a[data-id]').droppable({
+            wpmfFoldersTreeModule.getTreeElement().find('ul li a[data-id]').droppable({
                 hoverClass: "wpmf-hover-folder",
                 tolerance: 'pointer',
                 drop: function (event, ui) {
@@ -277,6 +283,66 @@ let wpmfFoldersTreeModule;
                 wpmfFoldersModule.clickEditFolder(e, id);
                 wpmfFoldersModule.houtside();
             });
+
+            if (parseInt(wpmf.vars.wpmf_addon_active) === 1) {
+                if (!$('.wpmf-onedrive-business').length && $('.onedrive_business_list').length) {
+                    wpmfFoldersTreeModule.getTreeElement().find('.wpmf_media_library').after('<ul class="wpmf-onedrive-business"></ul>');
+                    $('.onedrive_business_list').appendTo('.wpmf-onedrive-business');
+                }
+
+                if (!$('.wpmf-onedrive').length && $('.onedrive_list').length) {
+                    wpmfFoldersTreeModule.getTreeElement().find('.wpmf_media_library').after('<ul class="wpmf-onedrive"></ul>');
+                    $('.onedrive_list').appendTo('.wpmf-onedrive');
+                }
+
+                if (!$('.wpmf-google').length && $('.google_drive_list').length) {
+                    wpmfFoldersTreeModule.getTreeElement().find('.wpmf_media_library').after('<ul class="wpmf-google"></ul>');
+                    $('.google_drive_list').appendTo('.wpmf-google');
+                }
+
+                if (!$('.wpmf-dropbox').length && $('.dropbox_list').length) {
+                    wpmfFoldersTreeModule.getTreeElement().find('.wpmf_media_library').after('<ul class="wpmf-dropbox"></ul>');
+                    $('.dropbox_list').appendTo('.wpmf-dropbox');
+                }
+
+                if ($('.dropbox_list').length || $('.google_drive_list').length || $('.onedrive_list').length || $('.onedrive_business_list').length) {
+                    if (wpmf.vars.sync_method === 'ajax' && parseInt(wpmf.vars.sync_periodicity) !== 0 && wpmf.vars.cloudNameSyncing !== '') {
+                        // add loader icon for cloud syncing
+                        var cloud_name = wpmfAutoSyncClouds.vars.cloudNameSyncing;
+                        if (!$('.' + cloud_name + '_list > a > .wpmf-loading-sync').length) {
+                            $('.' + cloud_name + '_list > a').append(cloud_sync_tree_icon);
+                        }
+                    }
+                }
+
+                if ((wpmf.vars.sync_method === 'ajax') && parseInt(wpmf.vars.sync_periodicity) !== 0) {
+                    // get cloud syncing
+                    if (wpmf.vars.cloudNameSyncing !== '') {
+                        // add loader icon for cloud syncing
+                        setInterval(function () {
+                            $.ajax({
+                                method: "POST",
+                                dataType: "json",
+                                url: ajaxurl,
+                                data: {
+                                    action: 'wpmf_get_cloud_syncing',
+                                    wpmf_nonce: wpmfAutoSyncClouds.vars.wpmf_nonce
+                                },
+                                success: function (res) {
+                                    if (res.status) {
+                                        $('.wpmf-loading-sync').remove();
+                                        if (res.cloud !== '') {
+                                            if (!$('.' + res.cloud + '_list > a > .wpmf-loading-sync').length) {
+                                                $('.' + res.cloud + '_list > a').append(cloud_sync_icon);
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }, 30000);
+                    }
+                }
+            }
         },
 
         /**
@@ -303,7 +369,7 @@ let wpmfFoldersTreeModule;
          */
         getRendering: function () {
             let ij = 0;
-            let content = ''; // Final tree view content
+            let content = ''; // Final tree view cwpmf-folder-tree-resizeontent
             // render search folder box
             let search_folder = `
             <div class="wpmf-expandable-search mdl-cell--hide-phone">
@@ -324,16 +390,31 @@ let wpmfFoldersTreeModule;
              * Recursively print list of folders
              * @return {boolean}
              */
-            const generateList = function () {
-                content += '<ul>';
+            const generateList = function (tree_class = '') {
+                content += '<ul class="' + tree_class + '">';
 
                 while (ij < wpmfFoldersTreeModule.categories.length) {
                     let className = '';
+
+                    // get color folder
+                    let bgcolor = '', odvColor = '';
+                    if (typeof wpmf.vars.colors !== 'undefined' && typeof wpmf.vars.colors[wpmfFoldersTreeModule.categories[ij].id] !== 'undefined' && wpmfFoldersModule.folder_design === 'material_design') {
+                        bgcolor = 'color: ' + wpmf.vars.colors[wpmfFoldersTreeModule.categories[ij].id];
+                        odvColor = wpmf.vars.colors[wpmfFoldersTreeModule.categories[ij].id];
+                    } else {
+                        bgcolor = 'color: #8f8f8f';
+                        odvColor = '#8f8f8f';
+                    }
+
+                    let icondrive = '<i class="material-icons" style="' + bgcolor + '">folder</i>';
+
                     if (lastStatusTree.indexOf(wpmfFoldersTreeModule.categories[ij].id) !== -1) {
                         className += 'open ';
                     } else {
                         className += 'closed ';
                     }
+
+                    let drive_root = false;
 
                     // get last access folder
                     let lastAccessFolder = wpmfFoldersModule.getCookie('lastAccessFolder_' + wpmf.vars.site_url);
@@ -347,32 +428,75 @@ let wpmfFoldersTreeModule;
                             className += 'selected ';
                         }
                     }
+                    
+                    if (parseInt(wpmf.vars.wpmf_addon_active) === 1) {
+                        if (wpmfFoldersTreeModule.categories[ij].drive_type === 'onedrive_business') {
+                            if (parseInt(wpmfFoldersTreeModule.categories[ij].parent_id) === 0) {
+                                drive_root = true;
+                                className += 'onedrive_business_list wpmf_drive_tree';
+                                className = className.replace('closed', '');
+                            }
+                        }
+
+                        if (wpmfFoldersTreeModule.categories[ij].drive_type === 'onedrive') {
+                            if (parseInt(wpmfFoldersTreeModule.categories[ij].parent_id) === 0) {
+                                drive_root = true;
+                                className += 'onedrive_list wpmf_drive_tree';
+                                className = className.replace('closed', '');
+                            }
+                        }
+
+                        if (wpmfFoldersTreeModule.categories[ij].drive_type === 'onedrive' || wpmfFoldersTreeModule.categories[ij].drive_type === 'onedrive_business') {
+                            icondrive = `<svg class="tree_drive_icon_img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.43 35.95"><defs></defs><title>icon</title><path class="cls-1" d="M39.45,36.6H55.53a5.41,5.41,0,0,0,5.15-2.77c1.75-3.14,1.41-8.69-3.72-10.35-.55-.18-.91-.27-.93-1-.13-6.16-6.1-9.95-12.23-7.73a1.21,1.21,0,0,1-1.65-.47,10,10,0,0,0-8.49-4c-5.29.2-8.84,3.31-10.08,8.57a1.9,1.9,0,0,1-1.84,1.73c-3.41.53-6.06,2.74-6.43,5.52-.77,5.7,1.55,10.47,8.49,10.51C29,36.62,34.23,36.6,39.45,36.6Z" transform="translate(-1.2 -0.66)" style="fill:#fefefe"/><path class="cls-1" d="M14.58,34c-.23-.54-.4-.93-.55-1.31-2.29-5.83-.42-11.5,6.08-13.45a2.7,2.7,0,0,0,2.06-2.13,12.4,12.4,0,0,1,11.89-8.7,11,11,0,0,1,8.49,3.83c.35.4.66,1,1.4.6a6.16,6.16,0,0,1,2.49-.57c.92-.12,1.08-.45.85-1.31-1.52-5.74-5.24-9.23-11-10.15C31.12,0,26.9,2,24,6.43a1.12,1.12,0,0,1-1.72.47,8.52,8.52,0,0,0-5.6-.59C11.73,7.41,8.76,11,8.49,16.37c0,.9-.22,1.14-1.1,1.36A7.92,7.92,0,0,0,1.22,25,8.39,8.39,0,0,0,5.6,33C8.43,34.53,11.46,33.83,14.58,34Z" transform="translate(-1.2 -0.66)" style="fill: #fefefe"/><path class="cls-2" d="M39.45,36.6c-5.22,0-10.43,0-15.65,0-6.94,0-9.26-4.81-8.49-10.51.37-2.78,3-5,6.43-5.52a1.9,1.9,0,0,0,1.84-1.73c1.24-5.26,4.79-8.37,10.08-8.57a10,10,0,0,1,8.49,4,1.21,1.21,0,0,0,1.65.47c6.13-2.22,12.1,1.57,12.23,7.73,0,.72.38.81.93,1,5.13,1.66,5.47,7.21,3.72,10.35a5.41,5.41,0,0,1-5.15,2.77Z" transform="translate(-1.2 -0.66)" style="fill: ${odvColor}"/><path class="cls-2" d="M14.58,34c-3.12-.2-6.15.5-9-1.07a8.39,8.39,0,0,1-4.38-8,7.92,7.92,0,0,1,6.17-7.25c.88-.22,1.06-.46,1.1-1.36.27-5.35,3.24-9,8.17-10.06a8.52,8.52,0,0,1,5.6.59A1.12,1.12,0,0,0,24,6.43C26.9,2,31.12,0,36.28.84c5.77.92,9.49,4.41,11,10.15.23.86.07,1.19-.85,1.31a6.16,6.16,0,0,0-2.49.57c-.74.44-1.05-.2-1.4-.6a11,11,0,0,0-8.49-3.83,12.4,12.4,0,0,0-11.89,8.7,2.7,2.7,0,0,1-2.06,2.13c-6.5,1.95-8.37,7.62-6.08,13.45C14.18,33.1,14.35,33.49,14.58,34Z" transform="translate(-1.2 -0.66)" style="fill: ${odvColor}"/></svg>`;
+                        }
+
+                        if (wpmfFoldersTreeModule.categories[ij].drive_type === 'dropbox') {
+                            if (parseInt(wpmfFoldersTreeModule.categories[ij].parent_id) === 0) {
+                                drive_root = true;
+                                className += 'dropbox_list wpmf_drive_tree';
+                                className = className.replace('closed', '');
+                            }
+
+                            icondrive = '<i class="zmdi zmdi-dropbox tree_drive_icon" style="' + bgcolor + '"></i>';
+                        }
+
+                        if (wpmfFoldersTreeModule.categories[ij].drive_type === 'google_drive') {
+                            if (parseInt(wpmfFoldersTreeModule.categories[ij].parent_id) === 0) {
+                                drive_root = true;
+                                className += 'google_drive_list wpmf_drive_tree';
+                                className = className.replace('closed', '');
+                            }
+
+                            icondrive = '<i class="zmdi zmdi-google-drive tree_drive_icon" style="' + bgcolor + '"></i>';
+                        }
+
+                        if (typeof wpmfFoldersTreeModule.categories[ij].drive_type === 'undefined' || wpmfFoldersTreeModule.categories[ij].drive_type === '') {
+                            className += ' wpmf_local_tree ';
+                        }
+                    }
 
                     // Open li tag
                     content += '<li class="' + className + '" data-id="' + wpmfFoldersTreeModule.categories[ij].id + '" >';
 
                     const a_tag = '<a data-id="' + wpmfFoldersTreeModule.categories[ij].id + '">';
-
-                    // get color folder
-                    let bgcolor = '';
-                    if (typeof wpmf.vars.colors !== 'undefined' && typeof wpmf.vars.colors[wpmfFoldersTreeModule.categories[ij].id] !== 'undefined' && wpmfFoldersModule.folder_design === 'material_design') {
-                        bgcolor = 'color: ' + wpmf.vars.colors[wpmfFoldersTreeModule.categories[ij].id];
-                    } else {
-                        bgcolor = 'color: #8f8f8f';
-                    }
-
                     if (wpmfFoldersTreeModule.categories[ij + 1] && wpmfFoldersTreeModule.categories[ij + 1].depth > wpmfFoldersTreeModule.categories[ij].depth) { // The next element is a sub folder
-                        content += '<a onclick="wpmfFoldersTreeModule.toggle(' + wpmfFoldersTreeModule.categories[ij].id + ')"><i class="material-icons wpmf-arrow">keyboard_arrow_down</i></a>';
-
-                        content += a_tag;
-
                         // Add folder icon
-                        content += '<i class="material-icons" style="' + bgcolor + '">folder</i>';
+                        if (drive_root) {
+                            content += a_tag;
+                        } else {
+                            content += '<a onclick="wpmfFoldersTreeModule.toggle(' + wpmfFoldersTreeModule.categories[ij].id + ')"><i class="material-icons wpmf-arrow">keyboard_arrow_down</i></a>';
+                            content += a_tag;
+                        }
+                        content += icondrive;
                     } else {
                         content += a_tag;
 
                         // Add folder icon
-                        content += '<i class="material-icons wpmf-no-arrow" style="' + bgcolor + '">folder</i>';
+                        if (drive_root) {
+                            content += icondrive;
+                        } else {
+                            content += '<span class="wpmf-no-arrow">'+ icondrive +'</span>';
+                        }
                     }
 
                     // Add current category name
@@ -427,7 +551,7 @@ let wpmfFoldersTreeModule;
             };
 
             // Start generation
-            generateList();
+            generateList('wpmf_media_library');
 
             // Add the new folder button
             content = search_folder + '<a class="wpmf-new-folder" onclick="wpmfFoldersModule.newFolder(wpmfFoldersModule.last_selected_folder)"><i class="material-icons">create_new_folder</i>' + wpmf.l18n.create_folder + '</a>' + content;
@@ -603,6 +727,17 @@ let wpmfFoldersTreeModule;
                     $('body').css('user-select', 'none'); // prevent content selection while moving
                 });
 
+                let uploadPageTreeSize = wpmfFoldersModule.getCookie('upload-page-tree-size');
+                if (typeof uploadPageTreeSize !== "undefined" && parseFloat(uploadPageTreeSize) > 0) {
+                    $tree.css('width', parseFloat(uploadPageTreeSize) + 'px');
+                    // We have to set margin if we are in a fixed tree position or in list page
+                    if (wpmfFoldersTreeModule.last_scrolling_state === 'fixed' || wpmfFoldersModule.page_type === 'upload-list') {
+                        $attachments.css('margin-left', (parseFloat(uploadPageTreeSize) + 32) + 'px');
+                    }
+
+                    $('.wpmf-folder-tree, .wpmf-folder-tree > ul').css('max-width', '100%');
+                }
+
                 $(document).on('mousemove', function (e) {
                     // we don't want to do anything if we aren't resizing.
                     if (!is_resizing)
@@ -611,6 +746,7 @@ let wpmfFoldersTreeModule;
                     // Calculate tree width
                     $('.wpmf-folder-tree').css('max-width', '100%');
                     const tree_width = (e.clientX - $tree.offset().left - 30);
+                    wpmfFoldersModule.setCookie('upload-page-tree-size', tree_width, 365);
                     $tree.css('width', tree_width + 'px');
 
                     // We have to set margin if we are in a fixed tree position or in list page
@@ -645,6 +781,16 @@ let wpmfFoldersTreeModule;
                     $body.css('user-select', 'none'); // prevent content selection while moving
                 });
 
+                let hideMenuTreeSize = wpmfFoldersModule.getCookie('hide-menu-tree-size');
+                if (typeof hideMenuTreeSize !== "undefined" && parseFloat(hideMenuTreeSize) > 0) {
+                    // Set positioning of the different elements
+                    $tree.css('width', parseFloat(hideMenuTreeSize) + 'px');
+                    $handle.css('left', (parseFloat(hideMenuTreeSize) + 10) + 'px');
+                    $attachments.css('left', (parseFloat(hideMenuTreeSize) + 4) + 'px');
+                    $uploader_inline.css('left', (parseFloat(hideMenuTreeSize) + 4) + 'px');
+                    $('.wpmf-folder-tree, .wpmf-folder-tree > ul').css('max-width', '100%');
+                }
+
                 $(document).on('mousemove', function (e) {
                     // we don't want to do anything if we aren't resizing.
                     if (!is_resizing)
@@ -653,6 +799,7 @@ let wpmfFoldersTreeModule;
                     // Calculate tree width
                     $('.wpmf-folder-tree').css('max-width', '100%');
                     const tree_width = (e.clientX - $tree.offset().left);
+                    wpmfFoldersModule.setCookie('hide-menu-tree-size', tree_width, 365);
 
                     // Set positioning of the different elements
                     $tree.css('width', tree_width + 'px');
@@ -679,12 +826,20 @@ let wpmfFoldersTreeModule;
                     $body.css('user-select', 'none'); // prevent content selection while moving
                 });
 
+                let menuTreeSize = wpmfFoldersModule.getCookie('menu-tree-size');
+                if (typeof menuTreeSize !== "undefined" && parseFloat(menuTreeSize) > 0) {
+                    $menu.css('width', parseFloat(menuTreeSize) + 'px');
+                    $right_cols.css('left', (parseFloat(menuTreeSize) + 14) + 'px');
+                    $('.wpmf-folder-tree, .wpmf-folder-tree > ul').css('max-width', '100%');
+                }
+
                 $(document).on('mousemove', function (e) {
                     // we don't want to do anything if we aren't resizing.
                     if (!is_resizing)
                         return;
                     $('.wpmf-folder-tree').css('max-width', '100%');
                     const menu_width = (e.clientX - $menu.offset().left);
+                    wpmfFoldersModule.setCookie('menu-tree-size', menu_width, 365);
 
                     $menu.css('width', menu_width + 'px');
 

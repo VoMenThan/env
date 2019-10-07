@@ -255,6 +255,54 @@ defined('ABSPATH') || die('No direct script access allowed!');
             </div>
         </div>
 
+        <div class="ju-settings-option">
+            <div class="wpmf_row_full">
+                <input type="hidden" name="delete_all_datas" value="0">
+                <label data-alt="<?php esc_html_e('Delete all data on uninstall (including addons)', 'wpmf'); ?>"
+                       class="ju-setting-label text"><?php esc_html_e('Delete all data on uninstall (including addons)', 'wpmf') ?></label>
+                <div class="ju-switch-button">
+                    <label class="switch">
+                        <input type="checkbox" id="cb_option_delete_all_datas" name="delete_all_datas" class="delete_all_datas"
+                               value="1"
+                            <?php
+                            if (isset($delete_all_datas) && (int) $delete_all_datas === 1) {
+                                echo 'checked';
+                            }
+                            ?>
+                        >
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <?php if (isset($delete_all_datas) && (int) $delete_all_datas === 1) : ?>
+                <p class="description delete_all_label show"><?php esc_html_e('Beware: If some cloud system are connected and some private links are added in your content, you will have media broken links', 'wpmf') ?></p>
+                <?php else : ?>
+                <p class="description delete_all_label hide"><?php esc_html_e('Beware: If some cloud system are connected and some private links are added in your content, you will have media broken links', 'wpmf') ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="ju-settings-option wpmf_right m-r-0">
+            <div class="wpmf_row_full">
+                <input type="hidden" name="show_folder_id" value="0">
+                <label data-alt="<?php esc_html_e('Display and copy the folder ID by making a right click on the folder', 'wpmf'); ?>"
+                       class="ju-setting-label text"><?php esc_html_e('Display folder ID', 'wpmf') ?></label>
+                <div class="ju-switch-button">
+                    <label class="switch">
+                        <input type="checkbox" id="cb_option_show_folder_id" name="show_folder_id" class="show_folder_id"
+                               value="1"
+                            <?php
+                            if (isset($show_folder_id) && (int) $show_folder_id === 1) {
+                                echo 'checked';
+                            }
+                            ?>
+                        >
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
         <?php
         /**
          * Filter check capability of current user to show import categories button

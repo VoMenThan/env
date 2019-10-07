@@ -252,6 +252,10 @@ div.pdfemb-toolbar div {
     float: left;
 }
 
+.pdfemb-toolbar .pdfemb-page-area {
+    display: inline !important;
+}
+
 div.pdfemb-toolbar div.pdfemb-poweredby {
     float: right;
 }

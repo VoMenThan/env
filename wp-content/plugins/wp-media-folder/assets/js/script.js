@@ -6,7 +6,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * Main WP Media Folder script
  * It handles the categories filtering
  */
-var wpmfFoldersModule = void 0;
+var wpmfFoldersModule = void 0,
+    wpmfGoogleDriveSyncModule = void 0,
+    wpmfDropboxSyncModule = void 0,
+    wpmfOneDriveSyncModule = void 0,
+    wpmfOneDriveBusinessSyncModule = void 0,
+    cloud_sync_loader_icon = void 0;
 (function ($) {
     wpmfFoldersModule = {
         taxonomy: null, // WPMF taxonomy
@@ -30,7 +35,7 @@ var wpmfFoldersModule = void 0;
         editFileId: 0, // Current file id to edit
         folder_search: null,
         events: [], // event handling
-
+        upload_folder: null,
         /**
          * Retrieve the current displayed frame
          */
@@ -128,6 +133,7 @@ var wpmfFoldersModule = void 0;
                             $('.upload-php #posts-filter').addClass('wpmf-not-loading');
                         }, 200);
                     }
+                    $('.attachments').addClass('wpmf-no-tree');
                 }
 
                 // Change the upload href link to add current folder as parameter
@@ -169,9 +175,6 @@ var wpmfFoldersModule = void 0;
                         // Wait All DOMInserted events to be thrown before calling the initialization functions
                         window.clearTimeout(timeout);
                         timeout = window.setTimeout(function () {
-                            // Attach drag and drop event to the attachments
-                            wpmfFoldersModule.initializeDragAndDropAttachments();
-
                             // Hovering image intialization
                             wpmfFoldersModule.initHoverImage();
                             wpmfFoldersModule.initAttachmentLabelS3();
@@ -179,6 +182,30 @@ var wpmfFoldersModule = void 0;
                             // open / close context menu box
                             wpmfFoldersModule.openContextMenuFolder();
                             wpmfFoldersModule.openContextMenuFile();
+
+                            wpmfFoldersModule.getFrame().find('.attachments-browser ul.attachments .attachment .thumbnail').each(function (e) {
+                                var $this = $(this);
+                                if ($this.closest('.attachment-preview').hasClass('type-image') && !$this.closest('.attachment.loading').length) {
+                                    var id = $this.closest('.attachment').data('id');
+                                    var cloud_media = wp.media.attachment(id).get('cloud_media');
+                                    var url = wp.media.attachment(id).get('url');
+                                    if (url.indexOf('action=wpmf') !== -1) {
+                                        $this.css('background', 'transparent url(' + wpmf.vars.img_url + 'spinner.gif) center no-repeat');
+                                        $this.find('img').on('load', function () {
+                                            $this.css('background', 'transparent');
+                                        });
+                                    }
+
+                                    if (parseInt(cloud_media) === 1) {
+                                        $this.closest('li').addClass('wpmf_cloud_media').removeClass('wpmf_local_media');
+                                    } else {
+                                        $this.closest('li').removeClass('wpmf_cloud_media').addClass('wpmf_local_media');
+                                    }
+                                }
+                            });
+
+                            // Attach drag and drop event to the attachments
+                            wpmfFoldersModule.initializeDragAndDropAttachments();
                         }, 300);
                     });
 
@@ -226,11 +253,16 @@ var wpmfFoldersModule = void 0;
                     init: function init() {
                         // Add the current wpmf folder to the request
                         this.uploader.bind('BeforeUpload', function () {
-                            this.settings.multipart_params['wpmf_folder'] = wpmfFoldersModule.last_selected_folder;
+                            if (wpmfFoldersModule.upload_folder === null) {
+                                wpmfFoldersModule.upload_folder = wpmfFoldersModule.last_selected_folder;
+                            }
+
+                            this.settings.multipart_params['wpmf_folder'] = wpmfFoldersModule.upload_folder;
                         });
 
                         // Reload attachments so they can show up if we're inside a folder
                         this.uploader.bind('UploadComplete', function () {
+                            wpmfFoldersModule.upload_folder = null;
                             wpmfFoldersModule.reloadAttachments();
                             wpmfFoldersModule.renderFolders();
                             // Hovering image intialization
@@ -760,6 +792,7 @@ var wpmfFoldersModule = void 0;
             } else {
                 wpmfFoldersModule.getFrame().find('#wpmf-media-category').val(wpmfFoldersModule.relation_category_filter[term_id]).trigger('change');
             }
+            $("#wpmf_preview_image").remove();
         },
 
         /**
@@ -790,6 +823,44 @@ var wpmfFoldersModule = void 0;
                     main_icon = '';
                 } else {
                     main_icon = '<i class="material-icons wpmf-icon-category">folder</i>';
+                    if (wpmfFoldersModule.categories[term_id].drive_type === 'google_drive') {
+                        main_icon = '<i class="zmdi zmdi-google-drive wpmf-icon-category"></i>';
+                        class_names += ' wpmf_drive_folder';
+                    }
+
+                    if (wpmfFoldersModule.categories[term_id].drive_type === 'dropbox') {
+                        main_icon = '<i class="zmdi zmdi-dropbox wpmf-icon-category"></i>';
+                        class_names += ' wpmf_drive_folder';
+                    }
+
+                    var odvColor = '#8f8f8f';
+                    if (wpmfFoldersModule.categories[term_id].drive_type === 'onedrive' || wpmfFoldersModule.categories[term_id].drive_type === 'onedrive_business') {
+                        if (typeof wpmf.vars.colors !== 'undefined' && typeof wpmf.vars.colors[term_id] !== 'undefined' && type === 'folder') {
+                            odvColor = wpmf.vars.colors[term_id];
+                        }
+                    }
+
+                    if (wpmfFoldersModule.categories[term_id].drive_type === 'onedrive') {
+                        if (wpmfFoldersModule.folder_design === 'classic') {
+                            main_icon = '<i class="zmdi zmdi-cloud wpmf-icon-category"></i>';
+                        } else {
+                            main_icon = '<svg class="wpmf-icon-category" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.43 35.95"><defs></defs><title>icon</title><path class="cls-1" d="M39.45,36.6H55.53a5.41,5.41,0,0,0,5.15-2.77c1.75-3.14,1.41-8.69-3.72-10.35-.55-.18-.91-.27-.93-1-.13-6.16-6.1-9.95-12.23-7.73a1.21,1.21,0,0,1-1.65-.47,10,10,0,0,0-8.49-4c-5.29.2-8.84,3.31-10.08,8.57a1.9,1.9,0,0,1-1.84,1.73c-3.41.53-6.06,2.74-6.43,5.52-.77,5.7,1.55,10.47,8.49,10.51C29,36.62,34.23,36.6,39.45,36.6Z" transform="translate(-1.2 -0.66)" style="fill:#fefefe"/><path class="cls-1" d="M14.58,34c-.23-.54-.4-.93-.55-1.31-2.29-5.83-.42-11.5,6.08-13.45a2.7,2.7,0,0,0,2.06-2.13,12.4,12.4,0,0,1,11.89-8.7,11,11,0,0,1,8.49,3.83c.35.4.66,1,1.4.6a6.16,6.16,0,0,1,2.49-.57c.92-.12,1.08-.45.85-1.31-1.52-5.74-5.24-9.23-11-10.15C31.12,0,26.9,2,24,6.43a1.12,1.12,0,0,1-1.72.47,8.52,8.52,0,0,0-5.6-.59C11.73,7.41,8.76,11,8.49,16.37c0,.9-.22,1.14-1.1,1.36A7.92,7.92,0,0,0,1.22,25,8.39,8.39,0,0,0,5.6,33C8.43,34.53,11.46,33.83,14.58,34Z" transform="translate(-1.2 -0.66)" style="fill: #fefefe"/><path class="cls-2" d="M39.45,36.6c-5.22,0-10.43,0-15.65,0-6.94,0-9.26-4.81-8.49-10.51.37-2.78,3-5,6.43-5.52a1.9,1.9,0,0,0,1.84-1.73c1.24-5.26,4.79-8.37,10.08-8.57a10,10,0,0,1,8.49,4,1.21,1.21,0,0,0,1.65.47c6.13-2.22,12.1,1.57,12.23,7.73,0,.72.38.81.93,1,5.13,1.66,5.47,7.21,3.72,10.35a5.41,5.41,0,0,1-5.15,2.77Z" transform="translate(-1.2 -0.66)" style="fill: ' + odvColor + '"/><path class="cls-2" d="M14.58,34c-3.12-.2-6.15.5-9-1.07a8.39,8.39,0,0,1-4.38-8,7.92,7.92,0,0,1,6.17-7.25c.88-.22,1.06-.46,1.1-1.36.27-5.35,3.24-9,8.17-10.06a8.52,8.52,0,0,1,5.6.59A1.12,1.12,0,0,0,24,6.43C26.9,2,31.12,0,36.28.84c5.77.92,9.49,4.41,11,10.15.23.86.07,1.19-.85,1.31a6.16,6.16,0,0,0-2.49.57c-.74.44-1.05-.2-1.4-.6a11,11,0,0,0-8.49-3.83,12.4,12.4,0,0,0-11.89,8.7,2.7,2.7,0,0,1-2.06,2.13c-6.5,1.95-8.37,7.62-6.08,13.45C14.18,33.1,14.35,33.49,14.58,34Z" transform="translate(-1.2 -0.66)" style="fill: ' + odvColor + '"/></svg>';
+                        }
+                        class_names += ' wpmf_drive_folder';
+                    }
+
+                    if (wpmfFoldersModule.categories[term_id].drive_type === 'onedrive_business') {
+                        if (wpmfFoldersModule.folder_design === 'classic') {
+                            main_icon = '<i class="zmdi zmdi-cloud wpmf-icon-category"></i>';
+                        } else {
+                            main_icon = '<svg class="wpmf-icon-category" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.43 35.95"><defs></defs><title>icon</title><path class="cls-1" d="M39.45,36.6H55.53a5.41,5.41,0,0,0,5.15-2.77c1.75-3.14,1.41-8.69-3.72-10.35-.55-.18-.91-.27-.93-1-.13-6.16-6.1-9.95-12.23-7.73a1.21,1.21,0,0,1-1.65-.47,10,10,0,0,0-8.49-4c-5.29.2-8.84,3.31-10.08,8.57a1.9,1.9,0,0,1-1.84,1.73c-3.41.53-6.06,2.74-6.43,5.52-.77,5.7,1.55,10.47,8.49,10.51C29,36.62,34.23,36.6,39.45,36.6Z" transform="translate(-1.2 -0.66)" style="fill:#fefefe"/><path class="cls-1" d="M14.58,34c-.23-.54-.4-.93-.55-1.31-2.29-5.83-.42-11.5,6.08-13.45a2.7,2.7,0,0,0,2.06-2.13,12.4,12.4,0,0,1,11.89-8.7,11,11,0,0,1,8.49,3.83c.35.4.66,1,1.4.6a6.16,6.16,0,0,1,2.49-.57c.92-.12,1.08-.45.85-1.31-1.52-5.74-5.24-9.23-11-10.15C31.12,0,26.9,2,24,6.43a1.12,1.12,0,0,1-1.72.47,8.52,8.52,0,0,0-5.6-.59C11.73,7.41,8.76,11,8.49,16.37c0,.9-.22,1.14-1.1,1.36A7.92,7.92,0,0,0,1.22,25,8.39,8.39,0,0,0,5.6,33C8.43,34.53,11.46,33.83,14.58,34Z" transform="translate(-1.2 -0.66)" style="fill: #fefefe"/><path class="cls-2" d="M39.45,36.6c-5.22,0-10.43,0-15.65,0-6.94,0-9.26-4.81-8.49-10.51.37-2.78,3-5,6.43-5.52a1.9,1.9,0,0,0,1.84-1.73c1.24-5.26,4.79-8.37,10.08-8.57a10,10,0,0,1,8.49,4,1.21,1.21,0,0,0,1.65.47c6.13-2.22,12.1,1.57,12.23,7.73,0,.72.38.81.93,1,5.13,1.66,5.47,7.21,3.72,10.35a5.41,5.41,0,0,1-5.15,2.77Z" transform="translate(-1.2 -0.66)" style="fill: ' + odvColor + '"/><path class="cls-2" d="M14.58,34c-3.12-.2-6.15.5-9-1.07a8.39,8.39,0,0,1-4.38-8,7.92,7.92,0,0,1,6.17-7.25c.88-.22,1.06-.46,1.1-1.36.27-5.35,3.24-9,8.17-10.06a8.52,8.52,0,0,1,5.6.59A1.12,1.12,0,0,0,24,6.43C26.9,2,31.12,0,36.28.84c5.77.92,9.49,4.41,11,10.15.23.86.07,1.19-.85,1.31a6.16,6.16,0,0,0-2.49.57c-.74.44-1.05-.2-1.4-.6a11,11,0,0,0-8.49-3.83,12.4,12.4,0,0,0-11.89,8.7,2.7,2.7,0,0,1-2.06,2.13c-6.5,1.95-8.37,7.62-6.08,13.45C14.18,33.1,14.35,33.49,14.58,34Z" transform="translate(-1.2 -0.66)" style="fill: ' + odvColor + '"/></svg>';
+                        }
+                        class_names += ' wpmf_drive_folder';
+                    }
+
+                    if (wpmfFoldersModule.categories[term_id].drive_type !== 'google_drive' && wpmfFoldersModule.categories[term_id].drive_type !== 'dropbox' && wpmfFoldersModule.categories[term_id].drive_type !== 'onedrive' && wpmfFoldersModule.categories[term_id].drive_type !== 'onedrive_business') {
+                        class_names += ' wpmf_local_media';
+                    }
                 }
             } else if (type === 'back') {
                 // This is a back folder
@@ -954,9 +1025,9 @@ var wpmfFoldersModule = void 0;
                 }
             }
 
-            var a = wpmfFoldersModule.getCookie('#media-order-folder' + wpmf.vars.site_url);
-            if (typeof a !== "undefined") {
-                wpmfFoldersModule.folder_ordering = a;
+            var folder_order = wpmfFoldersModule.getCookie('#media-order-folder' + wpmf.vars.site_url);
+            if (typeof folder_order !== "undefined") {
+                wpmfFoldersModule.folder_ordering = folder_order;
             }
 
             // Order folders
@@ -992,9 +1063,17 @@ var wpmfFoldersModule = void 0;
             // Add each folder to the attachments listing
             $(folders_ordered).each(function () {
                 // Get the formatted folder for the attachment listing
-                var folder = wpmfFoldersModule.getFolderRendering('folder', this.label, this.id, this.parent_id, this.cover_image);
-                // Add the folder to the attachment listing
-                $attachments_container.append(folder);
+                if (parseInt(wpmf.vars.hide_tree) === 1) {
+                    if (this.drive_type === '' || this.drive_type !== '' && parseInt(this.parent_id) !== 0) {
+                        var _folder = wpmfFoldersModule.getFolderRendering('folder', this.label, this.id, this.parent_id, this.cover_image);
+                        // Add the folder to the attachment listing
+                        $attachments_container.append(_folder);
+                    }
+                } else {
+                    var _folder2 = wpmfFoldersModule.getFolderRendering('folder', this.label, this.id, this.parent_id, this.cover_image);
+                    // Add the folder to the attachment listing
+                    $attachments_container.append(_folder2);
+                }
             });
 
             // Get the formatted new button
@@ -1006,10 +1085,10 @@ var wpmfFoldersModule = void 0;
             // Check if we're not on the top folder
             if (parseInt(wpmfFoldersModule.categories[term_id].id) !== parseInt(wpmf.vars.term_root_id)) {
                 // Get the formatted back button
-                var _folder = wpmfFoldersModule.getFolderRendering('back', wpmf.l18n['back'], wpmfFoldersModule.categories[term_id].parent_id, wpmfFoldersModule.categories[term_id].parent_id, wpmfFoldersModule.categories[term_id].cover_image);
+                var _folder3 = wpmfFoldersModule.getFolderRendering('back', wpmf.l18n['back'], wpmfFoldersModule.categories[term_id].parent_id, wpmfFoldersModule.categories[term_id].parent_id, wpmfFoldersModule.categories[term_id].cover_image);
 
                 // Add the back button to the attachment listing
-                $attachments_container.prepend(_folder);
+                $attachments_container.prepend(_folder3);
             }
 
             // Get the formatted folder to use as a line break
@@ -1032,6 +1111,9 @@ var wpmfFoldersModule = void 0;
         openContextMenuFolder: function openContextMenuFolder() {
             // init context menu on folders
             $('.wpmf-attachment, .wpmf-folder-tree ul li a[data-id]').bind('contextmenu', function (e) {
+                if (parseInt($(e.target).data('id')) === 0) {
+                    return false;
+                }
                 if (!$(this).hasClass('wpmf-new') && !$(this).hasClass('wpmf-back')) {
                     wpmfFoldersModule.houtside();
                     var x = e.clientX; // Get the horizontal coordinate
@@ -1042,6 +1124,37 @@ var wpmfFoldersModule = void 0;
                         wpmfFoldersModule.editFolderId = $(e.target).closest('li').data('id');
                     }
 
+                    if (wpmf.vars.show_folder_id) {
+                        $('.wpmf_folderID').html(wpmfFoldersModule.editFolderId);
+                    }
+
+                    if ($('.material_syncdrive').length) {
+                        $('.material_syncdrive').closest('li').remove();
+                    }
+
+                    if (wpmfFoldersModule.categories[wpmfFoldersModule.editFolderId].drive_type !== '' && parseInt(wpmfFoldersModule.categories[wpmfFoldersModule.editFolderId].parent_id) === 0) {
+                        $('.material_editfolder').closest('li').hide();
+                    } else {
+                        $('.material_editfolder').closest('li').show();
+                    }
+
+                    if (wpmfFoldersModule.categories[wpmfFoldersModule.editFolderId].drive_type === 'google_drive') {
+                        $('.wpmf-contextmenu-folder').append('<li><div class="material_syncdrive material_sync_google_drive items_menu">' + wpmf.l18n.sync_drive + '<i class="material-icons">sync</i></div></li>');
+                    }
+
+                    if (wpmfFoldersModule.categories[wpmfFoldersModule.editFolderId].drive_type === 'dropbox') {
+                        $('.wpmf-contextmenu-folder').append('<li><div class="material_syncdrive material_sync_dropbox items_menu">' + wpmf.l18n.sync_drive + '<i class="material-icons">sync</i></div></li>');
+                    }
+
+                    if (wpmfFoldersModule.categories[wpmfFoldersModule.editFolderId].drive_type === 'onedrive') {
+                        $('.wpmf-contextmenu-folder').append('<li><div class="material_syncdrive material_sync_onedrive items_menu">' + wpmf.l18n.sync_drive + '<i class="material-icons">sync</i></div></li>');
+                    }
+
+                    if (wpmfFoldersModule.categories[wpmfFoldersModule.editFolderId].drive_type === 'onedrive_business') {
+                        $('.wpmf-contextmenu-folder').append('<li><div class="material_syncdrive material_sync_onedrive_business items_menu">' + wpmf.l18n.sync_drive + '<i class="material-icons">sync</i></div></li>');
+                    }
+
+                    wpmfFoldersModule.doSyncDrive();
                     // render custom color
                     wpmfFoldersModule.renderCustomColor();
                     // change color for folder
@@ -1081,6 +1194,12 @@ var wpmfFoldersModule = void 0;
             // delete folder
             $('.material_deletefolder').unbind('click').bind('click', function (e) {
                 wpmfFoldersModule.clickDeleteFolder(e, wpmfFoldersModule.editFolderId);
+                wpmfFoldersModule.houtside();
+            });
+
+            // get URL attachment
+            $('.material_copyFolderId').unbind('click').bind('click', function (e) {
+                wpmfFoldersModule.setClipboardText(wpmfFoldersModule.editFolderId, wpmf.l18n.copy_folderID_msg);
                 wpmfFoldersModule.houtside();
             });
 
@@ -1135,8 +1254,10 @@ var wpmfFoldersModule = void 0;
             // change color for folder
             $('.wpmf-contextmenu.wpmf-contextmenu-folder .color').unbind('click').bind('click', function (e) {
                 var color = $(this).data('color');
-                $('.wpmf-attachment[data-id="' + wpmfFoldersModule.editFolderId + '"] .mdc-list-item__start-detail').css('color', color);
+                $('.wpmf-attachment.wpmf-folder[data-id="' + wpmfFoldersModule.editFolderId + '"] .mdc-list-item__start-detail').css('color', color);
                 $('.wpmf-folder-tree a[data-id="' + wpmfFoldersModule.editFolderId + '"] > i').css('color', color);
+                $('.wpmf-attachment.wpmf-folder[data-id="' + wpmfFoldersModule.editFolderId + '"] .mdc-list-item__start-detail svg .cls-2').css('fill', color);
+                $('.wpmf-folder-tree a[data-id="' + wpmfFoldersModule.editFolderId + '"] > svg > .cls-2').css('fill', color);
                 wpmf.vars.colors[wpmfFoldersModule.editFolderId] = color;
                 wpmfFoldersModule.appendCheckColor();
                 $.ajax({
@@ -1160,6 +1281,24 @@ var wpmfFoldersModule = void 0;
                         }
                     }
                 });
+            });
+        },
+
+        doSyncDrive: function doSyncDrive() {
+            $('.material_sync_google_drive').on('click', function () {
+                wpmfGoogleDriveSyncModule.syncFoldersToMedia();
+            });
+
+            $('.material_sync_dropbox').on('click', function () {
+                wpmfDropboxSyncModule.syncFoldersToMedia();
+            });
+
+            $('.material_sync_onedrive').on('click', function () {
+                wpmfOneDriveSyncModule.syncFoldersToMedia();
+            });
+
+            $('.material_sync_onedrive_business').on('click', function () {
+                wpmfOneDriveBusinessSyncModule.syncFoldersToMedia();
             });
         },
 
@@ -1213,6 +1352,14 @@ var wpmfFoldersModule = void 0;
                     wpmfFoldersModule.editFileId = $(e.target).data('id');
                 }
 
+                if (typeof wpmfFoldersModule.categories[wpmfFoldersModule.last_selected_folder].drive_type !== "undefined" && wpmfFoldersModule.categories[wpmfFoldersModule.last_selected_folder].drive_type !== '') {
+                    $('.material_changefolder').closest('li').hide();
+                    $('.material_import').closest('li').show();
+                } else {
+                    $('.material_changefolder').closest('li').show();
+                    $('.material_import').closest('li').hide();
+                }
+
                 $('.wpmf-contextmenu').removeClass('context_overflow');
                 if (x + $('.wpmf-contextmenu-file').width() > $(window).width()) {
                     $('.wpmf-contextmenu.wpmf-contextmenu-file').addClass('context_overflow').slideDown().css({
@@ -1231,7 +1378,10 @@ var wpmfFoldersModule = void 0;
                 // create form replace
                 wpmfFoldersModule.renderFormReplace();
                 // create folder cover menu
-                wpmfFoldersModule.renderFolderCover();
+                if (wpmfFoldersModule.folder_design === 'classic') {
+                    wpmfFoldersModule.renderFolderCover();
+                }
+
                 return false;
             });
 
@@ -1273,6 +1423,12 @@ var wpmfFoldersModule = void 0;
             $('.material_changefolder').unbind('click').bind('click', function (e) {
                 wpmfAssignModule.showdialog('one');
                 wpmfAssignModule.initTree(wpmfFoldersModule.editFileId);
+                wpmfFoldersModule.houtside();
+            });
+
+            $('.material_import').unbind('click').bind('click', function (e) {
+                wpmfImportCloudModule.showdialog(false);
+                wpmfImportCloudModule.initModule();
                 wpmfFoldersModule.houtside();
             });
         },
@@ -1362,6 +1518,10 @@ var wpmfFoldersModule = void 0;
                 context_folder += '<li class="sub folder-color">\n                    <div class="items_menu">\n                        ' + wpmf.l18n.change_color + '            \n                        <div class="waves waves-effect"></div>\n                    <i class="material-icons">palette</i>\n                    <i class="material-icons right">keyboard_arrow_right</i>\n                    </div>\n                    <ul class="colorsub submenu z-depth-1">\n                        <li class="waves-effect wpmf-color-picker">\n                                <div class="color-wrapper">\n                                ' + colors + '\n                                </div>\n                        </li>\n                    </ul>\n                </li>';
             }
 
+            if (wpmf.vars.show_folder_id) {
+                context_folder += '<li><div class="material_copyFolderId items_menu">' + wpmf.l18n.copy_folder_id + '<span class="wpmf_folderID"></span><i class="material-icons">flag</i></div></li>';
+            }
+
             context_folder += '</ul>';
 
             // render context menu for file
@@ -1382,7 +1542,7 @@ var wpmfFoldersModule = void 0;
                 context_file += '<li><div class="material_editfile items_menu">' + wpmf.l18n.edit_file + '<i class="material-icons">border_color</i></div></li>';
             }
 
-            context_file += '\n            <li><div class="material_deletefile items_menu">' + wpmf.l18n.remove + '<i class="material-icons">delete</i></div></li>\n                <li><div class="material_geturlfile items_menu">' + wpmf.l18n.get_url_file + '<i class="material-icons">link</i></div></li>\n                ' + duplicate + '\n                ' + override + '\n                <li><div class="material_changefolder open-popup-tree items_menu">' + wpmf.l18n.change_folder + '<i class="material-icons">keyboard_tab</i></div></li>\n            </ul>\n            ';
+            context_file += '\n            <li><div class="material_deletefile items_menu">' + wpmf.l18n.remove + '<i class="material-icons">delete</i></div></li>\n                <li><div class="material_geturlfile items_menu">' + wpmf.l18n.get_url_file + '<i class="material-icons">link</i></div></li>\n                ' + duplicate + '\n                ' + override + '\n                <li><div class="material_changefolder open-popup-tree items_menu">' + wpmf.l18n.change_folder + '<i class="material-icons">keyboard_tab</i></div></li>\n                <li><div class="material_import open-popup-tree items_menu">' + wpmf.l18n.import_cloud + '<i class="material-icons">import_export</i></div></li>\n            </ul>\n            ';
 
             // Add the context menu box for folder to body
             if (!$('.wpmf-contextmenu.wpmf-contextmenu-folder').length) {
@@ -1478,7 +1638,7 @@ var wpmfFoldersModule = void 0;
                     });
                 },
                 success: function success(response) {
-                    if (response.status === true) {
+                    if (response.status) {
                         if (wpmfFoldersModule.page_type === 'upload-list') {
                             // In list view reload the page
                             $('.upload-php #posts-filter').submit();
@@ -1504,10 +1664,13 @@ var wpmfFoldersModule = void 0;
 
                         wpmfFoldersModule.trigger('addFolder', response.term);
                     } else {
+                        var _$snack = wpmfSnackbarModule.getFromId('upload_folder');
+                        wpmfSnackbarModule.close(_$snack);
+
                         // Show dialog when adding folder failed
                         showDialog({
                             title: wpmf.l18n.information, // todo : use the response message instead of a predefined one
-                            text: wpmf.l18n.alert_add,
+                            text: response.msg,
                             closeicon: true
                         });
                     }
@@ -1572,22 +1735,35 @@ var wpmfFoldersModule = void 0;
                     id: id,
                     wpmf_nonce: wpmf.vars.wpmf_nonce
                 },
+                beforeSend: function beforeSend() {
+                    // Show snackbar
+                    if (!$('.wpmf-snackbar[data-id="edit_folder"]').length) {
+                        wpmfSnackbarModule.show({
+                            id: 'edit_folder',
+                            content: wpmf.l18n.folder_editing,
+                            auto_close: false,
+                            is_progress: true
+                        });
+                    }
+                },
                 success: function success(response) {
-                    if (response === false) {
+                    var $snack = wpmfSnackbarModule.getFromId('edit_folder');
+                    wpmfSnackbarModule.close($snack);
+                    if (!response.status) {
                         if (name !== wpmfFoldersModule.categories[id].label) {
                             // todo: why do we check that?
                             showDialog({
                                 title: wpmf.l18n.information,
-                                text: wpmf.l18n.alert_add,
+                                text: response.msg,
                                 closeicon: true
                             });
                         }
                     } else {
                         // Store variables in case of undo
-                        var old_name = wpmfFoldersModule.categories[response.term_id].label;
+                        var old_name = wpmfFoldersModule.categories[id].label;
 
                         // Update the name in stored variables
-                        wpmfFoldersModule.categories[response.term_id].label = response.name;
+                        wpmfFoldersModule.categories[id].label = response.details.name;
 
                         // Render folders to update name
                         wpmfFoldersModule.renderFolders();
@@ -1673,13 +1849,15 @@ var wpmfFoldersModule = void 0;
                 },
                 beforeSend: function beforeSend() {
                     // Show snackbar
-                    if (!$('.wpmf-snackbar[data-id="deleting_folder"]').length) {
-                        wpmfSnackbarModule.show({
-                            id: 'deleting_folder',
-                            content: wpmf.l18n.wpmf_folder_deleting,
-                            auto_close: false,
-                            is_progress: true
-                        });
+                    if (typeof wpmf.vars.wpmf_remove_media !== "undefined" && parseInt(wpmf.vars.wpmf_remove_media) === 1) {
+                        if (!$('.wpmf-snackbar[data-id="deleting_folder"]').length) {
+                            wpmfSnackbarModule.show({
+                                id: 'deleting_folder',
+                                content: wpmf.l18n.wpmf_folder_deleting,
+                                auto_close: false,
+                                is_progress: true
+                            });
+                        }
                     }
                 },
                 success: function success(response) {
@@ -1722,6 +1900,7 @@ var wpmfFoldersModule = void 0;
                                 title: wpmf.l18n.information,
                                 text: wpmf.l18n.alert_delete1
                             });
+                            $('.wpmf-attachment[data-id="' + id + '"]').css({ 'opacity': 1 });
                         }
                     }
                 }
@@ -1891,7 +2070,7 @@ var wpmfFoldersModule = void 0;
                 }
                 // Add attachments move handle on list table
                 $('.upload-php #posts-filter .wp-list-table thead tr, .upload-php #posts-filter .wp-list-table tfoot tr').prepend('<th class="wpmf-move-header"></th>');
-                $('.upload-php #posts-filter .wp-list-table tbody th').before('<td class="wpmf-move" title="' + wpmf.l18n.dragdrop + '"><span class="zmdi zmdi-more"></span></td>');
+                $('.upload-php #posts-filter .wp-list-table #the-list > tr > th').before('<td class="wpmf-move" title="' + wpmf.l18n.dragdrop + '"><span class="zmdi zmdi-more"></span></td>');
             } else {
                 draggable_attachments = '.attachments-browser ' + draggable_attachments;
                 append_element = '.media-frame';
@@ -2612,7 +2791,7 @@ var wpmfFoldersModule = void 0;
                     }
                 },
                 success: function success(response) {
-                    if (response.status === true) {
+                    if (response.status) {
                         // Update the categories variables
                         wpmfFoldersModule.categories = response.categories;
                         wpmfFoldersModule.categories_order = response.categories_order;
@@ -2635,11 +2814,13 @@ var wpmfFoldersModule = void 0;
                             }
                         });
                     } else {
-                        if (typeof response.wrong === "undefined") {
+                        var _$snack2 = wpmfSnackbarModule.getFromId('moving_folder');
+                        wpmfSnackbarModule.close(_$snack2);
+                        if (typeof response.msg !== "undefined") {
                             //todo: change wrong variable name to something more understandable like message or error_message, and what should we do if wrong is set?
                             showDialog({
                                 title: wpmf.l18n.information,
-                                text: wpmf.l18n.alert_add
+                                text: response.msg
                             });
                         }
                     }
@@ -2680,7 +2861,7 @@ var wpmfFoldersModule = void 0;
                     }
                 },
                 success: function success(response) {
-                    if (response.status === true) {
+                    if (response.status) {
                         if (wpmfFoldersModule.page_type === 'upload-list') {
                             // In list view reload the page
                             $('.upload-php #posts-filter').submit();
@@ -2725,6 +2906,13 @@ var wpmfFoldersModule = void 0;
                             $('.selection-info .clear-selection').click();
                         }
                         wpmfFoldersModule.trigger('moveFile', files_ids, folder_to_id, folder_from_id);
+                    } else {
+                        var _$snack3 = wpmfSnackbarModule.getFromId('moving_file');
+                        wpmfSnackbarModule.close(_$snack3);
+                        showDialog({
+                            title: wpmf.l18n.information,
+                            text: wpmf.l18n.move_file_fail
+                        });
                     }
                 }
             });
@@ -3045,6 +3233,466 @@ var wpmfFoldersModule = void 0;
                     wpmfFoldersModule.events[events[ij]].push(subscriber);
                 }
             }
+        }
+    };
+
+    cloud_sync_loader_icon = '<span title="' + wpmf.l18n.hover_cloud_syncing + '" class="wpmf-loading-sync"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-dual-ring" style="\n    height: 14px;\n    width: 14px;\n    vertical-align: sub;\n"><circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.stroke}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="12" stroke="#2196f3" stroke-dasharray="62.83185307179586 62.83185307179586" transform="rotate(53.6184 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg></span>';
+    wpmfDropboxSyncModule = {
+        /**
+         * Sync files from Dropbox to Media library
+         */
+        syncFilesToMedia: function syncFilesToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_dropbox_sync_files',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfDropboxSyncModule.syncFilesToMedia();
+                        } else {
+                            wpmfDropboxSyncModule.removeMediaSync(1);
+                        }
+                    }
+                }
+            });
+        },
+
+        /**
+         * Sync the folders from Dropbox to Media library
+         */
+        syncFoldersToMedia: function syncFoldersToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_dropbox_sync_folders',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                beforeSend: function beforeSend() {
+                    if (!$('.wpmf-snackbar[data-id="sync_drive"]').length) {
+                        wpmfSnackbarModule.show({
+                            id: 'sync_drive',
+                            content: wpmf.l18n.syncing_with_cloud,
+                            auto_close: false,
+                            is_progress: true
+                        });
+                    }
+
+                    if (!$('.dropbox_list > a > .wpmf-loading-sync').length) {
+                        $('.dropbox_list > a').append(cloud_sync_loader_icon);
+                    }
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfDropboxSyncModule.syncFoldersToMedia();
+                        } else {
+                            wpmfDropboxSyncModule.syncFilesToMedia();
+                        }
+                    } else {
+                        if (typeof response !== "undefined") {
+                            alert(response.msg);
+                        }
+                    }
+                },
+                error: function error() {
+                    wpmfDropboxSyncModule.syncFoldersToMedia();
+                }
+            });
+        },
+
+        /**
+         * Remove the folders/files not exist on Drive
+         */
+        removeMediaSync: function removeMediaSync(paged) {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_dropbox_sync_remove_items',
+                    paged: paged,
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfDropboxSyncModule.removeMediaSync(parseInt(paged) + 1);
+                        } else {
+                            if (wpmf.vars.wpmf_pagenow === 'upload.php') {
+                                location.reload();
+                            } else {
+                                // remove sync loader
+                                var $snack = wpmfSnackbarModule.getFromId('sync_drive');
+                                wpmfSnackbarModule.close($snack);
+                                $('.dropbox_list > a > .wpmf-loading-sync').remove();
+
+                                // render tree folder
+                                wpmfFoldersModule.categories = response.categories;
+                                wpmfFoldersModule.categories_order = response.categories_order;
+                                wpmfFoldersTreeModule.importCategories();
+                                // Regenerate the folder filter
+                                wpmfFoldersModule.initFolderFilter();
+
+                                // Reload the folders
+                                wpmfFoldersTreeModule.loadTreeView();
+                                wpmfFoldersModule.renderFolders();
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    };
+
+    wpmfGoogleDriveSyncModule = {
+        /**
+         * Sync files from Google Drive to Media library
+         */
+        syncFilesToMedia: function syncFilesToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_google_sync_files',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfGoogleDriveSyncModule.syncFilesToMedia();
+                        } else {
+                            wpmfGoogleDriveSyncModule.removeMediaSync(1);
+                        }
+                    }
+                }
+            });
+        },
+
+        /**
+         * Sync the folders from Google Drive to Media library
+         */
+        syncFoldersToMedia: function syncFoldersToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_google_sync_folders',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                beforeSend: function beforeSend() {
+                    if (!$('.wpmf-snackbar[data-id="sync_drive"]').length) {
+                        wpmfSnackbarModule.show({
+                            id: 'sync_drive',
+                            content: wpmf.l18n.syncing_with_cloud,
+                            auto_close: false,
+                            is_progress: true
+                        });
+                    }
+
+                    if (!$('.google_drive_list > a > .wpmf-loading-sync').length) {
+                        $('.google_drive_list > a').append(cloud_sync_loader_icon);
+                    }
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfGoogleDriveSyncModule.syncFoldersToMedia();
+                        } else {
+                            wpmfGoogleDriveSyncModule.syncFilesToMedia();
+                        }
+                    } else {
+                        if (typeof response !== "undefined") {
+                            alert(response.msg);
+                        }
+                    }
+                },
+                error: function error() {
+                    wpmfGoogleDriveSyncModule.syncFoldersToMedia();
+                }
+            });
+        },
+
+        /**
+         * Remove the folders/files not exist on Drive
+         */
+        removeMediaSync: function removeMediaSync(paged) {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_google_sync_remove_items',
+                    paged: paged,
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfGoogleDriveSyncModule.removeMediaSync(parseInt(paged) + 1);
+                        } else {
+                            if (wpmf.vars.wpmf_pagenow === 'upload.php') {
+                                location.reload();
+                            } else {
+                                // remove sync loader
+                                var $snack = wpmfSnackbarModule.getFromId('sync_drive');
+                                wpmfSnackbarModule.close($snack);
+                                $('.google_drive_list > a > .wpmf-loading-sync').remove();
+
+                                // render tree folder
+                                wpmfFoldersModule.categories = response.categories;
+                                wpmfFoldersModule.categories_order = response.categories_order;
+                                wpmfFoldersTreeModule.importCategories();
+                                // Regenerate the folder filter
+                                wpmfFoldersModule.initFolderFilter();
+
+                                // Reload the folders
+                                wpmfFoldersTreeModule.loadTreeView();
+                                wpmfFoldersModule.renderFolders();
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    };
+
+    wpmfOneDriveSyncModule = {
+        /**
+         * Sync files from OneDrive to Media library
+         */
+        syncFilesToMedia: function syncFilesToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_onedrive_sync_files',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfOneDriveSyncModule.syncFilesToMedia();
+                        } else {
+                            wpmfOneDriveSyncModule.removeMediaSync(1);
+                        }
+                    }
+                }
+            });
+        },
+
+        /**
+         * Sync the folders from OneDrive to Media library
+         */
+        syncFoldersToMedia: function syncFoldersToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_onedrive_sync_folders',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                beforeSend: function beforeSend() {
+                    if (!$('.wpmf-snackbar[data-id="sync_drive"]').length) {
+                        wpmfSnackbarModule.show({
+                            id: 'sync_drive',
+                            content: wpmf.l18n.syncing_with_cloud,
+                            auto_close: false,
+                            is_progress: true
+                        });
+                    }
+
+                    if (!$('.onedrive_list > a > .wpmf-loading-sync').length) {
+                        $('.onedrive_list > a').append(cloud_sync_loader_icon);
+                    }
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfOneDriveSyncModule.syncFoldersToMedia();
+                        } else {
+                            wpmfOneDriveSyncModule.syncFilesToMedia();
+                        }
+                    } else {
+                        if (typeof response !== "undefined") {
+                            alert(response.msg);
+                        }
+                    }
+                },
+                error: function error() {
+                    wpmfOneDriveSyncModule.syncFoldersToMedia();
+                }
+            });
+        },
+
+        /**
+         * Remove the folders/files not exist on Drive
+         */
+        removeMediaSync: function removeMediaSync(paged) {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_onedrive_sync_remove_items',
+                    paged: paged,
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfOneDriveSyncModule.removeMediaSync(parseInt(paged) + 1);
+                        } else {
+                            var $snack = wpmfSnackbarModule.getFromId('sync_drive');
+                            wpmfSnackbarModule.close($snack);
+
+                            if (wpmf.vars.wpmf_pagenow === 'upload.php') {
+                                location.reload();
+                            } else {
+                                // remove sync loader
+                                var _$snack4 = wpmfSnackbarModule.getFromId('sync_drive');
+                                wpmfSnackbarModule.close(_$snack4);
+                                $('.onedrive_list > a > .wpmf-loading-sync').remove();
+
+                                // render tree folder
+                                wpmfFoldersModule.categories = response.categories;
+                                wpmfFoldersModule.categories_order = response.categories_order;
+                                wpmfFoldersTreeModule.importCategories();
+                                // Regenerate the folder filter
+                                wpmfFoldersModule.initFolderFilter();
+
+                                // Reload the folders
+                                wpmfFoldersTreeModule.loadTreeView();
+                                wpmfFoldersModule.renderFolders();
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    };
+
+    wpmfOneDriveBusinessSyncModule = {
+        /**
+         * Sync files from OneDrive Business to Media library
+         */
+        syncFilesToMedia: function syncFilesToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_odvbs_sync_files',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfOneDriveBusinessSyncModule.syncFilesToMedia();
+                        } else {
+                            wpmfOneDriveBusinessSyncModule.removeMediaSync(1);
+                        }
+                    }
+                }
+            });
+        },
+
+        /**
+         * Sync the folders from OneDrive Business to Media library
+         */
+        syncFoldersToMedia: function syncFoldersToMedia() {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_odvbs_sync_folders',
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                beforeSend: function beforeSend() {
+                    if (!$('.wpmf-snackbar[data-id="sync_drive"]').length) {
+                        wpmfSnackbarModule.show({
+                            id: 'sync_drive',
+                            content: wpmf.l18n.syncing_with_cloud,
+                            auto_close: false,
+                            is_progress: true
+                        });
+                    }
+
+                    if (!$('.onedrive_business_list > a > .wpmf-loading-sync').length) {
+                        $('.onedrive_business_list > a').append(cloud_sync_loader_icon);
+                    }
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfOneDriveBusinessSyncModule.syncFoldersToMedia();
+                        } else {
+                            wpmfOneDriveBusinessSyncModule.syncFilesToMedia();
+                        }
+                    } else {
+                        if (typeof response !== "undefined") {
+                            alert(response.msg);
+                        }
+                    }
+                },
+                error: function error() {
+                    wpmfOneDriveBusinessSyncModule.syncFoldersToMedia();
+                }
+            });
+        },
+
+        /**
+         * Remove the folders/files not exist on Drive
+         */
+        removeMediaSync: function removeMediaSync(paged) {
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                url: ajaxurl,
+                data: {
+                    action: 'wpmf_odvbs_sync_remove_items',
+                    paged: paged,
+                    wpmf_nonce: wpmf.vars.wpmf_nonce
+                },
+                success: function success(response) {
+                    if (response.status) {
+                        if (response.continue) {
+                            wpmfOneDriveBusinessSyncModule.removeMediaSync(parseInt(paged) + 1);
+                        } else {
+                            if (wpmf.vars.wpmf_pagenow === 'upload.php') {
+                                location.reload();
+                            } else {
+                                // remove sync loader
+                                var $snack = wpmfSnackbarModule.getFromId('sync_drive');
+                                wpmfSnackbarModule.close($snack);
+                                $('.onedrive_business_list > a > .wpmf-loading-sync').remove();
+
+                                // render tree folder
+                                wpmfFoldersModule.categories = response.categories;
+                                wpmfFoldersModule.categories_order = response.categories_order;
+                                wpmfFoldersTreeModule.importCategories();
+                                // Regenerate the folder filter
+                                wpmfFoldersModule.initFolderFilter();
+
+                                // Reload the folders
+                                wpmfFoldersTreeModule.loadTreeView();
+                                wpmfFoldersModule.renderFolders();
+                            }
+                        }
+                    }
+                }
+            });
         }
     };
 

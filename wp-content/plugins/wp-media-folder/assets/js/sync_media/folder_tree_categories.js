@@ -94,6 +94,9 @@ var wpmfFoldersTreeCategoriesModule;
     
                 while (ij < wpmfFoldersTreeCategoriesModule.categories.length) {
                     var className = 'closed';
+                    if (typeof wpmfFoldersTreeCategoriesModule.categories[ij].drive_type !== "undefined" && wpmfFoldersTreeCategoriesModule.categories[ij].drive_type !== '') {
+                        className += ' hide';
+                    }
                     // Open li tag
                     content += '<li class="' + className + '" data-id="' + wpmfFoldersTreeCategoriesModule.categories[ij].id + '" >';
 

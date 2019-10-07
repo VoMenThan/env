@@ -11,10 +11,11 @@
 namespace RankMath\Sitemap\Providers;
 
 use RankMath\Helper;
+use RankMath\Traits\Hooker;
 use RankMath\Sitemap\Router;
 use RankMath\Sitemap\Sitemap;
 use RankMath\Sitemap\Image_Parser;
-use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -44,6 +45,7 @@ class Taxonomy implements Provider {
 		}
 
 		if (
+			empty( $type ) ||
 			false === taxonomy_exists( $type ) ||
 			false === Helper::is_taxonomy_viewable( $type ) ||
 			false === Helper::is_taxonomy_indexable( $type ) ||
@@ -247,6 +249,6 @@ class Taxonomy implements Provider {
 	 */
 	private function get_term_link( $term ) {
 		$url = Helper::get_term_meta( 'canonical', $term, $term->taxonomy );
-		return is_string( $url ) && '' !== $url ? $url : get_term_link( $term, $term->taxonomy );
+		return Str::is_non_empty( $url ) ? $url : get_term_link( $term, $term->taxonomy );
 	}
 }

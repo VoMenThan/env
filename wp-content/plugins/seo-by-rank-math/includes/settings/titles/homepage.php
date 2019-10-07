@@ -8,7 +8,7 @@
 
 use RankMath\Helper;
 
-if ( 'page' == get_option( 'show_on_front' ) ) {
+if ( 'page' === get_option( 'show_on_front' ) ) {
 	return;
 }
 
@@ -28,7 +28,11 @@ $cmb->add_field([
 	'name'            => esc_html__( 'Homepage Meta Description', 'rank-math' ),
 	'desc'            => esc_html__( 'Homepage meta description.', 'rank-math' ),
 	'classes'         => 'rank-math-supports-variables rank-math-description',
-	'sanitization_cb' => false,
+	'sanitization_cb' => true,
+	'attributes'      => [
+		'class'             => 'cmb2_textarea wp-exclude-emoji',
+		'data-gramm_editor' => 'false',
+	],
 ]);
 
 $cmb->add_field([

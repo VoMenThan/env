@@ -17,7 +17,8 @@ $tabs_data = array(
         'icon'     => 'image',
         'sub_tabs' => array(
             'gallery_features' => __('Gallery features', 'wpmf'),
-            'default_settings' => __('Default settings', 'wpmf')
+            'default_settings' => __('Default settings', 'wpmf'),
+            'wp_gallery_shortcode' => __('Shortcode', 'wpmf')
         )
     ),
     array(
@@ -87,7 +88,8 @@ if (is_plugin_active('wp-media-folder-addon/wp-media-folder-addon.php')) {
             'google_drive_box' => __('Google Drive', 'wpmf'),
             'dropbox_box'      => __('Dropbox', 'wpmf'),
             'one_drive_box'    => __('OneDrive', 'wpmf'),
-            'aws3'    => __('Amazon S3', 'wpmf')
+            'aws3'    => __('Amazon S3', 'wpmf'),
+            'synchronization' => __('Synchronization', 'wpmf')
         )
     );
 }
@@ -104,9 +106,18 @@ $tabs_data[] = array(
     'content' => 'system-check',
     'icon' => 'verified_user',
     'sub_tabs' => array()
-)
+);
+
+$dropbox_config = get_option('_wpmfAddon_dropbox_config');
+$google_config = get_option('_wpmfAddon_cloud_config');
+$onedrive_config = get_option('_wpmfAddon_onedrive_config');
+$onedrive_business_config = get_option('_wpmfAddon_onedrive_business_config');
+
 ?>
 <div class="ju-main-wrapper">
+    <div class="ju-left-panel-toggle">
+        <i class="dashicons dashicons-leftright ju-left-panel-toggle-icon"></i>
+    </div>
     <div class="ju-left-panel">
         <div class="ju-logo">
             <a href="https://www.joomunited.com/" target="_blank">
@@ -146,6 +157,27 @@ $tabs_data[] = array(
     </div>
     <div class="ju-right-panel">
         <div id="profiles-container">
+            <?php
+            if (!empty($dropbox_config['dropboxToken']) && !empty($dropbox_config['first_connected'])) {
+                echo '<input type="hidden" class="cloud_first_connect" value="1">';
+            }
+
+            if (!get_option('wpmf_cloud_connection_notice', false)) :
+                if (!empty($dropbox_config['dropboxToken'])
+                    || (!empty($google_config['connected']) && !empty($google_config['googleBaseFolder']))
+                    || (!empty($onedrive_config['connected']) && !empty($onedrive_config['onedriveBaseFolder']['id']))
+                    || (!empty($onedrive_business_config['connected']) && !empty($onedrive_business_config['onedriveBaseFolder']['id']))) :
+                    ?>
+                    <div class="error wpmf_cloud_connection_notice" id="wpmf_error">
+                        <p><?php esc_html_e('WP Media Folder plugin has updated its cloud connection system, it\'s now fully integrated in the media library. It requires to make a synchronization', 'wpmf') ?>
+                            <button class="button button-primary btn-run-sync-cloud" style="margin: 0 5px;">
+                                <?php esc_html_e('RUN NOW', 'wpmf') ?><span class="spinner spinner-cloud-sync"
+                                                                                 style="display:none; visibility:visible"></span>
+                            </button>
+                        </p>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
             <form name="form1" id="form_list_size" action="" method="post">
                 <input type="hidden" name="wpmf_nonce"
                        value="<?php echo esc_html(wp_create_nonce('wpmf_nonce')) ?>">

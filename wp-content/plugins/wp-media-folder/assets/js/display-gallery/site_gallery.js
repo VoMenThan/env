@@ -17,7 +17,7 @@
 
         if (isNaN(gutterWidth)) {
             gutterWidth = 5;
-        } else if (gutterWidth > 30 || gutterWidth < 0) {
+        } else if (gutterWidth > 50 || gutterWidth < 0) {
             gutterWidth = 5;
         }
 
@@ -43,11 +43,11 @@
     var runMasonry = function (duration, $container) {
         var $postBox = $container.children('.wpmf-gallery-item');
         var o = calculateGrid($container);
-        $postBox.css({'width': o.columnWidth - o.gutterWidth + 'px', 'margin-bottom': o.gutterWidth + 'px'});
+        $postBox.css({'width': o.columnWidth + 'px', 'margin-bottom': o.gutterWidth + 'px'});
 
         $container.masonry({
             itemSelector: '.wpmf-gallery-item',
-            columnWidth: o.columnWidth - o.gutterWidth,
+            columnWidth: o.columnWidth,
             gutter: o.gutterWidth,
             transitionDuration: duration,
             isFitWidth: true
@@ -55,8 +55,86 @@
 
         if ($($container).hasClass('gallery-portfolio')) {
             var w = $($container).find('.attachment-thumbnail').width();
-            $($container).find('.wpmf-caption-text.wpmf-gallery-caption , .gallery-icon').css('max-width', w + 'px');
+            $($container).find('.wpmf-caption-text.wpmf-gallery-caption , .wpmf-gallery-icon').css('max-width', w + 'px');
         }
+    };
+
+    /**
+     * Load magnificPopup
+     * @param gallery
+     * @param items
+     * @param index
+     */
+    var initPopupGallery = function (gallery, items, index) {
+        var galleryWrap = gallery;
+        if (gallery.hasClass('wpmfflexslider')) {
+            galleryWrap = gallery.find('.wpmf-slides');
+        }
+
+        /* call magnificPopup */
+        galleryWrap.magnificPopup({
+            items: items,
+            gallery: {
+                enabled: true,
+                tCounter: '<span class="mfp-counter">%curr% / %total%</span>',
+                arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>' // markup of an arrow button
+            },
+            showCloseBtn: true,
+            removalDelay: 300,
+            mainClass: 'wpmf-mfp-zoom-in',
+            callbacks: {
+                beforeOpen: function() {
+                    gallery.find('a').each(function(){
+                        $(this).attr('title', $(this).find('img').attr('alt'));
+                    });
+                },
+                open: function(e) {
+                    $.magnificPopup.instance.goTo(index);
+                    //overwrite default prev + next function. Add timeout for css3 crossfade animation
+                    $.magnificPopup.instance.next = function() {
+                        var self = this;
+                        self.wrap.removeClass('mfp-image-loaded');
+                        setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
+                    };
+                    $.magnificPopup.instance.prev = function() {
+                        var self = this;
+                        self.wrap.removeClass('mfp-image-loaded');
+                        setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
+                    };
+                },
+                imageLoadComplete: function() {
+                    var self = this;
+                    setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
+                }
+            }
+        });
+
+        gallery.addClass('magnificpopup-is-active');
+    };
+
+    /**
+     * Get all items in gallery
+     * @param gallery
+     * @returns {Array}
+     */
+    var wpmfGalleryGetItems = function (gallery) {
+        var items = [];
+        gallery.find('.wpmf-gallery-icon > a[data-lightbox="1"]').each(function () {
+            var src = $(this).attr('href');
+            var type = 'image';
+            if ($(this).hasClass('isvideo')) {
+                type = 'iframe';
+            }
+
+            var pos = items.map(function (e) {
+                return e.src;
+            }).indexOf(src);
+            if (pos === -1) {
+                items.push({src: src, type: type, title: $(this).data('title')});
+            }
+        });
+
+        return items;
     };
 
     /**
@@ -82,184 +160,22 @@
         /* check Enable the gallery lightbox feature option */
         if (typeof wpmfggr !== "undefined" && typeof wpmfggr.wpmf_lightbox_gallery !== "undefined" && parseInt(wpmfggr.wpmf_lightbox_gallery) === 1) {
             if ($().magnificPopup) {
-                $('.gallery').each(function () {
-                    var $this = $(this);
-                    if ($this.hasClass('magnificpopup-is-active') || !$this.hasClass('gallery-link-file')) {
-                        return;
-                    }
-
-                    /* For portfolio theme */
-                    if ($this.hasClass('gallery-portfolio')) {
-                        $('.hover_img').on('click', function () {
-                            if ($('.gallery-portfolio .gallery-icon a').hasClass('wpmf-lightbox')) {
-                                $('.gallery-portfolio .gallery-icon a').removeClass('wpmf-lightbox');
-                            }
-                            if (!$('.hover_img').hasClass('wpmf-lightbox')) {
-                                $('.hover_img').addClass('wpmf-lightbox');
-                            }
-                        });
-
-                        $('.portfolio_lightbox').on('click', function () {
-                            if ($('.gallery-portfolio .gallery-icon a').hasClass('wpmf-lightbox')) {
-                                $('.gallery-portfolio .gallery-icon a').removeClass('wpmf-lightbox');
-                            }
-                            if (!$('.portfolio_lightbox').hasClass('wpmf-lightbox')) {
-                                $('.portfolio_lightbox').addClass('wpmf-lightbox');
-                            }
-                        });
-
-                        /* call magnificPopup width video file */
-                        $('.gallery-icon > a.isvideo[data-lightbox="1"]').magnificPopup({
-                            disableOn: 700,
-                            type: 'iframe',
-                            removalDelay: 300,
-                            preloader: true,
-                            fixedContentPos: false,
-                            mainClass: 'mfp-zoom-in',
-                            callbacks: {
-                                beforeOpen: function() {
-                                    $this.find('a').each(function(){
-                                        $(this).attr('title', $(this).find('img').attr('alt'));
-                                    });
-                                },
-                                open: function() {
-                                    //overwrite default prev + next function. Add timeout for css3 crossfade animation
-                                    $.magnificPopup.instance.next = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
-                                    };
-                                    $.magnificPopup.instance.prev = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
-                                    };
-                                },
-                                imageLoadComplete: function() {
-                                    var self = this;
-                                    setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
-                                }
-                            }
-                        });
-
-                        /* call magnificPopup width image file*/
-                        $this.magnificPopup({
-                            delegate: '.gallery-icon > a.not_video.wpmf-lightbox[data-lightbox="1"]',
-                            gallery: {
-                                enabled: true,
-                                tCounter: '<span class="wpmf_mfp-counter">%curr% / %total%</span>',
-                                arrowMarkup: '<button title="%title%" type="button" class="wpmf_mfp-arrow wpmf_mfp-arrow-%dir%"></button>' // markup of an arrow button
-                            },
-                            type: 'image',
-                            showCloseBtn: false,
-                            image: {
-                                titleSrc: 'data-title'
-                            },
-                            removalDelay: 300,
-                            mainClass: 'mfp-zoom-in',
-                            callbacks: {
-                                beforeOpen: function() {
-                                    $this.find('a').each(function(){
-                                        $(this).attr('title', $(this).find('img').attr('alt'));
-                                    });
-                                },
-                                open: function() {
-                                    //overwrite default prev + next function. Add timeout for css3 crossfade animation
-                                    $.magnificPopup.instance.next = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
-                                    };
-                                    $.magnificPopup.instance.prev = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
-                                    };
-                                },
-                                imageLoadComplete: function() {
-                                    var self = this;
-                                    setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
-                                }
-                            }
-                        });
+                var index = 0;
+                $('.wpmf-gallery-icon > a').on('click', function (e) {
+                    if (parseInt($(this).data('lightbox')) === 1) {
+                        var $this = $(this).closest('.gallery');
+                        var parent_items = $this.find('.wpmf-gallery-icon > a[data-lightbox="1"]').closest('.wpmf-gallery-item');
+                        index = parent_items.index($(this).closest('.wpmf-gallery-item'));
+                        var items = wpmfGalleryGetItems($this);
+                        initPopupGallery($this, items, index);
                     } else {
-                        /* For not portfolio theme */
-                        $('.gallery-icon > a.isvideo[data-lightbox="1"]').magnificPopup({
-                            disableOn: 700,
-                            type: 'iframe',
-                            removalDelay: 300,
-                            preloader: false,
-                            fixedContentPos: false,
-                            mainClass: 'mfp-zoom-in',
-                            callbacks: {
-                                beforeOpen: function() {
-                                    $this.find('a').each(function(){
-                                        $(this).attr('title', $(this).find('img').attr('alt'));
-                                    });
-                                },
-                                open: function() {
-                                    //overwrite default prev + next function. Add timeout for css3 crossfade animation
-                                    $.magnificPopup.instance.next = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
-                                    };
-                                    $.magnificPopup.instance.prev = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
-                                    };
-                                },
-                                imageLoadComplete: function() {
-                                    var self = this;
-                                    setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
-                                }
-                            }
-                        });
-
-                        /* call magnificPopup */
-                        $this.magnificPopup({
-                            delegate: '.gallery-icon > a.not_video[data-lightbox="1"]',
-                            gallery: {
-                                enabled: true,
-                                tCounter: '<span class="wpmf_mfp-counter">%curr% / %total%</span>',
-                                arrowMarkup: '<button title="%title%" type="button" class="wpmf_mfp-arrow wpmf_mfp-arrow-%dir%"></button>' // markup of an arrow button
-                            },
-                            type: 'image',
-                            showCloseBtn: true,
-                            image: {
-                                titleSrc: 'data-title'
-                            },
-                            removalDelay: 300,
-                            mainClass: 'mfp-zoom-in',
-                            callbacks: {
-                                beforeOpen: function() {
-                                    $this.find('a').each(function(){
-                                        $(this).attr('title', $(this).find('img').attr('alt'));
-                                    });
-                                },
-                                open: function() {
-                                    //overwrite default prev + next function. Add timeout for css3 crossfade animation
-                                    $.magnificPopup.instance.next = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
-                                    };
-                                    $.magnificPopup.instance.prev = function() {
-                                        var self = this;
-                                        self.wrap.removeClass('mfp-image-loaded');
-                                        setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
-                                    };
-                                },
-                                imageLoadComplete: function() {
-                                    var self = this;
-                                    setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
-                                }
-                            }
-                        });
+                        var target = $(this).attr('target');
+                        if (target === '') {
+                            target = '_self';
+                        }
+                        
+                        window.open($(this).attr('href'), target);
                     }
-
-                    $this.addClass('magnificpopup-is-active');
                 });
             }
         }
@@ -275,8 +191,7 @@
         if (jQuery().flexslider) {
             $('.flexslider').each(function () {
                 var $this = $(this);
-                var id = $(this).data('id');
-
+                var id = $this.data('id');
                 if ($this.hasClass('gallery_addon_flexslider')) {
                     return;
                 }
@@ -289,22 +204,14 @@
                     return;
                 }
                 var columns = parseInt($this.data('wpmfcolumns'));
-                var columns_width = ($this.width() - ((columns - 1) * 15)) / columns;
-                var columns_height = $('#' + id + ' li.wpmf-gallery-item').height();
-                var auto_animation = parseInt($this.data('auto_animation'));
-                if (wpmfggr.slider_animation === 'slide') {
-                    $this.addClass('wpmfslide');
-                    if (columns > 1) {
-                        $('#' + id + ' .wpmf-gallery-item .gallery-icon img').each(function () {
-                            var w = $(this).width();
-                            var h = columns_width / $(this).data('ratio');
-                            $(this).css({'position': 'absolute', 'left': '-' + (w - columns_width) / 2 + 'px', 'top': '-' + (h - columns_height) / 2 + 'px', 'min-width': columns_width + 'px'});
-                        });
-                    }
-                } else {
-                    $this.addClass('wpmffade');
+                var margin = parseInt($this.data('gutterwidth'));
+                var n = 0;
+                if (parseInt(margin) >= 10) {
+                    n = 20;
                 }
 
+                var columns_width = ($this.width() - n - (columns - 1) * margin) / columns;
+                var auto_animation = parseInt($this.data('auto_animation'));
                 $this.addClass('flexslider-is-active');
                 /* call flexslider function */
                 if (columns > 1) {
@@ -314,7 +221,7 @@
                         slideshow: (auto_animation === 1),
                         smoothHeight: (wpmfggr.slider_animation === 'fade'),
                         itemWidth: (wpmfggr.slider_animation === 'fade') ? 0 : columns_width,
-                        itemMargin: 15,
+                        itemMargin: margin,
                         pauseOnHover: true,
                         slideshowSpeed: 5000,
                         prevText: "",
@@ -323,6 +230,11 @@
                             $('.entry-content').removeClass('loading');
                         }
                     });
+
+                    setTimeout(function () {
+                            $('#' + id + ' .wpmf-gallery-item').css({'width': columns_width + 'px'});
+                    }, 120);
+
                 } else {
                     $('#' + id + '').flexslider({
                         animation: wpmfggr.slider_animation,

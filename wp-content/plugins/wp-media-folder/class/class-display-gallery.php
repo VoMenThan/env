@@ -17,8 +17,12 @@ class WpmfDisplayGallery
         add_action('wp_enqueue_media', array($this, 'galleryEnqueueAdminScripts'));
         add_action('wp_enqueue_scripts', array($this, 'galleryScripts'));
         add_action('enqueue_block_editor_assets', array($this, 'addEditorAssets'));
-        add_shortcode('wpmf_gallery', array($this, 'galleryShortcode'));
-        add_filter('post_gallery', array($this, 'galleryDefaultShortcode'), 11, 3);
+
+        if (!is_admin()) {
+            add_shortcode('wpmf_gallery', array($this, 'galleryShortcode'));
+            add_filter('post_gallery', array($this, 'galleryDefaultShortcode'), 11, 3);
+        }
+
         add_action('print_media_templates', array($this, 'galleryPrintMediaTemplates'));
         add_filter('attachment_fields_to_edit', array($this, 'galleryAttachmentFieldsToEdit'), 10, 2);
         add_filter('attachment_fields_to_save', array($this, 'galleryAttachmentFieldsToSave'), 10, 2);
@@ -32,6 +36,7 @@ class WpmfDisplayGallery
         add_filter('jetpack_lazy_images_new_attributes', array($this, 'jetpackLazyImagesNewAttributes'), 99, 1);
         add_action('wp_ajax_gallery_block_update_image_infos', array($this, 'galleryBlockUpdateImageInfos'));
         add_action('wp_ajax_gallery_block_load_image_infos', array($this, 'galleryBlockLoadImageInfos'));
+        add_action('wp_ajax_wpmf_gallery_from_folder', array($this, 'getImagesFromFolder'));
     }
 
     /**
@@ -50,7 +55,7 @@ class WpmfDisplayGallery
 
         return $attributes;
     }
-    
+
     /**
      * Compatible with elementor plugin
      *
@@ -61,8 +66,8 @@ class WpmfDisplayGallery
     public function mediaGalleryInstanceSchema($schema)
     {
         $schema['display'] = array(
-            'type'    => 'string',
-            'enum'    => array(
+            'type' => 'string',
+            'enum' => array(
                 'default',
                 'masonry',
                 'portfolio',
@@ -72,14 +77,14 @@ class WpmfDisplayGallery
         );
 
         $schema['wpmf_autoinsert'] = array(
-            'type'    => 'string',
-            'enum'    => array(0, 1),
+            'type' => 'string',
+            'enum' => array(0, 1),
             'default' => 0
         );
 
         $schema['wpmf_orderby'] = array(
-            'type'    => 'string',
-            'enum'    => array(
+            'type' => 'string',
+            'enum' => array(
                 'post__in',
                 'rand',
                 'title',
@@ -89,8 +94,8 @@ class WpmfDisplayGallery
         );
 
         $schema['wpmf_order'] = array(
-            'type'    => 'string',
-            'enum'    => array(
+            'type' => 'string',
+            'enum' => array(
                 'ASC',
                 'DESC'
             ),
@@ -157,12 +162,12 @@ class WpmfDisplayGallery
     public function localizeScript()
     {
         $option_usegellery_lightbox = get_option('wpmf_usegellery_lightbox');
-        $option_current_theme       = get_option('current_theme');
-        $slider_animation           = get_option('wpmf_slider_animation');
+        $option_current_theme = get_option('current_theme');
+        $slider_animation = get_option('wpmf_slider_animation');
         return array(
-            'wpmf_lightbox_gallery' => (int) $option_usegellery_lightbox,
-            'wpmf_current_theme'    => $option_current_theme,
-            'slider_animation'      => $slider_animation
+            'wpmf_lightbox_gallery' => (int)$option_usegellery_lightbox,
+            'wpmf_current_theme' => $option_current_theme,
+            'slider_animation' => $slider_animation
         );
     }
 
@@ -196,7 +201,7 @@ class WpmfDisplayGallery
     {
         $post = get_post();
         static $instance = 0;
-        $instance ++;
+        $instance++;
         if (isset($attr['orderby'])) {
             $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
             if (!$attr['orderby']) {
@@ -204,7 +209,7 @@ class WpmfDisplayGallery
             }
         }
 
-        $gallery_configs          = wpmfGetOption('gallery_settings');
+        $gallery_configs = wpmfGetOption('gallery_settings');
         if (isset($gallery_configs['theme']['slider_theme']['auto_animation'])) {
             $autoplay = $gallery_configs['theme']['slider_theme']['auto_animation'];
         } else {
@@ -212,25 +217,30 @@ class WpmfDisplayGallery
         }
 
         $attrs = shortcode_atts(array(
-            'order'           => 'ASC',
-            'orderby'         => 'menu_order ID',
-            'id'              => $post ? $post->ID : 0,
-            'columns'         => 3,
-            'gutterwidth'     => '5',
-            'link'            => 'post',
-            'size'            => 'thumbnail',
-            'targetsize'      => 'large',
-            'display'         => 'default',
-            'wpmf_orderby'    => 'post__in',
-            'wpmf_order'      => 'ASC',
-            'customlink'      => 0,
-            'bottomspace'     => 'default',
-            'hidecontrols'    => 'false',
-            'class'           => '',
-            'include'         => '',
-            'exclude'         => '',
-            'wpmf_folder_id'  => 0,
-            'wpmf_autoinsert' => 0,
+            'order' => 'ASC',
+            'orderby' => 'menu_order ID',
+            'id' => $post ? $post->ID : 0,
+            'columns' => 3,
+            'gutterwidth' => 5,
+            'link' => 'post',
+            'size' => 'thumbnail',
+            'targetsize' => 'large',
+            'display' => 'default',
+            'wpmf_orderby' => 'post__in',
+            'wpmf_order' => 'ASC',
+            'customlink' => 0,
+            'bottomspace' => 'default',
+            'hidecontrols' => 'false',
+            'class' => '',
+            'include' => '',
+            'exclude' => '',
+            'wpmf_folder_id' => array(),
+            'wpmf_autoinsert' => '',
+            'img_border_radius' => 0,
+            'border_width' => 0,
+            'border_color' => 'transparent',
+            'border_style' => 'solid',
+            'img_shadow' => '',
             'autoplay' => $autoplay
         ), $attr, 'gallery');
 
@@ -238,80 +248,39 @@ class WpmfDisplayGallery
             ${$attr_key} = $attr_value;
         }
 
-        $custom_class = trim($class);
-        $id           = intval($id);
-        $orderby      = $wpmf_orderby;
-        $order        = $wpmf_order;
-        if ('RAND' === $order) {
-            $orderby = 'none';
+        if (!is_array($wpmf_folder_id)) {
+            $wpmf_folder_id = explode(',', $wpmf_folder_id);
+        }
+        foreach ($wpmf_folder_id as $folderIndex => $folder_id) {
+            if ((int)$folder_id === 0) {
+                unset($wpmf_folder_id[$folderIndex]);
+            }
         }
 
-        if (isset($wpmf_autoinsert) && (int) $wpmf_autoinsert === 1 && isset($wpmf_folder_id)) {
-            $root_id = (int) get_option('wpmf_folder_root_id');
-            if ((int) $wpmf_folder_id === 0) {
-                $terms     = get_categories(
+        $custom_class = trim($class);
+        if ('RAND' === $wpmf_order) {
+            $wpmf_orderby = 'none';
+        }
+
+        if (isset($wpmf_autoinsert) && (int)$wpmf_autoinsert === 1 && !empty($wpmf_folder_id)) {
+            $args = array(
+                'posts_per_page' => -1,
+                'post_status' => 'any',
+                'post_type' => 'attachment',
+                'order' => $wpmf_order,
+                'orderby' => $wpmf_orderby,
+                'tax_query' => array(
                     array(
-                        'taxonomy'     => WPMF_TAXO,
-                        'hide_empty'   => false,
-                        'hierarchical' => false
+                        'taxonomy' => WPMF_TAXO,
+                        'field' => 'term_id',
+                        'terms' => $wpmf_folder_id,
+                        'operator' => 'IN',
+                        'include_children' => false
                     )
-                );
-                $unsetTags = array();
-                foreach ($terms as $term) {
-                    $unsetTags[] = $term->term_id;
-                }
-
-                if (in_array($root_id, $unsetTags)) {
-                    $key = array_search($root_id, $unsetTags);
-                    unset($unsetTags[$key]);
-                }
-
-                $args         = array(
-                    'posts_per_page' => - 1,
-                    'post_status'    => 'any',
-                    'post_type'      => 'attachment',
-                    'order'          => $order,
-                    'orderby'        => $orderby,
-                    'tax_query'      => array(
-                        'relation' => 'OR',
-                        array(
-                            'taxonomy'         => WPMF_TAXO,
-                            'field'            => 'term_id',
-                            'terms'            => $unsetTags,
-                            'operator'         => 'NOT IN',
-                            'include_children' => false
-                        ),
-                        array(
-                            'taxonomy'         => WPMF_TAXO,
-                            'field'            => 'term_id',
-                            'terms'            => (int) $root_id,
-                            'include_children' => false
-                        )
-                    )
-                );
-                $query        = new WP_Query($args);
-                $_attachments = $query->get_posts();
-            } else {
-                $args         = array(
-                    'posts_per_page' => - 1,
-                    'post_status'    => 'any',
-                    'post_type'      => 'attachment',
-                    'order'          => $order,
-                    'orderby'        => $orderby,
-                    'tax_query'      => array(
-                        array(
-                            'taxonomy'         => WPMF_TAXO,
-                            'field'            => 'term_id',
-                            'terms'            => (int) $wpmf_folder_id,
-                            'operator'         => 'IN',
-                            'include_children' => false
-                        )
-                    )
-                );
-                $query        = new WP_Query($args);
-                $_attachments = $query->get_posts();
-            }
-
+                )
+            );
+            $query = new WP_Query($args);
+            $_attachments = $query->get_posts();
             $gallery_items = array();
             foreach ($_attachments as $key => $val) {
                 $gallery_items[$val->ID] = $_attachments[$key];
@@ -320,46 +289,42 @@ class WpmfDisplayGallery
             if (!empty($include)) {
                 $_attachments = get_posts(
                     array(
-                        'include'        => $include,
-                        'post_status'    => 'inherit',
-                        'post_type'      => 'attachment',
+                        'include' => $include,
+                        'post_status' => 'inherit',
+                        'post_type' => 'attachment',
                         'post_mime_type' => 'image',
-                        'order'          => $order,
-                        'orderby'        => $orderby
+                        'order' => $wpmf_order,
+                        'orderby' => $wpmf_orderby
                     )
                 );
-                $gallery_items  = array();
+                $gallery_items = array();
                 foreach ($_attachments as $key => $val) {
                     $gallery_items[$val->ID] = $_attachments[$key];
                 }
             } elseif (!empty($exclude)) {
                 $gallery_items = get_children(
                     array(
-                        'post_parent'    => $id,
-                        'exclude'        => $exclude,
-                        'post_status'    => 'inherit',
-                        'post_type'      => 'attachment',
+                        'post_parent' => (int)$id,
+                        'exclude' => $exclude,
+                        'post_status' => 'inherit',
+                        'post_type' => 'attachment',
                         'post_mime_type' => 'image',
-                        'order'          => $order,
-                        'orderby'        => $orderby
+                        'order' => $wpmf_order,
+                        'orderby' => $wpmf_orderby
                     )
                 );
             } else {
                 $gallery_items = get_children(
                     array(
-                        'post_parent'    => $id,
-                        'post_status'    => 'inherit',
-                        'post_type'      => 'attachment',
+                        'post_parent' => (int)$id,
+                        'post_status' => 'inherit',
+                        'post_type' => 'attachment',
                         'post_mime_type' => 'image',
-                        'order'          => $order,
-                        'orderby'        => $orderby
+                        'order' => $wpmf_order,
+                        'orderby' => $wpmf_orderby
                     )
                 );
             }
-        }
-
-        if (empty($gallery_items)) {
-            return '';
         }
 
         if (is_feed()) {
@@ -372,17 +337,17 @@ class WpmfDisplayGallery
         }
 
         $columns = intval($columns);
-        $selector   = 'gallery-' . $instance;
+        $selector = 'gallery-' . $instance;
         $size_class = sanitize_html_class($size);
-        $customlink = 1 === $customlink ? true : false;
-        $class      = array();
-        $class[]    = 'gallery';
+        $class = array();
+        $class[] = 'gallery';
 
-        if ($link === 'file' || $link === 'none') {
+        if ($link === 'file' || $link === 'none' || $link === 'post') {
             $customlink = false;
         } else {
             $customlink = true;
         }
+
         if (!empty($custom_class)) {
             $class[] = esc_attr($custom_class);
         }
@@ -390,7 +355,6 @@ class WpmfDisplayGallery
         if (!$customlink) {
             $class[] = 'gallery-link-' . $link;
         }
-
 
         if ($link === 'file') {
             wp_enqueue_script('wpmf-gallery-popup');
@@ -479,7 +443,7 @@ class WpmfDisplayGallery
         $customlink = false,
         $target = '_self'
     ) {
-        $id    = intval($id);
+        $id = intval($id);
         $_post = get_post($id);
 
         $url = wp_get_attachment_url($_post->ID);
@@ -488,19 +452,14 @@ class WpmfDisplayGallery
         }
 
         $lb = 0;
-        if ($customlink) {
-            $url = get_post_meta($_post->ID, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
-            if ($url === '') {
+        $url = get_post_meta($_post->ID, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
+        if ($url === '') {
+            if ($customlink) {
                 $url = get_attachment_link($_post->ID);
-            }
-        } elseif ($permalink) {
-            $url = get_attachment_link($_post->ID);
-        } elseif ($targetsize) {
-            if (get_post_meta($id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true) !== '') {
-                $lb  = 0;
-                $url = get_post_meta($_post->ID, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
-            } else {
-                $lb  = 1;
+            } elseif ($permalink) {
+                $url = get_attachment_link($_post->ID);
+            } elseif ($targetsize) {
+                $lb = 1;
                 $img = wp_get_attachment_image_src($_post->ID, $targetsize);
                 $url = $img[0];
             }
@@ -515,7 +474,8 @@ class WpmfDisplayGallery
 
 
         if ($size && 'none' !== $size) {
-            $text = wp_get_attachment_image($id, $size, false, array('data-type' => 'wpmfgalleryimg', 'data-lazy-src' => 0));
+            $attrs = array('data-type' => 'wpmfgalleryimg', 'data-lazy-src' => 0);
+            $text = wp_get_attachment_image($id, $size, false, $attrs);
         } else {
             $text = '';
         }
@@ -536,7 +496,7 @@ class WpmfDisplayGallery
             $class = $tclass . ' not_video';
         } else {
             $class = $tclass . ' isvideo';
-            $url   = $remote_video;
+            $url = $remote_video;
         }
 
         return apply_filters(
@@ -561,12 +521,12 @@ class WpmfDisplayGallery
             return;
         }
 
-        $cf            = wpmfGetOption('gallery_settings');
+        $cf = wpmfGetOption('gallery_settings');
         $display_types = array(
-            'default'   => __('Default', 'wpmf'),
-            'masonry'   => __('Masonry', 'wpmf'),
+            'default' => __('Default', 'wpmf'),
+            'masonry' => __('Masonry', 'wpmf'),
             'portfolio' => __('Portfolio', 'wpmf'),
-            'slider'    => __('Slider', 'wpmf'),
+            'slider' => __('Slider', 'wpmf'),
         );
         ?>
 
@@ -611,11 +571,11 @@ class WpmfDisplayGallery
                 <select class="size wpmf_size" name="size" data-setting="size">
                     <?php
                     $sizes_value = json_decode(get_option('wpmf_gallery_image_size_value'));
-                    $sizes       = apply_filters('image_size_names_choose', array(
+                    $sizes = apply_filters('image_size_names_choose', array(
                         'thumbnail' => __('Thumbnail', 'wpmf'),
-                        'medium'    => __('Medium', 'wpmf'),
-                        'large'     => __('Large', 'wpmf'),
-                        'full'      => __('Full Size', 'wpmf'),
+                        'medium' => __('Medium', 'wpmf'),
+                        'large' => __('Large', 'wpmf'),
+                        'full' => __('Full Size', 'wpmf'),
                     ));
                     ?>
 
@@ -637,9 +597,9 @@ class WpmfDisplayGallery
                     <?php
                     $sizes = array(
                         'thumbnail' => __('Thumbnail', 'wpmf'),
-                        'medium'    => __('Medium', 'wpmf'),
-                        'large'     => __('Large', 'wpmf'),
-                        'full'      => __('Full Size', 'wpmf'),
+                        'medium' => __('Medium', 'wpmf'),
+                        'large' => __('Large', 'wpmf'),
+                        'full' => __('Full Size', 'wpmf'),
                     );
                     ?>
 
@@ -668,6 +628,10 @@ class WpmfDisplayGallery
                     <option value="none"
                         <?php selected($cf['theme']['default_theme']['link'], 'none'); ?>>
                         <?php esc_html_e('None', 'wpmf'); ?>
+                    </option>
+                    <option value="custom"
+                        <?php selected($cf['theme']['default_theme']['link'], 'custom'); ?>>
+                        <?php esc_html_e('Custom link', 'wpmf'); ?>
                     </option>
                 </select>
             </label>
@@ -746,7 +710,7 @@ class WpmfDisplayGallery
         $form_fields['wpmf_gallery_custom_image_link'] = array(
             'label' => __('Image gallery link to', 'wpmf'),
             'input' => 'html',
-            'html'  => '<input type="text" class="text"
+            'html' => '<input type="text" class="text"
              id="attachments-' . $post->ID . '-wpmf_gallery_custom_image_link"
               name="attachments[' . $post->ID . '][wpmf_gallery_custom_image_link]"
                value="' . get_post_meta($post->ID, _WPMF_GALLERY_PREFIX . 'custom_image_link', true) . '">
@@ -754,11 +718,11 @@ class WpmfDisplayGallery
                  class="link-btn"><span class="dashicons dashicons-admin-links wpmf-zmdi-link"></span></button>'
         );
 
-        $target_value                       = get_post_meta($post->ID, '_gallery_link_target', true);
+        $target_value = get_post_meta($post->ID, '_gallery_link_target', true);
         $form_fields['gallery_link_target'] = array(
             'label' => __('Link target', 'wpmf'),
             'input' => 'html',
-            'html'  => '
+            'html' => '
                         <select name="attachments[' . $post->ID . '][gallery_link_target]"
                          id="attachments[' . $post->ID . '][gallery_link_target]">
                                 <option value="">' . __('Same Window', 'wpmf') . '</option>
@@ -805,7 +769,7 @@ class WpmfDisplayGallery
      */
     public function deleteAttachment($pid)
     {
-        $post_type  = get_post_type($pid);
+        $post_type = get_post_type($pid);
         $post_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
         if (in_array($post_type, $post_types)) {
             $this->updateGallery();
@@ -836,9 +800,9 @@ class WpmfDisplayGallery
      */
     public function autoInsertGalleryFolder($gallery)
     {
-        $root_id = (int) get_option('wpmf_folder_root_id');
-        $terms   = get_categories(array('hide_empty' => false, 'taxonomy' => WPMF_TAXO));
-        $cats    = array();
+        $root_id = (int)get_option('wpmf_folder_root_id');
+        $terms = get_categories(array('hide_empty' => false, 'taxonomy' => WPMF_TAXO));
+        $cats = array();
         foreach ($terms as $term) {
             if (!empty($term->term_id)) {
                 $cats[] = $term->term_id;
@@ -850,30 +814,30 @@ class WpmfDisplayGallery
             unset($cats[$key]);
         }
 
-        $args   = array(
-            'posts_per_page' => - 1,
-            'post_type'      => 'attachment',
-            'fields'         => 'ids',
-            'post_status'    => 'any',
-            'orderby'        => isset($gallery['wpmf_orderby']) ? $gallery['wpmf_orderby'] : 'post__in',
-            'order'          => isset($gallery['wpmf_order']) ? $gallery['wpmf_order'] : 'ASC',
-            'tax_query'      => array(
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type' => 'attachment',
+            'fields' => 'ids',
+            'post_status' => 'any',
+            'orderby' => isset($gallery['wpmf_orderby']) ? $gallery['wpmf_orderby'] : 'post__in',
+            'order' => isset($gallery['wpmf_order']) ? $gallery['wpmf_order'] : 'ASC',
+            'tax_query' => array(
                 'relation' => 'OR',
                 array(
                     'taxonomy' => WPMF_TAXO,
-                    'field'    => 'term_id',
-                    'terms'    => $cats,
+                    'field' => 'term_id',
+                    'terms' => $cats,
                     'operator' => 'NOT IN'
                 ),
                 array(
                     'taxonomy' => WPMF_TAXO,
-                    'field'    => 'term_id',
-                    'terms'    => $root_id,
+                    'field' => 'term_id',
+                    'terms' => $root_id,
                     'operator' => 'IN'
                 )
             ),
         );
-        $query  = new WP_Query($args);
+        $query = new WP_Query($args);
         $allimg = $query->get_posts();
         return $allimg;
     }
@@ -887,30 +851,30 @@ class WpmfDisplayGallery
      */
     public function uploadUpdatePost($gallery)
     {
-        $folder_ids  = explode(',', $gallery['wpmf_folder_id']);
-        $imgs_root   = array();
+        $folder_ids = explode(',', $gallery['wpmf_folder_id']);
+        $imgs_root = array();
         $img_subroot = array();
         foreach ($folder_ids as $folder_id) {
             if (isset($folder_id) && $folder_id !== '') {
                 if ($folder_id !== 0) {
-                    $args  = array(
-                        'posts_per_page' => - 1,
-                        'post_type'      => 'attachment',
-                        'fields'         => 'ids',
-                        'post_status'    => 'any',
-                        'orderby'        => isset($gallery['wpmf_orderby']) ? $gallery['wpmf_orderby'] : 'post__in',
-                        'order'          => isset($gallery['wpmf_order']) ? $gallery['wpmf_order'] : 'ASC',
-                        'tax_query'      => array(
+                    $args = array(
+                        'posts_per_page' => -1,
+                        'post_type' => 'attachment',
+                        'fields' => 'ids',
+                        'post_status' => 'any',
+                        'orderby' => isset($gallery['wpmf_orderby']) ? $gallery['wpmf_orderby'] : 'post__in',
+                        'order' => isset($gallery['wpmf_order']) ? $gallery['wpmf_order'] : 'ASC',
+                        'tax_query' => array(
                             array(
-                                'taxonomy'         => WPMF_TAXO,
-                                'field'            => 'term_id',
-                                'terms'            => (int) $folder_id,
+                                'taxonomy' => WPMF_TAXO,
+                                'field' => 'term_id',
+                                'terms' => (int)$folder_id,
                                 'include_children' => false
                             )
                         ),
                     );
                     $query = new WP_Query($args);
-                    $imgs  = $query->get_posts();
+                    $imgs = $query->get_posts();
                     foreach ($imgs as $img) {
                         if (!in_array($img, $img_subroot)) {
                             array_push($img_subroot, $img);
@@ -954,12 +918,16 @@ class WpmfDisplayGallery
             if (!empty($post_types) && !empty($post->post_type) && in_array($post->post_type, $post_types)) {
                 $galleries = get_post_galleries($post->ID, false);
                 foreach ($galleries as $gallery) {
-                    $ids_old       = 'ids="' . $gallery['ids'] . '"';
+                    if (empty($gallery['ids'])) {
+                        continue;
+                    }
+
+                    $ids_old = 'ids="' . $gallery['ids'] . '"';
                     $ids_old_array = explode(',', $gallery['ids']);
                     if (isset($gallery['wpmf_folder_id']) && isset($gallery['wpmf_autoinsert'])
-                        && (int) $gallery['wpmf_autoinsert'] === 1) {
+                        && (int)$gallery['wpmf_autoinsert'] === 1) {
                         $allimages = $this->uploadUpdatePost($gallery);
-                        $ids_new   = 'ids="' . trim(implode(',', $allimages), ',') . '"';
+                        $ids_new = 'ids="' . trim(implode(',', $allimages), ',') . '"';
                         if ($allimages !== $ids_old_array) {
                             $post_content = str_replace($ids_old, $ids_new, $post->post_content);
                             wp_update_post(array('ID' => $post->ID, 'post_content' => $post_content));
@@ -993,22 +961,48 @@ class WpmfDisplayGallery
             WPMF_VERSION
         );
 
-        $sizes  = apply_filters('image_size_names_choose', array(
+        wp_enqueue_script(
+            'wpmf-gallery-flexslider',
+            plugins_url('assets/js/display-gallery/flexslider/jquery.flexslider.js', dirname(__FILE__)),
+            array('jquery'),
+            '2.0.0',
+            true
+        );
+        wp_enqueue_style(
+            'wpmf-flexslider-style',
+            plugins_url('assets/css/display-gallery/flexslider.css', dirname(__FILE__)),
+            array(),
+            '2.4.0'
+        );
+
+        $sizes = apply_filters('image_size_names_choose', array(
             'thumbnail' => __('Thumbnail', 'wpmf'),
-            'medium'    => __('Medium', 'wpmf'),
-            'large'     => __('Large', 'wpmf'),
-            'full'      => __('Full Size', 'wpmf'),
+            'medium' => __('Medium', 'wpmf'),
+            'large' => __('Large', 'wpmf'),
+            'full' => __('Full Size', 'wpmf'),
         ));
+
+        $sizes_value = json_decode(get_option('wpmf_gallery_image_size_value'));
+        if (!empty($sizes_value)) {
+            foreach ($sizes as $k => $size) {
+                if (!in_array($k, $sizes_value)) {
+                    unset($sizes[$k]);
+                }
+            }
+        }
+
+        $gallery_configs = wpmfGetOption('gallery_settings');
         $params = array(
             'l18n' => array(
-                'block_gallery_title'   => __('WP Media Folder Gallery', 'wpmf'),
+                'block_gallery_title' => __('WP Media Folder Gallery', 'wpmf'),
                 'no_post_found' => __('No post found', 'wpmf'),
-                'select_label'  => __('Select a News Block', 'wpmf')
+                'select_label' => __('Select a News Block', 'wpmf')
             ),
             'vars' => array(
-                'sizes'      => $sizes,
+                'sizes' => $sizes,
+                'gallery_configs'       => $gallery_configs,
                 'wpmf_nonce' => wp_create_nonce('wpmf_nonce'),
-                'ajaxurl'    => admin_url('admin-ajax.php')
+                'ajaxurl' => admin_url('admin-ajax.php')
             )
         );
 
@@ -1027,14 +1021,17 @@ class WpmfDisplayGallery
             die();
         }
 
-        if (isset($_REQUEST['id']) && isset($_REQUEST['title']) && isset($_REQUEST['caption'])) {
+        if (isset($_REQUEST['id']) && isset($_REQUEST['title']) && isset($_REQUEST['caption']) && isset($_REQUEST['custom_link'])) {
             $my_post = array(
-                'ID'           => (int) $_REQUEST['id'],
-                'post_title'   => $_REQUEST['title'],
+                'ID' => (int)$_REQUEST['id'],
+                'post_title' => $_REQUEST['title'],
                 'post_excerpt' => $_REQUEST['caption'],
             );
 
             $post_id = wp_update_post($my_post);
+
+            update_post_meta($post_id, _WPMF_GALLERY_PREFIX . 'custom_image_link', $_REQUEST['custom_link']);
+            update_post_meta($post_id, '_gallery_link_target', $_REQUEST['link_target']);
             if (is_wp_error($post_id)) {
                 wp_send_json(array(
                     'status' => false
@@ -1042,7 +1039,7 @@ class WpmfDisplayGallery
             } else {
                 wp_send_json(array(
                     'status' => true,
-                    'infos' => array('title' => $_REQUEST['title'], 'caption' => $_REQUEST['caption'])
+                    'infos' => array('title' => $_REQUEST['title'], 'caption' => $_REQUEST['caption'], 'custom_link' => $_REQUEST['custom_link'], 'link_target' => $_REQUEST['link_target'])
                 ));
             }
         }
@@ -1062,16 +1059,23 @@ class WpmfDisplayGallery
 
         $titles = array();
         $captions = array();
+        $custom_links = array();
+        $link_targets = array();
         if (isset($_REQUEST['ids'])) {
             $ids = explode(',', $_REQUEST['ids']);
             if (!empty($ids)) {
                 foreach ($ids as $id) {
-                    $image       = get_post($id);
+                    $image = get_post($id);
                     if (empty($image)) {
                         continue;
                     }
+
+                    $url = get_post_meta($id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
+                    $target = get_post_meta($id, '_gallery_link_target', true);
                     $titles[$id] = $image->post_title;
                     $captions[$id] = $image->post_excerpt;
+                    $custom_links[$id] = $url;
+                    $link_targets[$id] = $target;
                 }
             }
         }
@@ -1079,7 +1083,76 @@ class WpmfDisplayGallery
         wp_send_json(array(
             'status' => true,
             'titles' => $titles,
-            'captions' => $captions
+            'captions' => $captions,
+            'custom_links' => $custom_links,
+            'link_targets' => $link_targets
         ));
+    }
+
+    /**
+     * Get image from folder
+     *
+     * @return void
+     */
+    public function getImagesFromFolder()
+    {
+        if (empty($_REQUEST['wpmf_nonce'])
+            || !wp_verify_nonce($_REQUEST['wpmf_nonce'], 'wpmf_nonce')) {
+            die();
+        }
+
+        $folders = explode(',', $_REQUEST['ids']);
+        $orderby = isset($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'title';
+        $order = isset($_REQUEST['order']) ? $_REQUEST['order'] : 'ASC';
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type' => 'attachment',
+            'post_status' => 'any',
+            'orderby' => $orderby,
+            'order' => $order,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => WPMF_TAXO,
+                    'field' => 'term_id',
+                    'terms' => $folders,
+                    'operator' => 'IN',
+                    'include_children' => false
+                )
+            )
+        );
+
+        $query = new WP_Query($args);
+        $attachments = $query->get_posts();
+        $list_images = array();
+        foreach ($attachments as $attachment) {
+            if (strpos($attachment->post_mime_type, 'image') !== false) {
+                $custom_link = get_post_meta($attachment->ID, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
+                $target = get_post_meta($attachment->ID, '_gallery_link_target', true);
+                $details = array(
+                    'id' => $attachment->ID,
+                    'title' => $attachment->post_title,
+                    'url' => wp_get_attachment_url($attachment->ID),
+                    'caption' => $attachment->post_excerpt,
+                    'custom_link' => $custom_link,
+                    'link_target' => $target
+                );
+
+
+
+                $metadata = wp_get_attachment_metadata($attachment->ID);
+                if (!empty($metadata['sizes'])) {
+                    $sizes = $metadata['sizes'];
+                    foreach ($sizes as $size => &$value) {
+                        $url = wp_get_attachment_image_src($attachment->ID, $size);
+                        $value['url'] = $url[0];
+                    }
+                    $details['sizes'] = $sizes;
+                }
+
+                $list_images[] = $details;
+            }
+        }
+
+        wp_send_json(array('status' => true, 'images' => $list_images));
     }
 }

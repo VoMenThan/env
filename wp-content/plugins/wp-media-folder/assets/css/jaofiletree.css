@@ -13,7 +13,7 @@
     resize: horizontal;
 }
 
-#wpmfjaoassign{
+.wpmflocaltree, #wpmfcloudtreeimport {
     border-left: 2px solid #666;
     padding: 10px 10px 10px 10px;
     background: #FAFAFA;
@@ -25,7 +25,7 @@
     margin: 0;
 }
 
-.media-frame-menu .media-menu #jao , .media-frame-menu .media-menu #wpmfjaoassign {
+.media-frame-menu .media-menu #jao , .media-frame-menu .media-menu .wpmflocaltree {
     width: 100%;
     padding: 10px 0 10px 0;
     margin: 0;

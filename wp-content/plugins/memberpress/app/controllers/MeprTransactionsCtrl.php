@@ -536,9 +536,108 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
 
       $txn = new MeprTransaction($_POST['id']);
       $params = MeprTransactionsHelper::get_email_params($txn);
-      $usr = $txn->user();
+
       try {
-          echo 'PDF FIlE';
+
+            echo '
+        <div id="content-invoice" class="wrap-content">
+            <div style="width: 40%; float: left;">
+                <h1 style="color: red;">INVOICE</h1>
+                <h2>
+                    Thank you for using EnvZone!
+                </h2>
+            </div>
+            
+            <div style="width: 40%; float: left;">
+                <img src="'.ASSET_URL.'images/logo-env-printer.png">
+            </div>
+
+            <div>
+                <h3>Bill To</h3>
+                <ul>
+                    <li style="list-style-type: none;">'.$params["usermeta:mepr_company"].'</li>
+                    <li style="list-style-type: none;">'.$params["user_full_name"].'</li>
+                    <li style="list-style-type: none;">'.$params["user_email"].'</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Payment Info</h3>
+                <ul>
+                    <li>
+                        Account ID: '.$params["username"].'
+                    </li>
+                    <li>
+                        Invoice #: '.$params["invoice_num"].'
+                    </li>
+                    <li>
+                        Invoice Date: '.$params["trans_date"].'
+                    </li>
+                    <li>
+                        Payment Due By:  '.$params["trans_expires_at"].'
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        Tranasction #: '.$params["trans_num"].'
+                    </li>
+                    <li>
+                        Payment Method: '.$params["trans_gateway"].'
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>
+                    <span>Service</span>
+                    <span>Price (USD)</span>
+                </h3>
+                <ul>
+                    <li>
+                        '.$params["product_name"].'
+                    </li>
+                    <li>
+                        '.$params["payment_amount"].'
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <table>
+                    <tr>
+                        <td>Sales Tax: </td>
+                        <td>'.$params["tax_amount"].'</td>
+                    </tr>
+                    <tr>
+                        <td>Total: </td>
+                        <td>
+                            '.$params["payment_subtotal"].'
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Status: </td>
+                        <td>'.$params["trans_status"].'</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div>
+                <ul>
+                    <li>'.$params["usermeta:mepr_company_address"].'</li>
+                    <li>'.$params["usermeta:mepr_city"].'</li>
+                    <li>'.$params["usermeta:mepr_state"].'</li>
+                </ul>
+            </div>
+            
+            <div>
+                <p>Questions? <br>
+                    General billing inquiries: billing@envzone.com
+                    For additional billing assistance or to pay by credit card, submit a case by visiting: Support
+                </p>
+            </div>
+        </div>';
+            exit();
       }
       catch( Exception $e ) {
           die(__('There was an issue download pdf', 'memberpress'));

@@ -280,7 +280,7 @@ $guest_author = get_field('guest_user', $post->ID);
                         </div>
                         <p>
                             Hey, I’am <?php echo get_the_author_meta('display_name', $post->post_author);?>.
-                            I am determined to make your business success in
+                            I am determined to make your business successful in
                             <?php
                             $cat_name = get_the_category($post->ID)[0]->name;
                                     echo ($cat_name == 'News' or $cat_name == 'Team Activities'or $cat_name == 'Outsourcing Insights' or $cat_name == 'Uncategorized') ? 'your' : $cat_name;

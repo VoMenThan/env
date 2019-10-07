@@ -373,6 +373,12 @@ class JUCheckRequirements
                                 self::$loadAddons[] = $addonName;
                             }
                         }
+
+                        // Fix for developer
+                        if (isset($addonData['Version']) && strpos($addonData['Version'], '{{version') === 0) {
+                            // Load addons
+                            self::$loadAddons[] = $addonName;
+                        }
                     }
                 }
             }

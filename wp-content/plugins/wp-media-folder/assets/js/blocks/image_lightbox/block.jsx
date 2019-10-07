@@ -41,7 +41,7 @@
                                     return (
                                         <IconButton
                                             className="components-toolbar__control"
-                                            label={__('Change Image')}
+                                            label={__('Change Image', 'wpmf')}
                                             icon="edit"
                                             onClick={open}
                                         />
@@ -60,9 +60,9 @@
                         {
                             (id !== 0) && <div className="wpmf-image-lightbox-block">
                                 <InspectorControls>
-                                    <PanelBody title={__('PDF Settings')}>
+                                    <PanelBody title={__('PDF Settings', 'wpmf')}>
                                         <SelectControl
-                                            label={__('Image size')}
+                                            label={__('Image size', 'wpmf')}
                                             value={size}
                                             options={list_sizes}
                                             onChange={(value) => {
@@ -71,7 +71,7 @@
                                         />
 
                                         <SelectControl
-                                            label={__('Lightbox size')}
+                                            label={__('Lightbox size', 'wpmf')}
                                             value={lightbox_size}
                                             options={list_sizes}
                                             onChange={(value) => setAttributes({
@@ -109,7 +109,7 @@
                                             className="editor-media-placeholder__button wpmf-pdf-button"
                                             onClick={open}
                                         >
-                                            {__('Add image')}
+                                            {__('Add image', 'wpmf')}
                                         </Button>
                                     )
                                 }}
@@ -179,4 +179,4 @@
             }
         }
     );
-})(wp.i18n, wp.blocks, wp.element, wp.editor, wp.components);
+})(wp.i18n, wp.blocks, wp.element, wp.blockEditor, wp.components);

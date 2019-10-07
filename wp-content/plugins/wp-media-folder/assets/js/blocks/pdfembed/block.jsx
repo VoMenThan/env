@@ -23,23 +23,23 @@
                     {
                         (id !== 0) && <div className="wpmf-pdf-block">
                             <InspectorControls>
-                                <PanelBody title={__('PDF Settings')}>
+                                <PanelBody title={__('PDF Settings', 'wpmf')}>
                                     <SelectControl
-                                        label={__('Embed')}
+                                        label={__('Embed', 'wpmf')}
                                         value={embed}
                                         options={[
-                                            {label: __('On'), value: 1},
-                                            {label: __('Off'), value: 0}
+                                            {label: __('On', 'wpmf'), value: 1},
+                                            {label: __('Off', 'wpmf'), value: 0}
                                         ]}
                                         onChange={(value) => setAttributes({embed: parseInt(value)})}
                                     />
 
                                     <SelectControl
-                                        label={__('Target')}
+                                        label={__('Target', 'wpmf')}
                                         value={target}
                                         options={[
-                                            {label: __('Same Window'), value: ''},
-                                            {label: __('New Window'), value: '_blank'}
+                                            {label: __('Same Window', 'wpmf'), value: ''},
+                                            {label: __('New Window', 'wpmf'), value: '_blank'}
                                         ]}
                                         onChange={(value) => setAttributes({target: value})}
                                     />
@@ -65,7 +65,7 @@
                                     className="editor-media-placeholder__button wpmf-pdf-button"
                                     onClick={open}
                                 >
-                                    {(id === 0) ? __('Add PDF') : __('Edit PDF')}
+                                    {(id === 0) ? __('Add PDF', 'wpmf') : __('Edit PDF', 'wpmf')}
                                 </Button>
                             )
                         }}
@@ -106,4 +106,4 @@
             }
         }
     );
-})(wp.i18n, wp.blocks, wp.element, wp.editor, wp.components);
+})(wp.i18n, wp.blocks, wp.element, wp.blockEditor, wp.components);

@@ -13,8 +13,8 @@ var wpmfDuplicateModule;
             $('.wpmf_btn_duplicate').unbind('click').bind('click', function () {
                 $('.wpmf_spinner_duplicate').show().css('visibility', 'visible');
                 $('.wpmf_message_duplicate').html(null);
-                var id = $('.attachment-details').data('id');
-                wpmfDuplicateModule.doDuplicate(id);
+                var attachmentID = $('.wpmf_attachment_id').val();
+                wpmfDuplicateModule.doDuplicate(attachmentID);
             });
         },
 

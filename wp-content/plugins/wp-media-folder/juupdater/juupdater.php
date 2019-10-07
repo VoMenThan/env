@@ -280,8 +280,7 @@ if (!class_exists('JuUpdater', false)) :
             $token = get_option('ju_user_token');
             if (empty($token)) {
                 echo '<p>To enable live update please link your joomunited account</p>';
-                $link = JU_BASE . 'index.php?option=com_juupdater&view=login
-                &tmpl=component&site=' . admin_url() . '&TB_iframe=true&width=600&height=550';
+                $link = JU_BASE . 'index.php?option=com_juupdater&view=login&tmpl=component&site=' . admin_url() . '&TB_iframe=true&width=600&height=550';
                 echo '<a href="' . esc_html($link) . '" class="thickbox button">Link my Joomunited account</a>';
             } else {
                 echo '<p>Live update are enabled click here if you want to disable it</p>';

@@ -6,13 +6,15 @@
  * @subpackage RankMath\Settings
  */
 
+use RankMath\Helper;
+
 $dep = [ [ 'disable_author_archives', 'off' ] ];
 
 $cmb->add_field([
 	'id'      => 'disable_author_archives',
 	'type'    => 'switch',
 	'name'    => esc_html__( 'Author Archives', 'rank-math' ),
-	'desc'    => esc_html__( 'Redirect author archives to homepage. Useful for single-author blogs, where the author archive shows the same posts as the homepage/blog page. Alternatively, you can set the author archives to noindex.', 'rank-math' ),
+	'desc'    => esc_html__( 'Enables or disables Author Archives. If disabled, the Author Archives are redirected to your homepage. To avoid duplicate content issues, noindex author archives if you keep them enabled.', 'rank-math' ),
 	'options' => [
 		'on'  => esc_html__( 'Disabled', 'rank-math' ),
 		'off' => esc_html__( 'Enabled', 'rank-math' ),
@@ -30,12 +32,31 @@ $cmb->add_field([
 ]);
 
 $cmb->add_field([
-	'id'      => 'noindex_author_archive',
+	'id'      => 'author_custom_robots',
 	'type'    => 'switch',
-	'name'    => esc_html__( 'Noindex Author Archives', 'rank-math' ),
-	'desc'    => esc_html__( 'Prevent author archive pages from getting indexed by search engines. Useful for single-author blogs, where the author archive shows the same posts as the homepage/blog page.', 'rank-math' ),
-	'default' => 'off',
+	'name'    => esc_html__( 'Author Robots Meta', 'rank-math' ),
+	'desc'    => wp_kses_post( __( 'Select custom robots meta for author page, such as <code>nofollow</code>, <code>noarchive</code>, etc. Otherwise the default meta will be used, as set in the Global Meta tab.', 'rank-math' ) ),
+	'options' => [
+		'off' => esc_html__( 'Default', 'rank-math' ),
+		'on'  => esc_html__( 'Custom', 'rank-math' ),
+	],
+	'default' => 'on',
 	'dep'     => $dep,
+]);
+
+$cmb->add_field([
+	'id'                => 'author_robots',
+	'type'              => 'multicheck',
+	/* translators: post type name */
+	'name'              => esc_html__( 'Author Robots Meta', 'rank-math' ),
+	'desc'              => esc_html__( 'Custom values for robots meta tag on author page.', 'rank-math' ),
+	'options'           => Helper::choices_robots(),
+	'select_all_button' => false,
+	'dep'               => [
+		'relation' => 'and',
+		[ 'author_custom_robots', 'on' ],
+		[ 'disable_author_archives', 'off' ],
+	],
 ]);
 
 $cmb->add_field([
@@ -56,6 +77,10 @@ $cmb->add_field([
 	'desc'            => esc_html__( 'Author archive meta description. SEO options for specific author archives can be set with the meta box in the user profiles.', 'rank-math' ),
 	'classes'         => 'rank-math-supports-variables rank-math-description',
 	'dep'             => $dep,
+	'attributes'      => [
+		'class'             => 'cmb2-textarea-small wp-exclude-emoji',
+		'data-gramm_editor' => 'false',
+	],
 	'sanitization_cb' => false,
 ]);
 

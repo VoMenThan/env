@@ -52,10 +52,10 @@ class Watcher implements Runner {
 	 */
 	public static function check_activated_plugin() {
 		$set     = [];
-		$plugins = get_option( 'active_plugins', array() );
+		$plugins = get_option( 'active_plugins', [] );
 
 		foreach ( self::get_conflicting_plugins() as $plugin => $type ) {
-			if ( ! isset( $set[ $type ] ) && in_array( $plugin, $plugins ) ) {
+			if ( ! isset( $set[ $type ] ) && in_array( $plugin, $plugins, true ) ) {
 				$set[ $type ] = true;
 				self::set_notification( $type );
 			}
@@ -82,7 +82,7 @@ class Watcher implements Runner {
 	 * @param string $state  Module state.
 	 */
 	public static function module_changed( $module, $state ) {
-		if ( ! in_array( $module, [ 'sitemap', 'redirections', 'rich-snippet' ] ) ) {
+		if ( ! in_array( $module, [ 'sitemap', 'redirections', 'rich-snippet' ], true ) ) {
 			return;
 		}
 
@@ -161,6 +161,8 @@ class Watcher implements Runner {
 			'wordpress-seo/wp-seo.php'                    => 'seo',
 			'wordpress-seo-premium/wp-seo-premium.php'    => 'seo',
 			'all-in-one-seo-pack/all_in_one_seo_pack.php' => 'seo',
+			'wp-seopress/seopress.php'                    => 'seo',
+			'wp-seopress-pro/seopress-pro.php'            => 'seo',
 		);
 
 		if ( GlobalHelper::is_module_active( 'redirections' ) ) {

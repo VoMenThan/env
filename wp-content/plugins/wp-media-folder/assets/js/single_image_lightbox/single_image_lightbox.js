@@ -5,8 +5,8 @@
             $('.open-lightbox-feature-image').magnificPopup({
                 gallery: {
                     enabled: true,
-                    tCounter: '<span class="wpmf_mfp-counter">%curr% / %total%</span>',
-                    arrowMarkup: '<button title="%title%" type="button" class="wpmf_mfp-arrow wpmf_mfp-arrow-%dir%"></button>' // markup of an arrow button
+                    tCounter: '<span class="mfp-counter">%curr% / %total%</span>',
+                    arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>' // markup of an arrow button
                 },
                 callbacks: {
                     elementParse: function (q) {
@@ -29,8 +29,8 @@
                         delegate: 'img',
                         gallery: {
                             enabled: true,
-                            tCounter: '<span class="wpmf_mfp-counter">%curr% / %total%</span>',
-                            arrowMarkup: '<button title="%title%" type="button" class="wpmf_mfp-arrow wpmf_mfp-arrow-%dir%"></button>' // markup of an arrow button
+                            tCounter: '<span class="mfp-counter">%curr% / %total%</span>',
+                            arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>' // markup of an arrow button
                         },
                         callbacks: {
                             elementParse: function(q) { 

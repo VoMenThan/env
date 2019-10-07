@@ -121,11 +121,7 @@ html[xmlns] .flexslider .slides.wpmf-slides {
     max-height: 300px;
 }
 
-.carousel li:not(.wpmf-gg-one-columns) {
-    margin-right: 15px !important;
-}
-
-.wpmfflexslider.wpmffade li.wpmf-gg-one-columns {
+.wpmfflexslider.wpmffade.wpmf-gg-one-columns li {
     margin: 0 !important;
     max-width: 100% !important;
 }
@@ -134,7 +130,7 @@ html[xmlns] .flexslider .slides.wpmf-slides {
     margin-right: -100% !important;
 }
 
-.flexslider .slides.wpmf-slides li.wpmf-gg-one-columns img {
+.flexslider.wpmf-gg-one-columns .slides.wpmf-slides li img {
     margin: 0 auto !important;
     max-width: 100% !important;
 }

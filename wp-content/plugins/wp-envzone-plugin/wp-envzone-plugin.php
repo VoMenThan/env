@@ -18,10 +18,11 @@ define('ENVZONE_MT_VIEWS_DIR', ENVZONE_MT_PLUGIN_DIR . '/views');
 if(!is_admin()){
     require_once ENVZONE_MT_PLUGIN_DIR . '/public.php';
 }else{
-    function admin_load_js(){
-        echo '<script type="text/javascript" src="'.ENVZONE_MT_JS_URL.'/FileSaver.min.js"></script>';
+    function admin_load_pdf_js(){
+        echo '<script type="text/javascript" src="'.ENVZONE_MT_JS_URL.'/html2canvas.min.js"></script>';
+        echo '<script type="text/javascript" src="'.ENVZONE_MT_JS_URL.'/jspdf.min.js"></script>';
     }
-    add_action('admin_head', 'admin_load_js');
+    add_action('admin_head', 'admin_load_pdf_js');
     require_once ENVZONE_MT_PLUGIN_DIR . '/admin.php';
     new EnvzoneMTAdmin();
 }

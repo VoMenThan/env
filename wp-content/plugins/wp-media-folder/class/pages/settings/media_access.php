@@ -58,7 +58,7 @@ defined('ABSPATH') || die('No direct script access allowed!');
             <div class="ju-settings-option wpmf_right m-r-0">
                 <div class="wpmf_row_full">
                     <input type="hidden" name="all_media_in_user_root" value="0">
-                    <label data-alt="<?php esc_html_e('Display all media in user folder', 'wpmf'); ?>"
+                    <label data-alt="<?php esc_html_e('If activated the user will also be able to see the media uploaded by others in his own folder (additionally to his own media). If not activated, he\'ll see only his own media', 'wpmf'); ?>"
                            class="ju-setting-label text"><?php esc_html_e('Display all media in user folder', 'wpmf') ?></label>
                     <div class="ju-switch-button">
                         <label class="switch">

@@ -120,7 +120,7 @@ trait WordPress {
 			return add_query_arg( $args, admin_url( 'admin.php' ) );
 		}
 
-		// Makes sure the plugin is defined before trying to use it.
+		// Makes sure the plugin functions are defined before trying to use them.
 		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
 			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 		}
@@ -129,7 +129,7 @@ trait WordPress {
 	}
 
 	/**
-	 * Get dashboard url.
+	 * Get Rank Math Dashboard url.
 	 *
 	 * @codeCoverageIgnore
 	 *
@@ -190,21 +190,33 @@ trait WordPress {
 		$caps = array_keys( self::get_capabilities() );
 
 		foreach ( WP_Helper::get_roles() as $slug => $role ) {
-			$role = get_role( $slug );
-			if ( ! $role ) {
-				continue;
-			}
-
-			$slug = esc_attr( $slug );
-			foreach ( $caps as $cap ) {
-				$granted = $role->has_cap( $cap );
-				if ( $granted ) {
-					$data[ $slug ][] = $cap;
-				}
-			}
+			self::get_role_capabilities( $slug, $caps, $data );
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Get active capabilities for role.
+	 *
+	 * @codeCoverageIgnore
+	 *
+	 * @param string $slug Role slug.
+	 * @param array  $caps Array of capabilities.
+	 * @param array  $data Data instance.
+	 */
+	private static function get_role_capabilities( $slug, $caps, &$data ) {
+		$role = get_role( $slug );
+		if ( ! $role ) {
+			return;
+		}
+
+		$slug = esc_attr( $slug );
+		foreach ( $caps as $cap ) {
+			if ( $role->has_cap( $cap ) ) {
+				$data[ $slug ][] = $cap;
+			}
+		}
 	}
 
 	/**
@@ -327,8 +339,8 @@ trait WordPress {
 	 * @return array
 	 */
 	public static function get_robots_defaults() {
-		$robots = [];
 		$screen = get_current_screen();
+		$robots = Helper::get_settings( 'titles.robots_global', [] );
 
 		if ( 'post' === $screen->base && Helper::get_settings( "titles.pt_{$screen->post_type}_custom_robots" ) ) {
 			$robots = Helper::get_settings( "titles.pt_{$screen->post_type}_robots", [] );
@@ -336,6 +348,10 @@ trait WordPress {
 
 		if ( 'term' === $screen->base && Helper::get_settings( "titles.tax_{$screen->taxonomy}_custom_robots" ) ) {
 			$robots = Helper::get_settings( "titles.tax_{$screen->taxonomy}_robots", [] );
+		}
+
+		if ( 'profile' === $screen->base && Helper::get_settings( 'titles.author_custom_robots' ) ) {
+			$robots = Helper::get_settings( 'titles.author_robots', [] );
 		}
 
 		if ( is_array( $robots ) && ! in_array( 'noindex', $robots, true ) ) {

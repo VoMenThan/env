@@ -79,7 +79,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
                                 return React.createElement(IconButton, {
                                     className: "components-toolbar__control",
-                                    label: __('Change Image'),
+                                    label: __('Change Image', 'wpmf'),
                                     icon: "edit",
                                     onClick: open
                                 });
@@ -103,9 +103,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                 null,
                                 React.createElement(
                                     PanelBody,
-                                    { title: __('PDF Settings') },
+                                    { title: __('PDF Settings', 'wpmf') },
                                     React.createElement(SelectControl, {
-                                        label: __('Image size'),
+                                        label: __('Image size', 'wpmf'),
                                         value: size,
                                         options: list_sizes,
                                         onChange: function onChange(value) {
@@ -113,7 +113,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                         }
                                     }),
                                     React.createElement(SelectControl, {
-                                        label: __('Lightbox size'),
+                                        label: __('Lightbox size', 'wpmf'),
                                         value: lightbox_size,
                                         options: list_sizes,
                                         onChange: function onChange(value) {
@@ -155,7 +155,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                         className: "editor-media-placeholder__button wpmf-pdf-button",
                                         onClick: open
                                     },
-                                    __('Add image')
+                                    __('Add image', 'wpmf')
                                 );
                             }
                         })
@@ -235,4 +235,4 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             return props;
         }
     });
-})(wp.i18n, wp.blocks, wp.element, wp.editor, wp.components);
+})(wp.i18n, wp.blocks, wp.element, wp.blockEditor, wp.components);

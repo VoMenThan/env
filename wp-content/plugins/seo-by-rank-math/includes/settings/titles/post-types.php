@@ -38,7 +38,7 @@ $cmb->add_field([
 	'desc'            => sprintf( esc_html__( 'Default title tag for single %s pages. This can be changed on a per-post basis on the post editor screen.', 'rank-math' ), $name ),
 	'classes'         => 'rank-math-supports-variables rank-math-title',
 	'default'         => '%title% %page% %sep% %sitename%',
-	'sanitization_cb' => false,
+	'sanitization_cb' => [ '\RankMath\CMB2', 'sanitize_textfield' ],
 ]);
 
 $cmb->add_field([
@@ -49,8 +49,11 @@ $cmb->add_field([
 	/* translators: post type name */
 	'desc'            => sprintf( esc_html__( 'Default description for single %s pages. This can be changed on a per-post basis on the post editor screen.', 'rank-math' ), $name ),
 	'classes'         => 'rank-math-supports-variables rank-math-description',
-	'sanitization_cb' => false,
-	'attributes'      => [ 'data-gramm_editor' => 'false' ],
+	'sanitization_cb' => true,
+	'attributes'      => [
+		'class'             => 'cmb2-textarea-small wp-exclude-emoji',
+		'data-gramm_editor' => 'false',
+	],
 ]);
 
 $cmb->add_field([
@@ -117,6 +120,7 @@ if ( 'product' === $post_type || 'download' === $post_type ) {
 		'type'            => 'textarea',
 		'name'            => esc_html__( 'Description', 'rank-math' ),
 		'attributes'      => [
+			'class'           => 'cmb2_textarea wp-exclude-emoji',
 			'rows'            => 3,
 			'data-autoresize' => true,
 		],

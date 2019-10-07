@@ -16,18 +16,53 @@ wp_enqueue_style(
     '2.4.0'
 );
 
+$class_default = array();
+$class_default[] = 'gallery flexslider carousel wpmfflexslider';
+$class_default[] = 'gallery-link-' . $link;
+$class_default[] = 'wpmf-has-border-radius-' . $img_border_radius;
+$class_default[] = 'wpmf-gutterwidth-' . $gutterwidth;
+if ((int) $columns === 1) {
+    $class_default[] = 'wpmf-gg-one-columns';
+} else {
+    $class_default[] = 'wpmf-gg-multiple-columns';
+}
+
+$shadow = 0;
+$style = '<style>';
+if ($img_shadow !== '') {
+    if ((int) $columns > 1) {
+        $style .= '#' . $selector . ' .wpmf-gallery-item:hover {box-shadow: ' . $img_shadow . ' !important; transition: all 200ms ease;}';
+        $shadow = 1;
+    }
+}
+
+if ((int) $gutterwidth === 0) {
+    $shadow = 0;
+}
+if ($border_style !== 'none') {
+    if ((int) $columns === 1) {
+        $style .= '#' . $selector . ' .wpmf-gallery-item img {border: ' . $border_color . ' '. $border_width .'px '. $border_style .';}';
+    } else {
+        $style .= '#' . $selector . ' .wpmf-gallery-item {border: ' . $border_color . ' '. $border_width .'px '. $border_style .';}';
+    }
+} else {
+    $border_width = 0;
+}
+$style .= '</style>';
 $output = '<div class="wpmf-gallerys">';
-$output .= '<div style="display: block" id="' . $selector . '" data-id="' . $selector . '"
- class="gallery gallery-link-' . $link . ' flexslider carousel wpmfflexslider" data-wpmfcolumns="' . $columns . '" data-auto_animation="' . esc_html($autoplay) . '">';
+$output .= '<div id="' . $selector . '" data-id="' . $selector . '" data-gutterwidth="' . $gutterwidth . '" 
+ class="' . implode(' ', $class_default) . '" data-wpmfcolumns="' . $columns . '" data-auto_animation="' . esc_html($autoplay) . '" data-border-width="' . $border_width . '" data-shadow="' . $shadow . '">';
+
+$output .= $style;
 $output .= '<ul class="slides wpmf-slides">';
-$i      = 0;
-$pos    = 1;
+$i = 0;
+$pos = 1;
 
 $height_array = array();
 foreach ($gallery_items as $item_id => $attachment) {
     $sizes = image_get_intermediate_size($attachment->ID, $size);
     if (!$sizes) {
-        $img_data   = wp_get_attachment_metadata($attachment->ID);
+        $img_data = wp_get_attachment_metadata($attachment->ID);
         $height_img = $img_data['height'];
     } else {
         $height_img = $sizes['height'];
@@ -44,7 +79,7 @@ foreach ($gallery_items as $item_id => $attachment) {
     if (empty($sizes['height']) || empty($sizes['width'])) {
         continue;
     }
-    $post_title   = htmlentities($attachment->post_title);
+    $post_title = htmlentities($attachment->post_title);
     $post_excerpt = htmlentities($attachment->post_excerpt);
 
     $caption_lightbox = wpmfGetOption('caption_lightbox_gallery');
@@ -61,21 +96,14 @@ foreach ($gallery_items as $item_id => $attachment) {
     }
 
     $link_target = get_post_meta($attachment->ID, '_gallery_link_target', true);
-    $img         = wp_get_attachment_image_src($item_id, $size);
+    $img = wp_get_attachment_image_src($item_id, $size);
     if (!$img) {
         continue;
     }
 
     list($src, $width, $height) = $img;
     $alt = trim(strip_tags(get_post_meta($item_id, '_wp_attachment_image_alt', true))); // Use Alt field first
-
-    if ((int) $columns === 1) {
-        $image_output = '<img src="' . $src . '" width="' . $width . '" height="' . $height . '" alt="' . $alt . '" />';
-    } else {
-        $image_output = '<img src="' . $src . '" data-ratio="' . $ratio . '"
-         width="' . max($height_array) * $ratio . '" alt="' . $alt . '"
-          style="width:' . max($height_array) * $ratio . 'px;min-height:' . max($height_array) . 'px !important" />';
-    }
+    $image_output = '<img src="' . $src . '" alt="' . $alt . '" />';
 
     $current_theme = get_option('current_theme');
     if (isset($current_theme) && $current_theme === 'Gleam') {
@@ -94,18 +122,13 @@ foreach ($gallery_items as $item_id => $attachment) {
             $image_output = '<a class="' . $tclass . '" href="' . $url . '"
              target="' . $link_target . '">' . $image_output . '</a>';
         } elseif ('post' === $link) {
-            $url          = get_attachment_link($item_id);
+            $url = get_attachment_link($item_id);
             $image_output = '<a class="' . $tclass . '" href="' . $url . '"
              target="' . $link_target . '">' . $image_output . '</a>';
         } elseif ('file' === $link) {
-            if (get_post_meta($item_id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true) !== '') {
-                $lightbox = 0;
-                $url      = get_post_meta($item_id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
-            } else {
-                $lightbox = 1;
-                $imgs_urls = wp_get_attachment_image_src($item_id, $targetsize);
-                $url  = $imgs_urls[0];
-            }
+            $lightbox = 1;
+            $imgs_urls = wp_get_attachment_image_src($item_id, $targetsize);
+            $url = $imgs_urls[0];
             $remote_video = get_post_meta($item_id, 'wpmf_remote_video_link', true);
             if (!empty($remote_video)) {
                 $image_output = '<a class="' . $tclass . ' isvideo" data-lightbox="' . $lightbox . '"
@@ -117,27 +140,19 @@ foreach ($gallery_items as $item_id => $attachment) {
                   target="' . $link_target . '" data-title="' . esc_attr($lb_title) . '" title="' . esc_attr($post_title) . '">' . $image_output . '</a>';
             }
         } else {
-            if (get_post_meta($item_id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true) !== '') {
-                $lightbox     = 0;
-                $url          = get_post_meta($item_id, _WPMF_GALLERY_PREFIX . 'custom_image_link', true);
-                $image_output = '<a class="' . $tclass . '"
-                 data-lightbox="' . $lightbox . '" href="' . $url . '"
-                  target="' . $link_target . '" title="' . esc_attr($post_title) . '">' . $image_output . '</a>';
+            if ((int)$columns === 1) {
+                $image_output = '<img src="' . $src . '" width="' . $width . '" height="' . $height . '" alt="' . $alt . '" />';
             } else {
-                if ((int) $columns === 1) {
-                    $image_output = '<img src="' . $src . '" width="' . $width . '" height="' . $height . '" alt="' . $alt . '" />';
-                } else {
-                    $image_output = '<img src="' . $src . '" data-ratio="' . $ratio . '"
+                $image_output = '<img src="' . $src . '" data-ratio="' . $ratio . '"
                      width="' . max($height_array) * $ratio . '" alt="' . $alt . '"
                       style="width:' . max($height_array) * $ratio . 'px;
                       min-height:' . max($height_array) . 'px !important" />';
-                }
             }
         }
     }
 
     $orientation = ($sizes['height'] > $sizes['width']) ? 'portrait' : 'landscape';
-    if ((int) $columns === 1) {
+    if ((int)$columns === 1) {
         $output .= "<li class='wpmf-gg-one-columns wpmf-gallery-item
          item wpmf-gallery-item-position-" . $pos . ' wpmf-gallery-item-attachment-' . $item_id . "'>";
     } else {
@@ -146,7 +161,7 @@ foreach ($gallery_items as $item_id => $attachment) {
           wpmf-gallery-item-attachment-' . $item_id . "'
            style='min-height:0px;position: relative;height:" . max($height_array) . "px'>";
     }
-    $output .= '<div class="gallery-icon ' . $orientation . '">' . $image_output . '</div>';
+    $output .= '<div class="wpmf-gallery-icon ' . $orientation . '">' . $image_output . '</div>';
     if (trim($post_excerpt) || trim($post_title)) {
         $output .= "<div class='wpmf-front-box top'>";
         $output .= '<a>';
@@ -157,7 +172,7 @@ foreach ($gallery_items as $item_id => $attachment) {
     }
 
     $output .= '</li>';
-    $pos ++;
+    $pos++;
 }
 
 

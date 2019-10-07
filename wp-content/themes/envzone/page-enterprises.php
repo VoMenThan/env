@@ -286,8 +286,8 @@
 
     <!-- /*============PROCESS FRAMEWORK HOME=================*/ -->
     <?php $sec_process_framework = get_field('process_framework', $post->ID);?>
-    <div class="container-fluid bg-gray-process">
-        <div class="container">
+    <div class="container-fluid">
+        <div class="container" style="padding-bottom: 100px;">
             <div class="row content-framework tab-content" id="pills-tabContentProcess">
                 <div class="col-12 text-center box-head-framework">
                     <h2 class="title-head-blue"><?php echo $sec_process_framework['title'];?></h2>

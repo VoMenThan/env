@@ -159,6 +159,7 @@ ul.attachments .filename div {
     position: absolute;
     top: 45px;
     left: 5px;
+    width: 100%;
 }
 
 .media-modal ul.attachments {
@@ -170,6 +171,11 @@ ul.attachments .filename div {
 .media-modal .media-frame.hide-menu ul.attachments {
     left: 20%;
     margin-left: 10px;
+}
+
+.media-modal .media-frame.hide-menu ul.attachments.wpmf-no-tree {
+    left: 0;
+    margin-left: 0;
 }
 
 ul.attachments .attachment {
@@ -269,10 +275,6 @@ ul.attachments .attachment {
 
 .media-frame.mode-grid .media-toolbar-secondary .delete-selected-button {
     margin-right: 10px !important;
-}
-
-.wpmf-move-header {
-    width: 20px;
 }
 
 .wpmf-move {
@@ -638,15 +640,20 @@ ul.attachments .attachment {
     cursor: pointer;
 }
 
-.media-toolbar-secondary .open-popup-tree-multiple {
+.media-toolbar-secondary .open-popup-tree-multiple,
+.media-toolbar-secondary .open-cloud-import {
     margin: 11px 0;
 }
 
-.media-frame.mode-select .open-popup-tree-multiple {
+.media-frame.mode-select .open-popup-tree-multiple,
+.media-frame.mode-select .open-cloud-import {
     display: inline-block !important;
 }
 
-.media-frame.mode-edit .open-popup-tree-multiple {
+.media-frame.mode-edit .open-popup-tree-multiple,
+.media-frame.mode-edit .open-cloud-import,
+.media-frame.mode-select .open-popup-tree-multiple.hide,
+.media-frame.mode-select .open-cloud-import.hide {
     display: none !important;
 }
 
@@ -662,7 +669,7 @@ ul.attachments .attachment {
 
 /* Checkbox input */
 @import "https://fonts.googleapis.com/css?family=Raleway"; /* todo : load it locally */
-#wpmfjaoassign .pure-checkbox input[type="checkbox"] {
+.wpmflocaltree .pure-checkbox input[type="checkbox"] {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -673,17 +680,17 @@ ul.attachments .attachment {
     width: 1px;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:focus + label:before,
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:hover + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:focus + label:before,
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:hover + label:before {
     border-color: #2196F3;
     background-color: #f2f2f2;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:active + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:active + label:before {
     transition-duration: 0s;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"] + label {
+.wpmflocaltree .pure-checkbox input[type="checkbox"] + label {
     position: relative;
     padding-left: 2em;
     vertical-align: middle;
@@ -691,7 +698,7 @@ ul.attachments .attachment {
     cursor: pointer;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"] + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"] + label:before {
     box-sizing: content-box;
     content: '';
     color: #2196F3;
@@ -706,7 +713,7 @@ ul.attachments .attachment {
     transition: all 0.4s ease;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"] + label:after {
+.wpmflocaltree .pure-checkbox input[type="checkbox"] + label:after {
     box-sizing: content-box;
     content: '';
     background-color: #2196F3;
@@ -721,20 +728,20 @@ ul.attachments .attachment {
     transition: transform 200ms ease-out;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:disabled + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:disabled + label:before {
     border-color: #cccccc;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:disabled:focus + label:before,
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:disabled:hover + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:disabled:focus + label:before,
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:disabled:hover + label:before {
     background-color: inherit;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:disabled:checked + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:disabled:checked + label:before {
     background-color: #cccccc;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"] + label:after {
+.wpmflocaltree .pure-checkbox input[type="checkbox"] + label:after {
     background-color: transparent;
     top: 50%;
     left: 4px;
@@ -748,18 +755,18 @@ ul.attachments .attachment {
     transform: rotate(-45deg) scale(0);
 }
 
-#wpmfjaoassign.pure-checkbox input[type="checkbox"]:checked + label:after {
+.wpmflocaltree.pure-checkbox input[type="checkbox"]:checked + label:after {
     content: '';
     transform: rotate(-45deg) scale(1);
     transition: transform 200ms ease-out;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:checked + label:before {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:checked + label:before {
     animation: borderscale 200ms ease-in;
     background: #2196F3;
 }
 
-#wpmfjaoassign .pure-checkbox input[type="checkbox"]:checked + label:after {
+.wpmflocaltree .pure-checkbox input[type="checkbox"]:checked + label:after {
     transform: rotate(-45deg) scale(1);
 }
 
@@ -769,7 +776,7 @@ ul.attachments .attachment {
     }
 }
 
-#wpmfjaoassign .pure-checkbox .ppp {
+.wpmflocaltree .pure-checkbox .ppp {
     width: 6px;
     height: 6px;
     background: #000;
@@ -779,7 +786,7 @@ ul.attachments .attachment {
     display: none;
 }
 
-#wpmfjaoassign .pure-checkbox .pchecked .ppp {
+.wpmflocaltree .pure-checkbox .pchecked .ppp {
     display: block;
 }
 
@@ -816,7 +823,7 @@ ul.attachments .attachment {
     margin-top: 10px;
     padding: 10px;
     min-width: 150px;
-    max-width: 400px;
+    max-width: 300px;
     min-height: 300px;
 }
 
@@ -873,7 +880,7 @@ ul.attachments .attachment {
 
 .upload-php .wpmf-folder-tree > ul {
     max-height: 400px;
-    max-width: 400px;
+    max-width: 300px;
     overflow: auto;
 }
 
@@ -943,7 +950,8 @@ ul.attachments .attachment {
     position: relative;
 }
 
-.wpmf-folder-tree li[data-id="0"] {
+.wpmf-folder-tree li[data-id="0"],
+.wpmf-folder-tree .wpmf_drive_tree {
     margin-left: -20px;
 }
 
@@ -1443,7 +1451,7 @@ body:not(.rtl) .wpmf-folder-tree li span[data-files-count]:after {
     box-shadow: none !important;
 }
 
-#wpmfjaoassign .jaofiletree li .icon-open-close:before {
+.wpmflocaltree .jaofiletree li .icon-open-close:before {
     position: relative;
     top: 0;
     display: inline-block;
@@ -1451,22 +1459,22 @@ body:not(.rtl) .wpmf-folder-tree li span[data-files-count]:after {
     font-size: 17px;
 }
 
-#wpmfjaoassign .jaofiletree li.expanded .icon-open-close:before {
+.wpmflocaltree .jaofiletree li.expanded .icon-open-close:before {
     content: '\f2f2';
     font-size: 22px;
 }
 
-#wpmfjaoassign .jaofiletree li.collapsed .icon-open-close:before {
+.wpmflocaltree .jaofiletree li.collapsed .icon-open-close:before {
     content: '\f2f6';
     color: #888;
     font-size: 22px;
 }
 
-#wpmfjaoassign .jaofiletree li.selected > .icon-open-close:before {
+.wpmflocaltree .jaofiletree li.selected > .icon-open-close:before {
     color: #0085ba;
 }
 
-#wpmfjaoassign .jaofiletree li.collapsed .icon-open-close:hover:before {
+.wpmflocaltree .jaofiletree li.collapsed .icon-open-close:hover:before {
     content: '\f2f6';
     color: #555;
     font-size: 22px;
@@ -1474,7 +1482,7 @@ body:not(.rtl) .wpmf-folder-tree li span[data-files-count]:after {
 
 /** fix conflict with ClientSide plugin */
 .clientside-theme.upload-php .attachments-browser .wpmf-folder-tree {
-   position: relative !important;
+    position: relative !important;
 }
 
 .clientside-theme .attachments {
@@ -1588,15 +1596,219 @@ body:not(.rtl) .wpmf-folder-tree li span[data-files-count]:after {
     margin-top: 15px !important;
 }
 
+.wpmf_drive_tree > a > .tree_drive_icon_img {
+    width: 18px;
+    margin-left: 28px;
+}
+
+.tree_drive_icon_img {
+    margin-right: 5px;
+    width: 18px;
+}
+
+.wpmf_drive_tree > a > .tree_drive_icon {
+    margin-left: 28px;
+}
+
+.tree_drive_icon {
+    margin-right: 5px;
+    font-size: 18px !important;
+    vertical-align: sub;
+}
+
+.wpmf-attachment .wpmf-icon-category {
+    font-size: 24px !important;
+}
+
+svg.wpmf-icon-category {
+    width: 24px;
+}
+
+.wpmf-attachment img.wpmf-icon-category {
+    width: 22px !important;
+}
+
+.wpmf-move-header {
+    width: 20px;
+}
+
+/* folder tree cloud import */
+.librarytree_cloudimport {
+    border-left: 2px solid #666;
+    padding: 10px 10px 10px 10px;
+    background: #FAFAFA;
+    min-height: 98px;
+    max-height: 400px;
+    overflow: auto;
+    float: left;
+    width: 95%;
+    margin: 0;
+}
+
+.librarytree_cloudimport > a {
+    border: 1px solid #ccc !important;
+    background: #f5f5f5;
+    text-decoration: none;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: #656565;
+    box-sizing: border-box;
+}
+
+.librarytree_cloudimport a {
+    color: #656565;
+    cursor: pointer;
+}
+
+.librarytree_cloudimport a:hover {
+    color: #414141;
+    transition: all ease 0.2s;
+}
+
+.librarytree_cloudimport a.wpmf-new-folder:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+}
+
+.librarytree_cloudimport ul {
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+.librarytree_cloudimport > ul {
+    padding-left: 0;
+}
+
+.librarytree_cloudimport li {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    z-index: 10;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+}
+
+.librarytree_cloudimport li.hide {
+    display: none;
+}
+
+.librarytree_cloudimport li[data-id="0"],
+.librarytree_cloudimport .wpmf_drive_tree {
+    margin-left: -20px;
+}
+
+.librarytree_cloudimport li.selected > a {
+    color: #2196F3;
+}
+
+.librarytree_cloudimport li.selected:before {
+    content: "";
+    border-left: 3px solid #4986e7;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    width: 0;
+}
+
+/* Hide if a parent folder is closed */
+.librarytree_cloudimport li.closed li.selected:before {
+    content: normal;
+}
+
+.librarytree_cloudimport .material-icons {
+    color: #656565;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+.librarytree_cloudimport .wpmf-arrow {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.librarytree_cloudimport .wpmf-no-arrow {
+    margin-left: 28px;
+}
+
+.librarytree_cloudimport li.closed > ul {
+    display: none;
+    height: 0;
+    /* todo : add open close animation */
+}
+
+.librarytree_cloudimport li .wpmf-arrow {
+    transition: 0.1s ease-in-out;
+}
+
+.librarytree_cloudimport li.closed > a .wpmf-arrow {
+    transform: rotate(-45deg);
+}
+
+.librarytree_cloudimport .wpmf_checkbox_tree {
+    border: 2px solid #2196F3;
+    width: 18px;
+    height: 18px;
+    border-radius: 0;
+}
+
+.librarytree_cloudimport .wpmf_checkbox_tree:checked:before {
+    content: "\f147" !important;
+    margin: -2px !important;
+    color: #ffffff !important;
+    background: #2196F3 !important;
+    font-size: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 0 !important;
+    text-indent: 0 !important;
+}
+
+.wpmf-loading-sync {
+    margin-left: 5px;
+}
+
 /* End link icon CSS */
 
 .rtl .wpmf-zmdi-link {
     transform: none;
 }
 
-@media screen and (max-width: 375px) {
-    .wpmf-folder-tree {
+@media screen and (max-width: 768px) {
+    .media-modal ul.attachments {
+        top: 100px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .wpmf-folder-tree,
+    .wpmf-filters-dropdown,
+    .wpmf_icon_remote_video,
+    .wpmf_btn_reload,
+    .wpmf-folder-tree-resize,
+    #wpmf_preview_image {
         display: none !important;
+    }
+
+    .wpmf-attachment.mdc-list-item {
+        width: calc(50% - 10px) !important;
+        margin: 5px !important;
+        box-shadow: none;
+        border: #ddd 1px solid;
+    }
+
+    .media-modal ul.attachments {
+        left: 0 !important;
     }
 
     .attachments-browser .attachments {
@@ -1605,16 +1817,6 @@ body:not(.rtl) .wpmf-folder-tree li span[data-files-count]:after {
 
     #wpmf-wrapper {
         margin-left: 0 !important;
-    }
-
-    .wpmf-attachment.mdc-list-item {
-        width: 150px !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .media-modal ul.attachments {
-        top: 100px;
     }
 }
 

@@ -1114,6 +1114,85 @@ var wpmfWatermarkExcludeTreeModule;
             });
         };
 
+        var renderWpGalleryShortcode = function() {
+            var renderShortCode = '[gallery wpmf_autoinsert="1"';
+            $('.wp_gallery_shortcode_field').each(function(){
+                var param, value = '';
+                if ($(this).hasClass('wp_shortcode_gallery_folder_id')) {
+                    param = 'wpmf_folder_id';
+                } else {
+                    param = $(this).data('param');
+                }
+
+                if (param === 'autoplay') {
+                    if($('[name="wpmf_gallery_shortcode_cf[autoplay]"]:checked').length) {
+                        value = 1;
+                    } else {
+                        value = 0;
+                    }
+                } else {
+                    value = $(this).val();
+                }
+
+                renderShortCode += ' ' + param + '="' + value + '"';
+            });
+            renderShortCode += ']';
+            $('.wp_gallery_shortcode_input').val(renderShortCode);
+        };
+
+        jQuery('[name="wpmf_gallery_shortcode_cf[border_color]"]').wpColorPicker({
+            // a callback to fire whenever the color changes to a valid color
+            change: function(event, ui){
+                $('[name="wpmf_gallery_shortcode_cf[border_color]').val(ui.color.toString()).change();
+            },
+            // a callback to fire when the input is emptied or an invalid color
+            clear: function() {},
+            // hide the color picker controls on load
+            hide: true,
+            // set  total width
+            width : 200,
+        });
+
+        /**
+         * Change gallery params in shortcode settings
+         */
+        $('.wp_gallery_shortcode_field').on('change',function(){
+            renderWpGalleryShortcode();
+        });
+
+
+        $('.wp_gallery_shadow_field').on('change',function(){
+            var shadow_h = $('.wp_gallery_shadow_h_field').val();
+            var shadow_v = $('.wp_gallery_shadow_v_field').val();
+            var shadow_blur = $('.wp_gallery_shadow_blur_field').val();
+            var shadow_spread = $('.wp_gallery_shadow_spread_field').val();
+            var shadow_color = $('.wp_gallery_shadow_color_field').val();
+            var value = shadow_h + 'px ' + shadow_v + 'px ' + shadow_blur + 'px ' + shadow_spread + 'px ' + shadow_color;
+            $('[name="wpmf_gallery_shortcode_cf[img_shadow]"]').val(value).change();
+        });
+
+        jQuery('.wp_gallery_shadow_color_field').wpColorPicker({
+            // a callback to fire whenever the color changes to a valid color
+            change: function(event, ui){
+                $('.wp_gallery_shadow_color_field').val(ui.color.toString()).change();
+            },
+            // a callback to fire when the input is emptied or an invalid color
+            clear: function() {},
+            // hide the color picker controls on load
+            hide: true,
+            // set  total width
+            width : 200,
+        });
+
+        /**
+         * Copy gallery shortcode
+         */
+        $('.wp_copy_shortcode_gallery').on('click',function () {
+            var shortcode_value = $('.wp_gallery_shortcode_input').val();
+            wpmfFoldersModule.setClipboardText(shortcode_value, wpmf.l18n.success_copy_shortcode);
+        });
+
+
         /**
          * run watermark image
          */
@@ -1180,10 +1259,28 @@ var wpmfWatermarkExcludeTreeModule;
             $('.wpmf_slider_animation').val($(this).data('value')).change();
             $(this).addClass('animation_selected');
         });
-        
+
+        $('.delete_all_datas').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('.delete_all_label').addClass('show').removeClass('hide');
+            } else {
+                $('.delete_all_label').addClass('hide').removeClass('show');
+            }
+        });
+
         $('.wpmf-notice-dismiss').on('click', function () {
             $('.saved_infos').slideUp();
         });
+
+        $('[name="sync_method"]').on('change', function () {
+            if ($(this).val() === 'crontab') {
+                $('.wpmf-crontab-url-help-wrap').addClass('show').removeClass('hide');
+            } else {
+                $('.wpmf-crontab-url-help-wrap').addClass('hide').removeClass('show');
+            }
+        });
+
+
 
         $('.tabs.ju-menu-tabs .tab a.link-tab').on('click', function () {
             var href = $(this).attr('href').replace(/#/g, '');

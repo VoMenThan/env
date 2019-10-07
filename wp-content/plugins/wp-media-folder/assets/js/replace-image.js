@@ -116,13 +116,16 @@ var wpmfReplaceModule;
                             }
                             // Show snackbar
                             wpmfSnackbarModule.show({
+                                id: 'replace_file',
                                 content: wpmf.l18n.wpmf_file_replace
                             });
 
-                            var src_thumbnail = $('.attachment[data-id="' + attachmentID + '"] .thumbnail').find('img').attr('src');
-                            $('.attachment[data-id="' + attachmentID + '"] .thumbnail').find('img').attr('src', src_thumbnail + '?ver=' + n);
-                            var src_detail = $('.attachment-details[data-id="' + attachmentID + '"] .thumbnail').find('img.details-image').attr('src');
-                            $('.attachment-details[data-id="' + attachmentID + '"] .thumbnail').find('img.details-image').attr('src', src_detail + '?ver=' + n);
+                            var $thumb = $('.attachment[data-id="' + attachmentID + '"] .thumbnail').find('img');
+                            var src_thumbnail = $thumb.attr('src');
+                            $thumb.attr('src', src_thumbnail + '?ver=' + n);
+                            var $img = $('.attachment-details').find('.thumbnail img');
+                            var src_detail = $img.attr('src');
+                            $img.attr('src', src_detail + '?ver=' + n);
                             /* clear cache img */
                             wpmfReplaceModule.forceImgReload(src_thumbnail, false, null, false);
                             if (design_type !== 'material') {
@@ -290,8 +293,8 @@ var wpmfReplaceModule;
                     createSingle: function () {
                         myreplaceForm.prototype.createSingle.apply(this, arguments);
                         var sidebar = this.sidebar;
-                        var single = this.options.selection.single();
-                        var form_replace = wpmfReplaceModule.genFormReplace(single.id);
+                        var attachmentID = $('.wpmf_attachment_id').val();
+                        var form_replace = wpmfReplaceModule.genFormReplace(attachmentID);
                         if (wpmf.vars.wpmf_pagenow !== 'upload.php') {
                             if (typeof wpmf.vars.override !== 'undefined' && parseInt(wpmf.vars.override) === 1) {
                                 $('.replace_wrap').remove();
@@ -299,7 +302,7 @@ var wpmfReplaceModule;
                             }
                         }
                         wpmfReplaceModule.doEvent();
-                        wpmfReplaceModule.replace_attachment(single.id);
+                        wpmfReplaceModule.replace_attachment(attachmentID);
                     }
                 });
             }
@@ -322,7 +325,7 @@ var wpmfReplaceModule;
                                 $( document ).ajaxComplete(function( event, xhr, settings ) {
                                     var data = settings.data;
                                     if ( data.indexOf('smush_get_attachment_details') !== -1 ) {
-                                        var attachmentID = $('.attachment-details').data('id');
+                                        var attachmentID = $('.wpmf_attachment_id').val();
                                         var form_replace = wpmfReplaceModule.genFormReplace(attachmentID);
                                         $('.replace_wrap').remove();
                                         $('.details').append(form_replace);
@@ -344,7 +347,7 @@ var wpmfReplaceModule;
                         if (wpmf.vars.wpmf_pagenow === 'upload.php') {
                             if (typeof wpmf.vars.override !== 'undefined' && parseInt(wpmf.vars.override) === 1) {
                                 setTimeout(function () {
-                                    var attachmentID = $('.attachment-details').data('id');
+                                    var attachmentID = $('.wpmf_attachment_id').val();
                                     var form_replace = wpmfReplaceModule.genFormReplace(attachmentID);
                                     $('.replace_wrap').remove();
                                     $('.attachment-details .details').append(form_replace);
@@ -367,7 +370,7 @@ var wpmfReplaceModule;
                             /* Create duplicate button setting */
                             myReplaceEditAttachments.prototype.previousMediaItem.apply(this, arguments);
                             if (typeof wpmf.vars.override !== 'undefined' && parseInt(wpmf.vars.override) === 1) {
-                                var attachmentID = $('.attachment-details').data('id');
+                                var attachmentID = $('.wpmf_attachment_id').val();
                                 var form_replace = wpmfReplaceModule.genFormReplace(attachmentID);
                                 $('.replace_wrap').remove();
                                 $('.attachment-details .details').append(form_replace);
@@ -380,7 +383,7 @@ var wpmfReplaceModule;
                             /* Create duplicate button setting */
                             myReplaceEditAttachments.prototype.nextMediaItem.apply(this, arguments);
                             if (typeof wpmf.vars.override !== 'undefined' && parseInt(wpmf.vars.override) === 1) {
-                                var attachmentID = $('.attachment-details').data('id');
+                                var attachmentID = $('.wpmf_attachment_id').val();
                                 var form_replace = wpmfReplaceModule.genFormReplace(attachmentID);
                                 $('.replace_wrap').remove();
                                 $('.attachment-details .details').append(form_replace);

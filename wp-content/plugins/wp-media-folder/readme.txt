@@ -1,8 +1,8 @@
 === WP Media Folder ===
 Tags: media, folder
 Requires at least: 3.5.1
-Tested up to: 5.1.1
-Stable tag: 4.7.12
+Tested up to: 5.2.3
+Stable tag: 4.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,80 @@ I can not tell more just watch our demo and please try it to make your own idea.
 Stop searching for an image through thousand of media, just navigate like you do on your desktop file manager.
 
 = Changelog = 
+
+= 4.9.2 =
+ * Fix : Default gallery settings not applied automatically on creation
+ * Fix : Custom link on image gallery
+ * Fix : Preview portfolio theme in backend is missing some margin
+
+= 4.9.1 =
+ * Fix : Php warning on customize.php page
+ * Fix : Add custom link option for gallery in classic editor
+
+= 4.9.0 =
+ * Add : Display and copy folder ID with a right click (to call a gallery)
+ * Add : New gallery block option: border, radius, margin, shadow
+ * Add : Create a gallery from folder in Gutenberg
+ * Add : Gallery shortcode generator to include Wordpress gallery everywhere
+ * Fix : Replace file
+
+= 4.8.10 =
+ * Fix : Gallery lightbox is missing title
+ * Fix : Synchronization with server folder
+
+= 4.8.9 =
+ * Fix : Load popup corresponding to picture on portfolio
+ * Fix : Better way to click on slider arrow gallery theme
+
+= 4.8.8 =
+ * Add : Gallery navigation load video and plays it
+ * Add : Load video thumbnail sizes and include srcset in galleries
+ * Fix : Get media file type
+ * Fix : Warning php in subpage of upload.php page
+ * Fix : Import FTP and server folder sync
+
+= 4.8.7 =
+ * Add : Automatic synchronization for cloud media
+ * Fix : Change background color for OneDrive folder
+
+= 4.8.6 =
+ * Fix : Wrong folder structure when using WPML plugin
+ * Fix : Sync from FTP to WordPress media
+ * Fix : Replace png image with transparent background
+ * Fix : Get count file with WPML plugin
+
+= 4.8.5 =
+ * Fix : Jutranslation url
+
+= 4.8.4 =
+ * Fix : JU Updater process
+ * Fix : Watermark makes a black background instead of transparent
+ * Fix : Quality on .png image replace feature
+ * Fix : Get count attachment in folder and exclude trash attachment
+
+= 4.8.3 =
+ * Fix : Only load juupdater from admin
+ * Fix : Conflict between sync S3 and regenerate thumbnail
+ * Fix : Lightbox not working on slider theme
+
+= 4.8.2 =
+ * Fix : No gallery options
+ * Fix : Wrong file quality used after replacing file
+
+= 4.8.1 =
+ * Fix : Enhance requirements tests
+ * Fix : Can't edit gallery with elementor plugin
+
+= 4.8.0 =
+ * Add : Implement OneDrive Business connection settings with link types
+ * Add : Replace Gutenberg cloud blocks by native media library integration
+ * Add : Integrate Google Drive media in WordPress media library folder tree
+ * Add : Integrate Dropbox media in WordPress media library folder tree
+ * Add : Integrate OneDrive & OneDrive Business media in WordPress media library folder tree
+ * Add : Run full synchronization on right click
+ * Add : Remove data option when uninstall the plugin
+ * Fix : Get count file in folder with WPML plugin
+ * Fix : Conflict with prettyPhoto plugin
 
 = 4.7.12 =
  * Fix : PDF embed that contains hyperlink

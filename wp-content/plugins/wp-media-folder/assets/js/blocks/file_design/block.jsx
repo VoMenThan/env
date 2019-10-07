@@ -24,7 +24,7 @@
                                 render={({open}) => (
                                     <IconButton
                                         className="components-toolbar__control"
-                                        label={__('Edit File')}
+                                        label={__('Edit File', 'wpmf')}
                                         icon="edit"
                                         onClick={open}
                                     />
@@ -60,13 +60,13 @@
                         {
                             (id !== 0) && <div className="wpmf-file-design-block">
                                 <InspectorControls>
-                                    <PanelBody title={__('File Design Settings')}>
+                                    <PanelBody title={__('File Design Settings', 'wpmf')}>
                                         <SelectControl
-                                            label={__('Target')}
+                                            label={__('Target', 'wpmf')}
                                             value={target}
                                             options={[
-                                                {label: __('Same Window'), value: ''},
-                                                {label: __('New Window'), value: '_blank'}
+                                                {label: __('Same Window', 'wpmf'), value: ''},
+                                                {label: __('New Window', 'wpmf'), value: '_blank'}
                                             ]}
                                             onChange={(value) => setAttributes({target: value})}
                                         />
@@ -80,8 +80,8 @@
                                         target={target} data-id={id}>
                                         <div className="wpmf-defile-title"><b>{file.title}</b></div>
                                         <span className="wpmf-single-infos">
-                                    <b>{__('Size: ')} </b>{size}
-                                            <b>{__(' Format: ')} </b></span>{mime}
+                                    <b>{__('Size: ', 'wpmf')} </b>{size}
+                                            <b>{__(' Format: ', 'wpmf')} </b></span>{mime}
                                     </a>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                             className="editor-media-placeholder__button wpmf-pdf-button"
                                             onClick={open}
                                         >
-                                            {__('Add File')}
+                                            {__('Add File', 'wpmf')}
                                         </Button>
                                     )
                                 }}
@@ -128,7 +128,7 @@
 
     registerBlockType(
         'wpmf/filedesign', {
-            title: __('WP Media Folder File Design'),
+            title: __('WP Media Folder File Design', 'wpmf'),
             icon: 'media-archive',
             category: 'wp-media-folder',
             attributes: fileDesignAttrs,
@@ -162,8 +162,8 @@
                         target={target} data-id={id}>
                         <div className="wpmf-defile-title"><b>{file.title}</b></div>
                         <span className="wpmf-single-infos">
-                                    <b>{__('Size: ')} </b>{size}
-                            <b>{__(' Format: ')} </b></span>{mime}
+                                    <b>{__('Size: ', 'wpmf')} </b>{size}
+                            <b>{__(' Format: ', 'wpmf')} </b></span>{mime}
                     </a>
                 </div>;
             },
@@ -198,8 +198,8 @@
                                 target={target} data-id={id}>
                                 <div className="wpmf-defile-title"><b>{file.title}</b></div>
                                 <span className="wpmf-single-infos">
-                                    <b>{__('Size: ')} </b>{size}
-                                    <b>{__(' Format: ')} </b></span>{mime}
+                                    <b>{__('Size: ', 'wpmf')} </b>{size}
+                                    <b>{__(' Format: ', 'wpmf')} </b></span>{mime}
                             </a>
                         </div>;
                     },
@@ -207,4 +207,4 @@
             ]
         }
     );
-})(wp.i18n, wp.blocks, wp.element, wp.editor, wp.components);
+})(wp.i18n, wp.blocks, wp.element, wp.blockEditor, wp.components);

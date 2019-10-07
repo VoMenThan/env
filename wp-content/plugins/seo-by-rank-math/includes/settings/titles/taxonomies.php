@@ -34,7 +34,7 @@ $cmb->add_field([
 	'desc'            => sprintf( esc_html__( 'Title tag for %s archives', 'rank-math' ), $name ),
 	'classes'         => 'rank-math-supports-variables rank-math-title',
 	'default'         => '%term% Archives %page% %sep% %sitename%',
-	'sanitization_cb' => false,
+	'sanitization_cb' => [ '\RankMath\CMB2', 'sanitize_textfield' ],
 ]);
 
 $cmb->add_field([
@@ -45,7 +45,11 @@ $cmb->add_field([
 	/* translators: taxonomy name */
 	'desc'            => sprintf( esc_html__( 'Description for %s archives', 'rank-math' ), $name ),
 	'classes'         => 'rank-math-supports-variables rank-math-description',
-	'sanitization_cb' => false,
+	'attributes'      => [
+		'class'             => 'cmb2-textarea-small wp-exclude-emoji',
+		'data-gramm_editor' => 'false',
+	],
+	'sanitization_cb' => true,
 ]);
 
 $cmb->add_field([
@@ -87,7 +91,7 @@ $cmb->add_field([
 	'name'    => esc_html__( 'Remove Snippet Data', 'rank-math' ),
 	/* translators: taxonomy name */
 	'desc'    => sprintf( esc_html__( 'Remove schema data from %s.', 'rank-math' ), $name ),
-	'default' => ( in_array( $taxonomy, [ 'product_cat', 'product_tag' ] ) ) ? 'on' : 'off',
+	'default' => ( in_array( $taxonomy, [ 'product_cat', 'product_tag' ], true ) ) ? 'on' : 'off',
 ]);
 
 if ( 'post_format' === $taxonomy ) {

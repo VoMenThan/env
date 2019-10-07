@@ -713,24 +713,15 @@ var wpmfFoldersFiltersModule = void 0;
                 wpmfFoldersModule.reloadAttachments();
             }
 
-            $(['#media-order-folder', '#media-attachment-date-filters', '#filter-by-date', '#media-attachment-size-filters', '#media-attachment-weight-filters', '#media-order-media', '#wpmf-display-media-filters']).each(function () {
+            $(['#media-order-folder', '#media-attachment-size-filters', '#media-attachment-weight-filters', '#media-order-media', '#wpmf-display-media-filters']).each(function () {
                 var a = $(this.toString()).val();
-                if (this.toString() === '#media-attachment-date-filters' && !$('#filter-by-date').length) {
-                    wpmfFoldersModule.setCookie('#filter-by-date' + wpmf.vars.site_url, a, 365);
-                }
-
-                if (this.toString() === '#filter-by-date' && !$('#media-attachment-date-filters').length) {
-                    wpmfFoldersModule.setCookie('#media-attachment-date-filters' + wpmf.vars.site_url, a, 365);
-                }
-
                 if (this.toString() === '#media-attachment-filters' && !$('#attachment-filter').length) {
                     wpmfFoldersModule.setCookie('#attachment-filter' + wpmf.vars.site_url, a, 365);
-                }
-
-                if (this.toString() === '#attachment-filter' && !$('#media-attachment-filters').length) {
+                } else if (this.toString() === '#attachment-filter' && !$('#media-attachment-filters').length) {
                     wpmfFoldersModule.setCookie('#media-attachment-filters' + wpmf.vars.site_url, a, 365);
+                } else {
+                    wpmfFoldersModule.setCookie(this.toString() + wpmf.vars.site_url, a, 365);
                 }
-                wpmfFoldersModule.setCookie(this.toString() + wpmf.vars.site_url, a, 365);
             });
 
             // Show snackbar
