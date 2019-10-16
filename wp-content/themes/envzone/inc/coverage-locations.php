@@ -97,7 +97,7 @@ get_header();
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-9">
-                                <?php echo $message_for_city = get_field('message_for_city');?>
+                                <?php $message_for_city = get_field('message_for_city');?>
                                 <div class="box-select-plan have-service d-none">
                                     <div class="have-plan">
                                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -261,6 +261,7 @@ get_header();
                 dots: false,
                 autoplay: false,
                 autoplayTimeout: 2000,
+                lazyLoad: false,
                 navText: ['<i class="btn-prev-slide"></i>', '<i class="btn-next-slide"></i>'],
                 responsive: {
                     0: {

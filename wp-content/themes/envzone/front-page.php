@@ -628,6 +628,62 @@
     </div>
     <!-- /*============END Healthcare=================*/ -->
 
+
+    <!-- /*============QUORA=================*/ -->
+    <div id="section-quora" class="container section-quora blog-page blog-detail-page">
+        <div class="row define-headline">
+            <div class="col-12 box-head-blog">
+                <h3 class="title-head-blue have-border title-bg-gray">#Most popular Topics</h3>
+                <a class="view-all d-lg-block d-none" href="<?php echo home_url('category/quora');?>">All <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="row content-blog">
+            <div class="col-12 box-item-scroll">
+                <div class="row d-flex reset-row-wrap flex-row">
+                    <?php
+                    $args = array(
+                        'posts_per_page' => 4,
+                        'offset'=> 0,
+                        'post_type' => 'post',
+                        'category_name' => 'quora',
+                        'orderby' => 'ID',
+                        'order' =>'desc'
+                    );
+                    $news_special = get_posts( $args );
+
+                    foreach($news_special as $item):
+
+                        if (get_field('avatar', 'user_'.$item->post_author)== ''){
+                            $avatar = ASSET_URL.'images/avatar-default.png';
+                        }
+                        else{
+                            $avatar = get_field('avatar', 'user_'.$item->post_author);
+                        }
+
+                        ?>
+                        <div class="col-lg-3 box-item-special item">
+                            <div class="item-blog">
+                                <a href="<?php echo get_the_permalink($item->ID);?>">
+                                    <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url($item->ID, 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($item->ID), '_wp_attachment_image_alt', true);?>">
+                                </a>
+                                <div class="info">
+                                    <div class="info-news">
+                                        <a href="<?php echo get_the_permalink($item->ID);?>">
+                                            <h4 class="title-list-special"><?php echo $item->post_title;?></h4>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <?php endforeach;?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /*============END QUORA=================*/ -->
+
     <!-- /*============Ecommerce & Retail=================*/ -->
     <div id="section-ecommerce-and-retail"  class="container-fluild bg-gray-home" >
         <div class="container section-ecommerce-and-retail blog-page blog-detail-page">
@@ -935,6 +991,41 @@
         </div>
     </div>
     <!-- /*============END Resources=================*/ -->
+
+    <!-- /*============#Tools for CTOs, Project Managers=================*/ -->
+    <div id="section-tools-for-cto" class="container section-tools-for-cto blog-page blog-detail-page">
+        <div class="row define-headline">
+            <div class="col-12 box-head-blog">
+                <h3 class="title-head-blue have-border title-bg-gray">#Tools for CTOs, Project Managers</h3>
+            </div>
+        </div>
+        <div class="row content-blog">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a href="<?php echo home_url('cost-estimator');?>" class="item-tool-for-cto">
+                            <img src="<?php echo ASSET_URL;?>images/icon-estimate-saving-for-my-gray.png" alt="">
+                            <h4>Estimate saving for my software development project</h4>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="<?php echo home_url('get-a-team');?>" class="item-tool-for-cto">
+                            <img src="<?php echo ASSET_URL;?>images/icon-find-a-verified-team-gray.png" alt="">
+                            <h4>Find a verified team to build my product </h4>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-quote">
+                            The rate at which organizations learn may soon become the only sustainable source of competitive advantage
+                            <div class="author">-Peter Senge</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /*============END #Tools for CTOs, Project Managers=================*/ -->
 
     <!-- /*============Financial Services=================*/ -->
     <div id="section-financial-services" class="container section-financial-services blog-page blog-detail-page">

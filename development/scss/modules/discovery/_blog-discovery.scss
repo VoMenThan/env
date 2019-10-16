@@ -102,21 +102,37 @@
 	.section-head-blog{
 		margin-bottom: 80px;
 	}
-	.title-head-blue.have-border{
-		border-bottom: 3px solid $color-green-logo;
-		padding-bottom: 0;
-		margin-bottom: 30px;
-		position: relative;
-		&:after{
-			content: "";
+	.title-head-blue{
+		&.have-border{
+			border-bottom: 3px solid $color-green-logo;
+			padding-bottom: 0;
+			margin-bottom: 30px;
+			position: relative;
+			&:after{
+				content: "";
+				display: inline-block;
+				width: 100px;
+				border-bottom: 3px solid $color-blue-logo;
+				position: absolute;
+				top: 100%;
+				left: 0;
+			}
+		}
+		&.title-bg-gray{
 			display: inline-block;
-			width: 100px;
-			border-bottom: 3px solid $color-blue-logo;
-			position: absolute;
-			top: 100%;
-			left: 0;
+			border: none;
+			background: #4F4F4F;
+			padding: 0 15px;
+			color: #fff;
+			text-transform: capitalize;
+			margin-bottom: 100px;
+			&:after{
+				display: none;
+			}
 		}
 	}
+
+
 
 	.highlight-news{
 		border: .5px solid $color-gray-border;

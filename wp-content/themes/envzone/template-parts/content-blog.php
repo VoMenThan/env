@@ -1,7 +1,7 @@
 <article class="highlight-news-right clearfix">
 
     <a class="thumbnail-news" href="<?php echo get_the_permalink();?>">
-        <?php echo get_the_post_thumbnail( get_the_ID(), 'medium');?>
+        <img class="img-fluid w-100 lazy" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large');?>" alt="<?php echo get_post_meta( get_post_thumbnail_id(get_the_ID()), '_wp_attachment_image_alt', true);?>">
     </a>
     <div class="info-news">
         <a href="<?php echo home_url('category/').get_the_category(get_the_ID())[0]->slug;?>" class="category"><?php echo get_the_category(get_the_ID())[0]->cat_name;?></a>

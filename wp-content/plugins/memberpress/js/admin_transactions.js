@@ -105,20 +105,17 @@ jQuery(document).ready(function() {
     jQuery.post(ajaxurl, data, function(response) {
       jQuery('tr#record_' + i + ' .mepr_loader').hide();
 
-      html2canvas(response).then(canvas => {
-        var dataURL = canvas.toDataURL();
-
       var doc = new jsPDF('p', 'pt', 'a4', true);
 
-      doc.fromHTML(dataURL, 25, 25, {
-            'width': 700
-          },
-          function(){
-            doc.save('thisMotion.pdf');
-          });
-      });
-
-
+      doc.fromHTML(
+          response, 25, 25,
+          {
+              'width': 700
+            },
+            function(){
+                doc.save('thisMotion.pdf');
+            }
+      );
     });
 
     return false;

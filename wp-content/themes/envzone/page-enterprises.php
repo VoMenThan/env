@@ -277,7 +277,7 @@
                 <?php endforeach;?>
 
                 <div class="col-lg-12 text-right box-button">
-                    <a href="<?php echo home_url('contact-us');?>" class="btn btn-blue-env">FIND MY TEAM NOW</a>
+                    <a href="<?php echo home_url('get-a-team');?>" class="btn btn-blue-env">FIND MY TEAM NOW</a>
                 </div>
             </div>
         </div>

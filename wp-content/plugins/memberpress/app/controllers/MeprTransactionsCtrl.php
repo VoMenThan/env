@@ -539,16 +539,15 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
 
       try {
 
-            echo '
-        <div id="content-invoice" class="wrap-content">
-            <div style="width: 40%; float: left;">
-                <h1 style="color: red;">INVOICE</h1>
+            echo '<div id="content-invoice" class="wrap-content">
+            <div>
+                <h1>INVOICE</h1>
                 <h2>
                     Thank you for using EnvZone!
                 </h2>
             </div>
             
-            <div style="width: 40%; float: left;">
+            <div>
                 <img src="'.ASSET_URL.'images/logo-env-printer.png">
             </div>
 
@@ -630,9 +629,9 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
                 </ul>
             </div>
             
-            <div>
+            <div >
                 <p>Questions? <br>
-                    General billing inquiries: billing@envzone.com
+                    General billing inquiries: billing@envzone.com <br>
                     For additional billing assistance or to pay by credit card, submit a case by visiting: Support
                 </p>
             </div>

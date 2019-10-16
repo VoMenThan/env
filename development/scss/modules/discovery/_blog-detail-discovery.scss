@@ -38,11 +38,16 @@
 	}
 	table{
 		width: 100%;
-		font-size: 20px;
+		font-size: 17px;
 		margin-bottom: 20px;
+		border-top: 3px solid $color-green-logo;
 		td{
-			padding: 5px 10px;
+			padding: 15px;
 			color: #333333;
+			font-size: 17px;
+			a{
+				font-size: 17px;
+			}
 		}
 	}
     .layout-none-sidebar{
@@ -141,18 +146,18 @@
 			}
 			h2{
 				font-size: 38px;
-				margin-top: 50px;
+				margin-top: 75px;
 				&>a{
 					font-size: 38px;
-					margin-top: 50px;
+					margin-top: 75px;
 				}
 			}
 			h3{
 				font-size: 28px;
-				margin-top: 40px;
+				margin-top: 50px;
 				&>a{
 					font-size: 28px;
-					margin-top: 40px;
+					margin-top: 50px;
 				}
 			}
 			h4{
@@ -165,18 +170,18 @@
 			}
 			h5{
 				font-size: 24px;
-				margin-top: 30px;
+				margin-top: 25px;
 				&>a{
 					font-size: 22px;
-					margin-top: 30px;
+					margin-top: 25px;
 				}
 			}
 			h6{
 				font-size: 20px;
-				margin-top: 25px;
+				margin-top: 20px;
 				&>a{
 					font-size: 20px;
-					margin-top: 25px;
+					margin-top: 20px;
 				}
 			}
 			blockquote{
@@ -205,7 +210,7 @@
 				font-family: $font-merriweather;
 				font-size: 20px;
 				color: $color-gray-blog;
-				margin-bottom: 20px;
+				margin-bottom: 25px;
 				line-height: 2;
 			}
 

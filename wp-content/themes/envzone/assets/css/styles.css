@@ -3841,6 +3841,8 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
 
 .section-studio {
   margin-bottom: 0 !important;
+  background: #4F4F4F !important;
+  padding: 100px 0 !important;
 }
 
 /* =================== RESPONSIVE ======================= */
@@ -5064,6 +5066,59 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   margin-bottom: 50px;
 }
 
+#section-quora {
+  padding-top: 190px !important;
+  padding-bottom: 150px !important;
+}
+#section-quora .content-blog .box-item-special h4 {
+  padding-bottom: 0;
+}
+#section-quora .content-blog .box-item-special .item-blog .title-list-special {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+#section-tools-for-cto {
+  padding-top: 190px !important;
+  padding-bottom: 150px !important;
+}
+#section-tools-for-cto .item-tool-for-cto {
+  padding: 60px 20px 40px 20px;
+  background-color: #AEE366;
+  text-align: center;
+  display: block;
+}
+#section-tools-for-cto .item-tool-for-cto img {
+  margin-bottom: 30px;
+}
+#section-tools-for-cto .item-tool-for-cto h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000;
+}
+#section-tools-for-cto .item-tool-for-cto:hover {
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+#section-tools-for-cto .box-quote {
+  color: #0D3153;
+  font-size: 28px;
+  font-weight: 700;
+  padding-left: 120px;
+  padding-top: 50px;
+  background: url("../images/icon-quote-green.png") no-repeat;
+  background-position: 70px 30px;
+}
+#section-tools-for-cto .box-quote .author {
+  margin-top: 30px;
+  color: #4F4F4F;
+  font-size: 14px;
+  text-align: right;
+}
+
 /* =================== RESPONSIVE ======================= */
 /* 	================================================================
 	MEDIUM DEVICE
@@ -5073,6 +5128,33 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   #section-outsourcing-insights {
     padding-top: 75px !important;
     padding-bottom: 90px !important;
+  }
+
+  #section-quora {
+    padding-top: 75px !important;
+    padding-bottom: 90px !important;
+  }
+  #section-quora.blog-page .title-head-blue.title-bg-gray {
+    padding: 10px 15px !important;
+    color: #fff !important;
+    display: block !important;
+  }
+
+  #section-tools-for-cto {
+    padding-top: 75px !important;
+    padding-bottom: 90px !important;
+  }
+  #section-tools-for-cto.blog-page .title-head-blue.title-bg-gray {
+    padding: 10px 15px !important;
+    color: #fff !important;
+    display: block !important;
+  }
+  #section-tools-for-cto .item-tool-for-cto {
+    margin-bottom: 30px;
+  }
+  #section-tools-for-cto .box-quote {
+    background-position: 0 30px;
+    padding-left: 50px;
   }
 }
 .section-get-executive-insights {
@@ -10053,9 +10135,10 @@ section.testing-page .item-qa {
   position: absolute;
   right: 15px;
   top: 20px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 150%;
-  color: #000000;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* 	================================================================
@@ -10727,6 +10810,18 @@ section.testing-page .item-qa {
   top: 100%;
   left: 0;
 }
+.blog-page .title-head-blue.title-bg-gray {
+  display: inline-block;
+  border: none;
+  background: #4F4F4F;
+  padding: 0 15px;
+  color: #fff;
+  text-transform: capitalize;
+  margin-bottom: 100px;
+}
+.blog-page .title-head-blue.title-bg-gray:after {
+  display: none;
+}
 .blog-page .highlight-news {
   border: 0.5px solid #C4C4C4;
 }
@@ -11255,12 +11350,17 @@ section.testing-page .item-qa {
 }
 .blog-detail-page table {
   width: 100%;
-  font-size: 20px;
+  font-size: 17px;
   margin-bottom: 20px;
+  border-top: 3px solid #8DC63F;
 }
 .blog-detail-page table td {
-  padding: 5px 10px;
+  padding: 15px;
   color: #333333;
+  font-size: 17px;
+}
+.blog-detail-page table td a {
+  font-size: 17px;
 }
 .blog-detail-page .layout-none-sidebar figure.w-100 {
   width: 1050px !important;
@@ -11346,19 +11446,19 @@ section.testing-page .item-qa {
 }
 .blog-detail-page .content-blog .main-content h2 {
   font-size: 38px;
-  margin-top: 50px;
+  margin-top: 75px;
 }
 .blog-detail-page .content-blog .main-content h2 > a {
   font-size: 38px;
-  margin-top: 50px;
+  margin-top: 75px;
 }
 .blog-detail-page .content-blog .main-content h3 {
   font-size: 28px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 .blog-detail-page .content-blog .main-content h3 > a {
   font-size: 28px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 .blog-detail-page .content-blog .main-content h4 {
   font-size: 24px;
@@ -11370,19 +11470,19 @@ section.testing-page .item-qa {
 }
 .blog-detail-page .content-blog .main-content h5 {
   font-size: 24px;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .blog-detail-page .content-blog .main-content h5 > a {
   font-size: 22px;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .blog-detail-page .content-blog .main-content h6 {
   font-size: 20px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .blog-detail-page .content-blog .main-content h6 > a {
   font-size: 20px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .blog-detail-page .content-blog .main-content blockquote {
   background: rgba(13, 49, 83, 0.1);
@@ -11410,7 +11510,7 @@ section.testing-page .item-qa {
   font-family: "Merriweather", serif;
   font-size: 20px;
   color: #333333;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   line-height: 2;
 }
 .blog-detail-page .content-blog .main-content ul li, .blog-detail-page .content-blog .main-content ol li {
@@ -18929,6 +19029,110 @@ body #gform_wrapper_18 .top_label div.ginput_container {
     padding-top: 0;
   }
 }
+.newsletter-signup-template-page .box-container {
+  height: 100%;
+  padding-top: 100px;
+}
+.newsletter-signup-template-page .bg-gray {
+  background: #F2F2F2;
+  padding: 50px 30px;
+}
+.newsletter-signup-template-page .box-newsletter-signup {
+  background: #0D3153;
+  min-height: 100vh;
+}
+.newsletter-signup-template-page .box-newsletter-signup .logo-envzone {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 10px;
+}
+.newsletter-signup-template-page .box-newsletter-signup .form-newsletter-signup {
+  width: 80%;
+  margin: auto;
+}
+.newsletter-signup-template-page .box-newsletter-signup .box-head {
+  margin-bottom: 100px;
+}
+.newsletter-signup-template-page .box-newsletter-signup .box-head img.mail-box {
+  float: left;
+  margin-right: 30px;
+}
+.newsletter-signup-template-page .box-newsletter-signup .box-head img.process-bar {
+  margin-bottom: 30px;
+  width: calc(100% - 180px);
+  font-size: 20px;
+  line-height: 140.62%;
+  color: #20466B;
+}
+.newsletter-signup-template-page .box-newsletter-signup .box-head h3 {
+  font-size: 20px;
+  line-height: 140.62%;
+  color: #20466B;
+}
+.newsletter-signup-template-page #gform_wrapper_33 input {
+  width: 100%;
+}
+.newsletter-signup-template-page #gform_wrapper_33 li.hidden_label input {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+}
+.newsletter-signup-template-page #gform_wrapper_33 textarea.medium {
+  margin-bottom: 0;
+}
+.newsletter-signup-template-page #gform_wrapper_33 ul.gform_fields li.gfield {
+  padding-right: 0;
+  margin-top: 0;
+  margin-bottom: 30px !important;
+  max-width: 100% !important;
+}
+.newsletter-signup-template-page #gform_wrapper_33 .gform_footer {
+  padding: 0;
+  margin: 0;
+}
+.newsletter-signup-template-page #gform_wrapper_33 .gform_footer input {
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  background-color: #8DC63F;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+  color: #FFFFFF;
+}
+.newsletter-signup-template-page #gform_wrapper_33 .gform_footer input:hover {
+  opacity: 0.8;
+}
+.newsletter-signup-template-page #gform_wrapper_33 li.gfield.gfield_error.gfield_contains_required div.gfield_description {
+  padding-right: 0;
+  padding-top: 5px;
+}
+.newsletter-signup-template-page #gform_wrapper_33 li.hidden_label input {
+  margin-top: 0;
+}
+.newsletter-signup-template-page #gform_wrapper_33 li.gfield.gfield_error {
+  background-color: transparent;
+  border-bottom: 0;
+  border-top: 0;
+}
+.newsletter-signup-template-page #gform_wrapper_33 div.validation_error {
+  display: none;
+}
+.newsletter-signup-template-page #gform_wrapper_33.gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+  margin-left: 0;
+  background: #fff;
+  border: none;
+  padding: 5px 15px;
+  font-size: 17px;
+  width: 100%;
+  height: 50px;
+}
+
 .landing-page-all-in-one * {
   font-family: "Roboto", sans-serif;
 }

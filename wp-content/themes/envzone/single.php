@@ -273,30 +273,8 @@ $guest_author = get_field('guest_user', $post->ID);
 
                 <div class="col-lg-4 sidebar-advert no-print">
 
-                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
-                    <div class="box-analaze-blog d-lg-block d-none">
-                        <div class="title-sub">
-                            Find a Verified Team to Build Your Software
-                        </div>
-                        <p>
-                            Hey, I’am <?php echo get_the_author_meta('display_name', $post->post_author);?>.
-                            I am determined to make your business successful in
-                            <?php
-                            $cat_name = get_the_category($post->ID)[0]->name;
-                                    echo ($cat_name == 'News' or $cat_name == 'Team Activities'or $cat_name == 'Outsourcing Insights' or $cat_name == 'Uncategorized') ? 'your' : $cat_name;
-
-                            ?>
-                            industry.
-                            My only question is, will it be yours?
-                        </p>
-                        <div class="analyze-form">
-                            <?php
-                            echo do_shortcode('[gravityform id=12 title=false description=false ajax=false]');
-                            ?>
-                        </div>
-                    </div>
-                    <?php else:?>
-                    <div class="box-analaze-blog d-lg-block d-none">
+                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                        <div class="box-analaze-blog d-lg-block d-none">
                             <div class="title-sub">
                                 Get a Dedicated Online Presence Manager
                             </div>
@@ -311,9 +289,47 @@ $guest_author = get_field('guest_user', $post->ID);
                                 ?>
                             </div>
                         </div>
+                    <?php elseif (get_the_category($post->ID)[0]->slug == 'quora'):?>
+                        <div class="box-analaze-blog d-lg-block d-none">
+                            <div class="title-sub">
+                                Get a Dedicated Online Presence Manager
+                            </div>
+
+                            <p>
+                                Hey, We love small business. Our job is  to help small business owners overcome the challenges in this digital era.
+                            </p>
+                            <p>Our only question is, will you let us?</p>
+                            <div class="analyze-form">
+                                <?php
+                                echo do_shortcode('[gravityform id=26 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
+                    <?php else:?>
+                        <div class="box-analaze-blog d-lg-block d-none">
+                            <div class="title-sub">
+                                Find a Verified Team to Build Your Software
+                            </div>
+                            <p>
+                                Hey, I’am <?php echo get_the_author_meta('display_name', $post->post_author);?>.
+                                I am determined to make your business successful in
+                                <?php
+                                $cat_name = get_the_category($post->ID)[0]->name;
+                                echo ($cat_name == 'News' or $cat_name == 'Team Activities'or $cat_name == 'Outsourcing Insights' or $cat_name == 'Uncategorized') ? 'your' : $cat_name;
+
+                                ?>
+                                industry.
+                            </p>
+                            <p>My only question is, will it be yours?</p>
+                            <div class="analyze-form">
+                                <?php
+                                echo do_shortcode('[gravityform id=12 title=false description=false ajax=false]');
+                                ?>
+                            </div>
+                        </div>
                     <?php endif;?>
 
-                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
+                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business' && get_the_category($post->ID)[0]->slug != 'quora'):?>
                     <div class="box-free-ebook d-lg-block d-none">
                         <div class="title-free-book">
                             Free eBooks
@@ -368,7 +384,7 @@ $guest_author = get_field('guest_user', $post->ID);
                     </div>
                     <?php endif;?>
 
-                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business'):?>
+                    <?php if (get_the_category($post->ID)[0]->slug != 'small-business' && get_the_category($post->ID)[0]->slug != 'quora'):?>
                     <div class="box-subscriber-blog d-lg-block d-none">
                         <div class="box-border">
                             <div class="title-sub">
@@ -425,15 +441,13 @@ $guest_author = get_field('guest_user', $post->ID);
                             <a href="<?php echo get_home_url().'/blog/'.$item->post_name;?>">
                                 <h2><?php echo $item->post_title;?></h2>
                             </a>
-                            <div class="date">on <?php echo get_the_date( 'F d, Y', $item->ID );?></div>
-
                         </div>
                         <?php endforeach;?>
 
 
                     </div>
 
-                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business' or get_the_category($post->ID)[0]->slug == 'quora'):?>
                         <div class="box-subscriber-blog d-lg-block d-none">
                             <div class="box-border">
                                 <div class="title-sub">
@@ -448,7 +462,7 @@ $guest_author = get_field('guest_user', $post->ID);
                         </div>
                     <?php endif;?>
 
-                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                    <?php if (get_the_category($post->ID)[0]->slug == 'small-business' or get_the_category($post->ID)[0]->slug == 'quora'):?>
                         <div class="box-advert">
                             <p>
                                 <span class="fz-big-green">90%</span>
@@ -471,7 +485,7 @@ $guest_author = get_field('guest_user', $post->ID);
                                 Do Not Let Your Projects Go South!
                             </div>
                             <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
-                                SEE OUR UNIQUE APPROACH FOR SUCCESS
+                                FIX MY SOFTWARE PROJECT
                             </a>
                         </div>
                     <?php endif;?>
@@ -500,6 +514,9 @@ $guest_author = get_field('guest_user', $post->ID);
                             <li class="month">
                                 <a href="<?php echo home_url('archived-articles').'?date=2019-08'?>">Aug</a>
                             </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-articles').'?date=2019-09'?>">Sep</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -514,7 +531,7 @@ $guest_author = get_field('guest_user', $post->ID);
                 <div class="container content-subcribe">
                     <div class="row">
                         <div class="col-12 box-head-subcribe text-center">
-                            <?php if (get_the_category($post->ID)[0]->slug == 'small-business'):?>
+                            <?php if (get_the_category($post->ID)[0]->slug == 'small-business' or get_the_category($post->ID)[0]->slug == 'quora' ):?>
                                 <h2>SUBSCRIBE FOR THREE TIPS</h2>
                                 <p>
                                     Three tips or links to improve small business presence every week. <br>
