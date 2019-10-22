@@ -94,6 +94,7 @@ jQuery(document).ready(function() {
   //Download PDF Subscription JS
   jQuery('a.mepr_sub_download_pdf').click(function() {
     var i = jQuery(this).attr('data-value');
+    var id = jQuery(this).attr('data-id-inc');
 
     jQuery('tr#record_' + i + ' .mepr_loader').show();
 
@@ -103,11 +104,18 @@ jQuery(document).ready(function() {
     };
 
     jQuery.post(ajaxurl, data, function(response) {
+      var trimmed_data = response.replace(/^\s+|\s+$/g, '');
       jQuery('tr#record_' + i + ' .mepr_loader').hide();
 
-      var doc = new jsPDF('p', 'pt', 'a4', true);
+      var doc = new jsPDF('p', 'pt', 'letter');
 
-      doc.fromHTML(
+      doc.html(trimmed_data, {
+        callback: function (doc) {
+          doc.save(id+'.pdf');
+        }
+      });
+
+      /*doc.fromHTML(
           response, 25, 25,
           {
               'width': 700
@@ -115,7 +123,8 @@ jQuery(document).ready(function() {
             function(){
                 doc.save('thisMotion.pdf');
             }
-      );
+      );*/
+
     });
 
     return false;

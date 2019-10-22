@@ -523,8 +523,6 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
   }
 
   public function sub_download_pdf() {
-      $mepr_options = MeprOptions::fetch();
-
       if(!MeprUtils::is_mepr_admin()) {
           die(__('You do not have access.', 'memberpress'));
       }
@@ -537,110 +535,123 @@ class MeprTransactionsCtrl extends MeprBaseCtrl {
       $txn = new MeprTransaction($_POST['id']);
       $params = MeprTransactionsHelper::get_email_params($txn);
 
-      try {
-
-            echo '<div id="content-invoice" class="wrap-content">
-            <div>
-                <h1>INVOICE</h1>
-                <h2>
-                    Thank you for using EnvZone!
-                </h2>
-            </div>
-            
-            <div>
-                <img src="'.ASSET_URL.'images/logo-env-printer.png">
-            </div>
-
-            <div>
-                <h3>Bill To</h3>
-                <ul>
-                    <li style="list-style-type: none;">'.$params["usermeta:mepr_company"].'</li>
-                    <li style="list-style-type: none;">'.$params["user_full_name"].'</li>
-                    <li style="list-style-type: none;">'.$params["user_email"].'</li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3>Payment Info</h3>
-                <ul>
-                    <li>
-                        Account ID: '.$params["username"].'
-                    </li>
-                    <li>
-                        Invoice #: '.$params["invoice_num"].'
-                    </li>
-                    <li>
-                        Invoice Date: '.$params["trans_date"].'
-                    </li>
-                    <li>
-                        Payment Due By:  '.$params["trans_expires_at"].'
-                    </li>
-                </ul>
-
-                <ul>
-                    <li>
-                        Tranasction #: '.$params["trans_num"].'
-                    </li>
-                    <li>
-                        Payment Method: '.$params["trans_gateway"].'
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>
-                    <span>Service</span>
-                    <span>Price (USD)</span>
-                </h3>
-                <ul>
-                    <li>
-                        '.$params["product_name"].'
-                    </li>
-                    <li>
-                        '.$params["payment_amount"].'
-                    </li>
-                </ul>
-            </div>
-            
-            <div>
-                <table>
-                    <tr>
-                        <td>Sales Tax: </td>
-                        <td>'.$params["tax_amount"].'</td>
-                    </tr>
-                    <tr>
-                        <td>Total: </td>
-                        <td>
-                            '.$params["payment_subtotal"].'
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Status: </td>
-                        <td>'.$params["trans_status"].'</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <div>
-                <ul>
-                    <li>'.$params["usermeta:mepr_company_address"].'</li>
-                    <li>'.$params["usermeta:mepr_city"].'</li>
-                    <li>'.$params["usermeta:mepr_state"].'</li>
-                </ul>
-            </div>
-            
-            <div >
-                <p>Questions? <br>
-                    General billing inquiries: billing@envzone.com <br>
-                    For additional billing assistance or to pay by credit card, submit a case by visiting: Support
-                </p>
-            </div>
+      echo '<div style="padding: 25pt;padding-top:15pt;padding-bottom: 15pt;">
+            <table style="width: 100%;">
+                <tr style="width: 100%">
+                    <td style="width: 50%;">
+                        <h1 style="font-weight: bold;font-size: 36px;color: rgba(0, 0, 0, 0.87);margin-bottom: 25px;">INVOICE</h1>
+                        <h2 style="font-weight: 500;font-size: 20px;color: rgba(0, 0, 0, 0.87);white-space: nowrap;">
+                        Thank you for using EnvZone!
+                        </h2>
+                    </td>
+                    <td style="padding-left: 200px;">
+                        <img src="'.ASSET_URL.'images/logo-env-printer.png">
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;color:#5E6366;font-size:14px;margin-top:50px;">
+                <tr style="width: 100%">
+                    <td style="width:50%;padding-right:170px;border-bottom: 1px solid #BDBDBD;font-weight:700;padding-bottom:10px;white-space: nowrap;">
+                        Bill To
+                    </td>
+                    <td style="padding-left:40px;"></td>
+                    <td style="border-bottom: 1px solid #BDBDBD; font-weight: 700; padding-bottom: 10px;padding-right: 190px; white-space: nowrap;">
+                        Payment Info
+                    </td>
+                </tr>
+                <tr style="width:100%">
+                    <td style="vertical-align:top;">
+                        <ul>
+                            <li style="list-style-type: none;">'.$params["usermeta:mepr_company"].'</li>
+                            <li style="list-style-type: none;">'.$params["user_full_name"].'</li>
+                            <li style="list-style-type: none;">'.$params["user_email"].'</li>
+                        </ul>
+                    </td>
+                    <td style="padding-left: 20px;"></td>
+                    <td>
+                        <ul>
+                            <li style="white-space: nowrap;">
+                                Account ID: '.$params["username"].'
+                            </li>
+                            <li style="white-space: nowrap;">
+                                Invoice #: '.$params["invoice_num"].'
+                            </li>
+                            <li style="white-space: nowrap;">
+                                Invoice Date: '.$params["trans_date"].'
+                            </li>
+                            <li style="white-space: nowrap;">
+                                Payment Due By:  '.$params["trans_expires_at"].'
+                            </li>
+                        </ul>
+                        <ul>
+                            <li style="white-space: nowrap;">
+                                Tranasction #: '.$params["trans_num"].'
+                            </li>
+                            <li style="white-space: nowrap;">
+                                Payment Method: '.$params["trans_gateway"].'
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table> 
+            <table style="width:100%;color:#5E6366;font-size:14px;margin-top:50px;">
+                <tr style="width: 100%;border-bottom: 1px solid #BDBDBD;">
+                    <td style="width:50%;padding-right:200px;font-weight:700;padding-bottom:10px;white-space: nowrap;">
+                        Service
+                    </td>
+                    <td style="width:50%;padding-left:200px;font-weight:700;padding-bottom:10px;white-space: nowrap;text-align:right;">
+                        Price (USD)
+                    </td>
+                </tr>
+                <tr style="width:100%;border-bottom: 1px solid #BDBDBD;">
+                    <td style="padding-bottom: 10px;">
+                    '.$params["product_name"].'
+                    </td>
+                    <td style="text-align: right;padding-bottom: 10px;">
+                    '.substr($params["payment_amount"], 1).'
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <table style="color:#5E6366;font-size:14px;display: inline-block;margin-top: 30px;">
+                            <tr>
+                                <td style="padding-right: 50px;white-space: nowrap;text-align: left;">Sales Tax: </td>
+                                <td style="text-align: right;">'.substr($params["tax_amount"], 1).'</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Total: </td>
+                                <td style="text-align: right;">
+                                    '.substr($params["payment_subtotal"], 1).'
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Status: </td>
+                                <td style="text-align: right;">'.$params["trans_status"].'</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table style="color:#5E6366;font-size:12px;width: 420pt;font-size: 12px;margin-top:40px;">
+                <tr style="width: 100%;">
+                    <td style="width: 210pt;vertical-align: top;">
+                        <p>
+                            '.$params["usermeta:mepr_company_address"].'<br>
+                            '.$params["usermeta:mepr_city"].'<br>
+                            '.$params["usermeta:mepr_state"].'
+                        </p>
+                    </td>
+                    <td style="width: 210pt;">
+                        <p style="font-size: 12px;">Questions? <br>
+                            General billing inquiries: billing@envzone.com <br>
+                            For additional billing assistance or to pay by credit card, submit a case by visiting: Support
+                        </p>
+                    </td>
+                </tr>
+            </table>
         </div>';
-            exit();
-      }
-      catch( Exception $e ) {
-          die(__('There was an issue download pdf', 'memberpress'));
-      }
+      die;
   }
 
   public function default_expiration() {
