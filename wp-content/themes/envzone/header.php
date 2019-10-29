@@ -1,6 +1,6 @@
 <?php ob_start();?>
 <!doctype html>
-<html amp <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -39,7 +39,7 @@
                     <div class="d-md-none d-inline-block d-inline-block-768 menu-bar-mobile btn-toggle-menu">
                     </div>
                     <a href="<?php echo get_home_url();?>" class="d-lg-none d-inline-block logo-envzone-mobile">
-                        <amp-img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
+                        <img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
                     </a>
                     <div class="d-sm-none btn-hide-submenu">
                         <div class="icon-left-arrow-blue"></div>
@@ -86,7 +86,7 @@
                 <div class="col-lg-3 col-md-3 col-3 text-left box-logo-home d-xl-block d-lg-block d-none">
                     <div class="d-lg-inline-block d-none menu-bar-hamburger"></div>
                     <a href="<?php echo get_home_url();?>" class="logo-envzone">
-                        <amp-img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
+                        <img src="<?php echo ASSET_URL;?>images/envzone-logo.png" alt="Logo Envzone">
                     </a>
                 </div>
                 <div class="col-lg-9 col-md-12 col-12 d-lg-flex d-md-flex justify-content-lg-end position-static" id="menuBarMobile">

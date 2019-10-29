@@ -167,7 +167,7 @@ get_header();
                     ?>
                 </div>
 
-                <div class="col-lg-4 pd-lr-0">
+                <!--<div class="col-lg-4 pd-lr-0">
                     <div class="box-advert">
                         <p>
                             ENVZONE team members are known being very active across disruptive events. Surely, they will be proactive and innovative on your projects too.
@@ -175,11 +175,11 @@ get_header();
                         <div class="sub-title">
                             Interested in working with the team?
                         </div>
-                        <a href="<?php echo home_url('contact-us')?>" class="btn btn-green-env">
+                        <a href="<?php /*echo home_url('contact-us')*/?>" class="btn btn-green-env">
                             SCHEDULE ME WITH THE TEAM
                         </a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>

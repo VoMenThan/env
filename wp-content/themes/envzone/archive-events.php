@@ -103,7 +103,7 @@ get_header();
                             Do Not Let Your Projects Go South!
                         </div>
                         <a href="<?php echo home_url("process-framework");?>" class="btn btn-green-env">
-                            SEE OUR UNIQUE APPROACH FOR SUCCESS
+                            FIX MY SOFTWARE PROJECT
                         </a>
                     </div>
 
@@ -125,6 +125,12 @@ get_header();
                             </li>
                             <li class="month">
                                 <a href="<?php echo home_url('archived-events').'?date=2019-07'?>">Jul</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-events').'?date=2019-08'?>">Aug</a>
+                            </li>
+                            <li class="month">
+                                <a href="<?php echo home_url('archived-events').'?date=2019-09'?>">Sep</a>
                             </li>
                         </ul>
                     </div>

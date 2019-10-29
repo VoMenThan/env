@@ -753,7 +753,7 @@ $guest_author = get_field('guest_user', $post->ID);
     </section>
 
     <?php
-        if (get_the_category($post->ID)[0]->slug == 'small-business'){
+        if (get_the_category($post->ID)[0]->slug == 'small-business' or get_the_category($post->ID)[0]->slug == 'quora' ){
             require_once "inc/popup-small-business.php";
         }else{
             require_once "inc/popup-discovery.php";
