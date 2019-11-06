@@ -295,19 +295,17 @@
                 <h2>Meet the featured contributors</h2>
             </div>
             <?php
-            $param = array(
-                'role__in'         => array('editor', 'former_staff_env')
-            );
-            $users = get_users($param);
+            $param = get_field('featured_contributors');
+            $users = $param['list_contributors'];
             foreach ($users as $k =>  $user):
-                if ($k == 3) break;
+                if ($k == 3)break;
             ?>
             <div class="col-lg-4">
                 <div class="item-author clearfix">
-                    <img src="<?php echo get_field('avatar', 'user_'. $user->ID )['sizes']['medium'];?>" alt="<?php echo get_post_meta( get_post_thumbnail_id('user+'.$user->ID), '_wp_attachment_image_alt', true);?>" class="img-fluid lazy avatar-author">
-                    <h3><?php echo $user->display_name;?></h3>
-                    <div class="position"><?php echo get_field('position', 'user_'. $user->ID );?></div>
-                    <a href="<?php echo home_url('author/').$user->nickname;?>">About </a>
+                    <img src="<?php echo get_field('avatar', 'user_'. $user['user']['ID'] )['sizes']['medium'];?>" alt="<?php echo get_post_meta( get_post_thumbnail_id('user+'.$user['user']['ID']), '_wp_attachment_image_alt', true);?>" class="img-fluid lazy avatar-author">
+                    <h3><?php echo $user['user']['display_name'];?></h3>
+                    <div class="position"><?php echo get_field('position', 'user_'. $user['user']['ID'] );?></div>
+                    <a href="<?php echo home_url('author/').$user['user']['nickname'];?>">About </a>
                 </div>
             </div>
             <?php endforeach;?>

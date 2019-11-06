@@ -1308,7 +1308,7 @@ nav nav ul.main-menu .nav-item .nav-link.active:before .menu-bar-mobile i {
   padding: 20px;
   background: rgba(141, 198, 63, 0.7);
   position: absolute;
-  top: 50%;
+  top: 40%;
   z-index: 9;
   left: 50%;
   max-width: 390px;

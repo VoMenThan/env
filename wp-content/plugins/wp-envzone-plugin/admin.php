@@ -7,6 +7,7 @@ class EnvzoneMTAdmin
     {
         add_action('admin_menu', array($this, 'settingMenuPost'));
         add_action('admin_menu', array($this, 'settingMenuEmail'));
+        add_action('admin_menu', array($this, 'mt_envzone_plugin_scripts'));
 
     }
 
@@ -20,9 +21,13 @@ class EnvzoneMTAdmin
     }
 
     public function settingPageEmail(){
-        require ENVZONE_MT_VIEWS_DIR . '/setting-page-email.php';
+        //require ENVZONE_MT_VIEWS_DIR . '/setting-page-email.php';
+        require ENVZONE_MT_VIEWS_DIR . '/send-email-page.php';
     }
 
+    function mt_envzone_plugin_scripts() {
+        wp_enqueue_style( 'mt_envzone_email_admin_css', ENVZONE_MT_CSS_URL . '/sefa.css', '', ENVZONE_MT_PLUGIN_VER );
+    }
 
     //=======================================================
     //1. Them mot submenu vao Dashboard cua WP menus

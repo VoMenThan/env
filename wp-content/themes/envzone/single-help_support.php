@@ -75,8 +75,9 @@ $full_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                                                     <label for="rate-star1" title="1 star">1 star</label>
                                                 </div>
                                             </div>
+                                            <input id="post_id" name="post_id" type="hidden" value="<?php echo $post->ID;?>">
+                                            <div class="box-average-star"></div>
                                         </form>
-                                        <div class="box-average-star"></div>
                                     </div>
                                     <div class="question">
                                         Was this article helpful? Comment below if anything else we can do to improve our site?

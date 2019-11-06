@@ -6,9 +6,11 @@ $(document).ready(function(){
             var labelID;
             labelID = $(this).attr('for');
             var radioValue = $('#' + labelID).attr("checked", "checked").val();
+            var post_id = $('#post_id').val();
             var data = {
                 'action': 'mt_help_rating_form',
-                'rating_star': radioValue
+                'rating_star': radioValue,
+                'post_id': post_id
             };
             $.post(misha_loadmore_params.ajaxurl, data, function (response) {
                 $('#form-overall-rating input, #form-overall-rating label').addClass('nohover');

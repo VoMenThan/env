@@ -46,7 +46,7 @@ if ( $_POST ) {
 </div>
 
 EOF;
-        $headers = array('Content-Type: text/html; charset=UTF-8');
+        $headers = array('Content-Type: text/html; charset=UTF-8','From: than.vo@envzone.com');
 
         wp_mail($to, $subject, html_entity_decode($body), $headers);
 
@@ -92,6 +92,10 @@ EOF;
                 <th scope="row"><label for="mail-message-body">Message body</label></th>
                 <td>
                     <textarea name="mail-message-body" id="mail-message-body" cols="100" rows="10"><?php echo $mail_send_success == false? $_POST['mail-message-body'] : '';?></textarea>
+                    <?php
+                    $settings = array( "editor_height" => "200" );
+                    wp_editor( sefa_plugin_issetor($sefa_body), "mail-message-body", $settings );
+                    ?>
                 </td>
             </tr>
             </tbody></table>

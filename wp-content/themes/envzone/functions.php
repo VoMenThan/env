@@ -6,6 +6,8 @@ define( 'ASSET_URL', get_template_directory_uri().'/assets/' );
 
 define( 'ENV_THEM_INC_DIR', ENV_THEME_DIR . 'inc/' );
 
+add_filter( 'searchwp_show_conflict_notices', '__return_false' );
+
 /*======================================================================================================
  * 3. KHAI BAO HE THONG WIDGET CUA THEME
  * ======================================================================================================*/
